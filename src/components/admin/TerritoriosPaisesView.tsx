@@ -33,6 +33,8 @@ import { feature } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { LineChart, VerticalBars } from './MiniCharts';
 
 interface TerritoriosPaisesViewProps {
   currentUser: DemoUser;
@@ -342,28 +344,51 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
   const territoriosPoints = [1100, 1300, 1450, 1600, 1800, 2200, 2300, 2500, 2600, 2900, 3100];
   const regioesPoints = [200, 250, 280, 320, 350, 400, 420, 450, 520, 560, 600];
 
-  // SVG Coordinates calculation for 400x180 viewBox
-  const lineCoords = useMemo(() => {
-    const width = 380;
-    const height = 140;
-    const padX = 25;
-    const padY = 20;
-    const maxVal = 5000;
+  // Cards do cabeçalho expansível (sparks de 12 pontos para micro-tendência)
+  const kpiCards: KpiCardData[] = useMemo(
+    () =>
+      kpis.map((kpi, idx) => ({
+        id: kpi.id,
+        label: kpi.label,
+        value: kpi.value,
+        trend: kpi.trend,
+        trendPeriod: kpi.trendPeriod,
+        trendClassName:
+          kpi.id === 'kpi-cobertura'
+            ? 'text-purple-700 bg-purple-50 border border-purple-200/70'
+            : 'text-emerald-700 bg-emerald-50 border border-emerald-200/70',
+        icon:
+          kpi.icon === 'globe' ? (
+            <Globe className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'mappin' ? (
+            <MapPin className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'building' ? (
+            <Building2 className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'flag' ? (
+            <Flag className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'plus' ? (
+            <PlusCircle className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : (
+            <PieChart className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ),
+        bgClass: kpi.bgClass,
+        iconClass: kpi.iconClass,
+        spark: [
+          20 + idx, 26 + idx, 22 + idx, 30 + idx, 28 + idx, 34 + idx,
+          32 + idx, 40 + idx, 38 + idx, 46 + idx, 44 + idx, 52 + idx,
+        ],
+      })),
+    [kpis]
+  );
 
-    const scaleX = (i: number) => padX + i * ((width - padX) / (growthMonths.length - 1));
-    const scaleY = (v: number) => height - (v / maxVal) * (height - padY);
-
-    const makePath = (arr: number[]) =>
-      arr.map((v, i) => `${i === 0 ? 'M' : 'L'} ${scaleX(i).toFixed(1)} ${scaleY(v).toFixed(1)}`).join(' ');
-
-    return {
-      municipiosPath: makePath(municipiosPoints),
-      territoriosPath: makePath(territoriosPoints),
-      regioesPath: makePath(regioesPoints),
-      scaleX,
-      scaleY,
-    };
-  }, []);
+  const growthSeries = useMemo(
+    () => [
+      { name: 'Municípios', color: '#5B21B6', values: municipiosPoints },
+      { name: 'Territórios', color: '#10B981', values: territoriosPoints },
+      { name: 'Regiões', color: '#0284C7', values: regioesPoints },
+    ],
+    []
+  );
 
   return (
     <div className="w-full max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 py-4 sm:py-6 space-y-5 lg:space-y-6">
@@ -487,57 +512,14 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. TOP KPI ROW: 6 CARDS (Padrão Proporcional, Compacto e Refinado)        */}
+      {/* 2. TOP KPI ROW: colapsado em 5 + botão "Ver mais cards" (6 no total)      */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-2.5 sm:gap-3">
-        {kpis.map((kpi) => (
-          <div
-            key={kpi.id}
-            onClick={() => setActiveDetailModal(kpi.label)}
-            className="bg-white rounded-xl border border-slate-200/80 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-purple-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer"
-          >
-            {/* Topo do Card: Ícone Pastel + Indicador/Delta */}
-            <div className="flex items-center justify-between gap-1.5">
-              <div className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg ${kpi.bgClass} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs`}>
-                {kpi.icon === 'globe' && <Globe className={`w-3.5 h-3.5 ${kpi.iconClass}`} strokeWidth={2.2} />}
-                {kpi.icon === 'mappin' && <MapPin className={`w-3.5 h-3.5 ${kpi.iconClass}`} strokeWidth={2.2} />}
-                {kpi.icon === 'building' && <Building2 className={`w-3.5 h-3.5 ${kpi.iconClass}`} strokeWidth={2.2} />}
-                {kpi.icon === 'flag' && <Flag className={`w-3.5 h-3.5 ${kpi.iconClass}`} strokeWidth={2.2} />}
-                {kpi.icon === 'plus' && <PlusCircle className={`w-3.5 h-3.5 ${kpi.iconClass}`} strokeWidth={2.2} />}
-                {kpi.icon === 'pie' && <PieChart className={`w-3.5 h-3.5 ${kpi.iconClass}`} strokeWidth={2.2} />}
-              </div>
-              <span className={`text-[9.5px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap shadow-2xs ${
-                kpi.id === 'kpi-cobertura'
-                  ? 'text-purple-700 bg-purple-50 border border-purple-200/70'
-                  : 'text-emerald-700 bg-emerald-50 border border-emerald-200/70'
-              }`}>
-                {kpi.trend}
-              </span>
-            </div>
-
-            {/* Conteúdo Central: Métrica Proporcional + Rótulo Compacto */}
-            <div className="mt-2">
-              <p className="text-lg sm:text-[20px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-                {kpi.value}
-              </p>
-              <p className="text-[11px] sm:text-[11.5px] font-medium text-slate-700 mt-0.5 leading-tight truncate" title={kpi.label}>
-                {kpi.label}
-              </p>
-              <p className="text-[9.5px] sm:text-[10px] text-slate-400 mt-0.5 truncate">
-                {kpi.trendPeriod}
-              </p>
-            </div>
-
-            {/* Rodapé: Link Interativo Compacto */}
-            <div className="pt-1.5 mt-2 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[10.5px] font-semibold text-[#5B21B6] group-hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
-                <span>Ver detalhes</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ExpandableKpiHeader
+        cards={kpiCards}
+        visibleCount={5}
+        xlCols={6}
+        onOpenDetail={(label) => setActiveDetailModal(label)}
+      />
 
       {/* ========================================================================= */}
       {/* 3. ROW 1: MAPA GLOBAL + CRESCIMENTO LINHA + TOP 10 PAÍSES                 */}
@@ -685,98 +667,31 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
             </div>
 
-            {/* SVG Gráfico de Linhas com pontos interativos */}
-            <div className="relative w-full h-56 pt-2">
-              <svg viewBox="0 0 380 160" className="w-full h-full overflow-visible">
-                {/* Linhas de grelha horizontal */}
-                <line x1="25" y1="20" x2="380" y2="20" stroke="#F1F5F9" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="25" y1="50" x2="380" y2="50" stroke="#F1F5F9" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="25" y1="80" x2="380" y2="80" stroke="#F1F5F9" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="25" y1="110" x2="380" y2="110" stroke="#F1F5F9" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="25" y1="140" x2="380" y2="140" stroke="#E2E8F0" strokeWidth="1" />
+            {/* Gráfico de Linhas realista (grelha, eixos e pontos) */}
+            <div
+              className="relative w-full pt-2 cursor-crosshair"
+              onMouseLeave={() => setHoveredMonthIndex(null)}
+              onMouseMove={(e) => {
+                const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                const relX = (e.clientX - rect.left) / rect.width;
+                setHoveredMonthIndex(
+                  Math.min(growthMonths.length - 1, Math.max(0, Math.round(relX * (growthMonths.length - 1))))
+                );
+              }}
+            >
+              <LineChart
+                series={growthSeries}
+                labels={growthMonths}
+                height={190}
+                yTicks={4}
+                formatY={(v) => (v >= 1000 ? `${(v / 1000).toFixed(0)}K` : String(v))}
+              />
 
-                {/* Eixo Y */}
-                <text x="5" y="24" fontSize="9" fill="#94A3B8" fontWeight="600">5K</text>
-                <text x="5" y="54" fontSize="9" fill="#94A3B8" fontWeight="600">4K</text>
-                <text x="5" y="84" fontSize="9" fill="#94A3B8" fontWeight="600">2K</text>
-                <text x="5" y="114" fontSize="9" fill="#94A3B8" fontWeight="600">1K</text>
-                <text x="12" y="144" fontSize="9" fill="#94A3B8" fontWeight="600">0</text>
-
-                {/* Curva 1: Municípios (Roxo) */}
-                <path d={lineCoords.municipiosPath} fill="none" stroke="#5B21B6" strokeWidth="2.5" strokeLinecap="round" />
-                {municipiosPoints.map((v, i) => (
-                  <circle
-                    key={`mun-${i}`}
-                    cx={lineCoords.scaleX(i)}
-                    cy={lineCoords.scaleY(v)}
-                    r={hoveredMonthIndex === i ? 4.5 : 3}
-                    fill="#5B21B6"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                    className="cursor-pointer transition-all"
-                    onMouseEnter={() => setHoveredMonthIndex(i)}
-                    onMouseLeave={() => setHoveredMonthIndex(null)}
-                  />
-                ))}
-
-                {/* Curva 2: Territórios (Verde) */}
-                <path d={lineCoords.territoriosPath} fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" />
-                {territoriosPoints.map((v, i) => (
-                  <circle
-                    key={`ter-${i}`}
-                    cx={lineCoords.scaleX(i)}
-                    cy={lineCoords.scaleY(v)}
-                    r={hoveredMonthIndex === i ? 4.5 : 3}
-                    fill="#10B981"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                    className="cursor-pointer transition-all"
-                    onMouseEnter={() => setHoveredMonthIndex(i)}
-                    onMouseLeave={() => setHoveredMonthIndex(null)}
-                  />
-                ))}
-
-                {/* Curva 3: Regiões (Azul Claro) */}
-                <path d={lineCoords.regioesPath} fill="none" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" />
-                {regioesPoints.map((v, i) => (
-                  <circle
-                    key={`reg-${i}`}
-                    cx={lineCoords.scaleX(i)}
-                    cy={lineCoords.scaleY(v)}
-                    r={hoveredMonthIndex === i ? 4.5 : 3}
-                    fill="#0284C7"
-                    stroke="#FFFFFF"
-                    strokeWidth="1.5"
-                    className="cursor-pointer transition-all"
-                    onMouseEnter={() => setHoveredMonthIndex(i)}
-                    onMouseLeave={() => setHoveredMonthIndex(null)}
-                  />
-                ))}
-
-                {/* Eixo X: Meses */}
-                {growthMonths.map((m, i) => (
-                  <text
-                    key={m}
-                    x={lineCoords.scaleX(i)}
-                    y="156"
-                    fontSize="9"
-                    fill={hoveredMonthIndex === i ? '#5B21B6' : '#94A3B8'}
-                    fontWeight={hoveredMonthIndex === i ? '700' : '500'}
-                    textAnchor="middle"
-                  >
-                    {m}
-                  </text>
-                ))}
-              </svg>
-
-              {/* Tooltip Dinâmico ao passar o cursor no ponto do mês */}
+              {/* Tooltip Dinâmico ao passar o cursor no mês */}
               {hoveredMonthIndex !== null && (
                 <div
                   className="absolute bg-[#0F172A] text-white text-[11px] p-2 rounded-lg shadow-lg pointer-events-none z-20"
-                  style={{
-                    left: `${Math.min(lineCoords.scaleX(hoveredMonthIndex) - 20, 260)}px`,
-                    top: '20px',
-                  }}
+                  style={{ left: '12px', top: '18px' }}
                 >
                   <p className="font-bold border-b border-slate-700 pb-1 text-purple-200">
                     Mês: {growthMonths[hoveredMonthIndex]}
@@ -1075,32 +990,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               Novos Territórios por Continente <span className="text-xs text-slate-400 font-normal">(30 dias)</span>
             </h2>
 
-            {/* Gráfico de Barras Verticais */}
-            <div className="h-36 flex items-end justify-between gap-2 pt-4 px-2 border-b border-slate-100 pb-2">
-              {NEW_TERRITORIES_BY_CONTINENT.map((item) => {
-                const maxVal = 60;
-                const heightPercent = (item.value / maxVal) * 100;
-                return (
-                  <div key={`bar-${item.continent}`} className="flex-1 flex flex-col items-center justify-end h-full group cursor-pointer">
-                    <span className="text-[10px] font-bold text-[#0F172A] mb-1 font-mono group-hover:scale-110 transition-transform">
-                      {item.value}
-                    </span>
-                    <div
-                      className="w-full max-w-[28px] bg-[#8B5CF6] rounded-t-md group-hover:bg-[#5B21B6] transition-colors"
-                      style={{ height: `${heightPercent}%` }}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Rótulos dos Continentes */}
-            <div className="flex justify-between gap-1 mt-2 text-[9.5px] text-slate-500 font-medium text-center">
-              {NEW_TERRITORIES_BY_CONTINENT.map((item) => (
-                <div key={`label-${item.continent}`} className="flex-1 truncate" title={item.continent}>
-                  {item.continent.replace('América do ', 'Am. ')}
-                </div>
-              ))}
+            {/* Gráfico de Barras Verticais realista com valores */}
+            <div className="pt-2">
+              <VerticalBars
+                items={NEW_TERRITORIES_BY_CONTINENT.map((item) => ({
+                  label: item.continent.replace('América do ', 'Am. '),
+                  value: item.value,
+                  color: '#8B5CF6',
+                }))}
+                height={120}
+              />
             </div>
           </div>
 

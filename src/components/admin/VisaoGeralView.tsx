@@ -28,6 +28,8 @@ import { feature, mesh } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { LineChart } from './MiniCharts';
 
 interface VisaoGeralViewProps {
   currentUser: DemoUser;
@@ -106,6 +108,86 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
   onNavigateToTab,
   onBreadcrumbChange,
 }) => {
+  // Cards do cabeçalho expansível (7 métricas da fita principal)
+  const visaoKpiCards: KpiCardData[] = [
+    {
+      id: 'kpi-membros',
+      label: 'Membros da Rede',
+      value: '2.847.562',
+      trend: '↑ 24%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#F5F3FF]',
+      iconClass: 'text-[#7C3AED]',
+      icon: <Users className="w-4.5 h-4.5" />,
+      spark: [20, 27, 24, 32, 30, 38, 35, 44, 41, 50, 47, 56],
+    },
+    {
+      id: 'kpi-comunidades',
+      label: 'Comunidades Ativas',
+      value: '18.732',
+      trend: '↑ 18%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#ECFDF5]',
+      iconClass: 'text-[#059669]',
+      icon: <Users className="w-4.5 h-4.5" />,
+      spark: [18, 24, 21, 29, 27, 34, 32, 40, 37, 46, 43, 52],
+    },
+    {
+      id: 'kpi-territorios',
+      label: 'Territórios Ativos',
+      value: '1.248',
+      trend: '↑ 15%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#EFF6FF]',
+      iconClass: 'text-[#1455AC]',
+      icon: <Flag className="w-4.5 h-4.5" />,
+      spark: [22, 28, 25, 33, 31, 39, 36, 45, 42, 51, 48, 57],
+    },
+    {
+      id: 'kpi-paises',
+      label: 'Países na Plataforma',
+      value: '156',
+      trend: '↑ 8%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#FFFBEB]',
+      iconClass: 'text-[#D97706]',
+      icon: <Globe className="w-4.5 h-4.5" />,
+      spark: [16, 22, 19, 26, 24, 31, 29, 36, 34, 42, 40, 48],
+    },
+    {
+      id: 'kpi-projetos',
+      label: 'Projetos Ativos',
+      value: '1.248',
+      trend: '↑ 16%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#FFF1F2]',
+      iconClass: 'text-[#E11D48]',
+      icon: <Zap className="w-4.5 h-4.5" />,
+      spark: [21, 27, 24, 31, 29, 37, 34, 43, 40, 49, 46, 55],
+    },
+    {
+      id: 'kpi-municipios',
+      label: 'Municípios Ativos',
+      value: '3.642',
+      trend: '↑ 9%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#F0FDFA]',
+      iconClass: 'text-[#0D9488]',
+      icon: <Building2 className="w-4.5 h-4.5" />,
+      spark: [17, 23, 20, 27, 25, 32, 30, 37, 35, 43, 41, 49],
+    },
+    {
+      id: 'kpi-orcamento',
+      label: 'Orçamento Gerido',
+      value: '€24,6M',
+      trend: '↑ 21%',
+      trendPeriod: 'desde o ano passado',
+      bgClass: 'bg-[#EEF2FF]',
+      iconClass: 'text-[#4F46E5]',
+      icon: <Coins className="w-4.5 h-4.5" />,
+      spark: [24, 30, 27, 34, 32, 40, 37, 46, 43, 52, 49, 58],
+    },
+  ];
   const [selectedPeriod, setSelectedPeriod] = useState<'5anos' | '3anos' | '1ano'>('5anos');
   const [isPeriodDropdownOpen, setIsPeriodDropdownOpen] = useState(false);
   const [hoveredDataYear, setHoveredDataYear] = useState<number | null>(null);
@@ -316,183 +398,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
       </div>
 
-      {/* 2. Fita de 7 Métricas Principais (Fiel à imagem de referência) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
-        {/* Card 1: Membros da Rede */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#F5F3FF] text-[#7C3AED] flex items-center justify-center shrink-0">
-              <Users className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Membros da Rede
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              2.847.562
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 24%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 2: Comunidades Ativas */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#ECFDF5] text-[#059669] flex items-center justify-center shrink-0">
-              <Users className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Comunidades Ativas
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              18.732
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 18%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 3: Territórios Ativos */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#EFF6FF] text-[#1455AC] flex items-center justify-center shrink-0">
-              <Flag className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Territórios Ativos
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              1.248
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 15%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 4: Países na Plataforma */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#FFFBEB] text-[#D97706] flex items-center justify-center shrink-0">
-              <Globe className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Países na Plataforma
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              156
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 8%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 5: Projetos Ativos */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#FFF1F2] text-[#E11D48] flex items-center justify-center shrink-0">
-              <Zap className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Projetos Ativos
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              1.248
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 16%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 6: Municípios Ativos */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#F0FDFA] text-[#0D9488] flex items-center justify-center shrink-0">
-              <Building2 className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Municípios Ativos
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              3.642
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 9%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 7: Orçamento Gerido */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#EEF2FF] text-[#4F46E5] flex items-center justify-center shrink-0">
-              <Coins className="w-4.5 h-4.5" />
-            </div>
-            <span className="text-xs font-semibold text-slate-700 leading-tight">
-              Orçamento Gerido
-            </span>
-          </div>
-          <div className="mt-2.5">
-            <div className="text-[21px] sm:text-[22px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-              €24,6M
-            </div>
-            <div className="mt-1.5 text-[10.5px] leading-tight">
-              <div className="font-semibold text-emerald-600 flex items-center gap-0.5">
-                <span>↑ 21%</span>
-              </div>
-              <div className="text-slate-400 font-normal mt-0.5">
-                desde o ano passado
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* 2. Fita de 7 Métricas: colapsado em 5 + botão "Ver mais cards" */}
+      <ExpandableKpiHeader cards={visaoKpiCards} visibleCount={5} xlCols={6} />
 
       {/* 3. Segunda Fileira: Gráfico de Evolução (Linha) + Mapa Global da Rede + Cobertura por Região (Rosca) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
@@ -564,6 +471,15 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             {/* Gráfico SVG de Linha Interativo com Grid */}
             <div className="relative mt-2 h-44 sm:h-48 w-full">
               <svg viewBox="0 0 580 200" className="w-full h-full overflow-visible">
+                {/* Gradientes de Área (estilo dashboard realista) */}
+                <defs>
+                  {[['membros', '#5B21B6'], ['comunidades', '#10B981'], ['territorios', '#1455AC'], ['paises', '#F59E0B']].map(([key, color]) => (
+                    <linearGradient key={`grad-${key}`} id={`vg-area-${key}`} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor={color} stopOpacity="0.18" />
+                      <stop offset="100%" stopColor={color} stopOpacity="0.01" />
+                    </linearGradient>
+                  ))}
+                </defs>
                 {/* Linhas de Grade Horizontais */}
                 {[0, 750000, 1500000, 2250000, 3000000].map((val) => {
                   const y = chartPoints.scaleY(val);
@@ -605,6 +521,15 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     </text>
                   );
                 })}
+
+                {/* Áreas preenchidas sob cada linha */}
+                {(['membros', 'comunidades', 'territorios', 'paises'] as const).map((key) => (
+                  <path
+                    key={`area-${key}`}
+                    d={`${chartPoints[`${key}Path` as keyof typeof chartPoints]} L 560 200 L 40 200 Z`}
+                    fill={`url(#vg-area-${key})`}
+                  />
+                ))}
 
                 {/* Linhas de Dados */}
                 {/* 1. Membros (Roxo #5B21B6) */}

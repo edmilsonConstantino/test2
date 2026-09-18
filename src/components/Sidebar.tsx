@@ -75,9 +75,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // EXACT 10 Navigation items in the official required order:
+  // EXACT 10 Navigation items in the official required order (UI de referência):
   // Início → Explorar o Mundo → Mundo em Movimento (badge "NOVO") → Eventos Globais →
-  // Comunidade Global → VILA AI → Impacto Global → Parceiros Globais → Sobre a VILA → Definições
+  // Comunidade Global → Impacto Global → VILA AI → Parceiros Globais → Sobre a VILA → Definições
   const navItems: NavItem[] = [
     {
       id: 'inicio',
@@ -106,14 +106,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       icon: <Users className="w-4 h-4" strokeWidth={2.2} />,
     },
     {
-      id: 'ia',
-      label: 'VILA AI',
-      icon: <Sparkles className="w-4 h-4" strokeWidth={2.2} />,
-    },
-    {
       id: 'impacto',
       label: 'Impacto Global',
       icon: <Leaf className="w-4 h-4" strokeWidth={2.2} />,
+    },
+    {
+      id: 'ia',
+      label: 'VILA AI',
+      icon: <Sparkles className="w-4 h-4" strokeWidth={2.2} />,
     },
     {
       id: 'parceiros',
@@ -149,19 +149,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
           isMobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
-        {/* 1. Header Fixo: Logotipo com Pin multicolorido + VILA + Tagline */}
-        <div className="shrink-0 flex items-start justify-between px-1.5 pb-2 pt-0.5 border-b border-slate-100">
-          <Logo size="sm" />
+        {/* 1. Header Fixo: Logotipo (Pin + VILA) à esquerda e tagline indentada por baixo, como na UI de referência */}
+        <div className="relative shrink-0 px-1.5 pb-2.5 pt-1 border-b border-slate-100">
+          <Logo size="sm" showTagline={false} />
           {isMobileOpen && (
             <button
               type="button"
               onClick={onCloseMobile}
-              className="md:hidden p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+              className="md:hidden absolute right-1.5 top-1.5 p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
               aria-label="Fechar menu"
             >
               <X className="w-4 h-4" />
             </button>
           )}
+          {/* Tagline indentada por baixo do wordmark, alinhada com o "V" de VILA */}
+          <div className="pl-[42px] mt-0.5">
+            <div className="text-[8px] leading-[1.25] font-extrabold tracking-[0.05em] text-[#64748B] uppercase font-sans select-none">
+              <p className="whitespace-nowrap">O MUNDO É UMA VILA.</p>
+              <p className="whitespace-nowrap mt-[1px]">
+                E NÓS SOMOS <span className="text-[#F58300] font-black">UM.</span>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 2. Menu de Navegação Completo: exatamente 10 itens na ordem oficial */}
@@ -360,7 +369,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {/* Card Promocional Fixo (sempre idêntico em todas as páginas) */}
           <div
             id="sidebar-promo-card"
-            className="p-3 rounded-2xl bg-[#1455AC]/5 border border-slate-200 relative overflow-hidden flex flex-col items-center text-center shadow-2xs"
+            className="p-3 rounded-2xl bg-[#1455AC]/5 border border-slate-200 relative overflow-hidden flex flex-col items-start text-left shadow-2xs"
           >
             {/* 3D Earth Globe Graphic com nós e malha de constelação */}
             <div className="relative w-11 h-11 mb-1.5 flex items-center justify-center">
@@ -453,7 +462,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 }
                 if (onCloseMobile) onCloseMobile();
               }}
-              className="mt-1.5 text-[11px] font-bold text-[#1455AC] hover:text-[#0F448A] inline-flex items-center justify-center gap-1 cursor-pointer hover:underline transition-colors"
+              className="mt-1.5 text-[11px] font-bold text-[#1455AC] hover:text-[#0F448A] inline-flex items-center gap-1 cursor-pointer hover:underline transition-colors"
             >
               <span>Ver impacto global</span>
               <ArrowRight className="w-3 h-3" />

@@ -38,6 +38,8 @@ import {
 } from 'lucide-react';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { LineChart } from './MiniCharts';
 
 interface UtilizadoresComunidadesViewProps {
   currentUser: DemoUser;
@@ -391,6 +393,54 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
     };
   }, [growthPeriod]);
 
+  // Cards do cabeçalho expansível
+  const kpiCards: KpiCardData[] = useMemo(
+    () =>
+      kpis.map((kpi, idx) => ({
+        id: kpi.id,
+        label: kpi.label,
+        value: kpi.value,
+        trend: kpi.trend,
+        trendPeriod: kpi.trendPeriod,
+        icon:
+          kpi.icon === 'users' || kpi.icon === 'community' ? (
+            <Users className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'user-plus' ? (
+            <UserPlus className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'flag' ? (
+            <Flag className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.icon === 'globe' ? (
+            <Globe className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : (
+            <Heart className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ),
+        bgClass: kpi.bgClass,
+        spark: [
+          18 + idx, 24 + idx, 21 + idx, 28 + idx, 26 + idx, 33 + idx,
+          31 + idx, 38 + idx, 36 + idx, 44 + idx, 42 + idx, 50 + idx,
+        ],
+      })),
+    [kpis]
+  );
+
+  // -------------------------------------------------------------
+  // Séries do gráfico de crescimento (respeitando toggles de legenda)
+  // -------------------------------------------------------------
+  const growthChartSeries = useMemo(() => {
+    const dataLength = growthPeriod === '6meses' ? 6 : MONTHS_LABELS.length;
+    const series = [
+      { name: 'Total', color: '#5B21B6', values: GROWTH_DATA.totalMembros.slice(-dataLength), on: activeGrowthLines.total },
+      { name: 'Ativos', color: '#10B981', values: GROWTH_DATA.utilizadoresAtivos.slice(-dataLength), on: activeGrowthLines.ativos },
+      {
+        name: 'Novos',
+        color: '#0284C7',
+        values: GROWTH_DATA.novosMembros.slice(-dataLength).map((v) => v * 12),
+        on: activeGrowthLines.novos,
+      },
+    ];
+    return series.filter((s) => s.on).map(({ name, color, values }) => ({ name, color, values }));
+  }, [growthPeriod, activeGrowthLines]);
+
   // -------------------------------------------------------------
   // Cálculos SVG: Donut Chart de Segmentos
   // -------------------------------------------------------------
@@ -583,55 +633,14 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. TOP KPI ROW: 6 CARDS (Design compacto, refinado e organizado)           */}
+      {/* 2. TOP KPI ROW: colapsado em 5 + botão "Ver mais cards" (6 no total)      */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-2.5 sm:gap-3">
-        {kpis.map((kpi) => {
-          return (
-            <div
-              key={kpi.id}
-              onClick={() => setActiveDetailModal(kpi.label)}
-              className="bg-white rounded-xl border border-slate-200/80 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-purple-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer"
-            >
-              {/* Linha Superior: Ícone + Indicador/Delta */}
-              <div className="flex items-center justify-between gap-1.5">
-                <div className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg ${kpi.bgClass} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs`}>
-                  {kpi.icon === 'users' && <Users className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                  {kpi.icon === 'user-plus' && <UserPlus className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                  {kpi.icon === 'flag' && <Flag className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                  {kpi.icon === 'globe' && <Globe className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                  {kpi.icon === 'heart' && <Heart className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                  {kpi.icon === 'community' && <Users className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                </div>
-                <span className="text-[9.5px] sm:text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-1.5 py-0.5 rounded whitespace-nowrap shadow-2xs">
-                  {kpi.trend}
-                </span>
-              </div>
-
-              {/* Conteúdo Central: Métrica Compacta + Rótulo Elegante */}
-              <div className="mt-2">
-                <p className="text-lg sm:text-[20px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-                  {kpi.value}
-                </p>
-                <p className="text-[11px] sm:text-[11.5px] font-medium text-slate-700 mt-0.5 leading-tight truncate" title={kpi.label}>
-                  {kpi.label}
-                </p>
-                <p className="text-[9.5px] sm:text-[10px] text-slate-400 mt-0.5 truncate">
-                  {kpi.trendPeriod}
-                </p>
-              </div>
-
-              {/* Rodapé: Divisor com link compacto */}
-              <div className="pt-1.5 mt-2 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[10.5px] font-semibold text-[#5B21B6] group-hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
-                  <span>Ver detalhes</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <ExpandableKpiHeader
+        cards={kpiCards}
+        visibleCount={5}
+        xlCols={6}
+        onOpenDetail={(label) => setActiveDetailModal(label)}
+      />
 
       {/* ========================================================================= */}
       {/* 3. SEGUNDA LINHA: 3 COLUNAS (Crescimento | Distribuição | Países Top 10)  */}
@@ -715,131 +724,36 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               </button>
             </div>
 
-            {/* Gráfico SVG de Linha */}
-            <div className="relative mt-2 h-48 w-full">
-              <svg viewBox="0 0 580 200" className="w-full h-full overflow-visible">
-                {/* Linhas de Grade Horizontais */}
-                {[0, 750000, 1500000, 2250000, 3000000].map((val) => {
-                  const y = lineChartData.scaleY(val);
-                  return (
-                    <g key={`grid-grow-${val}`}>
-                      <line
-                        x1="40"
-                        y1={y}
-                        x2="560"
-                        y2={y}
-                        stroke="#F1F5F9"
-                        strokeWidth="1"
-                        strokeDasharray={val === 0 ? '0' : '2,2'}
-                      />
-                      <text
-                        x="34"
-                        y={y + 3.5}
-                        textAnchor="end"
-                        className="text-[10px] fill-slate-400 font-medium select-none"
-                      >
-                        {val === 3000000 ? '3M' : val === 2250000 ? '2.25M' : val === 1500000 ? '1.5M' : val === 750000 ? '750K' : '0'}
-                      </text>
-                    </g>
-                  );
-                })}
-
-                {/* Eixo X: Meses */}
-                {lineChartData.months.map((month, idx) => {
-                  const x = lineChartData.scaleX(idx);
-                  return (
-                    <text
-                      key={`x-month-${month}-${idx}`}
-                      x={x}
-                      y="196"
-                      textAnchor="middle"
-                      className="text-[10px] fill-slate-500 font-medium select-none"
-                    >
-                      {month}
-                    </text>
-                  );
-                })}
-
-                {/* Linha 1: Total de Membros (Roxa) */}
-                {activeGrowthLines.total && (
-                  <path
-                    d={lineChartData.totalPath}
-                    fill="none"
-                    stroke="#5B21B6"
-                    strokeWidth="2.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                )}
-
-                {/* Linha 2: Utilizadores Ativos (Verde) */}
-                {activeGrowthLines.ativos && (
-                  <path
-                    d={lineChartData.ativosPath}
-                    fill="none"
-                    stroke="#10B981"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                )}
-
-                {/* Linha 3: Novos Membros (Azul Claro) */}
-                {activeGrowthLines.novos && (
-                  <path
-                    d={lineChartData.novosPath}
-                    fill="none"
-                    stroke="#0284C7"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                )}
-
-                {/* Pontos Interativos com Tooltip */}
-                {lineChartData.months.map((_, idx) => {
-                  const x = lineChartData.scaleX(idx);
-                  const yTotal = lineChartData.scaleY(lineChartData.totalData[idx]);
-                  const yAtivos = lineChartData.scaleY(lineChartData.ativosData[idx]);
-                  const yNovos = lineChartData.scaleYNovos(lineChartData.novosData[idx]);
-                  const isHovered = hoveredGrowthIndex === idx;
-
-                  return (
-                    <g
-                      key={`pts-${idx}`}
-                      onMouseEnter={() => setHoveredGrowthIndex(idx)}
-                      onMouseLeave={() => setHoveredGrowthIndex(null)}
-                      className="cursor-pointer"
-                    >
-                      {/* Área transparente ampla para facilitar hover */}
-                      <rect x={x - 15} y="10" width="30" height="170" fill="transparent" />
-
-                      {isHovered && (
-                        <line x1={x} y1="20" x2={x} y2="180" stroke="#CBD5E1" strokeWidth="1" strokeDasharray="3,3" />
-                      )}
-
-                      {activeGrowthLines.total && (
-                        <circle cx={x} cy={yTotal} r={isHovered ? 5.5 : 3.5} fill="#5B21B6" stroke="#FFFFFF" strokeWidth="1.5" />
-                      )}
-                      {activeGrowthLines.ativos && (
-                        <circle cx={x} cy={yAtivos} r={isHovered ? 5 : 3} fill="#10B981" stroke="#FFFFFF" strokeWidth="1.5" />
-                      )}
-                      {activeGrowthLines.novos && (
-                        <circle cx={x} cy={yNovos} r={isHovered ? 4.5 : 2.8} fill="#0284C7" stroke="#FFFFFF" strokeWidth="1.5" />
-                      )}
-                    </g>
-                  );
-                })}
-              </svg>
+            {/* Gráfico de Linha realista (grelha, eixos, área suave e pontos) */}
+            <div
+              className="relative mt-2 w-full cursor-crosshair"
+              onMouseLeave={() => setHoveredGrowthIndex(null)}
+              onMouseMove={(e) => {
+                const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                const relX = (e.clientX - rect.left) / rect.width;
+                setHoveredGrowthIndex(
+                  Math.min(lineChartData.months.length - 1, Math.max(0, Math.round(relX * (lineChartData.months.length - 1))))
+                );
+              }}
+            >
+              <LineChart
+                series={growthChartSeries}
+                labels={lineChartData.months}
+                height={200}
+                yTicks={4}
+                formatY={(v) =>
+                  v >= 1000000
+                    ? `${(v / 1000000).toFixed(v % 1000000 === 0 ? 0 : 2).replace('.', ',')}M`
+                    : v >= 1000
+                    ? `${Math.round(v / 1000)}K`
+                    : String(v)
+                }
+              />
 
               {/* Tooltip flutuante quando o usuário passa o mouse num mês */}
               {hoveredGrowthIndex !== null && (
                 <div
-                  className="absolute bg-slate-900/95 text-white text-[10px] p-2.5 rounded-xl shadow-xl pointer-events-none z-10 space-y-1"
-                  style={{
-                    left: `${Math.min(Math.max(lineChartData.scaleX(hoveredGrowthIndex) - 60, 10), 440)}px`,
-                    top: '20px',
-                  }}
+                  className="absolute bg-slate-900/95 text-white text-[10px] p-2.5 rounded-xl shadow-xl pointer-events-none z-10 space-y-1 left-3 top-3"
                 >
                   <div className="font-bold text-slate-300 pb-1 border-b border-slate-700">
                     Mês: {lineChartData.months[hoveredGrowthIndex]}

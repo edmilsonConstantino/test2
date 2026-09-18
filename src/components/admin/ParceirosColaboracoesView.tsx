@@ -37,6 +37,7 @@ import { feature } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 
 interface ParceirosColaboracoesViewProps {
   currentUser: DemoUser;
@@ -98,74 +99,74 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
   }, [onBreadcrumbChange, onNavigateToTab]);
 
   // ---------------------------------------------------------------------------
-  // 1. KPIs Cards Data (6 Cards Conforme Screenshot)
+  // 1. KPIs Cards Data (6 Cards → ExpandableKpiHeader: 5 visíveis + "Ver mais")
   // ---------------------------------------------------------------------------
-  const kpiCards = [
+  const kpiCards: KpiCardData[] = [
     {
       id: 'kpi-parceiros-ativos',
-      title: 'Parceiros Ativos',
+      label: 'Parceiros Ativos',
       value: '342',
       trend: '↑ 18%',
-      period: 'desde o ano passado',
-      icon: Users,
-      iconBg: 'bg-purple-50/90',
-      iconColor: 'text-purple-600',
-      borderColor: 'border-purple-100/70',
+      trendPeriod: 'desde o ano passado',
+      icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-purple-50/90 border border-purple-100/70',
+      iconClass: 'text-purple-600',
+      spark: [268, 280, 275, 295, 302, 310, 305, 318, 325, 330, 336, 342],
     },
     {
       id: 'kpi-organizacoes-parceiras',
-      title: 'Organizações Parceiras',
+      label: 'Organizações Parceiras',
       value: '248',
       trend: '↑ 16%',
-      period: 'desde o ano passado',
-      icon: Building2,
-      iconBg: 'bg-emerald-50/90',
-      iconColor: 'text-emerald-600',
-      borderColor: 'border-emerald-100/70',
+      trendPeriod: 'desde o ano passado',
+      icon: <Building2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-emerald-50/90 border border-emerald-100/70',
+      iconClass: 'text-emerald-600',
+      spark: [190, 198, 205, 210, 208, 218, 225, 230, 236, 240, 244, 248],
     },
     {
       id: 'kpi-acordos-colaboracao',
-      title: 'Acordos de Colaboração',
+      label: 'Acordos de Colaboração',
       value: '126',
       trend: '↑ 20%',
-      period: 'desde o ano passado',
-      icon: Handshake,
-      iconBg: 'bg-blue-50/90',
-      iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      trendPeriod: 'desde o ano passado',
+      icon: <Handshake className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-blue-50/90 border border-blue-100/70',
+      iconClass: 'text-blue-600',
+      spark: [88, 92, 96, 94, 101, 105, 108, 112, 116, 120, 123, 126],
     },
     {
       id: 'kpi-paises-representados',
-      title: 'Países Representados',
+      label: 'Países Representados',
       value: '78',
       trend: '↑ 12%',
-      period: 'desde o ano passado',
-      icon: Globe2,
-      iconBg: 'bg-emerald-50/90',
-      iconColor: 'text-emerald-600',
-      borderColor: 'border-emerald-100/70',
+      trendPeriod: 'desde o ano passado',
+      icon: <Globe2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-emerald-50/90 border border-emerald-100/70',
+      iconClass: 'text-emerald-600',
+      spark: [64, 66, 68, 67, 70, 71, 72, 74, 75, 76, 77, 78],
     },
     {
       id: 'kpi-projetos-parceria',
-      title: 'Projetos em Parceria',
+      label: 'Projetos em Parceria',
       value: '189',
       trend: '↑ 23%',
-      period: 'desde o ano passado',
-      icon: Briefcase,
-      iconBg: 'bg-purple-50/90',
-      iconColor: 'text-purple-600',
-      borderColor: 'border-purple-100/70',
+      trendPeriod: 'desde o ano passado',
+      icon: <Briefcase className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-purple-50/90 border border-purple-100/70',
+      iconClass: 'text-purple-600',
+      spark: [130, 138, 142, 148, 152, 158, 162, 170, 176, 180, 185, 189],
     },
     {
       id: 'kpi-investimento-mobilizado',
-      title: 'Investimento Mobilizado',
+      label: 'Investimento Mobilizado',
       value: '€15,7M',
       trend: '↑ 32%',
-      period: 'desde o ano passado',
-      icon: Euro,
-      iconBg: 'bg-amber-50/90',
-      iconColor: 'text-amber-600',
-      borderColor: 'border-amber-100/70',
+      trendPeriod: 'desde o ano passado',
+      icon: <Euro className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-amber-50/90 border border-amber-100/70',
+      iconClass: 'text-amber-600',
+      spark: [9.2, 9.8, 10.4, 10.1, 11, 11.6, 12.2, 13, 13.8, 14.5, 15.1, 15.7],
     },
   ];
 
@@ -768,52 +769,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
           ===================================================================== */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         {/* Lado Esquerdo: 6 Cards de Indicadores (Ocupa 8 colunas no xl) */}
-        <div className="xl:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-3.5">
-          {kpiCards.map((kpi) => {
-            const Icon = kpi.icon;
-            return (
-              <div
-                key={kpi.id}
-                id={kpi.id}
-                className="bg-white rounded-2xl border border-slate-200/70 p-3 sm:p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-purple-200/90 transition-all duration-200 flex flex-col justify-between group min-w-0"
-              >
-                {/* Linha Superior: Ícone + Indicador/Delta */}
-                <div className="flex items-center justify-between gap-1.5">
-                  <div className={`w-8 h-8 rounded-xl ${kpi.iconBg} ${kpi.iconColor} ${kpi.borderColor} border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs`}>
-                    <Icon className="w-4 h-4" strokeWidth={2.2} />
-                  </div>
-                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50/90 border border-emerald-200/60 px-1.5 py-0.5 rounded-md whitespace-nowrap">
-                    {kpi.trend}
-                  </span>
-                </div>
-
-                {/* Conteúdo Central: Métrica de Alto Impacto + Rótulo com Quebra Natural */}
-                <div className="mt-3">
-                  <p className="text-xl sm:text-2xl font-extrabold text-[#0F172A] font-sans tracking-tight leading-none">
-                    {kpi.value}
-                  </p>
-                  <p className="text-[11.5px] font-semibold text-[#64748B] mt-1.5 leading-snug whitespace-normal break-words min-h-[32px] flex items-center">
-                    <span>{kpi.title}</span>
-                  </p>
-                  <p className="text-[10px] font-medium text-slate-400 mt-0.5">
-                    {kpi.period}
-                  </p>
-                </div>
-
-                {/* Rodapé: Divisor com link e transição suave */}
-                <div className="pt-2 mt-2.5 border-t border-slate-100/90 flex items-center justify-between">
-                  <button
-                    type="button"
-                    onClick={() => showToast(`A carregar detalhes: ${kpi.title}`)}
-                    className="text-[11px] font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline"
-                  >
-                    <span>Ver detalhes</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
+        <div className="xl:col-span-8">
+          <ExpandableKpiHeader cards={kpiCards} visibleCount={5} xlCols={5} onOpenDetail={(label) => showToast(`A carregar detalhes: ${label}`)} />
         </div>
 
         {/* Lado Direito: Parceiro do Mês (Ocupa 4 colunas no xl) */}
@@ -1104,6 +1061,21 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             {/* Gráfico SVG com 3 Linhas */}
             <div className="relative w-full h-[180px] mt-2">
               <svg viewBox="0 0 520 200" className="w-full h-full overflow-visible">
+                {/* Gradientes de área (mais realista) */}
+                <defs>
+                  <linearGradient id="pc-area-at" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#6366F1" stopOpacity="0.16" />
+                    <stop offset="100%" stopColor="#6366F1" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="pc-area-ac" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10B981" stopOpacity="0.13" />
+                    <stop offset="100%" stopColor="#10B981" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="pc-area-pr" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.11" />
+                    <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.01" />
+                  </linearGradient>
+                </defs>
                 {/* Linhas de Grade */}
                 {[
                   { val: '500', y: 30 },
@@ -1135,6 +1107,11 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                     </text>
                   </g>
                 ))}
+
+                {/* Áreas preenchidas sob cada linha */}
+                <path d={`${lineChartPoints.atPath} L ${lineChartPoints.atCoords[lineChartPoints.atCoords.length - 1].x},175 L ${lineChartPoints.atCoords[0].x},175 Z`} fill="url(#pc-area-at)" />
+                <path d={`${lineChartPoints.acPath} L ${lineChartPoints.acCoords[lineChartPoints.acCoords.length - 1].x},175 L ${lineChartPoints.acCoords[0].x},175 Z`} fill="url(#pc-area-ac)" />
+                <path d={`${lineChartPoints.prPath} L ${lineChartPoints.prCoords[lineChartPoints.prCoords.length - 1].x},175 L ${lineChartPoints.prCoords[0].x},175 Z`} fill="url(#pc-area-pr)" />
 
                 {/* Linhas */}
                 <path d={lineChartPoints.atPath} fill="none" stroke="#6366F1" strokeWidth="2.5" strokeLinecap="round" />

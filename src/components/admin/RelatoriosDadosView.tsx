@@ -41,6 +41,7 @@ import { feature } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 
 interface RelatoriosDadosViewProps {
   currentUser: DemoUser;
@@ -98,72 +99,84 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
     }, 3200);
   };
 
-  // 1. KPI Cards
-  const kpiCards = [
+  // 1. KPI Cards — colapsado em 5 + botão "Ver mais cards"
+  const kpiCards: KpiCardData[] = [
     {
       id: 'kpi-relatorios-gerados',
-      title: 'Relatórios Gerados',
+      label: 'Relatórios Gerados',
       value: '1.248',
       trend: '↑ 26%',
-      period: 'desde o ano passado',
-      icon: <FileText className="w-5 h-5 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      trendPeriod: 'desde o ano passado',
+      icon: <FileText className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-blue-50 border border-blue-100',
+      iconClass: 'text-blue-600',
       actionText: 'Ver relatórios',
+      spark: [780, 830, 870, 910, 950, 990, 1030, 1080, 1120, 1170, 1210, 1248],
       onClick: () => showToast('A carregar todos os relatórios gerados'),
     },
     {
       id: 'kpi-consultas-dados',
-      title: 'Consultas de Dados',
+      label: 'Consultas de Dados',
       value: '24.562',
       trend: '↑ 32%',
-      period: 'desde o ano passado',
-      icon: <Search className="w-5 h-5 text-emerald-600" />,
-      iconBg: 'bg-emerald-50 border border-emerald-100',
+      trendPeriod: 'desde o ano passado',
+      icon: <Search className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-emerald-50 border border-emerald-100',
+      iconClass: 'text-emerald-600',
       actionText: 'Ver detalhes',
+      spark: [15.2, 16.1, 17, 17.8, 18.6, 19.4, 20.3, 21.1, 22, 23, 23.8, 24.56],
       onClick: () => showToast('A carregar histórico de consultas de dados'),
     },
     {
       id: 'kpi-conjuntos-dados',
-      title: 'Conjuntos de Dados',
+      label: 'Conjuntos de Dados',
       value: '356',
       trend: '↑ 18%',
-      period: 'desde o ano passado',
-      icon: <Database className="w-5 h-5 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      trendPeriod: 'desde o ano passado',
+      icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-blue-50 border border-blue-100',
+      iconClass: 'text-blue-600',
       actionText: 'Ver conjuntos',
+      spark: [268, 276, 284, 292, 300, 308, 316, 326, 336, 344, 350, 356],
       onClick: () => showToast('A abrir catálogo de conjuntos de dados'),
     },
     {
       id: 'kpi-fontes-dados',
-      title: 'Fontes de Dados',
+      label: 'Fontes de Dados',
       value: '42',
       trend: '↑ 12%',
-      period: 'desde o ano passado',
-      icon: <Share2 className="w-5 h-5 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      trendPeriod: 'desde o ano passado',
+      icon: <Share2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-blue-50 border border-blue-100',
+      iconClass: 'text-blue-600',
       actionText: 'Ver fontes',
+      spark: [34, 35, 35, 36, 37, 37, 38, 39, 40, 41, 42, 42],
       onClick: () => showToast('A carregar lista de fontes de dados integradas'),
     },
     {
       id: 'kpi-downloads-dados',
-      title: 'Downloads de Dados',
+      label: 'Downloads de Dados',
       value: '8.732',
       trend: '↑ 25%',
-      period: 'desde o ano passado',
-      icon: <TrendingUp className="w-5 h-5 text-emerald-600" />,
-      iconBg: 'bg-emerald-50 border border-emerald-100',
+      trendPeriod: 'desde o ano passado',
+      icon: <TrendingUp className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-emerald-50 border border-emerald-100',
+      iconClass: 'text-emerald-600',
       actionText: 'Ver downloads',
+      spark: [5.4, 5.8, 6.1, 6.5, 6.8, 7.1, 7.4, 7.7, 8, 8.3, 8.55, 8.73],
       onClick: () => showToast('A analisar estatísticas de downloads de datasets'),
     },
     {
       id: 'kpi-utilizadores-analiticos',
-      title: 'Utilizadores Analíticos',
+      label: 'Utilizadores Analíticos',
       value: '842',
       trend: '↑ 20%',
-      period: 'desde o ano passado',
-      icon: <Users className="w-5 h-5 text-purple-600" />,
-      iconBg: 'bg-purple-50 border border-purple-100',
+      trendPeriod: 'desde o ano passado',
+      icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-purple-50 border border-purple-100',
+      iconClass: 'text-purple-600',
       actionText: 'Ver utilizadores',
+      spark: [620, 645, 665, 688, 706, 725, 744, 762, 784, 806, 824, 842],
       onClick: () => showToast('A carregar utilizadores com perfil analítico'),
     },
   ];
@@ -682,40 +695,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
       </div>
 
-      {/* 2. LINHA 1: 6 Cards de Indicadores (KPIs) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
-        {kpiCards.map((kpi) => (
-          <div
-            key={kpi.id}
-            className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-medium text-slate-500 leading-tight">
-                  {kpi.title}
-                </span>
-                <div className={`w-7 h-7 rounded-xl flex items-center justify-center ${kpi.iconBg}`}>
-                  {kpi.icon}
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-[#0F172A] font-sans">
-                {kpi.value}
-              </div>
-              <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-                <span>{kpi.trend}</span>
-                <span className="text-slate-400 font-normal">{kpi.period}</span>
-              </div>
-            </div>
-            <button
-              onClick={kpi.onClick}
-              className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left cursor-pointer"
-            >
-              <span>{kpi.actionText}</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        ))}
-      </div>
+      {/* 2. LINHA 1: 6 Cards de Indicadores — 5 visíveis + botão "Ver mais cards" */}
+      <ExpandableKpiHeader cards={kpiCards} visibleCount={5} xlCols={6} />
 
       {/* 3. LINHA 2: 3 Cards (Dados por Categoria, Cobertura Territorial, Evolução de Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
@@ -885,6 +866,21 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
             {/* SVG Chart */}
             <div className="relative w-full h-[180px] mt-2">
               <svg viewBox="0 0 500 190" className="w-full h-full overflow-visible">
+                {/* Gradientes de área */}
+                <defs>
+                  <linearGradient id="rd-area-rel" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#1455AC" stopOpacity="0.15" />
+                    <stop offset="100%" stopColor="#1455AC" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="rd-area-con" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10B981" stopOpacity="0.12" />
+                    <stop offset="100%" stopColor="#10B981" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="rd-area-down" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.01" />
+                  </linearGradient>
+                </defs>
                 {/* Linhas de Grade e Eixo Y */}
                 {[
                   { val: '10K', y: 30 },
@@ -916,6 +912,11 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     </text>
                   </g>
                 ))}
+
+                {/* Áreas preenchidas */}
+                <path d={`${evolutionPoints.relPath} L ${evolutionPoints.relCoords[evolutionPoints.relCoords.length - 1].x},165 L ${evolutionPoints.relCoords[0].x},165 Z`} fill="url(#rd-area-rel)" />
+                <path d={`${evolutionPoints.conPath} L ${evolutionPoints.conCoords[evolutionPoints.conCoords.length - 1].x},165 L ${evolutionPoints.conCoords[0].x},165 Z`} fill="url(#rd-area-con)" />
+                <path d={`${evolutionPoints.downPath} L ${evolutionPoints.downCoords[evolutionPoints.downCoords.length - 1].x},165 L ${evolutionPoints.downCoords[0].x},165 Z`} fill="url(#rd-area-down)" />
 
                 {/* Linhas SVG */}
                 <path d={evolutionPoints.downPath} fill="none" stroke="#0EA5E9" strokeWidth="2.2" strokeLinecap="round" />

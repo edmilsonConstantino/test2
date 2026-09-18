@@ -42,6 +42,8 @@ import { feature } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { LineChart } from './MiniCharts';
 
 interface ParticipacaoConsultasViewProps {
   currentUser: DemoUser;
@@ -198,6 +200,25 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
     },
   ];
 
+  // Cards do cabeçalho expansível (mesmos dados, formato KpiCardData)
+  const participacaoKpiCards: KpiCardData[] = kpiCards.map((kpi, idx) => {
+    const Icon = kpi.icon;
+    return {
+      id: kpi.id,
+      label: kpi.title,
+      value: kpi.value,
+      trend: kpi.trend,
+      trendPeriod: kpi.period,
+      bgClass: kpi.iconBg,
+      iconClass: kpi.iconColor,
+      icon: <Icon className="w-4 h-4" strokeWidth={2.2} />,
+      spark: [
+        16 + idx, 22 + idx, 19 + idx, 26 + idx, 24 + idx, 31 + idx,
+        29 + idx, 36 + idx, 34 + idx, 42 + idx, 40 + idx, 48 + idx,
+      ],
+    };
+  });
+
   // ---------------------------------------------------------------------------
   // 2. Evolução da Participação (Gráfico de Linha 12 Meses)
   // ---------------------------------------------------------------------------
@@ -215,48 +236,6 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
     { month: 'Abr', participants: 140, contributions: 89, pLabel: '140.200', cLabel: '89.500' },
     { month: 'Mai', participants: 148, contributions: 96, pLabel: '148.742', cLabel: '96.891' },
   ];
-
-  // Coordenadas SVG para as duas curvas (ViewBox: 0 0 520 200)
-  // Escala Y: 0 a 150K -> y: 175 - (val / 150) * 150
-  // Escala X: 45 a 495 (12 pontos separados por ~40.9px)
-  const chartPoints = useMemo(() => {
-    const startX = 50;
-    const stepX = 40;
-    const baseY = 175;
-    const maxYVal = 150;
-    const heightSpan = 145;
-
-    const pCoords = monthlyData.map((d, i) => {
-      const x = startX + i * stepX;
-      const y = baseY - (d.participants / maxYVal) * heightSpan;
-      return { x, y, ...d };
-    });
-
-    const cCoords = monthlyData.map((d, i) => {
-      const x = startX + i * stepX;
-      const y = baseY - (d.contributions / maxYVal) * heightSpan;
-      return { x, y, ...d };
-    });
-
-    const buildPath = (coords: { x: number; y: number }[]) => {
-      return coords.reduce((acc, pt, i, arr) => {
-        if (i === 0) return `M ${pt.x},${pt.y}`;
-        const prev = arr[i - 1];
-        const cpX1 = prev.x + (pt.x - prev.x) / 2;
-        const cpY1 = prev.y;
-        const cpX2 = prev.x + (pt.x - prev.x) / 2;
-        const cpY2 = pt.y;
-        return `${acc} C ${cpX1},${cpY1} ${cpX2},${cpY2} ${pt.x},${pt.y}`;
-      }, '');
-    };
-
-    return {
-      pCoords,
-      cCoords,
-      pPath: buildPath(pCoords),
-      cPath: buildPath(cCoords),
-    };
-  }, []);
 
   // ---------------------------------------------------------------------------
   // 3. Mapa D3 Natural Earth: Participação por Região
@@ -738,55 +717,14 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       </div>
 
       {/* =====================================================================
-          LINHA 1: 6 CARDS KPI (Grid 6 Colunas)
+          LINHA 1: colapsado em 5 + botão "Ver mais cards" (6 no total)
           ===================================================================== */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-3.5">
-        {kpiCards.map((kpi) => {
-          const Icon = kpi.icon;
-          return (
-            <div
-              key={kpi.id}
-              id={kpi.id}
-              className="bg-white rounded-2xl border border-slate-200/70 p-3 sm:p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-purple-200/90 transition-all duration-200 flex flex-col justify-between group min-w-0"
-            >
-              {/* Linha Superior: Ícone + Indicador/Delta */}
-              <div className="flex items-center justify-between gap-1.5">
-                <div className={`w-8 h-8 rounded-xl ${kpi.iconBg} ${kpi.iconColor} ${kpi.borderColor} border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs`}>
-                  <Icon className="w-4 h-4" strokeWidth={2.2} />
-                </div>
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50/90 border border-emerald-200/60 px-1.5 py-0.5 rounded-md whitespace-nowrap">
-                  {kpi.trend}
-                </span>
-              </div>
-
-              {/* Conteúdo Central: Métrica de Alto Impacto + Rótulo com Quebra Natural */}
-              <div className="mt-3">
-                <p className="text-xl sm:text-2xl font-extrabold text-[#0F172A] font-sans tracking-tight leading-none">
-                  {kpi.value}
-                </p>
-                <p className="text-[11.5px] font-semibold text-[#64748B] mt-1.5 leading-snug whitespace-normal break-words min-h-[32px] flex items-center">
-                  <span>{kpi.title}</span>
-                </p>
-                <p className="text-[10px] font-medium text-slate-400 mt-0.5">
-                  {kpi.period}
-                </p>
-              </div>
-
-              {/* Rodapé: Divisor com link e transição suave */}
-              <div className="pt-2 mt-2.5 border-t border-slate-100/90 flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => showToast(`A abrir detalhes: ${kpi.title}`)}
-                  className="text-[11px] font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline"
-                >
-                  <span>Ver detalhes</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <ExpandableKpiHeader
+        cards={participacaoKpiCards}
+        visibleCount={5}
+        xlCols={6}
+        onOpenDetail={(label) => showToast(`A abrir detalhes: ${label}`)}
+      />
 
       {/* =====================================================================
           LINHA 2: 3 CARDS ANALÍTICOS (Grid 3 Colunas)
@@ -829,113 +767,33 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </div>
             </div>
 
-            {/* Gráfico SVG de Linha Suave */}
-            <div className="relative w-full h-[190px] mt-2">
-              <svg viewBox="0 0 520 200" className="w-full h-full overflow-visible">
-                {/* Linhas de Grade Horizontais */}
-                {[
-                  { val: '150K', y: 30 },
-                  { val: '120K', y: 59 },
-                  { val: '90K', y: 88 },
-                  { val: '60K', y: 117 },
-                  { val: '30K', y: 146 },
-                  { val: '0', y: 175 },
-                ].map((g) => (
-                  <g key={g.val}>
-                    <line
-                      x1="45"
-                      y1={g.y}
-                      x2="505"
-                      y2={g.y}
-                      stroke="#F1F5F9"
-                      strokeWidth="1"
-                      strokeDasharray={g.val === '0' ? undefined : '3 3'}
-                    />
-                    <text
-                      x="38"
-                      y={g.y + 3}
-                      textAnchor="end"
-                      fontSize="9.5"
-                      fill="#94A3B8"
-                      fontWeight="500"
-                    >
-                      {g.val}
-                    </text>
-                  </g>
-                ))}
-
-                {/* Curva de Participantes (Roxo) */}
-                <path
-                  d={chartPoints.pPath}
-                  fill="none"
-                  stroke="#6366F1"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-
-                {/* Curva de Contributos (Verde) */}
-                <path
-                  d={chartPoints.cPath}
-                  fill="none"
-                  stroke="#10B981"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-
-                {/* Pontos Interativos com Marcadores */}
-                {chartPoints.pCoords.map((pt, i) => (
-                  <g key={`p-pt-${i}`}>
-                    <circle
-                      cx={pt.x}
-                      cy={pt.y}
-                      r={hoveredMonthIndex === i ? 5 : 3.5}
-                      fill="#6366F1"
-                      stroke="#FFFFFF"
-                      strokeWidth="1.5"
-                      className="cursor-pointer transition-all"
-                      onMouseEnter={() => setHoveredMonthIndex(i)}
-                      onMouseLeave={() => setHoveredMonthIndex(null)}
-                    />
-                  </g>
-                ))}
-
-                {chartPoints.cCoords.map((ct, i) => (
-                  <g key={`c-pt-${i}`}>
-                    <circle
-                      cx={ct.x}
-                      cy={ct.y}
-                      r={hoveredMonthIndex === i ? 5 : 3.5}
-                      fill="#10B981"
-                      stroke="#FFFFFF"
-                      strokeWidth="1.5"
-                      className="cursor-pointer transition-all"
-                      onMouseEnter={() => setHoveredMonthIndex(i)}
-                      onMouseLeave={() => setHoveredMonthIndex(null)}
-                    />
-                    {/* Rótulo do Eixo X (Mês) */}
-                    <text
-                      x={ct.x}
-                      y="194"
-                      textAnchor="middle"
-                      fontSize="10"
-                      fill={hoveredMonthIndex === i ? '#0F172A' : '#64748B'}
-                      fontWeight={hoveredMonthIndex === i ? '700' : '500'}
-                    >
-                      {ct.month}
-                    </text>
-                  </g>
-                ))}
-              </svg>
+            {/* Gráfico de Linha realista (grelha, eixos e pontos) */}
+            <div
+              className="relative w-full mt-2 cursor-crosshair"
+              onMouseLeave={() => setHoveredMonthIndex(null)}
+              onMouseMove={(e) => {
+                const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                const relX = (e.clientX - rect.left) / rect.width;
+                setHoveredMonthIndex(
+                  Math.min(monthlyData.length - 1, Math.max(0, Math.round(relX * (monthlyData.length - 1))))
+                );
+              }}
+            >
+              <LineChart
+                series={[
+                  { name: 'Participantes', color: '#6366F1', values: monthlyData.map((d) => d.participants * 1000) },
+                  { name: 'Contributos', color: '#10B981', values: monthlyData.map((d) => d.contributions * 1000) },
+                ]}
+                labels={monthlyData.map((d) => d.month)}
+                height={195}
+                yTicks={5}
+                formatY={(v) => (v >= 1000 ? `${Math.round(v / 1000)}K` : String(v))}
+              />
 
               {/* Tooltip Dinâmico do Gráfico */}
               {hoveredMonthIndex !== null && (
                 <div
-                  className="absolute bg-slate-900/90 text-white px-2.5 py-1.5 rounded-lg text-[10px] pointer-events-none shadow-xl border border-slate-700 z-10"
-                  style={{
-                    left: `${(chartPoints.pCoords[hoveredMonthIndex].x / 520) * 100}%`,
-                    top: '20px',
-                    transform: 'translateX(-50%)',
-                  }}
+                  className="absolute bg-slate-900/90 text-white px-2.5 py-1.5 rounded-lg text-[10px] pointer-events-none shadow-xl border border-slate-700 z-10 left-3 top-2"
                 >
                   <p className="font-bold text-slate-200">
                     {monthlyData[hoveredMonthIndex].month} 2025

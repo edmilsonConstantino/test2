@@ -35,6 +35,8 @@ import { feature } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { Sparkline } from './MiniCharts';
 
 interface ProjetosIniciativasViewProps {
   currentUser: DemoUser;
@@ -245,6 +247,39 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       iconType: 'users',
     },
   ], []);
+
+  // Cards do cabeçalho expansível (mesmos KPIs, formato KpiCardData)
+  const projetosKpiCards: KpiCardData[] = useMemo(
+    () =>
+      kpis.map((kpi, idx) => ({
+        id: kpi.id,
+        label: kpi.label,
+        value: kpi.value,
+        trend: kpi.trend,
+        trendPeriod: kpi.trendPeriod,
+        bgClass: kpi.bgClass,
+        iconClass: '',
+        icon:
+          kpi.iconType === 'folder' ? (
+            <FolderKanban className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.iconType === 'document' ? (
+            <FileSpreadsheet className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.iconType === 'check' ? (
+            <CheckCircle2 className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.iconType === 'wallet' ? (
+            <Wallet className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : kpi.iconType === 'trend' ? (
+            <TrendingUp className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ) : (
+            <Users className="w-3.5 h-3.5" strokeWidth={2.2} />
+          ),
+        spark: [
+          22 + idx, 28 + idx, 25 + idx, 32 + idx, 30 + idx, 38 + idx,
+          35 + idx, 44 + idx, 41 + idx, 50 + idx, 47 + idx, 56 + idx,
+        ],
+      })),
+    [kpis]
+  );
 
   // ---------------------------------------------------------------------------
   // 4. Projetos por Área de Atuação (Donut)
@@ -762,53 +797,14 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. TOP KPI ROW: 6 CARDS (Padrão Proporcional, Compacto e Refinado)        */}
+      {/* 2. TOP KPI ROW: colapsado em 5 + botão "Ver mais cards" (6 no total)      */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-2.5 sm:gap-3">
-        {kpis.map((kpi) => (
-          <div
-            key={kpi.id}
-            onClick={() => setActiveKpiDetail(kpi.label)}
-            className="bg-white rounded-xl border border-slate-200/80 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-purple-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer"
-          >
-            {/* Topo do Card: Ícone Pastel + Indicador/Delta */}
-            <div className="flex items-center justify-between gap-1.5">
-              <div className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg ${kpi.bgClass} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs`}>
-                {kpi.iconType === 'folder' && <FolderKanban className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                {kpi.iconType === 'document' && <FileSpreadsheet className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                {kpi.iconType === 'check' && <CheckCircle2 className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                {kpi.iconType === 'wallet' && <Wallet className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                {kpi.iconType === 'trend' && <TrendingUp className="w-3.5 h-3.5" strokeWidth={2.2} />}
-                {kpi.iconType === 'users' && <Users className="w-3.5 h-3.5" strokeWidth={2.2} />}
-              </div>
-              <span className="text-[9.5px] sm:text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-1.5 py-0.5 rounded whitespace-nowrap shadow-2xs">
-                {kpi.trend}
-              </span>
-            </div>
-
-            {/* Conteúdo Central: Métrica Compacta + Rótulo Elegante */}
-            <div className="mt-2">
-              <p className="text-lg sm:text-[20px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
-                {kpi.value}
-              </p>
-              <p className="text-[11px] sm:text-[11.5px] font-medium text-slate-700 mt-0.5 leading-tight truncate" title={kpi.label}>
-                {kpi.label}
-              </p>
-              <p className="text-[9.5px] sm:text-[10px] text-slate-400 mt-0.5 truncate">
-                {kpi.trendPeriod}
-              </p>
-            </div>
-
-            {/* Rodapé: Link Interativo Compacto */}
-            <div className="pt-1.5 mt-2 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[10.5px] font-semibold text-[#5B21B6] group-hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
-                <span>Ver detalhes</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ExpandableKpiHeader
+        cards={projetosKpiCards}
+        visibleCount={5}
+        xlCols={6}
+        onOpenDetail={(label) => setActiveKpiDetail(label)}
+      />
 
       {/* ========================================================================= */}
       {/* 3. LINHA 1 (3 CARDS): Área de Atuação | Mapa Global | Status             */}

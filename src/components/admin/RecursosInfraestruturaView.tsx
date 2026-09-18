@@ -43,6 +43,7 @@ import {
 } from 'lucide-react';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
+import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 
 interface RecursosInfraestruturaViewProps {
   currentUser: DemoUser;
@@ -127,6 +128,83 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
     { label: 'Outros', percent: '4%', count: 4, color: '#EAB308' },
   ];
 
+  // 2. LINHA 1: 6 Cards de Indicadores (KPIs) — colapsado em 5 + botão "Ver mais"
+  const infraKpiCards: KpiCardData[] = [
+    {
+      id: 'kpi-disponibilidade',
+      label: 'Disponibilidade da Plataforma',
+      value: '99,98%',
+      trend: '↑ 0,02 pp',
+      trendPeriod: 'desde o ano passado',
+      icon: <Activity className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-emerald-50 border border-emerald-100/70',
+      iconClass: 'text-emerald-600',
+      spark: [99.9, 99.92, 99.91, 99.94, 99.93, 99.95, 99.96, 99.95, 99.97, 99.96, 99.98, 99.98],
+      onClick: () => setSelectedService('Portal VILA'),
+    },
+    {
+      id: 'kpi-servidores-ativos',
+      label: 'Servidores Ativos',
+      value: '128',
+      trend: '↑ 12%',
+      trendPeriod: 'desde o ano passado',
+      icon: <Server className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-purple-50 border border-purple-100/70',
+      iconClass: 'text-purple-600',
+      spark: [98, 102, 105, 108, 110, 112, 115, 118, 121, 124, 126, 128],
+      onClick: () => setSelectedDC('VILA-DC01'),
+    },
+    {
+      id: 'kpi-armazenamento-total',
+      label: 'Armazenamento Total',
+      value: '256 TB',
+      trend: '↑ 18%',
+      trendPeriod: 'desde o ano passado',
+      icon: <HardDrive className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-blue-50 border border-blue-100/70',
+      iconClass: 'text-blue-600',
+      spark: [180, 190, 198, 208, 216, 224, 230, 238, 244, 250, 254, 256],
+      onClick: () => setSelectedService('Armazenamento de Ficheiros'),
+    },
+    {
+      id: 'kpi-largura-banda',
+      label: 'Largura de Banda',
+      value: '18,7 Tbps',
+      trend: '↑ 22%',
+      trendPeriod: 'desde o ano passado',
+      icon: <Wifi className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-orange-50 border border-orange-100/70',
+      iconClass: 'text-orange-600',
+      spark: [11.2, 11.8, 12.4, 13, 13.6, 14.4, 15, 15.9, 16.6, 17.4, 18.1, 18.7],
+      onClick: () => setSelectedService('API Gateway'),
+    },
+    {
+      id: 'kpi-bases-dados',
+      label: 'Bases de Dados',
+      value: '42',
+      trend: '↑ 14%',
+      trendPeriod: 'desde o ano passado',
+      icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-rose-50 border border-rose-100/70',
+      iconClass: 'text-rose-600',
+      spark: [30, 31, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42],
+      onClick: () => setSelectedService('Open Data'),
+    },
+    {
+      id: 'kpi-custo-infraestrutura',
+      label: 'Custo de Infraestrutura',
+      value: '€2,48M',
+      trend: '↓ 5%',
+      trendPeriod: 'desde o ano passado',
+      trendClassName: 'text-red-700 bg-red-50 border border-red-200/70',
+      icon: <Euro className="w-3.5 h-3.5" strokeWidth={2.2} />,
+      bgClass: 'bg-amber-50 border border-amber-100/70',
+      iconClass: 'text-amber-600',
+      spark: [2.9, 2.85, 2.8, 2.75, 2.7, 2.65, 2.62, 2.58, 2.55, 2.52, 2.5, 2.48],
+      onClick: () => onOpenSupportModal?.('Custo de Infraestrutura'),
+    },
+  ];
+
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5 animate-in fade-in duration-200">
       {/* 1. Header do Módulo com Identidade VILA */}
@@ -188,152 +266,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
       </div>
 
-      {/* 2. LINHA 1: 6 Cards de Indicadores (KPIs) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
-        {/* Card 1: Disponibilidade */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-slate-500 leading-tight">Disponibilidade da Plataforma</span>
-            <div className="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <Activity className="w-4 h-4" />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F172A] font-sans">99,98%</div>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-              <span>↑ 0,02 pp</span>
-              <span className="text-slate-400 font-normal">desde o ano passado</span>
-            </div>
-          </div>
-          <button
-            onClick={() => setSelectedService('Portal VILA')}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left"
-          >
-            <span>Ver detalhes</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-
-        {/* Card 2: Servidores Ativos */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-slate-500 leading-tight">Servidores Ativos</span>
-            <div className="w-7 h-7 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-              <Server className="w-4 h-4" />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F172A] font-sans">128</div>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-              <span>↑ 12%</span>
-              <span className="text-slate-400 font-normal">desde o ano passado</span>
-            </div>
-          </div>
-          <button
-            onClick={() => setSelectedDC('VILA-DC01')}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left"
-          >
-            <span>Ver detalhes</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-
-        {/* Card 3: Armazenamento Total */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-slate-500 leading-tight">Armazenamento Total</span>
-            <div className="w-7 h-7 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-              <HardDrive className="w-4 h-4" />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F172A] font-sans">256 TB</div>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-              <span>↑ 18%</span>
-              <span className="text-slate-400 font-normal">desde o ano passado</span>
-            </div>
-          </div>
-          <button
-            onClick={() => setSelectedService('Armazenamento de Ficheiros')}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left"
-          >
-            <span>Ver detalhes</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-
-        {/* Card 4: Largura de Banda */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-slate-500 leading-tight">Largura de Banda</span>
-            <div className="w-7 h-7 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
-              <Wifi className="w-4 h-4" />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F172A] font-sans">18,7 Tbps</div>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-              <span>↑ 22%</span>
-              <span className="text-slate-400 font-normal">desde o ano passado</span>
-            </div>
-          </div>
-          <button
-            onClick={() => setSelectedService('API Gateway')}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left"
-          >
-            <span>Ver detalhes</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-
-        {/* Card 5: Bases de Dados */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-slate-500 leading-tight">Bases de Dados</span>
-            <div className="w-7 h-7 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
-              <Database className="w-4 h-4" />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F172A] font-sans">42</div>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-              <span>↑ 14%</span>
-              <span className="text-slate-400 font-normal">desde o ano passado</span>
-            </div>
-          </div>
-          <button
-            onClick={() => setSelectedService('Open Data')}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left"
-          >
-            <span>Ver detalhes</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-
-        {/* Card 6: Custo de Infraestrutura */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-4.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-slate-500 leading-tight">Custo de Infraestrutura</span>
-            <div className="w-7 h-7 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-              <Euro className="w-4 h-4" />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-[#0F172A] font-sans">€2,48M</div>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 mt-1">
-              <span>↓ 5%</span>
-              <span className="text-slate-400 font-normal">desde o ano passado</span>
-            </div>
-          </div>
-          <button
-            onClick={() => onOpenSupportModal?.('Custo de Infraestrutura')}
-            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 group text-left"
-          >
-            <span>Ver detalhes</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-        </div>
-      </div>
+      {/* 2. LINHA 1: 6 Cards de Indicadores — 5 visíveis + botão "Ver mais cards" */}
+      <ExpandableKpiHeader cards={infraKpiCards} visibleCount={5} xlCols={6} />
 
       {/* 3. LINHA 2: 3 Cards de Infraestrutura (Territorial, Digital VILA, VILA AI) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -1150,6 +1084,21 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             {/* Gráfico SVG Suave */}
             <div className="relative h-44 w-full">
               <svg viewBox="0 0 550 140" className="w-full h-full overflow-visible">
+                {/* Gradientes de area */}
+                <defs>
+                  <linearGradient id="ri-area-storage" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#1E293B" stopOpacity="0.14" />
+                    <stop offset="100%" stopColor="#1E293B" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="ri-area-bandwidth" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.12" />
+                    <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="ri-area-servers" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.01" />
+                  </linearGradient>
+                </defs>
                 {/* Linhas horizontais de grade */}
                 {[0, 100, 200, 300, 400].map((val, idx) => {
                   const y = 120 - (val / 400) * 100;
@@ -1162,6 +1111,11 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     </g>
                   );
                 })}
+
+                {/* Areas preenchidas (realismo) */}
+                <path d="M 40 75 Q 85 70 135 65 T 235 60 T 335 55 T 435 50 T 535 45 L 535 120 L 40 120 Z" fill="url(#ri-area-storage)" />
+                <path d="M 40 95 Q 85 92 135 88 T 235 85 T 335 82 T 435 78 T 535 72 L 535 120 L 40 120 Z" fill="url(#ri-area-bandwidth)" />
+                <path d="M 40 110 Q 85 108 135 106 T 235 104 T 335 102 T 435 99 T 535 96 L 535 120 L 40 120 Z" fill="url(#ri-area-servers)" />
 
                 {/* Linha 1: Armazenamento (TB) */}
                 <path
