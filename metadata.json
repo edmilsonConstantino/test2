@@ -1,0 +1,6 @@
+{
+  "name": "VILA - Dashboard Global",
+  "description": "Dashboard moderna e interativa da plataforma VILA com mapa-múndi interativo, países em destaque e impacto global.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

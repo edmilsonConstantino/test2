@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand / Nova Identidade 6valley: Azul Marinho Forte e Laranja de Acento */
+  --color-brand-blue: #1455AC;
+  --color-brand-blue-hover: #0F448A;
+  --color-brand-blue-dark: #0D366E;
+  --color-brand-accent: #F58300;
+  --color-brand-accent-hover: #DC7600;
+
+  /* Variações de opacidade do azul primário para fundos suaves/hover */
+  --color-brand-blue-10: rgba(20, 85, 172, 0.1);
+  --color-brand-blue-20: rgba(20, 85, 172, 0.2);
+  --color-brand-blue-40: rgba(20, 85, 172, 0.4);
+
+  /* Escala de Azul Tailwind sobrescrita com a nova paleta #1455ac */
+  --color-blue-50: #F0F5FC;
+  --color-blue-100: #E2ECF9;
+  --color-blue-200: #C4DAF3;
+  --color-blue-300: #99C0EB;
+  --color-blue-400: #5F9DE0;
+  --color-blue-500: #2D79D1;
+  --color-blue-600: #1455AC;
+  --color-blue-700: #0F448A;
+  --color-blue-800: #0D366E;
+  --color-blue-900: #0B2C58;
+
+  /* Superfícies */
+  --color-surface-page: #F4F7FB;
+  --color-surface-card: #FFFFFF;
+  --color-surface-sidebar: #FFFFFF;
+
+  /* Texto (Ink) */
+  --color-ink: #1455AC;
+  --color-ink-DEFAULT: #1455AC;
+  --color-ink-dark: #0B2C58;
+  --color-ink-muted: #64748B;
+  --color-ink-subtle: #94A3B8;
+
+  /* Status (Mapa / Badges) */
+  --color-status-active: #22C55E;
+  --color-status-active-bg: #DCFCE7;
+  --color-status-active-text: #16A34A;
+  --color-status-activity: #1455AC;
+  --color-status-inactive: #94A3B8;
+
+  /* Acentos */
+  --color-accent-badge: #F58300;
+  --color-accent-notification: #EF4444;
+  --color-accent-border: #CBD5E1;
+
+  /* Gradients */
+  --image-brand-gradient: linear-gradient(135deg, #1455AC 0%, #0D366E 100%);
+  --image-brand-gradient-cta: linear-gradient(135deg, #1455AC 0%, #0F448A 100%);
+  --image-brand-accent-gradient: linear-gradient(135deg, #F58300 0%, #DC7600 100%);
+
+  /* Fontes - Tipografia Roboto oficial */
+  --font-sans: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+}
+
+@layer base {
+  body {
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 16px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes rippleMap {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-map-ripple {
+  animation: rippleMap 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Utilitário para ocultar barras de scroll mantendo a funcionalidade de deslizamento */
+.no-scrollbar {
+  -ms-overflow-style: none !important; /* IE e Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari e Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
