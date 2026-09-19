@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImpactRegionMapCard } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 import {
   Scale,
   Users,
@@ -734,6 +735,32 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 ))}
               </div>
             </section>
+
+            {/* 4. ANÁLISE DE IMPACTO — GRÁFICOS COMPLETOS (LINHA TEMPORAL + DONUT) */}
+            <ImpactAnalyticsSection
+              accent="#312E81"
+              softBg="bg-indigo-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Pessoas apoiadas (K)',
+                  color: '#4C1D95',
+                  values: [54, 58, 56, 62, 66, 64, 70, 74, 77, 82, 85, 90],
+                },
+                {
+                  name: 'Campanhas ativas',
+                  color: '#8B5CF6',
+                  values: [32, 35, 34, 38, 41, 40, 44, 47, 49, 52, 55, 58],
+                },
+              ]}
+              slices={[
+                { label: 'África', value: 34, color: '#4C1D95' },
+                { label: 'Ásia', value: 26, color: '#7C3AED' },
+                { label: 'América Latina', value: 20, color: '#8B5CF6' },
+                { label: 'Europa', value: 14, color: '#A78BFA' },
+                { label: 'América do Norte', value: 6, color: '#C4B5FD' },
+              ]}
+            />
           </div>
 
           {/* COLUNA DIREITA (SIDEBAR DE 3 COLUNAS) */}

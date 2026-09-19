@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImpactRegionMapCard } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 import {
   Globe,
   Leaf,
@@ -706,6 +707,32 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 })}
               </div>
             </section>
+
+            {/* SEÇÃO 4: Análise de Impacto — Gráficos Completos (Linha Temporal + Donut) */}
+            <ImpactAnalyticsSection
+              accent="#059669"
+              softBg="bg-emerald-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Pessoas impactadas',
+                  color: '#059669',
+                  values: [520, 548, 585, 562, 610, 645, 628, 671, 704, 738, 762, 801],
+                },
+                {
+                  name: 'Iniciativas ativas',
+                  color: '#0D9488',
+                  values: [310, 322, 338, 331, 352, 369, 361, 380, 396, 412, 425, 441],
+                },
+              ]}
+              slices={[
+                { label: 'África', value: 32, color: '#059669' },
+                { label: 'América Latina', value: 24, color: '#10B981' },
+                { label: 'Ásia', value: 20, color: '#34D399' },
+                { label: 'Europa', value: 16, color: '#6EE7B7' },
+                { label: 'América do Norte', value: 8, color: '#A7F3D0' },
+              ]}
+            />
           </div>
 
           {/* COLUNA LATERAL DIREITA (lg:col-span-3) */}

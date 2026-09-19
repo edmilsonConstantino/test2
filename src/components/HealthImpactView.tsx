@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImpactRegionMapCard } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 import {
   HeartPulse,
   Heart,
@@ -896,6 +897,32 @@ export const HealthImpactView: React.FC<HealthImpactViewProps> = ({
                 })}
               </div>
             </section>
+
+            {/* SEÇÃO 4: Análise de Impacto — Gráficos Completos (Linha Temporal + Donut) */}
+            <ImpactAnalyticsSection
+              accent="#059669"
+              softBg="bg-emerald-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Consultas realizadas',
+                  color: '#059669',
+                  values: [152, 168, 161, 178, 192, 186, 204, 215, 224, 238, 247, 259],
+                },
+                {
+                  name: 'Unidades apoiadas',
+                  color: '#0D9488',
+                  values: [98, 104, 102, 112, 118, 115, 126, 132, 138, 145, 150, 158],
+                },
+              ]}
+              slices={[
+                { label: 'África', value: 38, color: '#059669' },
+                { label: 'Ásia', value: 24, color: '#10B981' },
+                { label: 'América Latina', value: 18, color: '#34D399' },
+                { label: 'Europa', value: 12, color: '#6EE7B7' },
+                { label: 'América do Norte', value: 8, color: '#A7F3D0' },
+              ]}
+            />
           </div>
 
           {/* COLUNA LATERAL DIREITA (lg:col-span-3) */}

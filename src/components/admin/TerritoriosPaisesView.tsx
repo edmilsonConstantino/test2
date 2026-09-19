@@ -98,7 +98,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trendPeriod: 'desde o ano passado',
     icon: 'globe',
     bgClass: 'bg-[#FFEDD5]',
-    iconClass: 'text-[#EA580C]',
+    iconClass: 'text-[#DC7600]',
   },
   {
     id: 'kpi-regioes',
@@ -117,8 +117,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 12%',
     trendPeriod: 'desde o ano passado',
     icon: 'building',
-    bgClass: 'bg-[#CCFBF1]',
-    iconClass: 'text-[#0D9488]',
+    bgClass: 'bg-[#F0F5FC]',
+    iconClass: 'text-[#0F448A]',
   },
   {
     id: 'kpi-territorios',
@@ -147,8 +147,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: 'dos países do mundo',
     trendPeriod: '156 de 195 nações',
     icon: 'pie',
-    bgClass: 'bg-[#EDE9FE]',
-    iconClass: 'text-[#5B21B6]',
+    bgClass: 'bg-[#E2ECF9]',
+    iconClass: 'text-[#1455AC]',
   },
 ];
 
@@ -163,7 +163,7 @@ const DEFAULT_GROWTH_TABLE: TerritoryGrowthRow[] = [
 const DEFAULT_ACTIVITY_TABLE: TerritoryActivityRow[] = [
   { level: 'Elevado', count: '1.856', percentage: '51%', variation: '↑ 12%', isPositive: true, color: '#16A34A' },
   { level: 'Médio', count: '1.248', percentage: '34%', variation: '↑ 8%', isPositive: true, color: '#D97706' },
-  { level: 'Baixo', count: '428', percentage: '12%', variation: '↓ 5%', isPositive: false, color: '#E11D48' },
+  { level: 'Baixo', count: '428', percentage: '12%', variation: '↓ 5%', isPositive: false, color: '#F58300' },
   { level: 'Inativo', count: '110', percentage: '3%', variation: '↓ 2%', isPositive: false, color: '#94A3B8' },
 ];
 
@@ -304,25 +304,25 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         const name = f.properties?.name || '';
         
         // Cores de presença da legenda
-        // Presença Elevada: #5B21B6
-        // Presença Média: #8B5CF6
-        // Presença Baixa: #C4B5FD
-        // Exploração Inicial: #DDD6FE
+        // Presença Elevada: #1455AC
+        // Presença Média: #5F9DE0
+        // Presença Baixa: #99C0EB
+        // Exploração Inicial: #C4DAF3
         // Sem Presença: #F1F5F9
-        let fill = '#C4B5FD';
+        let fill = '#99C0EB';
         let category = 'Presença Baixa';
 
         if (['Portugal', 'Spain', 'France', 'Brazil', 'Mozambique', 'Angola'].includes(name)) {
-          fill = '#5B21B6';
+          fill = '#1455AC';
           category = 'Presença Elevada';
         } else if (['Germany', 'Italy', 'United Kingdom', 'Mexico', 'Colombia', 'Chile', 'Argentina', 'South Africa'].includes(name)) {
-          fill = '#8B5CF6';
+          fill = '#5F9DE0';
           category = 'Presença Média';
         } else if (['United States of America', 'Canada', 'India', 'Japan', 'Australia', 'Kenya', 'Morocco'].includes(name)) {
-          fill = '#DDD6FE';
+          fill = '#C4DAF3';
           category = 'Exploração Inicial';
         } else if (['Russia', 'China', 'Mongolia', 'Kazakhstan', 'Saudi Arabia'].includes(name)) {
-          fill = '#E2E8F0';
+          fill = '#F1F5F9';
           category = 'Sem Presença';
         }
 
@@ -355,7 +355,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         trendPeriod: kpi.trendPeriod,
         trendClassName:
           kpi.id === 'kpi-cobertura'
-            ? 'text-purple-700 bg-purple-50 border border-purple-200/70'
+            ? 'text-blue-700 bg-blue-50 border border-blue-200/70'
             : 'text-emerald-700 bg-emerald-50 border border-emerald-200/70',
         icon:
           kpi.icon === 'globe' ? (
@@ -383,9 +383,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
 
   const growthSeries = useMemo(
     () => [
-      { name: 'Municípios', color: '#5B21B6', values: municipiosPoints },
+      { name: 'Municípios', color: '#1455AC', values: municipiosPoints },
       { name: 'Territórios', color: '#10B981', values: territoriosPoints },
-      { name: 'Regiões', color: '#0284C7', values: regioesPoints },
+      { name: 'Regiões', color: '#0F448A', values: regioesPoints },
     ],
     []
   );
@@ -406,8 +406,8 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
         {/* Esquerda: Ícone Reduzido + Título + Subtítulo */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EDE9FE] border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
-            <Globe className="w-5 h-5 text-[#5B21B6]" strokeWidth={2.2} />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E2ECF9] border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
+            <Globe className="w-5 h-5 text-[#1455AC]" strokeWidth={2.2} />
           </div>
           <div>
             <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
@@ -453,12 +453,12 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       setIsDateDropdownOpen(false);
                       showToast(`Período alterado para: ${p}`);
                     }}
-                    className={`w-full text-left px-3 py-2 hover:bg-purple-50 transition-colors flex items-center justify-between ${
-                      selectedDateRange === p ? 'text-[#5B21B6] font-bold bg-purple-50/50' : 'text-slate-700'
+                    className={`w-full text-left px-3 py-2 hover:bg-blue-50 transition-colors flex items-center justify-between ${
+                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700'
                     }`}
                   >
                     <span>{p}</span>
-                    {selectedDateRange === p && <CheckCircle2 className="w-3.5 h-3.5 text-[#5B21B6]" />}
+                    {selectedDateRange === p && <CheckCircle2 className="w-3.5 h-3.5 text-[#1455AC]" />}
                   </button>
                 ))}
               </div>
@@ -479,7 +479,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           <button
             type="button"
             onClick={() => setIsFilterModalOpen(true)}
-            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] shadow-xs transition-colors cursor-pointer"
           >
             <SlidersHorizontal className="w-3.5 h-3.5 text-white" />
             <span>Filtros</span>
@@ -495,7 +495,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               <button
                 type="button"
                 onClick={handleManualRefresh}
-                className="text-slate-400 hover:text-[#5B21B6] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-slate-400 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
                 title="Atualizar dados agora"
               >
                 <RefreshCw className={`w-2.5 h-2.5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -537,19 +537,19 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             {/* Legenda de Presença */}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-600 mb-2">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#5B21B6]" />
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#1455AC]" />
                 <span>Presença Elevada</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#8B5CF6]" />
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#5F9DE0]" />
                 <span>Presença Média</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#C4B5FD]" />
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#99C0EB]" />
                 <span>Presença Baixa</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#DDD6FE]" />
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#C4DAF3]" />
                 <span>Exploração Inicial</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -588,7 +588,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 {CONTINENT_PRESENCE.map((c) => (
                   <div
                     key={c.name}
-                    className="flex items-center justify-between text-xs hover:bg-purple-50/50 px-1 py-0.5 rounded transition-colors cursor-pointer"
+                    className="flex items-center justify-between text-xs hover:bg-blue-50/50 px-1 py-0.5 rounded transition-colors cursor-pointer"
                     onMouseEnter={() => setHoveredContinent(c.name)}
                     onMouseLeave={() => setHoveredContinent(null)}
                     onClick={() => {
@@ -600,7 +600,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <div className="flex-1 mx-2.5 h-1.5 bg-slate-100 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${
-                          hoveredContinent === c.name ? 'bg-[#4C1D95]' : 'bg-[#5B21B6]'
+                          hoveredContinent === c.name ? 'bg-[#0F448A]' : 'bg-[#1455AC]'
                         }`}
                         style={{ width: `${c.percent}%` }}
                       />
@@ -619,7 +619,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('explorar')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver mapa interativo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -641,7 +641,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     setTimeGrowthFilter(e.target.value);
                     showToast(`Período do gráfico: ${e.target.value}`);
                   }}
-                  className="text-[11px] font-medium text-slate-600 bg-slate-50 border border-slate-200/90 rounded-lg px-2 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-400"
+                  className="text-[11px] font-medium text-slate-600 bg-slate-50 border border-slate-200/90 rounded-lg px-2 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
                 >
                   <option>Últimos 12 meses</option>
                   <option>Últimos 6 meses</option>
@@ -654,7 +654,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             {/* Legenda do Gráfico de Linha */}
             <div className="flex items-center gap-3 text-[11px] text-slate-600 mb-3">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#5B21B6]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Municípios</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -662,7 +662,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 <span>Territórios</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
                 <span>Regiões</span>
               </div>
             </div>
@@ -693,12 +693,12 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   className="absolute bg-[#0F172A] text-white text-[11px] p-2 rounded-lg shadow-lg pointer-events-none z-20"
                   style={{ left: '12px', top: '18px' }}
                 >
-                  <p className="font-bold border-b border-slate-700 pb-1 text-purple-200">
+                  <p className="font-bold border-b border-slate-700 pb-1 text-blue-200">
                     Mês: {growthMonths[hoveredMonthIndex]}
                   </p>
                   <p className="mt-1">Municípios: <strong className="text-white">{municipiosPoints[hoveredMonthIndex]}</strong></p>
                   <p>Territórios: <strong className="text-emerald-400">{territoriosPoints[hoveredMonthIndex]}</strong></p>
-                  <p>Regiões: <strong className="text-sky-400">{regioesPoints[hoveredMonthIndex]}</strong></p>
+                  <p>Regiões: <strong className="text-blue-400">{regioesPoints[hoveredMonthIndex]}</strong></p>
                 </div>
               )}
             </div>
@@ -709,7 +709,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Gerando relatório completo de crescimento territorial...')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -735,14 +735,14 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       setCountrySearchTerm(item.name);
                       showToast(`Filtrando tabela para: ${item.name}`);
                     }}
-                    className="flex items-center justify-between text-xs hover:bg-purple-50/50 p-1 rounded transition-colors cursor-pointer group"
+                    className="flex items-center justify-between text-xs hover:bg-blue-50/50 p-1 rounded transition-colors cursor-pointer group"
                   >
-                    <span className="text-slate-700 font-medium w-24 shrink-0 truncate group-hover:text-[#5B21B6]">
+                    <span className="text-slate-700 font-medium w-24 shrink-0 truncate group-hover:text-[#1455AC]">
                       {item.name}
                     </span>
                     <div className="flex-1 mx-2.5 h-2 bg-slate-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-[#5B21B6] rounded-full group-hover:bg-[#4C1D95] transition-all duration-300"
+                        className="h-full bg-[#1455AC] rounded-full group-hover:bg-[#0F448A] transition-all duration-300"
                         style={{ width: `${percent}%` }}
                       />
                     </div>
@@ -764,7 +764,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 setCountrySearchTerm('');
                 showToast('Exibindo todos os países na plataforma');
               }}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver todos os países</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -794,7 +794,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#5B21B6"
+                    stroke="#1455AC"
                     strokeWidth="14"
                     strokeDasharray="153 239"
                     strokeDashoffset="0"
@@ -805,7 +805,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#0284C7"
+                    stroke="#0F448A"
                     strokeWidth="14"
                     strokeDasharray="43 239"
                     strokeDashoffset="-153"
@@ -827,7 +827,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#EA580C"
+                    stroke="#DC7600"
                     strokeWidth="14"
                     strokeDasharray="16 239"
                     strokeDashoffset="-217"
@@ -838,7 +838,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#A855F7"
+                    stroke="#5F9DE0"
                     strokeWidth="14"
                     strokeDasharray="12 239"
                     strokeDashoffset="-233"
@@ -854,14 +854,14 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               <div className="space-y-1.5 text-xs flex-1">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#5B21B6]" />
+                    <span className="w-2 h-2 rounded-full bg-[#1455AC]" />
                     <span className="text-slate-700">Municípios</span>
                   </div>
                   <span className="font-bold text-slate-800 font-mono">64% <span className="font-normal text-slate-400 text-[11px]">(3.642)</span></span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
+                    <span className="w-2 h-2 rounded-full bg-[#0F448A]" />
                     <span className="text-slate-700">Regiões</span>
                   </div>
                   <span className="font-bold text-slate-800 font-mono">18% <span className="font-normal text-slate-400 text-[11px]">(1.074)</span></span>
@@ -875,14 +875,14 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#EA580C]" />
+                    <span className="w-2 h-2 rounded-full bg-[#DC7600]" />
                     <span className="text-slate-700">Estados/Províncias</span>
                   </div>
                   <span className="font-bold text-slate-800 font-mono">7% <span className="font-normal text-slate-400 text-[11px]">(417)</span></span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#A855F7]" />
+                    <span className="w-2 h-2 rounded-full bg-[#5F9DE0]" />
                     <span className="text-slate-700">Outros</span>
                   </div>
                   <span className="font-bold text-slate-800 font-mono">5% <span className="font-normal text-slate-400 text-[11px]">(295)</span></span>
@@ -896,7 +896,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Filtrando todos os territórios')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver todos os territórios</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -942,15 +942,15 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
 
               {/* Baixo */}
               <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-1">
+                <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-1">
                   <Layers className="w-4 h-4" />
                 </div>
                 <span className="text-[11px] font-semibold text-slate-600">Baixo</span>
                 <span className="text-sm sm:text-base font-bold text-[#0F172A] font-sans mt-1">428</span>
-                <span className="text-[10px] text-rose-600 font-medium">12%</span>
+                <span className="text-[10px] text-blue-600 font-medium">12%</span>
                 {/* Sparkline Vermelho */}
                 <svg viewBox="0 0 50 16" className="w-full h-4 mt-2">
-                  <path d="M 0 8 Q 15 6 30 14 T 50 10" fill="none" stroke="#E11D48" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M 0 8 Q 15 6 30 14 T 50 10" fill="none" stroke="#F58300" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
 
@@ -975,7 +975,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Abrindo classificação completa de atividade...')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver classificação completa</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -996,7 +996,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 items={NEW_TERRITORIES_BY_CONTINENT.map((item) => ({
                   label: item.continent.replace('América do ', 'Am. '),
                   value: item.value,
-                  color: '#8B5CF6',
+                  color: '#5F9DE0',
                 }))}
                 height={120}
               />
@@ -1008,7 +1008,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Abrindo análise completa de novos territórios...')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver análise completa</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1044,7 +1044,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <tr
                       key={row.id}
                       onClick={() => setActiveDetailModal(row.territory)}
-                      className="hover:bg-purple-50/40 transition-colors cursor-pointer"
+                      className="hover:bg-blue-50/40 transition-colors cursor-pointer"
                     >
                       <td className="py-2.5 font-semibold text-slate-800 truncate max-w-[110px]">{row.territory}</td>
                       <td className="py-2.5 text-slate-600">{row.country}</td>
@@ -1066,7 +1066,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Exibindo todos os territórios em expansão')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver todos os territórios</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1096,7 +1096,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <tr
                       key={row.level}
                       onClick={() => setActiveDetailModal(`Territórios com Atividade: ${row.level}`)}
-                      className="hover:bg-purple-50/40 transition-colors cursor-pointer"
+                      className="hover:bg-blue-50/40 transition-colors cursor-pointer"
                     >
                       <td className="py-2.5 font-semibold text-slate-800 flex items-center gap-1.5">
                         <span
@@ -1107,7 +1107,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       </td>
                       <td className="py-2.5 text-right font-bold text-slate-800 font-mono">{row.count}</td>
                       <td className="py-2.5 text-right text-slate-600 font-mono">{row.percentage}</td>
-                      <td className={`py-2.5 text-right font-bold font-mono ${row.isPositive ? 'text-emerald-600' : 'text-rose-500'}`}>
+                      <td className={`py-2.5 text-right font-bold font-mono ${row.isPositive ? 'text-emerald-600' : 'text-blue-500'}`}>
                         {row.variation}
                       </td>
                     </tr>
@@ -1121,7 +1121,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Exibindo detalhamento completo de atividade')}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver todos os territórios</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1146,7 +1146,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     value={countrySearchTerm}
                     onChange={(e) => setCountrySearchTerm(e.target.value)}
                     placeholder="Pesquisar país..."
-                    className="h-8 pl-8 pr-3 text-xs bg-slate-50 border border-slate-200 rounded-lg w-32 sm:w-36 focus:outline-none focus:ring-1 focus:ring-purple-400"
+                    className="h-8 pl-8 pr-3 text-xs bg-slate-50 border border-slate-200 rounded-lg w-32 sm:w-36 focus:outline-none focus:ring-1 focus:ring-blue-400"
                   />
                   {countrySearchTerm && (
                     <button
@@ -1163,7 +1163,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   <select
                     value={selectedContinentFilter}
                     onChange={(e) => setSelectedContinentFilter(e.target.value)}
-                    className="h-8 pl-2 pr-6 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700 cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-400"
+                    className="h-8 pl-2 pr-6 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
                   >
                     <option value="all">Todos os Continentes</option>
                     <option value="Europa">Europa</option>
@@ -1194,7 +1194,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <tr
                       key={row.id}
                       onClick={() => setActiveDetailModal(row.name)}
-                      className="hover:bg-purple-50/40 transition-colors cursor-pointer"
+                      className="hover:bg-blue-50/40 transition-colors cursor-pointer"
                     >
                       <td className="py-2.5 font-semibold text-slate-800 flex items-center gap-1.5">
                         <span className="text-base leading-none">{row.flag}</span>
@@ -1202,7 +1202,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       </td>
                       <td className="py-2.5 text-right font-bold text-slate-800 font-mono">{row.activeTerritories}</td>
                       <td className="py-2.5 text-right text-slate-600 font-mono">{row.municipalities}</td>
-                      <td className="py-2.5 text-right font-bold text-[#5B21B6] font-mono">{row.coverage}</td>
+                      <td className="py-2.5 text-right font-bold text-[#1455AC] font-mono">{row.coverage}</td>
                       <td className="py-2.5 text-right">
                         <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -1224,7 +1224,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 setSelectedContinentFilter('all');
                 showToast('Carregando lista completa de todos os países...');
               }}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver todos os países</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1243,7 +1243,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 border border-slate-200 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-purple-50 text-[#5B21B6] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
                   <Info className="w-5 h-5" />
                 </div>
                 <div>
@@ -1263,9 +1263,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
 
             <div className="space-y-3 text-xs text-slate-600">
-              <div className="p-3 bg-purple-50/60 border border-purple-100 rounded-xl space-y-1">
-                <p className="font-semibold text-purple-900">Estado Atual da Região/Métrica</p>
-                <p className="text-purple-700">
+              <div className="p-3 bg-blue-50/60 border border-blue-100 rounded-xl space-y-1">
+                <p className="font-semibold text-blue-900">Estado Atual da Região/Métrica</p>
+                <p className="text-blue-700">
                   Os dados territoriais da rede VILA são validados em tempo real com base na geolocalização dos membros e lideranças de projetos locais.
                 </p>
               </div>
@@ -1299,7 +1299,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   showToast(`Relatório de ${activeDetailModal} exportado!`);
                   setActiveDetailModal(null);
                 }}
-                className="px-4 py-2 bg-[#5B21B6] hover:bg-[#4C1D95] text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
+                className="px-4 py-2 bg-[#1455AC] hover:bg-[#0F448A] text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
               >
                 Baixar Dados em CSV
               </button>
@@ -1314,7 +1314,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-purple-50 text-[#5B21B6] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
                   <Download className="w-5 h-5" />
                 </div>
                 <div>
@@ -1338,16 +1338,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsExportModalOpen(false);
                   showToast('Exportando dados em formato CSV...');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 transition-all text-left cursor-pointer group"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
                   <FileSpreadsheet className="w-5 h-5 text-emerald-600" />
                   <div>
-                    <p className="font-bold text-slate-800 group-hover:text-[#5B21B6]">Folha de Cálculo (CSV)</p>
+                    <p className="font-bold text-slate-800 group-hover:text-[#1455AC]">Folha de Cálculo (CSV)</p>
                     <p className="text-slate-500 text-[11px]">Todos os territórios, países e municípios ativos</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#5B21B6]" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
               </button>
 
               <button
@@ -1356,16 +1356,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsExportModalOpen(false);
                   showToast('Exportando relatório em PDF executivo...');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 transition-all text-left cursor-pointer group"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
-                  <FileText className="w-5 h-5 text-rose-600" />
+                  <FileText className="w-5 h-5 text-blue-600" />
                   <div>
-                    <p className="font-bold text-slate-800 group-hover:text-[#5B21B6]">Relatório Executivo (PDF)</p>
+                    <p className="font-bold text-slate-800 group-hover:text-[#1455AC]">Relatório Executivo (PDF)</p>
                     <p className="text-slate-500 text-[11px]">Sumário visual dos 156 países e cobertura global</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#5B21B6]" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
               </button>
 
               <button
@@ -1374,16 +1374,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsExportModalOpen(false);
                   showToast('Exportando dados em formato JSON Geoespacial...');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 transition-all text-left cursor-pointer group"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
                   <Copy className="w-5 h-5 text-blue-600" />
                   <div>
-                    <p className="font-bold text-slate-800 group-hover:text-[#5B21B6]">JSON Geoespacial (GeoJSON)</p>
+                    <p className="font-bold text-slate-800 group-hover:text-[#1455AC]">JSON Geoespacial (GeoJSON)</p>
                     <p className="text-slate-500 text-[11px]">Coordenadas e polígonos territoriais da rede</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#5B21B6]" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
               </button>
             </div>
           </div>
@@ -1396,7 +1396,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-purple-50 text-[#5B21B6] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
                   <SlidersHorizontal className="w-5 h-5" />
                 </div>
                 <div>
@@ -1419,7 +1419,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 <select
                   value={selectedContinentFilter}
                   onChange={(e) => setSelectedContinentFilter(e.target.value)}
-                  className="w-full h-9 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                  className="w-full h-9 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 >
                   <option value="all">Todos os Continentes (Global)</option>
                   <option value="Europa">Europa</option>
@@ -1438,7 +1438,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       key={lvl}
                       type="button"
                       onClick={() => showToast(`Filtro de atividade: ${lvl}`)}
-                      className="p-2 border border-slate-200 hover:border-purple-300 rounded-xl text-center font-medium text-slate-700 hover:bg-purple-50/50 cursor-pointer"
+                      className="p-2 border border-slate-200 hover:border-blue-300 rounded-xl text-center font-medium text-slate-700 hover:bg-blue-50/50 cursor-pointer"
                     >
                       {lvl}
                     </button>
@@ -1466,7 +1466,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsFilterModalOpen(false);
                   showToast('Filtros aplicados à visualização!');
                 }}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-xl cursor-pointer shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-xl cursor-pointer shadow-xs"
               >
                 Aplicar Filtros
               </button>

@@ -198,7 +198,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '1.248',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-indigo-50 text-indigo-700 border border-indigo-100',
+      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
       iconType: 'folder',
     },
     {
@@ -234,7 +234,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '€15,2M',
       trend: '↑ 25%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-rose-50 text-rose-700 border border-rose-100',
+      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
       iconType: 'trend',
     },
     {
@@ -243,7 +243,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '2,8M+',
       trend: '↑ 23%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-teal-50 text-teal-700 border border-teal-100',
+      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
       iconType: 'users',
     },
   ], []);
@@ -286,11 +286,11 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
   // ---------------------------------------------------------------------------
   const areaDistribution: AreaDistributionItem[] = useMemo(() => [
     { name: 'Ambiente', percentage: 26, count: 324, color: '#10B981' },
-    { name: 'Educação', percentage: 20, count: 250, color: '#3B82F6' },
-    { name: 'Inclusão Social', percentage: 16, count: 200, color: '#8B5CF6' },
-    { name: 'Desenvolvimento Econ.', percentage: 14, count: 174, color: '#06B6D4' },
+    { name: 'Educação', percentage: 20, count: 250, color: '#1455AC' },
+    { name: 'Inclusão Social', percentage: 16, count: 200, color: '#5F9DE0' },
+    { name: 'Desenvolvimento Econ.', percentage: 14, count: 174, color: '#5F9DE0' },
     { name: 'Saúde', percentage: 10, count: 124, color: '#F59E0B' },
-    { name: 'Cultura', percentage: 7, count: 86, color: '#EC4899' },
+    { name: 'Cultura', percentage: 7, count: 86, color: '#F58300' },
     { name: 'Outros', percentage: 7, count: 90, color: '#64748B' },
   ], []);
 
@@ -334,29 +334,29 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         const name = f.properties?.name || '';
 
         // Cores e categorias do screenshot de referência:
-        // Mais de 100 projetos: #4338CA
-        // Entre 50 e 100 projetos: #7C3AED
-        // Entre 10 e 50 projetos: #A78BFA
-        // Menos de 10 projetos: #DDD6FE
-        // Sem projetos: #CBD5E1
-        let fill = '#CBD5E1';
+        // Mais de 100 projetos: #0F448A
+        // Entre 50 e 100 projetos: #2D79D1
+        // Entre 10 e 50 projetos: #99C0EB
+        // Menos de 10 projetos: #C4DAF3
+        // Sem projetos: #F1F5F9
+        let fill = '#F1F5F9';
         let category = 'Sem projetos';
         let projects = 0;
 
         if (['Portugal', 'Brazil', 'Mozambique', 'Angola', 'United States of America'].includes(name)) {
-          fill = '#4338CA';
+          fill = '#0F448A';
           category = 'Mais de 100 projetos';
           projects = name === 'Portugal' ? 245 : name === 'Brazil' ? 186 : name === 'Mozambique' ? 142 : name === 'Angola' ? 118 : 124;
         } else if (['Russia', 'China', 'Spain', 'France', 'Germany', 'United Kingdom', 'India', 'South Africa'].includes(name)) {
-          fill = '#7C3AED';
+          fill = '#2D79D1';
           category = 'Entre 50 e 100 projetos';
           projects = name === 'Spain' ? 84 : name === 'France' ? 68 : name === 'Germany' ? 58 : name === 'Russia' ? 74 : name === 'China' ? 82 : name === 'India' ? 76 : 64;
         } else if (['Canada', 'Australia', 'Italy', 'Japan', 'Mexico', 'Colombia', 'Argentina', 'Kenya', 'Nigeria', 'Egypt', 'Cape Verde', 'Guinea-Bissau', 'Timor-Leste', 'Sao Tome and Principe', 'Poland', 'Indonesia'].includes(name)) {
-          fill = '#A78BFA';
+          fill = '#99C0EB';
           category = 'Entre 10 e 50 projetos';
           projects = 28;
         } else if (['Greenland', 'Chile', 'Peru', 'Norway', 'Sweden', 'Finland', 'Morocco', 'Algeria', 'Dem. Rep. Congo', 'Saudi Arabia', 'Turkey', 'Kazakhstan', 'New Zealand', 'Thailand'].includes(name)) {
-          fill = '#DDD6FE';
+          fill = '#C4DAF3';
           category = 'Menos de 10 projetos';
           projects = 6;
         }
@@ -379,8 +379,8 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
   // ---------------------------------------------------------------------------
   const statusDistribution: StatusDistributionItem[] = useMemo(() => [
     { name: 'Em Execução', percentage: 58, count: 724, color: '#10B981' },
-    { name: 'Planeamento', percentage: 20, count: 250, color: '#3B82F6' },
-    { name: 'Concluídos', percentage: 14, count: 174, color: '#8B5CF6' },
+    { name: 'Planeamento', percentage: 20, count: 250, color: '#1455AC' },
+    { name: 'Concluídos', percentage: 14, count: 174, color: '#5F9DE0' },
     { name: 'Suspensos', percentage: 5, count: 62, color: '#F59E0B' },
     { name: 'Cancelados', percentage: 3, count: 38, color: '#EF4444' },
   ], []);
@@ -478,10 +478,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
   // 9. Fontes de Financiamento (Donut)
   // ---------------------------------------------------------------------------
   const fundingSources: FundingSourceItem[] = useMemo(() => [
-    { name: 'Fundos Públicos', percentage: 42, amount: '€10,3M', color: '#5B21B6' },
-    { name: 'Doações', percentage: 24, amount: '€5,9M', color: '#3B82F6' },
+    { name: 'Fundos Públicos', percentage: 42, amount: '€10,3M', color: '#1455AC' },
+    { name: 'Doações', percentage: 24, amount: '€5,9M', color: '#1455AC' },
     { name: 'Parcerias Privadas', percentage: 18, amount: '€4,4M', color: '#F59E0B' },
-    { name: 'Organizações Internacionais', percentage: 10, amount: '€2,5M', color: '#EC4899' },
+    { name: 'Organizações Internacionais', percentage: 10, amount: '€2,5M', color: '#F58300' },
     { name: 'Outros', percentage: 6, amount: '€1,5M', color: '#64748B' },
   ], []);
 
@@ -691,8 +691,8 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
         {/* Esquerda: Ícone Reduzido + Título + Subtítulo */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EDE9FE] border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
-            <FolderKanban className="w-5 h-5 text-[#5B21B6]" strokeWidth={2.2} />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E2ECF9] border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
+            <FolderKanban className="w-5 h-5 text-[#1455AC]" strokeWidth={2.2} />
           </div>
           <div>
             <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
@@ -738,12 +738,12 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       setIsDateDropdownOpen(false);
                       showToast(`Filtro de período alterado para: ${p}`);
                     }}
-                    className={`w-full text-left px-3 py-2 hover:bg-purple-50 transition-colors flex items-center justify-between ${
-                      selectedDateRange === p ? 'text-[#5B21B6] font-bold bg-purple-50/50' : 'text-slate-700'
+                    className={`w-full text-left px-3 py-2 hover:bg-blue-50 transition-colors flex items-center justify-between ${
+                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700'
                     }`}
                   >
                     <span>{p}</span>
-                    {selectedDateRange === p && <CheckCircle2 className="w-3.5 h-3.5 text-[#5B21B6]" />}
+                    {selectedDateRange === p && <CheckCircle2 className="w-3.5 h-3.5 text-[#1455AC]" />}
                   </button>
                 ))}
               </div>
@@ -764,7 +764,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <button
             type="button"
             onClick={() => setIsFilterModalOpen(true)}
-            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] shadow-xs transition-colors cursor-pointer"
           >
             <SlidersHorizontal className="w-3.5 h-3.5 text-white" />
             <span>Filtros</span>
@@ -780,7 +780,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={handleManualRefresh}
-                className="text-slate-400 hover:text-[#5B21B6] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-slate-400 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
                 title="Atualizar dados agora"
               >
                 <RefreshCw className={`w-2.5 h-2.5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -884,7 +884,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllAreasModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todas as áreas</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -902,24 +902,24 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <div className="mt-3 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
               {/* Legenda Vertical à Esquerda */}
               <div className="w-full sm:w-48 space-y-2.5 shrink-0 self-center">
-                <div className="flex items-center gap-2.5 text-xs font-medium text-[#1E1B4B]">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#4338CA] shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs font-medium text-[#0B2C58]">
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#0F448A] shrink-0" />
                   <span>Mais de 100 projetos</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs font-medium text-[#1E1B4B]">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#7C3AED] shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs font-medium text-[#0B2C58]">
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#2D79D1] shrink-0" />
                   <span>Entre 50 e 100 projetos</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs font-medium text-[#1E1B4B]">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#A78BFA] shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs font-medium text-[#0B2C58]">
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#99C0EB] shrink-0" />
                   <span>Entre 10 e 50 projetos</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs font-medium text-[#1E1B4B]">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#DDD6FE] shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs font-medium text-[#0B2C58]">
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#C4DAF3] shrink-0" />
                   <span>Menos de 10 projetos</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs font-medium text-[#1E1B4B]">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#CBD5E1] shrink-0" />
+                <div className="flex items-center gap-2.5 text-xs font-medium text-[#0B2C58]">
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#F1F5F9] border border-slate-200 shrink-0" />
                   <span>Sem projetos</span>
                 </div>
               </div>
@@ -940,7 +940,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                           fill={feat.fill}
                           stroke="#FFFFFF"
                           strokeWidth={0.5}
-                          className="transition-all duration-150 cursor-pointer hover:opacity-85 hover:stroke-[#4338CA] hover:stroke-[1px]"
+                          className="transition-all duration-150 cursor-pointer hover:opacity-85 hover:stroke-[#0F448A] hover:stroke-[1px]"
                           onMouseEnter={(e) => {
                             const rect = e.currentTarget.getBoundingClientRect();
                             setHoveredCountry({
@@ -965,7 +965,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 {hoveredCountry && (
                   <div className="absolute top-1 right-1 bg-slate-900/90 backdrop-blur-xs text-white px-2.5 py-1.5 rounded-lg text-[10.5px] pointer-events-none shadow-xl z-10 border border-slate-700/60 animate-in fade-in duration-100">
                     <p className="font-bold text-slate-100">{hoveredCountry.name}</p>
-                    <p className="text-purple-300 font-semibold">{hoveredCountry.category}</p>
+                    <p className="text-blue-300 font-semibold">{hoveredCountry.category}</p>
                     {hoveredCountry.projects > 0 && (
                       <p className="text-slate-300 text-[10px]">{hoveredCountry.projects} projetos ativos</p>
                     )}
@@ -980,7 +980,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsMapModalOpen(true)}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver mapa interativo</span>
               <ArrowRight className="w-4 h-4" />
@@ -1061,7 +1061,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllStatusModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todos os status</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1096,21 +1096,21 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     <button
                       type="button"
                       onClick={() => { setEvolutionPeriod('12meses'); setIsEvolutionPeriodDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 12 meses
                     </button>
                     <button
                       type="button"
                       onClick={() => { setEvolutionPeriod('6meses'); setIsEvolutionPeriodDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 6 meses
                     </button>
                     <button
                       type="button"
                       onClick={() => { setEvolutionPeriod('30dias'); setIsEvolutionPeriodDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 30 dias
                     </button>
@@ -1128,7 +1128,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   activeEvolutionSeries.criados ? 'text-slate-800' : 'opacity-40 line-through text-slate-400'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#5B21B6]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Criados</span>
               </button>
               <button
@@ -1148,7 +1148,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   activeEvolutionSeries.concluidos ? 'text-slate-800' : 'opacity-40 line-through text-slate-400'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
                 <span>Concluídos</span>
               </button>
             </div>
@@ -1189,13 +1189,13 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
 
                   return (
                     <>
-                      {/* Série Criados (Roxo #5B21B6) */}
+                      {/* Série Criados (Roxo #1455AC) */}
                       {activeEvolutionSeries.criados && (
                         <>
                           <path
                             d={generatePath(evolutionSeries.criados)}
                             fill="none"
-                            stroke="#5B21B6"
+                            stroke="#1455AC"
                             strokeWidth={2.5}
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -1207,7 +1207,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                               cy={getY(val)}
                               r={hoveredMonthIndex === i ? 4 : 2.5}
                               fill="#FFFFFF"
-                              stroke="#5B21B6"
+                              stroke="#1455AC"
                               strokeWidth={2}
                               className="cursor-pointer"
                               onMouseEnter={() => setHoveredMonthIndex(i)}
@@ -1245,13 +1245,13 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                         </>
                       )}
 
-                      {/* Série Concluídos (Azul #0284C7) */}
+                      {/* Série Concluídos (Azul #0F448A) */}
                       {activeEvolutionSeries.concluidos && (
                         <>
                           <path
                             d={generatePath(evolutionSeries.concluidos)}
                             fill="none"
-                            stroke="#0284C7"
+                            stroke="#0F448A"
                             strokeWidth={2.5}
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -1263,7 +1263,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                               cy={getY(val)}
                               r={hoveredMonthIndex === i ? 4 : 2.5}
                               fill="#FFFFFF"
-                              stroke="#0284C7"
+                              stroke="#0F448A"
                               strokeWidth={2}
                               className="cursor-pointer"
                               onMouseEnter={() => setHoveredMonthIndex(i)}
@@ -1281,7 +1281,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                           y="152"
                           textAnchor="middle"
                           className={`text-[9px] font-medium transition-colors ${
-                            hoveredMonthIndex === i ? 'fill-[#5B21B6] font-bold' : 'fill-slate-500'
+                            hoveredMonthIndex === i ? 'fill-[#1455AC] font-bold' : 'fill-slate-500'
                           }`}
                         >
                           {m}
@@ -1298,13 +1298,13 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   <p className="font-bold border-b border-slate-700 pb-0.5">
                     {evolutionMonths[hoveredMonthIndex]} 2024/25
                   </p>
-                  <p className="text-purple-300">
+                  <p className="text-blue-300">
                     Criados: <strong>{evolutionSeries.criados[hoveredMonthIndex]}</strong>
                   </p>
                   <p className="text-emerald-300">
                     Execução: <strong>{evolutionSeries.execucao[hoveredMonthIndex]}</strong>
                   </p>
-                  <p className="text-sky-300">
+                  <p className="text-blue-300">
                     Concluídos: <strong>{evolutionSeries.concluidos[hoveredMonthIndex]}</strong>
                   </p>
                 </div>
@@ -1317,7 +1317,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsFullReportModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1347,18 +1347,18 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div
                   key={p.id}
                   onClick={() => setActiveProjectDetail(p)}
-                  className="grid grid-cols-12 items-center py-2 hover:bg-purple-50/40 rounded transition-colors cursor-pointer group"
+                  className="grid grid-cols-12 items-center py-2 hover:bg-blue-50/40 rounded transition-colors cursor-pointer group"
                 >
                   {/* Projeto com Ícone Mini */}
                   <div className="col-span-4 flex items-center gap-1.5 min-w-0 pr-1">
-                    <div className="w-6 h-6 rounded-md bg-purple-100/70 text-[#5B21B6] flex items-center justify-center shrink-0">
+                    <div className="w-6 h-6 rounded-md bg-blue-100/70 text-[#1455AC] flex items-center justify-center shrink-0">
                       {p.iconType === 'droplet' && <Droplets className="w-3 h-3" />}
                       {p.iconType === 'education' && <GraduationCap className="w-3 h-3" />}
                       {p.iconType === 'building' && <Building2 className="w-3 h-3" />}
                       {p.iconType === 'heart' && <Heart className="w-3 h-3" />}
                       {p.iconType === 'health' && <Activity className="w-3 h-3" />}
                     </div>
-                    <span className="font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#5B21B6]">
+                    <span className="font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#1455AC]">
                       {p.name}
                     </span>
                   </div>
@@ -1377,7 +1377,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   <div className="col-span-2 px-1 flex flex-col items-center">
                     <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
                       <div
-                        className="bg-[#5B21B6] h-1.5 rounded-full"
+                        className="bg-[#1455AC] h-1.5 rounded-full"
                         style={{ width: `${p.progress}%` }}
                       />
                     </div>
@@ -1408,7 +1408,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllProjectsModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todos os projetos</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1489,7 +1489,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllFundingModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todas as fontes</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1524,9 +1524,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div
                   key={p.id}
                   onClick={() => setActiveProjectDetail(p)}
-                  className="grid grid-cols-12 items-center py-2 hover:bg-purple-50/40 rounded transition-colors cursor-pointer group"
+                  className="grid grid-cols-12 items-center py-2 hover:bg-blue-50/40 rounded transition-colors cursor-pointer group"
                 >
-                  <span className="col-span-3 font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#5B21B6]">
+                  <span className="col-span-3 font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#1455AC]">
                     {p.name}
                   </span>
                   <span className="col-span-2 text-slate-500 text-[11px] truncate">
@@ -1560,7 +1560,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllProjectsModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todos os projetos</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1589,9 +1589,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div
                   key={c.id}
                   onClick={() => showToast(`Detalhes da Chamada: ${c.title} (Orçamento: ${c.budget})`)}
-                  className="grid grid-cols-12 items-center py-2.5 hover:bg-purple-50/40 rounded transition-colors cursor-pointer group"
+                  className="grid grid-cols-12 items-center py-2.5 hover:bg-blue-50/40 rounded transition-colors cursor-pointer group"
                 >
-                  <span className="col-span-5 font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#5B21B6]">
+                  <span className="col-span-5 font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#1455AC]">
                     {c.title}
                   </span>
                   <span className="col-span-2 text-slate-500 text-[11px] truncate">
@@ -1615,7 +1615,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllCallsModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todas as chamadas</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1636,20 +1636,20 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div
                   key={act.id}
                   onClick={() => showToast(`Atividade: ${act.title}`)}
-                  className="py-2 flex items-start gap-2.5 hover:bg-purple-50/40 rounded px-1 transition-colors cursor-pointer group"
+                  className="py-2 flex items-start gap-2.5 hover:bg-blue-50/40 rounded px-1 transition-colors cursor-pointer group"
                 >
                   {/* Ícone por tipo */}
-                  <div className="w-7 h-7 rounded-lg bg-purple-50 text-[#5B21B6] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
                     {act.type === 'project_created' && <FolderKanban className="w-3.5 h-3.5 text-blue-600" />}
                     {act.type === 'milestone' && <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />}
-                    {act.type === 'partnership' && <HeartHandshake className="w-3.5 h-3.5 text-teal-600" />}
-                    {act.type === 'report' && <FileText className="w-3.5 h-3.5 text-indigo-600" />}
+                    {act.type === 'partnership' && <HeartHandshake className="w-3.5 h-3.5 text-blue-600" />}
+                    {act.type === 'report' && <FileText className="w-3.5 h-3.5 text-blue-600" />}
                     {act.type === 'call_published' && <Megaphone className="w-3.5 h-3.5 text-amber-600" />}
                   </div>
 
                   {/* Textos */}
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-slate-800 text-[11.5px] leading-tight truncate group-hover:text-[#5B21B6]">
+                    <p className="font-semibold text-slate-800 text-[11.5px] leading-tight truncate group-hover:text-[#1455AC]">
                       {act.title}
                     </p>
                     <p className="text-slate-500 text-[10.5px] leading-snug mt-0.5 truncate">
@@ -1671,7 +1671,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsAllActivitiesModalOpen(true)}
-              className="text-xs font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Ver todas as atividades</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1690,7 +1690,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
-                <Download className="w-4 h-4 text-[#5B21B6]" />
+                <Download className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Exportar Dados de Projetos</h3>
               </div>
               <button
@@ -1713,7 +1713,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsExportModalOpen(false);
                   showToast('Exportação CSV iniciada: Projetos_VILA_2025.csv');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#5B21B6] hover:bg-purple-50/50 transition-all font-medium text-slate-700"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700"
               >
                 <span>Planilha Completa (CSV / Excel)</span>
                 <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-bold">.CSV</span>
@@ -1724,7 +1724,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsExportModalOpen(false);
                   showToast('Exportação PDF gerada com sucesso.');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#5B21B6] hover:bg-purple-50/50 transition-all font-medium text-slate-700"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700"
               >
                 <span>Dossiê Executivo de Impacto (PDF)</span>
                 <span className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">.PDF</span>
@@ -1735,7 +1735,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsExportModalOpen(false);
                   showToast('Exportação de dados abertos JSON concluída.');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#5B21B6] hover:bg-purple-50/50 transition-all font-medium text-slate-700"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700"
               >
                 <span>Dados Abertos para Integrações (JSON API)</span>
                 <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-bold">.JSON</span>
@@ -1761,7 +1761,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
-                <SlidersHorizontal className="w-4 h-4 text-[#5B21B6]" />
+                <SlidersHorizontal className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Filtros de Projetos e Iniciativas</h3>
               </div>
               <button
@@ -1779,7 +1779,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <select
                   value={filterArea}
                   onChange={(e) => setFilterArea(e.target.value)}
-                  className="w-full border border-slate-200 rounded-lg p-2 text-slate-700 text-xs focus:border-[#5B21B6] focus:ring-1 focus:ring-[#5B21B6]"
+                  className="w-full border border-slate-200 rounded-lg p-2 text-slate-700 text-xs focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]"
                 >
                   <option value="Todas">Todas as Áreas</option>
                   <option value="Ambiente">Ambiente</option>
@@ -1796,7 +1796,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full border border-slate-200 rounded-lg p-2 text-slate-700 text-xs focus:border-[#5B21B6] focus:ring-1 focus:ring-[#5B21B6]"
+                  className="w-full border border-slate-200 rounded-lg p-2 text-slate-700 text-xs focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]"
                 >
                   <option value="Todos">Todos os Status</option>
                   <option value="Em Execução">Em Execução</option>
@@ -1826,7 +1826,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsFilterModalOpen(false);
                   showToast(`Filtros aplicados: ${filterArea} • ${filterStatus}`);
                 }}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Aplicar Filtros
               </button>
@@ -1841,7 +1841,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <div className="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
-                <FolderKanban className="w-4 h-4 text-[#5B21B6]" />
+                <FolderKanban className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">{activeProjectDetail.name}</h3>
               </div>
               <button
@@ -1856,7 +1856,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <div className="mt-4 space-y-3 text-xs">
               <div className="flex items-center justify-between">
                 <span className="text-slate-500">Área temática:</span>
-                <span className="font-bold text-purple-800 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">
+                <span className="font-bold text-blue-800 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                   {activeProjectDetail.area}
                 </span>
               </div>
@@ -1886,10 +1886,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div className="space-y-1">
                   <div className="flex justify-between text-slate-500">
                     <span>Execução física:</span>
-                    <span className="font-bold text-[#5B21B6]">{activeProjectDetail.progress}%</span>
+                    <span className="font-bold text-[#1455AC]">{activeProjectDetail.progress}%</span>
                   </div>
                   <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                    <div className="bg-[#5B21B6] h-2 rounded-full" style={{ width: `${activeProjectDetail.progress}%` }} />
+                    <div className="bg-[#1455AC] h-2 rounded-full" style={{ width: `${activeProjectDetail.progress}%` }} />
                   </div>
                 </div>
               )}
@@ -1916,7 +1916,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setActiveProjectDetail(null)}
-                className="px-4 py-1.5 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-1.5 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Concluído
               </button>
@@ -1946,7 +1946,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               Os dados consolidados de <strong>{activeKpiDetail}</strong> abrangem projetos cívicos, municipais e comunitários auditados nos 11 países ativos da rede VILA.
             </p>
 
-            <div className="mt-4 p-3 bg-purple-50/60 rounded-xl border border-purple-100 text-xs space-y-1 text-slate-700">
+            <div className="mt-4 p-3 bg-blue-50/60 rounded-xl border border-blue-100 text-xs space-y-1 text-slate-700">
               <p>• <strong>Validação em tempo real:</strong> Auditado por comissões locais.</p>
               <p>• <strong>Critérios:</strong> Transparência de verbas e impacto comunitário direto.</p>
             </div>
@@ -1955,7 +1955,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setActiveKpiDetail(null)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -1970,7 +1970,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <div className="bg-white rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
-                <Globe className="w-4 h-4 text-[#5B21B6]" />
+                <Globe className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Presença Global de Projetos VILA</h3>
               </div>
               <button
@@ -2009,7 +2009,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsMapModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2042,7 +2042,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: a.color }} />
                     <span className="font-medium text-slate-800">{a.name}</span>
                   </div>
-                  <span className="font-bold text-[#5B21B6]">{a.count} projetos ({a.percentage}%)</span>
+                  <span className="font-bold text-[#1455AC]">{a.count} projetos ({a.percentage}%)</span>
                 </div>
               ))}
             </div>
@@ -2051,7 +2051,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsAllAreasModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2084,7 +2084,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: s.color }} />
                     <span className="font-medium text-slate-800">{s.name}</span>
                   </div>
-                  <span className="font-bold text-[#5B21B6]">{s.count} projetos ({s.percentage}%)</span>
+                  <span className="font-bold text-[#1455AC]">{s.count} projetos ({s.percentage}%)</span>
                 </div>
               ))}
             </div>
@@ -2093,7 +2093,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsAllStatusModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2126,7 +2126,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: f.color }} />
                     <span className="font-medium text-slate-800">{f.name}</span>
                   </div>
-                  <span className="font-bold text-[#5B21B6]">{f.amount} ({f.percentage}%)</span>
+                  <span className="font-bold text-[#1455AC]">{f.amount} ({f.percentage}%)</span>
                 </div>
               ))}
             </div>
@@ -2135,7 +2135,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsAllFundingModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2174,7 +2174,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       setIsAllProjectsModalOpen(false);
                       setActiveProjectDetail(p);
                     }}
-                    className="text-xs font-semibold text-[#5B21B6] hover:underline"
+                    className="text-xs font-semibold text-[#1455AC] hover:underline"
                   >
                     Ver Dossiê →
                   </button>
@@ -2186,7 +2186,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsAllProjectsModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2232,7 +2232,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsAllCallsModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2272,7 +2272,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsAllActivitiesModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>
@@ -2323,7 +2323,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsFullReportModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] rounded-lg shadow-xs"
               >
                 Fechar
               </button>

@@ -34,6 +34,7 @@ import {
   Check,
 } from 'lucide-react';
 import { ImpactRegionMapCard, RegionImpactItem } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 
 const EDUCATION_REGIONS: RegionImpactItem[] = [
   { id: 'africa', name: 'África', percent: 34, projectsCount: 460, highlight: true },
@@ -829,6 +830,32 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 ))}
               </div>
             </section>
+
+            {/* 3.5 ANÁLISE DE IMPACTO — GRÁFICOS COMPLETOS (LINHA TEMPORAL + DONUT) */}
+            <ImpactAnalyticsSection
+              accent="#2D3BA8"
+              softBg="bg-blue-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Alunos alcançados (K)',
+                  color: '#2D3BA8',
+                  values: [320, 348, 342, 371, 395, 388, 412, 436, 448, 472, 489, 512],
+                },
+                {
+                  name: 'Escolas apoiadas',
+                  color: '#0EA5E9',
+                  values: [96, 104, 101, 112, 118, 115, 124, 130, 135, 142, 147, 154],
+                },
+              ]}
+              slices={[
+                { label: 'África', value: 32, color: '#2D3BA8' },
+                { label: 'Ásia', value: 28, color: '#0EA5E9' },
+                { label: 'América Latina', value: 20, color: '#38BDF8' },
+                { label: 'Europa', value: 12, color: '#7DD3FC' },
+                { label: 'América do Norte', value: 8, color: '#BAE6FD' },
+              ]}
+            />
           </div>
 
           {/* COLUNA DIREITA: Barra Lateral (lg:col-span-4 xl:col-span-3) */}

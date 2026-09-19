@@ -57,7 +57,7 @@ const DISCOVER_WORLD_ITEMS: DiscoverItem[] = [
     name: 'Colômbia',
     flag: '🇨🇴',
     category: 'Cultura',
-    categoryColor: 'bg-purple-50 text-purple-700 border-purple-200/80',
+    categoryColor: 'bg-blue-50 text-blue-700 border-blue-200/80',
     metric: '320 projetos em curso',
     imageUrl: 'https://images.unsplash.com/photo-1599827552599-eadf5fb3c75f?auto=format&fit=crop&w=400&q=80',
   },
@@ -305,8 +305,8 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       label: 'Cidadãos Ativos',
       value: '7.842.521',
       icon: Users,
-      iconBg: 'bg-purple-50/90',
-      iconColor: 'text-purple-600',
+      iconBg: 'bg-blue-50/90',
+      iconColor: 'text-blue-600',
       onClick: () => {
         setViewMode('grid');
         setSortOrder('communities-desc');

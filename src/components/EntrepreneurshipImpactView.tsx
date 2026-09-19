@@ -37,6 +37,7 @@ import {
   X,
 } from 'lucide-react';
 import { ImpactRegionMapCard } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 
 export interface EntrepreneurshipImpactViewProps {
   onBackToImpact?: () => void;
@@ -951,6 +952,32 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                 })}
               </div>
             </section>
+
+            {/* SEÇÃO 4: Análise de Impacto — Gráficos Completos (Linha Temporal + Donut) */}
+            <ImpactAnalyticsSection
+              accent="#059669"
+              softBg="bg-emerald-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Startups incubadas',
+                  color: '#059669',
+                  values: [118, 126, 122, 135, 144, 140, 152, 161, 168, 178, 185, 196],
+                },
+                {
+                  name: 'Investimento (x100K €)',
+                  color: '#0D9488',
+                  values: [52, 58, 55, 64, 70, 67, 75, 81, 85, 91, 96, 103],
+                },
+              ]}
+              slices={[
+                { label: 'África', value: 34, color: '#059669' },
+                { label: 'Ásia', value: 26, color: '#10B981' },
+                { label: 'América Latina', value: 20, color: '#34D399' },
+                { label: 'Europa', value: 14, color: '#6EE7B7' },
+                { label: 'Oceania', value: 6, color: '#A7F3D0' },
+              ]}
+            />
           </div>
 
           {/* COLUNA LATERAL DIREITA (lg:col-span-3) */}

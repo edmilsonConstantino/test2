@@ -116,8 +116,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '2.847.562',
       trend: '↑ 24%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#F5F3FF]',
-      iconClass: 'text-[#7C3AED]',
+      bgClass: 'bg-[#F0F5FC]',
+      iconClass: 'text-[#2D79D1]',
       icon: <Users className="w-4.5 h-4.5" />,
       spark: [20, 27, 24, 32, 30, 38, 35, 44, 41, 50, 47, 56],
     },
@@ -160,8 +160,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '1.248',
       trend: '↑ 16%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#FFF1F2]',
-      iconClass: 'text-[#E11D48]',
+      bgClass: 'bg-[#F0F5FC]',
+      iconClass: 'text-[#F58300]',
       icon: <Zap className="w-4.5 h-4.5" />,
       spark: [21, 27, 24, 31, 29, 37, 34, 43, 40, 49, 46, 55],
     },
@@ -171,8 +171,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '3.642',
       trend: '↑ 9%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#F0FDFA]',
-      iconClass: 'text-[#0D9488]',
+      bgClass: 'bg-[#F0F5FC]',
+      iconClass: 'text-[#0F448A]',
       icon: <Building2 className="w-4.5 h-4.5" />,
       spark: [17, 23, 20, 27, 25, 32, 30, 37, 35, 43, 41, 49],
     },
@@ -182,8 +182,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '€24,6M',
       trend: '↑ 21%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#EEF2FF]',
-      iconClass: 'text-[#4F46E5]',
+      bgClass: 'bg-[#F0F5FC]',
+      iconClass: 'text-[#1455AC]',
       icon: <Coins className="w-4.5 h-4.5" />,
       spark: [24, 30, 27, 34, 32, 40, 37, 46, 43, 52, 49, 58],
     },
@@ -306,7 +306,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 overflow-hidden relative">
         {/* Esquerda: Ícone Roxo + Título + Subtítulo */}
         <div className="flex items-start sm:items-center gap-3.5 z-10">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/70 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/70 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <BarChart3 className="w-6 h-6" />
           </div>
           <div>
@@ -328,12 +328,12 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             {/* Skyline suave ao fundo */}
             <path
               d="M10 80 V55 H30 V45 H50 V35 H75 V50 H95 V40 H115 V60 H140 V30 H160 V50 H185 V45 H210 V25 H235 V50 H260 V38 H285 V58 H310 V42 H335 V52 H360 V32 H385 V52 H410 V80 Z"
-              fill="#E0E7FF"
+              fill="#E2ECF9"
               fillOpacity="0.45"
             />
             <path
               d="M35 80 V58 H60 V48 H80 V62 H120 V48 H150 V38 H175 V58 H220 V32 H245 V48 H270 V42 H300 V60 H340 V48 H370 V58 H400 V80 Z"
-              fill="#C7D2FE"
+              fill="#C4DAF3"
               fillOpacity="0.35"
             />
             {/* Árvores sutis */}
@@ -345,8 +345,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             {/* Figuras estilizadas de pessoas diversas no primeiro plano */}
             {/* Pessoa 1: Usuário de cadeira de rodas */}
             <g transform="translate(140, 42)">
-              <circle cx="8" cy="4" r="3.5" fill="#3B82F6" />
-              <path d="M8 8 v9 l6 3" stroke="#3B82F6" strokeWidth="2.2" strokeLinecap="round" />
+              <circle cx="8" cy="4" r="3.5" fill="#1455AC" />
+              <path d="M8 8 v9 l6 3" stroke="#1455AC" strokeWidth="2.2" strokeLinecap="round" />
               <circle cx="8" cy="22" r="7" stroke="#1D4ED8" strokeWidth="2.2" fill="none" />
               <path d="M8 17 h5 v5" stroke="#1D4ED8" strokeWidth="2" strokeLinecap="round" />
             </g>
@@ -359,8 +359,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
             {/* Pessoa 3: Mulher com camisa roxa */}
             <g transform="translate(195, 30)">
-              <circle cx="6" cy="4" r="3.8" fill="#7C3AED" />
-              <path d="M6 8 v16 m-5 -10 h10 m-7 10 v14 m4 -14 v14" stroke="#7C3AED" strokeWidth="2.4" strokeLinecap="round" />
+              <circle cx="6" cy="4" r="3.8" fill="#2D79D1" />
+              <path d="M6 8 v16 m-5 -10 h10 m-7 10 v14 m4 -14 v14" stroke="#2D79D1" strokeWidth="2.4" strokeLinecap="round" />
             </g>
 
             {/* Pessoa 4: Cidadão com camisa vermelha acenando */}
@@ -425,21 +425,21 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     <button
                       type="button"
                       onClick={() => { setSelectedPeriod('5anos'); setIsPeriodDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 5 anos
                     </button>
                     <button
                       type="button"
                       onClick={() => { setSelectedPeriod('3anos'); setIsPeriodDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 3 anos
                     </button>
                     <button
                       type="button"
                       onClick={() => { setSelectedPeriod('1ano'); setIsPeriodDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Ano atual
                     </button>
@@ -451,7 +451,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             {/* Legenda com Marcadores de Cor */}
             <div className="flex flex-wrap items-center gap-3.5 pt-3 pb-1 text-[11px] font-semibold">
               <div className="inline-flex items-center gap-1.5 text-slate-700">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#5B21B6]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Membros</span>
               </div>
               <div className="inline-flex items-center gap-1.5 text-slate-700">
@@ -473,7 +473,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               <svg viewBox="0 0 580 200" className="w-full h-full overflow-visible">
                 {/* Gradientes de Área (estilo dashboard realista) */}
                 <defs>
-                  {[['membros', '#5B21B6'], ['comunidades', '#10B981'], ['territorios', '#1455AC'], ['paises', '#F59E0B']].map(([key, color]) => (
+                  {[['membros', '#1455AC'], ['comunidades', '#10B981'], ['territorios', '#1455AC'], ['paises', '#F59E0B']].map(([key, color]) => (
                     <linearGradient key={`grad-${key}`} id={`vg-area-${key}`} x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor={color} stopOpacity="0.18" />
                       <stop offset="100%" stopColor={color} stopOpacity="0.01" />
@@ -515,7 +515,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                       x={x}
                       y="196"
                       textAnchor="middle"
-                      className={`text-[11px] select-none font-semibold ${hoveredDataYear === year ? 'fill-[#5B21B6]' : 'fill-slate-500'}`}
+                      className={`text-[11px] select-none font-semibold ${hoveredDataYear === year ? 'fill-[#1455AC]' : 'fill-slate-500'}`}
                     >
                       {year}
                     </text>
@@ -532,11 +532,11 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                 ))}
 
                 {/* Linhas de Dados */}
-                {/* 1. Membros (Roxo #5B21B6) */}
+                {/* 1. Membros (Roxo #1455AC) */}
                 <path
                   d={chartPoints.membrosPath}
                   fill="none"
-                  stroke="#5B21B6"
+                  stroke="#1455AC"
                   strokeWidth="2.6"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -550,7 +550,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                       cx={cx}
                       cy={cy}
                       r="3.8"
-                      fill="#5B21B6"
+                      fill="#1455AC"
                       stroke="#FFFFFF"
                       strokeWidth="1.8"
                       className="cursor-pointer hover:r-5 transition-all"
@@ -636,15 +636,21 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                 })}
               </svg>
 
-              {/* Tooltip no Hover do Ano */}
+              {/* Tooltip no Hover do Ano (todas as 4 séries) */}
               {hoveredDataYear && (
                 <div className="absolute top-2 right-4 bg-slate-900 text-white text-[11px] p-2 rounded-xl shadow-lg pointer-events-none space-y-0.5">
                   <div className="font-bold text-slate-200">Ano: {hoveredDataYear}</div>
-                  <div className="text-purple-300">
+                  <div className="text-blue-300">
                     Membros: {evolutionData.membros[evolutionYears.indexOf(hoveredDataYear)].toLocaleString('pt-PT')}
                   </div>
                   <div className="text-emerald-300">
-                    Comunidades: {evolutionYears.indexOf(hoveredDataYear) === 4 ? '18.732' : '12.450'}
+                    Comunidades: {evolutionData.comunidades[evolutionYears.indexOf(hoveredDataYear)].toLocaleString('pt-PT')}
+                  </div>
+                  <div className="text-sky-300">
+                    Territórios: {evolutionData.territorios[evolutionYears.indexOf(hoveredDataYear)].toLocaleString('pt-PT')}
+                  </div>
+                  <div className="text-amber-300">
+                    Países: {evolutionData.paises[evolutionYears.indexOf(hoveredDataYear)].toLocaleString('pt-PT')}
                   </div>
                 </div>
               )}
@@ -656,7 +662,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -682,10 +688,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     <path
                       key={p.id}
                       d={p.d}
-                      fill={p.isHighlighted ? '#DDD6FE' : '#EDE9FE'}
-                      stroke="#C4B5FD"
+                      fill={p.isHighlighted ? '#C4DAF3' : '#E2ECF9'}
+                      stroke="#99C0EB"
                       strokeWidth="0.45"
-                      className="transition-colors hover:fill-purple-300 cursor-pointer"
+                      className="transition-colors hover:fill-blue-300 cursor-pointer"
                     />
                   ))}
                   {/* Fronteiras internacionais sutis */}
@@ -693,7 +699,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     <path
                       d={bordersPath}
                       fill="none"
-                      stroke="#C4B5FD"
+                      stroke="#99C0EB"
                       strokeWidth="0.35"
                     />
                   )}
@@ -712,7 +718,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                         cx={h.x}
                         cy={h.y}
                         r={h.size + 4}
-                        fill="#5B21B6"
+                        fill="#1455AC"
                         fillOpacity="0.25"
                         className="animate-ping"
                       />
@@ -721,7 +727,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                       cx={h.x}
                       cy={h.y}
                       r={h.size / 2}
-                      fill="#5B21B6"
+                      fill="#1455AC"
                       stroke="#FFFFFF"
                       strokeWidth="1.2"
                     />
@@ -746,7 +752,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             {/* Barra Gradiente de Menor/Maior Presença */}
             <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium px-1 mt-1">
               <span>Menor presença</span>
-              <div className="h-2 w-28 rounded-full bg-gradient-to-r from-purple-200 via-purple-500 to-[#5B21B6]" />
+              <div className="h-2 w-28 rounded-full bg-gradient-to-r from-blue-200 via-blue-500 to-[#1455AC]" />
               <span>Maior presença</span>
             </div>
           </div>
@@ -756,7 +762,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver mapa interativo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -778,13 +784,13 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               {/* Gráfico SVG de Rosca */}
               <div className="w-32 h-32 shrink-0 relative flex items-center justify-center">
                 <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                  {/* África: 32% (stroke-dasharray 32 68) -> #5B21B6 */}
+                  {/* África: 32% (stroke-dasharray 32 68) -> #1455AC */}
                   <circle
                     cx="50"
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#5B21B6"
+                    stroke="#1455AC"
                     strokeWidth="16"
                     strokeDasharray="76.5 162.5"
                     strokeDashoffset="0"
@@ -822,13 +828,13 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     strokeDasharray="38.2 200.8"
                     strokeDashoffset="-181.6"
                   />
-                  {/* América do Norte: 8% (19.1) -> #06B6D4 */}
+                  {/* América do Norte: 8% (19.1) -> #5F9DE0 */}
                   <circle
                     cx="50"
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#06B6D4"
+                    stroke="#5F9DE0"
                     strokeWidth="16"
                     strokeDasharray="19.1 219.9"
                     strokeDashoffset="-219.8"
@@ -840,7 +846,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               <div className="space-y-2 text-xs flex-1">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-slate-700 font-medium">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#5B21B6]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                     <span>África</span>
                   </div>
                   <span className="font-bold text-slate-900">32%</span>
@@ -868,7 +874,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-slate-700 font-medium">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#5F9DE0]" />
                     <span>América do Norte</span>
                   </div>
                   <span className="font-bold text-slate-900">8%</span>
@@ -882,7 +888,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver detalhamento regional</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -902,7 +908,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-y-5 mt-5">
               {/* Municípios */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Building2 className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
@@ -913,7 +919,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Parceiros Institucionais */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
                   <Handshake className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
@@ -935,7 +941,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Eventos Realizados */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
                   <Calendar className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
@@ -946,7 +952,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Organizações */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Users className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
@@ -957,7 +963,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Consultas Realizadas */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <MessageSquare className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
@@ -972,7 +978,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('utilizadores-comunidades')}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6D28D9] hover:text-[#5B21B6] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F448A] hover:text-[#1455AC] transition-colors cursor-pointer"
             >
               <span>Ver ecossistema completo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1015,7 +1021,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Tendência 3 */}
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
@@ -1028,7 +1034,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Tendência 4 */}
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
@@ -1045,7 +1051,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6D28D9] hover:text-[#5B21B6] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F448A] hover:text-[#1455AC] transition-colors cursor-pointer"
             >
               <span>Ver todas as tendências</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1085,24 +1091,24 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     strokeDasharray="66.9 238.8"
                     strokeDashoffset="-100.3"
                   />
-                  {/* Empresas: 20% -> #F97316 */}
+                  {/* Empresas: 20% -> #F58300 */}
                   <circle
                     cx="50"
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#F97316"
+                    stroke="#F58300"
                     strokeWidth="15"
                     strokeDasharray="47.8 238.8"
                     strokeDashoffset="-167.2"
                   />
-                  {/* Academia: 10% -> #7C3AED */}
+                  {/* Academia: 10% -> #2D79D1 */}
                   <circle
                     cx="50"
                     cy="50"
                     r="38"
                     fill="none"
-                    stroke="#7C3AED"
+                    stroke="#2D79D1"
                     strokeWidth="15"
                     strokeDasharray="23.9 238.8"
                     strokeDashoffset="-215.0"
@@ -1128,14 +1134,14 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-slate-700 font-medium">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#F97316]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F58300]" />
                     <span>Empresas</span>
                   </div>
                   <span className="font-bold text-slate-900">20%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-slate-700 font-medium">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#7C3AED]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#2D79D1]" />
                     <span>Academia</span>
                   </div>
                   <span className="font-bold text-slate-900">10%</span>
@@ -1148,7 +1154,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('parceiros-colaboracoes')}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6D28D9] hover:text-[#5B21B6] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F448A] hover:text-[#1455AC] transition-colors cursor-pointer"
             >
               <span>Ver todas as organizações</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1171,7 +1177,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               {/* Linha de Cima: 3 Cards (col-span-2 cada) */}
               {/* ODS 11: Cidades Sustentáveis */}
               <div className="col-span-2 flex flex-col items-center">
-                <div className="w-full aspect-square rounded-2xl bg-[#F97316] text-white p-2 sm:p-2.5 flex flex-col justify-between shadow-xs transition-transform hover:scale-105">
+                <div className="w-full aspect-square rounded-2xl bg-[#F58300] text-white p-2 sm:p-2.5 flex flex-col justify-between shadow-xs transition-transform hover:scale-105">
                   <div className="w-full flex items-start justify-between">
                     <span className="text-xs sm:text-sm font-black font-sans leading-none">11</span>
                     <span className="text-[6.5px] font-bold tracking-tight opacity-75 uppercase">ODS</span>
@@ -1179,23 +1185,23 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                   <div className="my-auto flex items-center justify-center">
                     <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 fill-white">
                       <path d="M4 14h6v14H4zM12 6h8v22h-8zM22 10h6v18h-6z" opacity="0.95" />
-                      <rect x="6" y="16" width="2" height="2" fill="#F97316" />
-                      <rect x="6" y="20" width="2" height="2" fill="#F97316" />
-                      <rect x="6" y="24" width="2" height="2" fill="#F97316" />
-                      <rect x="14" y="9" width="2" height="2" fill="#F97316" />
-                      <rect x="14" y="13" width="2" height="2" fill="#F97316" />
-                      <rect x="14" y="17" width="2" height="2" fill="#F97316" />
-                      <rect x="14" y="21" width="2" height="2" fill="#F97316" />
-                      <rect x="14" y="25" width="2" height="2" fill="#F97316" />
-                      <rect x="17" y="9" width="2" height="2" fill="#F97316" />
-                      <rect x="17" y="13" width="2" height="2" fill="#F97316" />
-                      <rect x="17" y="17" width="2" height="2" fill="#F97316" />
-                      <rect x="17" y="21" width="2" height="2" fill="#F97316" />
-                      <rect x="17" y="25" width="2" height="2" fill="#F97316" />
-                      <rect x="24" y="13" width="2" height="2" fill="#F97316" />
-                      <rect x="24" y="17" width="2" height="2" fill="#F97316" />
-                      <rect x="24" y="21" width="2" height="2" fill="#F97316" />
-                      <rect x="24" y="25" width="2" height="2" fill="#F97316" />
+                      <rect x="6" y="16" width="2" height="2" fill="#F58300" />
+                      <rect x="6" y="20" width="2" height="2" fill="#F58300" />
+                      <rect x="6" y="24" width="2" height="2" fill="#F58300" />
+                      <rect x="14" y="9" width="2" height="2" fill="#F58300" />
+                      <rect x="14" y="13" width="2" height="2" fill="#F58300" />
+                      <rect x="14" y="17" width="2" height="2" fill="#F58300" />
+                      <rect x="14" y="21" width="2" height="2" fill="#F58300" />
+                      <rect x="14" y="25" width="2" height="2" fill="#F58300" />
+                      <rect x="17" y="9" width="2" height="2" fill="#F58300" />
+                      <rect x="17" y="13" width="2" height="2" fill="#F58300" />
+                      <rect x="17" y="17" width="2" height="2" fill="#F58300" />
+                      <rect x="17" y="21" width="2" height="2" fill="#F58300" />
+                      <rect x="17" y="25" width="2" height="2" fill="#F58300" />
+                      <rect x="24" y="13" width="2" height="2" fill="#F58300" />
+                      <rect x="24" y="17" width="2" height="2" fill="#F58300" />
+                      <rect x="24" y="21" width="2" height="2" fill="#F58300" />
+                      <rect x="24" y="25" width="2" height="2" fill="#F58300" />
                     </svg>
                   </div>
                 </div>
@@ -1321,7 +1327,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('projetos-iniciativas')}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6D28D9] hover:text-[#5B21B6] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F448A] hover:text-[#1455AC] transition-colors cursor-pointer"
             >
               <span>Ver contribuição completa aos ODS</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1366,9 +1372,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Evento 2 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-rose-50 border border-rose-100 flex flex-col items-center justify-center shrink-0">
-                  <span className="text-xs font-bold text-rose-700 font-sans leading-none">02</span>
-                  <span className="text-[9px] font-bold text-rose-600 uppercase tracking-wider mt-0.5">JUN</span>
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                  <span className="text-xs font-bold text-blue-700 font-sans leading-none">02</span>
+                  <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">JUN</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1">
@@ -1389,14 +1395,14 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Evento 3 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 flex flex-col items-center justify-center shrink-0">
-                  <span className="text-xs font-bold text-purple-700 font-sans leading-none">15</span>
-                  <span className="text-[9px] font-bold text-purple-600 uppercase tracking-wider mt-0.5">JUN</span>
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                  <span className="text-xs font-bold text-blue-700 font-sans leading-none">15</span>
+                  <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">JUN</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1">
                     <h3 className="text-xs font-bold text-slate-900 truncate">Cimeira de Inovação Social</h3>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-700 shrink-0">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-700 shrink-0">
                       Inscrições abertas
                     </span>
                   </div>
@@ -1416,7 +1422,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('eventos-globais-admin')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver todos os eventos</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1445,7 +1451,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Projetos Implementados */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                   <CheckSquare className="w-4 h-4" />
                 </div>
                 <div className="text-[11px] text-slate-500 font-medium">Projetos Implementados</div>
@@ -1455,7 +1461,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Países com Projetos Ativos */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                   <Globe className="w-4 h-4" />
                 </div>
                 <div className="text-[11px] text-slate-500 font-medium">Países com Projetos Ativos</div>
@@ -1465,7 +1471,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Investimento Mobilizado */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                   <Coins className="w-4 h-4" />
                 </div>
                 <div className="text-[11px] text-slate-500 font-medium">Investimento Mobilizado</div>
@@ -1479,7 +1485,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver relatório de impacto</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -1511,13 +1517,13 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               {/* UNESCO */}
               <div className="col-span-2 h-11 flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity" title="UNESCO">
                 <svg viewBox="0 0 80 40" className="h-8 w-16">
-                  <path d="M10 12 L40 4 L70 12 H10 Z" fill="#0077D4" />
-                  <rect x="14" y="14" width="6" height="18" fill="#0077D4" />
-                  <rect x="26" y="14" width="6" height="18" fill="#0077D4" />
-                  <rect x="38" y="14" width="6" height="18" fill="#0077D4" />
-                  <rect x="50" y="14" width="6" height="18" fill="#0077D4" />
-                  <rect x="62" y="14" width="6" height="18" fill="#0077D4" />
-                  <rect x="8" y="33" width="66" height="4" fill="#0077D4" />
+                  <path d="M10 12 L40 4 L70 12 H10 Z" fill="#1455AC" />
+                  <rect x="14" y="14" width="6" height="18" fill="#1455AC" />
+                  <rect x="26" y="14" width="6" height="18" fill="#1455AC" />
+                  <rect x="38" y="14" width="6" height="18" fill="#1455AC" />
+                  <rect x="50" y="14" width="6" height="18" fill="#1455AC" />
+                  <rect x="62" y="14" width="6" height="18" fill="#1455AC" />
+                  <rect x="8" y="33" width="66" height="4" fill="#1455AC" />
                 </svg>
               </div>
 
@@ -1531,7 +1537,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               {/* Linha de Baixo: 2 Logos Centralizados */}
               {/* WHO / OMS */}
               <div className="col-start-2 col-span-2 h-11 flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity" title="Organização Mundial da Saúde">
-                <div className="flex items-center gap-1.5 text-[#0284C7]">
+                <div className="flex items-center gap-1.5 text-[#0F448A]">
                   <svg viewBox="0 0 30 30" className="w-7 h-7 fill-current shrink-0">
                     <circle cx="15" cy="15" r="13" fill="none" stroke="currentColor" strokeWidth="2" />
                     <path d="M15 6 v18 M12 11 c3 -2 3 4 0 6 c3 2 3 8 0 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -1561,7 +1567,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('parceiros-colaboracoes')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver todos os parceiros</span>
               <ArrowRight className="w-3.5 h-3.5" />

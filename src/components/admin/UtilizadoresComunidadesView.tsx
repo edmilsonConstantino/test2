@@ -141,8 +141,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 24%',
     trendPeriod: 'desde o ano passado',
     icon: 'users',
-    bgClass: 'bg-purple-50/90 text-[#5B21B6] border-purple-100/70 border',
-    iconClass: 'text-[#5B21B6]',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    iconClass: 'text-[#1455AC]',
   },
   {
     id: 'kpi-novos-membros',
@@ -181,8 +181,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 6,3 pp',
     trendPeriod: 'desde o período anterior',
     icon: 'heart',
-    bgClass: 'bg-rose-50/90 text-rose-600 border-rose-100/70 border',
-    iconClass: 'text-rose-600',
+    bgClass: 'bg-blue-50/90 text-blue-600 border-blue-100/70 border',
+    iconClass: 'text-blue-600',
   },
   {
     id: 'kpi-comunidades-criadas',
@@ -191,8 +191,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 18%',
     trendPeriod: 'desde o ano passado',
     icon: 'community',
-    bgClass: 'bg-teal-50/90 text-teal-600 border-teal-100/70 border',
-    iconClass: 'text-teal-600',
+    bgClass: 'bg-blue-50/90 text-blue-600 border-blue-100/70 border',
+    iconClass: 'text-blue-600',
   },
 ];
 
@@ -200,8 +200,8 @@ const DEFAULT_SEGMENTS: SegmentItem[] = [
   { id: 'cidadaos', name: 'Cidadãos', percentage: 62, count: 1766287, formattedCount: '1.766.287', color: '#1455AC' },
   { id: 'organizacoes', name: 'Organizações', percentage: 18, count: 512742, formattedCount: '512.742', color: '#10B981' },
   { id: 'admin-publicos', name: 'Admin. Públicos', percentage: 12, count: 341707, formattedCount: '341.707', color: '#F59E0B' },
-  { id: 'empresas', name: 'Empresas', percentage: 6, count: 170854, formattedCount: '170.854', color: '#06B6D4' },
-  { id: 'outros', name: 'Outros', percentage: 2, count: 55972, formattedCount: '55.972', color: '#7C3AED' },
+  { id: 'empresas', name: 'Empresas', percentage: 6, count: 170854, formattedCount: '170.854', color: '#5F9DE0' },
+  { id: 'outros', name: 'Outros', percentage: 2, count: 55972, formattedCount: '55.972', color: '#2D79D1' },
 ];
 
 const DEFAULT_COUNTRIES: CountryUsersItem[] = [
@@ -226,10 +226,10 @@ const DEFAULT_COMMUNITY_STATUS: CommunityStatusItem[] = [
 
 const DEFAULT_CATEGORIES: CategoryItem[] = [
   { id: 'ambiental', name: 'Ambiental', count: 3852, formattedCount: '3.852', icon: 'leaf', color: '#10B981', bgClass: 'bg-emerald-50 text-emerald-600 border-emerald-100' },
-  { id: 'educacao', name: 'Educação', count: 3242, formattedCount: '3.242', icon: 'education', color: '#6366F1', bgClass: 'bg-indigo-50 text-indigo-600 border-indigo-100' },
-  { id: 'saude', name: 'Saúde', count: 2981, formattedCount: '2.981', icon: 'health', color: '#E11D48', bgClass: 'bg-rose-50 text-rose-600 border-rose-100' },
-  { id: 'cultura', name: 'Cultura', count: 2456, formattedCount: '2.456', icon: 'culture', color: '#EA580C', bgClass: 'bg-orange-50 text-orange-600 border-orange-100' },
-  { id: 'inovacao', name: 'Inovação', count: 2120, formattedCount: '2.120', icon: 'tech', color: '#0284C7', bgClass: 'bg-sky-50 text-sky-600 border-sky-100' },
+  { id: 'educacao', name: 'Educação', count: 3242, formattedCount: '3.242', icon: 'education', color: '#2D79D1', bgClass: 'bg-blue-50 text-blue-600 border-blue-100' },
+  { id: 'saude', name: 'Saúde', count: 2981, formattedCount: '2.981', icon: 'health', color: '#F58300', bgClass: 'bg-blue-50 text-blue-600 border-blue-100' },
+  { id: 'cultura', name: 'Cultura', count: 2456, formattedCount: '2.456', icon: 'culture', color: '#DC7600', bgClass: 'bg-amber-50 text-amber-600 border-amber-100' },
+  { id: 'inovacao', name: 'Inovação', count: 2120, formattedCount: '2.120', icon: 'tech', color: '#0F448A', bgClass: 'bg-blue-50 text-blue-600 border-blue-100' },
 ];
 
 const DEFAULT_GROWTH_COMMUNITIES: GrowthCommunityItem[] = [
@@ -430,11 +430,11 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
   const growthChartSeries = useMemo(() => {
     const dataLength = growthPeriod === '6meses' ? 6 : MONTHS_LABELS.length;
     const series = [
-      { name: 'Total', color: '#5B21B6', values: GROWTH_DATA.totalMembros.slice(-dataLength), on: activeGrowthLines.total },
+      { name: 'Total', color: '#1455AC', values: GROWTH_DATA.totalMembros.slice(-dataLength), on: activeGrowthLines.total },
       { name: 'Ativos', color: '#10B981', values: GROWTH_DATA.utilizadoresAtivos.slice(-dataLength), on: activeGrowthLines.ativos },
       {
         name: 'Novos',
-        color: '#0284C7',
+        color: '#0F448A',
         values: GROWTH_DATA.novosMembros.slice(-dataLength).map((v) => v * 12),
         on: activeGrowthLines.novos,
       },
@@ -528,8 +528,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
         {/* Esquerda: Ícone Reduzido + Título + Subtítulo */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EDE9FE] border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
-            <Users className="w-5 h-5 text-[#5B21B6]" strokeWidth={2.2} />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E2ECF9] border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
+            <Users className="w-5 h-5 text-[#1455AC]" strokeWidth={2.2} />
           </div>
           <div>
             <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
@@ -575,12 +575,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                       setIsDateDropdownOpen(false);
                       showToast(`Filtro de período alterado para: ${p}`);
                     }}
-                    className={`w-full text-left px-3 py-2 hover:bg-purple-50 transition-colors flex items-center justify-between ${
-                      selectedDateRange === p ? 'text-[#5B21B6] font-bold bg-purple-50/50' : 'text-slate-700'
+                    className={`w-full text-left px-3 py-2 hover:bg-blue-50 transition-colors flex items-center justify-between ${
+                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700'
                     }`}
                   >
                     <span>{p}</span>
-                    {selectedDateRange === p && <CheckCircle2 className="w-3.5 h-3.5 text-[#5B21B6]" />}
+                    {selectedDateRange === p && <CheckCircle2 className="w-3.5 h-3.5 text-[#1455AC]" />}
                   </button>
                 ))}
               </div>
@@ -601,7 +601,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           <button
             type="button"
             onClick={() => setIsFilterModalOpen(true)}
-            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-xs font-bold text-white bg-[#5B21B6] hover:bg-[#4C1D95] shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-xs font-bold text-white bg-[#1455AC] hover:bg-[#0F448A] shadow-xs transition-colors cursor-pointer"
           >
             <SlidersHorizontal className="w-3.5 h-3.5 text-white" />
             <span>Filtros</span>
@@ -617,7 +617,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               <button
                 type="button"
                 onClick={handleManualRefresh}
-                className="text-slate-400 hover:text-[#5B21B6] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-slate-400 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
                 title="Atualizar dados agora"
               >
                 <RefreshCw className={`w-2.5 h-2.5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -668,21 +668,21 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     <button
                       type="button"
                       onClick={() => { setGrowthPeriod('12meses'); setIsGrowthPeriodOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 12 meses
                     </button>
                     <button
                       type="button"
                       onClick={() => { setGrowthPeriod('6meses'); setIsGrowthPeriodOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 6 meses
                     </button>
                     <button
                       type="button"
                       onClick={() => { setGrowthPeriod('30dias'); setIsGrowthPeriodOpen(false); }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-[#5B21B6] font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-blue-50 hover:text-[#1455AC] font-medium"
                     >
                       Últimos 30 dias
                     </button>
@@ -700,7 +700,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   activeGrowthLines.total ? 'opacity-100 text-slate-800' : 'opacity-40 text-slate-400 line-through'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#5B21B6]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Total de Membros</span>
               </button>
               <button
@@ -720,7 +720,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   activeGrowthLines.novos ? 'opacity-100 text-slate-800' : 'opacity-40 text-slate-400 line-through'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
                 <span>Novos Membros</span>
               </button>
             </div>
@@ -760,7 +760,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     Mês: {lineChartData.months[hoveredGrowthIndex]}
                   </div>
                   {activeGrowthLines.total && (
-                    <div className="flex items-center justify-between gap-3 text-purple-300">
+                    <div className="flex items-center justify-between gap-3 text-blue-300">
                       <span>Total:</span>
                       <strong className="font-mono">{lineChartData.totalData[hoveredGrowthIndex]?.toLocaleString('pt-PT')}</strong>
                     </div>
@@ -772,7 +772,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     </div>
                   )}
                   {activeGrowthLines.novos && (
-                    <div className="flex items-center justify-between gap-3 text-sky-300">
+                    <div className="flex items-center justify-between gap-3 text-blue-300">
                       <span>Novos:</span>
                       <strong className="font-mono">{lineChartData.novosData[hoveredGrowthIndex]?.toLocaleString('pt-PT')}</strong>
                     </div>
@@ -786,7 +786,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setActiveDetailModal('Relatório Completo de Crescimento')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -864,7 +864,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setActiveDetailModal('Segmentos de Utilizadores')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
             >
               <span>Ver todos os segmentos</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -893,7 +893,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     </span>
                     <div className="flex-1 bg-slate-100 h-2.5 rounded-full overflow-hidden relative">
                       <div
-                        className="bg-[#5B21B6] h-full rounded-full transition-all duration-500 group-hover:bg-[#7C3AED]"
+                        className="bg-[#1455AC] h-full rounded-full transition-all duration-500 group-hover:bg-[#2D79D1]"
                         style={{ width: `${barWidth}%` }}
                       />
                     </div>
@@ -910,7 +910,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setActiveDetailModal('Ranking Global de Países')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
             >
               <span>Ver todos os países</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -938,7 +938,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   }}
                   className={`border rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all cursor-pointer ${
                     cat.bgClass
-                  } ${selectedCategoryFilter === cat.name ? 'ring-2 ring-[#5B21B6] shadow-xs' : 'hover:scale-[1.02]'}`}
+                  } ${selectedCategoryFilter === cat.name ? 'ring-2 ring-[#1455AC] shadow-xs' : 'hover:scale-[1.02]'}`}
                 >
                   <div className="w-7 h-7 rounded-lg flex items-center justify-center mb-1">
                     {cat.icon === 'leaf' && <Leaf className="w-4 h-4" />}
@@ -962,10 +962,10 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 }}
                 className={`w-full mt-2 border rounded-xl px-3 py-1.5 flex items-center justify-between text-xs transition-all cursor-pointer ${
                   categoriesList[4].bgClass
-                } ${selectedCategoryFilter === categoriesList[4].name ? 'ring-2 ring-[#5B21B6]' : 'hover:scale-[1.01]'}`}
+                } ${selectedCategoryFilter === categoriesList[4].name ? 'ring-2 ring-[#1455AC]' : 'hover:scale-[1.01]'}`}
               >
                 <div className="flex items-center gap-2">
-                  <Cpu className="w-3.5 h-3.5 text-sky-600" />
+                  <Cpu className="w-3.5 h-3.5 text-blue-600" />
                   <span className="font-semibold text-slate-700 text-[11px]">{categoriesList[4].name}</span>
                 </div>
                 <span className="font-bold text-slate-900">{categoriesList[4].formattedCount}</span>
@@ -1057,7 +1057,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                         width={barW}
                         height={barH}
                         rx="1.5"
-                        fill={isHovered ? '#7C3AED' : '#5B21B6'}
+                        fill={isHovered ? '#2D79D1' : '#1455AC'}
                         className="transition-colors"
                       />
                     </g>
@@ -1154,7 +1154,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   placeholder="Pesquisar..."
                   value={communitySearchTerm}
                   onChange={(e) => setCommunitySearchTerm(e.target.value)}
-                  className="w-full pl-6 pr-2 py-1 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-purple-500 bg-slate-50/50"
+                  className="w-full pl-6 pr-2 py-1 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 bg-slate-50/50"
                 />
               </div>
             </div>
@@ -1175,10 +1175,10 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   {filteredCommunities.slice(0, 5).map((com) => (
                     <tr
                       key={com.id}
-                      className="hover:bg-purple-50/40 transition-colors group cursor-pointer"
+                      className="hover:bg-blue-50/40 transition-colors group cursor-pointer"
                       onClick={() => setActiveDetailModal(`Comunidade: ${com.name}`)}
                     >
-                      <td className="py-2.5 font-semibold text-slate-800 group-hover:text-[#5B21B6] transition-colors">
+                      <td className="py-2.5 font-semibold text-slate-800 group-hover:text-[#1455AC] transition-colors">
                         {com.name}
                       </td>
                       <td className="py-2.5">
@@ -1209,7 +1209,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setActiveDetailModal('Todas as Comunidades')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
             >
               <span>Ver todas as comunidades</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -1238,7 +1238,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   {activeMembers.map((member) => (
                     <tr
                       key={member.id}
-                      className="hover:bg-purple-50/40 transition-colors group cursor-pointer"
+                      className="hover:bg-blue-50/40 transition-colors group cursor-pointer"
                       onClick={() => setActiveDetailModal(`Perfil do Membro: ${member.name}`)}
                     >
                       <td className="py-2.5">
@@ -1249,7 +1249,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                             className="w-6 h-6 rounded-full object-cover border border-slate-200 shrink-0"
                             referrerPolicy="no-referrer"
                           />
-                          <span className="font-semibold text-slate-800 group-hover:text-[#5B21B6] transition-colors truncate max-w-[110px]">
+                          <span className="font-semibold text-slate-800 group-hover:text-[#1455AC] transition-colors truncate max-w-[110px]">
                             {member.name}
                           </span>
                         </div>
@@ -1274,7 +1274,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setActiveDetailModal('Ranking Completo de Membros')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
             >
               <span>Ver ranking completo</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -1296,12 +1296,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     {act.type === 'community' && <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />}
                     {act.type === 'user' && <Users className="w-3.5 h-3.5 text-blue-600" />}
                     {act.type === 'milestone' && <Award className="w-3.5 h-3.5 text-amber-500" />}
-                    {act.type === 'post' && <Send className="w-3.5 h-3.5 text-sky-600" />}
-                    {act.type === 'partner' && <Building2 className="w-3.5 h-3.5 text-purple-600" />}
+                    {act.type === 'post' && <Send className="w-3.5 h-3.5 text-blue-600" />}
+                    {act.type === 'partner' && <Building2 className="w-3.5 h-3.5 text-blue-600" />}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <span className="font-semibold text-slate-800 text-[11px] truncate group-hover:text-[#5B21B6] transition-colors">
+                      <span className="font-semibold text-slate-800 text-[11px] truncate group-hover:text-[#1455AC] transition-colors">
                         {act.title}
                       </span>
                       <span className="text-[10px] text-slate-400 shrink-0">{act.timeAgo}</span>
@@ -1319,7 +1319,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setActiveDetailModal('Todas as Atividades da Rede')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
             >
               <span>Ver todas as atividades</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -1338,7 +1338,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5 text-[#5B21B6]" />
+                <SlidersHorizontal className="w-5 h-5 text-[#1455AC]" />
                 <h3 className="text-lg font-bold text-slate-900 font-sans">
                   Filtros de Utilizadores e Comunidades
                 </h3>
@@ -1361,7 +1361,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 <select
                   value={selectedCategoryFilter}
                   onChange={(e) => setSelectedCategoryFilter(e.target.value)}
-                  className="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-purple-500"
+                  className="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-blue-500"
                 >
                   <option value="all">Todas as Categorias</option>
                   <option value="Ambiental">Ambiental</option>
@@ -1380,7 +1380,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 <select
                   value={selectedDateRange}
                   onChange={(e) => setSelectedDateRange(e.target.value)}
-                  className="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-purple-500"
+                  className="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-blue-500"
                 >
                   <option value="01 Mai 2024 - 24 Mai 2025">01 Mai 2024 - 24 Mai 2025 (Padrão)</option>
                   <option value="Últimos 30 dias">Últimos 30 dias</option>
@@ -1398,7 +1398,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 <div className="grid grid-cols-2 gap-2">
                   {['Ativas', 'Em Crescimento', 'Planeadas', 'Inativas'].map((st) => (
                     <label key={st} className="flex items-center gap-2 p-2 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
-                      <input type="checkbox" defaultChecked className="rounded text-[#5B21B6] focus:ring-purple-500" />
+                      <input type="checkbox" defaultChecked className="rounded text-[#1455AC] focus:ring-blue-500" />
                       <span className="text-slate-700 font-medium">{st}</span>
                     </label>
                   ))}
@@ -1413,7 +1413,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   setIsFilterModalOpen(false);
                   setIsEditContentModalOpen(true);
                 }}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#5B21B6] hover:bg-purple-50 rounded-xl transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#1455AC] hover:bg-blue-50 rounded-xl transition-colors cursor-pointer"
                 title="Editar métricas e adicionar comunidades"
               >
                 <Edit3 className="w-3.5 h-3.5" />
@@ -1438,7 +1438,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setIsFilterModalOpen(false);
                     showToast('Filtros aplicados com sucesso!');
                   }}
-                  className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-purple-700 rounded-xl cursor-pointer shadow-xs"
+                  className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-blue-700 rounded-xl cursor-pointer shadow-xs"
                 >
                   Aplicar Filtros
                 </button>
@@ -1454,7 +1454,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2">
-                <Edit3 className="w-5 h-5 text-[#5B21B6]" />
+                <Edit3 className="w-5 h-5 text-[#1455AC]" />
                 <h3 className="text-lg font-bold text-slate-900 font-sans">
                   Alterar Conteúdo & Métricas
                 </h3>
@@ -1486,7 +1486,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                         type="text"
                         value={k.value}
                         onChange={(e) => handleUpdateKpi(k.id, e.target.value, k.trend)}
-                        className="w-full font-bold text-slate-900 bg-white border border-slate-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-purple-500 font-mono"
+                        className="w-full font-bold text-slate-900 bg-white border border-slate-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-500 font-mono"
                       />
                     </div>
                   ))}
@@ -1497,7 +1497,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               <div className="pt-3 border-t border-slate-200/70 space-y-3">
                 <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wider flex items-center justify-between">
                   <span>Adicionar Nova Comunidade</span>
-                  <Plus className="w-4 h-4 text-[#5B21B6]" />
+                  <Plus className="w-4 h-4 text-[#1455AC]" />
                 </h4>
                 <form
                   onSubmit={(e) => {
@@ -1519,7 +1519,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                       form.reset();
                     }
                   }}
-                  className="space-y-2 bg-purple-50/40 p-3 rounded-xl border border-purple-100"
+                  className="space-y-2 bg-blue-50/40 p-3 rounded-xl border border-blue-100"
                 >
                   <input
                     name="comName"
@@ -1554,7 +1554,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   />
                   <button
                     type="submit"
-                    className="w-full py-1.5 bg-[#5B21B6] hover:bg-purple-700 text-white font-bold rounded-lg cursor-pointer"
+                    className="w-full py-1.5 bg-[#1455AC] hover:bg-blue-700 text-white font-bold rounded-lg cursor-pointer"
                   >
                     Salvar e Adicionar à Tabela
                   </button>
@@ -1585,7 +1585,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               <button
                 type="button"
                 onClick={() => setIsEditContentModalOpen(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-purple-700 rounded-xl cursor-pointer"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-blue-700 rounded-xl cursor-pointer"
               >
                 Concluir Edição
               </button>
@@ -1600,7 +1600,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2">
-                <Download className="w-5 h-5 text-[#5B21B6]" />
+                <Download className="w-5 h-5 text-[#1455AC]" />
                 <h3 className="text-base font-bold text-slate-900 font-sans">
                   Exportar Relatório
                 </h3>
@@ -1631,15 +1631,15 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setIsExportModalOpen(false);
                     showToast(`Exportação ${item.format} gerada com sucesso!`);
                   }}
-                  className="w-full p-3 border border-slate-200 rounded-xl hover:bg-purple-50 hover:border-purple-200 transition-all text-left flex items-center justify-between cursor-pointer group"
+                  className="w-full p-3 border border-slate-200 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all text-left flex items-center justify-between cursor-pointer group"
                 >
                   <div>
-                    <span className="font-bold text-slate-800 group-hover:text-[#5B21B6] block text-xs">
+                    <span className="font-bold text-slate-800 group-hover:text-[#1455AC] block text-xs">
                       Exportar como {item.format}
                     </span>
                     <span className="text-[11px] text-slate-400">{item.desc}</span>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#5B21B6]" />
+                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
                 </button>
               ))}
             </div>
@@ -1653,7 +1653,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           <div className="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-purple-100 text-[#5B21B6] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-100 text-[#1455AC] flex items-center justify-center">
                   <Users className="w-4 h-4" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 font-sans">
@@ -1686,8 +1686,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     </p>
                   </div>
                   <div className="grid grid-cols-3 gap-2 text-center pt-2">
-                    <div className="bg-purple-50 p-2 rounded-lg">
-                      <span className="text-[10px] text-purple-700 block">Status</span>
+                    <div className="bg-blue-50 p-2 rounded-lg">
+                      <span className="text-[10px] text-blue-700 block">Status</span>
                       <strong className="text-slate-900 text-xs font-bold">Ativa</strong>
                     </div>
                     <div className="bg-emerald-50 p-2 rounded-lg">
@@ -1703,7 +1703,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               ) : activeDetailModal.includes('Membro') ? (
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
-                    <div className="w-12 h-12 rounded-full bg-purple-100 text-[#5B21B6] font-bold flex items-center justify-center text-sm">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 text-[#1455AC] font-bold flex items-center justify-center text-sm">
                       M
                     </div>
                     <div>
@@ -1725,7 +1725,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               <button
                 type="button"
                 onClick={() => setActiveDetailModal(null)}
-                className="px-4 py-2 text-xs font-bold text-white bg-[#5B21B6] hover:bg-purple-700 rounded-xl cursor-pointer"
+                className="px-4 py-2 text-xs font-bold text-white bg-[#1455AC] hover:bg-blue-700 rounded-xl cursor-pointer"
               >
                 Fechar
               </button>

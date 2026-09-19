@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImpactRegionMapCard } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 import {
   Leaf,
   Users,
@@ -866,6 +867,32 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 ))}
               </div>
             </section>
+
+            {/* 5. ANÁLISE DE IMPACTO — GRÁFICOS COMPLETOS (LINHA TEMPORAL + DONUT) */}
+            <ImpactAnalyticsSection
+              accent="#059669"
+              softBg="bg-emerald-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'CO₂ evitado (t)',
+                  color: '#059669',
+                  values: [148, 162, 158, 176, 190, 184, 205, 218, 226, 240, 248, 262],
+                },
+                {
+                  name: 'Áreas restauradas (ha)',
+                  color: '#0D9488',
+                  values: [42, 48, 46, 55, 60, 58, 66, 72, 70, 80, 84, 90],
+                },
+              ]}
+              slices={[
+                { label: 'América Latina', value: 32, color: '#059669' },
+                { label: 'África', value: 24, color: '#10B981' },
+                { label: 'Ásia-Pacífico', value: 20, color: '#34D399' },
+                { label: 'Europa', value: 16, color: '#6EE7B7' },
+                { label: 'América do Norte', value: 8, color: '#A7F3D0' },
+              ]}
+            />
           </div>
 
           {/* COLUNA DIREITA / SIDEBAR (lg:col-span-4 xl:col-span-3) */}

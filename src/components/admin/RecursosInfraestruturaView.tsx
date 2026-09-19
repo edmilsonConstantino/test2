@@ -114,18 +114,18 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
     { name: 'AIMA (APIs)', status: 'Ativa', availability: '99,2%', icon: <ShieldCheck className="w-4 h-4 text-blue-600" /> },
     { name: 'Portal dos Municípios', status: 'Ativa', availability: '97,8%', icon: <Building2 className="w-4 h-4 text-emerald-600" /> },
     { name: 'Turismo de Portugal', status: 'Ativa', availability: '98,1%', icon: <Compass className="w-4 h-4 text-amber-600" /> },
-    { name: 'Transportes e Mobilidade', status: 'Ativa', availability: '97,5%', icon: <Activity className="w-4 h-4 text-indigo-600" /> },
-    { name: 'APIs Externas', status: 'Ativa', availability: '96,9%', icon: <Globe className="w-4 h-4 text-purple-600" /> },
+    { name: 'Transportes e Mobilidade', status: 'Ativa', availability: '97,5%', icon: <Activity className="w-4 h-4 text-blue-600" /> },
+    { name: 'APIs Externas', status: 'Ativa', availability: '96,9%', icon: <Globe className="w-4 h-4 text-blue-600" /> },
   ], []);
 
   // Donut chart resource types breakdown
   const resourceTypes = [
-    { label: 'Servidores Físicos', percent: '32%', count: 41, color: '#3B82F6' },
-    { label: 'Servidores Virtuais', percent: '28%', count: 36, color: '#06B6D4' },
+    { label: 'Servidores Físicos', percent: '32%', count: 41, color: '#1455AC' },
+    { label: 'Servidores Virtuais', percent: '28%', count: 36, color: '#5F9DE0' },
     { label: 'Armazenamento', percent: '20%', count: 26, color: '#10B981' },
-    { label: 'Bases de Dados', percent: '10%', count: 13, color: '#F97316' },
+    { label: 'Bases de Dados', percent: '10%', count: 13, color: '#F58300' },
     { label: 'Redes e Segurança', percent: '6%', count: 8, color: '#EF4444' },
-    { label: 'Outros', percent: '4%', count: 4, color: '#EAB308' },
+    { label: 'Outros', percent: '4%', count: 4, color: '#F58300' },
   ];
 
   // 2. LINHA 1: 6 Cards de Indicadores (KPIs) — colapsado em 5 + botão "Ver mais"
@@ -149,8 +149,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
       icon: <Server className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-purple-50 border border-purple-100/70',
-      iconClass: 'text-purple-600',
+      bgClass: 'bg-blue-50 border border-blue-100/70',
+      iconClass: 'text-blue-600',
       spark: [98, 102, 105, 108, 110, 112, 115, 118, 121, 124, 126, 128],
       onClick: () => setSelectedDC('VILA-DC01'),
     },
@@ -173,8 +173,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 22%',
       trendPeriod: 'desde o ano passado',
       icon: <Wifi className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-orange-50 border border-orange-100/70',
-      iconClass: 'text-orange-600',
+      bgClass: 'bg-amber-50 border border-amber-100/70',
+      iconClass: 'text-amber-600',
       spark: [11.2, 11.8, 12.4, 13, 13.6, 14.4, 15, 15.9, 16.6, 17.4, 18.1, 18.7],
       onClick: () => setSelectedService('API Gateway'),
     },
@@ -185,8 +185,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 14%',
       trendPeriod: 'desde o ano passado',
       icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-rose-50 border border-rose-100/70',
-      iconClass: 'text-rose-600',
+      bgClass: 'bg-blue-50 border border-blue-100/70',
+      iconClass: 'text-blue-600',
       spark: [30, 31, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42],
       onClick: () => setSelectedService('Open Data'),
     },
@@ -210,7 +210,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 1. Header do Módulo com Identidade VILA */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/80 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <SlidersHorizontal className="w-6 h-6" />
           </div>
           <div>
@@ -258,7 +258,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
           {/* Filtros */}
           <button
             onClick={() => setIsFilterModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#5B21B6] hover:bg-purple-800 text-white rounded-xl text-xs font-semibold shadow-2xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#1455AC] hover:bg-blue-800 text-white rounded-xl text-xs font-semibold shadow-2xs transition-colors"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>Filtros</span>
@@ -279,7 +279,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
               <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Globe className="w-4 h-4" />
                 </div>
                 <div>
@@ -299,7 +299,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               </div>
 
               <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Building2 className="w-4 h-4" />
                 </div>
                 <div>
@@ -369,7 +369,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               </div>
 
               <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <LayoutGrid className="w-4 h-4" />
                 </div>
                 <div>
@@ -399,7 +399,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
               <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
@@ -409,7 +409,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               </div>
 
               <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Bot className="w-4 h-4" />
                 </div>
                 <div>
@@ -478,7 +478,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                   <path
-                    className="text-indigo-600"
+                    className="text-blue-600"
                     strokeDasharray="35, 100"
                     strokeWidth="3.2"
                     strokeLinecap="round"
@@ -505,7 +505,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                   <path
-                    className="text-teal-500"
+                    className="text-blue-500"
                     strokeDasharray="62, 100"
                     strokeWidth="3.2"
                     strokeLinecap="round"
@@ -585,14 +585,14 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="w-36 h-36 shrink-0 relative flex items-center justify-center">
               <svg viewBox="0 0 140 120" className="w-full h-full drop-shadow-2xs">
                 {/* Camada 1: Topo / Global */}
-                <polygon points="70,10 82,30 58,30" fill="#7C3AED" />
+                <polygon points="70,10 82,30 58,30" fill="#2D79D1" />
                 <text x="70" y="24" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="bold">1</text>
 
                 {/* Camada 2: País */}
-                <polygon points="56,33 84,33 96,53 44,53" fill="#6366F1" />
+                <polygon points="56,33 84,33 96,53 44,53" fill="#2D79D1" />
 
                 {/* Camada 3: Região */}
-                <polygon points="42,56 98,56 110,76 30,76" fill="#0EA5E9" />
+                <polygon points="42,56 98,56 110,76 30,76" fill="#2D79D1" />
 
                 {/* Camada 4: Município */}
                 <polygon points="28,79 112,79 124,99 16,99" fill="#10B981" />
@@ -606,7 +606,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="flex-1 space-y-2 text-xs">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-[#7C3AED]" />
+                  <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                   Global (Data Centers)
                 </span>
                 <span className="font-semibold text-slate-900">6 centros</span>
@@ -614,7 +614,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-[#6366F1]" />
+                  <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                   Nível País
                 </span>
                 <span className="font-semibold text-slate-900">156 instâncias</span>
@@ -622,7 +622,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-[#0EA5E9]" />
+                  <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                   Nível Região
                 </span>
                 <span className="font-semibold text-slate-900">324 instâncias</span>
@@ -795,7 +795,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="space-y-3 mt-3 text-xs">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-700">
-                  <ShieldAlert className="w-4 h-4 text-purple-600 shrink-0" />
+                  <ShieldAlert className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Incidentes Bloqueados (30 dias)</span>
                 </div>
                 <span className="font-bold text-slate-900">1.248</span>
@@ -803,7 +803,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-700">
-                  <ShieldCheck className="w-4 h-4 text-purple-600 shrink-0" />
+                  <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Utilizadores com MFA Ativo</span>
                 </div>
                 <span className="font-bold text-slate-900">78,2%</span>
@@ -811,7 +811,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-700">
-                  <UserCheck className="w-4 h-4 text-purple-600 shrink-0" />
+                  <UserCheck className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Utilizadores Verificados</span>
                 </div>
                 <span className="font-bold text-slate-900">2,1M</span>
@@ -819,7 +819,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-700">
-                  <KeyRound className="w-4 h-4 text-purple-600 shrink-0" />
+                  <KeyRound className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Tentativas de Acesso Bloqueadas</span>
                 </div>
                 <span className="font-bold text-slate-900">19.732</span>
@@ -827,7 +827,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-slate-700">
-                  <FileBadge className="w-4 h-4 text-purple-600 shrink-0" />
+                  <FileBadge className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Conformidade (ISO 27001)</span>
                 </div>
                 <span className="font-bold text-emerald-600">100%</span>
@@ -856,17 +856,17 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               <div className="w-24 h-24 shrink-0 relative flex items-center justify-center">
                 <svg viewBox="0 0 42 42" className="w-full h-full -rotate-90">
                   {/* Físicos 32% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#3B82F6" strokeWidth="6" strokeDasharray="32 68" strokeDashoffset="0" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#1455AC" strokeWidth="6" strokeDasharray="32 68" strokeDashoffset="0" />
                   {/* Virtuais 28% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#06B6D4" strokeWidth="6" strokeDasharray="28 72" strokeDashoffset="-32" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#5F9DE0" strokeWidth="6" strokeDasharray="28 72" strokeDashoffset="-32" />
                   {/* Armazenamento 20% */}
                   <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#10B981" strokeWidth="6" strokeDasharray="20 80" strokeDashoffset="-60" />
                   {/* Bases de Dados 10% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F97316" strokeWidth="6" strokeDasharray="10 90" strokeDashoffset="-80" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F58300" strokeWidth="6" strokeDasharray="10 90" strokeDashoffset="-80" />
                   {/* Redes 6% */}
                   <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#EF4444" strokeWidth="6" strokeDasharray="6 94" strokeDashoffset="-90" />
                   {/* Outros 4% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#EAB308" strokeWidth="6" strokeDasharray="4 96" strokeDashoffset="-96" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F58300" strokeWidth="6" strokeDasharray="4 96" strokeDashoffset="-96" />
                 </svg>
               </div>
 
@@ -908,7 +908,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
           <div className="flex items-center justify-between gap-4 my-auto py-3">
             {/* Ícone de Nuvem e Último Backup */}
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                 <CloudDownload className="w-6 h-6" />
               </div>
               <div>
@@ -962,7 +962,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
             {/* Tempo Médio de Resolução */}
             <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                 <Clock className="w-4 h-4" />
               </div>
               <div>
@@ -1071,11 +1071,11 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                   Armazenamento (TB)
                 </span>
                 <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-[#06B6D4]" />
+                  <span className="w-2 h-2 rounded-full bg-[#5F9DE0]" />
                   Largura de Banda (Tbps)
                 </span>
                 <span className="flex items-center gap-1.5 text-slate-700 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-[#3B82F6]" />
+                  <span className="w-2 h-2 rounded-full bg-[#1455AC]" />
                   Servidores Ativos
                 </span>
               </div>
@@ -1091,12 +1091,12 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     <stop offset="100%" stopColor="#1E293B" stopOpacity="0.01" />
                   </linearGradient>
                   <linearGradient id="ri-area-bandwidth" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.12" />
-                    <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.01" />
+                    <stop offset="0%" stopColor="#5F9DE0" stopOpacity="0.12" />
+                    <stop offset="100%" stopColor="#5F9DE0" stopOpacity="0.01" />
                   </linearGradient>
                   <linearGradient id="ri-area-servers" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.1" />
-                    <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.01" />
+                    <stop offset="0%" stopColor="#1455AC" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#1455AC" stopOpacity="0.01" />
                   </linearGradient>
                 </defs>
                 {/* Linhas horizontais de grade */}
@@ -1150,7 +1150,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <path
                   d="M 40 95 Q 85 92 135 88 T 235 85 T 335 82 T 435 78 T 535 72"
                   fill="none"
-                  stroke="#06B6D4"
+                  stroke="#5F9DE0"
                   strokeWidth="2.2"
                 />
                 {[
@@ -1167,7 +1167,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     cy={pt.cy}
                     r="3"
                     fill="#ffffff"
-                    stroke="#06B6D4"
+                    stroke="#5F9DE0"
                     strokeWidth="2"
                   />
                 ))}
@@ -1176,7 +1176,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <path
                   d="M 40 110 Q 85 108 135 106 T 235 104 T 335 102 T 435 99 T 535 96"
                   fill="none"
-                  stroke="#3B82F6"
+                  stroke="#1455AC"
                   strokeWidth="2"
                 />
                 {[
@@ -1193,7 +1193,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     cy={pt.cy}
                     r="2.5"
                     fill="#ffffff"
-                    stroke="#3B82F6"
+                    stroke="#1455AC"
                     strokeWidth="1.8"
                   />
                 ))}
@@ -1292,7 +1292,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
                   <Server className="w-5 h-5" />
                 </div>
                 <div>
@@ -1357,7 +1357,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                   setSelectedDC(null);
                   onOpenSupportModal?.(`Centro de Dados ${selectedDC}`);
                 }}
-                className="px-4 py-2 bg-[#5B21B6] hover:bg-purple-800 text-white rounded-xl text-xs font-semibold transition-colors"
+                className="px-4 py-2 bg-[#1455AC] hover:bg-blue-800 text-white rounded-xl text-xs font-semibold transition-colors"
               >
                 Configurar Recursos
               </button>
@@ -1421,7 +1421,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                   setSelectedService(null);
                   onOpenSupportModal?.(`Serviço ${selectedService}`);
                 }}
-                className="px-4 py-2 bg-[#5B21B6] hover:bg-purple-800 text-white rounded-xl text-xs font-semibold transition-colors"
+                className="px-4 py-2 bg-[#1455AC] hover:bg-blue-800 text-white rounded-xl text-xs font-semibold transition-colors"
               >
                 Diagnóstico Avançado
               </button>
@@ -1450,7 +1450,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <select
                   value={selectedPeriod}
                   onChange={(e) => setSelectedPeriod(e.target.value as any)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl bg-white text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-xl bg-white text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="24h">Últimas 24 horas</option>
                   <option value="7d">Últimos 7 dias</option>
@@ -1483,7 +1483,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="flex justify-end gap-2 pt-2">
               <button
                 onClick={() => setIsFilterModalOpen(false)}
-                className="px-4 py-2 bg-[#5B21B6] hover:bg-purple-800 text-white rounded-xl text-xs font-semibold transition-colors w-full"
+                className="px-4 py-2 bg-[#1455AC] hover:bg-blue-800 text-white rounded-xl text-xs font-semibold transition-colors w-full"
               >
                 Aplicar Filtros
               </button>

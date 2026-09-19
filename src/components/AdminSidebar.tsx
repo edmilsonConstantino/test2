@@ -400,7 +400,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
             <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
               PLATAFORMA VILA
             </span>
-            <span className="inline-flex items-center gap-1 text-[8.5px] font-bold px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200">
+            <span className="inline-flex items-center gap-1 text-[8.5px] font-bold px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">
               <ShieldCheck className="w-2.5 h-2.5" />
               <span>Admin</span>
             </span>
@@ -429,8 +429,8 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                 }}
                 className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-[12px] leading-tight transition-all duration-200 group cursor-pointer ${
                   isActive
-                    ? 'bg-[#EDE9FE] text-[#5B21B6] font-bold shadow-2xs'
-                    : 'text-[#1E293B] hover:bg-slate-50 hover:text-[#5B21B6] font-medium'
+                    ? 'bg-[#E2ECF9] text-[#1455AC] font-bold shadow-2xs'
+                    : 'text-[#1E293B] hover:bg-slate-50 hover:text-[#1455AC] font-medium'
                 }`}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -438,8 +438,8 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                   <span
                     className={`shrink-0 transition-colors ${
                       isActive
-                        ? 'text-[#5B21B6]'
-                        : 'text-slate-500 group-hover:text-[#5B21B6]'
+                        ? 'text-[#1455AC]'
+                        : 'text-slate-500 group-hover:text-[#1455AC]'
                     }`}
                   >
                     {item.icon}
@@ -537,7 +537,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               onClick={() => setIsDarkMode(!isDarkMode)}
               id="admin-theme-toggle-switch"
               className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                isDarkMode ? 'bg-[#5B21B6]' : 'bg-slate-300'
+                isDarkMode ? 'bg-[#1455AC]' : 'bg-slate-300'
               }`}
             >
               <span

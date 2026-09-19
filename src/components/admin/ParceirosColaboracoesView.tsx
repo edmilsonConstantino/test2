@@ -109,8 +109,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
       icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-purple-50/90 border border-purple-100/70',
-      iconClass: 'text-purple-600',
+      bgClass: 'bg-blue-50/90 border border-blue-100/70',
+      iconClass: 'text-blue-600',
       spark: [268, 280, 275, 295, 302, 310, 305, 318, 325, 330, 336, 342],
     },
     {
@@ -153,8 +153,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 23%',
       trendPeriod: 'desde o ano passado',
       icon: <Briefcase className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-purple-50/90 border border-purple-100/70',
-      iconClass: 'text-purple-600',
+      bgClass: 'bg-blue-50/90 border border-blue-100/70',
+      iconClass: 'text-blue-600',
       spark: [130, 138, 142, 148, 152, 158, 162, 170, 176, 180, 185, 189],
     },
     {
@@ -243,10 +243,26 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       .map((f: any, index: number) => {
         const d = pathGen(f);
         if (!d) return null;
+        const name = f.properties?.name || '';
+
+        // Densidade de parceiros por país (cores da legenda):
+        // Mais de 50: #0D366E | 21-50: #2D79D1 | 6-20: #99C0EB | 1-5: #E2ECF9 | 0: #F1F5F9
+        let fill = '#F1F5F9';
+        if (['Portugal', 'Brazil', 'United States of America', 'Spain'].includes(name)) {
+          fill = '#0D366E';
+        } else if (['Mozambique', 'Angola', 'France', 'Germany', 'United Kingdom', 'Cabo Verde', 'Cape Verde'].includes(name)) {
+          fill = '#2D79D1';
+        } else if (['Italy', 'Mexico', 'Colombia', 'Argentina', 'Chile', 'Kenya', 'South Africa', 'India', 'Netherlands', 'Belgium', 'Switzerland'].includes(name)) {
+          fill = '#99C0EB';
+        } else if (['Canada', 'Japan', 'Australia', 'China', 'Morocco', 'Peru', 'Nigeria', 'Egypt', 'Timor-Leste', 'Guinea-Bissau', 'Sao Tome and Principe', 'Poland', 'Indonesia', 'Sweden', 'Norway'].includes(name)) {
+          fill = '#E2ECF9';
+        }
+
         return {
           key: `geom-${index}`,
           d,
-          name: f.properties?.name || '',
+          fill,
+          name,
         };
       });
 
@@ -268,12 +284,12 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
   // ---------------------------------------------------------------------------
   const ecossistemaTipos = [
     { name: 'Municípios e Governos Locais', count: 128, icon: <Building className="w-4 h-4 text-blue-600" />, iconBg: 'bg-blue-50' },
-    { name: 'Universidades e Centros de Pesquisa', count: 64, icon: <GraduationCap className="w-4 h-4 text-indigo-600" />, iconBg: 'bg-indigo-50' },
+    { name: 'Universidades e Centros de Pesquisa', count: 64, icon: <GraduationCap className="w-4 h-4 text-blue-600" />, iconBg: 'bg-blue-50' },
     { name: 'Empresas e Indústria', count: 48, icon: <Briefcase className="w-4 h-4 text-emerald-600" />, iconBg: 'bg-emerald-50' },
-    { name: 'ONGs e Organizações da Sociedade Civil', count: 56, icon: <HeartHandshake className="w-4 h-4 text-orange-600" />, iconBg: 'bg-orange-50' },
-    { name: 'Organismos Internacionais', count: 28, icon: <Landmark className="w-4 h-4 text-sky-600" />, iconBg: 'bg-sky-50' },
-    { name: 'Associações e Redes', count: 18, icon: <Network className="w-4 h-4 text-purple-600" />, iconBg: 'bg-purple-50' },
-    { name: 'Fundações', count: 14, icon: <Building2 className="w-4 h-4 text-cyan-600" />, iconBg: 'bg-cyan-50' },
+    { name: 'ONGs e Organizações da Sociedade Civil', count: 56, icon: <HeartHandshake className="w-4 h-4 text-amber-600" />, iconBg: 'bg-amber-50' },
+    { name: 'Organismos Internacionais', count: 28, icon: <Landmark className="w-4 h-4 text-blue-600" />, iconBg: 'bg-blue-50' },
+    { name: 'Associações e Redes', count: 18, icon: <Network className="w-4 h-4 text-blue-600" />, iconBg: 'bg-blue-50' },
+    { name: 'Fundações', count: 14, icon: <Building2 className="w-4 h-4 text-blue-600" />, iconBg: 'bg-blue-50' },
   ];
 
   // ---------------------------------------------------------------------------
@@ -349,17 +365,17 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       id: 'nivel-estrategicos',
       name: 'Parceiros Estratégicos',
       count: '48',
-      icon: <Crown className="w-4 h-4 text-purple-700" />,
-      containerBg: 'bg-[#F3E8FF] border border-purple-200/90 text-purple-900',
-      iconBoxBg: 'bg-purple-200/70',
+      icon: <Crown className="w-4 h-4 text-blue-700" />,
+      containerBg: 'bg-[#F0F5FC] border border-blue-200/90 text-blue-900',
+      iconBoxBg: 'bg-blue-200/70',
     },
     {
       id: 'nivel-institucionais',
       name: 'Parceiros Institucionais',
       count: '126',
       icon: <Landmark className="w-4 h-4 text-blue-700" />,
-      containerBg: 'bg-[#E0F2FE] border border-sky-200/90 text-sky-900',
-      iconBoxBg: 'bg-sky-200/70',
+      containerBg: 'bg-[#F0F5FC] border border-blue-200/90 text-blue-900',
+      iconBoxBg: 'bg-blue-200/70',
     },
     {
       id: 'nivel-operacionais',
@@ -469,16 +485,16 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       title: 'Projetos à Procura de Parceiros',
       desc: 'Projetos que procuram parceiros estratégicos',
       count: 15,
-      icon: <Search className="w-4 h-4 text-purple-600" />,
-      iconBg: 'bg-purple-50 border border-purple-100',
+      icon: <Search className="w-4 h-4 text-blue-600" />,
+      iconBg: 'bg-blue-50 border border-blue-100',
     },
     {
       id: 'op-4',
       title: 'Novas Organizações Interessadas',
       desc: 'Organizações que manifestaram interesse na VILA',
       count: 23,
-      icon: <Building2 className="w-4 h-4 text-indigo-600" />,
-      iconBg: 'bg-indigo-50 border border-indigo-100',
+      icon: <Building2 className="w-4 h-4 text-blue-600" />,
+      iconBg: 'bg-blue-50 border border-blue-100',
     },
   ];
 
@@ -536,8 +552,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       id: 'logo-un-habitat',
       name: 'ONU-HABITAT',
       render: (
-        <div className="flex items-center gap-1.5 font-black text-sky-700 tracking-tight text-xs">
-          <Globe2 className="w-4 h-4 text-sky-600" />
+        <div className="flex items-center gap-1.5 font-black text-blue-700 tracking-tight text-xs">
+          <Globe2 className="w-4 h-4 text-blue-600" />
           <span>UN-HABITAT</span>
         </div>
       ),
@@ -567,8 +583,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'UNICEF',
       render: (
         <div className="flex flex-col items-center leading-none">
-          <span className="font-extrabold text-sky-500 text-xs lowercase">unicef</span>
-          <span className="text-[7.5px] text-sky-700 font-semibold mt-0.5">para cada criança</span>
+          <span className="font-extrabold text-blue-500 text-xs lowercase">unicef</span>
+          <span className="text-[7.5px] text-blue-700 font-semibold mt-0.5">para cada criança</span>
         </div>
       ),
     },
@@ -662,8 +678,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       highlight: 'Cidades Sustentáveis para Todos',
       subtitle: '12 países • 78% de progresso',
       time: 'há 2 h',
-      icon: <Briefcase className="w-4 h-4 text-cyan-600" />,
-      iconBg: 'bg-cyan-50 border border-cyan-100',
+      icon: <Briefcase className="w-4 h-4 text-blue-600" />,
+      iconBg: 'bg-blue-50 border border-blue-100',
     },
     {
       id: 'ar-4',
@@ -680,8 +696,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       highlight: '',
       subtitle: '35 participantes • Online',
       time: 'há 4 h',
-      icon: <Users className="w-4 h-4 text-purple-600" />,
-      iconBg: 'bg-purple-50 border border-purple-100',
+      icon: <Users className="w-4 h-4 text-blue-600" />,
+      iconBg: 'bg-blue-50 border border-blue-100',
     },
   ];
 
@@ -690,7 +706,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
+          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -701,7 +717,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
         {/* Lado Esquerdo: Ícone + Título + Descrição */}
         <div className="flex items-start gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE] text-[#5B21B6] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+          <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9] text-[#1455AC] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
             <Handshake className="w-6 h-6" strokeWidth={2.2} />
           </div>
           <div>
@@ -723,7 +739,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
               <span>Dados atualizados: 10:32</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-sky-500" />
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
               <span>Dados em tempo real</span>
             </span>
           </div>
@@ -751,11 +767,11 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
               <span>Exportar</span>
             </button>
 
-            {/* Botão Filtros (Sólido Roxo #5B21B6) */}
+            {/* Botão Filtros (Sólido Roxo #1455AC) */}
             <button
               type="button"
               onClick={() => setIsFilterModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold transition-colors shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold transition-colors shadow-xs cursor-pointer"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
               <span>Filtros</span>
@@ -808,8 +824,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <div className="mt-3 flex items-start gap-4">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full border border-sky-200 bg-sky-50 flex items-center justify-center shrink-0">
-                    <Globe2 className="w-4 h-4 text-sky-600" />
+                  <div className="w-8 h-8 rounded-full border border-blue-200 bg-blue-50 flex items-center justify-center shrink-0">
+                    <Globe2 className="w-4 h-4 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="text-sm sm:text-base font-bold text-[#0F172A] leading-tight">
@@ -857,7 +873,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                   alt={currentFeaturedPartner.name}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-1 right-1 bg-white/95 px-1.5 py-0.5 rounded text-[8.5px] font-black text-sky-800 shadow-xs">
+                <div className="absolute bottom-1 right-1 bg-white/95 px-1.5 py-0.5 rounded text-[8.5px] font-black text-blue-800 shadow-xs">
                   {currentFeaturedPartner.name}
                 </div>
               </div>
@@ -869,7 +885,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => setSelectedPartnerModal(currentFeaturedPartner)}
-              className="w-full py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold transition-colors shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold transition-colors shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>Ver perfil do parceiro</span>
             </button>
@@ -902,7 +918,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                       <path
                         key={p.key}
                         d={p.d}
-                        fill="#E2E8F0"
+                        fill={p.fill}
                         stroke="#FFFFFF"
                         strokeWidth={0.5}
                       />
@@ -924,7 +940,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                         cx={cx}
                         cy={cy}
                         r="11"
-                        fill="#5B21B6"
+                        fill="#1455AC"
                         className="transition-transform group-hover:scale-110"
                       />
                       <text
@@ -946,19 +962,19 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             {/* Legenda dos Níveis de Densidade */}
             <div className="mt-2 space-y-1 text-[10.5px] font-medium text-slate-600">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#312E81]" />
+                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#0D366E]" />
                 <span>Mais de 50 parceiros</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#6366F1]" />
+                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#2D79D1]" />
                 <span>Entre 21 e 50 parceiros</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#A5B4FC]" />
+                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#99C0EB]" />
                 <span>Entre 6 e 20 parceiros</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#E0E7FF]" />
+                <span className="w-2.5 h-2.5 rounded-[2px] bg-[#E2ECF9]" />
                 <span>Entre 1 e 5 parceiros</span>
               </div>
               <div className="flex items-center gap-2">
@@ -972,7 +988,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => setIsMapModalOpen(true)}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver mapa interativo</span>
               <ArrowRight className="w-4 h-4" />
@@ -1014,7 +1030,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => showToast('A exibir todos os parceiros')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os parceiros</span>
               <ArrowRight className="w-4 h-4" />
@@ -1045,7 +1061,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             {/* Legenda das 3 Linhas */}
             <div className="mt-2.5 flex flex-wrap items-center gap-2.5 text-[11px] font-medium text-slate-600">
               <div className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-[#6366F1]" />
+                <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                 <span>Parceiros Ativos</span>
               </div>
               <div className="flex items-center gap-1">
@@ -1053,7 +1069,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                 <span>Acordos de Colaboração</span>
               </div>
               <div className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-[#0EA5E9]" />
+                <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                 <span>Projetos em Parceria</span>
               </div>
             </div>
@@ -1064,16 +1080,16 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                 {/* Gradientes de área (mais realista) */}
                 <defs>
                   <linearGradient id="pc-area-at" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#6366F1" stopOpacity="0.16" />
-                    <stop offset="100%" stopColor="#6366F1" stopOpacity="0.01" />
+                    <stop offset="0%" stopColor="#2D79D1" stopOpacity="0.16" />
+                    <stop offset="100%" stopColor="#2D79D1" stopOpacity="0.01" />
                   </linearGradient>
                   <linearGradient id="pc-area-ac" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#10B981" stopOpacity="0.13" />
                     <stop offset="100%" stopColor="#10B981" stopOpacity="0.01" />
                   </linearGradient>
                   <linearGradient id="pc-area-pr" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.11" />
-                    <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.01" />
+                    <stop offset="0%" stopColor="#2D79D1" stopOpacity="0.11" />
+                    <stop offset="100%" stopColor="#2D79D1" stopOpacity="0.01" />
                   </linearGradient>
                 </defs>
                 {/* Linhas de Grade */}
@@ -1114,9 +1130,9 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                 <path d={`${lineChartPoints.prPath} L ${lineChartPoints.prCoords[lineChartPoints.prCoords.length - 1].x},175 L ${lineChartPoints.prCoords[0].x},175 Z`} fill="url(#pc-area-pr)" />
 
                 {/* Linhas */}
-                <path d={lineChartPoints.atPath} fill="none" stroke="#6366F1" strokeWidth="2.5" strokeLinecap="round" />
+                <path d={lineChartPoints.atPath} fill="none" stroke="#2D79D1" strokeWidth="2.5" strokeLinecap="round" />
                 <path d={lineChartPoints.acPath} fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" />
-                <path d={lineChartPoints.prPath} fill="none" stroke="#0EA5E9" strokeWidth="2.5" strokeLinecap="round" />
+                <path d={lineChartPoints.prPath} fill="none" stroke="#2D79D1" strokeWidth="2.5" strokeLinecap="round" />
 
                 {/* Marcadores */}
                 {lineChartPoints.atCoords.map((pt, i) => (
@@ -1125,7 +1141,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                     cx={pt.x}
                     cy={pt.y}
                     r={hoveredChartMonth === i ? 5 : 3}
-                    fill="#6366F1"
+                    fill="#2D79D1"
                     stroke="#FFFFFF"
                     strokeWidth="1.5"
                     className="cursor-pointer"
@@ -1155,7 +1171,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                       cx={pt.x}
                       cy={pt.y}
                       r={hoveredChartMonth === i ? 5 : 3}
-                      fill="#0EA5E9"
+                      fill="#2D79D1"
                       stroke="#FFFFFF"
                       strokeWidth="1.5"
                       className="cursor-pointer"
@@ -1188,13 +1204,13 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                   <p className="font-bold text-slate-200">
                     {partnersTimeline[hoveredChartMonth].month} 2025
                   </p>
-                  <p className="text-indigo-300">
+                  <p className="text-blue-300">
                     Ativos: {partnersTimeline[hoveredChartMonth].ativos}
                   </p>
                   <p className="text-emerald-300">
                     Acordos: {partnersTimeline[hoveredChartMonth].acordos}
                   </p>
-                  <p className="text-sky-300">
+                  <p className="text-blue-300">
                     Projetos: {partnersTimeline[hoveredChartMonth].projetos}
                   </p>
                 </div>
@@ -1206,7 +1222,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-4 h-4" />
@@ -1244,7 +1260,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => showToast('A carregar análise de níveis de parceria')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver níveis de parceria</span>
               <ArrowRight className="w-4 h-4" />
@@ -1276,7 +1292,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                   </div>
                   <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-[#5B21B6] transition-all duration-500"
+                      className="h-full rounded-full bg-[#1455AC] transition-all duration-500"
                       style={{ width: `${t.pct}%` }}
                     />
                   </div>
@@ -1289,7 +1305,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os territórios</span>
               <ArrowRight className="w-4 h-4" />
@@ -1330,7 +1346,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                             alt={proj.title}
                             className="w-7 h-7 rounded-lg object-cover shrink-0"
                           />
-                          <span className="font-bold text-[#0F172A] group-hover:text-[#5B21B6] truncate max-w-[170px] transition-colors">
+                          <span className="font-bold text-[#0F172A] group-hover:text-[#1455AC] truncate max-w-[170px] transition-colors">
                             {proj.title}
                           </span>
                         </div>
@@ -1358,7 +1374,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => onNavigateToTab('projetos-iniciativas')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os projetos</span>
               <ArrowRight className="w-4 h-4" />
@@ -1378,14 +1394,14 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                 <div
                   key={op.id}
                   onClick={() => showToast(`Oportunidades: ${op.title}`)}
-                  className="p-3 rounded-xl border border-slate-100 hover:border-purple-200 hover:bg-slate-50/50 flex items-start gap-3 cursor-pointer transition-all group"
+                  className="p-3 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-slate-50/50 flex items-start gap-3 cursor-pointer transition-all group"
                 >
                   <div className={`p-1.5 rounded-lg shrink-0 mt-0.5 ${op.iconBg}`}>
                     {op.icon}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <h3 className="text-xs font-bold text-[#0F172A] group-hover:text-[#5B21B6] truncate transition-colors">
+                      <h3 className="text-xs font-bold text-[#0F172A] group-hover:text-[#1455AC] truncate transition-colors">
                         {op.title}
                       </h3>
                       <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-[11px] font-bold shrink-0">
@@ -1405,7 +1421,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => showToast('A carregar todas as oportunidades')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todas as oportunidades</span>
               <ArrowRight className="w-4 h-4" />
@@ -1480,7 +1496,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => showToast('A exibir todos os acordos')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os acordos</span>
               <ArrowRight className="w-4 h-4" />
@@ -1500,7 +1516,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                 <div
                   key={lg.id}
                   onClick={() => showToast(`Parceiro: ${lg.name}`)}
-                  className="h-14 rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-purple-200 hover:shadow-2xs flex items-center justify-center p-2 text-center cursor-pointer transition-all"
+                  className="h-14 rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-blue-200 hover:shadow-2xs flex items-center justify-center p-2 text-center cursor-pointer transition-all"
                 >
                   {lg.render}
                 </div>
@@ -1512,7 +1528,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => showToast('A carregar diretório de parceiros')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os parceiros</span>
               <ArrowRight className="w-4 h-4" />
@@ -1552,7 +1568,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <button
               type="button"
               onClick={() => showToast('A abrir histórico completo de atividades')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver toda a atividade</span>
               <ArrowRight className="w-4 h-4" />
@@ -1569,7 +1585,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
           <div className="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center font-black">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-black">
                   <Globe2 className="w-6 h-6" />
                 </div>
                 <div>
@@ -1636,7 +1652,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                   showToast(`Proposta de colaboração enviada a ${selectedPartnerModal.name}`);
                   setSelectedPartnerModal(null);
                 }}
-                className="px-4 py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold shadow-xs transition-colors"
+                className="px-4 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold shadow-xs transition-colors"
               >
                 Propor Nova Colaboração
               </button>
@@ -1679,12 +1695,12 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                   }}
                   className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-colors ${
                     dateRange === range
-                      ? 'bg-purple-50 text-[#5B21B6] border border-purple-200'
+                      ? 'bg-blue-50 text-[#1455AC] border border-blue-200'
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   <span>{range}</span>
-                  {dateRange === range && <Check className="w-4 h-4 text-[#5B21B6]" />}
+                  {dateRange === range && <Check className="w-4 h-4 text-[#1455AC]" />}
                 </button>
               ))}
             </div>
@@ -1725,9 +1741,9 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                     showToast(`A descarregar ficheiro ${exp.ext}...`);
                     setIsExportModalOpen(false);
                   }}
-                  className="p-3 rounded-2xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 text-left transition-all group cursor-pointer"
+                  className="p-3 rounded-2xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all group cursor-pointer"
                 >
-                  <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#5B21B6] block">
+                  <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#1455AC] block">
                     {exp.title}
                   </span>
                   <span className="text-[11px] text-slate-400 block mt-1">
@@ -1800,7 +1816,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                     setIsFilterModalOpen(false);
                     showToast('Filtros de parcerias aplicados!');
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#5B21B6] text-white text-xs font-bold shadow-xs hover:bg-[#4C1D95]"
+                  className="px-4 py-2 rounded-xl bg-[#1455AC] text-white text-xs font-bold shadow-xs hover:bg-[#0F448A]"
                 >
                   Aplicar Filtros
                 </button>
@@ -1851,7 +1867,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                   const [cx, cy] = pin.xy;
                   return (
                     <g key={`modal-pin-${pin.name}`}>
-                      <circle cx={cx} cy={cy} r="13" fill="#5B21B6" />
+                      <circle cx={cx} cy={cy} r="13" fill="#1455AC" />
                       <text x={cx} y={cy + 4} textAnchor="middle" fontSize="10" fill="#FFFFFF" fontWeight="bold">
                         {pin.count}
                       </text>

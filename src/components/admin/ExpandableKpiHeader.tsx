@@ -63,12 +63,12 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
               if (kpi.onClick) kpi.onClick();
               else onOpenDetail?.(kpi.label);
             }}
-            className="bg-white rounded-xl border border-slate-200/80 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-purple-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer animate-in fade-in duration-300"
+            className="bg-white rounded-xl border border-slate-200/80 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer animate-in fade-in duration-300"
           >
             {/* Topo: Ícone pastel + Delta */}
             <div className="flex items-center justify-between gap-1.5">
               <div
-                className={`w-7 h-7 rounded-lg ${kpi.bgClass || 'bg-[#EDE9FE]'} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs ${kpi.iconClass || 'text-[#5B21B6]'}`}
+                className={`w-7 h-7 rounded-lg ${kpi.bgClass || 'bg-[#E2ECF9]'} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs ${kpi.iconClass || 'text-[#1455AC]'}`}
               >
                 {kpi.icon}
               </div>
@@ -105,13 +105,13 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
             {/* Sparkline de fundo (se fornecida) */}
             {kpi.spark && kpi.spark.length > 1 && (
               <div className="mt-1.5 -mb-0.5 opacity-80">
-                <Sparkline data={kpi.spark} className="text-[#5B21B6]" color="#5B21B6" />
+                <Sparkline data={kpi.spark} className="text-[#1455AC]" color="#1455AC" />
               </div>
             )}
 
             {/* Rodapé: link compacto */}
             <div className="pt-1.5 mt-2 border-t border-slate-200/70 flex items-center justify-between">
-              <span className="text-[10.5px] font-semibold text-[#5B21B6] group-hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
+              <span className="text-[10.5px] font-semibold text-[#1455AC] group-hover:text-blue-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
                 <span>{kpi.actionText || 'Ver detalhes'}</span>
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
               </span>
@@ -128,7 +128,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
           className={`self-center inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all cursor-pointer shadow-2xs ${
             expanded
               ? 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
-              : 'bg-[#EDE9FE] border border-purple-200 text-[#5B21B6] hover:bg-purple-100'
+              : 'bg-[#E2ECF9] border border-blue-200 text-[#1455AC] hover:bg-blue-100'
           }`}
           aria-expanded={expanded}
         >

@@ -33,6 +33,7 @@ import {
   Search,
 } from 'lucide-react';
 import { ImpactRegionMapCard, RegionImpactItem } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 
 const CULTURE_REGIONS: RegionImpactItem[] = [
   { id: 'africa', name: 'África', percent: 36, projectsCount: 428, highlight: true },
@@ -818,6 +819,32 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 ))}
               </div>
             </section>
+
+            {/* 3.5 ANÁLISE DE IMPACTO — GRÁFICOS COMPLETOS (LINHA TEMPORAL + DONUT) */}
+            <ImpactAnalyticsSection
+              accent="#371B80"
+              softBg="bg-violet-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Projetos culturais',
+                  color: '#371B80',
+                  values: [86, 92, 89, 99, 106, 103, 112, 119, 124, 132, 138, 146],
+                },
+                {
+                  name: 'Artistas apoiados (K)',
+                  color: '#7C3AED',
+                  values: [58, 62, 60, 66, 71, 69, 75, 79, 82, 87, 91, 96],
+                },
+              ]}
+              slices={[
+                { label: 'Europa', value: 30, color: '#371B80' },
+                { label: 'América Latina', value: 26, color: '#7C3AED' },
+                { label: 'África', value: 22, color: '#8B5CF6' },
+                { label: 'Ásia', value: 14, color: '#A78BFA' },
+                { label: 'América do Norte', value: 8, color: '#C4B5FD' },
+              ]}
+            />
           </div>
 
           {/* COLUNA DIREITA (BARRA LATERAL DIREITA: lg:col-span-4 xl:col-span-3) */}

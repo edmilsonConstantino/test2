@@ -11,7 +11,7 @@ export const Sparkline: React.FC<{
   color?: string;
   className?: string;
   height?: number;
-}> = ({ data, color = '#5B21B6', className = '', height = 28 }) => {
+}> = ({ data, color = '#1455AC', className = '', height = 28 }) => {
   if (!data.length) return null;
   const w = 100;
   const h = height;
@@ -233,7 +233,7 @@ export const HorizontalBars: React.FC<{
   max?: number;
   color?: string;
   height?: number;
-}> = ({ items, max, color = '#5B21B6', height = 8 }) => {
+}> = ({ items, max, color = '#1455AC', height = 8 }) => {
   const maxVal = max ?? Math.max(...items.map((i) => i.value), 1);
   return (
     <div className="flex flex-col gap-2.5">
@@ -262,7 +262,7 @@ export const VerticalBars: React.FC<{
   items: { label: string; value: number; color?: string }[];
   height?: number;
   color?: string;
-}> = ({ items, height = 130, color = '#5B21B6' }) => {
+}> = ({ items, height = 130, color = '#1455AC' }) => {
   const max = Math.max(...items.map((i) => i.value), 1);
   return (
     <div className="flex items-end justify-between gap-2" style={{ height: height + 26 }}>

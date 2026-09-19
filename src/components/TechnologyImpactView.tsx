@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImpactRegionMapCard } from './ImpactRegionMapCard';
+import { ImpactAnalyticsSection } from './ImpactAnalyticsSection';
 import {
   Cpu,
   Heart,
@@ -909,6 +910,32 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 })}
               </div>
             </section>
+
+            {/* SEÇÃO 4: Análise de Impacto — Gráficos Completos (Linha Temporal + Donut) */}
+            <ImpactAnalyticsSection
+              accent="#059669"
+              softBg="bg-emerald-50"
+              labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
+              series={[
+                {
+                  name: 'Soluções implementadas',
+                  color: '#059669',
+                  values: [64, 72, 68, 81, 88, 84, 95, 102, 108, 116, 122, 131],
+                },
+                {
+                  name: 'Voluntários tech (K)',
+                  color: '#0D9488',
+                  values: [48, 52, 50, 58, 62, 60, 67, 71, 74, 79, 83, 88],
+                },
+              ]}
+              slices={[
+                { label: 'Ásia', value: 32, color: '#059669' },
+                { label: 'Europa', value: 24, color: '#10B981' },
+                { label: 'América do Norte', value: 20, color: '#34D399' },
+                { label: 'América Latina', value: 16, color: '#6EE7B7' },
+                { label: 'África', value: 8, color: '#A7F3D0' },
+              ]}
+            />
           </div>
 
           {/* COLUNA LATERAL DIREITA (lg:col-span-3) */}

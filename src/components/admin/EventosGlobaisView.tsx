@@ -141,9 +141,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       trend: '↑ 25%',
       period: 'desde o ano passado',
       icon: Users,
-      iconBg: 'bg-purple-50/90',
-      iconColor: 'text-purple-600',
-      borderColor: 'border-purple-100/70',
+      iconBg: 'bg-blue-50/90',
+      iconColor: 'text-blue-600',
+      borderColor: 'border-blue-100/70',
     },
     {
       id: 'kpi-paises-eventos',
@@ -163,9 +163,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       trend: '↑ 28%',
       period: 'desde o ano passado',
       icon: Wifi,
-      iconBg: 'bg-purple-50/90',
-      iconColor: 'text-purple-600',
-      borderColor: 'border-purple-100/70',
+      iconBg: 'bg-blue-50/90',
+      iconColor: 'text-blue-600',
+      borderColor: 'border-blue-100/70',
     },
     {
       id: 'kpi-taxa-participacao',
@@ -174,9 +174,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       trend: '↑ 8 pp',
       period: 'desde o ano passado',
       icon: TrendingUp,
-      iconBg: 'bg-cyan-50/90',
-      iconColor: 'text-cyan-600',
-      borderColor: 'border-cyan-100/70',
+      iconBg: 'bg-blue-50/90',
+      iconColor: 'text-blue-600',
+      borderColor: 'border-blue-100/70',
     },
   ];
 
@@ -203,23 +203,23 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
   // 2. Card 1: Eventos por Tipo (Donut Chart & Legenda)
   // ---------------------------------------------------------------------------
   const tiposData = [
-    { label: 'Conferências', percentage: 28, count: '2.682', color: '#4F46E5', dotClass: 'bg-indigo-600' },
-    { label: 'Webinars', percentage: 22, count: '2.108', color: '#06B6D4', dotClass: 'bg-cyan-500' },
+    { label: 'Conferências', percentage: 28, count: '2.682', color: '#1455AC', dotClass: 'bg-blue-600' },
+    { label: 'Webinars', percentage: 22, count: '2.108', color: '#5F9DE0', dotClass: 'bg-blue-500' },
     { label: 'Workshops', percentage: 18, count: '1.726', color: '#F59E0B', dotClass: 'bg-amber-500' },
-    { label: 'Fóruns', percentage: 14, count: '1.342', color: '#EC4899', dotClass: 'bg-pink-500' },
+    { label: 'Fóruns', percentage: 14, count: '1.342', color: '#F58300', dotClass: 'bg-blue-500' },
     { label: 'Feiras', percentage: 10, count: '958', color: '#10B981', dotClass: 'bg-emerald-500' },
-    { label: 'Outros', percentage: 8, count: '764', color: '#8B5CF6', dotClass: 'bg-purple-500' },
+    { label: 'Outros', percentage: 8, count: '764', color: '#5F9DE0', dotClass: 'bg-blue-500' },
   ];
 
   // ---------------------------------------------------------------------------
   // 3. Card 2: Eventos por Continente (Mapa D3 com Hotspots e Legenda)
   // ---------------------------------------------------------------------------
   const continentesData = [
-    { name: 'Europa', count: '3.245', pct: '34%', color: '#4338CA', coords: [50, 20] },
-    { name: 'África', count: '2.186', pct: '23%', color: '#7C3AED', coords: [15, 10] },
-    { name: 'Américas', count: '2.276', pct: '24%', color: '#6366F1', coords: [-60, -10] },
-    { name: 'Ásia', count: '1.408', pct: '14%', color: '#A78BFA', coords: [90, 30] },
-    { name: 'Oceânia', count: '465', pct: '5%', color: '#C4B5FD', coords: [135, -25] },
+    { name: 'Europa', count: '3.245', pct: '34%', color: '#0F448A', coords: [50, 20] },
+    { name: 'África', count: '2.186', pct: '23%', color: '#2D79D1', coords: [15, 10] },
+    { name: 'Américas', count: '2.276', pct: '24%', color: '#2D79D1', coords: [-60, -10] },
+    { name: 'Ásia', count: '1.408', pct: '14%', color: '#99C0EB', coords: [90, 30] },
+    { name: 'Oceânia', count: '465', pct: '5%', color: '#99C0EB', coords: [135, -25] },
   ];
 
   const mapFeatures = useMemo(() => {
@@ -245,21 +245,37 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       .map((f: any, index: number) => {
         const d = pathGen(f);
         if (!d) return null;
+        const name = f.properties?.name || '';
+
+        // Densidade de eventos por país (cores da legenda de continentes):
+        // Europa #0F448A | África/Américas #2D79D1 | Ásia #5F9DE0 | Oceânia #99C0EB
+        let fill = '#F1F5F9';
+        if (['Portugal', 'Spain', 'France', 'Germany', 'United Kingdom', 'Italy', 'Netherlands', 'Belgium', 'Switzerland'].includes(name)) {
+          fill = '#0F448A';
+        } else if (['Brazil', 'Mozambique', 'Angola', 'United States of America', 'Mexico', 'Colombia', 'Kenya', 'South Africa', 'Nigeria', 'Cabo Verde', 'Cape Verde'].includes(name)) {
+          fill = '#2D79D1';
+        } else if (['China', 'India', 'Japan', 'South Korea', 'Indonesia', 'Singapore', 'United Arab Emirates', 'Saudi Arabia', 'Turkey'].includes(name)) {
+          fill = '#5F9DE0';
+        } else if (['Australia', 'New Zealand', 'Canada', 'Argentina', 'Chile', 'Peru', 'Morocco', 'Egypt', 'Timor-Leste', 'Guinea-Bissau'].includes(name)) {
+          fill = '#99C0EB';
+        }
+
         return {
           key: `geom-${index}`,
           d,
-          name: f.properties?.name || '',
+          fill,
+          name,
         };
       });
 
     // Posições projetadas dos continentes para anéis de densidade
     const continentRings = [
-      { name: 'Europa', xy: projection([15, 50]), count: '3.245', pct: '34%', color: '#4338CA' },
-      { name: 'África', xy: projection([20, 5]), count: '2.186', pct: '23%', color: '#7C3AED' },
-      { name: 'América do Norte', xy: projection([-98, 40]), count: '1.420', pct: '15%', color: '#6366F1' },
-      { name: 'América do Sul', xy: projection([-55, -15]), count: '856', pct: '9%', color: '#6366F1' },
-      { name: 'Ásia', xy: projection([85, 35]), count: '1.408', pct: '14%', color: '#8B5CF6' },
-      { name: 'Oceânia', xy: projection([134, -25]), count: '465', pct: '5%', color: '#A78BFA' },
+      { name: 'Europa', xy: projection([15, 50]), count: '3.245', pct: '34%', color: '#0F448A' },
+      { name: 'África', xy: projection([20, 5]), count: '2.186', pct: '23%', color: '#2D79D1' },
+      { name: 'América do Norte', xy: projection([-98, 40]), count: '1.420', pct: '15%', color: '#2D79D1' },
+      { name: 'América do Sul', xy: projection([-55, -15]), count: '856', pct: '9%', color: '#2D79D1' },
+      { name: 'Ásia', xy: projection([85, 35]), count: '1.408', pct: '14%', color: '#5F9DE0' },
+      { name: 'Oceânia', xy: projection([134, -25]), count: '465', pct: '5%', color: '#99C0EB' },
     ];
 
     return { paths, continentRings };
@@ -511,21 +527,21 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
   // 8. Linha 4 - Card 1: Eventos por Formato (Barras Horizontais)
   // ---------------------------------------------------------------------------
   const formatosData = [
-    { name: 'Presencial', count: '4.125', pct: 43, color: '#4F46E5', bgClass: 'bg-indigo-600' },
-    { name: 'Online', count: '2.145', pct: 22, color: '#6366F1', bgClass: 'bg-indigo-500' },
-    { name: 'Híbrido', count: '1.876', pct: 20, color: '#818CF8', bgClass: 'bg-indigo-400' },
-    { name: 'Sob Demanda', count: '1.434', pct: 15, color: '#A5B4FC', bgClass: 'bg-indigo-300' },
+    { name: 'Presencial', count: '4.125', pct: 43, color: '#1455AC', bgClass: 'bg-blue-600' },
+    { name: 'Online', count: '2.145', pct: 22, color: '#2D79D1', bgClass: 'bg-blue-500' },
+    { name: 'Híbrido', count: '1.876', pct: 20, color: '#5F9DE0', bgClass: 'bg-blue-400' },
+    { name: 'Sob Demanda', count: '1.434', pct: 15, color: '#99C0EB', bgClass: 'bg-blue-300' },
   ];
 
   // ---------------------------------------------------------------------------
   // 9. Linha 4 - Card 2: Participação por Faixa (Donut Chart & Legenda)
   // ---------------------------------------------------------------------------
   const faixasData = [
-    { label: '0 - 100 participantes', percentage: 26, count: '2.491', color: '#0EA5E9', dotClass: 'bg-sky-500' },
-    { label: '101 - 500 participantes', percentage: 34, count: '3.257', color: '#4F46E5', dotClass: 'bg-indigo-600' },
+    { label: '0 - 100 participantes', percentage: 26, count: '2.491', color: '#2D79D1', dotClass: 'bg-blue-500' },
+    { label: '101 - 500 participantes', percentage: 34, count: '3.257', color: '#1455AC', dotClass: 'bg-blue-600' },
     { label: '501 - 1.000 participantes', percentage: 18, count: '1.725', color: '#F59E0B', dotClass: 'bg-amber-500' },
     { label: '1.001 - 5.000 participantes', percentage: 14, count: '1.341', color: '#10B981', dotClass: 'bg-emerald-500' },
-    { label: '+ 5.000 participantes', percentage: 8, count: '766', color: '#EC4899', dotClass: 'bg-pink-500' },
+    { label: '+ 5.000 participantes', percentage: 8, count: '766', color: '#F58300', dotClass: 'bg-blue-500' },
   ];
 
   // ---------------------------------------------------------------------------
@@ -594,13 +610,13 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         );
       case 'Online':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
             Online
           </span>
         );
       case 'Híbrido':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-purple-50 text-purple-700 border border-purple-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
             Híbrido
           </span>
         );
@@ -618,7 +634,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
+          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -629,7 +645,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
         {/* Lado Esquerdo: Ícone + Título + Descrição */}
         <div className="flex items-start gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE] text-[#5B21B6] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+          <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9] text-[#1455AC] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
             <Calendar className="w-6 h-6" strokeWidth={2.2} />
           </div>
           <div>
@@ -651,7 +667,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               <span>Dados atualizados: 10:32</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-sky-500" />
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
               <span>Dados em tempo real</span>
             </span>
           </div>
@@ -679,11 +695,11 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               <span>Exportar</span>
             </button>
 
-            {/* Botão Filtros (Sólido Roxo #5B21B6) */}
+            {/* Botão Filtros (Sólido Roxo #1455AC) */}
             <button
               type="button"
               onClick={() => setIsFilterModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold transition-colors shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold transition-colors shadow-xs cursor-pointer"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
               <span>Filtros</span>
@@ -727,7 +743,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#4F46E5"
+                    stroke="#1455AC"
                     strokeWidth="14"
                     strokeDasharray="63.3 162.9"
                     strokeDashoffset="0"
@@ -741,7 +757,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#06B6D4"
+                    stroke="#5F9DE0"
                     strokeWidth="14"
                     strokeDasharray="49.7 176.5"
                     strokeDashoffset="-63.3"
@@ -769,7 +785,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#EC4899"
+                    stroke="#F58300"
                     strokeWidth="14"
                     strokeDasharray="31.6 194.6"
                     strokeDashoffset="-153.7"
@@ -797,7 +813,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#8B5CF6"
+                    stroke="#5F9DE0"
                     strokeWidth="14"
                     strokeDasharray="18.2 208.0"
                     strokeDashoffset="-207.9"
@@ -826,7 +842,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     className="flex items-center justify-between text-xs font-medium text-slate-700 hover:bg-slate-50 px-1.5 py-0.5 rounded-md transition-colors"
                   >
                     <div className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${item.dotClass} shrink-0`} />
+                      <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
                       <span className="text-slate-700">{item.label}</span>
                     </div>
                     <span className="font-bold text-[#0F172A]">
@@ -843,7 +859,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A filtrar por todos os tipos de eventos')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os tipos</span>
               <ArrowRight className="w-4 h-4" />
@@ -870,10 +886,10 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                         <path
                           key={p.key}
                           d={p.d}
-                          fill="#E2E8F0"
+                          fill={p.fill}
                           stroke="#FFFFFF"
                           strokeWidth={0.5}
-                          className="transition-colors hover:fill-slate-300"
+                          className="transition-colors hover:opacity-85"
                         />
                       );
                     })}
@@ -896,7 +912,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                           cx={cx}
                           cy={cy}
                           r="14"
-                          fill="#4F46E5"
+                          fill="#1455AC"
                           opacity="0.15"
                           className="animate-pulse"
                         />
@@ -905,7 +921,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                           cx={cx}
                           cy={cy}
                           r="8"
-                          fill="#6366F1"
+                          fill="#2D79D1"
                           opacity="0.4"
                         />
                         {/* Núcleo sólido */}
@@ -913,7 +929,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                           cx={cx}
                           cy={cy}
                           r="4"
-                          fill="#4338CA"
+                          fill="#0F448A"
                           stroke="#FFFFFF"
                           strokeWidth="1"
                         />
@@ -926,7 +942,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 {hoveredContinent && (
                   <div className="absolute top-1 left-2 bg-slate-900/90 text-white px-2.5 py-1.5 rounded-lg text-[10.5px] pointer-events-none shadow-xl z-10 border border-slate-700 animate-in fade-in duration-100">
                     <p className="font-bold text-slate-100">{hoveredContinent}</p>
-                    <p className="text-indigo-300 font-semibold">Alta densidade de eventos</p>
+                    <p className="text-blue-300 font-semibold">Alta densidade de eventos</p>
                   </div>
                 )}
               </div>
@@ -936,7 +952,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 {continentesData.map((cont) => (
                   <div
                     key={cont.name}
-                    className="flex items-center justify-between text-xs font-medium text-[#1E1B4B]"
+                    className="flex items-center justify-between text-xs font-medium text-[#0B2C58]"
                   >
                     <div className="flex items-center gap-2">
                       <span
@@ -959,7 +975,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => setIsMapModalOpen(true)}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver mapa interativo</span>
               <ArrowRight className="w-4 h-4" />
@@ -979,7 +995,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <select
                   value={chartPeriod}
                   onChange={(e) => setChartPeriod(e.target.value)}
-                  className="text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2.5 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-500 appearance-none"
+                  className="text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2.5 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
                 >
                   <option value="Últimos 12 meses">Últimos 12 meses</option>
                   <option value="Ano 2024">Ano 2024</option>
@@ -992,7 +1008,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             {/* Legenda das 3 Linhas */}
             <div className="mt-3 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-600">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#4F46E5]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Total de Eventos</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -1000,7 +1016,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <span>Eventos Ativos</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#2D79D1]" />
                 <span>Participantes</span>
               </div>
             </div>
@@ -1008,6 +1024,21 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             {/* Gráfico SVG de 3 Linhas */}
             <div className="relative w-full h-[185px] mt-2">
               <svg viewBox="0 0 520 200" className="w-full h-full overflow-visible">
+                {/* Gradientes de área */}
+                <defs>
+                  <linearGradient id="eg-area-total" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#1455AC" stopOpacity="0.16" />
+                    <stop offset="100%" stopColor="#1455AC" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="eg-area-ativos" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10B981" stopOpacity="0.12" />
+                    <stop offset="100%" stopColor="#10B981" stopOpacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="eg-area-part" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#2D79D1" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#2D79D1" stopOpacity="0.01" />
+                  </linearGradient>
+                </defs>
                 {/* Linhas de Grade Horizontais */}
                 {[
                   { val: '10K', y: 30 },
@@ -1040,11 +1071,16 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   </g>
                 ))}
 
-                {/* Curva 1: Total de Eventos (Roxo/Índigo #4F46E5) */}
+                {/* Áreas preenchidas */}
+                <path d={`${lineChartPoints.tPath} L ${lineChartPoints.tCoords[lineChartPoints.tCoords.length - 1].x},175 L ${lineChartPoints.tCoords[0].x},175 Z`} fill="url(#eg-area-total)" />
+                <path d={`${lineChartPoints.aPath} L ${lineChartPoints.aCoords[lineChartPoints.aCoords.length - 1].x},175 L ${lineChartPoints.aCoords[0].x},175 Z`} fill="url(#eg-area-ativos)" />
+                <path d={`${lineChartPoints.pPath} L ${lineChartPoints.pCoords[lineChartPoints.pCoords.length - 1].x},175 L ${lineChartPoints.pCoords[0].x},175 Z`} fill="url(#eg-area-part)" />
+
+                {/* Curva 1: Total de Eventos (Azul #1455AC) */}
                 <path
                   d={lineChartPoints.tPath}
                   fill="none"
-                  stroke="#4F46E5"
+                  stroke="#1455AC"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                 />
@@ -1058,11 +1094,11 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   strokeLinecap="round"
                 />
 
-                {/* Curva 3: Participantes (Azul #0EA5E9) */}
+                {/* Curva 3: Participantes (Azul #2D79D1) */}
                 <path
                   d={lineChartPoints.pPath}
                   fill="none"
-                  stroke="#0EA5E9"
+                  stroke="#2D79D1"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                 />
@@ -1074,7 +1110,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                       cx={pt.x}
                       cy={pt.y}
                       r={hoveredLineMonth === i ? 5 : 3.5}
-                      fill="#4F46E5"
+                      fill="#1455AC"
                       stroke="#FFFFFF"
                       strokeWidth="1.5"
                       className="cursor-pointer transition-all"
@@ -1106,7 +1142,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                       cx={pt.x}
                       cy={pt.y}
                       r={hoveredLineMonth === i ? 5 : 3.5}
-                      fill="#0EA5E9"
+                      fill="#2D79D1"
                       stroke="#FFFFFF"
                       strokeWidth="1.5"
                       className="cursor-pointer transition-all"
@@ -1141,13 +1177,13 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   <p className="font-bold text-slate-200">
                     {monthlyTimeline[hoveredLineMonth].month} 2025
                   </p>
-                  <p className="text-indigo-300">
+                  <p className="text-blue-300">
                     Total: {monthlyTimeline[hoveredLineMonth].total}K
                   </p>
                   <p className="text-emerald-300">
                     Ativos: {monthlyTimeline[hoveredLineMonth].ativos}K
                   </p>
-                  <p className="text-sky-300">
+                  <p className="text-blue-300">
                     Participantes: {monthlyTimeline[hoveredLineMonth].participantes}M
                   </p>
                 </div>
@@ -1160,7 +1196,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-4 h-4" />
@@ -1191,11 +1227,11 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   className="py-3 flex items-start gap-3 hover:bg-slate-50/70 p-2 rounded-xl cursor-pointer transition-all group"
                 >
                   {/* Badge Quadrado com Data (Dia + Mês) */}
-                  <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 flex flex-col items-center justify-center shrink-0 group-hover:bg-[#5B21B6] group-hover:text-white transition-colors">
-                    <span className="text-sm font-black text-[#5B21B6] group-hover:text-white leading-none font-sans">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0 group-hover:bg-[#1455AC] group-hover:text-white transition-colors">
+                    <span className="text-sm font-black text-[#1455AC] group-hover:text-white leading-none font-sans">
                       {ev.dayBadge}
                     </span>
-                    <span className="text-[9px] font-bold text-purple-600 group-hover:text-purple-200 uppercase tracking-wider mt-0.5">
+                    <span className="text-[9px] font-bold text-blue-600 group-hover:text-blue-200 uppercase tracking-wider mt-0.5">
                       {ev.monthBadge}
                     </span>
                   </div>
@@ -1203,12 +1239,12 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   {/* Conteúdo Central e Metadata */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#5B21B6] truncate transition-colors">
+                      <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#1455AC] truncate transition-colors">
                         {ev.title}
                       </h3>
                       {renderFormatBadge(ev.format)}
                       {ev.isFeatured && (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-purple-50 text-purple-700 border border-purple-200/80">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
                           Em destaque
                         </span>
                       )}
@@ -1232,7 +1268,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A exibir todos os eventos')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os eventos</span>
               <ArrowRight className="w-4 h-4" />
@@ -1301,7 +1337,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                       isSelected
                         ? 'bg-[#0F172A] text-white shadow-xs font-bold'
                         : cell.isCurrentMonth
-                        ? 'text-slate-700 hover:bg-purple-50 font-medium'
+                        ? 'text-slate-700 hover:bg-blue-50 font-medium'
                         : 'text-slate-300 pointer-events-none'
                     }`}
                   >
@@ -1314,7 +1350,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                             key={`dot-${dIdx}`}
                             className={`w-1 h-1 rounded-full ${
                               dot === 'presencial'
-                                ? 'bg-[#6366F1]'
+                                ? 'bg-[#2D79D1]'
                                 : dot === 'online'
                                 ? 'bg-[#10B981]'
                                 : 'bg-[#F59E0B]'
@@ -1331,7 +1367,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             {/* Legenda do Calendário */}
             <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-center gap-4 text-[11px] font-medium text-slate-600">
               <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#6366F1]" />
+                <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                 <span>Eventos Presenciais</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -1350,7 +1386,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A abrir vista completa do calendário')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver calendário completo</span>
               <ArrowRight className="w-4 h-4" />
@@ -1366,7 +1402,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             </h2>
 
             {/* Card Hero: Fórum Global de Comunidades 2025 */}
-            <div className="mt-3 rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs hover:border-purple-200 transition-all group">
+            <div className="mt-3 rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs hover:border-blue-200 transition-all group">
               {/* Imagem com Overlay e Badge */}
               <div className="relative h-28 w-full bg-slate-900 overflow-hidden">
                 <img
@@ -1375,7 +1411,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
                 />
                 <div className="absolute top-2.5 left-2.5">
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#5B21B6] text-white tracking-wider shadow-sm">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#1455AC] text-white tracking-wider shadow-sm">
                     {destaquePrincipal.badge}
                   </span>
                 </div>
@@ -1383,7 +1419,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
               {/* Conteúdo do Hero */}
               <div className="p-3.5 space-y-2">
-                <h3 className="text-sm font-bold text-[#0F172A] group-hover:text-[#5B21B6] transition-colors leading-tight">
+                <h3 className="text-sm font-bold text-[#0F172A] group-hover:text-[#1455AC] transition-colors leading-tight">
                   {destaquePrincipal.title}
                 </h3>
                 <p className="text-[11.5px] text-slate-500 line-clamp-2 leading-relaxed">
@@ -1392,15 +1428,15 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
                 <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-600 pt-1">
                   <div className="flex items-center gap-1 text-slate-700">
-                    <Calendar className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                    <Calendar className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{destaquePrincipal.date}</span>
                   </div>
                   <div className="flex items-center gap-1 text-slate-700">
-                    <MapPin className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                    <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{destaquePrincipal.location}</span>
                   </div>
                   <div className="flex items-center gap-1 text-slate-700">
-                    <Users className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                    <Users className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{destaquePrincipal.participants}</span>
                   </div>
                 </div>
@@ -1431,7 +1467,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     className="w-12 h-10 rounded-lg object-cover shrink-0"
                   />
                   <div className="min-w-0 flex-1">
-                    <h4 className="text-xs font-bold text-[#0F172A] group-hover:text-[#5B21B6] truncate transition-colors">
+                    <h4 className="text-xs font-bold text-[#0F172A] group-hover:text-[#1455AC] truncate transition-colors">
                       {mini.title}
                     </h4>
                     <p className="text-[11px] text-slate-400 truncate mt-0.5">
@@ -1448,7 +1484,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A exibir todos os eventos em destaque')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os destaques</span>
               <ArrowRight className="w-4 h-4" />
@@ -1497,7 +1533,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A carregar análise completa por formato')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver análise completa</span>
               <ArrowRight className="w-4 h-4" />
@@ -1523,7 +1559,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#0EA5E9"
+                    stroke="#2D79D1"
                     strokeWidth="14"
                     strokeDasharray="58.8 167.4"
                     strokeDashoffset="0"
@@ -1535,7 +1571,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#4F46E5"
+                    stroke="#1455AC"
                     strokeWidth="14"
                     strokeDasharray="76.9 149.3"
                     strokeDashoffset="-58.8"
@@ -1571,7 +1607,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     cy="50"
                     r="36"
                     fill="transparent"
-                    stroke="#EC4899"
+                    stroke="#F58300"
                     strokeWidth="14"
                     strokeDasharray="18.1 208.1"
                     strokeDashoffset="-208.1"
@@ -1602,7 +1638,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A carregar dados completos de participação')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os dados</span>
               <ArrowRight className="w-4 h-4" />
@@ -1644,7 +1680,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A listar todos os organizadores')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver todos os organizadores</span>
               <ArrowRight className="w-4 h-4" />
@@ -1685,7 +1721,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('A carregar histórico de atividades')}
-              className="text-xs sm:text-sm font-bold text-[#4F46E5] hover:text-indigo-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+              className="text-xs sm:text-sm font-bold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
             >
               <span>Ver toda a atividade</span>
               <ArrowRight className="w-4 h-4" />
@@ -1702,7 +1738,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           <div className="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#5B21B6] flex items-center justify-center font-black">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center font-black">
                   {selectedEvent.dayBadge}
                 </div>
                 <div>
@@ -1765,7 +1801,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <div className="space-y-1.5">
                   {selectedEvent.agenda.map((ag, idx) => (
                     <div key={idx} className="flex items-center gap-3 text-xs p-2 rounded-lg bg-slate-50">
-                      <span className="font-bold text-indigo-600 w-12 shrink-0">{ag.time}</span>
+                      <span className="font-bold text-blue-600 w-12 shrink-0">{ag.time}</span>
                       <span className="text-slate-700">{ag.topic}</span>
                     </div>
                   ))}
@@ -1787,7 +1823,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   showToast(`Inscrição confirmada em: ${selectedEvent.title}`);
                   setSelectedEvent(null);
                 }}
-                className="px-4 py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold shadow-xs transition-colors"
+                className="px-4 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold shadow-xs transition-colors"
               >
                 Inscrever-se no Evento
               </button>
@@ -1830,12 +1866,12 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   }}
                   className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-colors ${
                     dateRange === range
-                      ? 'bg-purple-50 text-[#5B21B6] border border-purple-200'
+                      ? 'bg-blue-50 text-[#1455AC] border border-blue-200'
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   <span>{range}</span>
-                  {dateRange === range && <Check className="w-4 h-4 text-[#5B21B6]" />}
+                  {dateRange === range && <Check className="w-4 h-4 text-[#1455AC]" />}
                 </button>
               ))}
             </div>
@@ -1876,9 +1912,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     showToast(`A descarregar ficheiro ${exp.ext}...`);
                     setIsExportModalOpen(false);
                   }}
-                  className="p-3 rounded-2xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 text-left transition-all group cursor-pointer"
+                  className="p-3 rounded-2xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all group cursor-pointer"
                 >
-                  <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#5B21B6] block">
+                  <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#1455AC] block">
                     {exp.title}
                   </span>
                   <span className="text-[11px] text-slate-400 block mt-1">
@@ -1951,7 +1987,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     setIsFilterModalOpen(false);
                     showToast('Filtros aplicados com sucesso!');
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#5B21B6] text-white text-xs font-bold shadow-xs hover:bg-[#4C1D95]"
+                  className="px-4 py-2 rounded-xl bg-[#1455AC] text-white text-xs font-bold shadow-xs hover:bg-[#0F448A]"
                 >
                   Aplicar Filtros
                 </button>
@@ -2002,9 +2038,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   const [cx, cy] = c.xy;
                   return (
                     <g key={`modal-c-${c.name}`}>
-                      <circle cx={cx} cy={cy} r="16" fill="#4F46E5" opacity="0.2" className="animate-pulse" />
-                      <circle cx={cx} cy={cy} r="8" fill="#6366F1" opacity="0.6" />
-                      <circle cx={cx} cy={cy} r="4" fill="#4338CA" stroke="#FFFFFF" strokeWidth="1" />
+                      <circle cx={cx} cy={cy} r="16" fill="#1455AC" opacity="0.2" className="animate-pulse" />
+                      <circle cx={cx} cy={cy} r="8" fill="#2D79D1" opacity="0.6" />
+                      <circle cx={cx} cy={cy} r="4" fill="#0F448A" stroke="#FFFFFF" strokeWidth="1" />
                     </g>
                   );
                 })}
@@ -2016,7 +2052,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <div key={`modal-kpi-${c.name}`} className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                   <span className="text-[11px] text-slate-400 block">{c.name}</span>
                   <span className="text-sm font-bold text-[#0F172A] block mt-0.5">{c.count}</span>
-                  <span className="text-[10px] text-indigo-600 font-semibold">{c.pct}</span>
+                  <span className="text-[10px] text-blue-600 font-semibold">{c.pct}</span>
                 </div>
               ))}
             </div>

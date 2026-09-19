@@ -173,8 +173,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 20%',
       trendPeriod: 'desde o ano passado',
       icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-purple-50 border border-purple-100',
-      iconClass: 'text-purple-600',
+      bgClass: 'bg-blue-50 border border-blue-100',
+      iconClass: 'text-blue-600',
       actionText: 'Ver utilizadores',
       spark: [620, 645, 665, 688, 706, 725, 744, 762, 784, 806, 824, 842],
       onClick: () => showToast('A carregar utilizadores com perfil analítico'),
@@ -183,13 +183,13 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
 
   // 2. Dados por Categoria (Donut Breakdown)
   const categoryData = [
-    { label: 'Demografia', percent: 28, count: 100, color: '#3B82F6', textCol: 'text-blue-600' },
+    { label: 'Demografia', percent: 28, count: 100, color: '#1455AC', textCol: 'text-blue-600' },
     { label: 'Participação', percent: 22, count: 78, color: '#10B981', textCol: 'text-emerald-600' },
     { label: 'Projetos', percent: 18, count: 64, color: '#F59E0B', textCol: 'text-amber-500' },
-    { label: 'Territórios', percent: 15, count: 53, color: '#0EA5E9', textCol: 'text-sky-500' },
-    { label: 'Eventos', percent: 9, count: 31, color: '#EF4444', textCol: 'text-rose-500' },
-    { label: 'Recursos', percent: 5, count: 18, color: '#F97316', textCol: 'text-orange-500' },
-    { label: 'Outros', percent: 3, count: 12, color: '#8B5CF6', textCol: 'text-purple-500' },
+    { label: 'Territórios', percent: 15, count: 53, color: '#2D79D1', textCol: 'text-blue-500' },
+    { label: 'Eventos', percent: 9, count: 31, color: '#EF4444', textCol: 'text-blue-500' },
+    { label: 'Recursos', percent: 5, count: 18, color: '#F58300', textCol: 'text-amber-500' },
+    { label: 'Outros', percent: 3, count: 12, color: '#5F9DE0', textCol: 'text-blue-500' },
   ];
 
   // 3. Mapa D3 da Cobertura de Dados por Território
@@ -220,25 +220,25 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         const name = f.properties?.name || '';
 
         // Deterministic classification matching visual map
-        let fill = '#C4B5FD'; // Default medium light purple
+        let fill = '#99C0EB'; // Default medium light purple
         if (['Portugal', 'Spain', 'France', 'Germany', 'United Kingdom', 'Italy'].includes(name)) {
-          fill = '#4C1D95'; // Muito Alta
+          fill = '#0F448A'; // Muito Alta
         } else if (['Brazil', 'United States', 'Canada', 'Mozambique', 'Angola'].includes(name)) {
-          fill = '#6D28D9'; // Alta
+          fill = '#0F448A'; // Alta
         } else if (['India', 'China', 'Australia', 'South Africa', 'Mexico', 'Argentina'].includes(name)) {
-          fill = '#8B5CF6'; // Média
+          fill = '#5F9DE0'; // Média
         } else if (['Japan', 'Chile', 'Egypt', 'Morocco', 'Kenya'].includes(name)) {
-          fill = '#A78BFA'; // Baixa
+          fill = '#99C0EB'; // Baixa
         } else if (['Russia', 'Kazakhstan', 'Mongolia'].includes(name)) {
-          fill = '#DDD6FE'; // Muito Baixa
+          fill = '#C4DAF3'; // Muito Baixa
         } else {
           // Semi-random consistent
           const code = (name.charCodeAt(0) || 0) + index;
-          if (code % 5 === 0) fill = '#6D28D9';
-          else if (code % 5 === 1) fill = '#8B5CF6';
-          else if (code % 5 === 2) fill = '#A78BFA';
-          else if (code % 5 === 3) fill = '#C4B5FD';
-          else fill = '#EDE9FE';
+          if (code % 5 === 0) fill = '#0F448A';
+          else if (code % 5 === 1) fill = '#5F9DE0';
+          else if (code % 5 === 2) fill = '#99C0EB';
+          else if (code % 5 === 3) fill = '#99C0EB';
+          else fill = '#E2ECF9';
         }
 
         return {
@@ -332,7 +332,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '15 Mai 2025',
       format: 'PDF',
       size: '8.7 MB',
-      iconCol: 'text-teal-600 bg-teal-50 border-teal-100',
+      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
     },
     {
       id: 'rep-3',
@@ -350,7 +350,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '05 Mai 2025',
       format: 'PDF',
       size: '9.3 MB',
-      iconCol: 'text-sky-600 bg-sky-50 border-sky-100',
+      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
     },
     {
       id: 'rep-5',
@@ -359,7 +359,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '01 Mai 2025',
       format: 'PDF',
       size: '7.8 MB',
-      iconCol: 'text-rose-600 bg-rose-50 border-rose-100',
+      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
     },
   ];
 
@@ -424,10 +424,10 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
   // 7. Qualidade dos Dados (Critérios)
   const qualidadeCriterios = [
     { label: 'Precisão', percent: '92%', color: 'bg-emerald-500' },
-    { label: 'Completude', percent: '88%', color: 'bg-teal-500' },
+    { label: 'Completude', percent: '88%', color: 'bg-blue-500' },
     { label: 'Consistência', percent: '87%', color: 'bg-amber-500' },
-    { label: 'Atualidade', percent: '90%', color: 'bg-sky-500' },
-    { label: 'Validade', percent: '88%', color: 'bg-rose-400' },
+    { label: 'Atualidade', percent: '90%', color: 'bg-blue-500' },
+    { label: 'Validade', percent: '88%', color: 'bg-blue-400' },
   ];
 
   // 8. Dados por Dimensão
@@ -446,14 +446,14 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       id: 'exp-1',
       title: 'Explorador de Dados',
       desc: 'Navegue e visualize conjuntos de dados',
-      icon: <Compass className="w-5 h-5 text-purple-600" />,
+      icon: <Compass className="w-5 h-5 text-blue-600" />,
       action: () => showToast('A abrir Explorador de Dados Interativo'),
     },
     {
       id: 'exp-2',
       title: 'Consultas Avançadas',
       desc: 'Execute consultas SQL personalizadas',
-      icon: <Terminal className="w-5 h-5 text-purple-600" />,
+      icon: <Terminal className="w-5 h-5 text-blue-600" />,
       action: () => showToast('A abrir Consola de Consultas SQL'),
     },
     {
@@ -489,8 +489,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       subtitle: 'Sensores IoT - Região Sul',
       time: 'há 45 min',
       type: 'error',
-      icon: <AlertCircle className="w-4 h-4 text-rose-600" />,
-      iconBg: 'bg-rose-50 border border-rose-100',
+      icon: <AlertCircle className="w-4 h-4 text-blue-600" />,
+      iconBg: 'bg-blue-50 border border-blue-100',
     },
     {
       id: 'alt-3',
@@ -516,8 +516,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       subtitle: 'Participação - Pico Incomum',
       time: 'há 3 h',
       type: 'info',
-      icon: <Activity className="w-4 h-4 text-cyan-600" />,
-      iconBg: 'bg-cyan-50 border border-cyan-100',
+      icon: <Activity className="w-4 h-4 text-blue-600" />,
+      iconBg: 'bg-blue-50 border border-blue-100',
     },
   ];
 
@@ -630,7 +630,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
+          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -638,7 +638,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 1. Header do Módulo com Identidade VILA */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/80 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <SlidersHorizontal className="w-6 h-6" />
           </div>
           <div>
@@ -687,7 +687,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
           {/* Filtros */}
           <button
             onClick={() => setIsFilterModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#5B21B6] hover:bg-purple-800 text-white rounded-xl text-xs font-semibold shadow-2xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#1455AC] hover:bg-blue-800 text-white rounded-xl text-xs font-semibold shadow-2xs transition-colors cursor-pointer"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>Filtros</span>
@@ -710,19 +710,19 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
               <div className="w-36 h-36 shrink-0 relative flex items-center justify-center">
                 <svg viewBox="0 0 42 42" className="w-full h-full -rotate-90">
                   {/* Demografia 28% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#3B82F6" strokeWidth="6.5" strokeDasharray="28 72" strokeDashoffset="0" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#1455AC" strokeWidth="6.5" strokeDasharray="28 72" strokeDashoffset="0" />
                   {/* Participação 22% */}
                   <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#10B981" strokeWidth="6.5" strokeDasharray="22 78" strokeDashoffset="-28" />
                   {/* Projetos 18% */}
                   <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F59E0B" strokeWidth="6.5" strokeDasharray="18 82" strokeDashoffset="-50" />
                   {/* Territórios 15% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#0EA5E9" strokeWidth="6.5" strokeDasharray="15 85" strokeDashoffset="-68" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#2D79D1" strokeWidth="6.5" strokeDasharray="15 85" strokeDashoffset="-68" />
                   {/* Eventos 9% */}
                   <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#EF4444" strokeWidth="6.5" strokeDasharray="9 91" strokeDashoffset="-83" />
                   {/* Recursos 5% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F97316" strokeWidth="6.5" strokeDasharray="5 95" strokeDashoffset="-92" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#F58300" strokeWidth="6.5" strokeDasharray="5 95" strokeDashoffset="-92" />
                   {/* Outros 3% */}
-                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#8B5CF6" strokeWidth="6.5" strokeDasharray="3 97" strokeDashoffset="-97" />
+                  <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#5F9DE0" strokeWidth="6.5" strokeDasharray="3 97" strokeDashoffset="-97" />
                 </svg>
               </div>
 
@@ -791,23 +791,23 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
               {/* Legenda de Níveis no canto direito */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 space-y-1 text-[10px] font-medium text-slate-600 bg-white/90 p-2 rounded-xl backdrop-blur-xs border border-slate-100">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#4C1D95]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
                   <span>Muito Alta (90-100%)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#6D28D9]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
                   <span>Alta (70-89%)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#8B5CF6]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#5F9DE0]" />
                   <span>Média (40-69%)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#A78BFA]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#99C0EB]" />
                   <span>Baixa (10-39%)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#DDD6FE]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#C4DAF3]" />
                   <span>Muito Baixa (0-9%)</span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -858,7 +858,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                 <span>Conjuntos de Dados</span>
               </div>
               <div className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-sky-500" />
+                <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                 <span>Downloads</span>
               </div>
             </div>
@@ -877,8 +877,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     <stop offset="100%" stopColor="#10B981" stopOpacity="0.01" />
                   </linearGradient>
                   <linearGradient id="rd-area-down" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.1" />
-                    <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.01" />
+                    <stop offset="0%" stopColor="#2D79D1" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#2D79D1" stopOpacity="0.01" />
                   </linearGradient>
                 </defs>
                 {/* Linhas de Grade e Eixo Y */}
@@ -919,7 +919,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                 <path d={`${evolutionPoints.downPath} L ${evolutionPoints.downCoords[evolutionPoints.downCoords.length - 1].x},165 L ${evolutionPoints.downCoords[0].x},165 Z`} fill="url(#rd-area-down)" />
 
                 {/* Linhas SVG */}
-                <path d={evolutionPoints.downPath} fill="none" stroke="#0EA5E9" strokeWidth="2.2" strokeLinecap="round" />
+                <path d={evolutionPoints.downPath} fill="none" stroke="#2D79D1" strokeWidth="2.2" strokeLinecap="round" />
                 <path d={evolutionPoints.relPath} fill="none" stroke="#1455AC" strokeWidth="2.2" strokeLinecap="round" />
                 <path d={evolutionPoints.conPath} fill="none" stroke="#10B981" strokeWidth="2.2" strokeLinecap="round" />
 
@@ -930,7 +930,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     cx={pt.x}
                     cy={pt.y}
                     r={hoveredPointEvolution === i ? 4.5 : 2.5}
-                    fill="#0EA5E9"
+                    fill="#2D79D1"
                     stroke="#FFFFFF"
                     strokeWidth="1.5"
                     className="cursor-pointer"
@@ -996,7 +996,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                   <p className="font-bold text-slate-200">
                     {evolutionTimeline[hoveredPointEvolution].month} 2025
                   </p>
-                  <p className="text-sky-300">
+                  <p className="text-blue-300">
                     Downloads: {evolutionTimeline[hoveredPointEvolution].downloads}K
                   </p>
                   <p className="text-blue-300">
@@ -1363,11 +1363,11 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                   <span>Consultas</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-sky-500" />
+                  <span className="w-2 h-2 rounded-full bg-blue-500" />
                   <span>Downloads</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-teal-500" />
+                  <span className="w-2 h-2 rounded-full bg-blue-500" />
                   <span>Relatórios</span>
                 </div>
               </div>
@@ -1409,7 +1409,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
 
                 {/* Linhas */}
                 <path d={trendsPoints.conPath} fill="none" stroke="#1455AC" strokeWidth="2.2" strokeLinecap="round" />
-                <path d={trendsPoints.downPath} fill="none" stroke="#0EA5E9" strokeWidth="2.2" strokeLinecap="round" />
+                <path d={trendsPoints.downPath} fill="none" stroke="#2D79D1" strokeWidth="2.2" strokeLinecap="round" />
                 <path d={trendsPoints.relPath} fill="none" stroke="#10B981" strokeWidth="2.2" strokeLinecap="round" />
 
                 {/* Marcadores Consultas */}
@@ -1435,7 +1435,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     cx={pt.x}
                     cy={pt.y}
                     r={hoveredPointTrends === i ? 4.5 : 2.5}
-                    fill="#0EA5E9"
+                    fill="#2D79D1"
                     stroke="#FFFFFF"
                     strokeWidth="1.5"
                     className="cursor-pointer"
@@ -1488,7 +1488,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                   <p className="text-blue-300">
                     Consultas: {trendsData[hoveredPointTrends].consultas}K
                   </p>
-                  <p className="text-sky-300">
+                  <p className="text-blue-300">
                     Downloads: {trendsData[hoveredPointTrends].downloads}K
                   </p>
                   <p className="text-emerald-300">

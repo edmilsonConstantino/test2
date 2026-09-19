@@ -116,7 +116,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
+          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -132,7 +132,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
               <X className="w-4 h-4" />
             </button>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
                 <Settings className="w-5 h-5" />
               </div>
               <div>
@@ -162,7 +162,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   setSelectedSettingModal(null);
                   showToast('Configuração atualizada com sucesso!');
                 }}
-                className="px-4 py-2 text-xs font-semibold text-white bg-[#5B21B6] hover:bg-purple-800 rounded-xl transition-colors shadow-2xs"
+                className="px-4 py-2 text-xs font-semibold text-white bg-[#1455AC] hover:bg-blue-800 rounded-xl transition-colors shadow-2xs"
               >
                 Guardar Alterações
               </button>
@@ -204,7 +204,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                     setIsQuickConfigModalOpen(false);
                     showToast(`Ação iniciada: ${act.title}`);
                   }}
-                  className="p-3 border border-slate-200/80 rounded-xl hover:border-purple-300 hover:bg-purple-50/40 cursor-pointer transition-all"
+                  className="p-3 border border-slate-200/80 rounded-xl hover:border-blue-300 hover:bg-blue-50/40 cursor-pointer transition-all"
                 >
                   <h4 className="text-xs font-bold text-slate-800">{act.title}</h4>
                   <p className="text-[11px] text-slate-500 mt-0.5">{act.desc}</p>
@@ -215,7 +215,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => setIsQuickConfigModalOpen(false)}
-                className="px-4 py-2 text-xs font-semibold text-white bg-[#5B21B6] hover:bg-purple-800 rounded-xl transition-colors"
+                className="px-4 py-2 text-xs font-semibold text-white bg-[#1455AC] hover:bg-blue-800 rounded-xl transition-colors"
               >
                 Concluído
               </button>
@@ -227,7 +227,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 1. Header do Módulo com Identidade VILA */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/80 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <Settings className="w-6 h-6" />
           </div>
           <div>
@@ -305,7 +305,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             <div className="space-y-2 mt-3 text-xs border-t border-slate-200/70 pt-3">
               <div className="flex items-center justify-between">
                 <span className="text-slate-500">Plano Atual</span>
-                <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-purple-50 text-purple-700 border border-purple-100">
+                <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-blue-50 text-blue-700 border border-blue-100">
                   Enterprise
                 </span>
               </div>
@@ -433,7 +433,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                 <Sparkles className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A]">VILA AI</h3>
@@ -444,22 +444,22 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 {
                   label: 'Modelos IA',
                   badge: '5 ativos',
-                  icon: <Cpu className="w-3.5 h-3.5 text-purple-600" />,
-                  badgeCol: 'bg-purple-50 text-purple-700 border border-purple-100',
+                  icon: <Cpu className="w-3.5 h-3.5 text-blue-600" />,
+                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
-                { label: 'Assistentes Territoriais', value: '324', icon: <Bot className="w-3.5 h-3.5 text-purple-600" /> },
-                { label: 'Assistentes Municipais', value: '3.642', icon: <Bot className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Assistentes Territoriais', value: '324', icon: <Bot className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Assistentes Municipais', value: '3.642', icon: <Bot className="w-3.5 h-3.5 text-blue-600" /> },
                 {
                   label: 'Base de Conhecimento',
                   badge: 'Ativa',
-                  icon: <Database className="w-3.5 h-3.5 text-purple-600" />,
-                  badgeCol: 'bg-purple-50 text-purple-700 border border-purple-100',
+                  icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
+                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
                 {
                   label: 'Políticas IA',
                   badge: 'Configurado',
-                  icon: <Shield className="w-3.5 h-3.5 text-purple-600" />,
-                  badgeCol: 'bg-purple-50 text-purple-700 border border-purple-100',
+                  icon: <Shield className="w-3.5 h-3.5 text-blue-600" />,
+                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
               ].map((row, i) => (
                 <div
@@ -503,7 +503,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                 <Shield className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A]">Segurança e Acesso</h3>
@@ -511,15 +511,15 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
 
             <div className="divide-y divide-slate-50 text-xs">
               {[
-                { label: 'Autenticação e Senha', icon: <KeyRound className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Autenticação e Senha', icon: <KeyRound className="w-3.5 h-3.5 text-blue-600" /> },
                 {
                   label: 'Autenticação Multifator (MFA)',
                   badge: 'Ativo',
                   icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />,
                   badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
                 },
-                { label: 'Sessões Ativas', value: '5', icon: <Smartphone className="w-3.5 h-3.5 text-purple-600" /> },
-                { label: 'Políticas de Segurança', icon: <Lock className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Sessões Ativas', value: '5', icon: <Smartphone className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Políticas de Segurança', icon: <Lock className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Logs de Acesso', icon: <FileText className="w-3.5 h-3.5 text-amber-500" /> },
               ].map((row, i) => (
                 <div
@@ -569,7 +569,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             <div className="divide-y divide-slate-50 text-xs">
               {[
                 { label: 'APIs e Webhooks', icon: <Share2 className="w-3.5 h-3.5 text-blue-600" /> },
-                { label: 'Integrações Ativas', value: '12', icon: <Boxes className="w-3.5 h-3.5 text-teal-600" /> },
+                { label: 'Integrações Ativas', value: '12', icon: <Boxes className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Serviços Externos', icon: <Cloud className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Importação de Dados', icon: <Download className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Exportação de Dados', icon: <Upload className="w-3.5 h-3.5 text-blue-600" /> },
@@ -753,8 +753,8 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 {
                   label: 'Digestos e Relatórios',
                   badge: 'Semanal',
-                  icon: <Calendar className="w-3.5 h-3.5 text-purple-600" />,
-                  badgeCol: 'bg-purple-50 text-purple-700 border border-purple-100',
+                  icon: <Calendar className="w-3.5 h-3.5 text-blue-600" />,
+                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
                 { label: 'Preferências de Comunicação', icon: <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" /> },
               ].map((row, i) => (
@@ -795,7 +795,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                 <Lock className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A]">Dados e Privacidade</h3>
@@ -803,15 +803,15 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
 
             <div className="divide-y divide-slate-50 text-xs">
               {[
-                { label: 'Política de Privacidade', icon: <FileText className="w-3.5 h-3.5 text-rose-600" /> },
-                { label: 'Gestão de Dados Pessoais', icon: <UserCheck className="w-3.5 h-3.5 text-rose-600" /> },
+                { label: 'Política de Privacidade', icon: <FileText className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Gestão de Dados Pessoais', icon: <UserCheck className="w-3.5 h-3.5 text-blue-600" /> },
                 {
                   label: 'Retenção de Dados',
                   badge: '24 meses',
-                  icon: <Clock className="w-3.5 h-3.5 text-teal-600" />,
-                  badgeCol: 'bg-teal-50 text-teal-700 border border-teal-100',
+                  icon: <Clock className="w-3.5 h-3.5 text-blue-600" />,
+                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
-                { label: 'Consentimentos', icon: <CheckCircle2 className="w-3.5 h-3.5 text-rose-600" /> },
+                { label: 'Consentimentos', icon: <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Anonimização de Dados', icon: <EyeOff className="w-3.5 h-3.5 text-amber-600" /> },
               ].map((row, i) => (
                 <div
@@ -851,7 +851,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                 <Palette className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A]">Marca e Identidade</h3>
@@ -865,10 +865,10 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   icon: <Sun className="w-3.5 h-3.5 text-blue-600" />,
                   badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
-                { label: 'Cores e Identidade Visual', icon: <Paintbrush className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Cores e Identidade Visual', icon: <Paintbrush className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Logótipo e Marca', icon: <Sparkles className="w-3.5 h-3.5 text-blue-600" /> },
-                { label: 'Página de Login', icon: <LayoutTemplate className="w-3.5 h-3.5 text-purple-600" /> },
-                { label: 'Dashboard Personalizado', icon: <LayoutGrid className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Página de Login', icon: <LayoutTemplate className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Dashboard Personalizado', icon: <LayoutGrid className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (
                 <div
                   key={i}
@@ -928,11 +928,11 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
 
             <div className="divide-y divide-slate-50 text-xs">
               {[
-                { label: 'Utilizadores Ativos', value: '12.456', trend: '↑ 18%', trendUp: true, icon: <Users className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Utilizadores Ativos', value: '12.456', trend: '↑ 18%', trendUp: true, icon: <Users className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Novos Registos', value: '1.248', trend: '↑ 22%', trendUp: true, icon: <UserPlus className="w-3.5 h-3.5 text-blue-600" /> },
-                { label: 'Consultas de Dados', value: '24.562', trend: '↑ 15%', trendUp: true, icon: <Search className="w-3.5 h-3.5 text-teal-600" /> },
-                { label: 'Relatórios Gerados', value: '3.642', trend: '↑ 17%', trendUp: true, icon: <FileText className="w-3.5 h-3.5 text-indigo-600" /> },
-                { label: 'Eventos de Sistema', value: '156', trend: '↓ 5%', trendUp: false, icon: <Activity className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Consultas de Dados', value: '24.562', trend: '↑ 15%', trendUp: true, icon: <Search className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Relatórios Gerados', value: '3.642', trend: '↑ 17%', trendUp: true, icon: <FileText className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Eventos de Sistema', value: '156', trend: '↓ 5%', trendUp: false, icon: <Activity className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (
                 <div
                   key={i}
@@ -945,7 +945,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   </span>
                   <span className="flex items-center gap-2">
                     <span className="font-bold text-slate-800">{row.value}</span>
-                    <span className={`text-[10.5px] font-semibold ${row.trendUp ? 'text-emerald-600' : 'text-rose-500'}`}>
+                    <span className={`text-[10.5px] font-semibold ${row.trendUp ? 'text-emerald-600' : 'text-blue-500'}`}>
                       {row.trend}
                     </span>
                   </span>
@@ -972,7 +972,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                 <Cloud className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A]">Backups e Recuperação</h3>
@@ -980,11 +980,11 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
 
             <div className="divide-y divide-slate-50 text-xs">
               {[
-                { label: 'Último Backup', value: 'Hoje, 08:32', icon: <RotateCcw className="w-3.5 h-3.5 text-cyan-600" /> },
-                { label: 'Próximo Backup', value: 'Amanhã, 02:00', icon: <Calendar className="w-3.5 h-3.5 text-cyan-600" /> },
-                { label: 'Backups Automáticos', value: 'Diário', icon: <RefreshCw className="w-3.5 h-3.5 text-cyan-600" /> },
-                { label: 'Retenção de Backups', value: '30 dias', icon: <Archive className="w-3.5 h-3.5 text-cyan-600" /> },
-                { label: 'Restaurar Plataforma', hasArrow: true, icon: <HardDrive className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Último Backup', value: 'Hoje, 08:32', icon: <RotateCcw className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Próximo Backup', value: 'Amanhã, 02:00', icon: <Calendar className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Backups Automáticos', value: 'Diário', icon: <RefreshCw className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Retenção de Backups', value: '30 dias', icon: <Archive className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Restaurar Plataforma', hasArrow: true, icon: <HardDrive className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (
                 <div
                   key={i}
@@ -1021,7 +1021,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                 <UserCheck className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A]">Gestão de Permissões</h3>
@@ -1029,10 +1029,10 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
 
             <div className="divide-y divide-slate-50 text-xs">
               {[
-                { label: 'Funções e Permissões', icon: <Key className="w-3.5 h-3.5 text-purple-600" /> },
-                { label: 'Grupos de Utilizadores', icon: <Users className="w-3.5 h-3.5 text-purple-600" /> },
-                { label: 'Permissões Avançadas', icon: <ShieldCheck className="w-3.5 h-3.5 text-purple-600" /> },
-                { label: 'Acessos por Território', icon: <MapPin className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Funções e Permissões', icon: <Key className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Grupos de Utilizadores', icon: <Users className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Permissões Avançadas', icon: <ShieldCheck className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Acessos por Território', icon: <MapPin className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Auditoria de Permissões', icon: <FileCheck className="w-3.5 h-3.5 text-emerald-600" /> },
               ].map((row, i) => (
                 <div
@@ -1080,9 +1080,9 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Ambientes',
                   badge: 'Produção',
                   icon: <Globe className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-purple-50 text-purple-700 border border-purple-100',
+                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
                 },
-                { label: 'Logs da API', icon: <Terminal className="w-3.5 h-3.5 text-purple-600" /> },
+                { label: 'Logs da API', icon: <Terminal className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (
                 <div
                   key={i}
