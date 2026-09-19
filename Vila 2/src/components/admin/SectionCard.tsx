@@ -43,12 +43,12 @@ export const SectionCard: React.FC<SectionCardProps> = ({
 }) => {
   return (
     <div
-      className={`bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all duration-200 p-5 sm:p-6 flex flex-col min-w-0 ${className}`}
+      className={`bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all duration-200 p-5 sm:p-6 flex flex-col min-w-0 ${className}`}
     >
       {(title || titleAction) && (
-        <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/70">
+        <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/70 dark:border-slate-700">
           {title && (
-            <h2 className="text-base font-bold text-slate-900 font-sans tracking-tight">
+            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
               {title}
             </h2>
           )}
@@ -61,7 +61,7 @@ export const SectionCard: React.FC<SectionCardProps> = ({
       </div>
 
       {footerLabel && onFooterClick && (
-        <div className="pt-3 mt-4 border-t border-slate-200/70 flex items-center justify-end">
+        <div className="pt-3 mt-4 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end">
           <button
             type="button"
             onClick={onFooterClick}

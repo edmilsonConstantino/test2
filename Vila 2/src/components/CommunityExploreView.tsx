@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import {
   Globe,
   Plus,
@@ -474,11 +474,53 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
   const [selectedLocation, setSelectedLocation] = useState<string>('Qualquer lugar');
   const [isLocationOpen, setIsLocationOpen] = useState<boolean>(false);
 
-  // Carousel State
-  const [carouselIndex, setCarouselIndex] = useState<number>(0);
-  const totalSlides = FEATURED_SLIDES.length;
-  // We can advance 1 slide per step, max index totalSlides - 1
-  const maxSlideIndex = Math.max(0, totalSlides - 4);
+  // Carousel State (mini carrossel automático e suave, igual ao de "Eventos recomendados para si")
+  const featuredCarouselRef = useRef<HTMLDivElement>(null);
+  const [isFeaturedCarouselPaused, setIsFeaturedCarouselPaused] = useState(false);
+  const [canScrollFeaturedLeft, setCanScrollFeaturedLeft] = useState(false);
+  const [canScrollFeaturedRight, setCanScrollFeaturedRight] = useState(true);
+
+  const checkFeaturedScroll = useCallback(() => {
+    if (featuredCarouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = featuredCarouselRef.current;
+      setCanScrollFeaturedLeft(scrollLeft > 10);
+      setCanScrollFeaturedRight(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkFeaturedScroll();
+    window.addEventListener('resize', checkFeaturedScroll);
+    return () => window.removeEventListener('resize', checkFeaturedScroll);
+  }, [checkFeaturedScroll]);
+
+  // Avança suavemente card a card e volta ao início ao chegar ao fim
+  useEffect(() => {
+    if (isFeaturedCarouselPaused) return;
+
+    const interval = setInterval(() => {
+      const el = featuredCarouselRef.current;
+      if (!el) return;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      const cardWidth = el.firstElementChild instanceof HTMLElement ? el.firstElementChild.offsetWidth + 12 : clientWidth / 2;
+
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [isFeaturedCarouselPaused]);
+
+  const scrollFeaturedCarousel = (direction: 'left' | 'right') => {
+    if (featuredCarouselRef.current) {
+      const amount = featuredCarouselRef.current.clientWidth;
+      featuredCarouselRef.current.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+      setTimeout(checkFeaturedScroll, 350);
+    }
+  };
 
   // Sort and View Mode State
   const [sortBy, setSortBy] = useState<'relevantes' | 'membros' | 'recentes' | 'alfabetica'>('relevantes');
@@ -559,14 +601,6 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
     });
   }, [selectedCategory, communityType, selectedSizes, selectedLanguage, selectedLocation, sortBy]);
 
-  const handleNextSlide = () => {
-    setCarouselIndex((prev) => (prev >= maxSlideIndex ? 0 : prev + 1));
-  };
-
-  const handlePrevSlide = () => {
-    setCarouselIndex((prev) => (prev <= 0 ? maxSlideIndex : prev - 1));
-  };
-
   return (
     <div id="community-explore-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col pb-16">
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-6">
@@ -574,7 +608,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
         {/* 1. Header com Título, Subtítulo e Botão "Criar Comunidade +" */}
         <section id="explore-header" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex flex-col gap-1.5 max-w-3xl">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F1E3D] tracking-tight font-['Outfit'] leading-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F1E3D] tracking-tight font-sans leading-tight">
               Explorar Comunidade
             </h1>
             <p className="text-xs sm:text-sm text-[#475569] font-normal leading-relaxed">
@@ -586,7 +620,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
             type="button"
             onClick={onOpenCreateCommunity}
             id="btn-criar-comunidade-explore"
-            className="self-start sm:self-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#3D4ED8] hover:bg-[#2D3BA8] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer shrink-0"
+            className="self-start sm:self-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer shrink-0"
           >
             <span>Criar Comunidade</span>
             <Plus className="w-4 h-4 stroke-[2.5]" />
@@ -624,7 +658,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
-                    ? 'bg-[#3D4ED8] text-white shadow-xs'
+                    ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
                     : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
@@ -731,7 +765,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       <span
                         className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
                           isChecked
-                            ? 'border-[#3D4ED8] bg-[#3D4ED8]'
+                            ? 'border-[#1455AC] bg-[#1455AC]'
                             : 'border-slate-300 bg-white hover:border-slate-400'
                         }`}
                       >
@@ -764,7 +798,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       <span
                         className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-all ${
                           isChecked
-                            ? 'border-[#3D4ED8] bg-[#3D4ED8] text-white'
+                            ? 'border-[#1455AC] bg-[#1455AC] text-white'
                             : 'border-slate-300 bg-white hover:border-slate-400'
                         }`}
                       >
@@ -802,7 +836,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
                     >
                       <span>{lang}</span>
-                      {selectedLanguage === lang && <Check className="w-3 h-3 text-blue-600" />}
+                      {selectedLanguage === lang && <Check className="w-3 h-3 text-[#1455AC]" />}
                     </button>
                   ))}
                 </div>
@@ -834,7 +868,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
                     >
                       <span>{loc}</span>
-                      {selectedLocation === loc && <Check className="w-3 h-3 text-blue-600" />}
+                      {selectedLocation === loc && <Check className="w-3 h-3 text-[#1455AC]" />}
                     </button>
                   ))}
                 </div>
@@ -846,7 +880,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
               onClick={() => {
                 // Trigger quick visual confirmation
               }}
-              className="w-full py-2.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs shadow-xs transition-all cursor-pointer mt-1"
+              className="w-full py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white font-bold text-xs shadow-xs transition-all cursor-pointer mt-1"
             >
               Aplicar Filtros
             </button>
@@ -860,27 +894,29 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
             {/* 1. SEÇÃO: Comunidades em destaque (CARROSSEL COM DOTS) */}
             <section id="comunidades-destaque-carousel" className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Outfit']">
+                <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
                   Comunidades em destaque
                 </h2>
                 <button
                   type="button"
-                  onClick={() => setCarouselIndex((prev) => (prev + 1) % (totalSlides - 1))}
-                  className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-bold text-[#1455AC] hover:underline flex items-center gap-1 cursor-pointer"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
-              {/* Contêiner do Carrossel com Seta Flutuante */}
-              <div className="relative group">
+              {/* Contêiner do Carrossel: scroll nativo, 2 cards por vista, avanço automático suave */}
+              <div
+                className="relative group"
+                onMouseEnter={() => setIsFeaturedCarouselPaused(true)}
+                onMouseLeave={() => setIsFeaturedCarouselPaused(false)}
+              >
                 <div className="overflow-hidden rounded-2xl">
                   <div
-                    className="flex gap-3 transition-transform duration-500 ease-out"
-                    style={{
-                      transform: `translateX(-${carouselIndex * 260}px)`,
-                    }}
+                    ref={featuredCarouselRef}
+                    onScroll={checkFeaturedScroll}
+                    className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-1"
                   >
                     {FEATURED_SLIDES.map((slide) => {
                       const IconComponent = slide.icon;
@@ -888,7 +924,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       return (
                         <article
                           key={slide.id}
-                          className="w-[245px] sm:w-[250px] shrink-0 bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group/card"
+                          className="w-[calc(50%-6px)] shrink-0 snap-start bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow group/card"
                         >
                           {/* Banner com Imagem, Badge e Ícone Redondo */}
                           <div className="relative h-28 w-full overflow-hidden bg-slate-100">
@@ -915,7 +951,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                           {/* Conteúdo Textual */}
                           <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                             <div>
-                              <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 group-hover/card:text-blue-600 transition-colors">
+                              <h3 className="text-xs font-bold text-[#0F172A] font-sans line-clamp-1 group-hover/card:text-[#1455AC] transition-colors">
                                 {slide.name}
                               </h3>
                               <p className="text-[10px] text-slate-500 mb-1 font-medium">
@@ -959,21 +995,23 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                 </div>
 
                 {/* Seta de Navegação Direita */}
-                <button
-                  type="button"
-                  onClick={handleNextSlide}
-                  title="Próximas comunidades"
-                  className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
-                  aria-label="Avançar carrossel"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-
-                {/* Seta de Navegação Esquerda (visível se index > 0) */}
-                {carouselIndex > 0 && (
+                {canScrollFeaturedRight && (
                   <button
                     type="button"
-                    onClick={handlePrevSlide}
+                    onClick={() => scrollFeaturedCarousel('right')}
+                    title="Próximas comunidades"
+                    className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
+                    aria-label="Avançar carrossel"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                )}
+
+                {/* Seta de Navegação Esquerda (visível quando há para onde recuar) */}
+                {canScrollFeaturedLeft && (
+                  <button
+                    type="button"
+                    onClick={() => scrollFeaturedCarousel('left')}
                     title="Comunidades anteriores"
                     className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
                     aria-label="Voltar carrossel"
@@ -981,24 +1019,6 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                     <ChevronLeft className="w-4 h-4" />
                   </button>
                 )}
-              </div>
-
-              {/* Bolinhas de Paginação (Dots) */}
-              <div className="flex items-center justify-center gap-1.5 pt-1">
-                {[0, 1, 2, 3].map((dotIndex) => {
-                  const isActive = carouselIndex === dotIndex;
-                  return (
-                    <button
-                      key={dotIndex}
-                      type="button"
-                      onClick={() => setCarouselIndex(dotIndex)}
-                      className={`h-2 rounded-full transition-all cursor-pointer ${
-                        isActive ? 'w-4 bg-[#3D4ED8]' : 'w-2 bg-slate-300 hover:bg-slate-400'
-                      }`}
-                      aria-label={`Slide ${dotIndex + 1}`}
-                    />
-                  );
-                })}
               </div>
             </section>
 
@@ -1049,7 +1069,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                             className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
                           >
                             <span>{s.label}</span>
-                            {sortBy === s.id && <Check className="w-3 h-3 text-blue-600" />}
+                            {sortBy === s.id && <Check className="w-3 h-3 text-[#1455AC]" />}
                           </button>
                         ))}
                       </div>
@@ -1064,7 +1084,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       title="Visualização em Grade"
                       className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                         viewMode === 'grid'
-                          ? 'bg-slate-100 text-[#3D4ED8]'
+                          ? 'bg-slate-100 text-[#1455AC]'
                           : 'text-slate-400 hover:text-slate-700'
                       }`}
                       aria-label="Grade"
@@ -1077,7 +1097,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       title="Visualização em Lista"
                       className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                         viewMode === 'list'
-                          ? 'bg-slate-100 text-[#3D4ED8]'
+                          ? 'bg-slate-100 text-[#1455AC]'
                           : 'text-slate-400 hover:text-slate-700'
                       }`}
                       aria-label="Lista"
@@ -1114,7 +1134,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                           {/* Textos */}
                           <div className="min-w-0 flex-1">
                             <div className="flex items-center gap-2">
-                              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Outfit'] group-hover:text-blue-600 transition-colors">
+                              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans group-hover:text-[#1455AC] transition-colors">
                                 {item.name}
                               </h3>
                             </div>
@@ -1156,7 +1176,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                             className={`px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                               isJoined
                                 ? 'bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200'
-                                : 'bg-white border border-blue-200 text-[#3D4ED8] hover:bg-blue-50/80 hover:border-blue-300 shadow-2xs'
+                                : 'bg-white border border-[#1455AC]/30 text-[#1455AC] hover:bg-[#1455AC]/10 hover:border-[#1455AC]/50 shadow-2xs'
                             }`}
                           >
                             {isJoined ? 'Membro ativo' : 'Juntar-se'}
@@ -1186,7 +1206,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                             <IconComp className="w-5 h-5 stroke-[2.2]" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] font-['Outfit'] truncate group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans truncate group-hover:text-[#1455AC] transition-colors">
                               {item.name}
                             </h3>
                             <p className="text-[11px] text-slate-500">
@@ -1207,7 +1227,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                             className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                               isJoined
                                 ? 'bg-slate-100 text-slate-700'
-                                : 'text-[#3D4ED8] bg-blue-50 hover:bg-blue-100'
+                                : 'text-[#1455AC] bg-[#1455AC]/10 hover:bg-[#1455AC]/20'
                             }`}
                           >
                             {isJoined ? 'Membro' : 'Juntar-se'}
@@ -1229,13 +1249,13 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
             {/* 1. Card: Comunidades em tendência */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
                   Comunidades em tendência
                 </h3>
                 <button
                   type="button"
                   onClick={() => setSelectedCategory('todas')}
-                  className="text-[11px] font-bold text-blue-600 hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-[#1455AC] hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3 h-3" />
@@ -1259,7 +1279,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                           <TrendIcon className="w-3.5 h-3.5" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-blue-600 transition-colors">
+                          <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-[#1455AC] transition-colors">
                             {item.name}
                           </h4>
                           <span className="text-[10px] text-slate-500 block truncate">{item.members}</span>
@@ -1275,12 +1295,12 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
             {/* 2. Card: Atividade recente */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
                   Atividade recente
                 </h3>
                 <button
                   type="button"
-                  className="text-[11px] font-bold text-blue-600 hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-[#1455AC] hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver tudo</span>
                   <ArrowRight className="w-3 h-3" />
@@ -1300,7 +1320,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                       <p className="text-slate-700">
                         <span className="font-bold text-[#0F172A]">{act.actor}</span>{' '}
                         {act.action}{' '}
-                        <span className="font-bold text-blue-600">{act.target}</span>
+                        <span className="font-bold text-[#1455AC]">{act.target}</span>
                       </p>
                       <span className="text-[10px] text-slate-400 block mt-0.5">{act.time}</span>
                     </div>
@@ -1312,10 +1332,10 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
             {/* 3. Card Promocional: "Não encontrou o que procura?" */}
             <div
               id="cta-criar-comunidade-promo"
-              className="relative rounded-2xl overflow-hidden p-5 text-white bg-gradient-to-br from-[#3D4ED8] to-[#1E40AF] shadow-md flex flex-col justify-between min-h-[190px]"
+              className="relative rounded-2xl overflow-hidden p-5 text-white bg-[#1455AC] shadow-md flex flex-col justify-between min-h-[190px]"
             >
               <div className="relative z-10 max-w-[210px] flex flex-col gap-1.5">
-                <h3 className="text-sm sm:text-base font-extrabold text-white font-['Outfit'] leading-tight">
+                <h3 className="text-sm sm:text-base font-extrabold text-white font-sans leading-tight">
                   Não encontrou o que procura?
                 </h3>
                 <p className="text-[11px] text-blue-100/90 leading-snug">
@@ -1327,7 +1347,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                 <button
                   type="button"
                   onClick={onOpenCreateCommunity}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#3D4ED8] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#1455AC] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
                 >
                   <span>Criar Comunidade</span>
                   <Plus className="w-3.5 h-3.5 stroke-[2.8]" />
@@ -1338,8 +1358,8 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
               <div className="absolute -right-4 -bottom-4 pointer-events-none opacity-80">
                 <div className="w-28 h-28 rounded-full border border-white/20 flex items-center justify-center relative">
                   <Globe className="w-14 h-14 text-white/25" />
-                  <span className="absolute top-1 right-3 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-blue-600" />
-                  <span className="absolute bottom-4 left-1 w-3.5 h-3.5 rounded-full bg-amber-400 ring-2 ring-blue-600" />
+                  <span className="absolute top-1 right-3 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#1455AC]" />
+                  <span className="absolute bottom-4 left-1 w-3.5 h-3.5 rounded-full bg-amber-400 ring-2 ring-[#1455AC]" />
                 </div>
               </div>
             </div>
@@ -1373,7 +1393,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                   <detailModalItem.icon className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] font-sans">
                     {detailModalItem.name}
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -1407,7 +1427,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                   className={`flex-1 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     joinedCommunities.has(detailModalItem.id)
                       ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                      : 'bg-[#3D4ED8] text-white hover:bg-[#2D3BA8] shadow-xs'
+                      : 'bg-[#1455AC] text-white hover:bg-[#0F448A] shadow-xs'
                   }`}
                 >
                   {joinedCommunities.has(detailModalItem.id) ? 'Membro ativo ✓' : 'Juntar-se à Comunidade'}

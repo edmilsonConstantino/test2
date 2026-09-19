@@ -366,7 +366,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
   };
 
   return (
-    <div id="technology-impact-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="technology-impact-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Principal (busca/idioma/notificações/perfil/breadcrumb já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 2. Cabeçalho de Tecnologia com Ícone, Subtítulo e Botão Apoiar Iniciativa */}
@@ -378,10 +378,10 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Tecnologia
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
                 Inovação e tecnologia a serviço das pessoas e do planeta para um futuro mais inteligente e sustentável.
               </p>
             </div>
@@ -420,7 +420,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                   <Icon className="w-4 h-4" strokeWidth={2} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="block text-sm font-black text-[#0F172A] font-['Outfit'] leading-none truncate">
+                  <span className="block text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-none truncate">
                     {m.value}
                   </span>
                   <span className="text-[10px] text-slate-500 font-medium truncate block mt-0.5">
@@ -650,7 +650,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             {/* SEÇÃO 1: Áreas de impacto tecnológico (6 Cards) */}
             <section id="areas-impacto-tecnologia" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Áreas de impacto tecnológico
                 </h3>
                 <button
@@ -684,7 +684,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                           {renderAreaIcon(area.iconType)}
                         </div>
 
-                        <h4 className="text-xs font-bold text-[#0F172A] font-['Outfit'] leading-snug group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-snug group-hover:text-emerald-700 transition-colors">
                           {area.name}
                         </h4>
 
@@ -710,7 +710,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 {/* Projetos em destaque (3 em 3 cards) */}
                 <div className="lg:col-span-8 flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                       Projetos em destaque
                     </h3>
                     <div className="flex items-center gap-1.5">
@@ -762,7 +762,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                               <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                                 {proj.location}
                               </div>
-                              <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 transition-colors mt-0.5">
+                              <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 transition-colors mt-0.5">
                                 {proj.title}
                               </h4>
                               <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-1">
@@ -816,7 +816,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
 
             {/* SEÇÃO 3: O impacto em números (6 Cards com Gráficos de Linha) */}
             <section id="impacto-em-numeros-tecnologia" className="flex flex-col gap-3">
-              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 O impacto em números
               </h3>
 
@@ -885,7 +885,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                             {item.change}
                           </span>
                         </div>
-                        <span className="text-sm font-black text-[#0F172A] font-['Outfit'] block truncate">
+                        <span className="text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] block truncate">
                           {item.value}
                         </span>
                         <span className="text-[9.5px] text-slate-500 font-medium block leading-tight mt-0.5">
@@ -943,7 +943,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             {/* 1. Card: Mais populares em Tecnologia */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Mais populares em Tecnologia
                 </h3>
                 <button
@@ -971,7 +971,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         className="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200 shrink-0"
                       />
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-emerald-700 transition-colors">
                           {item.name}
                         </h4>
                         <span className="text-[10px] text-slate-500 block truncate">
@@ -990,7 +990,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             {/* 2. Card: Recursos e Ferramentas (6 Itens) */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Recursos e ferramentas
                 </h3>
                 <button
@@ -1013,7 +1013,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         <FileText className="w-4 h-4" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-[11px] font-bold text-[#0F172A] truncate group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-[11px] font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-emerald-700 transition-colors">
                           {res.title}
                         </h4>
                         <span className="text-[9.5px] text-slate-500 block truncate">
@@ -1093,7 +1093,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-lg font-black text-[#0F172A] font-['Outfit']">
+                <h3 className="text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   {selectedProjectModal.title}
                 </h3>
                 <span className="text-xs text-slate-500 font-medium">
@@ -1152,7 +1152,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                   <Cpu className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     Apoiar Iniciativa Tech
                   </h3>
                   <span className="text-xs text-slate-500">

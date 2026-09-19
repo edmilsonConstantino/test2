@@ -783,7 +783,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
 
               {/* Grid de 4 Cards com Slider Button */}
               <div className="relative">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                   {filteredCommunities.map((comm) => {
                     const isJoined = joinedCommunities.has(comm.id);
 

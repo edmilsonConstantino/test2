@@ -164,19 +164,19 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
   return (
     <div className="min-h-screen bg-[#F8FAFC] pb-16">
       {/* 1. Header do Perfil VILA (Alinhado visualmente com as outras páginas administrativas e de módulo) */}
-      <div className="bg-white border-b border-slate-200/80 sticky top-14 z-20 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <div className="bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-700 sticky top-14 z-20 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 space-y-4">
           {/* Título, Subtítulo e Telemetria */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-start sm:items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
+              <div className="w-11 h-11 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 dark:border-purple-800/40 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
                 <User className="w-5 h-5" />
               </div>
               <div>
-                <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] font-sans tracking-tight">
+                <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
                   {tabMetadata[activeTab].title}
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-2xl mt-0.5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-2xl mt-0.5 leading-relaxed">
                   {tabMetadata[activeTab].subtitle}
                 </p>
               </div>
@@ -184,11 +184,11 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
 
             {/* Badges de Status / Ações */}
             <div className="flex items-center gap-3 w-full sm:w-auto justify-start sm:justify-end">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 text-xs font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Identidade Verificada</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 border border-purple-200 text-xs font-semibold">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800/40 text-xs font-semibold">
                 <Award className="w-3.5 h-3.5" />
                 <span>Nível Embaixadora</span>
               </div>
@@ -196,7 +196,7 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
           </div>
 
           {/* Barra de Navegação das Abas */}
-          <div className="border-t border-slate-100 overflow-x-auto no-scrollbar">
+          <div className="border-t border-slate-100 dark:border-slate-800 overflow-x-auto no-scrollbar">
             <div className="flex items-center gap-1 sm:gap-4 min-w-max">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -208,11 +208,11 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
                     onClick={() => setActiveTab(tab.id)}
                     className={`py-3 px-2.5 flex items-center gap-2 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer ${
                       isActive
-                        ? 'text-blue-600'
-                        : 'text-slate-500 hover:text-slate-900'
+                        ? 'text-blue-600 dark:text-blue-400'
+                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500'}`} />
                     <span>{tab.label}</span>
 
                     {/* Linha azul sublinhada para aba ativa */}
@@ -267,41 +267,41 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
         {activeTab === 'participacao' && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Consultas</span>
-                <div className="text-2xl font-bold text-[#0F172A] font-sans mt-1">34</div>
-                <span className="text-xs text-emerald-600 font-semibold">+6 este mês</span>
+              <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Consultas</span>
+                <div className="text-2xl font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">34</div>
+                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">+6 este mês</span>
               </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Comentários</span>
-                <div className="text-2xl font-bold text-[#0F172A] font-sans mt-1">21</div>
-                <span className="text-xs text-blue-600 font-semibold">100% construtivos</span>
+              <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Comentários</span>
+                <div className="text-2xl font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">21</div>
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-semibold">100% construtivos</span>
               </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Projetos Apoiados</span>
-                <div className="text-2xl font-bold text-[#0F172A] font-sans mt-1">56</div>
-                <span className="text-xs text-indigo-600 font-semibold">4 municípios</span>
+              <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Projetos Apoiados</span>
+                <div className="text-2xl font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">56</div>
+                <span className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">4 municípios</span>
               </div>
-              <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ideias Aprovadas</span>
-                <div className="text-2xl font-bold text-[#0F172A] font-sans mt-1">4 / 12</div>
-                <span className="text-xs text-amber-600 font-semibold">33% taxa de aprovação</span>
+              <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Ideias Aprovadas</span>
+                <div className="text-2xl font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">4 / 12</div>
+                <span className="text-xs text-amber-600 dark:text-amber-400 font-semibold">33% taxa de aprovação</span>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
-              <h3 className="text-base font-bold text-[#0F172A] mb-4 font-sans">Histórico de Atividade Recente</h3>
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 mb-4 font-sans">Histórico de Atividade Recente</h3>
               <div className="space-y-3">
                 {[
-                  { title: 'Votação no Orçamento Participativo de Faro 2026', type: 'Voto Registado', date: 'Há 2 dias', badge: 'bg-purple-50 text-purple-700 border border-purple-200' },
-                  { title: 'Apoio à proposta de Ciclovia Urbana Faro-Olhão', type: 'Projeto Apoiado', date: 'Há 5 dias', badge: 'bg-emerald-50 text-emerald-700 border border-emerald-200' },
-                  { title: 'Comentário técnico sobre Eficiência Hídrica no Algarve', type: 'Comentário', date: 'Há 1 semana', badge: 'bg-blue-50 text-blue-700 border border-blue-200' },
-                  { title: 'Submissão de ideia para Hortas Comunitárias na Penha', type: 'Ideia Submetida', date: 'Há 2 semanas', badge: 'bg-amber-50 text-amber-700 border border-amber-200' },
+                  { title: 'Votação no Orçamento Participativo de Faro 2026', type: 'Voto Registado', date: 'Há 2 dias', badge: 'bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800/40' },
+                  { title: 'Apoio à proposta de Ciclovia Urbana Faro-Olhão', type: 'Projeto Apoiado', date: 'Há 5 dias', badge: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40' },
+                  { title: 'Comentário técnico sobre Eficiência Hídrica no Algarve', type: 'Comentário', date: 'Há 1 semana', badge: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40' },
+                  { title: 'Submissão de ideia para Hortas Comunitárias na Penha', type: 'Ideia Submetida', date: 'Há 2 semanas', badge: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center justify-between p-3.5 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors">
+                  <div key={i} className="flex items-center justify-between p-3.5 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                     <div>
-                      <h4 className="text-sm font-semibold text-[#0F172A]">{item.title}</h4>
-                      <span className="text-xs text-slate-400">{item.date}</span>
+                      <h4 className="text-sm font-semibold text-[#0F172A] dark:text-slate-50">{item.title}</h4>
+                      <span className="text-xs text-slate-400 dark:text-slate-500">{item.date}</span>
                     </div>
                     <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${item.badge}`}>
                       {item.type}
@@ -332,17 +332,17 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {[
-                { name: 'Semente', desc: 'Primeiros passos na cidadania ativa', status: 'Conquistada', icon: '🌱', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-                { name: 'Guardião', desc: 'Cuida da comunidade e protege recursos', status: 'Conquistada', icon: '🛡️', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-                { name: 'Embaixador', desc: 'Impacto reconhecido em múltiplos territórios', status: 'Conquistada', icon: '⭐', color: 'bg-amber-50 text-amber-700 border-amber-200' },
-                { name: 'Líder Comunitário', desc: 'Lidera pelo exemplo e mobiliza', status: 'Em progresso (80%)', icon: '👥', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-                { name: 'Lenda VILA', desc: 'Máximo reconhecimento cívico e impacto perene', status: 'Em progresso (25%)', icon: '👑', color: 'bg-slate-100 text-slate-700 border-slate-200' },
+                { name: 'Semente', desc: 'Primeiros passos na cidadania ativa', status: 'Conquistada', icon: '🌱', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
+                { name: 'Guardião', desc: 'Cuida da comunidade e protege recursos', status: 'Conquistada', icon: '🛡️', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
+                { name: 'Embaixador', desc: 'Impacto reconhecido em múltiplos territórios', status: 'Conquistada', icon: '⭐', color: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/40' },
+                { name: 'Líder Comunitário', desc: 'Lidera pelo exemplo e mobiliza', status: 'Em progresso (80%)', icon: '👥', color: 'bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800/40' },
+                { name: 'Lenda VILA', desc: 'Máximo reconhecimento cívico e impacto perene', status: 'Em progresso (25%)', icon: '👑', color: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700' },
               ].map((badge, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)] text-center flex flex-col justify-between">
+                <div key={idx} className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.03)] text-center flex flex-col justify-between">
                   <div>
                     <div className="text-3xl mb-2">{badge.icon}</div>
-                    <h4 className="font-bold text-[#0F172A]">{badge.name}</h4>
-                    <p className="text-xs text-slate-500 mt-1">{badge.desc}</p>
+                    <h4 className="font-bold text-[#0F172A] dark:text-slate-50">{badge.name}</h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{badge.desc}</p>
                   </div>
                   <span className={`mt-4 px-2.5 py-1 rounded-full text-[11px] font-bold border ${badge.color}`}>
                     {badge.status}
@@ -356,33 +356,33 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
         {/* Aba Assinaturas */}
         {activeTab === 'assinaturas' && (
           <div className="max-w-4xl space-y-6">
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100 dark:border-slate-800">
                 <div>
-                  <span className="text-xs font-bold text-purple-600 uppercase tracking-wider">Plano Ativo</span>
-                  <h3 className="text-xl font-bold text-[#0F172A] font-sans mt-0.5">VILA Premium (Anual)</h3>
-                  <p className="text-xs text-slate-500 mt-1">Renovação automática em 12 de maio de 2026</p>
+                  <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">Plano Ativo</span>
+                  <h3 className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">VILA Premium (Anual)</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Renovação automática em 12 de maio de 2026</p>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-xs">
+                <span className="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 font-bold text-xs">
                   Ativa
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
                 <div className="space-y-2">
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Benefícios Incluídos</h4>
-                  <div className="space-y-1.5 text-xs text-slate-700">
-                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600" /> Acesso a projetos exclusivos</div>
-                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600" /> Relatórios avançados de impacto territorial</div>
-                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600" /> Prioridade em sessões de co-criação</div>
-                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600" /> Assistente VILA AI ilimitado</div>
+                  <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Benefícios Incluídos</h4>
+                  <div className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300">
+                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Acesso a projetos exclusivos</div>
+                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Relatórios avançados de impacto territorial</div>
+                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Prioridade em sessões de co-criação</div>
+                    <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Assistente VILA AI ilimitado</div>
                   </div>
                 </div>
                 <div className="flex flex-col justify-end gap-2">
                   <button className="py-2.5 px-4 rounded-xl bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 transition-colors cursor-pointer">
                     Mudar de Plano
                   </button>
-                  <button className="py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 font-semibold text-xs hover:bg-slate-50 transition-colors cursor-pointer">
+                  <button className="py-2.5 px-4 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                     Ver Histórico de Faturas
                   </button>
                 </div>
@@ -394,44 +394,44 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
         {/* Aba Segurança */}
         {activeTab === 'seguranca' && (
           <div className="max-w-4xl space-y-4">
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)] space-y-4">
-              <h3 className="text-base font-bold text-[#0F172A] font-sans">Credenciais e Autenticação</h3>
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.03)] space-y-4">
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">Credenciais e Autenticação</h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors">
+                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                   <div className="flex items-center gap-3">
-                    <Key className="w-5 h-5 text-slate-400" />
+                    <Key className="w-5 h-5 text-slate-400 dark:text-slate-500" />
                     <div>
-                      <h4 className="text-sm font-semibold text-[#0F172A]">Palavra-passe</h4>
-                      <p className="text-xs text-slate-500">Última alteração há 30 dias</p>
+                      <h4 className="text-sm font-semibold text-[#0F172A] dark:text-slate-50">Palavra-passe</h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">Última alteração há 30 dias</p>
                     </div>
                   </div>
-                  <button className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-white cursor-pointer">
+                  <button className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-white cursor-pointer">
                     Alterar
                   </button>
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors">
+                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                   <div className="flex items-center gap-3">
-                    <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                    <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     <div>
-                      <h4 className="text-sm font-semibold text-[#0F172A]">Autenticação de Dois Fatores (2FA)</h4>
-                      <p className="text-xs text-emerald-600 font-medium">Ativada via Authenticator App</p>
+                      <h4 className="text-sm font-semibold text-[#0F172A] dark:text-slate-50">Autenticação de Dois Fatores (2FA)</h4>
+                      <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Ativada via Authenticator App</p>
                     </div>
                   </div>
-                  <button className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-white cursor-pointer">
+                  <button className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-white cursor-pointer">
                     Gerir
                   </button>
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors">
+                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                   <div className="flex items-center gap-3">
-                    <Laptop className="w-5 h-5 text-slate-400" />
+                    <Laptop className="w-5 h-5 text-slate-400 dark:text-slate-500" />
                     <div>
-                      <h4 className="text-sm font-semibold text-[#0F172A]">Sessões Ativas</h4>
-                      <p className="text-xs text-slate-500">3 dispositivos com sessão iniciada atualmente</p>
+                      <h4 className="text-sm font-semibold text-[#0F172A] dark:text-slate-50">Sessões Ativas</h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">3 dispositivos com sessão iniciada atualmente</p>
                     </div>
                   </div>
-                  <button className="px-3 py-1.5 rounded-lg border border-red-200 text-xs font-semibold text-red-600 hover:bg-red-50 cursor-pointer">
+                  <button className="px-3 py-1.5 rounded-lg border border-red-200 dark:border-red-800/40 text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 cursor-pointer">
                     Terminar Outras Sessões
                   </button>
                 </div>
@@ -443,29 +443,29 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
         {/* Aba Privacidade */}
         {activeTab === 'privacidade' && (
           <div className="max-w-4xl space-y-4">
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.03)] space-y-4">
-              <h3 className="text-base font-bold text-[#0F172A] font-sans">Visibilidade e Dados</h3>
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.03)] space-y-4">
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">Visibilidade e Dados</h3>
               <div className="space-y-3 text-xs">
-                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100">
+                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-3">
-                    <Eye className="w-5 h-5 text-slate-400" />
+                    <Eye className="w-5 h-5 text-slate-400 dark:text-slate-500" />
                     <div>
-                      <h4 className="text-sm font-semibold text-[#0F172A]">Visibilidade do Perfil</h4>
-                      <p className="text-slate-500">Visível para outros cidadãos na comunidade VILA</p>
+                      <h4 className="text-sm font-semibold text-[#0F172A] dark:text-slate-50">Visibilidade do Perfil</h4>
+                      <p className="text-slate-500 dark:text-slate-400">Visível para outros cidadãos na comunidade VILA</p>
                     </div>
                   </div>
-                  <span className="text-emerald-600 font-bold">Público</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Público</span>
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100">
+                <div className="flex items-center justify-between p-4 rounded-xl border border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-3">
-                    <Download className="w-5 h-5 text-slate-400" />
+                    <Download className="w-5 h-5 text-slate-400 dark:text-slate-500" />
                     <div>
-                      <h4 className="text-sm font-semibold text-[#0F172A]">Descarregar os Meus Dados (RGPD)</h4>
-                      <p className="text-slate-500">Exportar cópia integral de participações e dados da conta</p>
+                      <h4 className="text-sm font-semibold text-[#0F172A] dark:text-slate-50">Descarregar os Meus Dados (RGPD)</h4>
+                      <p className="text-slate-500 dark:text-slate-400">Exportar cópia integral de participações e dados da conta</p>
                     </div>
                   </div>
-                  <button className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer">
+                  <button className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer">
                     Exportar JSON
                   </button>
                 </div>

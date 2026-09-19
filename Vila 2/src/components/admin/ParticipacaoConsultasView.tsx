@@ -140,7 +140,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       period: 'desde o ano passado',
       icon: MessageSquare,
       iconBg: 'bg-emerald-50/90',
-      iconColor: 'text-emerald-600',
+      iconColor: 'text-emerald-600 dark:text-emerald-400',
       borderColor: 'border-emerald-100/70',
     },
     {
@@ -173,7 +173,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       period: 'desde o ano passado',
       icon: MessageSquareQuote,
       iconBg: 'bg-amber-50/90',
-      iconColor: 'text-amber-600',
+      iconColor: 'text-amber-600 dark:text-amber-400',
       borderColor: 'border-amber-100/70',
     },
     {
@@ -597,37 +597,37 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       case 'Em Consulta':
       case 'Em Aberto':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80">
             {status}
           </span>
         );
       case 'Em Análise':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200/80">
             {status}
           </span>
         );
       case 'Em Implementação':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80">
             {status}
           </span>
         );
       case 'Em Planeamento':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-200/80">
             {status}
           </span>
         );
       case 'Planeada':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-200/80">
             {status}
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-50 text-slate-700 border border-slate-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700">
             {status}
           </span>
         );
@@ -657,10 +657,10 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
             <Users className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
               Participação e Consultas
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 font-normal mt-0.5 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-2xl leading-relaxed">
               Promova a participação cidadã e acompanhe todas as consultas públicas e iniciativas participativas na rede VILA.
             </p>
           </div>
@@ -669,7 +669,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         {/* Lado Direito: Status em Tempo Real + Seletor de Datas + Botões de Ação */}
         <div className="flex flex-col items-start xl:items-end gap-2.5 shrink-0">
           {/* Indicadores de Atualização e Tempo Real */}
-          <div className="flex items-center gap-3 text-[11px] font-medium text-slate-500">
+          <div className="flex items-center gap-3 text-[11px] font-medium text-slate-500 dark:text-slate-400">
             <span className="inline-flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Dados atualizados: 10:32</span>
@@ -686,20 +686,20 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
             <button
               type="button"
               onClick={() => setIsDateModalOpen(true)}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors shadow-2xs cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5 text-slate-500" />
+              <Calendar className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>{dateRange}</span>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             </button>
 
             {/* Botão Exportar */}
             <button
               type="button"
               onClick={() => setIsExportModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors shadow-2xs cursor-pointer"
             >
-              <Download className="w-3.5 h-3.5 text-slate-500" />
+              <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>Exportar</span>
             </button>
 
@@ -734,10 +734,10 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
           ===================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Evolução da Participação */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
             <div className="flex items-center justify-between gap-2">
-              <h2 className="text-base font-bold text-[#0F172A] font-sans">
+              <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Evolução da Participação
               </h2>
               {/* Dropdown de Período */}
@@ -745,18 +745,18 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 <select
                   value={chartPeriod}
                   onChange={(e) => setChartPeriod(e.target.value)}
-                  className="text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2.5 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
+                  className="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-lg px-2.5 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
                 >
                   <option value="Últimos 12 meses">Últimos 12 meses</option>
                   <option value="Ano 2024">Ano 2024</option>
                   <option value="Últimos 6 meses">Últimos 6 meses</option>
                 </select>
-                <ChevronDown className="w-3 h-3 text-slate-400 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
             {/* Legenda: Participantes vs Contributos */}
-            <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-600">
+            <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#2D79D1]" />
                 <span>Participantes</span>
@@ -823,9 +823,9 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         </div>
 
         {/* CARD 2: Participação por Região (World Map com Legenda) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Participação por Região
             </h2>
 
@@ -849,7 +849,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                   <span>Baixa</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-medium text-[#0B2C58]">
-                  <span className="w-3 h-3 rounded-[3px] bg-[#F1F5F9] border border-slate-200 shrink-0" />
+                  <span className="w-3 h-3 rounded-[3px] bg-[#F1F5F9] border border-slate-200 dark:border-slate-700 shrink-0" />
                   <span>Muito Baixa</span>
                 </div>
               </div>
@@ -916,9 +916,9 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         </div>
 
         {/* CARD 3: Consultas por Status (Donut Chart) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Consultas por Status
             </h2>
 
@@ -1002,10 +1002,10 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
 
                 {/* Centro do Donut */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <span className="text-xl font-black text-[#0F172A] font-sans">
+                  <span className="text-xl font-black text-[#0F172A] dark:text-slate-50 font-sans">
                     148
                   </span>
-                  <span className="text-[9.5px] font-bold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[9.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                     Total
                   </span>
                 </div>
@@ -1016,14 +1016,14 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 {statusData.map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center justify-between text-xs font-medium text-slate-700 hover:bg-slate-50 p-1 rounded-md transition-colors"
+                    className="flex items-center justify-between text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 p-1 rounded-md transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
-                      <span className="text-slate-700">{item.label}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{item.label}</span>
                     </div>
-                    <span className="font-bold text-[#0F172A]">
-                      {item.count} <span className="text-slate-400 font-normal">({item.percentage}%)</span>
+                    <span className="font-bold text-[#0F172A] dark:text-slate-50">
+                      {item.count} <span className="text-slate-400 dark:text-slate-500 font-normal">({item.percentage}%)</span>
                     </span>
                   </div>
                 ))}
@@ -1053,16 +1053,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
           ===================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Top 5 Consultas por Participação */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Top 5 Consultas por Participação
             </h2>
 
             <div className="mt-3 overflow-x-auto no-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-200/70 text-[11px] font-semibold text-slate-400">
+                  <tr className="border-b border-slate-200/70 dark:border-slate-700 text-[11px] font-semibold text-slate-400 dark:text-slate-500">
                     <th className="pb-2 font-medium">Consulta</th>
                     <th className="pb-2 text-right font-medium">Participantes</th>
                     <th className="pb-2 text-right font-medium">Contributos</th>
@@ -1077,16 +1077,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                       onClick={() => setSelectedConsulta(c)}
                       className="hover:bg-blue-50/40 cursor-pointer transition-colors group"
                     >
-                      <td className="py-2.5 pr-2 font-bold text-slate-800 group-hover:text-[#1455AC] max-w-[150px] truncate">
+                      <td className="py-2.5 pr-2 font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC] max-w-[150px] truncate">
                         {c.title}
                       </td>
-                      <td className="py-2.5 px-2 text-right text-slate-600 font-medium whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-right text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap">
                         {c.participants}
                       </td>
-                      <td className="py-2.5 px-2 text-right text-slate-600 font-medium whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-right text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap">
                         {c.contributions}
                       </td>
-                      <td className="py-2.5 px-2 text-right text-slate-500 whitespace-nowrap text-[11px]">
+                      <td className="py-2.5 px-2 text-right text-slate-500 dark:text-slate-400 whitespace-nowrap text-[11px]">
                         {c.endDate}
                       </td>
                       <td className="py-2.5 pl-2 text-right whitespace-nowrap">
@@ -1113,9 +1113,9 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         </div>
 
         {/* CARD 2: Iniciativas Cidadãs em Destaque */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Iniciativas Cidadãs em Destaque
             </h2>
 
@@ -1125,25 +1125,25 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                   <div
                     key={ini.id}
                     onClick={() => setSelectedIniciativa(ini)}
-                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group"
+                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       {/* Caixa de Ícone Temática */}
-                      <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors">
-                        {ini.iconType === 'bulb' && <Lightbulb className="w-4 h-4 text-emerald-600" />}
+                      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors">
+                        {ini.iconType === 'bulb' && <Lightbulb className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
                         {ini.iconType === 'bike' && <Bike className="w-4 h-4 text-blue-600" />}
-                        {ini.iconType === 'handshake' && <Handshake className="w-4 h-4 text-amber-600" />}
+                        {ini.iconType === 'handshake' && <Handshake className="w-4 h-4 text-amber-600 dark:text-amber-400" />}
                         {ini.iconType === 'recycle' && <Recycle className="w-4 h-4 text-blue-600" />}
                         {ini.iconType === 'school' && <GraduationCap className="w-4 h-4 text-blue-600" />}
                       </div>
 
                       {/* Nome e Local / Apoiantes */}
                       <div className="min-w-0">
-                        <h3 className="text-xs font-bold text-slate-800 group-hover:text-[#1455AC] truncate">
+                        <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC] truncate">
                           {ini.title}
                         </h3>
-                        <p className="text-[11px] text-slate-500 truncate">
-                          {ini.location} • <span className="font-semibold text-slate-600">{ini.supporters}</span>
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                          {ini.location} • <span className="font-semibold text-slate-600 dark:text-slate-400">{ini.supporters}</span>
                         </p>
                       </div>
                     </div>
@@ -1172,9 +1172,9 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         </div>
 
         {/* CARD 3: Contributos por Tema */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Contributos por Tema
             </h2>
 
@@ -1182,11 +1182,11 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               {temasData.map((tema) => (
                 <div key={tema.name} className="space-y-1">
                   <div className="flex items-center justify-between text-xs font-medium">
-                    <span className="text-slate-700">{tema.name}</span>
-                    <span className="font-bold text-[#0F172A]">{tema.percentage}%</span>
+                    <span className="text-slate-700 dark:text-slate-300">{tema.name}</span>
+                    <span className="font-bold text-[#0F172A] dark:text-slate-50">{tema.percentage}%</span>
                   </div>
                   {/* Barra de Progresso Roxo Vívido */}
-                  <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
                     <div
                       className="h-full rounded-full bg-[#1455AC] transition-all duration-500"
                       style={{ width: `${tema.percentage}%` }}
@@ -1219,16 +1219,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
           ===================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Consultas Recentes */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Consultas Recentes
             </h2>
 
             <div className="mt-3 overflow-x-auto no-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-200/70 text-[11px] font-semibold text-slate-400">
+                  <tr className="border-b border-slate-200/70 dark:border-slate-700 text-[11px] font-semibold text-slate-400 dark:text-slate-500">
                     <th className="pb-2 font-medium">Consulta</th>
                     <th className="pb-2 font-medium">Área</th>
                     <th className="pb-2 font-medium">Início</th>
@@ -1243,16 +1243,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                       onClick={() => setSelectedConsulta(cr)}
                       className="hover:bg-blue-50/40 cursor-pointer transition-colors group"
                     >
-                      <td className="py-2.5 pr-2 font-bold text-slate-800 group-hover:text-[#1455AC] max-w-[140px] truncate">
+                      <td className="py-2.5 pr-2 font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC] max-w-[140px] truncate">
                         {cr.title}
                       </td>
-                      <td className="py-2.5 px-2 text-slate-600 text-[11px] whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-slate-600 dark:text-slate-400 text-[11px] whitespace-nowrap">
                         {cr.area}
                       </td>
-                      <td className="py-2.5 px-2 text-slate-500 text-[11px] whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-slate-500 dark:text-slate-400 text-[11px] whitespace-nowrap">
                         {cr.startDate}
                       </td>
-                      <td className="py-2.5 px-2 text-right text-slate-600 font-medium whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-right text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap">
                         {cr.participants}
                       </td>
                       <td className="py-2.5 pl-2 text-right whitespace-nowrap">
@@ -1279,16 +1279,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         </div>
 
         {/* CARD 2: Próximas Consultas a Iniciar */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Próximas Consultas a Iniciar
             </h2>
 
             <div className="mt-3 overflow-x-auto no-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-200/70 text-[11px] font-semibold text-slate-400">
+                  <tr className="border-b border-slate-200/70 dark:border-slate-700 text-[11px] font-semibold text-slate-400 dark:text-slate-500">
                     <th className="pb-2 font-medium">Consulta</th>
                     <th className="pb-2 font-medium">Área</th>
                     <th className="pb-2 font-medium">Início Previsto</th>
@@ -1302,13 +1302,13 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                       onClick={() => showToast(`Consulta planeada: ${pc.title}`)}
                       className="hover:bg-blue-50/40 cursor-pointer transition-colors group"
                     >
-                      <td className="py-2.5 pr-2 font-bold text-slate-800 group-hover:text-blue-700 max-w-[160px] truncate">
+                      <td className="py-2.5 pr-2 font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-700 max-w-[160px] truncate">
                         {pc.title}
                       </td>
-                      <td className="py-2.5 px-2 text-slate-600 text-[11px] whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-slate-600 dark:text-slate-400 text-[11px] whitespace-nowrap">
                         {pc.area}
                       </td>
-                      <td className="py-2.5 px-2 text-slate-500 text-[11px] whitespace-nowrap">
+                      <td className="py-2.5 px-2 text-slate-500 dark:text-slate-400 text-[11px] whitespace-nowrap">
                         {pc.startDate}
                       </td>
                       <td className="py-2.5 pl-2 text-right whitespace-nowrap">
@@ -1335,9 +1335,9 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         </div>
 
         {/* CARD 3: Atividade Recente */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Atividade Recente
             </h2>
 
@@ -1345,13 +1345,13 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               {atividadesRecentes.map((act) => (
                 <div
                   key={act.id}
-                  className="flex items-start justify-between gap-2 p-1.5 rounded-xl hover:bg-slate-50 transition-colors"
+                  className="flex items-start justify-between gap-2 p-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
                 >
                   <div className="flex items-start gap-2.5 min-w-0">
                     {/* Ícone de Atividade */}
-                    <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 mt-0.5">
                       {act.type === 'publish' && <FileText className="w-3.5 h-3.5 text-blue-600" />}
-                      {act.type === 'contribution' && <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />}
+                      {act.type === 'contribution' && <TrendingUp className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
                       {act.type === 'initiative' && <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />}
                       {act.type === 'response' && <MessageSquare className="w-3.5 h-3.5 text-blue-600" />}
                       {act.type === 'closed' && <CheckSquare className="w-3.5 h-3.5 text-blue-600" />}
@@ -1359,16 +1359,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
 
                     {/* Texto com título em negrito */}
                     <div className="min-w-0 text-xs">
-                      <p className="text-slate-700 leading-snug">
+                      <p className="text-slate-700 dark:text-slate-300 leading-snug">
                         {act.title}
-                        <span className="font-bold text-[#0F172A]">{act.boldTarget}</span>
+                        <span className="font-bold text-[#0F172A] dark:text-slate-50">{act.boldTarget}</span>
                       </p>
-                      <p className="text-[11px] text-slate-400 mt-0.5">{act.author}</p>
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">{act.author}</p>
                     </div>
                   </div>
 
                   {/* Timestamp */}
-                  <span className="text-[10.5px] text-slate-400 whitespace-nowrap shrink-0">
+                  <span className="text-[10.5px] text-slate-400 dark:text-slate-500 whitespace-nowrap shrink-0">
                     {act.timeAgo}
                   </span>
                 </div>
@@ -1397,54 +1397,54 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       {/* MODAL 1: Detalhes da Consulta */}
       {selectedConsulta && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">
                   {selectedConsulta.area}
                 </span>
-                <h2 className="text-lg font-bold text-[#0F172A]">
+                <h2 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                   {selectedConsulta.title}
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedConsulta(null)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               {selectedConsulta.description ||
                 'Consulta pública em andamento com auscultação participativa dos cidadãos e organizações locais da rede VILA.'}
             </p>
 
-            <div className="grid grid-cols-2 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+            <div className="grid grid-cols-2 gap-3 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs">
               <div>
-                <span className="text-slate-400 text-[10px] uppercase font-bold">Participantes</span>
-                <p className="font-extrabold text-[#0F172A] text-sm">{selectedConsulta.participants}</p>
+                <span className="text-slate-400 dark:text-slate-500 text-[10px] uppercase font-bold">Participantes</span>
+                <p className="font-extrabold text-[#0F172A] dark:text-slate-50 text-sm">{selectedConsulta.participants}</p>
               </div>
               <div>
-                <span className="text-slate-400 text-[10px] uppercase font-bold">Contributos</span>
-                <p className="font-extrabold text-[#0F172A] text-sm">{selectedConsulta.contributions}</p>
+                <span className="text-slate-400 dark:text-slate-500 text-[10px] uppercase font-bold">Contributos</span>
+                <p className="font-extrabold text-[#0F172A] dark:text-slate-50 text-sm">{selectedConsulta.contributions}</p>
               </div>
               <div>
-                <span className="text-slate-400 text-[10px] uppercase font-bold">Data de Encerramento</span>
-                <p className="font-semibold text-slate-700">{selectedConsulta.endDate}</p>
+                <span className="text-slate-400 dark:text-slate-500 text-[10px] uppercase font-bold">Data de Encerramento</span>
+                <p className="font-semibold text-slate-700 dark:text-slate-300">{selectedConsulta.endDate}</p>
               </div>
               <div>
-                <span className="text-slate-400 text-[10px] uppercase font-bold">Estado</span>
+                <span className="text-slate-400 dark:text-slate-500 text-[10px] uppercase font-bold">Estado</span>
                 <div className="mt-0.5">{renderStatusBadge(selectedConsulta.status)}</div>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200/70">
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => setSelectedConsulta(null)}
-                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 Fechar
               </button>
@@ -1466,21 +1466,21 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       {/* MODAL 2: Detalhes da Iniciativa Cidadã */}
       {selectedIniciativa && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">
                   {selectedIniciativa.area}
                 </span>
-                <h2 className="text-lg font-bold text-[#0F172A]">
+                <h2 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                   {selectedIniciativa.title}
                 </h2>
-                <p className="text-xs text-slate-500 mt-0.5">{selectedIniciativa.location}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{selectedIniciativa.location}</p>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedIniciativa(null)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1492,16 +1492,16 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 <p className="text-sm font-black text-blue-900">{selectedIniciativa.supporters}</p>
               </div>
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-400">Estado</span>
+                <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500">Estado</span>
                 <div>{renderStatusBadge(selectedIniciativa.status)}</div>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200/70">
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => setSelectedIniciativa(null)}
-                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 Fechar
               </button>
@@ -1523,13 +1523,13 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       {/* MODAL 3: Filtros Globais */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-[#0F172A]">Filtros de Participação</h3>
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Filtros de Participação</h3>
               <button
                 type="button"
                 onClick={() => setIsFilterModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1537,11 +1537,11 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="font-bold text-slate-700 block mb-1">Área Temática</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Área Temática</label>
                 <select
                   value={selectedAreaFilter}
                   onChange={(e) => setSelectedAreaFilter(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800"
+                  className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-slate-800 dark:text-slate-100"
                 >
                   <option value="Todas">Todas as Áreas</option>
                   <option value="Ambiente">Ambiente e Sustentabilidade</option>
@@ -1553,11 +1553,11 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 block mb-1">Status da Consulta</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Status da Consulta</label>
                 <select
                   value={selectedStatusFilter}
                   onChange={(e) => setSelectedStatusFilter(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800"
+                  className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-slate-800 dark:text-slate-100"
                 >
                   <option value="Todos">Todos os Status</option>
                   <option value="Em Consulta">Em Consulta</option>
@@ -1568,7 +1568,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => {
@@ -1577,7 +1577,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                   showToast('Filtros repostos com sucesso');
                   setIsFilterModalOpen(false);
                 }}
-                className="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 Limpar
               </button>
@@ -1599,13 +1599,13 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       {/* MODAL 4: Seletor de Intervalo de Datas */}
       {isDateModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-[#0F172A]">Selecionar Período</h3>
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Selecionar Período</h3>
               <button
                 type="button"
                 onClick={() => setIsDateModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1629,8 +1629,8 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                   }}
                   className={`w-full text-left px-3 py-2 rounded-xl transition-colors cursor-pointer flex items-center justify-between ${
                     dateRange === opt
-                      ? 'bg-blue-50 text-[#1455AC] font-bold border border-blue-200'
-                      : 'hover:bg-slate-50 text-slate-700'
+                      ? 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] font-bold border border-blue-200'
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300'
                   }`}
                 >
                   <span>{opt}</span>
@@ -1645,13 +1645,13 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       {/* MODAL 5: Exportar Dados */}
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-[#0F172A]">Exportar Relatório</h3>
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Exportar Relatório</h3>
               <button
                 type="button"
                 onClick={() => setIsExportModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1664,12 +1664,12 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                   showToast('Download do PDF de Participação e Consultas iniciado...');
                   setIsExportModalOpen(false);
                 }}
-                className="w-full text-left p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all flex items-center gap-3 cursor-pointer"
+                className="w-full text-left p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 transition-all flex items-center gap-3 cursor-pointer"
               >
                 <FileText className="w-5 h-5 text-blue-600" />
                 <div>
-                  <p className="font-bold text-slate-800">Relatório Executivo PDF</p>
-                  <p className="text-[11px] text-slate-400">Sumário com gráficos e KPIs</p>
+                  <p className="font-bold text-slate-800 dark:text-slate-100">Relatório Executivo PDF</p>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500">Sumário com gráficos e KPIs</p>
                 </div>
               </button>
 
@@ -1679,12 +1679,12 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                   showToast('Download do ficheiro CSV concluído...');
                   setIsExportModalOpen(false);
                 }}
-                className="w-full text-left p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all flex items-center gap-3 cursor-pointer"
+                className="w-full text-left p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 transition-all flex items-center gap-3 cursor-pointer"
               >
-                <Download className="w-5 h-5 text-emerald-600" />
+                <Download className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 <div>
-                  <p className="font-bold text-slate-800">Tabela de Dados CSV / Excel</p>
-                  <p className="text-[11px] text-slate-400">Todos os registos e contributos</p>
+                  <p className="font-bold text-slate-800 dark:text-slate-100">Tabela de Dados CSV / Excel</p>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500">Todos os registos e contributos</p>
                 </div>
               </button>
             </div>
@@ -1695,13 +1695,13 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       {/* MODAL 6: Mapa Interativo Expandido */}
       {isMapModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-4xl w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-4xl w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#0F172A]">
+                <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                   Mapa Global de Participação Cidadã
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Distribuição de consultas públicas e votos por país e continente
                 </p>
               </div>
@@ -1709,7 +1709,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 <button
                   type="button"
                   onClick={() => setMapZoom((z) => Math.min(2.5, z + 0.25))}
-                  className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"
+                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 cursor-pointer"
                   title="Aumentar Zoom"
                 >
                   <ZoomIn className="w-4 h-4" />
@@ -1717,7 +1717,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 <button
                   type="button"
                   onClick={() => setMapZoom((z) => Math.max(1, z - 0.25))}
-                  className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"
+                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 cursor-pointer"
                   title="Diminuir Zoom"
                 >
                   <ZoomOut className="w-4 h-4" />
@@ -1725,7 +1725,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 <button
                   type="button"
                   onClick={() => setMapZoom(1)}
-                  className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"
+                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 cursor-pointer"
                   title="Repor"
                 >
                   <RotateCcw className="w-4 h-4" />
@@ -1733,14 +1733,14 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                 <button
                   type="button"
                   onClick={() => setIsMapModalOpen(false)}
-                  className="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer ml-2"
+                  className="p-2 rounded-xl text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer ml-2"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="relative w-full h-[400px] bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-[400px] bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden flex items-center justify-center">
               <svg viewBox="0 0 520 260" className="w-full h-full object-contain select-none">
                 <g transform={`scale(${mapZoom})`} style={{ transformOrigin: 'center center', transition: 'transform 0.2s ease' }}>
                   {mapFeatures.map((feat) => {
@@ -1763,7 +1763,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </svg>
             </div>
 
-            <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200/70">
+            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200/70 dark:border-slate-700">
               <span>* Clique em qualquer país para inspecionar os índices de participação ativa.</span>
               <button
                 type="button"

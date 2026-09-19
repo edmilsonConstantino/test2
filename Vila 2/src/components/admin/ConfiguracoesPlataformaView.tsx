@@ -124,28 +124,28 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* Modal de Detalhe de Configuração */}
       {selectedSettingModal && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white border border-slate-100 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
             <button
               onClick={() => setSelectedSettingModal(null)}
-              className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+              className="absolute top-4 right-4 p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-700 flex items-center justify-center">
                 <Settings className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#0F172A]">{selectedSettingModal.title}</h3>
-                <p className="text-xs text-slate-500">{selectedSettingModal.description}</p>
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">{selectedSettingModal.title}</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{selectedSettingModal.description}</p>
               </div>
             </div>
 
-            <div className="divide-y divide-slate-200/70 my-4 border-y border-slate-100">
+            <div className="divide-y divide-slate-200/70 my-4 border-y border-slate-100 dark:border-slate-800">
               {selectedSettingModal.details.map((item, idx) => (
                 <div key={idx} className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-medium">{item.label}</span>
-                  <span className="text-slate-800 font-semibold">{item.value}</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-medium">{item.label}</span>
+                  <span className="text-slate-800 dark:text-slate-100 font-semibold">{item.value}</span>
                 </div>
               ))}
             </div>
@@ -153,7 +153,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             <div className="flex items-center justify-end gap-2 pt-2">
               <button
                 onClick={() => setSelectedSettingModal(null)}
-                className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
+                className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
               >
                 Fechar
               </button>
@@ -174,20 +174,20 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* Modal de Configurações Rápidas */}
       {isQuickConfigModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white border border-slate-100 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl relative">
             <button
               onClick={() => setIsQuickConfigModalOpen(false)}
-              className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+              className="absolute top-4 right-4 p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-700 flex items-center justify-center">
                 <SlidersHorizontal className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#0F172A]">Configurações Rápidas</h3>
-                <p className="text-xs text-slate-500">Ações frequentes de governança e administração da plataforma</p>
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Configurações Rápidas</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Ações frequentes de governança e administração da plataforma</p>
               </div>
             </div>
 
@@ -204,10 +204,10 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                     setIsQuickConfigModalOpen(false);
                     showToast(`Ação iniciada: ${act.title}`);
                   }}
-                  className="p-3 border border-slate-200/80 rounded-xl hover:border-blue-300 hover:bg-blue-50/40 cursor-pointer transition-all"
+                  className="p-3 border border-slate-200/80 dark:border-slate-700 rounded-xl hover:border-blue-300 hover:bg-blue-50/40 cursor-pointer transition-all"
                 >
-                  <h4 className="text-xs font-bold text-slate-800">{act.title}</h4>
-                  <p className="text-[11px] text-slate-500 mt-0.5">{act.desc}</p>
+                  <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100">{act.title}</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{act.desc}</p>
                 </div>
               ))}
             </div>
@@ -225,16 +225,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       )}
 
       {/* 1. Header do Módulo com Identidade VILA */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/80 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <Settings className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
               Configurações
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-3xl mt-0.5 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-3xl mt-0.5 leading-relaxed">
               Centro de governança da Plataforma VILA. Defina regras, gerencie acessos, integre serviços e configure toda a infraestrutura da nossa rede global de territórios e comunidades.
             </p>
           </div>
@@ -245,16 +245,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
           {/* Banner Atalho */}
           <div
             onClick={() => setIsQuickConfigModalOpen(true)}
-            className="group flex items-center gap-3 px-4 py-2.5 bg-white hover:bg-slate-50 border border-blue-200/80 rounded-2xl shadow-2xs cursor-pointer transition-all"
+            className="group flex items-center gap-3 px-4 py-2.5 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-blue-200/80 rounded-2xl shadow-2xs cursor-pointer transition-all"
           >
-            <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600 group-hover:scale-105 transition-transform">
               <SlidersHorizontal className="w-4 h-4" />
             </div>
             <div>
               <div className="text-xs font-bold text-blue-900 leading-tight flex items-center gap-1">
                 Explorar Configurações Rápidas
               </div>
-              <div className="text-[11px] text-slate-500">
+              <div className="text-[11px] text-slate-500 dark:text-slate-400">
                 Aceda rapidamente às configurações mais utilizadas.
               </div>
             </div>
@@ -262,12 +262,12 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
           </div>
 
           {/* Telemetria */}
-          <div className="flex flex-col gap-1 text-[11px] text-slate-500 pl-1">
+          <div className="flex flex-col gap-1 text-[11px] text-slate-500 dark:text-slate-400 pl-1">
             <span className="flex items-center gap-1.5 font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Dados atualizados: 10:32
             </span>
-            <span className="flex items-center gap-1.5 font-medium text-slate-600">
+            <span className="flex items-center gap-1.5 font-medium text-slate-600 dark:text-slate-400">
               <span className="w-2 h-2 rounded-full bg-blue-600" />
               Atualização em tempo real
             </span>
@@ -278,53 +278,53 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 2. LINHA 1 (4 Cards): Organização, Governança Territorial, Governança da Rede, VILA AI */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1: Informações da Organização */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Building2 className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Informações da Organização</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Informações da Organização</h3>
             </div>
 
             {/* Profile Avatar & Info */}
             <div className="flex items-center gap-3 my-3">
-              <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-base shadow-2xs">
+              <div className="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-base shadow-2xs">
                 <Building2 className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-sm font-bold text-[#0F172A]">VILA Global</span>
+                  <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50">VILA Global</span>
                   <CheckCircle2 className="w-4 h-4 text-blue-600 fill-blue-600 text-white" />
                 </div>
-                <p className="text-[11px] text-slate-400">Organização Administradora</p>
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">Organização Administradora</p>
               </div>
             </div>
 
             {/* Key Values */}
-            <div className="space-y-2 mt-3 text-xs border-t border-slate-200/70 pt-3">
+            <div className="space-y-2 mt-3 text-xs border-t border-slate-200/70 dark:border-slate-700 pt-3">
               <div className="flex items-center justify-between">
-                <span className="text-slate-500">Plano Atual</span>
-                <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-blue-50 text-blue-700 border border-blue-100">
+                <span className="text-slate-500 dark:text-slate-400">Plano Atual</span>
+                <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100">
                   Enterprise
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500">Membros da Equipa</span>
-                <span className="font-semibold text-slate-800">48</span>
+                <span className="text-slate-500 dark:text-slate-400">Membros da Equipa</span>
+                <span className="font-semibold text-slate-800 dark:text-slate-100">48</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500">Data de Adesão</span>
-                <span className="font-semibold text-slate-800">01 Jan 2024</span>
+                <span className="text-slate-500 dark:text-slate-400">Data de Adesão</span>
+                <span className="font-semibold text-slate-800 dark:text-slate-100">01 Jan 2024</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500">ID da Organização</span>
-                <span className="font-semibold text-slate-800 text-[11px]">VILA-ORG-001</span>
+                <span className="text-slate-500 dark:text-slate-400">ID da Organização</span>
+                <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11px]">VILA-ORG-001</span>
               </div>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir perfil da organização VILA Global')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -336,42 +336,42 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 2: Governança Territorial */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+              <div className="w-7 h-7 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <Globe2 className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Governança Territorial</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Governança Territorial</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
-                { label: 'Países', value: '156', icon: <Globe className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Regiões', value: '324', icon: <MapPin className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Municípios', value: '3.642', icon: <Building2 className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Comunidades', value: '18.732', icon: <Users className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Regras Territoriais', value: '', icon: <FileCheck className="w-3.5 h-3.5 text-emerald-600" /> },
+                { label: 'Países', value: '156', icon: <Globe className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Regiões', value: '324', icon: <MapPin className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Municípios', value: '3.642', icon: <Building2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Comunidades', value: '18.732', icon: <Users className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Regras Territoriais', value: '', icon: <FileCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => onNavigateToTab('territorios-paises')}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.value && <span>{row.value}</span>}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('territorios-paises')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -383,16 +383,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 3: Governança da Rede */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Users className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Governança da Rede</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Governança da Rede</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'Papéis Globais', value: '12', icon: <ShieldCheck className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Administradores de País', value: '156', icon: <UserCheck className="w-3.5 h-3.5 text-blue-600" /> },
@@ -403,22 +403,22 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 <div
                   key={i}
                   onClick={() => onNavigateToTab('gestao-utilizadores')}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     <span>{row.value}</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('gestao-utilizadores')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -430,22 +430,22 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 4: VILA AI */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Sparkles className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">VILA AI</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">VILA AI</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 {
                   label: 'Modelos IA',
                   badge: '5 ativos',
                   icon: <Cpu className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
                 { label: 'Assistentes Territoriais', value: '324', icon: <Bot className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Assistentes Municipais', value: '3.642', icon: <Bot className="w-3.5 h-3.5 text-blue-600" /> },
@@ -453,21 +453,21 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Base de Conhecimento',
                   badge: 'Ativa',
                   icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
                 {
                   label: 'Políticas IA',
                   badge: 'Configurado',
                   icon: <Shield className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => showToast(`Configurações de IA: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
@@ -477,15 +477,15 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                         {row.badge}
                       </span>
                     )}
-                    {row.value && <span className="font-semibold text-slate-800">{row.value}</span>}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    {row.value && <span className="font-semibold text-slate-800 dark:text-slate-100">{row.value}</span>}
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A carregar centro de controlo do VILA AI')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -500,23 +500,23 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 3. LINHA 2 (4 Cards): Segurança e Acesso, Integrações, Dados e Open Data, Parceiros */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 5: Segurança e Acesso */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Shield className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Segurança e Acesso</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Segurança e Acesso</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'Autenticação e Senha', icon: <KeyRound className="w-3.5 h-3.5 text-blue-600" /> },
                 {
                   label: 'Autenticação Multifator (MFA)',
                   badge: 'Ativo',
-                  icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+                  icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
                 },
                 { label: 'Sessões Ativas', value: '5', icon: <Smartphone className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Políticas de Segurança', icon: <Lock className="w-3.5 h-3.5 text-blue-600" /> },
@@ -525,9 +525,9 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 <div
                   key={i}
                   onClick={() => showToast(`Opção de segurança: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium truncate pr-1">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium truncate pr-1">
                     {row.icon}
                     <span className="truncate">{row.label}</span>
                   </span>
@@ -537,15 +537,15 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                         {row.badge}
                       </span>
                     )}
-                    {row.value && <span className="font-semibold text-slate-800">{row.value}</span>}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    {row.value && <span className="font-semibold text-slate-800 dark:text-slate-100">{row.value}</span>}
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir painel completo de segurança')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -557,16 +557,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 6: Integrações e Conectores */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Boxes className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Integrações e Conectores</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Integrações e Conectores</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'APIs e Webhooks', icon: <Share2 className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Integrações Ativas', value: '12', icon: <Boxes className="w-3.5 h-3.5 text-blue-600" /> },
@@ -577,22 +577,22 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 <div
                   key={i}
                   onClick={() => showToast(`Gestão de conectores: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.value && <span>{row.value}</span>}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A gerir integrações e webhooks')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -604,52 +604,52 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 7: Dados e Open Data */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+              <div className="w-7 h-7 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <Database className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Dados e Open Data</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Dados e Open Data</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
-                { label: 'Catálogos de Dados', value: '48', icon: <Layers className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'APIs Públicas', value: '8', icon: <Code2 className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Partilha de Dados', value: '24', icon: <Share2 className="w-3.5 h-3.5 text-emerald-600" /> },
+                { label: 'Catálogos de Dados', value: '48', icon: <Layers className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'APIs Públicas', value: '8', icon: <Code2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Partilha de Dados', value: '24', icon: <Share2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
                 {
                   label: 'Qualidade dos Dados',
                   badge: 'Excelente',
-                  icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+                  icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
                 },
-                { label: 'Governança de Dados', icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> },
+                { label: 'Governança de Dados', icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => onNavigateToTab('relatorios-dados')}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.badge && (
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${row.badgeCol}`}>
                         {row.badge}
                       </span>
                     )}
                     {row.value && <span>{row.value}</span>}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('relatorios-dados')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -661,52 +661,52 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 8: Parceiros e Ecossistema */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+              <div className="w-7 h-7 rounded-full bg-amber-50 dark:bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400">
                 <Handshake className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Parceiros e Ecossistema</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Parceiros e Ecossistema</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
-                { label: 'Categorias de Parceiros', value: '7', icon: <Boxes className="w-3.5 h-3.5 text-amber-600" /> },
-                { label: 'Níveis de Parceria', value: '4', icon: <Award className="w-3.5 h-3.5 text-amber-600" /> },
+                { label: 'Categorias de Parceiros', value: '7', icon: <Boxes className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
+                { label: 'Níveis de Parceria', value: '4', icon: <Award className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
                 {
                   label: 'Validação de Parceiros',
                   badge: 'Ativa',
-                  icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+                  icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
                 },
-                { label: 'Acordos e Contratos', value: '126', icon: <FileText className="w-3.5 h-3.5 text-amber-600" /> },
-                { label: 'Colaborações Ativas', value: '342', icon: <Zap className="w-3.5 h-3.5 text-amber-600" /> },
+                { label: 'Acordos e Contratos', value: '126', icon: <FileText className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
+                { label: 'Colaborações Ativas', value: '342', icon: <Zap className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => onNavigateToTab('gestao-parceiros')}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.badge && (
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${row.badgeCol}`}>
                         {row.badge}
                       </span>
                     )}
                     {row.value && <span>{row.value}</span>}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('gestao-parceiros')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -721,49 +721,49 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 4. LINHA 3 (4 Cards): Notificações, Dados e Privacidade, Marca e Identidade, Atividade */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 9: Notificações e Comunicações */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
+              <div className="w-7 h-7 rounded-full bg-amber-50 dark:bg-amber-500/10 flex items-center justify-center text-amber-600 dark:text-amber-400">
                 <Bell className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Notificações e Comunicações</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Notificações e Comunicações</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 {
                   label: 'Email',
                   badge: 'Ativo',
-                  icon: <Mail className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+                  icon: <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
                 },
                 {
                   label: 'Notificações Push',
                   badge: 'Ativo',
-                  icon: <Smartphone className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+                  icon: <Smartphone className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
                 },
                 {
                   label: 'Alertas e Avisos',
                   badge: 'Ativo',
-                  icon: <AlertTriangle className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+                  icon: <AlertTriangle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
                 },
                 {
                   label: 'Digestos e Relatórios',
                   badge: 'Semanal',
                   icon: <Calendar className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
-                { label: 'Preferências de Comunicação', icon: <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" /> },
+                { label: 'Preferências de Comunicação', icon: <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => showToast(`Configurar: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
@@ -773,14 +773,14 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                         {row.badge}
                       </span>
                     )}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir preferências de notificação')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -792,16 +792,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 10: Dados e Privacidade */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Lock className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Dados e Privacidade</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Dados e Privacidade</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'Política de Privacidade', icon: <FileText className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Gestão de Dados Pessoais', icon: <UserCheck className="w-3.5 h-3.5 text-blue-600" /> },
@@ -809,34 +809,34 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Retenção de Dados',
                   badge: '24 meses',
                   icon: <Clock className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
                 { label: 'Consentimentos', icon: <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" /> },
-                { label: 'Anonimização de Dados', icon: <EyeOff className="w-3.5 h-3.5 text-amber-600" /> },
+                { label: 'Anonimização de Dados', icon: <EyeOff className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => showToast(`Privacidade: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.badge && (
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${row.badgeCol}`}>
                         {row.badge}
                       </span>
                     )}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A gerir políticas de RGPD e retenção de dados')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -848,22 +848,22 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 11: Marca e Identidade */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Palette className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Marca e Identidade</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Marca e Identidade</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 {
                   label: 'Tema da Plataforma',
                   badge: 'Claro',
                   icon: <Sun className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
                 { label: 'Cores e Identidade Visual', icon: <Paintbrush className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Logótipo e Marca', icon: <Sparkles className="w-3.5 h-3.5 text-blue-600" /> },
@@ -873,26 +873,26 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 <div
                   key={i}
                   onClick={() => showToast(`Personalização visual: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.badge && (
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${row.badgeCol}`}>
                         {row.badge}
                       </span>
                     )}
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir editor de identidade visual')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -904,29 +904,29 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 12: Atividade da Plataforma */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                   <BarChart3 className="w-4 h-4" />
                 </div>
-                <h3 className="text-sm font-bold text-[#0F172A]">Atividade da Plataforma</h3>
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Atividade da Plataforma</h3>
               </div>
               <div className="relative">
                 <select
                   value={activityTimeframe}
                   onChange={(e) => setActivityTimeframe(e.target.value)}
-                  className="text-[10px] font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2 py-0.5 pr-4 cursor-pointer focus:outline-none appearance-none"
+                  className="text-[10px] font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-lg px-2 py-0.5 pr-4 cursor-pointer focus:outline-none appearance-none"
                 >
                   <option value="Últimos 7 dias">Últimos 7 dias</option>
                   <option value="Últimos 30 dias">Últimos 30 dias</option>
                 </select>
-                <ChevronDown className="w-2.5 h-2.5 text-slate-400 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-2.5 h-2.5 text-slate-400 dark:text-slate-500 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'Utilizadores Ativos', value: '12.456', trend: '↑ 18%', trendUp: true, icon: <Users className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Novos Registos', value: '1.248', trend: '↑ 22%', trendUp: true, icon: <UserPlus className="w-3.5 h-3.5 text-blue-600" /> },
@@ -937,15 +937,15 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 <div
                   key={i}
                   onClick={() => onNavigateToTab('relatorios-dados')}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
                   <span className="flex items-center gap-2">
-                    <span className="font-bold text-slate-800">{row.value}</span>
-                    <span className={`text-[10.5px] font-semibold ${row.trendUp ? 'text-emerald-600' : 'text-blue-500'}`}>
+                    <span className="font-bold text-slate-800 dark:text-slate-100">{row.value}</span>
+                    <span className={`text-[10.5px] font-semibold ${row.trendUp ? 'text-emerald-600 dark:text-emerald-400' : 'text-blue-500'}`}>
                       {row.trend}
                     </span>
                   </span>
@@ -954,7 +954,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('relatorios-dados')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -969,16 +969,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 5. LINHA 4 (4 Cards): Backups, Permissões, APIs & Desenvolvimento, Sistema */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 13: Backups e Recuperação */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Cloud className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Backups e Recuperação</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Backups e Recuperação</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'Último Backup', value: 'Hoje, 08:32', icon: <RotateCcw className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Próximo Backup', value: 'Amanhã, 02:00', icon: <Calendar className="w-3.5 h-3.5 text-blue-600" /> },
@@ -989,16 +989,16 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                 <div
                   key={i}
                   onClick={() => showToast(`Recuperação: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
                     {row.value && <span>{row.value}</span>}
                     {row.hasArrow && (
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                     )}
                   </span>
                 </div>
@@ -1006,7 +1006,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir consola de backups e snapshots')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1018,39 +1018,39 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 14: Gestão de Permissões */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+              <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <UserCheck className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Gestão de Permissões</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Gestão de Permissões</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
                 { label: 'Funções e Permissões', icon: <Key className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Grupos de Utilizadores', icon: <Users className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Permissões Avançadas', icon: <ShieldCheck className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Acessos por Território', icon: <MapPin className="w-3.5 h-3.5 text-blue-600" /> },
-                { label: 'Auditoria de Permissões', icon: <FileCheck className="w-3.5 h-3.5 text-emerald-600" /> },
+                { label: 'Auditoria de Permissões', icon: <FileCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => onNavigateToTab('gestao-utilizadores')}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('gestao-utilizadores')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1062,39 +1062,39 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 15: APIs e Desenvolvimento */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+              <div className="w-7 h-7 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <Code2 className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">APIs e Desenvolvimento</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">APIs e Desenvolvimento</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
-                { label: 'Documentação da API', isExternal: true, icon: <FileCode className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Chaves da API', value: '7', icon: <Key className="w-3.5 h-3.5 text-emerald-600" /> },
-                { label: 'Webhooks', value: '3', icon: <Webhook className="w-3.5 h-3.5 text-emerald-600" /> },
+                { label: 'Documentação da API', isExternal: true, icon: <FileCode className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Chaves da API', value: '7', icon: <Key className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
+                { label: 'Webhooks', value: '3', icon: <Webhook className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
                 {
                   label: 'Ambientes',
                   badge: 'Produção',
-                  icon: <Globe className="w-3.5 h-3.5 text-emerald-600" />,
-                  badgeCol: 'bg-blue-50 text-blue-700 border border-blue-100',
+                  icon: <Globe className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
                 { label: 'Logs da API', icon: <Terminal className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (
                 <div
                   key={i}
                   onClick={() => showToast(`Desenvolvimento: ${row.label}`)}
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer group transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer group transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-slate-800">
-                    {row.isExternal && <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />}
+                  <span className="flex items-center gap-1 font-semibold text-slate-800 dark:text-slate-100">
+                    {row.isExternal && <ExternalLink className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-blue-600" />}
                     {row.badge && (
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${row.badgeCol}`}>
                         {row.badge}
@@ -1102,7 +1102,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                     )}
                     {row.value && <span>{row.value}</span>}
                     {!row.isExternal && (
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                     )}
                   </span>
                 </div>
@@ -1110,7 +1110,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir consola de desenvolvedores e chaves')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1122,22 +1122,22 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 16: Sistema e Plataforma */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+              <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400">
                 <Settings className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0F172A]">Sistema e Plataforma</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Sistema e Plataforma</h3>
             </div>
 
-            <div className="divide-y divide-slate-50 text-xs">
+            <div className="divide-y divide-slate-50 dark:divide-slate-700 text-xs">
               {[
-                { label: 'Idioma e Região', value: 'Português (Portugal)', icon: <Globe className="w-3.5 h-3.5 text-slate-500" /> },
-                { label: 'Fuso Horário', value: '(UTC+00:00) Lisboa', icon: <Clock className="w-3.5 h-3.5 text-slate-500" /> },
-                { label: 'Formato de Data', value: 'DD MMM YYYY', icon: <Calendar className="w-3.5 h-3.5 text-slate-500" /> },
-                { label: 'Formato de Hora', value: '24 horas', icon: <Clock className="w-3.5 h-3.5 text-slate-500" /> },
-                { label: 'Moeda', value: 'Euro (€)', icon: <CircleDollarSign className="w-3.5 h-3.5 text-slate-500" /> },
+                { label: 'Idioma e Região', value: 'Português (Portugal)', icon: <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" /> },
+                { label: 'Fuso Horário', value: '(UTC+00:00) Lisboa', icon: <Clock className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" /> },
+                { label: 'Formato de Data', value: 'DD MMM YYYY', icon: <Calendar className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" /> },
+                { label: 'Formato de Hora', value: '24 horas', icon: <Clock className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" /> },
+                { label: 'Moeda', value: 'Euro (€)', icon: <CircleDollarSign className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" /> },
               ].map((row, i) => (
                 <div
                   key={i}
@@ -1148,19 +1148,19 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                       { label: 'Última Alteração', value: 'Por Administrador VILA Global' },
                     ])
                   }
-                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 px-1 rounded cursor-pointer transition-colors"
+                  className="py-2 flex items-center justify-between hover:bg-slate-50/70 dark:hover:bg-slate-800/60 px-1 rounded cursor-pointer transition-colors"
                 >
-                  <span className="flex items-center gap-2 text-slate-700 font-medium">
+                  <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     {row.icon}
                     <span>{row.label}</span>
                   </span>
-                  <span className="font-semibold text-slate-800 text-[11px] text-right">{row.value}</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11px] text-right">{row.value}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 dark:border-slate-700 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir definições globais do sistema')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1173,7 +1173,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       </div>
 
       {/* 6. Footer com Direitos e Ligações Institucionais */}
-      <div className="pt-6 pb-2 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div className="pt-6 pb-2 border-t border-slate-200/80 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
         <p className="font-medium">
           © 2025 Plataforma VILA. Todos os direitos reservados.
         </p>

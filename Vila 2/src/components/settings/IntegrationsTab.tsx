@@ -432,7 +432,7 @@ export const IntegrationsTab: React.FC = () => {
           <button
             type="button"
             onClick={() => setToastMessage(null)}
-            className="text-slate-400 hover:text-white ml-2 cursor-pointer"
+            className="text-slate-400 dark:text-slate-500 hover:text-white ml-2 cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -441,64 +441,64 @@ export const IntegrationsTab: React.FC = () => {
 
       {/* 1. SEÇÃO: VISÃO GERAL (4 CARDS DE MÉTRICAS EXATOS) */}
       <section className="space-y-3 font-sans">
-        <h2 className="text-xs font-bold text-slate-900 uppercase tracking-wider font-sans">
+        <h2 className="text-xs font-bold text-slate-900 dark:text-slate-50 uppercase tracking-wider font-sans">
           Visão geral
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-sans">
           {/* Card 1: 7 Integrações ativas */}
-          <div className="bg-white rounded-xl border border-slate-200 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 font-sans">
-            <div className="w-11 h-11 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 dark:hover:border-slate-600 font-sans">
+            <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
               <Link2 className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-2xl font-bold text-slate-900 font-sans leading-none mb-1">
+              <div className="text-2xl font-bold text-slate-900 dark:text-slate-50 font-sans leading-none mb-1">
                 {activeIntegrations.length}
               </div>
-              <h3 className="text-xs font-bold text-slate-900 font-sans">Integrações ativas</h3>
-              <p className="text-[11px] text-slate-400 font-sans">Conectadas e funcionando</p>
+              <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Integrações ativas</h3>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">Conectadas e funcionando</p>
             </div>
           </div>
 
           {/* Card 2: 3 Disponíveis para conectar */}
-          <div className="bg-white rounded-xl border border-slate-200 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 dark:hover:border-slate-600 font-sans">
             <div className="w-11 h-11 rounded-full bg-[#ECFDF5] text-[#10B981] flex items-center justify-center shrink-0">
               <Plug className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-2xl font-bold text-slate-900 font-sans leading-none mb-1">
+              <div className="text-2xl font-bold text-slate-900 dark:text-slate-50 font-sans leading-none mb-1">
                 {availableIntegrations.length}
               </div>
-              <h3 className="text-xs font-bold text-slate-900 font-sans">Disponíveis para conectar</h3>
-              <p className="text-[11px] text-slate-400 font-sans">Encontre novas integrações</p>
+              <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Disponíveis para conectar</h3>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">Encontre novas integrações</p>
             </div>
           </div>
 
           {/* Card 3: 12 Automatizações */}
-          <div className="bg-white rounded-xl border border-slate-200 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 dark:hover:border-slate-600 font-sans">
             <div className="w-11 h-11 rounded-full bg-[#EEF2FF] text-[#6366F1] flex items-center justify-center shrink-0">
               <Repeat className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-2xl font-bold text-slate-900 font-sans leading-none mb-1">
+              <div className="text-2xl font-bold text-slate-900 dark:text-slate-50 font-sans leading-none mb-1">
                 12
               </div>
-              <h3 className="text-xs font-bold text-slate-900 font-sans">Automatizações</h3>
-              <p className="text-[11px] text-slate-400 font-sans">Regras e fluxos ativos</p>
+              <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Automatizações</h3>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">Regras e fluxos ativos</p>
             </div>
           </div>
 
           {/* Card 4: 100% Segurança garantida */}
-          <div className="bg-white rounded-xl border border-slate-200 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-4.5 shadow-2xs flex items-center gap-3.5 transition-all hover:border-slate-300 dark:hover:border-slate-600 font-sans">
             <div className="w-11 h-11 rounded-full bg-[#FFFBEB] text-[#F59E0B] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-2xl font-bold text-slate-900 font-sans leading-none mb-1">
+              <div className="text-2xl font-bold text-slate-900 dark:text-slate-50 font-sans leading-none mb-1">
                 100%
               </div>
-              <h3 className="text-xs font-bold text-slate-900 font-sans">Segurança garantida</h3>
-              <p className="text-[11px] text-slate-400 font-sans">Dados protegidos</p>
+              <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Segurança garantida</h3>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">Dados protegidos</p>
             </div>
           </div>
         </div>
@@ -511,13 +511,13 @@ export const IntegrationsTab: React.FC = () => {
            ======================================================== */}
         <div className="space-y-6 font-sans">
           {/* CARD A: Integrações ativas (7 itens) */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div className="flex items-center justify-between gap-2 pb-1">
               <div>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Integrações ativas
                 </h3>
-                <p className="text-xs text-slate-400 font-sans">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                   Serviços conectados à sua conta VILA.
                 </p>
               </div>
@@ -532,7 +532,7 @@ export const IntegrationsTab: React.FC = () => {
             </div>
 
             {/* Lista dos 7 itens conectados */}
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {activeIntegrations.map((item) => (
                 <div
                   key={item.id}
@@ -540,34 +540,34 @@ export const IntegrationsTab: React.FC = () => {
                     setSelectedIntegration(item);
                     setIsManageModalOpen(true);
                   }}
-                  className="py-3 sm:py-3.5 flex items-center justify-between gap-3 hover:bg-slate-50/70 rounded-xl px-2.5 -mx-2.5 transition-colors cursor-pointer group font-sans"
+                  className="py-3 sm:py-3.5 flex items-center justify-between gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800 rounded-xl px-2.5 -mx-2.5 transition-colors cursor-pointer group font-sans"
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
+                    <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
                       {item.logo}
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-slate-900 truncate font-sans">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate font-sans">
                         {item.name}
                       </h4>
-                      <p className="text-[11px] text-slate-400 truncate font-sans">
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                         {item.description}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0 font-sans">
-                    <span className="text-[10.5px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60 font-sans">
+                    <span className="text-[10.5px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/40 font-sans">
                       Conectado
                     </span>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 transition-colors" />
+                    <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors" />
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Rodapé: Link Ver todas as integrações ativas */}
-            <div className="pt-2 border-t border-slate-100 font-sans">
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 font-sans">
               <button
                 type="button"
                 onClick={() => setIsManageModalOpen(true)}
@@ -580,13 +580,13 @@ export const IntegrationsTab: React.FC = () => {
           </div>
 
           {/* CARD B: Logs de sincronização (Abaixo de Integrações ativas) */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div className="flex items-center justify-between gap-2 pb-1">
               <div>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Logs de sincronização
                 </h3>
-                <p className="text-xs text-slate-400 font-sans">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                   Acompanhe o status das sincronizações.
                 </p>
               </div>
@@ -599,30 +599,30 @@ export const IntegrationsTab: React.FC = () => {
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {syncLogs.slice(0, 2).map((log) => (
                 <div
                   key={log.id}
                   onClick={() => setIsHistoryModalOpen(true)}
-                  className="py-3 flex items-center justify-between gap-3 hover:bg-slate-50/70 rounded-xl px-2 -mx-2 transition-colors cursor-pointer group font-sans"
+                  className="py-3 flex items-center justify-between gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800 rounded-xl px-2 -mx-2 transition-colors cursor-pointer group font-sans"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-800/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-slate-900 font-sans">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                         {log.service}
                       </h4>
-                      <p className="text-[11px] text-slate-400 font-sans">
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">
                         {log.status}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1 text-[11px] text-slate-500 font-medium group-hover:text-[#1455AC] transition-colors font-sans">
+                  <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium group-hover:text-[#1455AC] transition-colors font-sans">
                     <span>{log.timeAgo}</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1455AC]" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC]" />
                   </div>
                 </div>
               ))}
@@ -635,13 +635,13 @@ export const IntegrationsTab: React.FC = () => {
            ======================================================== */}
         <div className="space-y-6 font-sans">
           {/* CARD C: Integrações disponíveis (5 itens) */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div className="flex items-center justify-between gap-2 pb-1">
               <div>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Integrações disponíveis
                 </h3>
-                <p className="text-xs text-slate-400 font-sans">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                   Descubra novas ferramentas para conectar.
                 </p>
               </div>
@@ -654,21 +654,21 @@ export const IntegrationsTab: React.FC = () => {
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {availableIntegrations.map((tool) => (
                 <div
                   key={tool.id}
-                  className="py-3 sm:py-3.5 flex items-center justify-between gap-3 hover:bg-slate-50/70 rounded-xl px-2.5 -mx-2.5 transition-colors font-sans"
+                  className="py-3 sm:py-3.5 flex items-center justify-between gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800 rounded-xl px-2.5 -mx-2.5 transition-colors font-sans"
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 shadow-2xs">
+                    <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0 shadow-2xs">
                       {tool.logo}
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-slate-900 truncate font-sans">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate font-sans">
                         {tool.name}
                       </h4>
-                      <p className="text-[11px] text-slate-400 truncate font-sans">
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                         {tool.description}
                       </p>
                     </div>
@@ -677,7 +677,7 @@ export const IntegrationsTab: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => handleConnectAvailable(tool)}
-                    className="shrink-0 px-3.5 py-1 rounded-lg border border-[#1455AC] text-[#1455AC] hover:bg-blue-50 text-xs font-semibold transition-colors cursor-pointer font-sans"
+                    className="shrink-0 px-3.5 py-1 rounded-lg border border-[#1455AC] text-[#1455AC] hover:bg-blue-50 dark:hover:bg-blue-500/10 text-xs font-semibold transition-colors cursor-pointer font-sans"
                   >
                     Conectar
                   </button>
@@ -687,13 +687,13 @@ export const IntegrationsTab: React.FC = () => {
           </div>
 
           {/* CARD D: Automatizações recentes (3 itens) */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div className="flex items-center justify-between gap-2 pb-1">
               <div>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Automatizações recentes
                 </h3>
-                <p className="text-xs text-slate-400 font-sans">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                   Fluxos e regras que você criou.
                 </p>
               </div>
@@ -706,26 +706,26 @@ export const IntegrationsTab: React.FC = () => {
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {automations.map((rule) => (
                 <div
                   key={rule.id}
-                  className="py-3 flex items-center justify-between gap-3 hover:bg-slate-50/70 rounded-xl px-2 -mx-2 transition-colors font-sans"
+                  className="py-3 flex items-center justify-between gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800 rounded-xl px-2 -mx-2 transition-colors font-sans"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 shadow-2xs">
+                    <div className="w-8 h-8 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0 shadow-2xs">
                       {rule.serviceIcon}
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h4 className="text-xs font-bold text-slate-900 truncate font-sans">
+                        <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate font-sans">
                           {rule.title}
                         </h4>
-                        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60 shrink-0 font-sans">
+                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/40 shrink-0 font-sans">
                           {rule.status}
                         </span>
                       </div>
-                      <p className="text-[11px] text-slate-400 mt-0.5 font-sans">
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                         {rule.updatedAt}
                       </p>
                     </div>
@@ -734,7 +734,7 @@ export const IntegrationsTab: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => showToast(`Opções de automação para: ${rule.title}`)}
-                    className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
+                    className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
                     title="Mais opções"
                   >
                     <MoreVertical className="w-4 h-4" />
@@ -745,16 +745,16 @@ export const IntegrationsTab: React.FC = () => {
           </div>
 
           {/* CARD E: Banner de Segurança Inferior */}
-          <div className="bg-blue-50/60 rounded-xl border border-blue-100 p-4 sm:p-4.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs font-sans">
+          <div className="bg-blue-50/60 dark:bg-blue-500/10 rounded-xl border border-blue-100 dark:border-blue-800/40 p-4 sm:p-4.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs font-sans">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-9 h-9 rounded-xl bg-blue-100 text-[#1455AC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-500/15 text-[#1455AC] flex items-center justify-center shrink-0">
                 <Lock className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-slate-900 font-sans">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                   A segurança dos seus dados é nossa prioridade.
                 </h4>
-                <p className="text-[11px] text-slate-500 font-sans">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans">
                   Usamos criptografia de ponta a ponta e seguimos os mais altos padrões de segurança.
                 </p>
               </div>
@@ -763,7 +763,7 @@ export const IntegrationsTab: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsSecurityModalOpen(true)}
-              className="px-3.5 py-1.5 bg-white border border-blue-200 text-xs font-semibold text-[#1455AC] hover:bg-blue-50 rounded-xl transition-colors shrink-0 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs font-sans"
+              className="px-3.5 py-1.5 bg-white dark:bg-slate-900 border border-blue-200 dark:border-blue-800/40 text-xs font-semibold text-[#1455AC] hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-xl transition-colors shrink-0 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs font-sans"
             >
               <span>Saiba mais</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -777,29 +777,29 @@ export const IntegrationsTab: React.FC = () => {
          ======================================================== */}
       {isManageModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 space-y-5 animate-in fade-in zoom-in-95 duration-150 font-sans">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full p-6 space-y-5 animate-in fade-in zoom-in-95 duration-150 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 font-sans">
               <div className="flex items-center gap-3">
                 {selectedIntegration ? (
                   <>
-                    <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-center justify-center">
                       {selectedIntegration.logo}
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 font-sans">
+                      <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                         {selectedIntegration.name}
                       </h3>
-                      <p className="text-xs text-slate-400 font-sans">
+                      <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                         {selectedIntegration.category} • Conectado
                       </p>
                     </div>
                   </>
                 ) : (
                   <div>
-                    <h3 className="text-base font-bold text-slate-900 font-sans">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                       Gerenciar Todas as Integrações Ativas
                     </h3>
-                    <p className="text-xs text-slate-400 font-sans">
+                    <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                       {activeIntegrations.length} serviços integrados à VILA
                     </p>
                   </div>
@@ -811,7 +811,7 @@ export const IntegrationsTab: React.FC = () => {
                   setIsManageModalOpen(false);
                   setSelectedIntegration(null);
                 }}
-                className="p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 rounded-full text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -819,37 +819,37 @@ export const IntegrationsTab: React.FC = () => {
 
             {selectedIntegration ? (
               <div className="space-y-4 font-sans">
-                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-2 text-xs font-sans">
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 space-y-2 text-xs font-sans">
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-500">Status de Sincronização:</span>
-                    <span className="font-bold text-emerald-600 flex items-center gap-1">
+                    <span className="text-slate-500 dark:text-slate-400">Status de Sincronização:</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                       <CheckCircle2 className="w-3.5 h-3.5" /> Ativo e Operacional
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-500">Última Sincronização:</span>
-                    <span className="font-medium text-slate-800">{selectedIntegration.lastSync}</span>
+                    <span className="text-slate-500 dark:text-slate-400">Última Sincronização:</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100">{selectedIntegration.lastSync}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-500">Data de Vinculação:</span>
-                    <span className="font-medium text-slate-800">{selectedIntegration.connectedAt}</span>
+                    <span className="text-slate-500 dark:text-slate-400">Data de Vinculação:</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100">{selectedIntegration.connectedAt}</span>
                   </div>
                 </div>
 
                 <div className="space-y-2 font-sans">
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">Permissões concedidas:</h4>
-                  <ul className="text-xs text-slate-600 space-y-1.5 pl-4 list-disc font-sans">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Permissões concedidas:</h4>
+                  <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 pl-4 list-disc font-sans">
                     <li>Leitura e escrita de eventos autorizados pela organização</li>
                     <li>Sincronização de webhooks de status de mensagens e alertas</li>
                     <li>Acesso a relatórios de auditoria e logs seguros</li>
                   </ul>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 font-sans">
+                <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 font-sans">
                   <button
                     type="button"
                     onClick={() => handleDisconnect(selectedIntegration.id)}
-                    className="px-4 py-2 rounded-xl text-xs font-bold text-red-600 hover:bg-red-50 border border-red-200 transition-colors cursor-pointer font-sans"
+                    className="px-4 py-2 rounded-xl text-xs font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 border border-red-200 dark:border-red-800/40 transition-colors cursor-pointer font-sans"
                   >
                     Desconectar integração
                   </button>
@@ -872,22 +872,22 @@ export const IntegrationsTab: React.FC = () => {
                 {activeIntegrations.map((item) => (
                   <div
                     key={item.id}
-                    className="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center justify-between gap-3 font-sans"
+                    className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-center justify-between gap-3 font-sans"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0">
                         {item.logo}
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-slate-900 font-sans">{item.name}</h4>
-                        <p className="text-[11px] text-slate-400 font-sans">{item.description}</p>
+                        <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">{item.name}</h4>
+                        <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">{item.description}</p>
                       </div>
                     </div>
 
                     <button
                       type="button"
                       onClick={() => handleDisconnect(item.id)}
-                      className="text-xs font-semibold text-red-600 hover:underline cursor-pointer shrink-0 font-sans"
+                      className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline cursor-pointer shrink-0 font-sans"
                     >
                       Desconectar
                     </button>
@@ -904,47 +904,47 @@ export const IntegrationsTab: React.FC = () => {
          ======================================================== */}
       {isHistoryModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-md w-full p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150 font-sans">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-100 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-md w-full p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150 font-sans">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 font-sans">
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Histórico de Sincronizações
                 </h3>
-                <p className="text-xs text-slate-400 font-sans">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">
                   Registos recentes de sincronização de dados
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsHistoryModalOpen(false)}
-                className="p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 rounded-full text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {syncLogs.map((log) => (
                 <div key={log.id} className="py-3 flex items-center justify-between gap-3 text-xs font-sans">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
                     <div>
-                      <p className="font-bold text-slate-900 font-sans">{log.service}</p>
-                      <p className="text-[11px] text-slate-400 font-sans">{log.status}</p>
+                      <p className="font-bold text-slate-900 dark:text-slate-50 font-sans">{log.service}</p>
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 font-sans">{log.status}</p>
                     </div>
                   </div>
-                  <span className="text-[11px] text-slate-500 font-medium font-sans">{log.timeAgo}</span>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium font-sans">{log.timeAgo}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-2 border-t border-slate-100 flex justify-end font-sans">
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex justify-end font-sans">
               <button
                 type="button"
                 onClick={() => setIsHistoryModalOpen(false)}
-                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 cursor-pointer font-sans"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer font-sans"
               >
                 Fechar
               </button>
@@ -958,41 +958,41 @@ export const IntegrationsTab: React.FC = () => {
          ======================================================== */}
       {isSecurityModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150 font-sans">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-100 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full p-6 space-y-4 animate-in fade-in zoom-in-95 duration-150 font-sans">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 font-sans">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-blue-100 text-[#1455AC] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-500/15 text-[#1455AC] flex items-center justify-center">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 font-sans">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Padrões de Segurança VILA
                   </h3>
-                  <p className="text-xs text-slate-400 font-sans">Proteção de ponta a ponta</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 font-sans">Proteção de ponta a ponta</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsSecurityModalOpen(false)}
-                className="p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 rounded-full text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="space-y-3 text-xs text-slate-600 font-sans">
+            <div className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-sans">
               <p>
                 A plataforma VILA opera sob os mais rigorosos protocolos de proteção de dados (RGPD e SOC 2 Type II). Todas as credenciais de terceiros são armazenadas com cifras AES-256 e transmitidas exclusivamente através de túneis TLS 1.3.
               </p>
-              <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100 space-y-1 font-sans">
-                <h5 className="font-bold text-slate-900 font-sans">Chaves criptográficas isoladas</h5>
-                <p className="text-[11px] text-slate-500 font-sans">
+              <div className="p-3 bg-blue-50/60 dark:bg-blue-500/10 rounded-xl border border-blue-100 dark:border-blue-800/40 space-y-1 font-sans">
+                <h5 className="font-bold text-slate-900 dark:text-slate-50 font-sans">Chaves criptográficas isoladas</h5>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans">
                   Os tokens de acesso OAuth concedidos às ferramentas conectadas nunca expõem senhas mestras e podem ser revogados a qualquer instante.
                 </p>
               </div>
             </div>
 
-            <div className="pt-2 border-t border-slate-100 flex justify-end font-sans">
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex justify-end font-sans">
               <button
                 type="button"
                 onClick={() => setIsSecurityModalOpen(false)}

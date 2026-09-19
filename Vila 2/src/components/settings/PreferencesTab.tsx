@@ -70,7 +70,7 @@ export const PreferencesTab: React.FC = () => {
       id: 'tecnologia',
       name: 'Tecnologia e Inovação',
       icon: (
-        <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+        <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
           <Rocket className="w-4 h-4" />
         </div>
       ),
@@ -211,7 +211,7 @@ export const PreferencesTab: React.FC = () => {
           <button
             type="button"
             onClick={() => setToastMessage(null)}
-            className="text-slate-400 hover:text-white ml-2 cursor-pointer"
+            className="text-slate-400 dark:text-slate-500 hover:text-white ml-2 cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -225,9 +225,9 @@ export const PreferencesTab: React.FC = () => {
            ======================================================== */}
         <div className="lg:col-span-8 space-y-6">
           {/* CARD 1: Configurações gerais */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-5 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-5 font-sans">
             <div>
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Configurações gerais
               </h3>
             </div>
@@ -238,18 +238,18 @@ export const PreferencesTab: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <Globe className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Idioma da plataforma
                   </label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Escolha o idioma principal da interface.
                 </p>
                 <div className="relative">
                   <select
                     value={platformLanguage}
                     onChange={(e) => setPlatformLanguage(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="Português (Portugal)">Português (Portugal)</option>
                     <option value="Português (Brasil)">Português (Brasil)</option>
@@ -257,7 +257,7 @@ export const PreferencesTab: React.FC = () => {
                     <option value="Español (España)">Español (España)</option>
                     <option value="Français">Français</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -267,16 +267,16 @@ export const PreferencesTab: React.FC = () => {
                   <div className="w-4 h-4 rounded-full border border-[#1455AC] text-[#1455AC] flex items-center justify-center font-bold text-[10px] shrink-0 font-sans">
                     €
                   </div>
-                  <label className="text-xs font-bold text-slate-900 font-sans">Moeda</label>
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Moeda</label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Escolha a moeda para preços e conversões.
                 </p>
                 <div className="relative">
                   <select
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="EUR (€) – Euro">EUR (€) – Euro</option>
                     <option value="USD ($) – Dólar Americano">USD ($) – Dólar Americano</option>
@@ -284,7 +284,7 @@ export const PreferencesTab: React.FC = () => {
                     <option value="MZN (MT) – Metical">MZN (MT) – Metical</option>
                     <option value="AOA (Kz) – Kwanza">AOA (Kz) – Kwanza</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -292,16 +292,16 @@ export const PreferencesTab: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <Clock className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">Fuso horário</label>
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Fuso horário</label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Defina o seu fuso horário local.
                 </p>
                 <div className="relative">
                   <select
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="(UTC+00:00) Lisboa">(UTC+00:00) Lisboa</option>
                     <option value="(UTC+00:00) Londres">(UTC+00:00) Londres</option>
@@ -309,7 +309,7 @@ export const PreferencesTab: React.FC = () => {
                     <option value="(UTC+01:00) Madrid">(UTC+01:00) Madrid</option>
                     <option value="(UTC+01:00) Paris">(UTC+01:00) Paris</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -317,24 +317,24 @@ export const PreferencesTab: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <Calendar className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Formato de data
                   </label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Escolha como as datas são apresentadas.
                 </p>
                 <div className="relative">
                   <select
                     value={dateFormat}
                     onChange={(e) => setDateFormat(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="DD/MM/YYYY">DD/MM/YYYY</option>
                     <option value="MM/DD/YYYY">MM/DD/YYYY</option>
                     <option value="YYYY-MM-DD">YYYY-MM-DD</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -342,23 +342,23 @@ export const PreferencesTab: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <Clock className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Formato de hora
                   </label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Escolha o formato de exibição da hora.
                 </p>
                 <div className="relative">
                   <select
                     value={timeFormat}
                     onChange={(e) => setTimeFormat(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="24 horas">24 horas</option>
                     <option value="12 horas (AM/PM)">12 horas</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -366,23 +366,23 @@ export const PreferencesTab: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <Ruler className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Unidades de medida
                   </label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Selecione o sistema de unidades preferido.
                 </p>
                 <div className="relative">
                   <select
                     value={unitSystem}
                     onChange={(e) => setUnitSystem(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="Métrico (km, °C, m)">Métrico (km, °C, m)</option>
                     <option value="Imperial (mi, °F, ft)">Imperial (mi, °F, ft)</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -390,25 +390,25 @@ export const PreferencesTab: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <Globe className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Idioma dos conteúdos
                   </label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Idioma preferido para conteúdos e notícias.
                 </p>
                 <div className="relative">
                   <select
                     value={contentLanguage}
                     onChange={(e) => setContentLanguage(e.target.value)}
-                    className="w-full appearance-none bg-white text-xs font-semibold text-slate-800 px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
+                    className="w-full appearance-none bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 cursor-pointer shadow-2xs font-sans"
                   >
                     <option value="Português">Português</option>
                     <option value="English">English</option>
                     <option value="Español">Español</option>
                     <option value="Todos os idiomas">Todos os idiomas</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -416,21 +416,21 @@ export const PreferencesTab: React.FC = () => {
               <div className="md:col-span-2">
                 <div className="flex items-center gap-2 mb-1.5">
                   <MapPin className="w-4 h-4 text-[#1455AC] shrink-0" />
-                  <label className="text-xs font-bold text-slate-900 font-sans">
+                  <label className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Região de interesse
                   </label>
                 </div>
-                <p className="text-[11px] text-slate-400 mb-2">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                   Escolha a sua região para conteúdos locais.
                 </p>
 
                 {/* Box de Tags com Algarve, Portugal e + Adicionar */}
-                <div className="min-h-[42px] px-3 py-1.5 rounded-xl border border-slate-200 bg-white flex items-center justify-between gap-2 shadow-2xs font-sans">
+                <div className="min-h-[42px] px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 flex items-center justify-between gap-2 shadow-2xs font-sans">
                   <div className="flex flex-wrap items-center gap-2 font-sans">
                     {regions.map((region) => (
                       <span
                         key={region}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 text-[#1455AC] text-xs font-semibold font-sans"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] text-xs font-semibold font-sans"
                       >
                         <span>{region}</span>
                         <button
@@ -452,18 +452,18 @@ export const PreferencesTab: React.FC = () => {
                           onChange={(e) => setNewRegionText(e.target.value)}
                           placeholder="Nome da região..."
                           autoFocus
-                          className="w-28 text-xs font-medium px-2 py-1 rounded-lg border border-[#1455AC] outline-none text-slate-800 font-sans"
+                          className="w-28 text-xs font-medium px-2 py-1 rounded-lg border border-[#1455AC] outline-none text-slate-800 dark:text-slate-100 font-sans"
                         />
                         <button
                           type="submit"
-                          className="text-xs text-[#1455AC] font-bold px-1.5 py-0.5 hover:bg-blue-50 rounded"
+                          className="text-xs text-[#1455AC] font-bold px-1.5 py-0.5 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded"
                         >
                           OK
                         </button>
                         <button
                           type="button"
                           onClick={() => setIsAddingRegion(false)}
-                          className="text-xs text-slate-400 hover:text-slate-600"
+                          className="text-xs text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
                         >
                           <X className="w-3 h-3" />
                         </button>
@@ -472,7 +472,7 @@ export const PreferencesTab: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setIsAddingRegion(true)}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-[#1455AC] hover:bg-blue-50 transition-colors cursor-pointer font-sans"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-[#1455AC] hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors cursor-pointer font-sans"
                       >
                         <Plus className="w-3 h-3 stroke-[2.5]" />
                         <span>Adicionar</span>
@@ -480,19 +480,19 @@ export const PreferencesTab: React.FC = () => {
                     )}
                   </div>
 
-                  <ChevronDown className="w-4 h-4 text-slate-400 shrink-0 pointer-events-none" />
+                  <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500 shrink-0 pointer-events-none" />
                 </div>
               </div>
             </div>
           </div>
 
           {/* CARD 2: Personalização da experiência */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div>
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Personalização da experiência
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
                 Escolha como deseja visualizar e receber os conteúdos da VILA.
               </p>
             </div>
@@ -504,8 +504,8 @@ export const PreferencesTab: React.FC = () => {
                 onClick={() => setExperienceMode('equilibrada')}
                 className={`p-3.5 rounded-xl transition-all cursor-pointer flex flex-col justify-between font-sans ${
                   experienceMode === 'equilibrada'
-                    ? 'border-2 border-[#1455AC] bg-white ring-2 ring-blue-600/10 shadow-xs'
-                    : 'border border-slate-200 hover:border-slate-300 bg-white'
+                    ? 'border-2 border-[#1455AC] bg-white dark:bg-slate-900 ring-2 ring-blue-600/10 shadow-xs'
+                    : 'border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-900'
                 }`}
               >
                 <div>
@@ -516,30 +516,30 @@ export const PreferencesTab: React.FC = () => {
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </div>
                     ) : (
-                      <div className="w-4 h-4 rounded-full border border-slate-300 bg-white" />
+                      <div className="w-4 h-4 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800" />
                     )}
                   </div>
 
                   {/* Thumbnail gráfico da UI */}
-                  <div className="w-full h-20 rounded-xl bg-slate-50/70 border border-slate-100 flex items-center justify-center p-2 mb-3">
-                    <div className="w-full bg-white rounded-lg shadow-2xs border border-slate-150 p-2 space-y-1.5">
+                  <div className="w-full h-20 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-center p-2 mb-3">
+                    <div className="w-full bg-white dark:bg-slate-900 rounded-lg shadow-2xs border border-slate-150 p-2 space-y-1.5">
                       <div className="flex items-center gap-1.5">
                         <div className="w-3.5 h-3.5 rounded-full bg-[#1455AC] flex items-center justify-center text-[7px] text-white font-bold font-sans">
                           V
                         </div>
-                        <div className="h-1.5 w-12 bg-slate-200 rounded-full" />
+                        <div className="h-1.5 w-12 bg-slate-200 dark:bg-slate-700 rounded-full" />
                       </div>
-                      <div className="h-1 w-full bg-slate-100 rounded-full" />
-                      <div className="h-1 w-3/4 bg-slate-100 rounded-full" />
+                      <div className="h-1 w-full bg-slate-100 dark:bg-slate-800 rounded-full" />
+                      <div className="h-1 w-3/4 bg-slate-100 dark:bg-slate-800 rounded-full" />
                       <div className="flex gap-1 pt-0.5">
-                        <div className="h-2 w-6 bg-blue-50 rounded border border-blue-100" />
-                        <div className="h-2 w-7 bg-slate-50 rounded border border-slate-100" />
+                        <div className="h-2 w-6 bg-blue-50 dark:bg-blue-500/10 rounded border border-blue-100 dark:border-blue-800/40" />
+                        <div className="h-2 w-7 bg-slate-50 dark:bg-slate-800 rounded border border-slate-100 dark:border-slate-800" />
                       </div>
                     </div>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">Vista equilibrada</h4>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-1 font-sans">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Vista equilibrada</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-1 font-sans">
                     Mistura conteúdos locais, globais e recomendados para si.
                   </p>
                 </div>
@@ -550,8 +550,8 @@ export const PreferencesTab: React.FC = () => {
                 onClick={() => setExperienceMode('local')}
                 className={`p-3.5 rounded-xl transition-all cursor-pointer flex flex-col justify-between font-sans ${
                   experienceMode === 'local'
-                    ? 'border-2 border-[#1455AC] bg-white ring-2 ring-blue-600/10 shadow-xs'
-                    : 'border border-slate-200 hover:border-slate-300 bg-white'
+                    ? 'border-2 border-[#1455AC] bg-white dark:bg-slate-900 ring-2 ring-blue-600/10 shadow-xs'
+                    : 'border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-900'
                 }`}
               >
                 <div>
@@ -561,12 +561,12 @@ export const PreferencesTab: React.FC = () => {
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </div>
                     ) : (
-                      <div className="w-4 h-4 rounded-full border border-slate-300 bg-white" />
+                      <div className="w-4 h-4 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800" />
                     )}
                   </div>
 
                   {/* Thumbnail gráfico do Mapa */}
-                  <div className="w-full h-20 rounded-xl bg-slate-50/70 border border-slate-100 flex items-center justify-center p-2 mb-3 relative overflow-hidden">
+                  <div className="w-full h-20 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-center p-2 mb-3 relative overflow-hidden">
                     <svg viewBox="0 0 100 60" className="w-full h-full">
                       <path d="M10 20 Q 30 10 50 30 T 90 20" fill="none" stroke="#E2E8F0" strokeWidth="2" />
                       <path d="M20 50 Q 50 40 80 50" fill="none" stroke="#E2E8F0" strokeWidth="2" />
@@ -589,14 +589,14 @@ export const PreferencesTab: React.FC = () => {
                         <circle cx="0" cy="-0.8" r="1.5" fill="#FFFFFF" />
                       </g>
                     </svg>
-                    <div className="absolute right-1.5 bottom-1.5 bg-white/95 rounded-md px-1 py-0.5 border border-slate-200 shadow-2xs flex items-center gap-1">
+                    <div className="absolute right-1.5 bottom-1.5 bg-white/95 dark:bg-slate-800/95 rounded-md px-1 py-0.5 border border-slate-200 dark:border-slate-700 shadow-2xs flex items-center gap-1">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#1455AC]" />
-                      <span className="text-[7.5px] font-bold text-slate-700 font-sans">Lisboa</span>
+                      <span className="text-[7.5px] font-bold text-slate-700 dark:text-slate-300 font-sans">Lisboa</span>
                     </div>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">Foco local</h4>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-1 font-sans">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Foco local</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-1 font-sans">
                     Dê prioridade a conteúdos e eventos da sua região.
                   </p>
                 </div>
@@ -607,8 +607,8 @@ export const PreferencesTab: React.FC = () => {
                 onClick={() => setExperienceMode('global')}
                 className={`p-3.5 rounded-xl transition-all cursor-pointer flex flex-col justify-between font-sans ${
                   experienceMode === 'global'
-                    ? 'border-2 border-[#1455AC] bg-white ring-2 ring-blue-600/10 shadow-xs'
-                    : 'border border-slate-200 hover:border-slate-300 bg-white'
+                    ? 'border-2 border-[#1455AC] bg-white dark:bg-slate-900 ring-2 ring-blue-600/10 shadow-xs'
+                    : 'border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-900'
                 }`}
               >
                 <div>
@@ -618,12 +618,12 @@ export const PreferencesTab: React.FC = () => {
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </div>
                     ) : (
-                      <div className="w-4 h-4 rounded-full border border-slate-300 bg-white" />
+                      <div className="w-4 h-4 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800" />
                     )}
                   </div>
 
                   {/* Thumbnail gráfico do Globo 3D Azul */}
-                  <div className="w-full h-20 rounded-xl bg-slate-50/70 border border-slate-100 flex items-center justify-center p-2 mb-3">
+                  <div className="w-full h-20 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-center p-2 mb-3">
                     <div className="relative w-14 h-14">
                       <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xs">
                         <defs>
@@ -646,8 +646,8 @@ export const PreferencesTab: React.FC = () => {
                     </div>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">Foco global</h4>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-1 font-sans">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Foco global</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-1 font-sans">
                     Explore mais conteúdos, notícias e eventos globais.
                   </p>
                 </div>
@@ -658,8 +658,8 @@ export const PreferencesTab: React.FC = () => {
                 onClick={() => setExperienceMode('personalizado')}
                 className={`p-3.5 rounded-xl transition-all cursor-pointer flex flex-col justify-between font-sans ${
                   experienceMode === 'personalizado'
-                    ? 'border-2 border-[#1455AC] bg-white ring-2 ring-blue-600/10 shadow-xs'
-                    : 'border border-slate-200 hover:border-slate-300 bg-white'
+                    ? 'border-2 border-[#1455AC] bg-white dark:bg-slate-900 ring-2 ring-blue-600/10 shadow-xs'
+                    : 'border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-900'
                 }`}
               >
                 <div>
@@ -669,22 +669,22 @@ export const PreferencesTab: React.FC = () => {
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </div>
                     ) : (
-                      <div className="w-4 h-4 rounded-full border border-slate-300 bg-white" />
+                      <div className="w-4 h-4 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800" />
                     )}
                   </div>
 
                   {/* Thumbnail gráfico do Balão com Coração */}
-                  <div className="w-full h-20 rounded-xl bg-slate-50/70 border border-slate-100 flex items-center justify-center p-2 mb-3">
-                    <div className="w-13 h-11 bg-[#FFF1F2] border border-rose-100 rounded-xl flex items-center justify-center shadow-2xs relative">
-                      <svg viewBox="0 0 24 24" className="w-5 h-5 text-rose-500 fill-rose-500">
+                  <div className="w-full h-20 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-center justify-center p-2 mb-3">
+                    <div className="w-13 h-11 bg-[#FFF1F2] border border-rose-100 dark:border-rose-800/40 rounded-xl flex items-center justify-center shadow-2xs relative">
+                      <svg viewBox="0 0 24 24" className="w-5 h-5 text-rose-500 dark:text-rose-400 fill-rose-500">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                       </svg>
-                      <div className="absolute -bottom-1 left-3 w-2 h-2 bg-[#FFF1F2] border-r border-b border-rose-100 rotate-45" />
+                      <div className="absolute -bottom-1 left-3 w-2 h-2 bg-[#FFF1F2] border-r border-b border-rose-100 dark:border-rose-800/40 rotate-45" />
                     </div>
                   </div>
 
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">Personalizado</h4>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-1 font-sans">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Personalizado</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-1 font-sans">
                     Algoritmo ajusta o feed com base no seu comportamento.
                   </p>
                 </div>
@@ -698,30 +698,30 @@ export const PreferencesTab: React.FC = () => {
            ======================================================== */}
         <div className="lg:col-span-4 space-y-6 font-sans">
           {/* CARD 3: Categorias de interesse */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div>
               <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-rose-500 shrink-0" />
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <Heart className="w-4 h-4 text-rose-500 dark:text-rose-400 shrink-0" />
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Categorias de interesse
                 </h3>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
                 Escolha os temas que mais lhe interessam.
               </p>
             </div>
 
             {/* Lista dos 10 Temas */}
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {categories.map((cat) => (
                 <div
                   key={cat.id}
                   onClick={() => toggleCategory(cat.id)}
-                  className="py-2.5 flex items-center justify-between gap-3 hover:bg-slate-50/80 px-1 rounded-xl transition-colors cursor-pointer font-sans"
+                  className="py-2.5 flex items-center justify-between gap-3 hover:bg-slate-50/80 dark:hover:bg-slate-800 px-1 rounded-xl transition-colors cursor-pointer font-sans"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     {cat.icon}
-                    <span className="text-xs font-semibold text-slate-900 truncate font-sans">
+                    <span className="text-xs font-semibold text-slate-900 dark:text-slate-50 truncate font-sans">
                       {cat.name}
                     </span>
                   </div>
@@ -731,7 +731,7 @@ export const PreferencesTab: React.FC = () => {
                     className={`w-5 h-5 rounded-md flex items-center justify-center transition-all shrink-0 ${
                       cat.checked
                         ? 'bg-[#1455AC] text-white shadow-2xs'
-                        : 'border border-slate-300 bg-white hover:border-slate-400'
+                        : 'border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500'
                     }`}
                   >
                     {cat.checked && <Check className="w-3.5 h-3.5 stroke-[2.5]" />}
@@ -741,7 +741,7 @@ export const PreferencesTab: React.FC = () => {
             </div>
 
             {/* Rodapé: Limpar seleções & Contador */}
-            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-sans">
+            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-sans">
               <button
                 type="button"
                 onClick={clearCategories}
@@ -758,25 +758,25 @@ export const PreferencesTab: React.FC = () => {
           </div>
 
           {/* CARD 4: Outras preferências */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div>
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Outras preferências
               </h3>
             </div>
 
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {/* 1. Modo de acessibilidade */}
               <div className="py-3 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="text-slate-600 shrink-0">
+                  <div className="text-slate-600 dark:text-slate-400 shrink-0">
                     <Eye className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                       Modo de acessibilidade
                     </h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Melhora a legibilidade e navegação.
                     </p>
                   </div>
@@ -789,21 +789,21 @@ export const PreferencesTab: React.FC = () => {
                     onChange={(e) => setAccessibilityMode(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
 
               {/* 2. Reduzir animações */}
               <div className="py-3 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="text-slate-600 shrink-0">
+                  <div className="text-slate-600 dark:text-slate-400 shrink-0">
                     <Clock className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                       Reduzir animações
                     </h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Reduz movimentos e transições.
                     </p>
                   </div>
@@ -816,21 +816,21 @@ export const PreferencesTab: React.FC = () => {
                     onChange={(e) => setReduceMotion(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
 
               {/* 3. Modo compacto */}
               <div className="py-3 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="text-slate-600 shrink-0">
+                  <div className="text-slate-600 dark:text-slate-400 shrink-0">
                     <Layers className="w-4.5 h-4.5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                       Modo compacto
                     </h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Interface mais densa com menos espaço.
                     </p>
                   </div>
@@ -843,7 +843,7 @@ export const PreferencesTab: React.FC = () => {
                     onChange={(e) => setCompactMode(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
             </div>

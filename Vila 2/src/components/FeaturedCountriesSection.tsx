@@ -141,17 +141,17 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
   return (
     <section
       id="featured-countries-section"
-      className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 sm:p-6 lg:p-7 relative mb-6 overflow-hidden"
+      className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs p-5 sm:p-6 lg:p-7 relative mb-6 overflow-hidden"
     >
       {/* Section Header with Roboto and clean understated button */}
       <div className="flex flex-row items-center justify-between gap-4 mb-5">
         <div className="flex items-center gap-2.5">
           <span className="text-xl leading-none">🏛️</span>
           <div>
-            <h2 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-[-0.01em] font-sans flex items-center gap-2">
+            <h2 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-slate-50 tracking-[-0.01em] font-sans flex items-center gap-2">
               Países em Destaque
             </h2>
-            <p className="text-xs sm:text-[13px] text-slate-500 mt-0.5 font-sans">
+            <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 mt-0.5 font-sans">
               Nações ativas, iniciativas locais e oportunidades de engajamento.
             </p>
           </div>
@@ -160,7 +160,7 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
         <button
           onClick={onViewAllCountries}
           id="btn-view-all-countries"
-          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs sm:text-[13px] font-semibold text-[#1455AC] hover:bg-slate-50 hover:border-[#1455AC]/40 transition-all shadow-2xs group shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs sm:text-[13px] font-semibold text-[#1455AC] hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-[#1455AC]/40 transition-all shadow-2xs group shrink-0 cursor-pointer"
         >
           <span>Explorar Países</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform stroke-[2]" />
@@ -196,10 +196,10 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
                 key={country.id}
                 id={`country-card-${country.id}`}
                 onClick={() => onSelectCountry(country)}
-                className={`min-w-[215px] sm:min-w-[230px] max-w-[230px] bg-white rounded-xl border flex flex-col justify-between cursor-pointer group shrink-0 snap-start transition-all duration-200 hover:-translate-y-0.5 relative shadow-xs hover:shadow-sm ${
+                className={`min-w-[215px] sm:min-w-[230px] max-w-[230px] bg-white dark:bg-slate-900 rounded-xl border flex flex-col justify-between cursor-pointer group shrink-0 snap-start transition-all duration-200 hover:-translate-y-0.5 relative shadow-xs hover:shadow-sm ${
                   isSelected
                     ? 'border-[#1455AC] ring-1 ring-[#1455AC]/30'
-                    : 'border-slate-200 hover:border-slate-300'
+                    : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
                 {/* 1. Top Section com Badge Retangular Suave (rounded-md) com acento Laranja #f58300 */}
@@ -211,7 +211,7 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
                   </div>
 
                   {/* Imagem do País em moldura limpa */}
-                  <div className="w-full h-36 sm:h-38 rounded-lg overflow-hidden bg-[#F8FAFC] flex items-center justify-center relative p-1">
+                  <div className="w-full h-36 sm:h-38 rounded-lg overflow-hidden bg-[#F8FAFC] dark:bg-slate-800 flex items-center justify-center relative p-1">
                     <img
                       src={country.imageUrl}
                       alt={`Imagem de ${country.name}`}
@@ -222,8 +222,8 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
                   </div>
 
                   {/* Faixa com Substatus e Timer */}
-                  <div className="flex items-center justify-between mt-2.5 px-0.5 text-[11px] font-medium text-slate-600 border-b border-slate-100 pb-2">
-                    <span className="text-slate-700 font-semibold">{meta.subStatus}</span>
+                  <div className="flex items-center justify-between mt-2.5 px-0.5 text-[11px] font-medium text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-2">
+                    <span className="text-slate-700 dark:text-slate-300 font-semibold">{meta.subStatus}</span>
                     <div className="flex items-center gap-1 text-[#DC2626] font-semibold text-[11px] tabular-nums">
                       <Clock className="w-3 h-3 stroke-[2]" />
                       <span>{meta.timer}</span>
@@ -236,7 +236,7 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
                   <div className="flex items-center gap-1.5 mb-1.5">
                     <span className="text-sm leading-none shrink-0">{country.flag}</span>
                     <h3
-                      className="text-[13.5px] font-semibold text-slate-800 truncate leading-snug group-hover:text-[#1455AC] transition-colors"
+                      className="text-[13.5px] font-semibold text-slate-800 dark:text-slate-100 truncate leading-snug group-hover:text-[#1455AC] transition-colors"
                       title={country.name}
                     >
                       {country.name}
@@ -245,7 +245,7 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
 
                   {/* Linha de "Iniciativas" com número */}
                   <div className="flex items-baseline justify-between mb-2">
-                    <span className="text-[11px] text-slate-500 font-normal">
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-normal">
                       {meta.startLabel}
                     </span>
                     <span className="text-[14px] font-bold text-[#1455AC] tracking-tight tabular-nums">
@@ -254,17 +254,17 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
                   </div>
 
                   {/* 3. Rodapé com Visualizações, Ações e Botão */}
-                  <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                    <div className="flex items-center gap-2.5 text-slate-600 text-[11px]">
+                  <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center gap-2.5 text-slate-600 dark:text-slate-400 text-[11px]">
                       {/* Visualizações */}
                       <span className="inline-flex items-center gap-1 font-medium">
-                        <Eye className="w-3.5 h-3.5 text-slate-400" />
+                        <Eye className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                         <span className="text-[10.5px] tabular-nums font-semibold">{meta.views}</span>
                       </span>
 
                       {/* Iniciativas */}
                       <span className="inline-flex items-center gap-1 font-medium">
-                        <Globe2 className="w-3.5 h-3.5 text-slate-400" />
+                        <Globe2 className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                         <span className="text-[10.5px] tabular-nums font-semibold">{meta.bids}</span>
                       </span>
                     </div>

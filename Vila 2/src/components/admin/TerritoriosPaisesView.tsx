@@ -355,8 +355,8 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         trendPeriod: kpi.trendPeriod,
         trendClassName:
           kpi.id === 'kpi-cobertura'
-            ? 'text-blue-700 bg-blue-50 border border-blue-200/70'
-            : 'text-emerald-700 bg-emerald-50 border border-emerald-200/70',
+            ? 'text-blue-700 bg-blue-50 dark:bg-blue-500/10 border border-blue-200/70'
+            : 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/70',
         icon:
           kpi.icon === 'globe' ? (
             <Globe className="w-3.5 h-3.5" strokeWidth={2.2} />
@@ -403,17 +403,17 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* ========================================================================= */}
       {/* 1. HEADER DA PÁGINA (Compacto, elegante e proporcional)                   */}
       {/* ========================================================================= */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70 dark:border-slate-700">
         {/* Esquerda: Ícone Reduzido + Título + Subtítulo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E2ECF9] border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <Globe className="w-5 h-5 text-[#1455AC]" strokeWidth={2.2} />
           </div>
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
+            <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight leading-tight">
               Territórios e Países
             </h1>
-            <p className="text-xs text-slate-500 font-normal mt-0.5 max-w-xl">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-xl">
               Gestão e monitorização da presença territorial global da rede VILA.
             </p>
           </div>
@@ -426,15 +426,15 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <button
               type="button"
               onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
-              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-2xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 shadow-2xs transition-colors cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5 text-slate-500" />
+              <Calendar className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>{selectedDateRange}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
             </button>
             {isDateDropdownOpen && (
-              <div className="absolute right-0 mt-1.5 w-60 bg-white border border-slate-200 rounded-xl shadow-xl z-30 py-1 text-xs">
-                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-200/70">
+              <div className="absolute right-0 mt-1.5 w-60 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl z-30 py-1 text-xs">
+                <div className="px-3 py-1.5 font-bold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider border-b border-slate-200/70 dark:border-slate-700">
                   Período de Análise
                 </div>
                 {[
@@ -454,7 +454,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       showToast(`Período alterado para: ${p}`);
                     }}
                     className={`w-full text-left px-3 py-2 hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700'
+                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     <span>{p}</span>
@@ -469,9 +469,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           <button
             type="button"
             onClick={() => setIsExportModalOpen(true)}
-            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-2xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 shadow-2xs transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Exportar</span>
           </button>
 
@@ -486,16 +486,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </button>
 
           {/* Indicadores de Telemetria */}
-          <div className="flex flex-col justify-center text-[11px] text-slate-600 pl-1 space-y-0.5 border-l border-slate-200/80 pl-2.5 ml-1">
+          <div className="flex flex-col justify-center text-[11px] text-slate-600 dark:text-slate-400 pl-1 space-y-0.5 border-l border-slate-200/80 dark:border-slate-700 pl-2.5 ml-1">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] shrink-0" />
-              <span className="whitespace-nowrap text-slate-600">
-                Atualizado: <strong className="font-semibold text-slate-800">{lastUpdateTime}</strong>
+              <span className="whitespace-nowrap text-slate-600 dark:text-slate-400">
+                Atualizado: <strong className="font-semibold text-slate-800 dark:text-slate-100">{lastUpdateTime}</strong>
               </span>
               <button
                 type="button"
                 onClick={handleManualRefresh}
-                className="text-slate-400 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
                 title="Atualizar dados agora"
               >
                 <RefreshCw className={`w-2.5 h-2.5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -503,7 +503,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] shrink-0 animate-pulse" />
-              <span className="font-medium text-slate-500 whitespace-nowrap">
+              <span className="font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap">
                 Tempo real
               </span>
             </div>
@@ -526,16 +526,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
         {/* Card 1: Presença Global da VILA (5 colunas no desktop) */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans">
+              <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Presença Global da VILA
               </h2>
             </div>
 
             {/* Legenda de Presença */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-600 mb-2">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-600 dark:text-slate-400 mb-2">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-sm bg-[#1455AC]" />
                 <span>Presença Elevada</span>
@@ -553,13 +553,13 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 <span>Exploração Inicial</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-sm bg-[#F1F5F9] border border-slate-200" />
+                <span className="w-2.5 h-2.5 rounded-sm bg-[#F1F5F9] border border-slate-200 dark:border-slate-700" />
                 <span>Sem Presença</span>
               </div>
             </div>
 
             {/* Mapa Mundial Temático Vetorial */}
-            <div className="relative w-full h-44 sm:h-52 bg-slate-50/50 rounded-xl border border-slate-100/80 overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-44 sm:h-52 bg-slate-50/50 dark:bg-slate-800/60 rounded-xl border border-slate-100/80 dark:border-slate-800 overflow-hidden flex items-center justify-center">
               <svg viewBox="0 0 400 210" className="w-full h-full">
                 <g>
                   {worldPaths.map((p) => (
@@ -580,8 +580,8 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
 
             {/* Continentes com maior presença */}
-            <div className="mt-4 pt-3 border-t border-slate-200/70">
-              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+            <div className="mt-4 pt-3 border-t border-slate-200/70 dark:border-slate-700">
+              <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
                 Continentes com maior presença
               </p>
               <div className="space-y-1.5">
@@ -596,8 +596,8 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       showToast(`Filtrando tabela por: ${c.name}`);
                     }}
                   >
-                    <span className="text-slate-600 font-medium w-28 shrink-0">{c.name}</span>
-                    <div className="flex-1 mx-2.5 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <span className="text-slate-600 dark:text-slate-400 font-medium w-28 shrink-0">{c.name}</span>
+                    <div className="flex-1 mx-2.5 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${
                           hoveredContinent === c.name ? 'bg-[#0F448A]' : 'bg-[#1455AC]'
@@ -605,7 +605,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                         style={{ width: `${c.percent}%` }}
                       />
                     </div>
-                    <span className="text-xs font-bold text-[#0F172A] font-mono w-9 text-right">
+                    <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-mono w-9 text-right">
                       {c.percent}%
                     </span>
                   </div>
@@ -615,7 +615,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
 
           {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => onNavigateToTab('explorar')}
@@ -628,10 +628,10 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         </div>
 
         {/* Card 2: Crescimento de Territórios (4 colunas no desktop) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans">
+              <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Crescimento de Territórios
               </h2>
               <div className="relative">
@@ -641,18 +641,18 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     setTimeGrowthFilter(e.target.value);
                     showToast(`Período do gráfico: ${e.target.value}`);
                   }}
-                  className="text-[11px] font-medium text-slate-600 bg-slate-50 border border-slate-200/90 rounded-lg px-2 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="text-[11px] font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 rounded-lg px-2 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
                 >
                   <option>Últimos 12 meses</option>
                   <option>Últimos 6 meses</option>
                   <option>Ano de 2025</option>
                 </select>
-                <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2 pointer-events-none" />
+                <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute right-1.5 top-2 pointer-events-none" />
               </div>
             </div>
 
             {/* Legenda do Gráfico de Linha */}
-            <div className="flex items-center gap-3 text-[11px] text-slate-600 mb-3">
+            <div className="flex items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 mb-3">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Municípios</span>
@@ -705,7 +705,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
 
           {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => showToast('Gerando relatório completo de crescimento territorial...')}
@@ -718,9 +718,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         </div>
 
         {/* Card 3: Top 10 Países por Territórios Ativos (3 colunas no desktop) */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans mb-3">
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-3">
               Top 10 Países por Territórios Ativos
             </h2>
 
@@ -737,16 +737,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     }}
                     className="flex items-center justify-between text-xs hover:bg-blue-50/50 p-1 rounded transition-colors cursor-pointer group"
                   >
-                    <span className="text-slate-700 font-medium w-24 shrink-0 truncate group-hover:text-[#1455AC]">
+                    <span className="text-slate-700 dark:text-slate-300 font-medium w-24 shrink-0 truncate group-hover:text-[#1455AC]">
                       {item.name}
                     </span>
-                    <div className="flex-1 mx-2.5 h-2 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="flex-1 mx-2.5 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-[#1455AC] rounded-full group-hover:bg-[#0F448A] transition-all duration-300"
                         style={{ width: `${percent}%` }}
                       />
                     </div>
-                    <span className="text-xs font-bold text-[#0F172A] font-mono w-7 text-right">
+                    <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-mono w-7 text-right">
                       {item.value}
                     </span>
                   </div>
@@ -756,7 +756,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
 
           {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => {
@@ -778,9 +778,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
         {/* Card 1: Distribuição por Tipo de Território */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans mb-4">
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-4">
               Distribuição por Tipo de Território
             </h2>
 
@@ -845,8 +845,8 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-xs font-bold text-[#0F172A]">5.964</span>
-                  <span className="text-[9px] text-slate-400">Total</span>
+                  <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">5.964</span>
+                  <span className="text-[9px] text-slate-400 dark:text-slate-500">Total</span>
                 </div>
               </div>
 
@@ -855,44 +855,44 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#1455AC]" />
-                    <span className="text-slate-700">Municípios</span>
+                    <span className="text-slate-700 dark:text-slate-300">Municípios</span>
                   </div>
-                  <span className="font-bold text-slate-800 font-mono">64% <span className="font-normal text-slate-400 text-[11px]">(3.642)</span></span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 font-mono">64% <span className="font-normal text-slate-400 dark:text-slate-500 text-[11px]">(3.642)</span></span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#0F448A]" />
-                    <span className="text-slate-700">Regiões</span>
+                    <span className="text-slate-700 dark:text-slate-300">Regiões</span>
                   </div>
-                  <span className="font-bold text-slate-800 font-mono">18% <span className="font-normal text-slate-400 text-[11px]">(1.074)</span></span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 font-mono">18% <span className="font-normal text-slate-400 dark:text-slate-500 text-[11px]">(1.074)</span></span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#10B981]" />
-                    <span className="text-slate-700">Distritos</span>
+                    <span className="text-slate-700 dark:text-slate-300">Distritos</span>
                   </div>
-                  <span className="font-bold text-slate-800 font-mono">9% <span className="font-normal text-slate-400 text-[11px]">(536)</span></span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 font-mono">9% <span className="font-normal text-slate-400 dark:text-slate-500 text-[11px]">(536)</span></span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#DC7600]" />
-                    <span className="text-slate-700">Estados/Províncias</span>
+                    <span className="text-slate-700 dark:text-slate-300">Estados/Províncias</span>
                   </div>
-                  <span className="font-bold text-slate-800 font-mono">7% <span className="font-normal text-slate-400 text-[11px]">(417)</span></span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 font-mono">7% <span className="font-normal text-slate-400 dark:text-slate-500 text-[11px]">(417)</span></span>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#5F9DE0]" />
-                    <span className="text-slate-700">Outros</span>
+                    <span className="text-slate-700 dark:text-slate-300">Outros</span>
                   </div>
-                  <span className="font-bold text-slate-800 font-mono">5% <span className="font-normal text-slate-400 text-[11px]">(295)</span></span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 font-mono">5% <span className="font-normal text-slate-400 dark:text-slate-500 text-[11px]">(295)</span></span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => showToast('Filtrando todos os territórios')}
@@ -905,21 +905,21 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         </div>
 
         {/* Card 2: Nível de Atividade dos Territórios (4 Colunas) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans mb-4">
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-4">
               Nível de Atividade dos Territórios
             </h2>
 
             <div className="grid grid-cols-4 gap-2">
               {/* Elevado */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1">
+              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-1">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-semibold text-slate-600">Elevado</span>
-                <span className="text-sm sm:text-base font-bold text-[#0F172A] font-sans mt-1">1.856</span>
-                <span className="text-[10px] text-emerald-600 font-medium">51%</span>
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">Elevado</span>
+                <span className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">1.856</span>
+                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">51%</span>
                 {/* Sparkline Verde */}
                 <svg viewBox="0 0 50 16" className="w-full h-4 mt-2">
                   <path d="M 0 12 Q 12 4 25 10 T 50 4" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
@@ -927,13 +927,13 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
 
               {/* Médio */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-1">
+              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="w-7 h-7 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-1">
                   <Activity className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-semibold text-slate-600">Médio</span>
-                <span className="text-sm sm:text-base font-bold text-[#0F172A] font-sans mt-1">1.248</span>
-                <span className="text-[10px] text-amber-600 font-medium">34%</span>
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">Médio</span>
+                <span className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">1.248</span>
+                <span className="text-[10px] text-amber-600 dark:text-amber-400 font-medium">34%</span>
                 {/* Sparkline Amarelo */}
                 <svg viewBox="0 0 50 16" className="w-full h-4 mt-2">
                   <path d="M 0 10 Q 15 14 30 8 T 50 12" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
@@ -941,12 +941,12 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
 
               {/* Baixo */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-1">
+              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center mb-1">
                   <Layers className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-semibold text-slate-600">Baixo</span>
-                <span className="text-sm sm:text-base font-bold text-[#0F172A] font-sans mt-1">428</span>
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">Baixo</span>
+                <span className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">428</span>
                 <span className="text-[10px] text-blue-600 font-medium">12%</span>
                 {/* Sparkline Vermelho */}
                 <svg viewBox="0 0 50 16" className="w-full h-4 mt-2">
@@ -955,13 +955,13 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
 
               {/* Inativo */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center mb-1">
+              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center mb-1">
                   <Sparkles className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-semibold text-slate-600">Inativo</span>
-                <span className="text-sm sm:text-base font-bold text-[#0F172A] font-sans mt-1">110</span>
-                <span className="text-[10px] text-slate-500 font-medium">3%</span>
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">Inativo</span>
+                <span className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">110</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">3%</span>
                 {/* Sparkline Cinza */}
                 <svg viewBox="0 0 50 16" className="w-full h-4 mt-2">
                   <path d="M 0 10 Q 15 12 30 10 T 50 11" fill="none" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
@@ -971,7 +971,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
 
           {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => showToast('Abrindo classificação completa de atividade...')}
@@ -984,10 +984,10 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         </div>
 
         {/* Card 3: Novos Territórios por Continente (30 dias) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans mb-4">
-              Novos Territórios por Continente <span className="text-xs text-slate-400 font-normal">(30 dias)</span>
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-4">
+              Novos Territórios por Continente <span className="text-xs text-slate-400 dark:text-slate-500 font-normal">(30 dias)</span>
             </h2>
 
             {/* Gráfico de Barras Verticais realista com valores */}
@@ -1004,7 +1004,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
 
           {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => showToast('Abrindo análise completa de novos territórios...')}
@@ -1022,16 +1022,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
         {/* Card 1: Territórios com Maior Crescimento (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans mb-3">
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-3">
               Territórios com Maior Crescimento
             </h2>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-200/70 text-[11px] text-slate-400 font-semibold">
+                  <tr className="border-b border-slate-200/70 dark:border-slate-700 text-[11px] text-slate-400 dark:text-slate-500 font-semibold">
                     <th className="pb-2 font-medium">Território</th>
                     <th className="pb-2 font-medium">País</th>
                     <th className="pb-2 font-medium">Tipo</th>
@@ -1039,19 +1039,19 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <th className="pb-2 font-medium text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {DEFAULT_GROWTH_TABLE.map((row) => (
                     <tr
                       key={row.id}
                       onClick={() => setActiveDetailModal(row.territory)}
                       className="hover:bg-blue-50/40 transition-colors cursor-pointer"
                     >
-                      <td className="py-2.5 font-semibold text-slate-800 truncate max-w-[110px]">{row.territory}</td>
-                      <td className="py-2.5 text-slate-600">{row.country}</td>
-                      <td className="py-2.5 text-slate-500 text-[11px]">{row.type}</td>
-                      <td className="py-2.5 text-right font-bold text-emerald-600 font-mono">{row.growth}</td>
+                      <td className="py-2.5 font-semibold text-slate-800 dark:text-slate-100 truncate max-w-[110px]">{row.territory}</td>
+                      <td className="py-2.5 text-slate-600 dark:text-slate-400">{row.country}</td>
+                      <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">{row.type}</td>
+                      <td className="py-2.5 text-right font-bold text-emerald-600 dark:text-emerald-400 font-mono">{row.growth}</td>
                       <td className="py-2.5 text-right">
-                        <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200">
                           {row.status}
                         </span>
                       </td>
@@ -1062,7 +1062,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => showToast('Exibindo todos os territórios em expansão')}
@@ -1075,39 +1075,39 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         </div>
 
         {/* Card 2: Territórios por Nível de Atividade (3 colunas) */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans mb-3">
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-3">
               Territórios por Nível de Atividade
             </h2>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-200/70 text-[11px] text-slate-400 font-semibold">
+                  <tr className="border-b border-slate-200/70 dark:border-slate-700 text-[11px] text-slate-400 dark:text-slate-500 font-semibold">
                     <th className="pb-2 font-medium">Nível</th>
                     <th className="pb-2 font-medium text-right">Territórios</th>
                     <th className="pb-2 font-medium text-right">% do Total</th>
                     <th className="pb-2 font-medium text-right">Var. (30d)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {DEFAULT_ACTIVITY_TABLE.map((row) => (
                     <tr
                       key={row.level}
                       onClick={() => setActiveDetailModal(`Territórios com Atividade: ${row.level}`)}
                       className="hover:bg-blue-50/40 transition-colors cursor-pointer"
                     >
-                      <td className="py-2.5 font-semibold text-slate-800 flex items-center gap-1.5">
+                      <td className="py-2.5 font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                         <span
                           className="w-2 h-2 rounded-full shrink-0"
                           style={{ backgroundColor: row.color }}
                         />
                         <span>{row.level}</span>
                       </td>
-                      <td className="py-2.5 text-right font-bold text-slate-800 font-mono">{row.count}</td>
-                      <td className="py-2.5 text-right text-slate-600 font-mono">{row.percentage}</td>
-                      <td className={`py-2.5 text-right font-bold font-mono ${row.isPositive ? 'text-emerald-600' : 'text-blue-500'}`}>
+                      <td className="py-2.5 text-right font-bold text-slate-800 dark:text-slate-100 font-mono">{row.count}</td>
+                      <td className="py-2.5 text-right text-slate-600 dark:text-slate-400 font-mono">{row.percentage}</td>
+                      <td className={`py-2.5 text-right font-bold font-mono ${row.isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-blue-500'}`}>
                         {row.variation}
                       </td>
                     </tr>
@@ -1117,7 +1117,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => showToast('Exibindo detalhamento completo de atividade')}
@@ -1130,29 +1130,29 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         </div>
 
         {/* Card 3: Explorar Países (5 colunas) */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
-              <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-sans">
+              <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Explorar Países
               </h2>
 
               {/* Controles de Busca e Filtro de Continente */}
               <div className="flex items-center gap-2">
                 <div className="relative">
-                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
+                  <Search className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 absolute left-2.5 top-2.5" />
                   <input
                     type="text"
                     value={countrySearchTerm}
                     onChange={(e) => setCountrySearchTerm(e.target.value)}
                     placeholder="Pesquisar país..."
-                    className="h-8 pl-8 pr-3 text-xs bg-slate-50 border border-slate-200 rounded-lg w-32 sm:w-36 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                    className="h-8 pl-8 pr-3 text-xs bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-lg w-32 sm:w-36 focus:outline-none focus:ring-1 focus:ring-blue-400"
                   />
                   {countrySearchTerm && (
                     <button
                       type="button"
                       onClick={() => setCountrySearchTerm('')}
-                      className="absolute right-2 top-2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="absolute right-2 top-2 text-slate-400 dark:text-slate-500 hover:text-slate-600 cursor-pointer"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -1163,7 +1163,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   <select
                     value={selectedContinentFilter}
                     onChange={(e) => setSelectedContinentFilter(e.target.value)}
-                    className="h-8 pl-2 pr-6 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
+                    className="h-8 pl-2 pr-6 text-xs bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-300 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-400"
                   >
                     <option value="all">Todos os Continentes</option>
                     <option value="Europa">Europa</option>
@@ -1172,7 +1172,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <option value="África">África</option>
                     <option value="Ásia">Ásia</option>
                   </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-2.5 pointer-events-none" />
+                  <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute right-1.5 top-2.5 pointer-events-none" />
                 </div>
               </div>
             </div>
@@ -1181,7 +1181,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-200/70 text-[11px] text-slate-400 font-semibold">
+                  <tr className="border-b border-slate-200/70 dark:border-slate-700 text-[11px] text-slate-400 dark:text-slate-500 font-semibold">
                     <th className="pb-2 font-medium">País</th>
                     <th className="pb-2 font-medium text-right">Territórios Ativos</th>
                     <th className="pb-2 font-medium text-right">Municípios</th>
@@ -1189,22 +1189,22 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                     <th className="pb-2 font-medium text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {filteredCountries.slice(0, 5).map((row) => (
                     <tr
                       key={row.id}
                       onClick={() => setActiveDetailModal(row.name)}
                       className="hover:bg-blue-50/40 transition-colors cursor-pointer"
                     >
-                      <td className="py-2.5 font-semibold text-slate-800 flex items-center gap-1.5">
+                      <td className="py-2.5 font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                         <span className="text-base leading-none">{row.flag}</span>
                         <span>{row.name}</span>
                       </td>
-                      <td className="py-2.5 text-right font-bold text-slate-800 font-mono">{row.activeTerritories}</td>
-                      <td className="py-2.5 text-right text-slate-600 font-mono">{row.municipalities}</td>
+                      <td className="py-2.5 text-right font-bold text-slate-800 dark:text-slate-100 font-mono">{row.activeTerritories}</td>
+                      <td className="py-2.5 text-right text-slate-600 dark:text-slate-400 font-mono">{row.municipalities}</td>
                       <td className="py-2.5 text-right font-bold text-[#1455AC] font-mono">{row.coverage}</td>
                       <td className="py-2.5 text-right">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                           <span>{row.status}</span>
                         </span>
@@ -1216,7 +1216,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 mt-3 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
             <button
               type="button"
               onClick={() => {
@@ -1240,29 +1240,29 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* Modal de Detalhes de Métrica ou Território */}
       {activeDetailModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-slate-200/70 dark:border-slate-700 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center">
                   <Info className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#0F172A] font-sans">
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                     {activeDetailModal}
                   </h3>
-                  <p className="text-xs text-slate-500">Relatório detalhado e histórico territorial</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Relatório detalhado e histórico territorial</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveDetailModal(null)}
-                className="text-slate-400 hover:text-slate-700 p-1 rounded-lg cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1 rounded-lg cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="space-y-3 text-xs text-slate-600">
+            <div className="space-y-3 text-xs text-slate-600 dark:text-slate-400">
               <div className="p-3 bg-blue-50/60 border border-blue-100 rounded-xl space-y-1">
                 <p className="font-semibold text-blue-900">Estado Atual da Região/Métrica</p>
                 <p className="text-blue-700">
@@ -1271,28 +1271,28 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
 
               <div className="grid grid-cols-2 gap-2.5">
-                <div className="p-2.5 bg-slate-50 border border-slate-100 rounded-lg">
-                  <span className="text-[10.5px] text-slate-400">Projetos Ativos</span>
-                  <p className="text-base font-bold text-[#0F172A]">142</p>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-lg">
+                  <span className="text-[10.5px] text-slate-400 dark:text-slate-500">Projetos Ativos</span>
+                  <p className="text-base font-bold text-[#0F172A] dark:text-slate-50">142</p>
                 </div>
-                <div className="p-2.5 bg-slate-50 border border-slate-100 rounded-lg">
-                  <span className="text-[10.5px] text-slate-400">Comunidades Conectadas</span>
-                  <p className="text-base font-bold text-[#0F172A]">68</p>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-lg">
+                  <span className="text-[10.5px] text-slate-400 dark:text-slate-500">Comunidades Conectadas</span>
+                  <p className="text-base font-bold text-[#0F172A] dark:text-slate-50">68</p>
                 </div>
               </div>
 
-              <div className="p-3 border border-slate-100 rounded-xl space-y-2">
+              <div className="p-3 border border-slate-100 dark:border-slate-800 rounded-xl space-y-2">
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-500">Índice de Engajamento Cívico</span>
-                  <strong className="text-emerald-600 font-bold">92% (Excelente)</strong>
+                  <span className="text-slate-500 dark:text-slate-400">Índice de Engajamento Cívico</span>
+                  <strong className="text-emerald-600 dark:text-emerald-400 font-bold">92% (Excelente)</strong>
                 </div>
-                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
                   <div className="bg-emerald-500 h-full rounded-full w-[92%]" />
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-3 border-t border-slate-200/70">
+            <div className="flex justify-end gap-2 pt-3 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => {
@@ -1311,21 +1311,21 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* Modal de Exportação */}
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-slate-200/70 dark:border-slate-700 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center">
                   <Download className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#0F172A] font-sans">Exportar Dados Territoriais</h3>
-                  <p className="text-xs text-slate-500">Escolha o formato pretendido para exportação</p>
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">Exportar Dados Territoriais</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Escolha o formato pretendido para exportação</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsExportModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1 rounded-lg cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1 rounded-lg cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1338,16 +1338,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsExportModalOpen(false);
                   showToast('Exportando dados em formato CSV...');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
-                  <FileSpreadsheet className="w-5 h-5 text-emerald-600" />
+                  <FileSpreadsheet className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   <div>
-                    <p className="font-bold text-slate-800 group-hover:text-[#1455AC]">Folha de Cálculo (CSV)</p>
-                    <p className="text-slate-500 text-[11px]">Todos os territórios, países e municípios ativos</p>
+                    <p className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC]">Folha de Cálculo (CSV)</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">Todos os territórios, países e municípios ativos</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
+                <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC]" />
               </button>
 
               <button
@@ -1356,16 +1356,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsExportModalOpen(false);
                   showToast('Exportando relatório em PDF executivo...');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
                   <FileText className="w-5 h-5 text-blue-600" />
                   <div>
-                    <p className="font-bold text-slate-800 group-hover:text-[#1455AC]">Relatório Executivo (PDF)</p>
-                    <p className="text-slate-500 text-[11px]">Sumário visual dos 156 países e cobertura global</p>
+                    <p className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC]">Relatório Executivo (PDF)</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">Sumário visual dos 156 países e cobertura global</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
+                <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC]" />
               </button>
 
               <button
@@ -1374,16 +1374,16 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsExportModalOpen(false);
                   showToast('Exportando dados em formato JSON Geoespacial...');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 transition-all text-left cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
                   <Copy className="w-5 h-5 text-blue-600" />
                   <div>
-                    <p className="font-bold text-slate-800 group-hover:text-[#1455AC]">JSON Geoespacial (GeoJSON)</p>
-                    <p className="text-slate-500 text-[11px]">Coordenadas e polígonos territoriais da rede</p>
+                    <p className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC]">JSON Geoespacial (GeoJSON)</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">Coordenadas e polígonos territoriais da rede</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
+                <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC]" />
               </button>
             </div>
           </div>
@@ -1393,21 +1393,21 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* Modal de Filtros */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-slate-200/70 dark:border-slate-700 pb-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center">
                   <SlidersHorizontal className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#0F172A] font-sans">Filtros Territoriais</h3>
-                  <p className="text-xs text-slate-500">Refine as estatísticas e os dados da página</p>
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">Filtros Territoriais</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Refine as estatísticas e os dados da página</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsFilterModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1 rounded-lg cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1 rounded-lg cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1415,11 +1415,11 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
 
             <div className="space-y-4 text-xs">
               <div>
-                <label className="font-bold text-slate-700 block mb-1.5">Continente</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">Continente</label>
                 <select
                   value={selectedContinentFilter}
                   onChange={(e) => setSelectedContinentFilter(e.target.value)}
-                  className="w-full h-9 px-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full h-9 px-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 >
                   <option value="all">Todos os Continentes (Global)</option>
                   <option value="Europa">Europa</option>
@@ -1431,14 +1431,14 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 block mb-1.5">Nível Mínimo de Atividade</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">Nível Mínimo de Atividade</label>
                 <div className="grid grid-cols-2 gap-2">
                   {['Elevado', 'Médio', 'Baixo', 'Todos'].map((lvl) => (
                     <button
                       key={lvl}
                       type="button"
                       onClick={() => showToast(`Filtro de atividade: ${lvl}`)}
-                      className="p-2 border border-slate-200 hover:border-blue-300 rounded-xl text-center font-medium text-slate-700 hover:bg-blue-50/50 cursor-pointer"
+                      className="p-2 border border-slate-200 dark:border-slate-700 hover:border-blue-300 rounded-xl text-center font-medium text-slate-700 dark:text-slate-300 hover:bg-blue-50/50 cursor-pointer"
                     >
                       {lvl}
                     </button>
@@ -1447,7 +1447,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => {
@@ -1456,7 +1456,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                   setIsFilterModalOpen(false);
                   showToast('Filtros repostos');
                 }}
-                className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl cursor-pointer"
+                className="px-3.5 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl cursor-pointer"
               >
                 Limpar
               </button>

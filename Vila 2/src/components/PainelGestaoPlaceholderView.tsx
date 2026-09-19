@@ -174,7 +174,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
           breadcrumb: 'Configurações',
           subtitle: 'Políticas de segurança, parâmetros de governança, permissões de administradores e integrações.',
           badge: 'Módulo: Configurações',
-          icon: <Settings className="w-5 h-5 text-slate-400" />,
+          icon: <Settings className="w-5 h-5 text-slate-400 dark:text-slate-500" />,
         };
       case 'impacto-global-plataforma':
       case 'gestao-impacto':
@@ -432,16 +432,16 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
     return (
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         {/* Header do Módulo Administrativo */}
-        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4 font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4 font-sans">
           <div className="space-y-1.5 font-sans">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200 text-xs font-bold font-sans">
-              <Shield className="w-3.5 h-3.5 text-purple-600" />
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20 text-xs font-bold font-sans">
+              <Shield className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
               <span>{meta.badge}</span>
             </div>
-            <h1 className="text-2xl font-black text-slate-900 font-sans tracking-tight">
+            <h1 className="text-2xl font-black text-slate-900 dark:text-slate-50 font-sans tracking-tight">
               {meta.title}
             </h1>
-            <p className="text-sm text-slate-600 max-w-3xl leading-relaxed font-sans">
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed font-sans">
               {meta.subtitle}
             </p>
           </div>
@@ -460,7 +460,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             <button
               type="button"
               onClick={() => onNavigateToTab('painel-gestao')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Painel de Gestão</span>
@@ -469,34 +469,34 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Conteúdo Contextual do Módulo */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-2xs space-y-6">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xs space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50/70 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+            <div className="p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 dark:text-purple-400 flex items-center justify-center font-bold">
                 {meta.icon}
               </div>
-              <h3 className="text-sm font-bold text-slate-900">Operações e Gestão Ativa</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50">Operações e Gestão Ativa</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Módulo integrado à infraestrutura da Plataforma VILA com autoridade no escopo <strong>{currentUser.scope}</strong>.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50/70 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+            <div className="p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 dark:text-blue-400 flex items-center justify-center font-bold">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-slate-900">Sincronização em Tempo Real</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50">Sincronização em Tempo Real</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 As alterações realizadas pelos administradores refletem imediatamente em todas as assembleias e vilas ativas.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50/70 space-y-2">
-              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+            <div className="p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold">
                 <Shield className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-slate-900">Privilégios de Administrador</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50">Privilégios de Administrador</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Sessão autorizada para <strong>{currentUser.name}</strong> ({currentUser.roleLabel}).
               </p>
             </div>
@@ -517,9 +517,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'vs ontem',
       deltaType: 'positive' as const,
       icon: Users,
-      iconBg: 'bg-purple-50/90',
+      iconBg: 'bg-purple-50/90 dark:bg-purple-500/10',
       iconColor: 'text-[#5B21B6]',
-      borderColor: 'border-purple-100/70',
+      borderColor: 'border-purple-100/70 dark:border-purple-500/20',
       tab: 'gestao-utilizadores',
     },
     {
@@ -531,9 +531,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'vs ontem',
       deltaType: 'positive' as const,
       icon: Users,
-      iconBg: 'bg-emerald-50/90',
-      iconColor: 'text-emerald-600',
-      borderColor: 'border-emerald-100/70',
+      iconBg: 'bg-emerald-50/90 dark:bg-emerald-500/10',
+      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      borderColor: 'border-emerald-100/70 dark:border-emerald-500/20',
       tab: 'gestao-utilizadores',
     },
     {
@@ -545,9 +545,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'vs ontem',
       deltaType: 'positive' as const,
       icon: Flag,
-      iconBg: 'bg-blue-50/90',
+      iconBg: 'bg-blue-50/90 dark:bg-blue-500/10',
       iconColor: 'text-[#1455AC]',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-500/20',
       tab: 'gestao-utilizadores',
     },
     {
@@ -559,9 +559,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'vs ontem',
       deltaType: 'positive' as const,
       icon: Map,
-      iconBg: 'bg-amber-50/90',
-      iconColor: 'text-amber-600',
-      borderColor: 'border-amber-100/70',
+      iconBg: 'bg-amber-50/90 dark:bg-amber-500/10',
+      iconColor: 'text-amber-600 dark:text-amber-400',
+      borderColor: 'border-amber-100/70 dark:border-amber-500/20',
       tab: 'projetos-iniciativas',
     },
     {
@@ -573,9 +573,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'em debate',
       deltaType: 'neutral' as const,
       icon: MessageSquare,
-      iconBg: 'bg-rose-50/90',
-      iconColor: 'text-rose-600',
-      borderColor: 'border-rose-100/70',
+      iconBg: 'bg-rose-50/90 dark:bg-rose-500/10',
+      iconColor: 'text-rose-600 dark:text-rose-400',
+      borderColor: 'border-rose-100/70 dark:border-rose-500/20',
       tab: 'participacao-consultas',
     },
     {
@@ -587,9 +587,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'este mês',
       deltaType: 'neutral' as const,
       icon: Calendar,
-      iconBg: 'bg-sky-50/90',
-      iconColor: 'text-sky-600',
-      borderColor: 'border-sky-100/70',
+      iconBg: 'bg-sky-50/90 dark:bg-sky-500/10',
+      iconColor: 'text-sky-600 dark:text-sky-400',
+      borderColor: 'border-sky-100/70 dark:border-sky-500/20',
       tab: 'eventos-globais-admin',
     },
     {
@@ -601,9 +601,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       deltaLabel: 'ação requerida',
       deltaType: 'warning' as const,
       icon: FileText,
-      iconBg: 'bg-purple-50/90',
+      iconBg: 'bg-purple-50/90 dark:bg-purple-500/10',
       iconColor: 'text-[#5B21B6]',
-      borderColor: 'border-purple-100/70',
+      borderColor: 'border-purple-100/70 dark:border-purple-500/20',
       tab: 'painel-gestao',
     },
   ];
@@ -614,7 +614,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       <header className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 pb-1">
         <div className="flex items-start gap-3.5">
           {/* Quadrant Icon */}
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE] border border-purple-200/80 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE] border border-purple-200/80 dark:border-purple-500/20 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
             <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#5B21B6]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="2" />
               <rect x="14" y="3" width="7" height="7" rx="2" />
@@ -624,10 +624,10 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             </svg>
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
               Painel de Gestão
             </h1>
-            <p className="text-xs sm:text-[13px] text-[#64748B] mt-1 font-normal leading-relaxed">
+            <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-slate-400 mt-1 font-normal leading-relaxed">
               Monitorização operacional em tempo real da plataforma VILA.
               <br className="hidden sm:inline" /> Acompanhe atividades, serviços, alertas e ações em curso.
             </p>
@@ -635,11 +635,11 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Painel Consolidado de Status + Ação Atualizar (mesmo traço do header de ExploreWorld) */}
-        <div className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 px-3.5 sm:px-4 py-2 shadow-2xs shrink-0 self-start xl:self-center flex-wrap sm:flex-nowrap font-sans">
-          <div className="text-xs text-[#64748B] font-medium pr-3 border-r border-slate-200">
-            Última atualização: <strong className="text-slate-900 font-bold font-mono">{lastUpdated}</strong>
+        <div className="flex items-center gap-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-3.5 sm:px-4 py-2 shadow-2xs shrink-0 self-start xl:self-center flex-wrap sm:flex-nowrap font-sans">
+          <div className="text-xs text-[#64748B] dark:text-slate-400 font-medium pr-3 border-r border-slate-200 dark:border-slate-700">
+            Última atualização: <strong className="text-slate-900 dark:text-slate-50 font-bold font-mono">{lastUpdated}</strong>
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-slate-900 font-semibold pr-3 border-r border-slate-200">
+          <div className="flex items-center gap-1.5 text-xs text-slate-900 dark:text-slate-50 font-semibold pr-3 border-r border-slate-200 dark:border-slate-700">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
             <span>Dados em tempo real</span>
           </div>
@@ -647,7 +647,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             type="button"
             onClick={handleRefresh}
             id="btn-refresh-painel"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-purple-200 bg-purple-50 hover:bg-[#5B21B6] hover:text-white text-xs font-bold text-[#5B21B6] transition-all cursor-pointer shadow-2xs group font-sans"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-purple-200 dark:border-purple-500/20 bg-purple-50 dark:bg-purple-500/10 hover:bg-[#5B21B6] hover:text-white text-xs font-bold text-[#5B21B6] transition-all cursor-pointer shadow-2xs group font-sans"
           >
             <span>Atualizar</span>
             <RotateCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : 'group-hover:rotate-180 transition-transform duration-500'}`} />
@@ -664,7 +664,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
               <div
                 key={kpi.id}
                 id={kpi.id}
-                className="bg-white rounded-xl border border-slate-200 p-3 sm:p-3.5 shadow-2xs hover:shadow-xs hover:border-purple-200 transition-all duration-200 flex flex-col justify-between group min-w-0 font-sans"
+                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-3 sm:p-3.5 shadow-2xs hover:shadow-xs hover:border-purple-200 transition-all duration-200 flex flex-col justify-between group min-w-0 font-sans"
               >
                 {/* Linha Superior: Ícone + Indicador/Delta */}
                 <div className="flex items-center justify-between gap-1.5">
@@ -672,14 +672,14 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
                     <Icon className="w-4 h-4" strokeWidth={2.2} />
                   </div>
                   {kpi.delta ? (
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50/90 border border-emerald-200/60 px-1.5 py-0.5 rounded-md whitespace-nowrap">
+                    <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50/90 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/20 px-1.5 py-0.5 rounded-md whitespace-nowrap">
                       {kpi.delta}
                     </span>
                   ) : kpi.badge ? (
                     <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md whitespace-nowrap ${
                       kpi.deltaType === 'warning'
-                        ? 'text-amber-700 bg-amber-50/90 border border-amber-200/60'
-                        : 'text-slate-600 bg-slate-50/90 border border-slate-200/60'
+                        ? 'text-amber-700 dark:text-amber-400 bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/60 dark:border-amber-500/20'
+                        : 'text-slate-600 dark:text-slate-400 bg-slate-50/90 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700'
                     }`}>
                       {kpi.badge}
                     </span>
@@ -688,26 +688,26 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
 
                 {/* Conteúdo Central: Métrica de Alto Impacto + Rótulo com Quebra Natural (sem elipses) */}
                 <div className="mt-3 font-sans">
-                  <p className="text-xl sm:text-2xl font-extrabold text-slate-900 font-sans tracking-tight leading-none">
+                  <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight leading-none">
                     {kpi.value}
                   </p>
-                  <p className="text-[11.5px] font-semibold text-[#64748B] mt-1.5 leading-snug whitespace-normal break-words min-h-[32px] flex items-center font-sans">
+                  <p className="text-[11.5px] font-semibold text-[#64748B] dark:text-slate-400 mt-1.5 leading-snug whitespace-normal break-words min-h-[32px] flex items-center font-sans">
                     <span>
                       {kpi.title}{' '}
                       {kpi.subtitle && (
-                        <span className="text-[10px] font-medium text-slate-400 block sm:inline">
+                        <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 block sm:inline">
                           {kpi.subtitle}
                         </span>
                       )}
                     </span>
                   </p>
-                  <p className="text-[10px] font-medium text-slate-400 mt-0.5 font-sans">
+                  <p className="text-[10px] font-medium text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                     {kpi.deltaLabel}
                   </p>
                 </div>
 
                 {/* Rodapé: Divisor com link e transição suave */}
-                <div className="pt-2 mt-2.5 border-t border-slate-100 flex items-center justify-between font-sans">
+                <div className="pt-2 mt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between font-sans">
                   <button
                     type="button"
                     onClick={() => onNavigateToTab(kpi.tab)}
@@ -726,14 +726,14 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       {/* 3. Middle Row: Atividade em Tempo Real, Atividades Recentes, Alertas */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 font-sans">
         {/* Atividade em Tempo Real */}
-        <div className="bg-white border border-slate-200 rounded-xl p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
           <div>
             <div className="flex items-center justify-between font-sans">
-              <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 font-sans tracking-tight">Atividade em Tempo Real</h2>
+              <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Atividade em Tempo Real</h2>
               <select
                 value={timeFilter}
                 onChange={(e) => setTimeFilter(e.target.value)}
-                className="text-xs bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1 text-slate-700 cursor-pointer font-medium hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/20 font-sans"
+                className="text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1 text-slate-700 dark:text-slate-300 cursor-pointer font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/20 font-sans"
               >
                 <option>Últimas 24 horas</option>
                 <option>Últimos 7 dias</option>
@@ -743,19 +743,19 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
 
             {/* Legenda */}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-[11px] font-sans">
-              <span className="flex items-center gap-1.5 text-[#64748B] font-medium font-sans">
+              <span className="flex items-center gap-1.5 text-[#64748B] dark:text-slate-400 font-medium font-sans">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#7C3AED]" />
                 Utilizadores
               </span>
-              <span className="flex items-center gap-1.5 text-[#64748B] font-medium font-sans">
+              <span className="flex items-center gap-1.5 text-[#64748B] dark:text-slate-400 font-medium font-sans">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                 Comunidades
               </span>
-              <span className="flex items-center gap-1.5 text-[#64748B] font-medium font-sans">
+              <span className="flex items-center gap-1.5 text-[#64748B] dark:text-slate-400 font-medium font-sans">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 Projetos
               </span>
-              <span className="flex items-center gap-1.5 text-[#64748B] font-medium font-sans">
+              <span className="flex items-center gap-1.5 text-[#64748B] dark:text-slate-400 font-medium font-sans">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                 Consultas
               </span>
@@ -827,7 +827,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             </div>
 
             {/* Eixo X */}
-            <div className="flex justify-between pl-8 text-[9.5px] text-slate-400 mt-1 font-mono font-medium">
+            <div className="flex justify-between pl-8 text-[9.5px] text-slate-400 dark:text-slate-500 mt-1 font-mono font-medium">
               <span>12:00</span>
               <span>16:00</span>
               <span>20:00</span>
@@ -838,7 +838,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             </div>
           </div>
 
-          <div className="pt-3 mt-3 border-t border-slate-100/90 flex items-center justify-end">
+          <div className="pt-3 mt-3 border-t border-slate-100/90 dark:border-slate-800 flex items-center justify-end">
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
@@ -851,9 +851,9 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Atividades Recentes */}
-        <div className="bg-white border border-slate-200 rounded-xl p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 font-sans tracking-tight">Atividades Recentes</h2>
+            <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Atividades Recentes</h2>
 
             <div className="mt-3.5 space-y-3 font-sans">
               {[
@@ -861,36 +861,36 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
                   title: 'Nova comunidade criada',
                   desc: 'Jovens pelo Clima - México',
                   time: 'há 2 min',
-                  icon: <Users className="w-3.5 h-3.5 text-emerald-600" />,
-                  bg: 'bg-emerald-50',
+                  icon: <Users className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
+                  bg: 'bg-emerald-50 dark:bg-emerald-500/10',
                 },
                 {
                   title: 'Projeto submetido para aprovação',
                   desc: 'Mobilidade Urbana Sustentável - Lisboa',
                   time: 'há 5 min',
                   icon: <FolderKanban className="w-3.5 h-3.5 text-[#1455AC]" />,
-                  bg: 'bg-blue-50',
+                  bg: 'bg-blue-50 dark:bg-blue-500/10',
                 },
                 {
                   title: 'Consulta pública criada',
                   desc: 'Plano de Ação Climática - Porto',
                   time: 'há 7 min',
-                  icon: <MessageSquareMore className="w-3.5 h-3.5 text-cyan-600" />,
-                  bg: 'bg-cyan-50',
+                  icon: <MessageSquareMore className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />,
+                  bg: 'bg-cyan-50 dark:bg-cyan-500/10',
                 },
                 {
                   title: 'Evento publicado',
                   desc: 'Fórum de Inovação Social - Online',
                   time: 'há 9 min',
-                  icon: <Calendar className="w-3.5 h-3.5 text-amber-600" />,
-                  bg: 'bg-amber-50',
+                  icon: <Calendar className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />,
+                  bg: 'bg-amber-50 dark:bg-amber-500/10',
                 },
                 {
                   title: 'Novo utilizador registado',
                   desc: 'João Silva - Portugal',
                   time: 'há 10 min',
-                  icon: <UserCheck className="w-3.5 h-3.5 text-indigo-600" />,
-                  bg: 'bg-indigo-50',
+                  icon: <UserCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />,
+                  bg: 'bg-indigo-50 dark:bg-indigo-500/10',
                 },
               ].map((act, idx) => (
                 <div key={idx} className="flex items-start justify-between gap-3 text-xs font-sans">
@@ -899,17 +899,17 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
                       {act.icon}
                     </div>
                     <div className="min-w-0 font-sans">
-                      <div className="font-bold text-slate-900 truncate font-sans">{act.title}</div>
-                      <div className="text-[11.5px] text-[#64748B] truncate mt-0.5 font-sans">{act.desc}</div>
+                      <div className="font-bold text-slate-900 dark:text-slate-50 truncate font-sans">{act.title}</div>
+                      <div className="text-[11.5px] text-[#64748B] dark:text-slate-400 truncate mt-0.5 font-sans">{act.desc}</div>
                     </div>
                   </div>
-                  <span className="text-[10.5px] text-slate-400 whitespace-nowrap shrink-0 font-medium font-sans">{act.time}</span>
+                  <span className="text-[10.5px] text-slate-400 dark:text-slate-500 whitespace-nowrap shrink-0 font-medium font-sans">{act.time}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end font-sans">
+          <div className="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end font-sans">
             <button
               type="button"
               onClick={() => onNavigateToTab('painel-gestao')}
@@ -922,14 +922,14 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Alertas e Notificações */}
-        <div className="bg-white border border-slate-200 rounded-xl p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
           <div>
             <div className="flex items-center justify-between font-sans">
-              <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 font-sans tracking-tight">Alertas e Notificações</h2>
+              <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Alertas e Notificações</h2>
               <select
                 value={alertFilter}
                 onChange={(e) => setAlertFilter(e.target.value)}
-                className="text-xs bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1 text-slate-700 cursor-pointer font-medium hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/20 font-sans"
+                className="text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1 text-slate-700 dark:text-slate-300 cursor-pointer font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/20 font-sans"
               >
                 <option>Todos</option>
                 <option>Críticos</option>
@@ -943,46 +943,46 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
                   title: 'Serviço de IA com alta utilização',
                   desc: 'Utilização acima de 90%',
                   badge: '2',
-                  badgeBg: 'bg-rose-100 text-rose-700',
-                  icon: <AlertTriangle className="w-3.5 h-3.5 text-rose-600" />,
+                  badgeBg: 'bg-rose-100 text-rose-700 dark:text-rose-400',
+                  icon: <AlertTriangle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />,
                 },
                 {
                   title: 'Consultas a terminar em breve',
                   desc: '3 consultas terminam nas próximas 24h',
                   badge: '3',
-                  badgeBg: 'bg-amber-100 text-amber-700',
-                  icon: <Clock className="w-3.5 h-3.5 text-amber-600" />,
+                  badgeBg: 'bg-amber-100 text-amber-700 dark:text-amber-400',
+                  icon: <Clock className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />,
                 },
                 {
                   title: 'Projetos aguardando aprovação',
                   desc: '8 projetos pendentes de revisão',
                   badge: '8',
-                  badgeBg: 'bg-amber-100 text-amber-700',
-                  icon: <FolderKanban className="w-3.5 h-3.5 text-amber-600" />,
+                  badgeBg: 'bg-amber-100 text-amber-700 dark:text-amber-400',
+                  icon: <FolderKanban className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />,
                 },
                 {
                   title: 'Eventos com inscrições abertas',
                   desc: '5 eventos com inscrições a fechar',
                   badge: '5',
-                  badgeBg: 'bg-blue-100 text-blue-700',
-                  icon: <Calendar className="w-3.5 h-3.5 text-blue-600" />,
+                  badgeBg: 'bg-blue-100 text-blue-700 dark:text-blue-400',
+                  icon: <Calendar className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />,
                 },
                 {
                   title: 'Relatórios agendados',
                   desc: '2 relatórios prontos para gerar',
                   badge: '2',
-                  badgeBg: 'bg-purple-100 text-purple-700',
-                  icon: <FileText className="w-3.5 h-3.5 text-purple-600" />,
+                  badgeBg: 'bg-purple-100 text-purple-700 dark:text-purple-400',
+                  icon: <FileText className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />,
                 },
               ].map((alert, idx) => (
                 <div key={idx} className="flex items-center justify-between gap-3 text-xs font-sans">
                   <div className="flex items-start gap-2.5 min-w-0 font-sans">
-                    <div className="p-2 rounded-xl bg-slate-50 shrink-0 shadow-2xs">
+                    <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 shrink-0 shadow-2xs">
                       {alert.icon}
                     </div>
                     <div className="min-w-0 font-sans">
-                      <div className="font-bold text-slate-900 truncate font-sans">{alert.title}</div>
-                      <div className="text-[11.5px] text-[#64748B] truncate mt-0.5 font-sans">{alert.desc}</div>
+                      <div className="font-bold text-slate-900 dark:text-slate-50 truncate font-sans">{alert.title}</div>
+                      <div className="text-[11.5px] text-[#64748B] dark:text-slate-400 truncate mt-0.5 font-sans">{alert.desc}</div>
                     </div>
                   </div>
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${alert.badgeBg} font-sans`}>
@@ -993,7 +993,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             </div>
           </div>
 
-          <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end font-sans">
+          <div className="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end font-sans">
             <button
               type="button"
               onClick={() => onNavigateToTab('painel-gestao')}
@@ -1009,13 +1009,13 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       {/* 4. Saúde da Plataforma, Uso de Recursos, Ações Rápidas */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 font-sans">
         {/* Saúde da Plataforma */}
-        <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-4.5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-4.5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
           <div>
             <div className="flex items-center justify-between font-sans">
-              <h2 className="text-sm sm:text-[14.5px] font-bold text-slate-900 font-sans tracking-tight">Saúde da Plataforma</h2>
-              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs font-sans">
+              <h2 className="text-sm sm:text-[14.5px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Saúde da Plataforma</h2>
+              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-800 border border-emerald-200 dark:border-emerald-500/20 shadow-2xs font-sans">
                 <span>Sistema Operacional</span>
-                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
               </span>
             </div>
 
@@ -1023,13 +1023,13 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
               {/* Disponibilidade */}
               <div className="min-w-0 flex flex-col justify-between font-sans">
                 <div>
-                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
+                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] dark:text-slate-400 font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
                     Disponibilidade
                   </div>
-                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 mt-0.5 font-sans tracking-tight leading-none">
+                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 dark:text-slate-50 mt-0.5 font-sans tracking-tight leading-none">
                     99,98%
                   </div>
-                  <div className="text-[10px] sm:text-[10.5px] text-emerald-600 font-semibold mt-0.5 flex items-center gap-0.5 font-sans">
+                  <div className="text-[10px] sm:text-[10.5px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5 flex items-center gap-0.5 font-sans">
                     ↑ 0,02%
                   </div>
                 </div>
@@ -1051,13 +1051,13 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
               {/* Tempo de Resposta */}
               <div className="min-w-0 flex flex-col justify-between font-sans">
                 <div>
-                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
+                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] dark:text-slate-400 font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
                     Tempo de Resposta (média)
                   </div>
-                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 mt-0.5 font-sans tracking-tight leading-none">
+                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 dark:text-slate-50 mt-0.5 font-sans tracking-tight leading-none">
                     120ms
                   </div>
-                  <div className="text-[10px] sm:text-[10.5px] text-emerald-600 font-semibold mt-0.5 flex items-center gap-0.5 font-sans">
+                  <div className="text-[10px] sm:text-[10.5px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5 flex items-center gap-0.5 font-sans">
                     ↓ 15ms
                   </div>
                 </div>
@@ -1079,13 +1079,13 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
               {/* Serviços Operacionais */}
               <div className="min-w-0 flex flex-col justify-between font-sans">
                 <div>
-                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
+                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] dark:text-slate-400 font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
                     Serviços Operacionais
                   </div>
-                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 mt-0.5 font-sans tracking-tight leading-none">
+                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 dark:text-slate-50 mt-0.5 font-sans tracking-tight leading-none">
                     98%
                   </div>
-                  <div className="text-[10px] sm:text-[10.5px] text-emerald-600 font-semibold mt-0.5 flex items-center gap-0.5 font-sans">
+                  <div className="text-[10px] sm:text-[10.5px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5 flex items-center gap-0.5 font-sans">
                     ↑ 2%
                   </div>
                 </div>
@@ -1107,13 +1107,13 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
               {/* APIs Ativas */}
               <div className="min-w-0 flex flex-col justify-between font-sans">
                 <div>
-                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
+                  <div className="text-[10.5px] sm:text-[11px] text-[#64748B] dark:text-slate-400 font-medium leading-snug whitespace-normal break-words min-h-[26px] sm:min-h-[28px] flex items-start font-sans">
                     APIs Ativas
                   </div>
-                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 mt-0.5 font-sans tracking-tight leading-none">
+                  <div className="text-sm sm:text-base lg:text-[17px] font-extrabold text-slate-900 dark:text-slate-50 mt-0.5 font-sans tracking-tight leading-none">
                     44 / 50
                   </div>
-                  <div className="text-[10px] sm:text-[10.5px] text-[#64748B] font-semibold mt-0.5 font-sans">
+                  <div className="text-[10px] sm:text-[10.5px] text-[#64748B] dark:text-slate-400 font-semibold mt-0.5 font-sans">
                     88%
                   </div>
                 </div>
@@ -1134,7 +1134,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             </div>
           </div>
 
-          <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-end font-sans">
+          <div className="pt-2.5 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end font-sans">
             <button
               type="button"
               onClick={() => onNavigateToTab('gestao-recursos')}
@@ -1147,79 +1147,79 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Uso de Recursos (Atual) */}
-        <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-4.5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-4.5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 font-sans tracking-tight">Uso de Recursos (Atual)</h2>
+            <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Uso de Recursos (Atual)</h2>
 
             <div className="mt-5 space-y-4 font-sans">
               {/* CPU */}
               <div className="flex items-center text-xs font-sans">
-                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 font-sans">
-                  <Cpu className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 dark:text-slate-300 font-sans">
+                  <Cpu className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                   <span>CPU</span>
                 </div>
-                <div className="flex-1 h-2 bg-slate-100 rounded-full mx-3 sm:mx-4 overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full mx-3 sm:mx-4 overflow-hidden">
                   <div className="h-full bg-[#5B21B6] rounded-full" style={{ width: '68%' }} />
                 </div>
-                <div className="text-right text-xs font-bold text-slate-900 shrink-0 min-w-[36px] font-sans">
+                <div className="text-right text-xs font-bold text-slate-900 dark:text-slate-50 shrink-0 min-w-[36px] font-sans">
                   68%
                 </div>
               </div>
 
               {/* Memória */}
               <div className="flex items-center text-xs font-sans">
-                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 font-sans">
-                  <Server className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 dark:text-slate-300 font-sans">
+                  <Server className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                   <span>Memória</span>
                 </div>
-                <div className="flex-1 h-2 bg-slate-100 rounded-full mx-3 sm:mx-4 overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full mx-3 sm:mx-4 overflow-hidden">
                   <div className="h-full bg-[#5B21B6] rounded-full" style={{ width: '62%' }} />
                 </div>
-                <div className="text-right text-xs font-bold text-slate-900 shrink-0 min-w-[36px] font-sans">
+                <div className="text-right text-xs font-bold text-slate-900 dark:text-slate-50 shrink-0 min-w-[36px] font-sans">
                   62%
                 </div>
               </div>
 
               {/* Armazenamento */}
               <div className="flex items-center text-xs font-sans">
-                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 font-sans">
-                  <HardDrive className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 dark:text-slate-300 font-sans">
+                  <HardDrive className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                   <span>Armazenamento</span>
                 </div>
-                <div className="flex-1 h-2 bg-slate-100 rounded-full mx-3 sm:mx-4 overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full mx-3 sm:mx-4 overflow-hidden">
                   <div className="h-full bg-[#5B21B6] rounded-full" style={{ width: '71%' }} />
                 </div>
                 <div className="text-right text-xs shrink-0 whitespace-nowrap font-sans">
-                  <span className="font-bold text-slate-900 font-sans">71%</span>
-                  <span className="text-[10.5px] text-slate-400 font-normal ml-1.5 font-sans">6,8 TB / 10 TB</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50 font-sans">71%</span>
+                  <span className="text-[10.5px] text-slate-400 dark:text-slate-500 font-normal ml-1.5 font-sans">6,8 TB / 10 TB</span>
                 </div>
               </div>
 
               {/* Banda de Rede */}
               <div className="flex items-center text-xs font-sans">
-                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 font-sans">
-                  <Radio className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 dark:text-slate-300 font-sans">
+                  <Radio className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                   <span>Banda de Rede</span>
                 </div>
-                <div className="flex-1 h-2 bg-slate-100 rounded-full mx-3 sm:mx-4 overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full mx-3 sm:mx-4 overflow-hidden">
                   <div className="h-full bg-[#5B21B6] rounded-full" style={{ width: '52%' }} />
                 </div>
                 <div className="text-right text-xs shrink-0 whitespace-nowrap font-sans">
-                  <span className="font-bold text-slate-900 font-sans">52%</span>
-                  <span className="text-[10.5px] text-slate-400 font-normal ml-1.5 font-sans">5,2 TB / 10 TB</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50 font-sans">52%</span>
+                  <span className="text-[10.5px] text-slate-400 dark:text-slate-500 font-normal ml-1.5 font-sans">5,2 TB / 10 TB</span>
                 </div>
               </div>
 
               {/* Serviços de IA */}
               <div className="flex items-center text-xs font-sans">
-                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 font-sans">
-                  <Shield className="w-4 h-4 text-slate-500 shrink-0" />
+                <div className="w-28 sm:w-32 flex items-center gap-2 shrink-0 font-semibold text-slate-700 dark:text-slate-300 font-sans">
+                  <Shield className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                   <span>Serviços de IA</span>
                 </div>
-                <div className="flex-1 h-2 bg-slate-100 rounded-full mx-3 sm:mx-4 overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-800 rounded-full mx-3 sm:mx-4 overflow-hidden">
                   <div className="h-full bg-[#5B21B6] rounded-full" style={{ width: '94%' }} />
                 </div>
-                <div className="text-right text-xs font-bold text-slate-900 shrink-0 min-w-[36px] font-sans">
+                <div className="text-right text-xs font-bold text-slate-900 dark:text-slate-50 shrink-0 min-w-[36px] font-sans">
                   94%
                 </div>
               </div>
@@ -1239,75 +1239,75 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Ações Rápidas */}
-        <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-4.5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 sm:p-4.5 flex flex-col justify-between shadow-2xs hover:shadow-xs hover:border-slate-300 transition-all duration-200 group font-sans">
           <div>
-            <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 font-sans tracking-tight">Ações Rápidas</h2>
+            <h2 className="text-sm sm:text-[15px] font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">Ações Rápidas</h2>
 
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3 mt-4 font-sans">
               <button
                 type="button"
                 onClick={() => onNavigateToTab('projetos-iniciativas')}
-                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-purple-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
+                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-purple-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
               >
-                <div className="w-9 h-9 rounded-xl bg-purple-50 text-[#7C3AED] border border-purple-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-500/10 text-[#7C3AED] border border-purple-100 dark:border-purple-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <CalendarPlus className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans">Adicionar Projeto</span>
+                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans">Adicionar Projeto</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onNavigateToTab('participacao-consultas')}
-                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-emerald-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
+                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-emerald-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
               >
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <MessageSquarePlus className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans">Criar Consulta</span>
+                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans">Criar Consulta</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onNavigateToTab('eventos-globais-admin')}
-                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-amber-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
+                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-amber-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
               >
-                <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-100 dark:border-amber-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Calendar className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans">Publicar Evento</span>
+                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans">Publicar Evento</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onNavigateToTab('gestao-utilizadores')}
-                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-blue-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
+                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-blue-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
               >
-                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] border border-blue-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] border border-blue-100 dark:border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Users className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans">Adicionar Comunidade</span>
+                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans">Adicionar Comunidade</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onNavigateToTab('relatorios-dados')}
-                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-sky-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
+                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-sky-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
               >
-                <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-100 dark:border-sky-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <BarChart3 className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans">Gerar Relatório</span>
+                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans">Gerar Relatório</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => onNavigateToTab('painel-gestao')}
-                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-orange-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
+                className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-orange-300 transition-all text-left shadow-2xs group cursor-pointer font-sans"
               >
-                <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-600 border border-orange-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-100 dark:border-orange-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <MessageSquareMore className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans">Enviar Comunicado</span>
+                <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans">Enviar Comunicado</span>
               </button>
             </div>
           </div>
@@ -1328,14 +1328,14 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
       {/* 5. Row de Tabelas: Consultas Públicas Ativas, Projetos Pendentes de Aprovação, Eventos Ativos */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Consultas Públicas Ativas */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
           <div>
-            <h2 className="text-sm font-bold text-slate-900">Consultas Públicas Ativas</h2>
+            <h2 className="text-sm font-bold text-slate-900 dark:text-slate-50">Consultas Públicas Ativas</h2>
 
             <div className="overflow-x-auto no-scrollbar mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-100 text-[10.5px] text-slate-400 font-semibold">
+                  <tr className="border-b border-slate-100 dark:border-slate-800 text-[10.5px] text-slate-400 dark:text-slate-500 font-semibold">
                     <th className="pb-2">Consulta</th>
                     <th className="pb-2">Território</th>
                     <th className="pb-2">Fim</th>
@@ -1343,47 +1343,47 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
                     <th className="pb-2 text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Plano de Ação Climática 2030</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Porto, Portugal</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">25 Mai 2025</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">1.248</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Plano de Ação Climática 2030</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Porto, Portugal</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">25 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">1.248</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                         Em curso
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Orçamento Participativo 2025</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Lisboa, Portugal</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">28 Mai 2025</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">2.156</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Orçamento Participativo 2025</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Lisboa, Portugal</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">28 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">2.156</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                         Em curso
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Mobilidade Urbana Sustentável</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Barcelona, Espanha</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">30 Mai 2025</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">856</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Mobilidade Urbana Sustentável</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Barcelona, Espanha</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">30 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">856</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                         Em curso
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Estratégia Digital Municipal</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Curitiba, Brasil</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">01 Jun 2025</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">542</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Estratégia Digital Municipal</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Curitiba, Brasil</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">01 Jun 2025</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">542</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">
                         Em análise
                       </span>
                     </td>
@@ -1396,7 +1396,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
           <button
             type="button"
             onClick={() => onNavigateToTab('participacao-consultas')}
-            className="mt-4 text-xs font-bold text-purple-600 hover:text-purple-800 flex items-center justify-end gap-1 cursor-pointer"
+            className="mt-4 text-xs font-bold text-purple-600 dark:text-purple-400 hover:text-purple-800 flex items-center justify-end gap-1 cursor-pointer"
           >
             <span>Ver todas as consultas</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -1404,57 +1404,57 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Projetos Pendentes de Aprovação */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
           <div>
-            <h2 className="text-sm font-bold text-slate-900">Projetos Pendentes de Aprovação</h2>
+            <h2 className="text-sm font-bold text-slate-900 dark:text-slate-50">Projetos Pendentes de Aprovação</h2>
 
             <div className="overflow-x-auto no-scrollbar mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-100 text-[10.5px] text-slate-400 font-semibold">
+                  <tr className="border-b border-slate-100 dark:border-slate-800 text-[10.5px] text-slate-400 dark:text-slate-500 font-semibold">
                     <th className="pb-2">Projeto</th>
                     <th className="pb-2">Submetido por</th>
                     <th className="pb-2">Data</th>
                     <th className="pb-2 text-right">Prioridade</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Parque Verde Comunitário</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Mun. de Guimarães</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">24 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Parque Verde Comunitário</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Mun. de Guimarães</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">24 Mai 2025</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400 border border-rose-200 dark:border-rose-500/20">
                         Alta
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Educação para Todos</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Associação Saber</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">24 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Educação para Todos</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Associação Saber</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">24 Mai 2025</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20">
                         Média
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Energia Solar nas Escolas</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Mun. de Lagos</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">23 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Energia Solar nas Escolas</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Mun. de Lagos</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">23 Mai 2025</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20">
                         Média
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Centro de Inovação Social</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">VILA Labs</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">23 Mai 2025</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Centro de Inovação Social</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">VILA Labs</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">23 Mai 2025</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-50 text-slate-700 border border-slate-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                         Baixa
                       </span>
                     </td>
@@ -1467,7 +1467,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
           <button
             type="button"
             onClick={() => onNavigateToTab('projetos-iniciativas')}
-            className="mt-4 text-xs font-bold text-purple-600 hover:text-purple-800 flex items-center justify-end gap-1 cursor-pointer"
+            className="mt-4 text-xs font-bold text-purple-600 dark:text-purple-400 hover:text-purple-800 flex items-center justify-end gap-1 cursor-pointer"
           >
             <span>Ver todos os projetos</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -1475,14 +1475,14 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
 
         {/* Eventos Ativos */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
+        <div className="bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 rounded-2xl p-5 flex flex-col justify-between shadow-2xs">
           <div>
-            <h2 className="text-sm font-bold text-slate-900">Eventos Ativos</h2>
+            <h2 className="text-sm font-bold text-slate-900 dark:text-slate-50">Eventos Ativos</h2>
 
             <div className="overflow-x-auto no-scrollbar mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-100 text-[10.5px] text-slate-400 font-semibold">
+                  <tr className="border-b border-slate-100 dark:border-slate-800 text-[10.5px] text-slate-400 dark:text-slate-500 font-semibold">
                     <th className="pb-2">Evento</th>
                     <th className="pb-2">Data</th>
                     <th className="pb-2">Local</th>
@@ -1490,37 +1490,37 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
                     <th className="pb-2 text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Fórum Global de Comunidades</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">26 Mai 2025</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Lisboa, PT</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">1.532</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Fórum Global de Comunidades</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">26 Mai 2025</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Lisboa, PT</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">1.532</td>
                     <td className="py-2.5 text-right">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                         Ao vivo
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Semana da Sustentabilidade</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">02 Jun 2025</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Online</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">2.378</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Semana da Sustentabilidade</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">02 Jun 2025</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Online</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">2.378</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">
                         Em breve
                       </span>
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 font-bold text-slate-800">Cimeira de Inovação Social</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">15 Jun 2025</td>
-                    <td className="py-2.5 text-slate-500 text-[11px]">Nairóbi, Quênia</td>
-                    <td className="py-2.5 font-bold text-slate-700 text-right">864</td>
+                    <td className="py-2.5 font-bold text-slate-800 dark:text-slate-100">Cimeira de Inovação Social</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">15 Jun 2025</td>
+                    <td className="py-2.5 text-slate-500 dark:text-slate-400 text-[11px]">Nairóbi, Quênia</td>
+                    <td className="py-2.5 font-bold text-slate-700 dark:text-slate-300 text-right">864</td>
                     <td className="py-2.5 text-right">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20">
                         Inscrições abertas
                       </span>
                     </td>
@@ -1533,7 +1533,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
           <button
             type="button"
             onClick={() => onNavigateToTab('eventos-globais-admin')}
-            className="mt-4 text-xs font-bold text-purple-600 hover:text-purple-800 flex items-center justify-end gap-1 cursor-pointer"
+            className="mt-4 text-xs font-bold text-purple-600 dark:text-purple-400 hover:text-purple-800 flex items-center justify-end gap-1 cursor-pointer"
           >
             <span>Ver todos os eventos</span>
             <ArrowRight className="w-3.5 h-3.5" />

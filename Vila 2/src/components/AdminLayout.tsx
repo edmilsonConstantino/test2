@@ -48,7 +48,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   children,
 }) => {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#334155] flex antialiased">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 text-[#334155] dark:text-slate-300 flex antialiased">
       {/* 1. Sidebar dedicada da Plataforma VILA com 12 itens + atalhos + marca própria */}
       <AdminSidebar
         currentTab={currentTab}

@@ -27,32 +27,32 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
   const getRoleBadgeStyle = (role: DemoUser['role']) => {
     switch (role) {
       case 'cidadao':
-        return 'bg-slate-100 text-slate-700 border-slate-200';
+        return 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700';
       case 'moderador':
-        return 'bg-emerald-50 text-emerald-700 border-emerald-200';
+        return 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20';
       case 'admin_municipal':
-        return 'bg-amber-50 text-amber-700 border-amber-200';
+        return 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-500/20';
       case 'admin_regional':
-        return 'bg-indigo-50 text-indigo-700 border-indigo-200';
+        return 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border-indigo-200 dark:border-indigo-500/20';
       case 'admin_global':
-        return 'bg-purple-50 text-purple-700 border-purple-200';
+        return 'bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-500/20';
       default:
-        return 'bg-slate-100 text-slate-700 border-slate-200';
+        return 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700';
     }
   };
 
   const getRoleIcon = (role: DemoUser['role']) => {
     switch (role) {
       case 'cidadao':
-        return <User className="w-3 h-3 text-slate-500" />;
+        return <User className="w-3 h-3 text-slate-500 dark:text-slate-400" />;
       case 'moderador':
-        return <Users className="w-3 h-3 text-emerald-600" />;
+        return <Users className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />;
       case 'admin_municipal':
-        return <Building2 className="w-3 h-3 text-amber-600" />;
+        return <Building2 className="w-3 h-3 text-amber-600 dark:text-amber-400" />;
       case 'admin_regional':
-        return <Shield className="w-3 h-3 text-indigo-600" />;
+        return <Shield className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />;
       case 'admin_global':
-        return <Globe className="w-3 h-3 text-purple-600" />;
+        return <Globe className="w-3 h-3 text-purple-600 dark:text-purple-400" />;
       default:
         return <User className="w-3 h-3" />;
     }
@@ -68,7 +68,7 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         title="Trocar utilizador de demonstração para testar papéis"
-        className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl border border-[#1455AC]/20 bg-[#1455AC]/10 hover:bg-[#1455AC]/15 text-slate-800 transition-all text-xs cursor-pointer shadow-2xs group"
+        className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl border border-[#1455AC]/20 bg-[#1455AC]/10 dark:bg-[#1455AC]/20 hover:bg-[#1455AC]/15 text-slate-800 dark:text-slate-100 transition-all text-xs cursor-pointer shadow-2xs group"
       >
         <div className="flex items-center gap-1.5">
           <span className="relative flex h-2 w-2">
@@ -81,7 +81,7 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
         </div>
 
         <div className="hidden sm:flex items-center gap-1.5 text-left max-w-[140px] md:max-w-[180px]">
-          <span className="font-bold text-slate-900 truncate text-[11px]">
+          <span className="font-bold text-slate-900 dark:text-slate-50 truncate text-[11px]">
             {currentUser.name}
           </span>
           <span
@@ -94,7 +94,7 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
         </div>
 
         <ChevronDown
-          className={`w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 transition-transform duration-200 shrink-0 ${
+          className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-slate-600 transition-transform duration-200 shrink-0 ${
             isOpen ? 'rotate-180' : ''
           }`}
         />
@@ -105,19 +105,19 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
         <div
           id="demo-user-switcher-dropdown"
           role="listbox"
-          className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border border-slate-200 rounded-xl shadow-2xl py-2.5 z-60 animate-in fade-in slide-in-from-top-1 duration-150"
+          className="absolute right-0 mt-2 w-80 sm:w-96 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-2xl py-2.5 z-60 animate-in fade-in slide-in-from-top-1 duration-150"
         >
           {/* Cabeçalho */}
-          <div className="px-4 py-2 border-b border-slate-100">
+          <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 Teste de Papéis & Permissões
               </span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1455AC]/10 text-[#1455AC] border border-[#1455AC]/20">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] border border-[#1455AC]/20">
                 5 Perfis Demo
               </span>
             </div>
-            <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
               Alterne entre os perfis para simular a visão da plataforma com diferentes níveis de autoridade e escopos.
             </p>
           </div>
@@ -139,19 +139,19 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
                   }}
                   className={`w-full p-2.5 rounded-xl text-left transition-all flex items-start justify-between gap-3 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#1455AC]/10 border border-[#1455AC]/30 shadow-2xs'
-                      : 'hover:bg-slate-50 border border-transparent'
+                      ? 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20 border border-[#1455AC]/30 shadow-2xs'
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-700 border border-transparent'
                   }`}
                 >
                   <div className="flex items-start gap-2.5 min-w-0">
                     <img
                       src={user.avatarUrl}
                       alt={user.name}
-                      className="w-9 h-9 rounded-full object-cover border border-slate-200 shrink-0 mt-0.5"
+                      className="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-700 shrink-0 mt-0.5"
                     />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="text-xs font-bold text-slate-900 truncate">
+                        <span className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate">
                           {user.name}
                         </span>
                         <span
@@ -165,9 +165,9 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
                       </div>
 
                       {/* Escopo */}
-                      <div className="mt-1 flex items-center gap-1 text-[11px] text-slate-500">
-                        <span className="font-medium text-slate-400">Escopo:</span>
-                        <span className="font-medium text-slate-700 truncate">
+                      <div className="mt-1 flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
+                        <span className="font-medium text-slate-400 dark:text-slate-500">Escopo:</span>
+                        <span className="font-medium text-slate-700 dark:text-slate-300 truncate">
                           {user.scope}
                         </span>
                       </div>
@@ -181,7 +181,7 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
                         <Check className="w-3 h-3 stroke-[3]" />
                       </div>
                     ) : (
-                      <div className="w-5 h-5 rounded-full border border-slate-200" />
+                      <div className="w-5 h-5 rounded-full border border-slate-200 dark:border-slate-700" />
                     )}
                   </div>
                 </button>
@@ -190,8 +190,8 @@ export const DemoUserSwitcher: React.FC<DemoUserSwitcherProps> = ({
           </div>
 
           {/* Rodapé Informativo */}
-          <div className="pt-2 pb-1 px-4 border-t border-slate-100 bg-slate-50/50 rounded-b-xl">
-            <div className="flex items-start gap-2 text-[11px] text-slate-500 leading-snug">
+          <div className="pt-2 pb-1 px-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800 rounded-b-xl">
+            <div className="flex items-start gap-2 text-[11px] text-slate-500 dark:text-slate-400 leading-snug">
               <Shield className="w-3.5 h-3.5 text-[#1455AC] shrink-0 mt-0.5" />
               <span>
                 <strong>Regra de Visualização:</strong> Perfis de Administrador (Municipal, Regional, Global) ativam a secção <strong>PLATAFORMA</strong> na Sidebar com atalho para o Painel de Gestão.

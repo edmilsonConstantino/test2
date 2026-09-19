@@ -48,37 +48,37 @@ export const SearchCommandModal: React.FC<SearchCommandModalProps> = ({
     >
       <div
         id="search-command-modal"
-        className="bg-white w-full max-w-xl rounded-2xl shadow-2xl border border-[#E2E8F0] overflow-hidden animate-in zoom-in-95 duration-150"
+        className="bg-white dark:bg-slate-900 w-full max-w-xl rounded-2xl shadow-2xl border border-[#E2E8F0] overflow-hidden animate-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Header */}
-        <div className="p-3.5 sm:p-4 border-b border-slate-200 flex items-center gap-3">
-          <Search className="w-5 h-5 text-slate-400" />
+        <div className="p-3.5 sm:p-4 border-b border-slate-200 dark:border-slate-700 flex items-center gap-3">
+          <Search className="w-5 h-5 text-slate-400 dark:text-slate-500" />
           <input
             type="text"
             placeholder={placeholder || "Pesquisar países, regiões, projetos ou iniciativas..."}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             autoFocus
-            className="flex-1 text-sm bg-transparent outline-none text-slate-900 placeholder-slate-400 font-sans"
+            className="flex-1 text-sm bg-transparent outline-none text-slate-900 dark:text-slate-50 placeholder-slate-400 dark:placeholder-slate-500 font-sans"
           />
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
-              className="p-1 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100"
+              className="p-1 rounded-md text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               <X className="w-4 h-4" />
             </button>
           )}
-          <kbd className="px-2 py-0.5 text-[10px] font-mono font-medium text-slate-400 bg-slate-100 rounded-md">
+          <kbd className="px-2 py-0.5 text-[10px] font-mono font-medium text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-md">
             ESC
           </kbd>
         </div>
 
         {/* Results List */}
-        <div className="max-h-80 overflow-y-auto p-2 divide-y divide-slate-100">
+        <div className="max-h-80 overflow-y-auto p-2 divide-y divide-slate-100 dark:divide-slate-700">
           {filteredCountries.length === 0 ? (
-            <div className="p-8 text-center text-slate-400 text-xs font-sans">
+            <div className="p-8 text-center text-slate-400 dark:text-slate-500 text-xs font-sans">
               Nenhum resultado encontrado para "{searchTerm}".
             </div>
           ) : (
@@ -89,28 +89,28 @@ export const SearchCommandModal: React.FC<SearchCommandModalProps> = ({
                   onSelectCountry(country);
                   onClose();
                 }}
-                className="p-2.5 sm:p-3 rounded-xl hover:bg-slate-50 cursor-pointer flex items-center justify-between transition-colors group"
+                className="p-2.5 sm:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 cursor-pointer flex items-center justify-between transition-colors group"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{country.flag}</span>
                   <div>
                     <div className="flex items-center gap-2">
-                      <p className="text-xs font-semibold text-slate-900 group-hover:text-[#1455AC] font-sans">
+                      <p className="text-xs font-semibold text-slate-900 dark:text-slate-50 group-hover:text-[#1455AC] font-sans">
                         {country.name}
                       </p>
-                      <span className="text-[10px] text-slate-400">• {country.region}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500">• {country.region}</span>
                     </div>
-                    <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1 font-sans">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1 font-sans">
                       {country.initiatives.join(' • ')}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-[11px] font-sans font-semibold text-slate-600">
+                  <span className="text-[11px] font-sans font-semibold text-slate-600 dark:text-slate-400">
                     {country.projectsCount} projetos
                   </span>
-                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1455AC] group-hover:translate-x-0.5 transition-all stroke-[2]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC] group-hover:translate-x-0.5 transition-all stroke-[2]" />
                 </div>
               </div>
             ))
@@ -118,7 +118,7 @@ export const SearchCommandModal: React.FC<SearchCommandModalProps> = ({
         </div>
 
         {/* Footer shortcuts */}
-        <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-sans">
+        <div className="p-3 bg-slate-50 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-sans">
           <span>Use <b>↑</b> <b>↓</b> para navegar</span>
           <span>Pressione <b>ESC</b> para fechar</span>
         </div>

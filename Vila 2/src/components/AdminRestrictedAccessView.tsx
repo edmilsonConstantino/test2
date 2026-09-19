@@ -79,31 +79,31 @@ export const AdminRestrictedAccessView: React.FC<AdminRestrictedAccessViewProps>
         {/* Card Principal de Acesso Restrito */}
         <div
           id="admin-guard-card"
-          className="bg-white rounded-xl border border-slate-200 shadow-2xs p-6 sm:p-8 text-center space-y-6 font-sans"
+          className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xs p-6 sm:p-8 text-center space-y-6 font-sans"
         >
           {/* Ícone de Escudo / Bloqueio com anel suave */}
           <div className="relative mx-auto w-16 h-16 flex items-center justify-center font-sans">
             <div className="absolute inset-0 rounded-xl bg-amber-100/70 animate-ping opacity-25" />
-            <div className="w-16 h-16 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shadow-2xs">
+            <div className="w-16 h-16 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shadow-2xs">
               <ShieldAlert className="w-8 h-8 stroke-[2.2]" />
             </div>
           </div>
 
           {/* Cabeçalho */}
           <div className="space-y-2 font-sans">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold uppercase tracking-wider font-sans">
-              <Shield className="w-3.5 h-3.5 text-amber-600" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-800 text-[11px] font-bold uppercase tracking-wider font-sans">
+              <Shield className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
               Acesso Restrito a Administradores
             </div>
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 font-sans tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-50 font-sans tracking-tight">
               Área Exclusiva de Governança
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-lg mx-auto font-sans">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg mx-auto font-sans">
               A página{' '}
-              <strong className="text-slate-900 font-semibold">
+              <strong className="text-slate-900 dark:text-slate-50 font-semibold">
                 {getRouteFriendlyName(attemptedRoute)}
               </strong>{' '}
-              <span className="font-mono text-[11px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-700">
+              <span className="font-mono text-[11px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-slate-700 dark:text-slate-300">
                 #{attemptedRoute}
               </span>{' '}
               é de uso exclusivo para perfis com permissões de administração municipal, regional ou global.
@@ -111,7 +111,7 @@ export const AdminRestrictedAccessView: React.FC<AdminRestrictedAccessViewProps>
           </div>
 
           {/* Cartão de Perfil Atual Ativo */}
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-sans shadow-2xs">
+          <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-sans shadow-2xs">
             <div className="flex items-center gap-3 min-w-0 font-sans">
               <img
                 src={currentUser.avatarUrl}
@@ -120,21 +120,21 @@ export const AdminRestrictedAccessView: React.FC<AdminRestrictedAccessViewProps>
               />
               <div className="min-w-0 font-sans">
                 <div className="flex items-center gap-2 flex-wrap font-sans">
-                  <span className="text-sm font-bold text-slate-900 truncate font-sans">
+                  <span className="text-sm font-bold text-slate-900 dark:text-slate-50 truncate font-sans">
                     {currentUser.name}
                   </span>
-                  <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 font-sans">
+                  <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-sans">
                     {currentUser.roleLabel}
                   </span>
                 </div>
-                <p className="text-xs text-slate-500 truncate mt-0.5 font-sans">
+                <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5 font-sans">
                   {currentUser.email} • {currentUser.location}
                 </p>
               </div>
             </div>
 
             <div className="shrink-0 text-right sm:border-l sm:border-slate-200 sm:pl-3 font-sans">
-              <span className="text-[10px] font-bold text-amber-800 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded-full inline-block font-sans">
+              <span className="text-[10px] font-bold text-amber-800 bg-amber-100 border border-amber-200 dark:border-amber-500/20 px-2 py-0.5 rounded-full inline-block font-sans">
                 Sem privilégios admin
               </span>
             </div>
@@ -157,7 +157,7 @@ export const AdminRestrictedAccessView: React.FC<AdminRestrictedAccessViewProps>
                 id="btn-guard-explore"
                 type="button"
                 onClick={() => onNavigateToTab('explorar')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all shadow-2xs cursor-pointer font-sans"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-all shadow-2xs cursor-pointer font-sans"
               >
                 <Globe className="w-4 h-4 text-[#1455AC]" />
                 Explorar o Mundo
@@ -170,21 +170,21 @@ export const AdminRestrictedAccessView: React.FC<AdminRestrictedAccessViewProps>
         {onSwitchToAdmin && adminUsers.length > 0 && (
           <div
             id="admin-guard-demo-helper"
-            className="bg-white rounded-xl border border-dashed border-slate-300 p-5 space-y-3 font-sans"
+            className="bg-white dark:bg-slate-800 rounded-xl border border-dashed border-slate-300 p-5 space-y-3 font-sans"
           >
             <div className="flex items-center justify-between font-sans">
               <div className="flex items-center gap-2 font-sans">
                 <Sparkles className="w-4 h-4 text-[#1455AC]" />
-                <span className="text-xs font-bold text-slate-900 font-sans uppercase tracking-wider">
+                <span className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans uppercase tracking-wider">
                   Testar com perfil de Administrador (Modo Demo)
                 </span>
               </div>
-              <span className="text-[10px] text-slate-400 font-medium font-sans">
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium font-sans">
                 {adminUsers.length} administradores disponíveis
               </span>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed font-sans">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
               Para validar e inspecionar os ecrãs do Painel de Gestão, selecione um dos utilizadores administradores abaixo:
             </p>
 
@@ -195,22 +195,22 @@ export const AdminRestrictedAccessView: React.FC<AdminRestrictedAccessViewProps>
                   type="button"
                   id={`btn-switch-to-${admin.id}`}
                   onClick={() => onSwitchToAdmin(admin)}
-                  className="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/60 text-left transition-all group cursor-pointer font-sans"
+                  className="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/60 text-left transition-all group cursor-pointer font-sans"
                 >
                   <img
                     src={admin.avatarUrl}
                     alt={admin.name}
-                    className="w-8 h-8 rounded-full object-cover border border-slate-200 shrink-0"
+                    className="w-8 h-8 rounded-full object-cover border border-slate-200 dark:border-slate-700 shrink-0"
                   />
                   <div className="min-w-0 flex-1 font-sans">
-                    <div className="text-xs font-bold text-slate-900 group-hover:text-[#1455AC] truncate font-sans">
+                    <div className="text-xs font-bold text-slate-900 dark:text-slate-50 group-hover:text-[#1455AC] truncate font-sans">
                       {admin.name}
                     </div>
-                    <div className="text-[10px] text-slate-500 truncate font-sans">
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate font-sans">
                       {admin.roleLabel}
                     </div>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC] shrink-0 transition-transform group-hover:translate-x-0.5" />
+                  <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC] shrink-0 transition-transform group-hover:translate-x-0.5" />
                 </button>
               ))}
             </div>

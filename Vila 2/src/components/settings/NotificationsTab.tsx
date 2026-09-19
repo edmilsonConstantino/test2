@@ -67,7 +67,7 @@ export const NotificationsTab: React.FC = () => {
       name: 'Eventos e atividades',
       description: 'Lembretes de eventos e atividades.',
       icon: (
-        <div className="w-8 h-8 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+        <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
           <Calendar className="w-4 h-4" />
         </div>
       ),
@@ -137,7 +137,7 @@ export const NotificationsTab: React.FC = () => {
       name: 'Relatórios e resumos',
       description: 'Resumos semanais e relatórios personalizados.',
       icon: (
-        <div className="w-8 h-8 rounded-full bg-[#F1F5F9] text-[#64748B] flex items-center justify-center shrink-0">
+        <div className="w-8 h-8 rounded-full bg-[#F1F5F9] text-[#64748B] dark:text-slate-400 flex items-center justify-center shrink-0">
           <PieChart className="w-4 h-4" />
         </div>
       ),
@@ -193,7 +193,7 @@ export const NotificationsTab: React.FC = () => {
           <button
             type="button"
             onClick={() => setToastMessage(null)}
-            className="text-slate-400 hover:text-white ml-2 cursor-pointer"
+            className="text-slate-400 dark:text-slate-500 hover:text-white ml-2 cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -207,26 +207,26 @@ export const NotificationsTab: React.FC = () => {
            ======================================================== */}
         <div className="lg:col-span-5 space-y-6 font-sans">
           {/* CARD 1: Canais de notificação */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div className="pb-1">
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Canais de notificação
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
                 Escolha os canais onde deseja receber notificações.
               </p>
             </div>
 
-            <div className="divide-y divide-slate-100 font-sans">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
               {/* Canal: E-mail */}
               <div className="py-3.5 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">E-mail</h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">E-mail</h4>
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Receba notificações importantes no seu e-mail.
                     </p>
                   </div>
@@ -239,19 +239,19 @@ export const NotificationsTab: React.FC = () => {
                     onChange={(e) => setEmailEnabled(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
 
               {/* Canal: Push / Web */}
               <div className="py-3.5 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Bell className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">Push / Web</h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Push / Web</h4>
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Notificações no navegador quando estiver online.
                     </p>
                   </div>
@@ -264,19 +264,19 @@ export const NotificationsTab: React.FC = () => {
                     onChange={(e) => setPushEnabled(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
 
               {/* Canal: SMS */}
               <div className="py-3.5 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">SMS</h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">SMS</h4>
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Receba alertas e mensagens importantes no telemóvel.
                     </p>
                   </div>
@@ -289,19 +289,19 @@ export const NotificationsTab: React.FC = () => {
                     onChange={(e) => setSmsEnabled(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
 
               {/* Canal: App Mobile */}
               <div className="py-3.5 flex items-center justify-between gap-3.5 font-sans">
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Smartphone className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">App Mobile</h4>
-                    <p className="text-[11px] text-slate-400 truncate font-sans">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">App Mobile</h4>
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                       Notificações dentro da aplicação móvel da VILA.
                     </p>
                   </div>
@@ -314,19 +314,19 @@ export const NotificationsTab: React.FC = () => {
                     onChange={(e) => setMobileEnabled(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                  <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
                 </label>
               </div>
             </div>
           </div>
 
           {/* CARD 2: Horário de silêncio */}
-          <div className="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
             <div>
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Horário de silêncio
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
                 Defina um período para não receber notificações push.
               </p>
             </div>
@@ -334,14 +334,14 @@ export const NotificationsTab: React.FC = () => {
             {/* Linha de Ativação do Silêncio */}
             <div className="pt-2 flex items-center justify-between gap-3 font-sans">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="text-slate-400">
+                <div className="text-slate-400 dark:text-slate-500">
                   <Volume2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Ativar horário de silêncio
                   </h4>
-                  <p className="text-[11px] text-slate-400">
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500">
                     As notificações push serão pausadas neste período.
                   </p>
                 </div>
@@ -354,7 +354,7 @@ export const NotificationsTab: React.FC = () => {
                   onChange={(e) => setQuietHoursActive(e.target.checked)}
                   className="sr-only peer"
                 />
-                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
+                <div className="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1455AC]" />
               </label>
             </div>
 
@@ -362,7 +362,7 @@ export const NotificationsTab: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 font-sans">
               {/* De */}
               <div>
-                <label className="block text-[11px] font-bold text-slate-500 mb-1 font-sans">
+                <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 mb-1 font-sans">
                   De
                 </label>
                 <div className="relative flex items-center">
@@ -370,15 +370,15 @@ export const NotificationsTab: React.FC = () => {
                     type="text"
                     value={quietStart}
                     onChange={(e) => setQuietStart(e.target.value)}
-                    className="w-full bg-white text-xs font-semibold text-slate-800 px-3 py-2 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 font-sans"
+                    className="w-full bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 font-sans"
                   />
-                  <Clock className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 pointer-events-none" />
+                  <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 absolute right-2.5 pointer-events-none" />
                 </div>
               </div>
 
               {/* Até */}
               <div>
-                <label className="block text-[11px] font-bold text-slate-500 mb-1 font-sans">
+                <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 mb-1 font-sans">
                   Até
                 </label>
                 <div className="relative flex items-center">
@@ -386,28 +386,28 @@ export const NotificationsTab: React.FC = () => {
                     type="text"
                     value={quietEnd}
                     onChange={(e) => setQuietEnd(e.target.value)}
-                    className="w-full bg-white text-xs font-semibold text-slate-800 px-3 py-2 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none pr-8 font-sans"
+                    className="w-full bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none pr-8 font-sans"
                   />
-                  <Clock className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 pointer-events-none" />
+                  <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 absolute right-2.5 pointer-events-none" />
                 </div>
               </div>
 
               {/* Fuso horário */}
               <div className="relative">
-                <label className="block text-[11px] font-bold text-slate-500 mb-1 font-sans">
+                <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 mb-1 font-sans">
                   Fuso horário
                 </label>
                 <button
                   type="button"
                   onClick={() => setIsTimezoneOpen(!isTimezoneOpen)}
-                  className="w-full bg-white text-xs font-semibold text-slate-800 px-2.5 py-2 rounded-xl border border-slate-200 focus:border-[#1455AC] outline-none flex items-center justify-between cursor-pointer hover:border-slate-300 font-sans"
+                  className="w-full bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] outline-none flex items-center justify-between cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 font-sans"
                 >
                   <span className="truncate text-[11px] font-sans">{timezone}</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
                 </button>
 
                 {isTimezoneOpen && (
-                  <div className="absolute right-0 mt-1 w-48 bg-white rounded-xl border border-slate-200 shadow-lg p-1 z-20 text-xs animate-in fade-in zoom-in-95 duration-100 font-sans">
+                  <div className="absolute right-0 mt-1 w-48 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-lg p-1 z-20 text-xs animate-in fade-in zoom-in-95 duration-100 font-sans">
                     {[
                       '(UTC+00:00) Lisboa',
                       '(UTC+00:00) Londres',
@@ -422,8 +422,8 @@ export const NotificationsTab: React.FC = () => {
                           setTimezone(tz);
                           setIsTimezoneOpen(false);
                         }}
-                        className={`w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors font-sans ${
-                          timezone === tz ? 'text-[#1455AC] font-bold bg-blue-50/60' : 'text-slate-700'
+                        className={`w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors font-sans ${
+                          timezone === tz ? 'text-[#1455AC] font-bold bg-blue-50/60 dark:bg-blue-500/10' : 'text-slate-700 dark:text-slate-300'
                         }`}
                       >
                         {tz}
@@ -439,15 +439,15 @@ export const NotificationsTab: React.FC = () => {
         {/* ========================================================
             COLUNA DIREITA: Tipos de notificações (Matriz com Checkboxes)
            ======================================================== */}
-        <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
           <div className="pb-1">
             <div className="flex items-center gap-2">
               <span className="text-base">📯</span>
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Tipos de notificações
               </h3>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
               Ative ou desative os tipos de notificações que deseja receber.
             </p>
           </div>
@@ -455,7 +455,7 @@ export const NotificationsTab: React.FC = () => {
           {/* Cabeçalho da Matriz: E-mail, Push, SMS, App */}
           <div className="overflow-x-auto -mx-2 sm:mx-0 font-sans">
             <div className="min-w-[500px]">
-              <div className="grid grid-cols-12 gap-2 pb-2.5 border-b border-slate-100 text-[11px] font-bold text-slate-500 font-sans">
+              <div className="grid grid-cols-12 gap-2 pb-2.5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-bold text-slate-500 dark:text-slate-400 font-sans">
                 <div className="col-span-6 pl-1"></div>
                 <div className="col-span-6 grid grid-cols-4 text-center">
                   <span>E-mail</span>
@@ -466,20 +466,20 @@ export const NotificationsTab: React.FC = () => {
               </div>
 
               {/* Lista dos 7 Tipos com Checkboxes */}
-              <div className="divide-y divide-slate-100 font-sans">
+              <div className="divide-y divide-slate-100 dark:divide-slate-700 font-sans">
                 {notificationTypes.map((row) => (
                   <div
                     key={row.id}
-                    className="grid grid-cols-12 gap-2 py-3.5 items-center hover:bg-slate-50/60 rounded-xl px-1 transition-colors font-sans"
+                    className="grid grid-cols-12 gap-2 py-3.5 items-center hover:bg-slate-50/60 dark:hover:bg-slate-800 rounded-xl px-1 transition-colors font-sans"
                   >
                     {/* Informações da Notificação */}
                     <div className="col-span-6 flex items-center gap-3 min-w-0 pr-2">
                       {row.icon}
                       <div className="min-w-0">
-                        <h4 className="text-xs font-bold text-slate-900 truncate font-sans">
+                        <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate font-sans">
                           {row.name}
                         </h4>
-                        <p className="text-[11px] text-slate-400 truncate font-sans">
+                        <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate font-sans">
                           {row.description}
                         </p>
                       </div>
@@ -494,7 +494,7 @@ export const NotificationsTab: React.FC = () => {
                         className={`w-5 h-5 rounded-md flex items-center justify-center transition-all cursor-pointer ${
                           row.email
                             ? 'bg-[#1455AC] text-white shadow-2xs'
-                            : 'border border-slate-300 bg-white hover:border-slate-400'
+                            : 'border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500'
                         }`}
                         title="Alternar E-mail"
                       >
@@ -508,7 +508,7 @@ export const NotificationsTab: React.FC = () => {
                         className={`w-5 h-5 rounded-md flex items-center justify-center transition-all cursor-pointer ${
                           row.push
                             ? 'bg-[#1455AC] text-white shadow-2xs'
-                            : 'border border-slate-300 bg-white hover:border-slate-400'
+                            : 'border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500'
                         }`}
                         title="Alternar Push"
                       >
@@ -522,7 +522,7 @@ export const NotificationsTab: React.FC = () => {
                         className={`w-5 h-5 rounded-md flex items-center justify-center transition-all cursor-pointer ${
                           row.sms
                             ? 'bg-[#1455AC] text-white shadow-2xs'
-                            : 'border border-slate-300 bg-white hover:border-slate-400'
+                            : 'border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500'
                         }`}
                         title="Alternar SMS"
                       >
@@ -536,7 +536,7 @@ export const NotificationsTab: React.FC = () => {
                         className={`w-5 h-5 rounded-md flex items-center justify-center transition-all cursor-pointer ${
                           row.app
                             ? 'bg-[#1455AC] text-white shadow-2xs'
-                            : 'border border-slate-300 bg-white hover:border-slate-400'
+                            : 'border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500'
                         }`}
                         title="Alternar App"
                       >
@@ -556,12 +556,12 @@ export const NotificationsTab: React.FC = () => {
         {/* ========================================================
             CARD 4: Resumo das suas preferências
            ======================================================== */}
-        <div className="lg:col-span-6 bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+        <div className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
           <div>
-            <h3 className="text-base font-bold text-slate-900 font-sans">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
               Resumo das suas preferências
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
               Veja como suas notificações estão configuradas.
             </p>
           </div>
@@ -570,29 +570,29 @@ export const NotificationsTab: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 font-sans">
             {/* E-mail */}
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                 <Mail className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-slate-900 leading-tight font-sans">E-mail</h4>
-                <p className="text-[11px] text-emerald-600 font-semibold leading-tight mt-0.5">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-tight font-sans">E-mail</h4>
+                <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold leading-tight mt-0.5">
                   {emailEnabled ? 'Ativado' : 'Desativado'}
                 </p>
-                <p className="text-[10px] text-slate-400 leading-tight font-sans">principal</p>
+                <p className="text-[10px] text-slate-400 dark:text-slate-500 leading-tight font-sans">principal</p>
               </div>
             </div>
 
             {/* Push / Web */}
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                 <Bell className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-slate-900 leading-tight font-sans">Push / Web</h4>
-                <p className="text-[11px] text-emerald-600 font-semibold leading-tight mt-0.5">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-tight font-sans">Push / Web</h4>
+                <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold leading-tight mt-0.5">
                   {pushEnabled ? 'Ativado' : 'Desativado'}
                 </p>
-                <p className="text-[10px] text-slate-400 leading-tight font-sans">
+                <p className="text-[10px] text-slate-400 dark:text-slate-500 leading-tight font-sans">
                   {quietHoursActive ? `silêncio: ${quietStart} - ${quietEnd}` : 'sem silêncio'}
                 </p>
               </div>
@@ -600,12 +600,12 @@ export const NotificationsTab: React.FC = () => {
 
             {/* SMS */}
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                 <MessageSquare className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-slate-900 leading-tight font-sans">SMS</h4>
-                <p className={`text-[11px] font-medium leading-tight mt-0.5 ${smsEnabled ? 'text-emerald-600' : 'text-slate-400'}`}>
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-tight font-sans">SMS</h4>
+                <p className={`text-[11px] font-medium leading-tight mt-0.5 ${smsEnabled ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-500'}`}>
                   {smsEnabled ? 'Ativado' : 'Desativado'}
                 </p>
               </div>
@@ -613,12 +613,12 @@ export const NotificationsTab: React.FC = () => {
 
             {/* App Mobile */}
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                 <Smartphone className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
-                <h4 className="text-xs font-bold text-slate-900 leading-tight font-sans">App Mobile</h4>
-                <p className="text-[11px] text-emerald-600 font-semibold leading-tight mt-0.5">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-tight font-sans">App Mobile</h4>
+                <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold leading-tight mt-0.5">
                   {mobileEnabled ? 'Ativado' : 'Desativado'}
                 </p>
               </div>
@@ -641,12 +641,12 @@ export const NotificationsTab: React.FC = () => {
         {/* ========================================================
             CARD 5: Pré-visualização
            ======================================================== */}
-        <div className="lg:col-span-6 bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
+        <div className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
           <div>
-            <h3 className="text-base font-bold text-slate-900 font-sans">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
               Pré-visualização
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
               Exemplo de como as notificações serão exibidas.
             </p>
           </div>
@@ -654,28 +654,28 @@ export const NotificationsTab: React.FC = () => {
           {/* Card de Notificação VILA Simulada */}
           <div
             onClick={() => showToast('Notificação clicada: Conferência de Sustentabilidade')}
-            className="p-3.5 sm:p-4 rounded-xl bg-slate-50/80 hover:bg-slate-50 border border-slate-100 flex items-center justify-between gap-3 transition-colors cursor-pointer group font-sans"
+            className="p-3.5 sm:p-4 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 transition-colors cursor-pointer group font-sans"
           >
             <div className="flex items-start gap-3 min-w-0">
-              <div className="w-8 h-8 rounded-full bg-white shadow-2xs border border-slate-100 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 shadow-2xs border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0 mt-0.5">
                 <VilaMiniLogo />
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <h4 className="text-xs font-bold text-slate-900 font-sans">VILA</h4>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">VILA</h4>
                 </div>
-                <h5 className="text-xs font-bold text-slate-900 mt-0.5 font-sans">
+                <h5 className="text-xs font-bold text-slate-900 dark:text-slate-50 mt-0.5 font-sans">
                   Evento em breve
                 </h5>
-                <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5 line-clamp-1 font-sans">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed mt-0.5 line-clamp-1 font-sans">
                   Conferência de Sustentabilidade começa amanhã às 10:00. Não perca!
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
-              <span className="text-[11px] text-slate-400 font-medium font-sans">há 2 min</span>
-              <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-slate-700 transition-colors" />
+              <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium font-sans">há 2 min</span>
+              <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors" />
             </div>
           </div>
         </div>

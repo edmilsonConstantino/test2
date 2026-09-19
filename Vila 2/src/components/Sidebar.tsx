@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { Logo } from './Logo';
 import { DemoUser } from '../data/demoUsers';
+import { useTheme } from '../contexts/ThemeContext';
 
 export interface SidebarProps {
   currentTab: string;
@@ -59,7 +60,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isLoggedIn = false,
   onLogout,
 }) => {
-  const [isLightMode, setIsLightMode] = useState(true);
+  const { isDark, toggleTheme } = useTheme();
+  const isLightMode = !isDark;
   const [selectedLang, setSelectedLang] = useState<'PT' | 'EN' | 'ES'>('PT');
   const [isLangOpen, setIsLangOpen] = useState(false);
   const langDropdownRef = useRef<HTMLDivElement>(null);
@@ -145,18 +147,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Main Sidebar Container - Fixed ~230px width, shared across all pages */}
       <aside
         id="main-sidebar"
-        className={`fixed top-0 left-0 bottom-0 z-40 w-[230px] h-screen max-h-[100dvh] bg-white border-r border-slate-200/90 px-3 py-2.5 flex flex-col justify-between select-none overflow-y-auto no-scrollbar transition-transform duration-300 ease-in-out shadow-xs ${
+        className={`fixed top-0 left-0 bottom-0 z-40 w-[230px] h-screen max-h-[100dvh] bg-white dark:bg-slate-900 border-r border-slate-200/90 dark:border-slate-800 px-3 py-2.5 flex flex-col justify-between select-none overflow-y-auto no-scrollbar transition-transform duration-300 ease-in-out shadow-xs ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         {/* 1. Header Fixo: Logotipo (Pin + VILA) à esquerda e tagline indentada por baixo, como na UI de referência */}
-        <div className="relative shrink-0 px-1.5 pb-2.5 pt-1 border-b border-slate-100">
+        <div className="relative shrink-0 px-1.5 pb-2.5 pt-1 border-b border-slate-100 dark:border-slate-800">
           <Logo size="sm" showTagline={false} />
           {isMobileOpen && (
             <button
               type="button"
               onClick={onCloseMobile}
-              className="md:hidden absolute right-1.5 top-1.5 p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+              className="md:hidden absolute right-1.5 top-1.5 p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-300 cursor-pointer"
               aria-label="Fechar menu"
             >
               <X className="w-4 h-4" />
@@ -164,7 +166,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           )}
           {/* Tagline indentada por baixo do wordmark, alinhada com o "V" de VILA */}
           <div className="pl-[42px] mt-0.5">
-            <div className="text-[8px] leading-[1.25] font-extrabold tracking-[0.05em] text-[#64748B] uppercase font-sans select-none">
+            <div className="text-[8px] leading-[1.25] font-extrabold tracking-[0.05em] text-[#64748B] dark:text-slate-400 uppercase font-sans select-none">
               <p className="whitespace-nowrap">O MUNDO É UMA VILA.</p>
               <p className="whitespace-nowrap mt-[1px]">
                 E NÓS SOMOS <span className="text-[#F58300] font-black">UM.</span>
@@ -227,7 +229,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-[12px] leading-tight transition-all duration-200 group cursor-pointer ${
                   isActive
                     ? 'bg-[#1455AC] text-white font-bold shadow-xs'
-                    : 'text-slate-700 hover:bg-[#1455AC]/5 hover:text-[#1455AC] font-medium'
+                    : 'text-slate-700 dark:text-slate-300 hover:bg-[#1455AC]/5 dark:hover:bg-[#1455AC]/15 hover:text-[#1455AC] font-medium'
                 }`}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -238,7 +240,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         ? 'text-white'
                         : item.id === 'ia'
                         ? 'text-emerald-500 group-hover:text-[#1455AC]'
-                        : 'text-slate-500 group-hover:text-[#1455AC]'
+                        : 'text-slate-500 dark:text-slate-400 group-hover:text-[#1455AC]'
                     }`}
                   >
                     {item.icon}
@@ -263,9 +265,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Secção Extra PLATAFORMA: visível exclusivamente para utilizadores com papel de Administrador */}
           {currentUser?.isAdmin && (
-            <div className="pt-2 mt-1.5 border-t border-slate-100 flex flex-col gap-1">
+            <div className="pt-2 mt-1.5 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-1">
               <div className="px-2 py-0.5 flex items-center justify-between">
-                <span className="text-[9.5px] font-black uppercase tracking-wider text-slate-400">
+                <span className="text-[9.5px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   Plataforma
                 </span>
                 <span className="text-[8.5px] font-bold px-1.5 py-0.2 rounded-md bg-amber-50 text-amber-700 border border-amber-200 truncate max-w-[110px]">
@@ -324,7 +326,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-[12px] leading-tight transition-all duration-200 group cursor-pointer ${
                       isActive
                         ? 'bg-[#1455AC] text-white font-bold shadow-xs'
-                        : 'text-slate-700 hover:bg-[#1455AC]/5 hover:text-[#1455AC] font-medium'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-[#1455AC]/5 dark:hover:bg-[#1455AC]/15 hover:text-[#1455AC] font-medium'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -333,7 +335,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         className={`shrink-0 transition-colors ${
                           isActive
                             ? 'text-white'
-                            : 'text-slate-500 group-hover:text-[#1455AC]'
+                            : 'text-slate-500 dark:text-slate-400 group-hover:text-[#1455AC]'
                         }`}
                       >
                         {shortcut.icon}
@@ -364,12 +366,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* 3. Bloco Inferior Fixo: Card Promocional + Idioma + Tema + Autenticação */}
         <div
           id="sidebar-bottom-fixed-container"
-          className="shrink-0 pt-2 border-t border-slate-100 flex flex-col gap-2.5 bg-white"
+          className="shrink-0 pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2.5 bg-white dark:bg-slate-900"
         >
           {/* Card Promocional Fixo (sempre idêntico em todas as páginas) */}
           <div
             id="sidebar-promo-card"
-            className="p-3 rounded-2xl bg-[#1455AC]/5 border border-slate-200 relative overflow-hidden flex flex-col items-start text-left shadow-2xs"
+            className="p-3 rounded-2xl bg-[#1455AC]/5 dark:bg-[#1455AC]/10 border border-slate-200 dark:border-slate-700 relative overflow-hidden flex flex-col items-start text-left shadow-2xs"
           >
             {/* 3D Earth Globe Graphic com nós e malha de constelação */}
             <div className="relative w-11 h-11 mb-1.5 flex items-center justify-center">
@@ -475,32 +477,32 @@ export const Sidebar: React.FC<SidebarProps> = ({
               type="button"
               onClick={() => setIsLangOpen(!isLangOpen)}
               id="sidebar-lang-btn"
-              className="flex items-center justify-between border border-slate-200 rounded-xl px-2.5 py-1.5 text-[12px] font-bold text-slate-700 bg-white hover:bg-slate-50 w-full shadow-2xs hover:border-slate-300 transition-all cursor-pointer"
+              className="flex items-center justify-between border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1.5 text-[12px] font-bold text-slate-700 bg-white dark:bg-slate-800 dark:hover:bg-slate-700 hover:bg-slate-50 w-full shadow-2xs hover:border-slate-300 dark:hover:border-slate-600 transition-all cursor-pointer"
               aria-haspopup="menu"
               aria-expanded={isLangOpen}
             >
               <div className="flex items-center gap-2">
-                <Globe className="w-3.5 h-3.5 text-slate-500" strokeWidth={2.2} />
-                <span className="font-bold text-slate-700">
+                <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" strokeWidth={2.2} />
+                <span className="font-bold text-slate-700 dark:text-slate-200">
                   {selectedLang === 'PT' && 'PT'}
                   {selectedLang === 'EN' && 'EN'}
                   {selectedLang === 'ES' && 'ES'}
                 </span>
               </div>
-              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isLangOpen && (
               <div
                 role="menu"
-                className="absolute bottom-full mb-1.5 left-0 right-0 bg-white border border-slate-200 rounded-xl shadow-xl p-1 z-30 animate-in fade-in slide-in-from-bottom-1 duration-150"
+                className="absolute bottom-full mb-1.5 left-0 right-0 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl p-1 z-30 animate-in fade-in slide-in-from-bottom-1 duration-150"
               >
                 <button
                   type="button"
                   role="menuitem"
                   onClick={() => { setSelectedLang('PT'); setIsLangOpen(false); }}
                   className={`w-full text-left px-3 py-1.5 text-xs font-bold rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
-                    selectedLang === 'PT' ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-700 hover:bg-slate-50'
+                    selectedLang === 'PT' ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                   }`}
                 >
                   <span className="flex items-center gap-2"><span>🇵🇹</span> Português</span>
@@ -511,7 +513,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   role="menuitem"
                   onClick={() => { setSelectedLang('EN'); setIsLangOpen(false); }}
                   className={`w-full text-left px-3 py-1.5 text-xs font-bold rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
-                    selectedLang === 'EN' ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-700 hover:bg-slate-50'
+                    selectedLang === 'EN' ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                   }`}
                 >
                   <span className="flex items-center gap-2"><span>🇬🇧</span> English</span>
@@ -522,7 +524,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   role="menuitem"
                   onClick={() => { setSelectedLang('ES'); setIsLangOpen(false); }}
                   className={`w-full text-left px-3 py-1.5 text-xs font-bold rounded-lg flex items-center justify-between transition-colors cursor-pointer ${
-                    selectedLang === 'ES' ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-700 hover:bg-slate-50'
+                    selectedLang === 'ES' ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                   }`}
                 >
                   <span className="flex items-center gap-2"><span>🇪🇸</span> Español</span>
@@ -533,12 +535,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           {/* Toggle de Tema Claro / Escuro */}
-          <div className="flex items-center justify-between w-full text-[12px] font-bold text-slate-700 px-1">
-            <span className="flex items-center gap-1.5 text-slate-700">
+          <div className="flex items-center justify-between w-full text-[12px] font-bold text-slate-700 dark:text-slate-300 px-1">
+            <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
               {isLightMode ? (
-                <Sun className="w-3.5 h-3.5 text-slate-600" strokeWidth={2.2} />
+                <Sun className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" strokeWidth={2.2} />
               ) : (
-                <Moon className="w-3.5 h-3.5 text-slate-600" strokeWidth={2.2} />
+                <Moon className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" strokeWidth={2.2} />
               )}
               {isLightMode ? 'Tema Claro' : 'Tema Escuro'}
             </span>
@@ -546,7 +548,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               type="button"
               role="switch"
               aria-checked={isLightMode}
-              onClick={() => setIsLightMode(!isLightMode)}
+              onClick={toggleTheme}
               id="theme-toggle-switch"
               className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
                 isLightMode ? 'bg-[#1455AC]' : 'bg-slate-300'
@@ -567,7 +569,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               type="button"
               id="sidebar-btn-logout"
               onClick={() => onLogout?.()}
-              className="w-full flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-rose-200 hover:bg-rose-50/70 text-slate-700 hover:text-rose-600 font-bold rounded-xl py-2 px-3 text-[11.5px] shadow-2xs transition-colors cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-rose-200 dark:hover:border-rose-800 hover:bg-rose-50/70 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 font-bold rounded-xl py-2 px-3 text-[11.5px] shadow-2xs transition-colors cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Sair da plataforma</span>
@@ -579,7 +581,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 type="button"
                 id="sidebar-btn-login"
                 onClick={() => onOpenAuth('login')}
-                className="bg-white border border-slate-200 shadow-2xs rounded-xl py-2 px-2.5 text-[11.5px] font-bold text-slate-800 hover:bg-slate-50 text-center transition-colors cursor-pointer"
+                className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs rounded-xl py-2 px-2.5 text-[11.5px] font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 text-center transition-colors cursor-pointer"
               >
                 Entrar
               </button>

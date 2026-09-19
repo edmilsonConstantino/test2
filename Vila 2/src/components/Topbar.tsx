@@ -126,7 +126,7 @@ export const Topbar: React.FC<TopbarProps> = ({
   return (
     <header
       id="topbar"
-      className="h-14 shrink-0 w-full bg-[#F1F5F9]/95 backdrop-blur-md border-b border-slate-200/80 px-3.5 sm:px-5 lg:px-6 flex items-center justify-between gap-4 sticky top-0 z-30 transition-all select-none"
+      className="h-14 shrink-0 w-full bg-[#F1F5F9]/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 px-3.5 sm:px-5 lg:px-6 flex items-center justify-between gap-4 sticky top-0 z-30 transition-all select-none"
     >
       {/* Mobile Menu Toggle & Brand (visible on screens < lg) */}
       <div className="flex items-center gap-2 lg:hidden">
@@ -134,7 +134,7 @@ export const Topbar: React.FC<TopbarProps> = ({
           <button
             type="button"
             onClick={onOpenMobileMenu}
-            className="p-1.5 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             id="topbar-btn-mobile-menu"
             aria-label="Abrir Menu"
           >
@@ -155,7 +155,7 @@ export const Topbar: React.FC<TopbarProps> = ({
             <button
               type="button"
               onClick={breadcrumb[0].onClick}
-              className="w-8 h-8 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-700 hover:text-[#1455AC] transition-colors shadow-2xs cursor-pointer shrink-0"
+              className="w-8 h-8 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-[#1455AC] transition-colors shadow-2xs cursor-pointer shrink-0"
               title="Voltar"
               aria-label="Voltar"
             >
@@ -168,17 +168,17 @@ export const Topbar: React.FC<TopbarProps> = ({
             const isLast = idx === breadcrumb.length - 1;
             return (
               <React.Fragment key={`${item.label}-${idx}`}>
-                {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" strokeWidth={2.5} />}
+                {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600 shrink-0" strokeWidth={2.5} />}
                 {item.onClick && !isLast ? (
                   <button
                     type="button"
                     onClick={item.onClick}
-                    className="text-slate-700 hover:text-[#1455AC] font-semibold truncate transition-colors cursor-pointer"
+                    className="text-slate-700 dark:text-slate-300 hover:text-[#1455AC] font-semibold truncate transition-colors cursor-pointer"
                   >
                     {item.label}
                   </button>
                 ) : (
-                  <span className={`truncate ${isLast ? 'font-bold text-slate-900' : 'text-slate-700 font-semibold'}`}>
+                  <span className={`truncate ${isLast ? 'font-bold text-slate-900 dark:text-slate-50' : 'text-slate-700 dark:text-slate-300 font-semibold'}`}>
                     {item.label}
                   </span>
                 )}
@@ -191,7 +191,7 @@ export const Topbar: React.FC<TopbarProps> = ({
       {/* 1. Input de Busca Centralizado */}
       <div className="hidden md:flex flex-1 max-w-xl mx-auto" id="topbar-search-container">
         <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full">
-          <Search className="absolute left-4 w-4.5 h-4.5 text-slate-500 pointer-events-none" strokeWidth={2} />
+          <Search className="absolute left-4 w-4.5 h-4.5 text-slate-500 dark:text-slate-500 pointer-events-none" strokeWidth={2} />
           <input
             ref={searchInputRef}
             type="text"
@@ -199,14 +199,14 @@ export const Topbar: React.FC<TopbarProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={searchPlaceholder}
-            className="w-full bg-white border border-slate-200/80 rounded-lg pl-11 pr-14 py-2 text-[13px] font-medium text-slate-800 placeholder:text-slate-400 shadow-2xs focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC] transition-all"
+            className="w-full bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-lg pl-11 pr-14 py-2 text-[13px] font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-2xs focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC] transition-all"
           />
           <kbd
             onClick={() => {
               if (onOpenSearchModal) onOpenSearchModal();
               else searchInputRef.current?.focus();
             }}
-            className="absolute right-3.5 text-[11px] font-mono font-medium text-slate-400 select-none cursor-pointer hover:text-slate-600 transition-colors"
+            className="absolute right-3.5 text-[11px] font-mono font-medium text-slate-400 dark:text-slate-500 select-none cursor-pointer hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
             title="Pressione ⌘K ou Ctrl+K para pesquisar"
           >
             ⌘K
@@ -222,17 +222,17 @@ export const Topbar: React.FC<TopbarProps> = ({
             setIsMobileSearchOpen(true);
             setTimeout(() => mobileSearchInputRef.current?.focus(), 50);
           }}
-          className="p-2 rounded-full hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"
+          className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors cursor-pointer"
           id="topbar-mobile-search-trigger"
           aria-label="Abrir pesquisa"
         >
-          <Search className="w-4 h-4 text-slate-600" />
+          <Search className="w-4 h-4 text-slate-600 dark:text-slate-400" />
         </button>
       </div>
 
       {/* Mobile Fullscreen/Overlay Search Bar */}
       {isMobileSearchOpen && (
-        <div className="fixed inset-x-0 top-0 h-16 bg-white border-b border-slate-200 z-50 px-4 flex items-center gap-2 shadow-md md:hidden">
+        <div className="fixed inset-x-0 top-0 h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-50 px-4 flex items-center gap-2 shadow-md md:hidden">
           <form onSubmit={handleSearchSubmit} className="flex-1 relative">
             <input
               ref={mobileSearchInputRef}
@@ -240,14 +240,14 @@ export const Topbar: React.FC<TopbarProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Pesquisar no VILA..."
-              className="w-full h-10 pl-9 pr-9 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC]"
+              className="w-full h-10 pl-9 pr-9 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC]"
             />
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500" />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -256,7 +256,7 @@ export const Topbar: React.FC<TopbarProps> = ({
           <button
             type="button"
             onClick={() => setIsMobileSearchOpen(false)}
-            className="p-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100"
+            className="p-2 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             Cancelar
           </button>
@@ -271,14 +271,14 @@ export const Topbar: React.FC<TopbarProps> = ({
             type="button"
             onClick={() => setIsLangOpen(!isLangOpen)}
             id="topbar-language-selector"
-            className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer py-1.5 px-2 rounded-md hover:bg-slate-200/60"
+            className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 transition-colors cursor-pointer py-1.5 px-2 rounded-md hover:bg-slate-200/60 dark:hover:bg-slate-800"
             aria-haspopup="menu"
             aria-expanded={isLangOpen}
           >
-            <Globe className="w-4 h-4 text-slate-600" strokeWidth={2} />
+            <Globe className="w-4 h-4 text-slate-600 dark:text-slate-400" strokeWidth={2} />
             <span>{selectedLanguage}</span>
             <ChevronDown
-              className={`w-3 h-3 text-slate-400 transition-transform duration-200 ${
+              className={`w-3 h-3 text-slate-400 dark:text-slate-500 transition-transform duration-200 ${
                 isLangOpen ? 'rotate-180' : ''
               }`}
             />
@@ -289,14 +289,14 @@ export const Topbar: React.FC<TopbarProps> = ({
             <div
               id="topbar-lang-dropdown"
               role="menu"
-              className="absolute right-0 mt-1.5 w-36 bg-white border border-slate-200 rounded-lg shadow-lg p-1 z-50 animate-in fade-in duration-150"
+              className="absolute right-0 mt-1.5 w-36 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg p-1 z-50 animate-in fade-in duration-150"
             >
               <button
                 type="button"
                 role="menuitem"
                 onClick={() => handleSelectLanguage('PT')}
-                className={`w-full text-left px-2.5 py-1.5 hover:bg-slate-50 rounded-md text-xs flex items-center justify-between transition-colors cursor-pointer ${
-                  selectedLanguage === 'PT' ? 'text-[#1455AC] font-semibold bg-[#1455AC]/10' : 'text-slate-700'
+                className={`w-full text-left px-2.5 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                  selectedLanguage === 'PT' ? 'text-[#1455AC] font-semibold bg-[#1455AC]/10' : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
                 <span className="flex items-center gap-2">
@@ -308,8 +308,8 @@ export const Topbar: React.FC<TopbarProps> = ({
                 type="button"
                 role="menuitem"
                 onClick={() => handleSelectLanguage('EN')}
-                className={`w-full text-left px-2.5 py-1.5 hover:bg-slate-50 rounded-md text-xs flex items-center justify-between transition-colors cursor-pointer ${
-                  selectedLanguage === 'EN' ? 'text-[#1455AC] font-semibold bg-[#1455AC]/10' : 'text-slate-700'
+                className={`w-full text-left px-2.5 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                  selectedLanguage === 'EN' ? 'text-[#1455AC] font-semibold bg-[#1455AC]/10' : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
                 <span className="flex items-center gap-2">
@@ -321,8 +321,8 @@ export const Topbar: React.FC<TopbarProps> = ({
                 type="button"
                 role="menuitem"
                 onClick={() => handleSelectLanguage('ES')}
-                className={`w-full text-left px-2.5 py-1.5 hover:bg-slate-50 rounded-md text-xs flex items-center justify-between transition-colors cursor-pointer ${
-                  selectedLanguage === 'ES' ? 'text-[#1455AC] font-semibold bg-[#1455AC]/10' : 'text-slate-700'
+                className={`w-full text-left px-2.5 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-md text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                  selectedLanguage === 'ES' ? 'text-[#1455AC] font-semibold bg-[#1455AC]/10' : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
                 <span className="flex items-center gap-2">
@@ -340,7 +340,7 @@ export const Topbar: React.FC<TopbarProps> = ({
             type="button"
             onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
             id="topbar-notifications-trigger"
-            className="relative p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-colors cursor-pointer"
+            className="relative p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             aria-label="Notificações"
             aria-haspopup="menu"
             aria-expanded={isNotificationsOpen}
@@ -348,7 +348,7 @@ export const Topbar: React.FC<TopbarProps> = ({
             <Bell className="w-4.5 h-4.5" strokeWidth={2} />
             <span
               id="topbar-notification-badge"
-              className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#F58300] ring-2 ring-white"
+              className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#F58300] ring-2 ring-white dark:ring-slate-900"
             />
           </button>
 
@@ -356,13 +356,13 @@ export const Topbar: React.FC<TopbarProps> = ({
           {isNotificationsOpen && (
             <div
               id="topbar-notifications-dropdown"
-              className="absolute right-0 mt-1.5 w-80 md:w-92 bg-white border border-slate-200 rounded-lg shadow-lg z-50 overflow-hidden animate-in fade-in duration-150"
+              className="absolute right-0 mt-1.5 w-80 md:w-92 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg z-50 overflow-hidden animate-in fade-in duration-150"
             >
-              <div className="p-3 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+              <div className="p-3 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between bg-slate-50 dark:bg-slate-800/60">
                 <div className="flex items-center gap-2">
-                  <h4 className="text-xs font-bold text-slate-900">Notificações</h4>
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50">Notificações</h4>
                   {unreadCount > 0 && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-slate-200 text-slate-700 rounded">
+                    <span className="px-1.5 py-0.5 text-[10px] font-semibold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded">
                       {unreadCount}
                     </span>
                   )}
@@ -378,24 +378,24 @@ export const Topbar: React.FC<TopbarProps> = ({
                 )}
               </div>
 
-              <div className="divide-y divide-slate-100 max-h-72 overflow-y-auto">
+              <div className="divide-y divide-slate-100 dark:divide-slate-700/60 max-h-72 overflow-y-auto">
                 {notifications.map((n) => (
                   <div
                     key={n.id}
-                    className={`p-3 hover:bg-slate-50 transition-colors ${
-                      !n.read ? 'bg-[#1455AC]/5' : ''
+                    className={`p-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors ${
+                      !n.read ? 'bg-[#1455AC]/5 dark:bg-[#1455AC]/15' : ''
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <p className="text-xs font-semibold text-slate-900">{n.title}</p>
-                      <span className="text-[10px] text-slate-400 shrink-0">{n.time}</span>
+                      <p className="text-xs font-semibold text-slate-900 dark:text-slate-100">{n.title}</p>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0">{n.time}</span>
                     </div>
-                    <p className="text-xs text-slate-600 mt-0.5 line-clamp-2">{n.description}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 line-clamp-2">{n.description}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="p-2.5 text-center border-t border-slate-100 bg-slate-50/50">
+              <div className="p-2.5 text-center border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/40">
                 <button
                   type="button"
                   onClick={() => setIsNotificationsOpen(false)}
@@ -433,14 +433,14 @@ export const Topbar: React.FC<TopbarProps> = ({
                 <img
                   src={userAvatarUrl}
                   alt={userName}
-                  className="w-9 h-9 rounded-full object-cover border border-slate-200 group-hover:ring-2 group-hover:ring-[#1455AC]/30 transition-all"
+                  className="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-700 group-hover:ring-2 group-hover:ring-[#1455AC]/30 transition-all"
                 />
               ) : (
-                <div className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200/90 flex items-center justify-center text-slate-600 group-hover:bg-slate-200/80 group-hover:ring-2 group-hover:ring-[#1455AC]/30 transition-all shadow-2xs">
-                  <User className="w-4.5 h-4.5 text-slate-600" />
+                <div className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:bg-slate-200/80 dark:group-hover:bg-slate-700 group-hover:ring-2 group-hover:ring-[#1455AC]/30 transition-all shadow-2xs">
+                  <User className="w-4.5 h-4.5 text-slate-600 dark:text-slate-400" />
                 </div>
               )}
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#22C55E] border-2 border-white rounded-full"></span>
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#22C55E] border-2 border-white dark:border-slate-900 rounded-full"></span>
             </div>
 
             {/* Dropdown de Menu do Avatar */}
@@ -448,27 +448,27 @@ export const Topbar: React.FC<TopbarProps> = ({
               <div
                 id="topbar-user-dropdown"
                 role="menu"
-                className="absolute right-0 mt-2 w-60 bg-white border border-slate-100 rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                className="absolute right-0 mt-2 w-60 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
               >
-                <div className="px-4 py-2.5 border-b border-slate-100 flex items-center gap-3">
+                <div className="px-4 py-2.5 border-b border-slate-100 dark:border-slate-700 flex items-center gap-3">
                   {userAvatarUrl ? (
                     <img
                       src={userAvatarUrl}
                       alt={userName}
-                      className="w-9 h-9 rounded-full object-cover border border-slate-200 shrink-0"
+                      className="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-700 shrink-0"
                     />
                   ) : (
-                    <div className="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 shrink-0">
-                      <User className="w-4 h-4 text-slate-600" />
+                    <div className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 shrink-0">
+                      <User className="w-4 h-4 text-slate-600 dark:text-slate-400" />
                     </div>
                   )}
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-bold text-slate-900 truncate">{userName}</p>
+                    <p className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate">{userName}</p>
                     <p className="text-[10px] text-[#1455AC] font-semibold truncate">
                       {currentUser?.roleLabel || 'Membro Global'}
                     </p>
                     {currentUser?.scope && currentUser.scope !== '—' && (
-                      <p className="text-[9.5px] text-slate-400 truncate mt-0.5">
+                      <p className="text-[9.5px] text-slate-400 dark:text-slate-500 truncate mt-0.5">
                         {currentUser.scope}
                       </p>
                     )}
@@ -485,7 +485,7 @@ export const Topbar: React.FC<TopbarProps> = ({
                         setIsAvatarMenuOpen(false);
                         onNavigateToTab?.('painel-gestao');
                       }}
-                      className="w-full px-4 py-2 text-left text-xs font-bold text-[#1455AC] bg-[#1455AC]/10 hover:bg-[#1455AC]/15 flex items-center gap-2.5 transition-colors cursor-pointer border-b border-slate-100 mb-1"
+                      className="w-full px-4 py-2 text-left text-xs font-bold text-[#1455AC] bg-[#1455AC]/10 hover:bg-[#1455AC]/15 flex items-center gap-2.5 transition-colors cursor-pointer border-b border-slate-100 dark:border-slate-700 mb-1"
                     >
                       <Building2 className="w-3.5 h-3.5 text-[#1455AC]" />
                       <span>Painel de Gestão</span>
@@ -499,9 +499,9 @@ export const Topbar: React.FC<TopbarProps> = ({
                       setIsAvatarMenuOpen(false);
                       onNavigateToTab?.('perfil-vila');
                     }}
-                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 hover:bg-slate-50 flex items-center gap-2.5 transition-colors cursor-pointer"
+                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center gap-2.5 transition-colors cursor-pointer"
                   >
-                    <User className="w-3.5 h-3.5 text-slate-400" />
+                    <User className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     <span>Meu Perfil</span>
                   </button>
 
@@ -512,9 +512,9 @@ export const Topbar: React.FC<TopbarProps> = ({
                       setIsAvatarMenuOpen(false);
                       onNavigateToTab?.('territorios');
                     }}
-                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 hover:bg-slate-50 flex items-center gap-2.5 transition-colors cursor-pointer"
+                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center gap-2.5 transition-colors cursor-pointer"
                   >
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                    <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     <span>Os Meus Territórios</span>
                   </button>
 
@@ -525,9 +525,9 @@ export const Topbar: React.FC<TopbarProps> = ({
                       setIsAvatarMenuOpen(false);
                       onNavigateToTab?.('definicoes');
                     }}
-                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 hover:bg-slate-50 flex items-center gap-2.5 transition-colors cursor-pointer"
+                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center gap-2.5 transition-colors cursor-pointer"
                   >
-                    <ShieldCheck className="w-3.5 h-3.5 text-slate-400" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     <span>Privacidade & Dados</span>
                   </button>
 
@@ -538,14 +538,14 @@ export const Topbar: React.FC<TopbarProps> = ({
                       setIsAvatarMenuOpen(false);
                       onNavigateToTab?.('definicoes');
                     }}
-                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 hover:bg-slate-50 flex items-center gap-2.5 transition-colors cursor-pointer"
+                    className="w-full px-4 py-2 text-left text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center gap-2.5 transition-colors cursor-pointer"
                   >
-                    <Settings className="w-3.5 h-3.5 text-slate-400" />
+                    <Settings className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     <span>Definições da Conta</span>
                   </button>
                 </div>
 
-                <div className="pt-1 border-t border-slate-100">
+                <div className="pt-1 border-t border-slate-100 dark:border-slate-700">
                   <button
                     type="button"
                     role="menuitem"
@@ -553,9 +553,9 @@ export const Topbar: React.FC<TopbarProps> = ({
                       setIsAvatarMenuOpen(false);
                       onOpenAuth?.('login');
                     }}
-                    className="w-full px-4 py-2 text-left text-xs font-bold text-red-600 hover:bg-red-50/60 flex items-center gap-2.5 transition-colors cursor-pointer"
+                    className="w-full px-4 py-2 text-left text-xs font-bold text-red-600 dark:text-red-400 hover:bg-red-50/60 dark:hover:bg-red-950/30 flex items-center gap-2.5 transition-colors cursor-pointer"
                   >
-                    <LogOut className="w-3.5 h-3.5 text-red-500" />
+                    <LogOut className="w-3.5 h-3.5 text-red-500 dark:text-red-400" />
                     <span>Terminar Sessão</span>
                   </button>
                 </div>

@@ -131,7 +131,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       period: 'desde o ano passado',
       icon: CalendarCheck2,
       iconBg: 'bg-emerald-50/90',
-      iconColor: 'text-emerald-600',
+      iconColor: 'text-emerald-600 dark:text-emerald-400',
       borderColor: 'border-emerald-100/70',
     },
     {
@@ -153,7 +153,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       period: 'desde o ano passado',
       icon: Globe2,
       iconBg: 'bg-amber-50/90',
-      iconColor: 'text-amber-600',
+      iconColor: 'text-amber-600 dark:text-amber-400',
       borderColor: 'border-amber-100/70',
     },
     {
@@ -566,7 +566,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       subtitle: 'por João Silva • Município de Lisboa',
       time: 'há 10 min',
       icon: <Calendar className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
     },
     {
       id: 'ar-2',
@@ -575,7 +575,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       subtitle: 'por Maria Costa • VILA Global',
       time: 'há 25 min',
       icon: <Sparkles className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
     },
     {
       id: 'ar-3',
@@ -583,8 +583,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       highlight: '"Workshop de Inovação Social"',
       subtitle: '245 novas inscrições',
       time: 'há 1 h',
-      icon: <Users className="w-4 h-4 text-emerald-600" />,
-      iconBg: 'bg-emerald-50 border border-emerald-100',
+      icon: <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
     },
     {
       id: 'ar-4',
@@ -592,8 +592,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       highlight: '"Webinar sobre ODS"',
       subtitle: '1.200 participaram',
       time: 'há 2 h',
-      icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" />,
-      iconBg: 'bg-emerald-50 border border-emerald-100',
+      icon: <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
     },
   ];
 
@@ -604,25 +604,25 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
     switch (format) {
       case 'Presencial':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80">
             Presencial
           </span>
         );
       case 'Online':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-200/80">
             Online
           </span>
         );
       case 'Híbrido':
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-200/80">
             Híbrido
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-50 text-slate-700 border border-slate-200/80">
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700">
             {format}
           </span>
         );
@@ -649,10 +649,10 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <Calendar className="w-6 h-6" strokeWidth={2.2} />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
               Eventos Globais
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 font-normal mt-0.5 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-2xl leading-relaxed">
               Descubra, organize e acompanhe eventos que conectam pessoas, comunidades e territórios em todo o mundo.
             </p>
           </div>
@@ -661,7 +661,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         {/* Lado Direito: Status em Tempo Real + Seletor de Datas + Botões de Ação */}
         <div className="flex flex-col items-start xl:items-end gap-2.5 shrink-0">
           {/* Indicadores de Atualização e Tempo Real */}
-          <div className="flex items-center gap-3 text-[11px] font-medium text-slate-500">
+          <div className="flex items-center gap-3 text-[11px] font-medium text-slate-500 dark:text-slate-400">
             <span className="inline-flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Dados atualizados: 10:32</span>
@@ -678,20 +678,20 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             <button
               type="button"
               onClick={() => setIsDateModalOpen(true)}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors shadow-2xs cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5 text-slate-500" />
+              <Calendar className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>{dateRange}</span>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
             </button>
 
             {/* Botão Exportar */}
             <button
               type="button"
               onClick={() => setIsExportModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors shadow-2xs cursor-pointer"
             >
-              <Download className="w-3.5 h-3.5 text-slate-500" />
+              <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>Exportar</span>
             </button>
 
@@ -726,9 +726,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Eventos por Tipo (Donut Chart & Estatísticas) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos por Tipo
             </h2>
 
@@ -825,10 +825,10 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
                 {/* Centro do Donut */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <span className="text-xl font-black text-[#0F172A] font-sans">
+                  <span className="text-xl font-black text-[#0F172A] dark:text-slate-50 font-sans">
                     9.580
                   </span>
-                  <span className="text-[9.5px] font-bold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[9.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                     Total
                   </span>
                 </div>
@@ -839,14 +839,14 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 {tiposData.map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center justify-between text-xs font-medium text-slate-700 hover:bg-slate-50 px-1.5 py-0.5 rounded-md transition-colors"
+                    className="flex items-center justify-between text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 px-1.5 py-0.5 rounded-md transition-colors"
                   >
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
-                      <span className="text-slate-700">{item.label}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{item.label}</span>
                     </div>
-                    <span className="font-bold text-[#0F172A]">
-                      {item.percentage}% <span className="text-slate-400 font-normal">({item.count})</span>
+                    <span className="font-bold text-[#0F172A] dark:text-slate-50">
+                      {item.percentage}% <span className="text-slate-400 dark:text-slate-500 font-normal">({item.count})</span>
                     </span>
                   </div>
                 ))}
@@ -868,9 +868,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 2: Eventos por Continente (Mapa com Pontos de Densidade) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos por Continente
             </h2>
 
@@ -961,8 +961,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                       />
                       <span>{cont.name}</span>
                     </div>
-                    <span className="font-bold text-slate-800">
-                      {cont.count} <span className="text-slate-400 font-normal">({cont.pct})</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-100">
+                      {cont.count} <span className="text-slate-400 dark:text-slate-500 font-normal">({cont.pct})</span>
                     </span>
                   </div>
                 ))}
@@ -984,10 +984,10 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 3: Evolução de Eventos (Gráfico de 3 Linhas) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
             <div className="flex items-center justify-between gap-2">
-              <h2 className="text-base font-bold text-[#0F172A] font-sans">
+              <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Evolução de Eventos
               </h2>
               {/* Dropdown de Período */}
@@ -995,18 +995,18 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <select
                   value={chartPeriod}
                   onChange={(e) => setChartPeriod(e.target.value)}
-                  className="text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2.5 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
+                  className="text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-lg px-2.5 py-1 pr-6 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none"
                 >
                   <option value="Últimos 12 meses">Últimos 12 meses</option>
                   <option value="Ano 2024">Ano 2024</option>
                   <option value="Últimos 6 meses">Últimos 6 meses</option>
                 </select>
-                <ChevronDown className="w-3 h-3 text-slate-400 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
             {/* Legenda das 3 Linhas */}
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-600">
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Total de Eventos</span>
@@ -1213,9 +1213,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Próximos Eventos Globais */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Próximos Eventos Globais
             </h2>
 
@@ -1224,10 +1224,10 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <div
                   key={ev.id}
                   onClick={() => setSelectedEvent(ev)}
-                  className="py-3 flex items-start gap-3 hover:bg-slate-50/70 p-2 rounded-xl cursor-pointer transition-all group"
+                  className="py-3 flex items-start gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800/60 p-2 rounded-xl cursor-pointer transition-all group"
                 >
                   {/* Badge Quadrado com Data (Dia + Mês) */}
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0 group-hover:bg-[#1455AC] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0 group-hover:bg-[#1455AC] group-hover:text-white transition-colors">
                     <span className="text-sm font-black text-[#1455AC] group-hover:text-white leading-none font-sans">
                       {ev.dayBadge}
                     </span>
@@ -1239,22 +1239,22 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   {/* Conteúdo Central e Metadata */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] group-hover:text-[#1455AC] truncate transition-colors">
+                      <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#1455AC] truncate transition-colors">
                         {ev.title}
                       </h3>
                       {renderFormatBadge(ev.format)}
                       {ev.isFeatured && (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-200/80">
                           Em destaque
                         </span>
                       )}
                     </div>
 
-                    <div className="mt-1 flex items-center justify-between text-[11px] text-slate-500">
+                    <div className="mt-1 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
                       <span>{ev.locationText} • {ev.participantsCount}</span>
                       <div className="text-right shrink-0 ml-2">
-                        <p className="font-semibold text-slate-700">{ev.datesText}</p>
-                        <p className="text-slate-400 text-[10.5px]">{ev.countdown}</p>
+                        <p className="font-semibold text-slate-700 dark:text-slate-300">{ev.datesText}</p>
+                        <p className="text-slate-400 dark:text-slate-500 text-[10.5px]">{ev.countdown}</p>
                       </div>
                     </div>
                   </div>
@@ -1277,22 +1277,22 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 2: Calendário Global */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
             {/* Header do Calendário: Navegação de Mês */}
             <div className="flex items-center justify-between">
-              <h2 className="text-base font-bold text-[#0F172A] font-sans">
+              <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Calendário Global
               </h2>
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setCalendarMonth('Abril 2025')}
-                  className="p-1 rounded-lg hover:bg-slate-100 text-slate-500 transition-colors cursor-pointer"
+                  className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="text-xs font-bold text-slate-700 px-1">
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 px-1">
                   {calendarMonth}
                 </span>
                 <button
@@ -1301,14 +1301,14 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     setCalendarMonth('Maio 2025');
                     setSelectedCalendarDay(24);
                   }}
-                  className="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer"
+                  className="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 cursor-pointer"
                 >
                   Hoje
                 </button>
                 <button
                   type="button"
                   onClick={() => setCalendarMonth('Junho 2025')}
-                  className="p-1 rounded-lg hover:bg-slate-100 text-slate-500 transition-colors cursor-pointer"
+                  className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors cursor-pointer"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -1318,7 +1318,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             {/* Grelha dos Dias da Semana */}
             <div className="grid grid-cols-7 gap-1 mt-4 text-center">
               {['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'].map((w) => (
-                <div key={w} className="text-[11px] font-bold text-slate-400 pb-1">
+                <div key={w} className="text-[11px] font-bold text-slate-400 dark:text-slate-500 pb-1">
                   {w}
                 </div>
               ))}
@@ -1337,7 +1337,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                       isSelected
                         ? 'bg-[#0F172A] text-white shadow-xs font-bold'
                         : cell.isCurrentMonth
-                        ? 'text-slate-700 hover:bg-blue-50 font-medium'
+                        ? 'text-slate-700 dark:text-slate-300 hover:bg-blue-50 font-medium'
                         : 'text-slate-300 pointer-events-none'
                     }`}
                   >
@@ -1365,7 +1365,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             </div>
 
             {/* Legenda do Calendário */}
-            <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-center gap-4 text-[11px] font-medium text-slate-600">
+            <div className="mt-4 pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-center gap-4 text-[11px] font-medium text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                 <span>Eventos Presenciais</span>
@@ -1395,14 +1395,14 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 3: Eventos em Destaque */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos em Destaque
             </h2>
 
             {/* Card Hero: Fórum Global de Comunidades 2025 */}
-            <div className="mt-3 rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs hover:border-blue-200 transition-all group">
+            <div className="mt-3 rounded-2xl border border-slate-200/90 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-blue-200 transition-all group">
               {/* Imagem com Overlay e Badge */}
               <div className="relative h-28 w-full bg-slate-900 overflow-hidden">
                 <img
@@ -1419,23 +1419,23 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
               {/* Conteúdo do Hero */}
               <div className="p-3.5 space-y-2">
-                <h3 className="text-sm font-bold text-[#0F172A] group-hover:text-[#1455AC] transition-colors leading-tight">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#1455AC] transition-colors leading-tight">
                   {destaquePrincipal.title}
                 </h3>
-                <p className="text-[11.5px] text-slate-500 line-clamp-2 leading-relaxed">
+                <p className="text-[11.5px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
                   {destaquePrincipal.subtitle}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-600 pt-1">
-                  <div className="flex items-center gap-1 text-slate-700">
+                <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 pt-1">
+                  <div className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
                     <Calendar className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{destaquePrincipal.date}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-slate-700">
+                  <div className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
                     <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{destaquePrincipal.location}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-slate-700">
+                  <div className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
                     <Users className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{destaquePrincipal.participants}</span>
                   </div>
@@ -1445,7 +1445,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   <button
                     type="button"
                     onClick={() => showToast('A abrir detalhes do evento principal')}
-                    className="px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-xs font-bold text-[#0F172A] cursor-pointer transition-colors"
+                    className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-xs font-bold text-[#0F172A] dark:text-slate-50 cursor-pointer transition-colors"
                   >
                     Ver detalhes
                   </button>
@@ -1459,7 +1459,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 <div
                   key={mini.id}
                   onClick={() => showToast(`A abrir: ${mini.title}`)}
-                  className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 border border-slate-100 cursor-pointer transition-colors group"
+                  className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-100 dark:border-slate-800 cursor-pointer transition-colors group"
                 >
                   <img
                     src={mini.imageUrl}
@@ -1467,10 +1467,10 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     className="w-12 h-10 rounded-lg object-cover shrink-0"
                   />
                   <div className="min-w-0 flex-1">
-                    <h4 className="text-xs font-bold text-[#0F172A] group-hover:text-[#1455AC] truncate transition-colors">
+                    <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#1455AC] truncate transition-colors">
                       {mini.title}
                     </h4>
-                    <p className="text-[11px] text-slate-400 truncate mt-0.5">
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate mt-0.5">
                       {mini.details}
                     </p>
                   </div>
@@ -1502,22 +1502,22 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* CARD 1: Eventos por Formato */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos por Formato
             </h2>
 
             <div className="mt-4 space-y-3.5">
               {formatosData.map((f) => (
                 <div key={f.name} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                  <div className="flex items-center justify-between text-xs font-medium text-slate-700 dark:text-slate-300">
                     <span>{f.name}</span>
-                    <span className="font-bold text-[#0F172A]">
-                      {f.count} <span className="text-slate-400 font-normal">({f.pct}%)</span>
+                    <span className="font-bold text-[#0F172A] dark:text-slate-50">
+                      {f.count} <span className="text-slate-400 dark:text-slate-500 font-normal">({f.pct}%)</span>
                     </span>
                   </div>
-                  <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
                       className={`h-full rounded-full ${f.bgClass} transition-all duration-500`}
                       style={{ width: `${f.pct}%` }}
@@ -1542,9 +1542,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 2: Participação por Faixa */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Participação por Faixa
             </h2>
 
@@ -1617,14 +1617,14 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               </div>
 
               {/* Legenda dos Intervalos */}
-              <div className="flex-1 space-y-1 text-[11px] font-medium text-slate-700">
+              <div className="flex-1 space-y-1 text-[11px] font-medium text-slate-700 dark:text-slate-300">
                 {faixasData.map((fx) => (
                   <div key={fx.label} className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5 truncate">
                       <span className={`w-2 h-2 rounded-full ${fx.dotClass} shrink-0`} />
                       <span className="truncate">{fx.label}</span>
                     </div>
-                    <span className="font-bold text-[#0F172A] shrink-0 ml-1">
+                    <span className="font-bold text-[#0F172A] dark:text-slate-50 shrink-0 ml-1">
                       {fx.percentage}%
                     </span>
                   </div>
@@ -1647,9 +1647,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 3: Principais Organizadores */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Principais Organizadores
             </h2>
 
@@ -1657,17 +1657,17 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               {principaisOrganizadores.map((org) => (
                 <div
                   key={org.rank}
-                  className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 transition-colors"
+                  className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-md bg-blue-50 text-blue-700 border border-blue-200/80 flex items-center justify-center text-xs font-black">
+                    <span className="w-6 h-6 rounded-md bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-200/80 flex items-center justify-center text-xs font-black">
                       {org.rank}
                     </span>
-                    <span className="text-xs font-bold text-[#0F172A]">
+                    <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                       {org.name}
                     </span>
                   </div>
-                  <span className="text-xs font-medium text-slate-500">
+                  <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
                     {org.count}
                   </span>
                 </div>
@@ -1689,9 +1689,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
         </div>
 
         {/* CARD 4: Atividade Recente */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Atividade Recente
             </h2>
 
@@ -1702,11 +1702,11 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     {act.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-slate-700 leading-snug">
-                      <span className="font-medium text-slate-600">{act.title}</span>
-                      <span className="font-bold text-[#0F172A]">{act.highlight}</span>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-snug">
+                      <span className="font-medium text-slate-600 dark:text-slate-400">{act.title}</span>
+                      <span className="font-bold text-[#0F172A] dark:text-slate-50">{act.highlight}</span>
                     </p>
-                    <div className="mt-0.5 flex items-center justify-between text-[11px] text-slate-400">
+                    <div className="mt-0.5 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
                       <span className="truncate">{act.subtitle}</span>
                       <span className="shrink-0 ml-1 font-medium">{act.time}</span>
                     </div>
@@ -1735,17 +1735,17 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       {selectedEvent && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center font-black">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center font-black">
                   {selectedEvent.dayBadge}
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#0F172A]">
+                  <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">
                     {selectedEvent.title}
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     {selectedEvent.organizer}
                   </p>
                 </div>
@@ -1753,14 +1753,14 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               <button
                 type="button"
                 onClick={() => setSelectedEvent(null)}
-                className="p-1.5 rounded-xl hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+                className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {selectedEvent.image && (
-              <div className="h-44 rounded-2xl overflow-hidden bg-slate-100">
+              <div className="h-44 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img
                   src={selectedEvent.image}
                   alt={selectedEvent.title}
@@ -1770,50 +1770,50 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             )}
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <p className="text-[11px] text-slate-400">Datas</p>
-                <p className="text-xs font-bold text-slate-800 mt-0.5">{selectedEvent.datesText}</p>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">Datas</p>
+                <p className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">{selectedEvent.datesText}</p>
               </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <p className="text-[11px] text-slate-400">Localização</p>
-                <p className="text-xs font-bold text-slate-800 mt-0.5">{selectedEvent.locationText}</p>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">Localização</p>
+                <p className="text-xs font-bold text-slate-800 dark:text-slate-100 mt-0.5">{selectedEvent.locationText}</p>
               </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
-                <p className="text-[11px] text-slate-400">Participantes</p>
-                <p className="text-xs font-bold text-emerald-600 mt-0.5">{selectedEvent.participantsCount}</p>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">Participantes</p>
+                <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">{selectedEvent.participantsCount}</p>
               </div>
             </div>
 
             <div>
-              <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                 Sobre o Evento
               </h4>
-              <p className="text-xs text-slate-600 leading-relaxed mt-1">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-1">
                 {selectedEvent.description}
               </p>
             </div>
 
             {selectedEvent.agenda && (
               <div>
-                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                <h4 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
                   Destaques da Agenda
                 </h4>
                 <div className="space-y-1.5">
                   {selectedEvent.agenda.map((ag, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-xs p-2 rounded-lg bg-slate-50">
+                    <div key={idx} className="flex items-center gap-3 text-xs p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60">
                       <span className="font-bold text-blue-600 w-12 shrink-0">{ag.time}</span>
-                      <span className="text-slate-700">{ag.topic}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{ag.topic}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-200/70">
+            <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => setSelectedEvent(null)}
-                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 Fechar
               </button>
@@ -1837,13 +1837,13 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       {isDateModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 p-5 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#0F172A]">Período de Análise</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Período de Análise</h3>
               <button
                 type="button"
                 onClick={() => setIsDateModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-600"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1866,8 +1866,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   }}
                   className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-colors ${
                     dateRange === range
-                      ? 'bg-blue-50 text-[#1455AC] border border-blue-200'
-                      : 'text-slate-700 hover:bg-slate-50'
+                      ? 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] border border-blue-200'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   <span>{range}</span>
@@ -1884,16 +1884,16 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 p-6 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A]">Exportar Relatório de Eventos</h3>
-                <p className="text-xs text-slate-500">Selecione o formato de ficheiro pretendido</p>
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Exportar Relatório de Eventos</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Selecione o formato de ficheiro pretendido</p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsExportModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-600"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1912,12 +1912,12 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                     showToast(`A descarregar ficheiro ${exp.ext}...`);
                     setIsExportModalOpen(false);
                   }}
-                  className="p-3 rounded-2xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all group cursor-pointer"
+                  className="p-3 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all group cursor-pointer"
                 >
-                  <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#1455AC] block">
+                  <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#1455AC] block">
                     {exp.title}
                   </span>
-                  <span className="text-[11px] text-slate-400 block mt-1">
+                  <span className="text-[11px] text-slate-400 dark:text-slate-500 block mt-1">
                     {exp.desc}
                   </span>
                 </button>
@@ -1932,13 +1932,13 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 p-6 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold text-[#0F172A]">Filtros de Eventos</h3>
+              <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Filtros de Eventos</h3>
               <button
                 type="button"
                 onClick={() => setIsFilterModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-600"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1946,14 +1946,14 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-1">Formato</label>
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">Formato</label>
                 <div className="grid grid-cols-3 gap-2">
                   {['Todos', 'Presencial', 'Online', 'Híbrido'].map((fmt) => (
                     <button
                       key={fmt}
                       type="button"
                       onClick={() => showToast(`Filtro formato: ${fmt}`)}
-                      className="px-2 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold hover:bg-slate-50 cursor-pointer"
+                      className="px-2 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer"
                     >
                       {fmt}
                     </button>
@@ -1962,8 +1962,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-1">Continente</label>
-                <select className="w-full text-xs font-medium text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-2.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">Continente</label>
+                <select className="w-full text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5">
                   <option value="">Todos os Continentes</option>
                   <option value="europa">Europa (3.245 eventos)</option>
                   <option value="africa">África (2.186 eventos)</option>
@@ -1973,11 +1973,11 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 </select>
               </div>
 
-              <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200/70">
+              <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200/70 dark:border-slate-700">
                 <button
                   type="button"
                   onClick={() => setIsFilterModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100"
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   Limpar
                 </button>
@@ -2002,22 +2002,22 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       {isMapModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl border border-slate-200 p-6 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-4xl w-full shadow-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A]">Mapa Interativo de Eventos Globais</h3>
-                <p className="text-xs text-slate-500">Distribuição geográfica em 156 países parceiros</p>
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Mapa Interativo de Eventos Globais</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Distribuição geográfica em 156 países parceiros</p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsMapModalOpen(false)}
-                className="p-1.5 rounded-xl hover:bg-slate-100 text-slate-400"
+                className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="h-[380px] bg-slate-50 rounded-2xl border border-slate-200/80 p-4 flex items-center justify-center relative">
+            <div className="h-[380px] bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 flex items-center justify-center relative">
               <svg viewBox="0 0 480 240" className="w-full h-full object-contain">
                 <g>
                   {mapFeatures.paths.map((p) => {
@@ -2049,9 +2049,9 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs">
               {continentesData.map((c) => (
-                <div key={`modal-kpi-${c.name}`} className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                  <span className="text-[11px] text-slate-400 block">{c.name}</span>
-                  <span className="text-sm font-bold text-[#0F172A] block mt-0.5">{c.count}</span>
+                <div key={`modal-kpi-${c.name}`} className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                  <span className="text-[11px] text-slate-400 dark:text-slate-500 block">{c.name}</span>
+                  <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 block mt-0.5">{c.count}</span>
                   <span className="text-[10px] text-blue-600 font-semibold">{c.pct}</span>
                 </div>
               ))}

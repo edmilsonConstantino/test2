@@ -442,7 +442,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       )}
 
       {/* Sub-navegação interna de Territórios (UI TERRITORIOS.png) */}
-      <div className="flex items-center gap-2 sm:gap-6 border-b border-slate-200/80 pb-2 overflow-x-auto no-scrollbar">
+      <div className="flex items-center gap-2 sm:gap-6 border-b border-slate-200/80 dark:border-slate-700 pb-2 overflow-x-auto no-scrollbar">
         <button
           type="button"
           onClick={() => {
@@ -450,10 +450,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             showToast('A exibir visão geral dos seus territórios');
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <Sparkles className={`w-3.5 h-3.5 ${activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <Sparkles className={`w-3.5 h-3.5 ${activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Visão geral</span>
           {activeSubTab === 'visao-geral' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -464,10 +464,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
           type="button"
           onClick={() => setActiveSubTab('territorios-ativos')}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'territorios-ativos' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'territorios-ativos' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <CheckCircle2 className={`w-3.5 h-3.5 ${activeSubTab === 'territorios-ativos' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <CheckCircle2 className={`w-3.5 h-3.5 ${activeSubTab === 'territorios-ativos' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Territórios ativos</span>
           {activeSubTab === 'territorios-ativos' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -481,10 +481,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             setIsAllTerritoriosModalOpen(true);
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'explorar' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'explorar' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <Compass className={`w-3.5 h-3.5 ${activeSubTab === 'explorar' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <Compass className={`w-3.5 h-3.5 ${activeSubTab === 'explorar' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Explorar territórios</span>
           {activeSubTab === 'explorar' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -498,10 +498,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             showToast('Estatísticas territoriais consolidadas de Inês Pereira');
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'estatisticas' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'estatisticas' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <BarChart3 className={`w-3.5 h-3.5 ${activeSubTab === 'estatisticas' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <BarChart3 className={`w-3.5 h-3.5 ${activeSubTab === 'estatisticas' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Estatísticas</span>
           {activeSubTab === 'estatisticas' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -515,10 +515,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             setIsEditPrefsModalOpen(true);
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <Sliders className={`w-3.5 h-3.5 ${activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <Sliders className={`w-3.5 h-3.5 ${activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Preferências territoriais</span>
           {activeSubTab === 'preferencias' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -536,13 +536,13 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
         {/* =========================================================================
             COLUNA 1: OS MEUS TERRITÓRIOS NO MAPA (lg:col-span-5) - FIEL A IMAGE.PNG
         ========================================================================= */}
-        <div className="lg:col-span-5 rounded-3xl bg-gradient-to-b from-[#E7F1F8] via-[#E2EDF6] to-[#DBE9F4] border border-slate-200/90 shadow-2xs relative overflow-hidden flex flex-col justify-between min-h-[460px] sm:min-h-[490px] select-none">
+        <div className="lg:col-span-5 rounded-3xl bg-gradient-to-b from-[#E7F1F8] via-[#E2EDF6] to-[#DBE9F4] border border-slate-200/90 dark:border-slate-700 shadow-2xs relative overflow-hidden flex flex-col justify-between min-h-[460px] sm:min-h-[490px] select-none">
           {/* Controles de Zoom / Centralizar no canto superior esquerdo */}
-          <div className="absolute top-5 left-5 z-20 flex flex-col bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden">
+          <div className="absolute top-5 left-5 z-20 flex flex-col bg-white dark:bg-slate-900 rounded-2xl shadow-md border border-slate-200/80 dark:border-slate-700 overflow-hidden">
             <button
               type="button"
               onClick={() => setZoomLevel((prev) => Math.min(prev + 0.15, 1.6))}
-              className="w-9 h-9 flex items-center justify-center hover:bg-slate-50 text-slate-800 hover:text-[#1455AC] transition-colors border-b border-slate-100 cursor-pointer text-base font-bold"
+              className="w-9 h-9 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100 hover:text-[#1455AC] transition-colors border-b border-slate-100 dark:border-slate-800 cursor-pointer text-base font-bold"
               title="Aumentar zoom"
             >
               +
@@ -550,7 +550,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             <button
               type="button"
               onClick={() => setZoomLevel((prev) => Math.max(prev - 0.15, 0.85))}
-              className="w-9 h-9 flex items-center justify-center hover:bg-slate-50 text-slate-800 hover:text-[#1455AC] transition-colors border-b border-slate-100 cursor-pointer text-base font-bold"
+              className="w-9 h-9 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100 hover:text-[#1455AC] transition-colors border-b border-slate-100 dark:border-slate-800 cursor-pointer text-base font-bold"
               title="Diminuir zoom"
             >
               −
@@ -562,7 +562,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 setSelectedTerritorioId('faro');
                 showToast('Mapa recentrado em Faro, Algarve');
               }}
-              className="w-9 h-9 flex items-center justify-center hover:bg-slate-50 text-slate-700 hover:text-[#1455AC] transition-colors cursor-pointer"
+              className="w-9 h-9 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-[#1455AC] transition-colors cursor-pointer"
               title="Recentrar em Faro"
             >
               <Crosshair className="w-4 h-4" />
@@ -699,11 +699,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
           </div>
 
           {/* Card Flutuante de Faro (Posicionado à direita exatamente como em image.png) */}
-          <div className="absolute top-5 right-5 z-20 w-[225px] sm:w-[245px] bg-white rounded-3xl p-4 sm:p-5 shadow-xl border border-slate-100/90 text-xs animate-in fade-in zoom-in-95 duration-200">
+          <div className="absolute top-5 right-5 z-20 w-[225px] sm:w-[245px] bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 shadow-xl border border-slate-100/90 dark:border-slate-800 text-xs animate-in fade-in zoom-in-95 duration-200">
             {/* Cabeçalho: Nome e Badge Verde Principal */}
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <h4 className="font-extrabold text-slate-900 text-base font-sans">
+                <h4 className="font-extrabold text-slate-900 dark:text-slate-50 text-base font-sans">
                   {selectedMapItem.nome}
                 </h4>
                 <span className="px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold bg-[#E8F8F0] text-[#059669]">
@@ -715,23 +715,23 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             {/* Tabela Limpa de Métricas do Território */}
             <div className="space-y-2 text-[11.5px]">
               <div className="flex items-center justify-between">
-                <span className="text-slate-500 font-normal">Região</span>
-                <span className="font-bold text-slate-900">{selectedMapItem.regiao}</span>
+                <span className="text-slate-500 dark:text-slate-400 font-normal">Região</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">{selectedMapItem.regiao}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500 font-normal">País</span>
-                <span className="font-bold text-slate-900">{selectedMapItem.pais}</span>
+                <span className="text-slate-500 dark:text-slate-400 font-normal">País</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">{selectedMapItem.pais}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500 font-normal">Projetos ativos</span>
-                <span className="font-bold text-slate-900">{selectedMapItem.projetosCount}</span>
+                <span className="text-slate-500 dark:text-slate-400 font-normal">Projetos ativos</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">{selectedMapItem.projetosCount}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500 font-normal">Comunidades</span>
-                <span className="font-bold text-slate-900">{selectedMapItem.comunidadesCount}</span>
+                <span className="text-slate-500 dark:text-slate-400 font-normal">Comunidades</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">{selectedMapItem.comunidadesCount}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500 font-normal">O meu impacto</span>
+                <span className="text-slate-500 dark:text-slate-400 font-normal">O meu impacto</span>
                 <span className="font-extrabold text-[#059669]">
                   {selectedMapItem.impacto}
                 </span>
@@ -743,7 +743,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               <button
                 type="button"
                 onClick={() => handleOpenDetail(selectedMapItem)}
-                className="w-full py-2.5 px-3 rounded-xl border border-blue-200 hover:border-blue-400 text-[#1455AC] bg-white hover:bg-blue-50/50 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
+                className="w-full py-2.5 px-3 rounded-xl border border-blue-200 dark:border-blue-800/40 hover:border-blue-400 text-[#1455AC] bg-white dark:bg-slate-900 hover:bg-blue-50/50 dark:hover:bg-blue-500/10 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
               >
                 <span>Ver território</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1455AC]" />
@@ -752,23 +752,23 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
           </div>
 
           {/* Legenda do Mapa no canto inferior esquerdo - Fiel a image.png */}
-          <div className="absolute bottom-5 left-5 z-20 bg-white rounded-2xl p-3.5 sm:p-4 shadow-md border border-slate-100/90 text-[11px] min-w-[170px] space-y-2">
-            <span className="font-bold text-slate-900 block mb-1 text-xs font-sans">Legenda</span>
+          <div className="absolute bottom-5 left-5 z-20 bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-4 shadow-md border border-slate-100/90 dark:border-slate-800 text-[11px] min-w-[170px] space-y-2">
+            <span className="font-bold text-slate-900 dark:text-slate-50 block mb-1 text-xs font-sans">Legenda</span>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] shrink-0" />
-              <span className="text-slate-700 text-[11px]">Território principal</span>
+              <span className="text-slate-700 dark:text-slate-300 text-[11px]">Território principal</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#8B5CF6] shrink-0" />
-              <span className="text-slate-700 text-[11px]">Territórios ativos</span>
+              <span className="text-slate-700 dark:text-slate-300 text-[11px]">Territórios ativos</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] shrink-0" />
-              <span className="text-slate-700 text-[11px]">Territórios de interesse</span>
+              <span className="text-slate-700 dark:text-slate-300 text-[11px]">Territórios de interesse</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC] shrink-0" />
-              <span className="text-slate-700 text-[11px]">Territórios explorados</span>
+              <span className="text-slate-700 dark:text-slate-300 text-[11px]">Territórios explorados</span>
             </div>
           </div>
         </div>
@@ -776,10 +776,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
         {/* =========================================================================
             COLUNA 2: TERRITÓRIOS ATIVOS (4) (lg:col-span-4)
         ========================================================================= */}
-        <div className="lg:col-span-4 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between min-h-[460px]">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between min-h-[460px]">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-[13px] font-bold text-[#0F172A] font-sans">
+              <h3 className="text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Territórios ativos ({territorios.length})
               </h3>
               <button
@@ -800,8 +800,8 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                   onClick={() => setSelectedTerritorioId(item.id)}
                   className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 relative ${
                     selectedTerritorioId === item.id
-                      ? 'border-[#1455AC] bg-blue-50/30 shadow-xs'
-                      : 'border-slate-100 hover:border-slate-200 hover:bg-slate-50/50'
+                      ? 'border-[#1455AC] bg-blue-50/30 dark:bg-blue-500/10 shadow-xs'
+                      : 'border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50/50 dark:hover:bg-slate-800'
                   }`}
                 >
                   {/* Foto e Informações Principais */}
@@ -809,20 +809,20 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                     <img
                       src={item.imagem}
                       alt={item.nome}
-                      className="w-13 h-13 rounded-xl object-cover shrink-0 shadow-2xs border border-slate-100"
+                      className="w-13 h-13 rounded-xl object-cover shrink-0 shadow-2xs border border-slate-100 dark:border-slate-800"
                     />
 
                     <div className="space-y-0.5 min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <h4 className="text-[13px] font-bold text-slate-900 truncate">
+                        <h4 className="text-[13px] font-bold text-slate-900 dark:text-slate-50 truncate">
                           {item.nome}
                         </h4>
                         {item.badge && (
                           <span
                             className={`px-2 py-0.5 rounded-full text-[9.5px] font-bold ${
                               item.badgeType === 'principal'
-                                ? 'bg-emerald-50 text-emerald-700'
-                                : 'bg-blue-50 text-blue-700'
+                                ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'
+                                : 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400'
                             }`}
                           >
                             {item.badge}
@@ -830,18 +830,18 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                         )}
                       </div>
 
-                      <div className="text-[11px] text-slate-500 truncate">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                         {item.subtitulo}
                       </div>
 
                       {/* Metadados de projetos e membros */}
-                      <div className="flex items-center gap-2.5 text-[10px] text-slate-400 pt-0.5">
+                      <div className="flex items-center gap-2.5 text-[10px] text-slate-400 dark:text-slate-500 pt-0.5">
                         <div className="flex items-center gap-1">
-                          <Calendar className="w-3 h-3 text-slate-400" />
+                          <Calendar className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                           <span>{item.projetosCount} projetos</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Users className="w-3 h-3 text-slate-400" />
+                          <Users className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                           <span>{item.membrosCount} membros</span>
                         </div>
                       </div>
@@ -851,12 +851,12 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                   {/* Impacto e Menu Três Pontos */}
                   <div className="flex items-center gap-2 shrink-0">
                     <div className="text-right">
-                      <span className="text-[9.5px] text-slate-400 block leading-tight">Impacto</span>
+                      <span className="text-[9.5px] text-slate-400 dark:text-slate-500 block leading-tight">Impacto</span>
                       <span
                         className={`text-[11.5px] font-bold ${
                           item.impacto === 'Alto'
-                            ? 'text-emerald-600'
-                            : 'text-amber-600'
+                            ? 'text-emerald-600 dark:text-emerald-400'
+                            : 'text-amber-600 dark:text-amber-400'
                         }`}
                       >
                         {item.impacto}
@@ -870,7 +870,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                           e.stopPropagation();
                           setActiveMenuId(activeMenuId === item.id ? null : item.id);
                         }}
-                        className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+                        className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                         title="Opções do território"
                       >
                         <MoreVertical className="w-4 h-4" />
@@ -880,15 +880,15 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                       {activeMenuId === item.id && (
                         <div
                           onClick={(e) => e.stopPropagation()}
-                          className="absolute right-0 top-full mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 p-1.5 z-40 animate-in fade-in duration-150 text-xs"
+                          className="absolute right-0 top-full mt-1 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 p-1.5 z-40 animate-in fade-in duration-150 text-xs"
                         >
                           {item.tipo !== 'principal' && (
                             <button
                               type="button"
                               onClick={() => handleSetPrincipal(item.id)}
-                              className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 flex items-center gap-2 text-slate-700 font-medium cursor-pointer"
+                              className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium cursor-pointer"
                             >
-                              <Star className="w-3.5 h-3.5 text-amber-500" />
+                              <Star className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                               <span>Definir como Principal</span>
                             </button>
                           )}
@@ -898,7 +898,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                               setActiveMenuId(null);
                               onNavigateToTab?.('explorar');
                             }}
-                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 flex items-center gap-2 text-slate-700 font-medium cursor-pointer"
+                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium cursor-pointer"
                           >
                             <Globe className="w-3.5 h-3.5 text-[#1455AC]" />
                             <span>Explorar no Mapa Global</span>
@@ -909,9 +909,9 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                               setActiveMenuId(null);
                               onNavigateToTab?.('comunidade');
                             }}
-                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 flex items-center gap-2 text-slate-700 font-medium cursor-pointer"
+                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium cursor-pointer"
                           >
-                            <Users className="w-3.5 h-3.5 text-purple-600" />
+                            <Users className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                             <span>Ver Comunidades Locais</span>
                           </button>
                           <button
@@ -920,26 +920,26 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                               setActiveMenuId(null);
                               onNavigateToTab?.('impacto');
                             }}
-                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 flex items-center gap-2 text-slate-700 font-medium cursor-pointer"
+                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium cursor-pointer"
                           >
-                            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                            <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                             <span>Ver Projetos de Impacto</span>
                           </button>
                           <button
                             type="button"
                             onClick={() => handleOpenDetail(item)}
-                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 flex items-center gap-2 text-slate-700 font-medium cursor-pointer border-t border-slate-100 mt-1 pt-2"
+                            className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium cursor-pointer border-t border-slate-100 dark:border-slate-800 mt-1 pt-2"
                           >
-                            <Building2 className="w-3.5 h-3.5 text-slate-500" />
+                            <Building2 className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
                             <span>Ver Detalhes do Território</span>
                           </button>
                           {territorios.length > 1 && (
                             <button
                               type="button"
                               onClick={() => handleRemoveTerritorio(item.id)}
-                              className="w-full text-left px-3 py-2 rounded-lg hover:bg-rose-50 flex items-center gap-2 text-rose-600 font-medium cursor-pointer border-t border-slate-100 mt-1 pt-2"
+                              className="w-full text-left px-3 py-2 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-500/10 flex items-center gap-2 text-rose-600 dark:text-rose-400 font-medium cursor-pointer border-t border-slate-100 dark:border-slate-800 mt-1 pt-2"
                             >
-                              <Trash2 className="w-3.5 h-3.5 text-rose-500" />
+                              <Trash2 className="w-3.5 h-3.5 text-rose-500 dark:text-rose-400" />
                               <span>Remover Território</span>
                             </button>
                           )}
@@ -953,11 +953,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
           </div>
 
           {/* Botão "Ver todos os territórios (4)" */}
-          <div className="pt-4 border-t border-slate-100 mt-4">
+          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
             <button
               type="button"
               onClick={() => setIsAllTerritoriosModalOpen(true)}
-              className="w-full py-2.5 px-3 rounded-xl border border-blue-200 hover:border-blue-300 bg-white hover:bg-blue-50/50 text-[#1455AC] font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="w-full py-2.5 px-3 rounded-xl border border-blue-200 dark:border-blue-800/40 hover:border-blue-300 bg-white dark:bg-slate-900 hover:bg-blue-50/50 dark:hover:bg-blue-500/10 text-[#1455AC] font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
               <span>Ver todos os territórios ({territorios.length})</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -968,10 +968,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
         {/* =========================================================================
             COLUNA 3: RESUMO DOS TERRITÓRIOS (lg:col-span-3)
         ========================================================================= */}
-        <div className="lg:col-span-3 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-[13px] font-bold text-[#0F172A] font-sans">
+              <h3 className="text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Resumo dos Territórios
               </h3>
 
@@ -979,7 +979,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               <select
                 value={periodoFiltro}
                 onChange={(e) => setPeriodoFiltro(e.target.value as any)}
-                className="text-[11px] font-semibold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 outline-hidden cursor-pointer hover:bg-slate-100 transition-colors"
+                className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1 outline-hidden cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <option value="mes">Este mês</option>
                 <option value="trimestre">Últimos 3 meses</option>
@@ -1045,10 +1045,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
 
                 {/* Centro do Donut */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-2xl font-black text-[#0F172A] font-sans leading-none">
+                  <span className="text-2xl font-black text-[#0F172A] dark:text-slate-50 font-sans leading-none">
                     {territorios.length}
                   </span>
-                  <span className="text-[9px] font-medium text-slate-500 mt-0.5 leading-tight max-w-[55px]">
+                  <span className="text-[9px] font-medium text-slate-500 dark:text-slate-400 mt-0.5 leading-tight max-w-[55px]">
                     Territórios ativos
                   </span>
                 </div>
@@ -1057,93 +1057,93 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               {/* Legenda Lateral com Números Exatos */}
               <div className="space-y-1.5 text-[11px] min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5 text-slate-600">
+                  <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
                     <span>Principais</span>
                   </div>
-                  <span className="font-bold text-slate-800">
+                  <span className="font-bold text-slate-800 dark:text-slate-100">
                     {territorios.filter((t) => t.tipo === 'principal').length}
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5 text-slate-600">
+                  <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                     <span className="w-2 h-2 rounded-full bg-purple-500 shrink-0" />
                     <span>Ativos</span>
                   </div>
-                  <span className="font-bold text-slate-800">
+                  <span className="font-bold text-slate-800 dark:text-slate-100">
                     {territorios.filter((t) => t.tipo === 'ativo').length}
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5 text-slate-600">
+                  <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                     <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
                     <span>Interesse</span>
                   </div>
-                  <span className="font-bold text-slate-800">5</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">5</span>
                 </div>
 
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5 text-slate-600">
+                  <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                     <span className="w-2 h-2 rounded-full bg-[#1455AC] shrink-0" />
                     <span>Explorados</span>
                   </div>
-                  <span className="font-bold text-slate-800">8</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">8</span>
                 </div>
               </div>
             </div>
 
             {/* Grid 2x2 de Métricas (Fiel a image.png) */}
-            <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-slate-100">
+            <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-slate-100 dark:border-slate-800">
               {/* Projetos envolvidos */}
-              <div className="p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <span className="text-[10px] text-slate-500 block leading-tight">Projetos envolvidos</span>
-                <span className="text-base font-black text-slate-900 font-sans block mt-0.5">
+              <div className="p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block leading-tight">Projetos envolvidos</span>
+                <span className="text-base font-black text-slate-900 dark:text-slate-50 font-sans block mt-0.5">
                   {metricsData.projetos}
                 </span>
-                <span className="text-[9.5px] font-bold text-emerald-600 block mt-0.5">
+                <span className="text-[9.5px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">
                   {metricsData.projetosVar}
                 </span>
               </div>
 
               {/* Comunidades */}
-              <div className="p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <span className="text-[10px] text-slate-500 block leading-tight">Comunidades</span>
-                <span className="text-base font-black text-slate-900 font-sans block mt-0.5">
+              <div className="p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block leading-tight">Comunidades</span>
+                <span className="text-base font-black text-slate-900 dark:text-slate-50 font-sans block mt-0.5">
                   {metricsData.comunidades}
                 </span>
-                <span className="text-[9.5px] font-bold text-emerald-600 block mt-0.5">
+                <span className="text-[9.5px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">
                   {metricsData.comunidadesVar}
                 </span>
               </div>
 
               {/* Contribuições */}
-              <div className="p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <span className="text-[10px] text-slate-500 block leading-tight">Contribuições</span>
-                <span className="text-base font-black text-slate-900 font-sans block mt-0.5">
+              <div className="p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block leading-tight">Contribuições</span>
+                <span className="text-base font-black text-slate-900 dark:text-slate-50 font-sans block mt-0.5">
                   {metricsData.contrib}
                 </span>
-                <span className="text-[9.5px] font-bold text-emerald-600 block mt-0.5">
+                <span className="text-[9.5px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">
                   {metricsData.contribVar}
                 </span>
               </div>
 
               {/* Impacto gerado */}
-              <div className="p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <span className="text-[10px] text-slate-500 block leading-tight">Impacto gerado</span>
-                <span className="text-base font-black text-emerald-600 font-sans block mt-0.5">
+              <div className="p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block leading-tight">Impacto gerado</span>
+                <span className="text-base font-black text-emerald-600 dark:text-emerald-400 font-sans block mt-0.5">
                   {metricsData.impacto}
                 </span>
-                <span className="text-[9.5px] font-bold text-emerald-600 block mt-0.5">
+                <span className="text-[9.5px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">
                   {metricsData.impactoVar}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 mt-3 text-center">
-            <span className="text-[11px] text-slate-400">Dados consolidados do perfil</span>
+          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 mt-3 text-center">
+            <span className="text-[11px] text-slate-400 dark:text-slate-500">Dados consolidados do perfil</span>
           </div>
         </div>
       </div>
@@ -1158,10 +1158,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
         {/* =====================================================================
             CARD 1: EXPLORAR NOVOS TERRITÓRIOS (3 por 3 cards com navegação)
         ===================================================================== */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h3 className="text-[13px] font-bold text-[#0F172A] font-sans">
+              <h3 className="text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Explorar novos territórios
               </h3>
               {/* Controles de Navegação 3 por 3 */}
@@ -1169,25 +1169,25 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 <button
                   type="button"
                   onClick={handlePrevCarousel}
-                  className="w-6 h-6 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#1455AC] transition-colors cursor-pointer"
+                  className="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
                   title="Territórios anteriores"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
-                <span className="text-[10.5px] font-bold text-slate-500 px-1">
+                <span className="text-[10.5px] font-bold text-slate-500 dark:text-slate-400 px-1">
                   {Math.floor(carouselIndex / 3) + 1}/3
                 </span>
                 <button
                   type="button"
                   onClick={handleNextCarousel}
-                  className="w-6 h-6 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-[#1455AC] transition-colors cursor-pointer"
+                  className="w-6 h-6 rounded-full bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
                   title="Próximos territórios"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
-            <p className="text-[11.5px] text-slate-500 mb-3.5">
+            <p className="text-[11.5px] text-slate-500 dark:text-slate-400 mb-3.5">
               Descubra territórios e comunidades alinhados com os seus interesses.
             </p>
 
@@ -1196,7 +1196,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               {novosTerritorios.slice(carouselIndex, carouselIndex + 3).map((city) => (
                 <div
                   key={city.id}
-                  className="rounded-xl border border-slate-100 overflow-hidden bg-white flex flex-col justify-between group hover:border-blue-200 hover:shadow-xs transition-all"
+                  className="rounded-xl border border-slate-100 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 flex flex-col justify-between group hover:border-blue-200 dark:hover:border-blue-800/40 hover:shadow-xs transition-all"
                 >
                   <div className="h-16 sm:h-20 w-full overflow-hidden relative">
                     <img
@@ -1207,10 +1207,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                   </div>
                   <div className="p-2 text-center space-y-1">
                     <div>
-                      <h5 className="text-[11.5px] font-bold text-slate-900 leading-tight truncate" title={city.nome}>
+                      <h5 className="text-[11.5px] font-bold text-slate-900 dark:text-slate-50 leading-tight truncate" title={city.nome}>
                         {city.nome}
                       </h5>
-                      <span className="text-[9.5px] text-slate-400 block truncate">{city.pais}</span>
+                      <span className="text-[9.5px] text-slate-400 dark:text-slate-500 block truncate">{city.pais}</span>
                     </div>
                     <button
                       type="button"
@@ -1218,7 +1218,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                         setSelectedExploreCity(city);
                         setIsExploreCityModalOpen(true);
                       }}
-                      className="w-full py-1 px-1.5 rounded-lg border border-blue-200 hover:border-blue-400 text-[#1455AC] bg-white hover:bg-blue-50 font-bold text-[10px] transition-colors cursor-pointer"
+                      className="w-full py-1 px-1.5 rounded-lg border border-blue-200 dark:border-blue-800/40 hover:border-blue-400 text-[#1455AC] bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-500/10 font-bold text-[10px] transition-colors cursor-pointer"
                     >
                       Explorar
                     </button>
@@ -1229,14 +1229,14 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
           </div>
 
           {/* Indicadores do carrossel */}
-          <div className="flex items-center justify-center gap-1.5 pt-3 mt-2 border-t border-slate-100/80">
+          <div className="flex items-center justify-center gap-1.5 pt-3 mt-2 border-t border-slate-100/80 dark:border-slate-800">
             {[0, 3, 6].map((idx, i) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setCarouselIndex(idx)}
                 className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                  carouselIndex === idx ? 'w-5 bg-[#1455AC]' : 'w-1.5 bg-slate-200 hover:bg-slate-300'
+                  carouselIndex === idx ? 'w-5 bg-[#1455AC]' : 'w-1.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300'
                 }`}
                 title={`Grupo ${i + 1}`}
               />
@@ -1247,10 +1247,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
         {/* =====================================================================
             CARD 2: PREFERÊNCIAS TERRITORIAIS (Afinado, sobe e alinha no mesmo nível)
         ===================================================================== */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h3 className="text-[13px] font-bold text-[#0F172A] font-sans">
+              <h3 className="text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Preferências territoriais
               </h3>
               <button
@@ -1262,59 +1262,59 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 <span>Editar</span>
               </button>
             </div>
-            <p className="text-[11.5px] text-slate-500 mb-3.5">
+            <p className="text-[11.5px] text-slate-500 dark:text-slate-400 mb-3.5">
               Personalize as recomendações de territórios que recebe.
             </p>
 
             {/* Grid 2x2 Afinado Fiel a image.png */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {/* Países preferidos */}
-              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-start gap-2.5 hover:bg-slate-50 transition-colors">
-                <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-start gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
                   <Globe className="w-4 h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9.5px] text-slate-400 font-medium block leading-tight">Países preferidos</span>
-                  <span className="text-xs font-bold text-slate-800 truncate block mt-0.5" title={preferencias.paises}>
+                  <span className="text-[9.5px] text-slate-400 dark:text-slate-500 font-medium block leading-tight">Países preferidos</span>
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate block mt-0.5" title={preferencias.paises}>
                     {preferencias.paises}
                   </span>
                 </div>
               </div>
 
               {/* Regiões preferidas */}
-              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-start gap-2.5 hover:bg-slate-50 transition-colors">
-                <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-start gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9.5px] text-slate-400 font-medium block leading-tight">Regiões preferidas</span>
-                  <span className="text-xs font-bold text-slate-800 truncate block mt-0.5" title={preferencias.regioes}>
+                  <span className="text-[9.5px] text-slate-400 dark:text-slate-500 font-medium block leading-tight">Regiões preferidas</span>
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate block mt-0.5" title={preferencias.regioes}>
                     {preferencias.regioes}
                   </span>
                 </div>
               </div>
 
               {/* Temas de interesse */}
-              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-start gap-2.5 hover:bg-slate-50 transition-colors">
-                <div className="w-8 h-8 rounded-full bg-pink-50 border border-pink-100 text-pink-600 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-start gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-pink-50 dark:bg-pink-500/10 border border-pink-100 dark:border-pink-800/40 text-pink-600 dark:text-pink-400 flex items-center justify-center shrink-0 mt-0.5">
                   <Heart className="w-4 h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9.5px] text-slate-400 font-medium block leading-tight">Temas de interesse</span>
-                  <span className="text-xs font-bold text-slate-800 truncate block mt-0.5" title={preferencias.temas}>
+                  <span className="text-[9.5px] text-slate-400 dark:text-slate-500 font-medium block leading-tight">Temas de interesse</span>
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate block mt-0.5" title={preferencias.temas}>
                     {preferencias.temas}
                   </span>
                 </div>
               </div>
 
               {/* Nível de envolvimento */}
-              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-start gap-2.5 hover:bg-slate-50 transition-colors">
-                <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-2.5 sm:p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-start gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-800/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
                   <BarChart3 className="w-4 h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9.5px] text-slate-400 font-medium block leading-tight">Nível de envolvimento</span>
-                  <span className="text-xs font-bold text-slate-800 truncate block mt-0.5" title={preferencias.nivel}>
+                  <span className="text-[9.5px] text-slate-400 dark:text-slate-500 font-medium block leading-tight">Nível de envolvimento</span>
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate block mt-0.5" title={preferencias.nivel}>
                     {preferencias.nivel}
                   </span>
                 </div>
@@ -1322,9 +1322,9 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             </div>
           </div>
 
-          <div className="pt-3 mt-2 border-t border-slate-100/80 flex items-center justify-between">
-            <span className="text-[10.5px] text-slate-400 font-medium">Recomendações ativas</span>
-            <span className="text-[10.5px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+          <div className="pt-3 mt-2 border-t border-slate-100/80 dark:border-slate-800 flex items-center justify-between">
+            <span className="text-[10.5px] text-slate-400 dark:text-slate-500 font-medium">Recomendações ativas</span>
+            <span className="text-[10.5px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">
               Personalizado
             </span>
           </div>
@@ -1333,10 +1333,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
         {/* =====================================================================
             CARD 3: ATIVIDADE RECENTE NOS SEUS TERRITÓRIOS (Ao mesmo nível)
         ===================================================================== */}
-        <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h3 className="text-[13px] font-bold text-[#0F172A] font-sans">
+              <h3 className="text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Atividade recente nos seus territórios
               </h3>
               <button
@@ -1347,7 +1347,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 Ver todas
               </button>
             </div>
-            <p className="text-[11.5px] text-slate-500 mb-3.5">
+            <p className="text-[11.5px] text-slate-500 dark:text-slate-400 mb-3.5">
               Acompanhe as últimas interações e novidades.
             </p>
 
@@ -1361,14 +1361,14 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 }}
                 className="flex items-start gap-2.5 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-full bg-[#E8F8F0] text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                <div className="w-7 h-7 rounded-full bg-[#E8F8F0] text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
                   <MessageSquare className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11.5px] text-slate-800 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
+                  <p className="text-[11.5px] text-slate-800 dark:text-slate-100 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
                     Comentou em <span className="font-bold">"Mobilidade Sustentável em Faro"</span>
                   </p>
-                  <div className="text-[10px] text-slate-400 mt-0.5">
+                  <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
                     Faro • Há 2 horas
                   </div>
                 </div>
@@ -1382,14 +1382,14 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 }}
                 className="flex items-start gap-2.5 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-full bg-[#FEF3E2] text-amber-600 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                <div className="w-7 h-7 rounded-full bg-[#FEF3E2] text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
                   <Heart className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11.5px] text-slate-800 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
+                  <p className="text-[11.5px] text-slate-800 dark:text-slate-100 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
                     Apoiou a iniciativa <span className="font-bold">"Escola Verde"</span>
                   </p>
-                  <div className="text-[10px] text-slate-400 mt-0.5">
+                  <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
                     Loulé • Há 1 dia
                   </div>
                 </div>
@@ -1403,14 +1403,14 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 }}
                 className="flex items-start gap-2.5 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-full bg-[#F3E8FF] text-purple-600 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                <div className="w-7 h-7 rounded-full bg-[#F3E8FF] text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
                   <Vote className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11.5px] text-slate-800 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
+                  <p className="text-[11.5px] text-slate-800 dark:text-slate-100 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
                     Participou na consulta <span className="font-bold">"Plano Estratégico Olhão 2030"</span>
                   </p>
-                  <div className="text-[10px] text-slate-400 mt-0.5">
+                  <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
                     Olhão • Há 2 dias
                   </div>
                 </div>
@@ -1428,10 +1428,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                   <ShieldCheck className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11.5px] text-slate-800 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
+                  <p className="text-[11.5px] text-slate-800 dark:text-slate-100 leading-snug group-hover:text-[#1455AC] transition-colors truncate">
                     Nova oportunidade em <span className="font-bold">Portugal</span>
                   </p>
-                  <div className="text-[10px] text-slate-400 mt-0.5">
+                  <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
                     56 novos projetos • Há 3 dias
                   </div>
                 </div>
@@ -1439,11 +1439,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             </div>
           </div>
 
-          <div className="pt-3 mt-2 border-t border-slate-100/80">
+          <div className="pt-3 mt-2 border-t border-slate-100/80 dark:border-slate-800">
             <button
               type="button"
               onClick={() => setIsAllActivitiesModalOpen(true)}
-              className="w-full text-center text-xs font-semibold text-[#1455AC] hover:text-blue-700 transition-colors cursor-pointer"
+              className="w-full text-center text-xs font-semibold text-[#1455AC] hover:text-blue-700 dark:hover:text-blue-400 transition-colors cursor-pointer"
             >
               Ver histórico completo de atividades
             </button>
@@ -1457,7 +1457,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       <div className="rounded-2xl p-4 sm:p-5 bg-gradient-to-r from-[#eff4ff] via-[#f5f3ff] to-[#faf5ff] border border-[#e0e7ff] shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
           {/* Ilustração Colorida de Comunidade */}
-          <div className="w-12 h-12 rounded-2xl bg-white shadow-xs flex items-center justify-center shrink-0 border border-indigo-100 p-2">
+          <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 shadow-xs flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-800/40 p-2">
             <svg viewBox="0 0 36 36" className="w-full h-full" fill="none">
               <circle cx="18" cy="11" r="4" fill="#F59E0B" />
               <circle cx="10" cy="24" r="4" fill="#EC4899" />
@@ -1467,10 +1467,10 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
             </svg>
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-black text-[#0F172A] font-sans">
+            <h4 className="text-sm sm:text-base font-black text-[#0F172A] dark:text-slate-50 font-sans">
               O mundo é uma vila.
             </h4>
-            <p className="text-xs text-slate-600 mt-0.5">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
               Ao conectar territórios, comunidades e pessoas, multiplicamos o impacto positivo.
             </p>
           </div>
@@ -1500,17 +1500,17 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       {/* 1. Modal Adicionar Novo Território com Integração a COUNTRIES_DATA */}
       {isAddModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 font-sans">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Adicionar Novo Território
                   </h3>
-                  <p className="text-[11px] text-slate-400">
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500">
                     Conecte uma cidade, região ou país aos seus territórios.
                   </p>
                 </div>
@@ -1518,7 +1518,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               <button
                 type="button"
                 onClick={() => setIsAddModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1526,7 +1526,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
 
             <form onSubmit={handleAddTerritorioSubmit} className="space-y-3.5 text-xs">
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">
                   Nome da cidade ou município
                 </label>
                 <input
@@ -1535,13 +1535,13 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                   placeholder="Ex: Coimbra, Braga, Évora, Guimarães..."
                   value={novoNome}
                   onChange={(e) => setNovoNome(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs"
                 />
               </div>
 
               {/* Sugestões rápidas de territórios portugueses */}
               <div>
-                <span className="text-[10.5px] font-medium text-slate-400 block mb-1.5">
+                <span className="text-[10.5px] font-medium text-slate-400 dark:text-slate-500 block mb-1.5">
                   Sugestões rápidas:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
@@ -1550,7 +1550,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                       key={sug}
                       type="button"
                       onClick={() => setNovoNome(sug)}
-                      className="px-2 py-1 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-[#1455AC] font-medium text-[11px] transition-colors cursor-pointer"
+                      className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-500/10 text-slate-700 dark:text-slate-300 hover:text-[#1455AC] font-medium text-[11px] transition-colors cursor-pointer"
                     >
                       {sug}
                     </button>
@@ -1560,11 +1560,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-semibold text-slate-700 block mb-1">País</label>
+                  <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">País</label>
                   <select
                     value={novoPais}
                     onChange={(e) => setNovoPais(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs cursor-pointer bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs cursor-pointer bg-white dark:bg-slate-800"
                   >
                     <option value="Portugal">Portugal 🇵🇹</option>
                     <option value="Espanha">Espanha 🇪🇸</option>
@@ -1576,11 +1576,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 </div>
 
                 <div>
-                  <label className="font-semibold text-slate-700 block mb-1">Região</label>
+                  <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Região</label>
                   <select
                     value={novaRegiao}
                     onChange={(e) => setNovaRegiao(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs cursor-pointer bg-white"
+                    className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs cursor-pointer bg-white dark:bg-slate-800"
                   >
                     <option value="Algarve">Algarve</option>
                     <option value="Norte">Norte</option>
@@ -1594,11 +1594,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Tipo de vínculo</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Tipo de vínculo</label>
                 <select
                   value={novoTipo}
                   onChange={(e) => setNovoTipo(e.target.value as any)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs cursor-pointer bg-white"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs cursor-pointer bg-white dark:bg-slate-800"
                 >
                   <option value="ativo">Território Ativo (contribuo com projetos e ações)</option>
                   <option value="interesse">Território de Interesse (acompanho atualizações)</option>
@@ -1606,15 +1606,15 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 </select>
               </div>
 
-              <div className="p-3 rounded-xl bg-blue-50 text-blue-800 text-[11px] leading-relaxed">
+              <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-800 dark:text-blue-400 text-[11px] leading-relaxed">
                 Ao adicionar um território, você receberá notificações de novos projetos e iniciativas locais para contribuir.
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs cursor-pointer"
                 >
                   Cancelar
                 </button>
@@ -1633,14 +1633,14 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       {/* 2. Modal Detalhes do Território com Ações Reais para o Sistema */}
       {isDetailModalOpen && selectedDetailTerritorio && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   {selectedDetailTerritorio.nome}
                 </h3>
                 {selectedDetailTerritorio.badge && (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">
                     {selectedDetailTerritorio.badge}
                   </span>
                 )}
@@ -1648,7 +1648,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               <button
                 type="button"
                 onClick={() => setIsDetailModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1662,27 +1662,27 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               />
 
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-[10px] text-slate-400 block">Região</span>
-                  <span className="font-bold text-slate-800">{selectedDetailTerritorio.regiao}</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Região</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">{selectedDetailTerritorio.regiao}</span>
                 </div>
-                <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-[10px] text-slate-400 block">País</span>
-                  <span className="font-bold text-slate-800">{selectedDetailTerritorio.pais}</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 block">País</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">{selectedDetailTerritorio.pais}</span>
                 </div>
-                <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-[10px] text-slate-400 block">Projetos Ativos</span>
-                  <span className="font-bold text-slate-800">{selectedDetailTerritorio.projetosCount} projetos</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Projetos Ativos</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">{selectedDetailTerritorio.projetosCount} projetos</span>
                 </div>
-                <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-[10px] text-slate-400 block">Membros na Comunidade</span>
-                  <span className="font-bold text-slate-800">{selectedDetailTerritorio.membrosCount}</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Membros na Comunidade</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">{selectedDetailTerritorio.membrosCount}</span>
                 </div>
               </div>
 
-              <div className="p-3 bg-emerald-50 text-emerald-800 rounded-xl text-xs flex items-center justify-between">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 rounded-xl text-xs flex items-center justify-between">
                 <span>O seu nível de impacto neste território:</span>
-                <span className="font-bold text-emerald-700">{selectedDetailTerritorio.impacto}</span>
+                <span className="font-bold text-emerald-700 dark:text-emerald-400">{selectedDetailTerritorio.impacto}</span>
               </div>
 
               {/* Botões de Ação Conectados ao Sistema */}
@@ -1693,9 +1693,9 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                     setIsDetailModalOpen(false);
                     onNavigateToTab?.('impacto');
                   }}
-                  className="py-2 px-3 rounded-xl border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-[#1455AC] bg-slate-50/50 hover:bg-blue-50/50 font-semibold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 text-slate-700 dark:text-slate-300 hover:text-[#1455AC] bg-slate-50/50 dark:bg-slate-800/60 hover:bg-blue-50/50 dark:hover:bg-blue-500/10 font-semibold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Ver Projetos Locais</span>
                 </button>
                 <button
@@ -1704,19 +1704,19 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                     setIsDetailModalOpen(false);
                     onNavigateToTab?.('comunidade');
                   }}
-                  className="py-2 px-3 rounded-xl border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-[#1455AC] bg-slate-50/50 hover:bg-blue-50/50 font-semibold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 text-slate-700 dark:text-slate-300 hover:text-[#1455AC] bg-slate-50/50 dark:bg-slate-800/60 hover:bg-blue-50/50 dark:hover:bg-blue-500/10 font-semibold text-xs flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Users className="w-3.5 h-3.5 text-purple-600" />
+                  <Users className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                   <span>Ver Comunidades</span>
                 </button>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsDetailModalOpen(false)}
-                className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs cursor-pointer"
+                className="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs cursor-pointer"
               >
                 Fechar
               </button>
@@ -1739,20 +1739,20 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       {/* 3. Modal Editar Preferências Territoriais */}
       {isEditPrefsModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-purple-50 text-[#7C3AED] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-500/10 text-[#7C3AED] flex items-center justify-center">
                   <Sliders className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Editar Preferências Territoriais
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsEditPrefsModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1760,43 +1760,43 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
 
             <div className="space-y-3.5 text-xs">
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Países preferidos</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Países preferidos</label>
                 <input
                   type="text"
                   value={preferencias.paises}
                   onChange={(e) => setPreferencias({ ...preferencias, paises: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs"
                 />
-                <span className="text-[10px] text-slate-400 mt-1 block">Separados por vírgula</span>
+                <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">Separados por vírgula</span>
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Regiões preferidas</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Regiões preferidas</label>
                 <input
                   type="text"
                   value={preferencias.regioes}
                   onChange={(e) => setPreferencias({ ...preferencias, regioes: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs"
                 />
-                <span className="text-[10px] text-slate-400 mt-1 block">Separados por vírgula</span>
+                <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">Separados por vírgula</span>
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Temas de interesse</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Temas de interesse</label>
                 <input
                   type="text"
                   value={preferencias.temas}
                   onChange={(e) => setPreferencias({ ...preferencias, temas: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs"
                 />
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Nível de envolvimento pretendido</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Nível de envolvimento pretendido</label>
                 <select
                   value={preferencias.nivel}
                   onChange={(e) => setPreferencias({ ...preferencias, nivel: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800 text-xs cursor-pointer bg-white"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100 text-xs cursor-pointer bg-white dark:bg-slate-800"
                 >
                   <option value="Alto">Alto (Participação ativa semanal em projetos)</option>
                   <option value="Médio">Médio (Acompanhamento e suporte periódico)</option>
@@ -1805,11 +1805,11 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsEditPrefsModalOpen(false)}
-                className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs cursor-pointer"
+                className="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs cursor-pointer"
               >
                 Cancelar
               </button>
@@ -1831,45 +1831,45 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       {/* 4. Modal Ver Todos os Territórios */}
       {isAllTerritoriosModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Todos os Territórios Ativos ({territorios.length})
                 </h3>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">
                   Gerencie os territórios nos quais você atua e gera impacto.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsAllTerritoriosModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 max-h-[50vh] overflow-y-auto">
+            <div className="divide-y divide-slate-100 dark:divide-slate-700 max-h-[50vh] overflow-y-auto">
               {territorios.map((item) => (
                 <div key={item.id} className="py-3 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
                     <img
                       src={item.imagem}
                       alt={item.nome}
-                      className="w-11 h-11 rounded-xl object-cover shrink-0 border border-slate-100"
+                      className="w-11 h-11 rounded-xl object-cover shrink-0 border border-slate-100 dark:border-slate-800"
                     />
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <h4 className="font-bold text-slate-900 text-xs truncate">{item.nome}</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-slate-50 text-xs truncate">{item.nome}</h4>
                         {item.badge && (
-                          <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 text-emerald-700">
+                          <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">
                             {item.badge}
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] text-slate-500 truncate">{item.subtitulo}</p>
-                      <div className="flex items-center gap-2 text-[10px] text-slate-400">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{item.subtitulo}</p>
+                      <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500">
                         <span>{item.projetosCount} projetos</span>
                         <span>•</span>
                         <span>{item.membrosCount} membros</span>
@@ -1883,7 +1883,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                       setIsAllTerritoriosModalOpen(false);
                       handleOpenDetail(item);
                     }}
-                    className="px-3 py-1.5 rounded-lg border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-[#1455AC] text-xs font-semibold shrink-0 cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-blue-300 text-slate-700 dark:text-slate-300 hover:text-[#1455AC] text-xs font-semibold shrink-0 cursor-pointer"
                   >
                     Ver detalhes
                   </button>
@@ -1891,7 +1891,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               ))}
             </div>
 
-            <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => {
@@ -1906,7 +1906,7 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
               <button
                 type="button"
                 onClick={() => setIsAllTerritoriosModalOpen(false)}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs cursor-pointer"
               >
                 Concluir
               </button>
@@ -1918,18 +1918,18 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       {/* 5. Modal Explorar Cidade do Carrossel */}
       {isExploreCityModalOpen && selectedExploreCity && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Explorar {selectedExploreCity.nome}
                 </h3>
-                <span className="text-xs text-slate-400">{selectedExploreCity.pais}</span>
+                <span className="text-xs text-slate-400 dark:text-slate-500">{selectedExploreCity.pais}</span>
               </div>
               <button
                 type="button"
                 onClick={() => setIsExploreCityModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1942,27 +1942,27 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
                 className="w-full h-36 rounded-xl object-cover"
               />
 
-              <p className="text-slate-600 leading-relaxed text-xs">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs">
                 {selectedExploreCity.descricao}
               </p>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-[10px] text-slate-400 block">Projetos Ativos</span>
-                  <span className="font-bold text-slate-800">{selectedExploreCity.projetos} projetos</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Projetos Ativos</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">{selectedExploreCity.projetos} projetos</span>
                 </div>
-                <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-[10px] text-slate-400 block">Cidadãos e Membros</span>
-                  <span className="font-bold text-slate-800">{selectedExploreCity.membros}</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Cidadãos e Membros</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">{selectedExploreCity.membros}</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsExploreCityModalOpen(false)}
-                className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold text-xs cursor-pointer"
+                className="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-xs cursor-pointer"
               >
                 Cancelar
               </button>
@@ -1982,88 +1982,88 @@ export const TerritoriosTab: React.FC<TerritoriosTabProps> = ({ onNavigateToTab 
       {/* 6. Modal Ver Todas as Atividades Recentes */}
       {isAllActivitiesModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl space-y-4 border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Histórico de Atividade nos Territórios
                 </h3>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-slate-400 dark:text-slate-500">
                   Registro completo de participações, comentários e votos.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsAllActivitiesModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#E8F8F0] text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#E8F8F0] text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs text-slate-800 font-semibold">
+                  <p className="text-xs text-slate-800 dark:text-slate-100 font-semibold">
                     Comentou no projeto "Mobilidade Sustentável em Faro"
                   </p>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                     "Excelente iniciativa para a expansão de ciclovias até a Universidade das Gambelas."
                   </p>
-                  <span className="text-[10px] text-slate-400 mt-1 block">Faro • Há 2 horas</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">Faro • Há 2 horas</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FEF3E2] text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#FEF3E2] text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
                   <Heart className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs text-slate-800 font-semibold">
+                  <p className="text-xs text-slate-800 dark:text-slate-100 font-semibold">
                     Apoiou a iniciativa "Escola Verde"
                   </p>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                     Subscreveu o apoio financeiro comunitário para hortas pedagógicas.
                   </p>
-                  <span className="text-[10px] text-slate-400 mt-1 block">Loulé • Há 1 dia</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">Loulé • Há 1 dia</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#F3E8FF] text-purple-600 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#F3E8FF] text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 mt-0.5">
                   <Vote className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs text-slate-800 font-semibold">
+                  <p className="text-xs text-slate-800 dark:text-slate-100 font-semibold">
                     Participou na consulta pública "Plano Estratégico Olhão 2030"
                   </p>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                     Enviou propostas sobre a revitalização da frente de Ria Formosa e transportes solares.
                   </p>
-                  <span className="text-[10px] text-slate-400 mt-1 block">Olhão • Há 2 dias</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">Olhão • Há 2 dias</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#EFF6FF] text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs text-slate-800 font-semibold">
+                  <p className="text-xs text-slate-800 dark:text-slate-100 font-semibold">
                     Nova oportunidade em Portugal
                   </p>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                     Abertura do fundo nacional para transição energética em comunidades do interior.
                   </p>
-                  <span className="text-[10px] text-slate-400 mt-1 block">Portugal • Há 3 dias</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">Portugal • Há 3 dias</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-end pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsAllActivitiesModalOpen(false)}

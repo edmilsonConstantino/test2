@@ -108,7 +108,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 26%',
       trendPeriod: 'desde o ano passado',
       icon: <FileText className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
       iconClass: 'text-blue-600',
       actionText: 'Ver relatórios',
       spark: [780, 830, 870, 910, 950, 990, 1030, 1080, 1120, 1170, 1210, 1248],
@@ -121,8 +121,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 32%',
       trendPeriod: 'desde o ano passado',
       icon: <Search className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50 border border-emerald-100',
-      iconClass: 'text-emerald-600',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconClass: 'text-emerald-600 dark:text-emerald-400',
       actionText: 'Ver detalhes',
       spark: [15.2, 16.1, 17, 17.8, 18.6, 19.4, 20.3, 21.1, 22, 23, 23.8, 24.56],
       onClick: () => showToast('A carregar histórico de consultas de dados'),
@@ -134,7 +134,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
       icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
       iconClass: 'text-blue-600',
       actionText: 'Ver conjuntos',
       spark: [268, 276, 284, 292, 300, 308, 316, 326, 336, 344, 350, 356],
@@ -147,7 +147,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
       icon: <Share2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
       iconClass: 'text-blue-600',
       actionText: 'Ver fontes',
       spark: [34, 35, 35, 36, 37, 37, 38, 39, 40, 41, 42, 42],
@@ -160,8 +160,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 25%',
       trendPeriod: 'desde o ano passado',
       icon: <TrendingUp className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50 border border-emerald-100',
-      iconClass: 'text-emerald-600',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconClass: 'text-emerald-600 dark:text-emerald-400',
       actionText: 'Ver downloads',
       spark: [5.4, 5.8, 6.1, 6.5, 6.8, 7.1, 7.4, 7.7, 8, 8.3, 8.55, 8.73],
       onClick: () => showToast('A analisar estatísticas de downloads de datasets'),
@@ -173,7 +173,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 20%',
       trendPeriod: 'desde o ano passado',
       icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
       iconClass: 'text-blue-600',
       actionText: 'Ver utilizadores',
       spark: [620, 645, 665, 688, 706, 725, 744, 762, 784, 806, 824, 842],
@@ -184,7 +184,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
   // 2. Dados por Categoria (Donut Breakdown)
   const categoryData = [
     { label: 'Demografia', percent: 28, count: 100, color: '#1455AC', textCol: 'text-blue-600' },
-    { label: 'Participação', percent: 22, count: 78, color: '#10B981', textCol: 'text-emerald-600' },
+    { label: 'Participação', percent: 22, count: 78, color: '#10B981', textCol: 'text-emerald-600 dark:text-emerald-400' },
     { label: 'Projetos', percent: 18, count: 64, color: '#F59E0B', textCol: 'text-amber-500' },
     { label: 'Territórios', percent: 15, count: 53, color: '#2D79D1', textCol: 'text-blue-500' },
     { label: 'Eventos', percent: 9, count: 31, color: '#EF4444', textCol: 'text-blue-500' },
@@ -323,7 +323,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '20 Mai 2025',
       format: 'PDF',
       size: '12.4 MB',
-      iconCol: 'text-emerald-600 bg-emerald-50 border-emerald-100',
+      iconCol: 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
     },
     {
       id: 'rep-2',
@@ -332,7 +332,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '15 Mai 2025',
       format: 'PDF',
       size: '8.7 MB',
-      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
     },
     {
       id: 'rep-3',
@@ -341,7 +341,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '10 Mai 2025',
       format: 'PDF',
       size: '6.1 MB',
-      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
     },
     {
       id: 'rep-4',
@@ -350,7 +350,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '05 Mai 2025',
       format: 'PDF',
       size: '9.3 MB',
-      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
     },
     {
       id: 'rep-5',
@@ -359,7 +359,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '01 Mai 2025',
       format: 'PDF',
       size: '7.8 MB',
-      iconCol: 'text-blue-600 bg-blue-50 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
     },
   ];
 
@@ -372,7 +372,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       atualizacao: 'Diária',
       registos: '12.4M',
       qualidade: 'Excelente',
-      badgeBg: 'bg-emerald-50 text-emerald-600',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
     },
     {
       id: 'src-2',
@@ -381,7 +381,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       atualizacao: 'Diária',
       registos: '8.7M',
       qualidade: 'Excelente',
-      badgeBg: 'bg-emerald-50 text-emerald-600',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
     },
     {
       id: 'src-3',
@@ -390,7 +390,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       atualizacao: 'Tempo real',
       registos: '25.6M',
       qualidade: 'Excelente',
-      badgeBg: 'bg-emerald-50 text-emerald-600',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
     },
     {
       id: 'src-4',
@@ -399,7 +399,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       atualizacao: 'Diária',
       registos: '6.3M',
       qualidade: 'Boa',
-      badgeBg: 'bg-emerald-50 text-emerald-600',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
     },
     {
       id: 'src-5',
@@ -408,7 +408,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       atualizacao: 'Tempo real',
       registos: '15.8M',
       qualidade: 'Boa',
-      badgeBg: 'bg-emerald-50 text-emerald-600',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
     },
     {
       id: 'src-6',
@@ -417,7 +417,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       atualizacao: 'Tempo real',
       registos: '3.2M',
       qualidade: 'Média',
-      badgeBg: 'bg-amber-50 text-amber-600',
+      badgeBg: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400',
     },
   ];
 
@@ -460,7 +460,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       id: 'exp-3',
       title: 'Dados Abertos',
       desc: 'Aceda a dados públicos e abertos',
-      icon: <Boxes className="w-5 h-5 text-emerald-600" />,
+      icon: <Boxes className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
       action: () => showToast('A abrir Portal de Dados Abertos VILA'),
     },
     {
@@ -480,8 +480,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       subtitle: 'Censos Nacionais 2025',
       time: 'há 15 min',
       type: 'success',
-      icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" />,
-      iconBg: 'bg-emerald-50 border border-emerald-100',
+      icon: <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
     },
     {
       id: 'alt-2',
@@ -490,7 +490,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 45 min',
       type: 'error',
       icon: <AlertCircle className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
     },
     {
       id: 'alt-3',
@@ -498,8 +498,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       subtitle: 'Dados Ambientais - Norte',
       time: 'há 1 h',
       type: 'warning',
-      icon: <AlertTriangle className="w-4 h-4 text-amber-600" />,
-      iconBg: 'bg-amber-50 border border-amber-100',
+      icon: <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
+      iconBg: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100',
     },
     {
       id: 'alt-4',
@@ -508,7 +508,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 2 h',
       type: 'info',
       icon: <Database className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
     },
     {
       id: 'alt-5',
@@ -517,7 +517,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 3 h',
       type: 'info',
       icon: <Activity className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
     },
   ];
 
@@ -636,16 +636,16 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       )}
 
       {/* 1. Header do Módulo com Identidade VILA */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/80 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <SlidersHorizontal className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
               Relatórios e Dados
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-3xl mt-0.5 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-3xl mt-0.5 leading-relaxed">
               Explore dados estratégicos, gere relatórios personalizados e obtenha insights para apoiar decisões e transformar territórios.
             </p>
           </div>
@@ -653,22 +653,22 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
 
         {/* Telemetria e Controles */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full lg:w-auto justify-end">
-          <div className="flex items-center gap-4 text-xs text-slate-500 mr-2">
+          <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mr-2">
             <span className="flex items-center gap-1.5 font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Dados atualizados: 10:32
             </span>
-            <span className="flex items-center gap-1.5 font-medium text-slate-600">
+            <span className="flex items-center gap-1.5 font-medium text-slate-600 dark:text-slate-400">
               <span className="w-2 h-2 rounded-full bg-blue-600" />
               Atualização em tempo real
             </span>
           </div>
 
           {/* Seletor de Período */}
-          <div className="inline-flex items-center gap-2 px-3 py-2 bg-white border border-slate-200/90 rounded-xl text-xs font-semibold text-slate-700 shadow-2xs">
-            <CalendarIcon className="w-3.5 h-3.5 text-slate-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-2xs">
+            <CalendarIcon className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>{dateRange}</span>
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400 ml-1" />
+            <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 ml-1" />
           </div>
 
           {/* Exportar */}
@@ -678,9 +678,9 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
               setTimeout(() => setIsExportModalOpen(false), 2800);
               showToast('A exportar relatórios consolidados em PDF e CSV...');
             }}
-            className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200/90 hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-semibold shadow-2xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold shadow-2xs transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Exportar</span>
           </button>
 
@@ -701,9 +701,9 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 3. LINHA 2: 3 Cards (Dados por Categoria, Cobertura Territorial, Evolução de Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Coluna 1: Dados por Categoria (Donut Chart) - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Dados por Categoria</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Dados por Categoria</h3>
 
             <div className="flex items-center gap-4 mt-4">
               {/* Donut Chart SVG */}
@@ -735,14 +735,14 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                       setSelectedCategory(cat.label);
                       showToast(`Filtrar categoria: ${cat.label}`);
                     }}
-                    className="flex items-center justify-between cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded transition-colors"
+                    className="flex items-center justify-between cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/60 px-1 py-0.5 rounded transition-colors"
                   >
-                    <span className="flex items-center gap-2 text-slate-700">
+                    <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                       <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: cat.color }} />
-                      <span className="font-medium text-slate-800">{cat.label}</span>
+                      <span className="font-medium text-slate-800 dark:text-slate-100">{cat.label}</span>
                     </span>
-                    <span className="font-semibold text-slate-900">
-                      {cat.percent}% <span className="text-slate-400 font-normal">({cat.count})</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-50">
+                      {cat.percent}% <span className="text-slate-400 dark:text-slate-500 font-normal">({cat.count})</span>
                     </span>
                   </div>
                 ))}
@@ -762,9 +762,9 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 2: Cobertura de Dados por Território (Mapa Vetorial) - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Cobertura de Dados por Território</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Cobertura de Dados por Território</h3>
 
             <div className="relative w-full h-[180px] mt-2 flex items-center justify-center">
               <svg viewBox="0 0 480 230" className="w-full h-full object-contain select-none">
@@ -789,7 +789,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
               </svg>
 
               {/* Legenda de Níveis no canto direito */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 space-y-1 text-[10px] font-medium text-slate-600 bg-white/90 p-2 rounded-xl backdrop-blur-xs border border-slate-100">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 space-y-1 text-[10px] font-medium text-slate-600 dark:text-slate-400 bg-white/90 dark:bg-slate-800/90 p-2 rounded-xl backdrop-blur-xs border border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
                   <span>Muito Alta (90-100%)</span>
@@ -830,25 +830,25 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 3: Evolução de Dados (Gráfico de Linhas) - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#0F172A]">Evolução de Dados</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Evolução de Dados</h3>
               <div className="relative">
                 <select
                   value={evolutionPeriod}
                   onChange={(e) => setEvolutionPeriod(e.target.value)}
-                  className="text-[11px] font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2 py-0.5 pr-5 cursor-pointer focus:outline-none appearance-none"
+                  className="text-[11px] font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-lg px-2 py-0.5 pr-5 cursor-pointer focus:outline-none appearance-none"
                 >
                   <option value="Últimos 12 meses">Últimos 12 meses</option>
                   <option value="Ano 2024">Ano 2024</option>
                 </select>
-                <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
             {/* Legenda das Linhas */}
-            <div className="flex items-center gap-3 text-[11px] font-medium text-slate-600 mt-2">
+            <div className="flex items-center gap-3 text-[11px] font-medium text-slate-600 dark:text-slate-400 mt-2">
               <div className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-blue-600" />
                 <span>Relatórios Gerados</span>
@@ -1025,9 +1025,9 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 4. LINHA 3: 3 Cards (Relatórios em Destaque, Fontes de Dados Ativas, Qualidade dos Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Card 1: Relatórios em Destaque - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Relatórios em Destaque</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Relatórios em Destaque</h3>
 
             <div className="space-y-2.5 mt-3">
               {relatoriosDestaque.map((rep) => (
@@ -1037,17 +1037,17 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     setSelectedReport(rep);
                     showToast(`A descarregar: ${rep.title}`);
                   }}
-                  className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 cursor-pointer transition-colors group"
+                  className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition-colors group"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${rep.iconCol}`}>
                       <FileText className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-slate-800 truncate group-hover:text-blue-600 transition-colors">
+                      <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate group-hover:text-blue-600 transition-colors">
                         {rep.title}
                       </h4>
-                      <div className="flex items-center gap-2 text-[10px] text-slate-400 mt-0.5">
+                      <div className="flex items-center gap-2 text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
                         <span>{rep.scope}</span>
                         <span>•</span>
                         <span className="flex items-center gap-0.5">
@@ -1059,10 +1059,10 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0">
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600">
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                       {rep.format}
                     </span>
-                    <span className="text-[11px] text-slate-400 font-medium">
+                    <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
                       {rep.size}
                     </span>
                   </div>
@@ -1083,14 +1083,14 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 2: Fontes de Dados Ativas - 5 cols */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Fontes de Dados Ativas</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Fontes de Dados Ativas</h3>
 
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-[10px] font-semibold text-slate-400 border-b border-slate-200/70">
+                  <tr className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 border-b border-slate-200/70 dark:border-slate-700">
                     <th className="pb-2">Fonte</th>
                     <th className="pb-2">Tipo</th>
                     <th className="pb-2">Atualização</th>
@@ -1098,7 +1098,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     <th className="pb-2 text-center">Qualidade</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {fontesDados.map((src) => (
                     <tr
                       key={src.id}
@@ -1106,12 +1106,12 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                         setSelectedSource(src);
                         showToast(`Fonte de dados: ${src.nome}`);
                       }}
-                      className="hover:bg-slate-50/80 cursor-pointer transition-colors"
+                      className="hover:bg-slate-50/80 dark:hover:bg-slate-800/60 cursor-pointer transition-colors"
                     >
-                      <td className="py-2 font-semibold text-slate-800 text-[11px]">{src.nome}</td>
-                      <td className="py-2 text-slate-500 text-[11px]">{src.tipo}</td>
-                      <td className="py-2 text-slate-500 text-[11px]">{src.atualizacao}</td>
-                      <td className="py-2 text-right font-medium text-slate-900 text-[11px]">{src.registos}</td>
+                      <td className="py-2 font-semibold text-slate-800 dark:text-slate-100 text-[11px]">{src.nome}</td>
+                      <td className="py-2 text-slate-500 dark:text-slate-400 text-[11px]">{src.tipo}</td>
+                      <td className="py-2 text-slate-500 dark:text-slate-400 text-[11px]">{src.atualizacao}</td>
+                      <td className="py-2 text-right font-medium text-slate-900 dark:text-slate-50 text-[11px]">{src.registos}</td>
                       <td className="py-2 text-center">
                         <span className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-[9.5px] font-semibold ${src.badgeBg}`}>
                           {src.qualidade}
@@ -1136,9 +1136,9 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 3: Qualidade dos Dados - 3 cols */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Qualidade dos Dados</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Qualidade dos Dados</h3>
 
             <div className="flex items-center justify-between gap-3 mt-4">
               {/* Semi-circle Gauge */}
@@ -1162,8 +1162,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-xl font-black text-[#0F172A] font-sans">89%</span>
-                  <span className="text-[9px] text-slate-400 font-medium">Qualidade Geral</span>
+                  <span className="text-xl font-black text-[#0F172A] dark:text-slate-50 font-sans">89%</span>
+                  <span className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">Qualidade Geral</span>
                 </div>
               </div>
 
@@ -1171,11 +1171,11 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
               <div className="flex-1 space-y-2 text-xs">
                 {qualidadeCriterios.map((crit) => (
                   <div key={crit.label} className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-slate-700">
+                    <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <span className={`w-2 h-2 rounded-full shrink-0 ${crit.color}`} />
                       <span className="text-[11px] font-medium">{crit.label}</span>
                     </span>
-                    <span className="font-bold text-slate-900 text-[11px]">{crit.percent}</span>
+                    <span className="font-bold text-slate-900 dark:text-slate-50 text-[11px]">{crit.percent}</span>
                   </div>
                 ))}
               </div>
@@ -1197,18 +1197,18 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 5. LINHA 4: 4 Colunas (Dados por Dimensão, Explorar Dados, Relatórios Agendados, Alertas e Notificações) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Coluna 1: Dados por Dimensão */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Dados por Dimensão</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Dados por Dimensão</h3>
 
             <div className="space-y-3 mt-4">
               {dimensoesDados.map((dim) => (
                 <div key={dim.label} className="space-y-1">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-700 font-medium">{dim.label}</span>
-                    <span className="font-bold text-slate-900">{dim.percent}%</span>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium">{dim.label}</span>
+                    <span className="font-bold text-slate-900 dark:text-slate-50">{dim.percent}%</span>
                   </div>
-                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-blue-600 rounded-full transition-all duration-500"
                       style={{ width: `${dim.percent}%` }}
@@ -1231,23 +1231,23 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 2: Explorar Dados (2x2 Cards) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Explorar Dados</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Explorar Dados</h3>
 
             <div className="grid grid-cols-2 gap-2.5 mt-4">
               {exploradorCards.map((card) => (
                 <button
                   key={card.id}
                   onClick={card.action}
-                  className="p-2.5 rounded-xl border border-slate-100 hover:border-slate-200 bg-slate-50/50 hover:bg-slate-50 text-left transition-all cursor-pointer flex flex-col justify-between min-h-[95px]"
+                  className="p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-slate-200 bg-slate-50/50 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-left transition-all cursor-pointer flex flex-col justify-between min-h-[95px]"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-white border border-slate-100 flex items-center justify-center shrink-0 shadow-2xs mb-2">
+                  <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0 shadow-2xs mb-2">
                     {card.icon}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-800 leading-tight">{card.title}</h4>
-                    <p className="text-[10px] text-slate-400 mt-0.5 leading-snug line-clamp-2">{card.desc}</p>
+                    <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">{card.title}</h4>
+                    <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug line-clamp-2">{card.desc}</p>
                   </div>
                 </button>
               ))}
@@ -1266,16 +1266,16 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 3: Relatórios Agendados (com Toggle Switches) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Relatórios Agendados</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Relatórios Agendados</h3>
 
             <div className="space-y-3 mt-4 text-xs">
               {scheduledReports.map((sch) => (
                 <div key={sch.id} className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <h4 className="text-xs font-semibold text-slate-800 truncate">{sch.name}</h4>
-                    <p className="text-[10.5px] text-slate-400 mt-0.5">
+                    <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-100 truncate">{sch.name}</h4>
+                    <p className="text-[10.5px] text-slate-400 dark:text-slate-500 mt-0.5">
                       {sch.freq} • {sch.schedule}
                     </p>
                   </div>
@@ -1287,7 +1287,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                     }`}
                   >
                     <div
-                      className={`w-4 h-4 rounded-full bg-white transition-transform ${
+                      className={`w-4 h-4 rounded-full bg-white dark:bg-slate-900 transition-transform ${
                         sch.active ? 'translate-x-4' : 'translate-x-0'
                       }`}
                     />
@@ -1309,29 +1309,29 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 4: Alertas e Notificações de Dados */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Alertas e Notificações de Dados</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Alertas e Notificações de Dados</h3>
 
             <div className="space-y-2.5 mt-3">
               {alertasDados.map((alt) => (
                 <div
                   key={alt.id}
                   onClick={() => showToast(`Detalhe do alerta: ${alt.title}`)}
-                  className="flex items-start justify-between gap-2 p-1.5 rounded-xl hover:bg-slate-50 cursor-pointer transition-colors"
+                  className="flex items-start justify-between gap-2 p-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition-colors"
                 >
                   <div className="flex items-start gap-2 min-w-0">
                     <div className={`p-1.5 rounded-lg shrink-0 ${alt.iconBg}`}>
                       {alt.icon}
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-semibold text-slate-800 leading-tight truncate">
+                      <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-100 leading-tight truncate">
                         {alt.title}
                       </h4>
-                      <p className="text-[10px] text-slate-400 mt-0.5 truncate">{alt.subtitle}</p>
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">{alt.subtitle}</p>
                     </div>
                   </div>
-                  <span className="text-[10px] text-slate-400 shrink-0 font-medium">{alt.time}</span>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0 font-medium">{alt.time}</span>
                 </div>
               ))}
             </div>
@@ -1352,12 +1352,12 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 6. LINHA 5: 3 Cards (Tendências de Utilização, Top Datasets, Impacto dos Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Card 1: Tendências de Utilização de Dados - 5 cols */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#0F172A]">Tendências de Utilização de Dados</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Tendências de Utilização de Dados</h3>
               {/* Legenda */}
-              <div className="flex items-center gap-2.5 text-[11px] font-medium text-slate-600">
+              <div className="flex items-center gap-2.5 text-[11px] font-medium text-slate-600 dark:text-slate-400">
                 <div className="flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-blue-700" />
                   <span>Consultas</span>
@@ -1502,22 +1502,22 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 2: Top Datasets Mais Utilizados - 3 cols */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Top Datasets Mais Utilizados</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Top Datasets Mais Utilizados</h3>
 
             <div className="space-y-3 mt-4 text-xs">
               {topDatasets.map((ds) => (
                 <div
                   key={ds.rank}
                   onClick={() => showToast(`Dataset selecionado: ${ds.name}`)}
-                  className="flex items-center justify-between p-1 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors"
+                  className="flex items-center justify-between p-1 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-5 text-center font-bold text-slate-400">{ds.rank}</span>
-                    <span className="font-semibold text-slate-800">{ds.name}</span>
+                    <span className="w-5 text-center font-bold text-slate-400 dark:text-slate-500">{ds.rank}</span>
+                    <span className="font-semibold text-slate-800 dark:text-slate-100">{ds.name}</span>
                   </div>
-                  <span className="font-bold text-slate-900">{ds.count}</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">{ds.count}</span>
                 </div>
               ))}
             </div>
@@ -1535,24 +1535,24 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 3: Impacto dos Dados - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Impacto dos Dados</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Impacto dos Dados</h3>
 
             <div className="grid grid-cols-2 gap-3 mt-4">
               {metricasImpacto.map((imp) => (
                 <div
                   key={imp.id}
-                  className="p-3 rounded-xl bg-slate-50/70 border border-slate-100 text-center"
+                  className="p-3 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-center"
                 >
-                  <span className="text-[11px] font-semibold text-slate-600 block truncate">
+                  <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400 block truncate">
                     {imp.title}
                   </span>
-                  <span className="text-xl font-black text-[#0F172A] font-sans block mt-1">
+                  <span className="text-xl font-black text-[#0F172A] dark:text-slate-50 font-sans block mt-1">
                     {imp.value}
                   </span>
-                  <span className="text-[10px] font-bold text-emerald-600 block mt-0.5">
-                    {imp.trend} <span className="font-normal text-slate-400">desde o ano passado</span>
+                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 block mt-0.5">
+                    {imp.trend} <span className="font-normal text-slate-400 dark:text-slate-500">desde o ano passado</span>
                   </span>
                 </div>
               ))}

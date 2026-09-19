@@ -88,7 +88,7 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
     >
       <div
         id="vila-ai-chat-modal"
-        className="bg-white w-full max-w-lg h-[80vh] sm:h-[600px] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#E2E8F0] flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 duration-200"
+        className="bg-white dark:bg-slate-900 w-full max-w-lg h-[80vh] sm:h-[600px] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#E2E8F0] flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -116,7 +116,7 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Chat History */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50/60 font-sans">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50/60 dark:bg-slate-800 font-sans">
           {messages.map((msg) => (
             <div
               key={msg.id}
@@ -128,7 +128,7 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
                 className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
                   msg.sender === 'user'
                     ? 'bg-[#1455AC] text-white'
-                    : 'bg-slate-200 text-[#1455AC]'
+                    : 'bg-slate-200 dark:bg-slate-700 text-[#1455AC]'
                 }`}
               >
                 {msg.sender === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
@@ -138,13 +138,13 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
                 className={`max-w-[80%] rounded-xl p-3 text-xs leading-relaxed ${
                   msg.sender === 'user'
                     ? 'bg-[#1455AC] text-white rounded-tr-xs shadow-xs'
-                    : 'bg-white text-slate-900 border border-slate-200 rounded-tl-xs shadow-xs'
+                    : 'bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-50 border border-slate-200 dark:border-slate-700 rounded-tl-xs shadow-xs'
                 }`}
               >
                 <p>{msg.text}</p>
                 <span
                   className={`text-[9px] block mt-1 ${
-                    msg.sender === 'user' ? 'text-blue-100 text-right' : 'text-slate-400'
+                    msg.sender === 'user' ? 'text-blue-100 text-right' : 'text-slate-400 dark:text-slate-500'
                   }`}
                 >
                   {msg.time}
@@ -152,13 +152,13 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
 
                 {/* Suggestions Pills if any */}
                 {msg.suggestions && (
-                  <div className="mt-3 pt-2 border-t border-slate-100 space-y-1.5">
-                    <p className="text-[10px] font-bold text-slate-500">Perguntas sugeridas:</p>
+                  <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
+                    <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400">Perguntas sugeridas:</p>
                     {msg.suggestions.map((sug, i) => (
                       <button
                         key={i}
                         onClick={() => handleSend(sug)}
-                        className="w-full text-left text-[11px] p-1.5 px-2.5 rounded-lg bg-slate-50 hover:bg-[#1455AC]/10 text-[#1455AC] font-medium transition-colors block border border-slate-200/80 cursor-pointer"
+                        className="w-full text-left text-[11px] p-1.5 px-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-[#1455AC]/10 text-[#1455AC] font-medium transition-colors block border border-slate-200/80 dark:border-slate-700 cursor-pointer"
                       >
                         {sug}
                       </button>
@@ -170,7 +170,7 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
           ))}
 
           {isTyping && (
-            <div className="flex items-center gap-2 text-slate-400 text-xs pl-9">
+            <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs pl-9">
               <div className="w-2 h-2 rounded-full bg-[#1455AC] animate-bounce" />
               <div className="w-2 h-2 rounded-full bg-[#f58300] animate-bounce [animation-delay:0.2s]" />
               <div className="w-2 h-2 rounded-full bg-[#1455AC] animate-bounce [animation-delay:0.4s]" />
@@ -185,14 +185,14 @@ export const VilaAiChatModal: React.FC<VilaAiChatModalProps> = ({ isOpen, onClos
             e.preventDefault();
             handleSend();
           }}
-          className="p-3 bg-white border-t border-slate-200 flex items-center gap-2"
+          className="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 flex items-center gap-2"
         >
           <input
             type="text"
             placeholder="Pergunte à VILA AI sobre países, projetos..."
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            className="flex-1 px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-[#1455AC] text-slate-900 font-sans"
+            className="flex-1 px-3.5 py-2 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-[#1455AC] text-slate-900 dark:text-slate-50 font-sans"
           />
           <button
             type="submit"

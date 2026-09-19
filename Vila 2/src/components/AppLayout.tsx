@@ -43,7 +43,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
   children,
 }) => {
   return (
-    <div className="min-h-screen bg-[#F1F5F9] text-[#475569] flex antialiased">
+    <div className="min-h-screen bg-[#F1F5F9] dark:bg-slate-950 text-[#475569] dark:text-slate-300 flex antialiased">
       {/* 1. Sidebar de navegação fixa à esquerda (Logo VILA, menu, widget de impacto, idioma, tema, login) */}
       <Sidebar
         currentTab={currentTab}

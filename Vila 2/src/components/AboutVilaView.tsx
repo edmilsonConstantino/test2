@@ -52,8 +52,8 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       desc: 'Transparência, participação e responsabilidade em todas as ações.',
       extendedDesc: 'A infraestrutura da VILA é construída sobre protocolos de dados abertos e governação auditável. Cada tomada de decisão e fluxo de investimento é rastreável, garantindo legitimidade institucional e empoderamento cívico em cada território.',
       icon: <Landmark className="w-5 h-5 stroke-[2.2]" />,
-      bg: 'bg-blue-50 text-[#1455AC]',
-      border: 'border-blue-100/90',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC]',
+      border: 'border-blue-100/90 dark:border-blue-500/20',
       tag: 'Transparência & Governança',
     },
     {
@@ -62,8 +62,8 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       desc: 'Parcerias que multiplicam recursos, conhecimento e oportunidades.',
       extendedDesc: 'Unimos governos locais, ONGs, empresas sociais e cidadãos ativos numa rede transfronteiriça de entreajuda. Ao eliminar silos geográficos, soluções testadas com sucesso num continente são replicadas noutros.',
       icon: <Users className="w-5 h-5 stroke-[2.2]" />,
-      bg: 'bg-emerald-50 text-emerald-500',
-      border: 'border-emerald-100/90',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500',
+      border: 'border-emerald-100/90 dark:border-emerald-500/20',
       tag: 'Redes & Cooperação',
     },
     {
@@ -72,8 +72,8 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       desc: 'Informação segura, integrada e acessível para todos.',
       extendedDesc: 'Garantimos integridade estatística e privacidade de ponta a ponta. Monitorizamos indicadores dos Objetivos de Desenvolvimento Sustentável (ODS) com precisão geoespacial para orientar investimentos onde são mais urgentes.',
       icon: <ShieldCheck className="w-5 h-5 stroke-[2.2]" />,
-      bg: 'bg-blue-50 text-[#1455AC]',
-      border: 'border-blue-100/90',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC]',
+      border: 'border-blue-100/90 dark:border-blue-500/20',
       tag: 'Inteligência & Segurança',
     },
     {
@@ -82,8 +82,8 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       desc: 'Tecnologia e criatividade para resolver os desafios de hoje e de amanhã.',
       extendedDesc: 'Desenvolvemos algoritmos preditivos, interfaces intuitivas e ferramentas colaborativas em tempo real. A tecnologia na VILA é humanizada, acelerando soluções para clima, educação e regeneração económica.',
       icon: <Rocket className="w-5 h-5 stroke-[2.2]" />,
-      bg: 'bg-purple-50 text-purple-600',
-      border: 'border-purple-100/90',
+      bg: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400',
+      border: 'border-purple-100/90 dark:border-purple-500/20',
       tag: 'Tecnologia & Futuro',
     },
     {
@@ -92,8 +92,8 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       desc: 'As pessoas estão no centro de tudo o que fazemos.',
       extendedDesc: 'Nenhuma tecnologia tem valor sem dignidade humana. Cada recurso e funcionalidade da VILA é concebido a partir de necessidades reais das comunidades, assegurando acessibilidade universal, escuta ativa e respeito pela diversidade cultural.',
       icon: <Users className="w-5 h-5 stroke-[2.2]" />,
-      bg: 'bg-amber-50 text-amber-500',
-      border: 'border-amber-100/90',
+      bg: 'bg-amber-50 dark:bg-amber-500/10 text-amber-500',
+      border: 'border-amber-100/90 dark:border-amber-500/20',
       tag: 'Impacto Humano',
     },
   ];
@@ -145,9 +145,9 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
   });
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-16 font-sans antialiased text-slate-900 select-text">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16 font-sans antialiased text-slate-900 dark:text-slate-50 select-text">
       {/* 1. Header / Topbar - Exact Match to Screenshot 9 UI VILA SOBRE */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3 font-sans">
+      <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 px-4 sm:px-6 lg:px-8 py-3 font-sans">
         <div className="max-w-[1540px] mx-auto flex items-center justify-between gap-4 font-sans">
           {/* Left: Mobile Toggle & Exact Breadcrumb */}
           <div className="flex items-center gap-2.5 min-w-0 font-sans">
@@ -155,7 +155,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               <button
                 type="button"
                 onClick={onOpenMobileMenu}
-                className="md:hidden p-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer shadow-2xs mr-1 font-sans"
+                className="md:hidden p-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 cursor-pointer shadow-2xs mr-1 font-sans"
                 aria-label="Abrir menu lateral"
               >
                 <Menu className="w-5 h-5" />
@@ -167,31 +167,31 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateToTab('comunidade')}
-                className="inline-flex items-center gap-1.5 text-slate-700 hover:text-[#1455AC] transition-colors cursor-pointer group font-sans"
+                className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 hover:text-[#1455AC] transition-colors cursor-pointer group font-sans"
               >
                 <Home className="w-4 h-4 text-[#1455AC] group-hover:scale-105 transition-transform" />
-                <span className="font-semibold text-slate-900">Comunidade Global</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">Comunidade Global</span>
               </button>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" strokeWidth={2.5} />
-              <span className="font-bold text-slate-900 tracking-tight truncate">Sobre a VILA</span>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" strokeWidth={2.5} />
+              <span className="font-bold text-slate-900 dark:text-slate-50 tracking-tight truncate">Sobre a VILA</span>
             </nav>
           </div>
 
           {/* Center: Search pill matching screenshot */}
           <div className="relative hidden md:block w-72 lg:w-96 font-sans">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Pesquisar..."
-              className="w-full pl-9 pr-4 py-1.5 rounded-full border border-slate-200 text-xs text-slate-800 placeholder-slate-400 bg-slate-50 hover:bg-white focus:bg-white focus:outline-none focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]/20 transition-all shadow-2xs font-sans"
+              className="w-full pl-9 pr-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]/20 transition-all shadow-2xs font-sans"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 font-sans"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 font-sans"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -205,29 +205,29 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                className="relative p-2 rounded-full hover:bg-slate-100 text-slate-700 transition-colors cursor-pointer font-sans"
+                className="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors cursor-pointer font-sans"
                 aria-label="Notificações"
               >
                 <Bell className="w-4 h-4" />
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1455AC] text-white text-[9.5px] font-bold flex items-center justify-center ring-2 ring-white">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1455AC] text-white text-[9.5px] font-bold flex items-center justify-center ring-2 ring-white dark:ring-slate-900">
                   3
                 </span>
               </button>
 
               {isNotificationsOpen && (
-                <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-slate-200 p-3.5 z-50 animate-in fade-in slide-in-from-top-2 font-sans">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 font-sans">
-                    <span className="text-xs font-bold text-slate-900 font-sans">Notificações Globais</span>
+                <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-3.5 z-50 animate-in fade-in slide-in-from-top-2 font-sans">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-slate-800 font-sans">
+                    <span className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">Notificações Globais</span>
                     <span className="text-[10px] text-[#1455AC] font-bold hover:underline cursor-pointer font-sans">Marcar todas</span>
                   </div>
                   <div className="mt-2.5 space-y-2 text-xs font-sans">
-                    <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100/80 font-sans">
-                      <p className="font-bold text-slate-900">Novo Marco Alcançado</p>
-                      <p className="text-[11px] text-slate-600 mt-0.5">23M+ de cidadãos com impacto verificado na plataforma.</p>
+                    <div className="p-2.5 rounded-xl bg-blue-50/70 dark:bg-blue-500/10 border border-blue-100/80 dark:border-blue-500/20 font-sans">
+                      <p className="font-bold text-slate-900 dark:text-slate-50">Novo Marco Alcançado</p>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">23M+ de cidadãos com impacto verificado na plataforma.</p>
                     </div>
-                    <div className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-colors font-sans">
-                      <p className="font-bold text-slate-900">Iniciativa Apoiada em Moçambique</p>
-                      <p className="text-[11px] text-slate-600 mt-0.5">Educação digital em 24 escolas rurais ativada.</p>
+                    <div className="p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 border border-transparent hover:border-slate-200 transition-colors font-sans">
+                      <p className="font-bold text-slate-900 dark:text-slate-50">Iniciativa Apoiada em Moçambique</p>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">Educação digital em 24 escolas rurais ativada.</p>
                     </div>
                   </div>
                 </div>
@@ -239,7 +239,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center gap-2.5 pl-1.5 pr-2.5 py-1 rounded-full border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer shadow-2xs transition-colors font-sans"
+                className="flex items-center gap-2.5 pl-1.5 pr-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 cursor-pointer shadow-2xs transition-colors font-sans"
               >
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80"
@@ -247,17 +247,17 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                   className="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200"
                 />
                 <div className="text-left hidden sm:block font-sans">
-                  <p className="text-[11.5px] font-bold text-slate-900 leading-tight">Divan Mellert</p>
-                  <p className="text-[10px] text-slate-500 leading-none">Administrador</p>
+                  <p className="text-[11.5px] font-bold text-slate-900 dark:text-slate-50 leading-tight">Divan Mellert</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-none">Administrador</p>
                 </div>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isUserMenuOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isUserMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isUserMenuOpen && (
-                <div className="absolute right-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-slate-200 p-2 z-50 text-xs font-sans">
-                  <div className="px-3 py-2 border-b border-slate-100 font-sans">
-                    <p className="font-bold text-slate-900">Divan Mellert</p>
-                    <p className="text-[11px] text-slate-500">divan@vila.org</p>
+                <div className="absolute right-0 mt-2 w-52 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 z-50 text-xs font-sans">
+                  <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-800 font-sans">
+                    <p className="font-bold text-slate-900 dark:text-slate-50">Divan Mellert</p>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">divan@vila.org</p>
                   </div>
                   <button
                     type="button"
@@ -265,7 +265,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                       onNavigateToTab('definicoes');
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-2 mt-1 rounded-lg hover:bg-slate-50 font-medium text-slate-700 cursor-pointer flex items-center justify-between"
+                    className="w-full text-left px-3 py-2 mt-1 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 font-medium text-slate-700 dark:text-slate-300 cursor-pointer flex items-center justify-between"
                   >
                     <span>Definições do Perfil</span>
                   </button>
@@ -275,7 +275,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                       onOpenAuth('login');
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-2 rounded-lg hover:bg-red-50 font-medium text-red-600 cursor-pointer"
+                    className="w-full text-left px-3 py-2 rounded-lg hover:bg-red-50 font-medium text-red-600 dark:text-red-400 cursor-pointer"
                   >
                     Terminar sessão
                   </button>
@@ -295,7 +295,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
             {/* HERO SECTION: Sobre a VILA + Globe Graphic */}
             <section
               id="hero-about-vila"
-              className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white via-[#F8FAFC] to-[#EFF6FF]/60 border border-slate-200 p-6 sm:p-8 lg:p-10 shadow-2xs transition-all hover:shadow-xs font-sans"
+              className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white via-[#F8FAFC] to-[#EFF6FF]/60 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 lg:p-10 shadow-2xs transition-all hover:shadow-xs font-sans"
             >
               {/* Subtle background ambient reflections */}
               <div className="absolute -top-28 -right-28 w-[32rem] h-[32rem] bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
@@ -304,11 +304,11 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 font-sans">
                 {/* Hero Typography */}
                 <div className="max-w-xl font-sans">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 font-sans tracking-tight leading-[1.15]">
+                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 dark:text-slate-50 font-sans tracking-tight leading-[1.15]">
                     Sobre a <span className="text-[#1455AC]">VILA</span>
                   </h1>
 
-                  <p className="mt-4 text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-lg font-sans">
+                  <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-lg font-sans">
                     A VILA é a infraestrutura digital que conecta pessoas, organizações e territórios para criar impacto real e sustentável.
                   </p>
 
@@ -453,34 +453,34 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
             {/* 4 CORE CARDS: Missão, Visão, Propósito, Objectivos */}
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
               {/* Card 1: MISSÃO */}
-              <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
                 <div>
-                  <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
                     <Target className="w-5 h-5 stroke-[2.2]" />
                   </div>
 
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 uppercase font-sans">
+                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
                     MISSÃO
                   </h3>
 
-                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 font-normal font-sans">
-                    Conectar o mundo através da tecnologia e da colaboração, disponibilizando ferramentas inteligentes que promovem transparência, participação e impacto positivo em <strong className="font-bold text-slate-900">escala global</strong>.
+                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
+                    Conectar o mundo através da tecnologia e da colaboração, disponibilizando ferramentas inteligentes que promovem transparência, participação e impacto positivo em <strong className="font-bold text-slate-900 dark:text-slate-50">escala global</strong>.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: VISÃO */}
-              <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
                 <div>
-                  <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
                     <Eye className="w-5 h-5 stroke-[2.2]" />
                   </div>
 
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 uppercase font-sans">
+                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
                     VISÃO
                   </h3>
 
-                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 font-normal font-sans">
+                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
                     Ser a infraestrutura global de referência que capacita comunidades e organizações a co-criar soluções para um mundo mais próspero, justo e sustentável.
                   </p>
                 </div>
@@ -490,18 +490,18 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               </div>
 
               {/* Card 3: PROPÓSITO */}
-              <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
                 <div>
-                  <div className="w-10 h-10 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-rose-50 dark:bg-rose-500/10 text-rose-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
                     <Heart className="w-5 h-5 stroke-[2.2]" />
                   </div>
 
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 uppercase font-sans">
+                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
                     PROPÓSITO
                   </h3>
 
-                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 font-normal font-sans">
-                    Transformar conexões em impacto. Acreditamos que, quando pessoas e organizações trabalham juntas com propósito, o mundo torna-se um lugar <strong className="font-bold text-slate-900">melhor para todos</strong>.
+                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
+                    Transformar conexões em impacto. Acreditamos que, quando pessoas e organizações trabalham juntas com propósito, o mundo torna-se um lugar <strong className="font-bold text-slate-900 dark:text-slate-50">melhor para todos</strong>.
                   </p>
                 </div>
 
@@ -510,24 +510,24 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               </div>
 
               {/* Card 4: OBJECTIVOS */}
-              <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
                 <div>
-                  <div className="w-10 h-10 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
                     <Flag className="w-5 h-5 stroke-[2.2]" />
                   </div>
 
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 uppercase font-sans">
+                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
                     OBJECTIVOS
                   </h3>
 
                   <ul className="mt-3 space-y-2 font-sans">
                     {objectives.map((obj, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[11.5px] leading-tight text-slate-600 font-sans">
+                      <li key={i} className="flex items-start gap-2 text-[11.5px] leading-tight text-slate-600 dark:text-slate-400 font-sans">
                         {/* Circular amber checkmark badge matching screenshot */}
                         <div className="w-4 h-4 rounded-full border border-amber-500 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
                           <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
-                        <span className="font-medium text-slate-700">{obj}</span>
+                        <span className="font-medium text-slate-700 dark:text-slate-300">{obj}</span>
                       </li>
                     ))}
                   </ul>
@@ -539,14 +539,14 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
             <div className="pt-1 font-sans">
               <div className="flex items-center justify-between mb-1 font-sans">
                 <div>
-                  <h2 className="text-base sm:text-lg font-bold text-slate-900 font-sans">
+                  <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-50 font-sans">
                     Os pilares da VILA
                   </h2>
                   <div className="w-8 h-0.5 bg-[#1455AC] rounded-full mt-1 mb-3.5" />
                 </div>
 
                 {searchQuery && (
-                  <span className="text-xs text-slate-500 font-sans">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-sans">
                     Mostrando {filteredPillars.length} de {pillars.length} pilares
                   </span>
                 )}
@@ -560,7 +560,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                     onClick={() => setSelectedPillarModal(pillar)}
                     onMouseEnter={() => setActivePillar(pillar.id)}
                     onMouseLeave={() => setActivePillar(null)}
-                    className={`bg-white rounded-xl border ${pillar.border} p-4 shadow-2xs hover:shadow-xs transition-all cursor-pointer flex flex-col items-start font-sans ${
+                    className={`bg-white dark:bg-slate-800 rounded-xl border ${pillar.border} p-4 shadow-2xs hover:shadow-xs transition-all cursor-pointer flex flex-col items-start font-sans ${
                       activePillar === pillar.id ? 'ring-2 ring-blue-400/20 translate-y-[-2px]' : ''
                     }`}
                   >
@@ -568,11 +568,11 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                       {pillar.icon}
                     </div>
 
-                    <h4 className="text-[11.5px] font-bold text-slate-900 uppercase tracking-tight font-sans">
+                    <h4 className="text-[11.5px] font-bold text-slate-900 dark:text-slate-50 uppercase tracking-tight font-sans">
                       {pillar.title}
                     </h4>
 
-                    <p className="mt-1.5 text-[11px] leading-snug text-slate-500 font-medium font-sans">
+                    <p className="mt-1.5 text-[11px] leading-snug text-slate-500 dark:text-slate-400 font-medium font-sans">
                       {pillar.desc}
                     </p>
                   </div>
@@ -581,7 +581,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
             </div>
 
             {/* BANNER: "A VILA não é apenas uma plataforma." */}
-            <div className="relative overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-r from-blue-50/70 via-slate-50 to-amber-50/70 p-6 sm:p-7 shadow-2xs font-sans">
+            <div className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-r from-blue-50/70 via-slate-50 to-amber-50/70 p-6 sm:p-7 shadow-2xs font-sans">
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 font-sans">
                 {/* Text side with prominent blue quote mark */}
                 <div className="max-w-xl font-sans">
@@ -590,11 +590,11 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                     “
                   </div>
 
-                  <p className="text-xs sm:text-sm font-medium text-slate-700 font-sans">
+                  <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 font-sans">
                     A VILA não é apenas uma plataforma.
                   </p>
 
-                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans tracking-tight mt-0.5 leading-snug">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight mt-0.5 leading-snug">
                     É um movimento global de colaboração e transformação.
                   </h3>
 
@@ -663,9 +663,9 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
           <div className="lg:col-span-4 xl:col-span-3 space-y-6 font-sans">
             
             {/* Card 1: O nosso impacto */}
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs font-sans">
-              <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 font-sans">
-                <h3 className="text-sm font-bold text-slate-900 font-sans">
+            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs font-sans">
+              <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800 font-sans">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">
                   O nosso impacto
                 </h3>
                 <button
@@ -681,75 +681,75 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               {/* Metrics List matching screenshot */}
               <div className="mt-4 space-y-4 font-sans">
                 {/* Metric 1: 23M+ Pessoas impactadas */}
-                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 p-1 rounded-xl transition-colors font-sans">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 dark:hover:bg-slate-700 p-1 rounded-xl transition-colors font-sans">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Users className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <p className="text-xl font-extrabold text-slate-900 font-sans leading-tight">
+                    <p className="text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-tight">
                       23M+
                     </p>
-                    <p className="text-xs text-slate-500 font-medium font-sans">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium font-sans">
                       Pessoas impactadas
                     </p>
                   </div>
                 </div>
 
                 {/* Metric 2: 358 Projetos apoiados */}
-                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 p-1 rounded-xl transition-colors font-sans">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 dark:hover:bg-slate-700 p-1 rounded-xl transition-colors font-sans">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Share2 className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <p className="text-xl font-extrabold text-slate-900 font-sans leading-tight">
+                    <p className="text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-tight">
                       358
                     </p>
-                    <p className="text-xs text-slate-500 font-medium font-sans">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium font-sans">
                       Projetos apoiados
                     </p>
                   </div>
                 </div>
 
                 {/* Metric 3: 78 Países representados */}
-                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 p-1 rounded-xl transition-colors font-sans">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 dark:hover:bg-slate-700 p-1 rounded-xl transition-colors font-sans">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Globe className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <p className="text-xl font-extrabold text-slate-900 font-sans leading-tight">
+                    <p className="text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-tight">
                       78
                     </p>
-                    <p className="text-xs text-slate-500 font-medium font-sans">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium font-sans">
                       Países representados
                     </p>
                   </div>
                 </div>
 
                 {/* Metric 4: 12 Áreas de atuação */}
-                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 p-1 rounded-xl transition-colors font-sans">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 dark:hover:bg-slate-700 p-1 rounded-xl transition-colors font-sans">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Shield className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <p className="text-xl font-extrabold text-slate-900 font-sans leading-tight">
+                    <p className="text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-tight">
                       12
                     </p>
-                    <p className="text-xs text-slate-500 font-medium font-sans">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium font-sans">
                       Áreas de atuação
                     </p>
                   </div>
                 </div>
 
                 {/* Metric 5: 4.715 Avaliação média + 5 Stars */}
-                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 p-1 rounded-xl transition-colors font-sans">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3.5 group cursor-pointer hover:bg-slate-50/70 dark:hover:bg-slate-700 p-1 rounded-xl transition-colors font-sans">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Users className="w-5 h-5 stroke-[2.2]" />
                   </div>
                   <div>
-                    <p className="text-xl font-extrabold text-slate-900 font-sans leading-tight">
+                    <p className="text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-tight">
                       4.715
                     </p>
-                    <p className="text-xs text-slate-500 font-medium mb-0.5 font-sans">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mb-0.5 font-sans">
                       Avaliação média
                     </p>
                     <div className="flex items-center gap-0.5 text-amber-400">
@@ -763,9 +763,9 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
             </div>
 
             {/* Card 2: A nossa jornada (Vertical Timeline) */}
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs font-sans">
-              <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 font-sans">
-                <h3 className="text-sm font-bold text-slate-900 font-sans">
+            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs font-sans">
+              <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800 font-sans">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">
                   A nossa jornada
                 </h3>
                 <button
@@ -795,13 +795,13 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                     />
 
                     <div>
-                      <span className={`text-[11px] font-bold ${item.status === 'active' ? 'text-[#1455AC]' : 'text-slate-800'}`}>
+                      <span className={`text-[11px] font-bold ${item.status === 'active' ? 'text-[#1455AC]' : 'text-slate-800 dark:text-slate-100'}`}>
                         {item.year}
                       </span>
-                      <h4 className="text-xs font-bold text-slate-900 font-sans mt-0.5">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans mt-0.5">
                         {item.title}
                       </h4>
-                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug font-sans">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug font-sans">
                         {item.desc}
                       </p>
                     </div>
@@ -816,21 +816,21 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       {/* MODAL 1: Linha do Tempo Completa */}
       {isTimelineModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200 font-sans">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-200 font-sans">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 font-sans">
               <div className="flex items-center gap-2.5 font-sans">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center font-sans">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center font-sans">
                   <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 font-sans">Linha do Tempo VILA</h3>
-                  <p className="text-xs text-slate-500 font-sans">A evolução do nosso impacto de 2018 a hoje</p>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">Linha do Tempo VILA</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">A evolução do nosso impacto de 2018 a hoje</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsTimelineModalOpen(false)}
-                className="p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer font-sans"
+                className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer font-sans"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -838,14 +838,14 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
 
             <div className="mt-5 space-y-4 max-h-[60vh] overflow-y-auto pr-2 font-sans">
               {timelineMilestones.map((m, i) => (
-                <div key={i} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 font-sans">
+                <div key={i} className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-sans">
                   <div className="flex items-center justify-between font-sans">
                     <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-blue-100 text-[#1455AC] font-sans">
                       {m.year}
                     </span>
-                    <span className="text-[11px] font-bold text-slate-900 font-sans">{m.title}</span>
+                    <span className="text-[11px] font-bold text-slate-900 dark:text-slate-50 font-sans">{m.title}</span>
                   </div>
-                  <p className="text-xs text-slate-600 mt-2 leading-relaxed font-sans">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed font-sans">
                     {m.details}
                   </p>
                 </div>
@@ -868,21 +868,21 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       {/* MODAL 2: Relatório de Impacto Resumido */}
       {isReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200 font-sans">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-200 font-sans">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 font-sans">
               <div className="flex items-center gap-2.5 font-sans">
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-sans">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-sans">
                   <Globe className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 font-sans">Relatório Global de Impacto</h3>
-                  <p className="text-xs text-slate-500 font-sans">Dados consolidados e auditados do ecossistema VILA</p>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">Relatório Global de Impacto</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">Dados consolidados e auditados do ecossistema VILA</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsReportModalOpen(false)}
-                className="p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer font-sans"
+                className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer font-sans"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -890,25 +890,25 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
 
             <div className="mt-5 space-y-3 font-sans">
               <div className="grid grid-cols-2 gap-3 font-sans">
-                <div className="p-3 bg-blue-50/70 rounded-xl border border-blue-100 font-sans">
-                  <span className="text-[11px] text-slate-600 font-sans">População Atendida</span>
+                <div className="p-3 bg-blue-50/70 dark:bg-blue-500/10 rounded-xl border border-blue-100 dark:border-blue-500/20 font-sans">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-sans">População Atendida</span>
                   <p className="text-xl font-extrabold text-[#1455AC] mt-0.5 font-sans">23.418.090</p>
                 </div>
-                <div className="p-3 bg-emerald-50/70 rounded-xl border border-emerald-100 font-sans">
-                  <span className="text-[11px] text-slate-600 font-sans">Projetos Concluídos</span>
-                  <p className="text-xl font-extrabold text-emerald-600 mt-0.5 font-sans">358 iniciativas</p>
+                <div className="p-3 bg-emerald-50/70 dark:bg-emerald-500/10 rounded-xl border border-emerald-100 dark:border-emerald-500/20 font-sans">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-sans">Projetos Concluídos</span>
+                  <p className="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 font-sans">358 iniciativas</p>
                 </div>
-                <div className="p-3 bg-purple-50/70 rounded-xl border border-purple-100 font-sans">
-                  <span className="text-[11px] text-slate-600 font-sans">Países Participantes</span>
-                  <p className="text-xl font-extrabold text-purple-600 mt-0.5 font-sans">78 nações</p>
+                <div className="p-3 bg-purple-50/70 dark:bg-purple-500/10 rounded-xl border border-purple-100 dark:border-purple-500/20 font-sans">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-sans">Países Participantes</span>
+                  <p className="text-xl font-extrabold text-purple-600 dark:text-purple-400 mt-0.5 font-sans">78 nações</p>
                 </div>
-                <div className="p-3 bg-amber-50/70 rounded-xl border border-amber-100 font-sans">
-                  <span className="text-[11px] text-slate-600 font-sans">Índice de Satisfação</span>
-                  <p className="text-xl font-extrabold text-amber-600 mt-0.5 font-sans">4.715 / 5.0</p>
+                <div className="p-3 bg-amber-50/70 dark:bg-amber-500/10 rounded-xl border border-amber-100 dark:border-amber-500/20 font-sans">
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-sans">Índice de Satisfação</span>
+                  <p className="text-xl font-extrabold text-amber-600 dark:text-amber-400 mt-0.5 font-sans">4.715 / 5.0</p>
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed font-sans">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
                 Todas as métricas são monitoradas e validadas através dos protocolos abertos de transparência da VILA, garantindo que cada conexão resulte em impacto palpável.
               </div>
             </div>
@@ -929,7 +929,7 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsReportModalOpen(false)}
-                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors cursor-pointer font-sans"
+                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold rounded-xl transition-colors cursor-pointer font-sans"
               >
                 Fechar
               </button>
@@ -941,31 +941,31 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
       {/* MODAL 3: Pilar Expandido */}
       {selectedPillarModal && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200 font-sans">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-200 font-sans">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 font-sans">
               <div className="flex items-center gap-3 font-sans">
                 <div className={`w-10 h-10 rounded-xl ${selectedPillarModal.bg} flex items-center justify-center font-sans`}>
                   {selectedPillarModal.icon}
                 </div>
                 <div>
                   <span className="text-[10.5px] font-bold text-[#1455AC] uppercase tracking-wider font-sans">{selectedPillarModal.tag}</span>
-                  <h3 className="text-base font-bold text-slate-900 font-sans">{selectedPillarModal.title}</h3>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">{selectedPillarModal.title}</h3>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedPillarModal(null)}
-                className="p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer font-sans"
+                className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer font-sans"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="mt-4 space-y-3 font-sans">
-              <p className="text-sm font-semibold text-slate-900 font-sans leading-snug">
+              <p className="text-sm font-semibold text-slate-900 dark:text-slate-50 font-sans leading-snug">
                 {selectedPillarModal.desc}
               </p>
-              <p className="text-xs text-slate-600 leading-relaxed font-sans">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
                 {selectedPillarModal.extendedDesc}
               </p>
             </div>

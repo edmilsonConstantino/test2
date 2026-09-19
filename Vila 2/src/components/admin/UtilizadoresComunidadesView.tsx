@@ -151,8 +151,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 18%',
     trendPeriod: 'desde o período anterior',
     icon: 'user-plus',
-    bgClass: 'bg-emerald-50/90 text-emerald-600 border-emerald-100/70 border',
-    iconClass: 'text-emerald-600',
+    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+    iconClass: 'text-emerald-600 dark:text-emerald-400',
   },
   {
     id: 'kpi-ativos-mes',
@@ -171,8 +171,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 15%',
     trendPeriod: 'desde o período anterior',
     icon: 'globe',
-    bgClass: 'bg-amber-50/90 text-amber-600 border-amber-100/70 border',
-    iconClass: 'text-amber-600',
+    bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 border',
+    iconClass: 'text-amber-600 dark:text-amber-400',
   },
   {
     id: 'kpi-retencao',
@@ -225,11 +225,11 @@ const DEFAULT_COMMUNITY_STATUS: CommunityStatusItem[] = [
 ];
 
 const DEFAULT_CATEGORIES: CategoryItem[] = [
-  { id: 'ambiental', name: 'Ambiental', count: 3852, formattedCount: '3.852', icon: 'leaf', color: '#10B981', bgClass: 'bg-emerald-50 text-emerald-600 border-emerald-100' },
-  { id: 'educacao', name: 'Educação', count: 3242, formattedCount: '3.242', icon: 'education', color: '#2D79D1', bgClass: 'bg-blue-50 text-blue-600 border-blue-100' },
-  { id: 'saude', name: 'Saúde', count: 2981, formattedCount: '2.981', icon: 'health', color: '#F58300', bgClass: 'bg-blue-50 text-blue-600 border-blue-100' },
-  { id: 'cultura', name: 'Cultura', count: 2456, formattedCount: '2.456', icon: 'culture', color: '#DC7600', bgClass: 'bg-amber-50 text-amber-600 border-amber-100' },
-  { id: 'inovacao', name: 'Inovação', count: 2120, formattedCount: '2.120', icon: 'tech', color: '#0F448A', bgClass: 'bg-blue-50 text-blue-600 border-blue-100' },
+  { id: 'ambiental', name: 'Ambiental', count: 3852, formattedCount: '3.852', icon: 'leaf', color: '#10B981', bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100' },
+  { id: 'educacao', name: 'Educação', count: 3242, formattedCount: '3.242', icon: 'education', color: '#2D79D1', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 border-blue-100' },
+  { id: 'saude', name: 'Saúde', count: 2981, formattedCount: '2.981', icon: 'health', color: '#F58300', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 border-blue-100' },
+  { id: 'cultura', name: 'Cultura', count: 2456, formattedCount: '2.456', icon: 'culture', color: '#DC7600', bgClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-100' },
+  { id: 'inovacao', name: 'Inovação', count: 2120, formattedCount: '2.120', icon: 'tech', color: '#0F448A', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 border-blue-100' },
 ];
 
 const DEFAULT_GROWTH_COMMUNITIES: GrowthCommunityItem[] = [
@@ -525,17 +525,17 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       {/* 1. HEADER DA PÁGINA (Compacto, elegante e proporcional)                   */}
       {/* ========================================================================= */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70 dark:border-slate-700">
         {/* Esquerda: Ícone Reduzido + Título + Subtítulo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E2ECF9] border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <Users className="w-5 h-5 text-[#1455AC]" strokeWidth={2.2} />
           </div>
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
+            <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight leading-tight">
               Utilizadores e Comunidades
             </h1>
-            <p className="text-xs text-slate-500 font-normal mt-0.5 max-w-xl">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-xl">
               Visão completa da base de utilizadores e do ecossistema de comunidades da rede VILA.
             </p>
           </div>
@@ -548,15 +548,15 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <button
               type="button"
               onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
-              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-2xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 shadow-2xs transition-colors cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5 text-slate-500" />
+              <Calendar className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>{selectedDateRange}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
             </button>
             {isDateDropdownOpen && (
-              <div className="absolute right-0 mt-1.5 w-60 bg-white border border-slate-200 rounded-xl shadow-xl z-30 py-1 text-xs">
-                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-200/70">
+              <div className="absolute right-0 mt-1.5 w-60 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl z-30 py-1 text-xs">
+                <div className="px-3 py-1.5 font-bold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider border-b border-slate-200/70 dark:border-slate-700">
                   Período de Análise
                 </div>
                 {[
@@ -576,7 +576,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                       showToast(`Filtro de período alterado para: ${p}`);
                     }}
                     className={`w-full text-left px-3 py-2 hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700'
+                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     <span>{p}</span>
@@ -591,9 +591,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           <button
             type="button"
             onClick={() => setIsExportModalOpen(true)}
-            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-2xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 shadow-2xs transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Exportar</span>
           </button>
 
@@ -608,16 +608,16 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           </button>
 
           {/* Indicadores de Telemetria */}
-          <div className="flex flex-col justify-center text-[11px] text-slate-600 pl-1 space-y-0.5 border-l border-slate-200/80 pl-2.5 ml-1">
+          <div className="flex flex-col justify-center text-[11px] text-slate-600 dark:text-slate-400 pl-1 space-y-0.5 border-l border-slate-200/80 dark:border-slate-700 pl-2.5 ml-1">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] shrink-0" />
-              <span className="whitespace-nowrap text-slate-600">
-                Atualizado: <strong className="font-semibold text-slate-800">{lastUpdateTime}</strong>
+              <span className="whitespace-nowrap text-slate-600 dark:text-slate-400">
+                Atualizado: <strong className="font-semibold text-slate-800 dark:text-slate-100">{lastUpdateTime}</strong>
               </span>
               <button
                 type="button"
                 onClick={handleManualRefresh}
-                className="text-slate-400 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
                 title="Atualizar dados agora"
               >
                 <RefreshCw className={`w-2.5 h-2.5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -625,7 +625,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] shrink-0 animate-pulse" />
-              <span className="font-medium text-slate-500 whitespace-nowrap">
+              <span className="font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap">
                 Tempo real
               </span>
             </div>
@@ -648,23 +648,23 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* COLUNA 1: Crescimento de Utilizadores (Gráfico Multi-linha SVG) */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Crescimento de Utilizadores
               </h2>
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setIsGrowthPeriodOpen(!isGrowthPeriodOpen)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg transition-colors cursor-pointer"
                 >
                   <span>{growthPeriod === '12meses' ? 'Últimos 12 meses' : growthPeriod === '6meses' ? 'Últimos 6 meses' : 'Últimos 30 dias'}</span>
-                  <ChevronDown className="w-3 h-3 text-slate-400" />
+                  <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                 </button>
                 {isGrowthPeriodOpen && (
-                  <div className="absolute right-0 mt-1 w-36 bg-white border border-slate-200 rounded-xl shadow-lg z-20 py-1 text-xs">
+                  <div className="absolute right-0 mt-1 w-36 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg z-20 py-1 text-xs">
                     <button
                       type="button"
                       onClick={() => { setGrowthPeriod('12meses'); setIsGrowthPeriodOpen(false); }}
@@ -697,7 +697,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 type="button"
                 onClick={() => setActiveGrowthLines((p) => ({ ...p, total: !p.total }))}
                 className={`inline-flex items-center gap-1.5 cursor-pointer transition-opacity ${
-                  activeGrowthLines.total ? 'opacity-100 text-slate-800' : 'opacity-40 text-slate-400 line-through'
+                  activeGrowthLines.total ? 'opacity-100 text-slate-800 dark:text-slate-100' : 'opacity-40 text-slate-400 dark:text-slate-500 line-through'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
@@ -707,7 +707,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 type="button"
                 onClick={() => setActiveGrowthLines((p) => ({ ...p, ativos: !p.ativos }))}
                 className={`inline-flex items-center gap-1.5 cursor-pointer transition-opacity ${
-                  activeGrowthLines.ativos ? 'opacity-100 text-slate-800' : 'opacity-40 text-slate-400 line-through'
+                  activeGrowthLines.ativos ? 'opacity-100 text-slate-800 dark:text-slate-100' : 'opacity-40 text-slate-400 dark:text-slate-500 line-through'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
@@ -717,7 +717,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 type="button"
                 onClick={() => setActiveGrowthLines((p) => ({ ...p, novos: !p.novos }))}
                 className={`inline-flex items-center gap-1.5 cursor-pointer transition-opacity ${
-                  activeGrowthLines.novos ? 'opacity-100 text-slate-800' : 'opacity-40 text-slate-400 line-through'
+                  activeGrowthLines.novos ? 'opacity-100 text-slate-800 dark:text-slate-100' : 'opacity-40 text-slate-400 dark:text-slate-500 line-through'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
@@ -782,7 +782,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Relatório Completo de Crescimento')}
@@ -795,9 +795,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 2: Distribuição por Segmento (Donut Chart + Legenda) */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-200/70">
+            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans pb-3 border-b border-slate-200/70 dark:border-slate-700">
               Distribuição por Segmento
             </h2>
 
@@ -826,12 +826,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 </svg>
                 {/* Centro do Donut */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <span className="text-xs font-bold text-slate-800">
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
                     {hoveredDonutSegment
                       ? segmentDonutData.find((s) => s.id === hoveredDonutSegment)?.percentage + '%'
                       : '100%'}
                   </span>
-                  <span className="text-[9px] text-slate-400 font-medium">Total</span>
+                  <span className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">Total</span>
                 </div>
               </div>
 
@@ -843,16 +843,16 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     onMouseEnter={() => setHoveredDonutSegment(seg.id)}
                     onMouseLeave={() => setHoveredDonutSegment(null)}
                     className={`flex items-center justify-between p-1 rounded-lg transition-colors cursor-pointer ${
-                      hoveredDonutSegment === seg.id ? 'bg-slate-50 font-bold' : ''
+                      hoveredDonutSegment === seg.id ? 'bg-slate-50 dark:bg-slate-800/60 font-bold' : ''
                     }`}
                   >
                     <div className="flex items-center gap-2 truncate">
                       <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: seg.color }} />
-                      <span className="text-slate-700 truncate">{seg.name}</span>
+                      <span className="text-slate-700 dark:text-slate-300 truncate">{seg.name}</span>
                     </div>
                     <div className="flex items-center gap-3 shrink-0">
-                      <span className="font-semibold text-slate-900 w-8 text-right">{seg.percentage}%</span>
-                      <span className="text-slate-500 font-mono text-[11px] w-16 text-right">{seg.formattedCount}</span>
+                      <span className="font-semibold text-slate-900 dark:text-slate-50 w-8 text-right">{seg.percentage}%</span>
+                      <span className="text-slate-500 dark:text-slate-400 font-mono text-[11px] w-16 text-right">{seg.formattedCount}</span>
                     </div>
                   </div>
                 ))}
@@ -860,7 +860,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Segmentos de Utilizadores')}
@@ -873,13 +873,13 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 3: Utilizadores por País (Top 10) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Utilizadores por País (Top 10)
               </h2>
-              <span className="text-[11px] text-slate-400 font-medium">Utilizadores</span>
+              <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">Utilizadores</span>
             </div>
 
             {/* Lista das 10 barras horizontais */}
@@ -887,17 +887,17 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               {countriesList.map((item) => {
                 const barWidth = Math.min(Math.round((item.users / maxCountryUsers) * 100), 100);
                 return (
-                  <div key={item.id} className="flex items-center gap-2 text-xs group cursor-pointer hover:bg-slate-50 p-0.5 rounded-lg transition-colors">
-                    <span className="w-24 text-slate-700 font-medium truncate shrink-0">
+                  <div key={item.id} className="flex items-center gap-2 text-xs group cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/60 p-0.5 rounded-lg transition-colors">
+                    <span className="w-24 text-slate-700 dark:text-slate-300 font-medium truncate shrink-0">
                       {item.country}
                     </span>
-                    <div className="flex-1 bg-slate-100 h-2.5 rounded-full overflow-hidden relative">
+                    <div className="flex-1 bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden relative">
                       <div
                         className="bg-[#1455AC] h-full rounded-full transition-all duration-500 group-hover:bg-[#2D79D1]"
                         style={{ width: `${barWidth}%` }}
                       />
                     </div>
-                    <span className="w-14 text-right font-semibold text-slate-800 font-mono text-[11px] shrink-0">
+                    <span className="w-14 text-right font-semibold text-slate-800 dark:text-slate-100 font-mono text-[11px] shrink-0">
                       {item.formattedUsers}
                     </span>
                   </div>
@@ -906,7 +906,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Ranking Global de Países')}
@@ -946,8 +946,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     {cat.icon === 'health' && <HeartPulse className="w-4 h-4" />}
                     {cat.icon === 'culture' && <Palette className="w-4 h-4" />}
                   </div>
-                  <span className="text-[11px] font-semibold text-slate-700">{cat.name}</span>
-                  <span className="text-xs font-bold text-slate-900 mt-0.5">{cat.formattedCount}</span>
+                  <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">{cat.name}</span>
+                  <span className="text-xs font-bold text-slate-900 dark:text-slate-50 mt-0.5">{cat.formattedCount}</span>
                 </button>
               ))}
             </div>
@@ -966,9 +966,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               >
                 <div className="flex items-center gap-2">
                   <Cpu className="w-3.5 h-3.5 text-blue-600" />
-                  <span className="font-semibold text-slate-700 text-[11px]">{categoriesList[4].name}</span>
+                  <span className="font-semibold text-slate-700 dark:text-slate-300 text-[11px]">{categoriesList[4].name}</span>
                 </div>
-                <span className="font-bold text-slate-900">{categoriesList[4].formattedCount}</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">{categoriesList[4].formattedCount}</span>
               </button>
             )}
         </SectionCard>
@@ -976,42 +976,42 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         {/* Card 3: Engajamento nas Comunidades */}
         <SectionCard title="Engajamento nas Comunidades" footerLabel="Ver métricas de engajamento" onFooterClick={() => setActiveDetailModal('Métricas Detalhadas de Engajamento')}>
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-slate-50/80 border border-slate-100 rounded-xl p-3">
-                <span className="text-[11px] font-medium text-slate-500">Publicações</span>
-                <div className="text-base font-bold text-[#0F172A] font-sans mt-0.5">
+              <div className="bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-xl p-3">
+                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Publicações</span>
+                <div className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                   125.842
                 </div>
-                <div className="text-[10.5px] font-semibold text-emerald-600 mt-0.5">
+                <div className="text-[10.5px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
                   ↑ 22%
                 </div>
               </div>
 
-              <div className="bg-slate-50/80 border border-slate-100 rounded-xl p-3">
-                <span className="text-[11px] font-medium text-slate-500">Comentários</span>
-                <div className="text-base font-bold text-[#0F172A] font-sans mt-0.5">
+              <div className="bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-xl p-3">
+                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Comentários</span>
+                <div className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                   98.713
                 </div>
-                <div className="text-[10.5px] font-semibold text-emerald-600 mt-0.5">
+                <div className="text-[10.5px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
                   ↑ 18%
                 </div>
               </div>
 
-              <div className="bg-slate-50/80 border border-slate-100 rounded-xl p-3">
-                <span className="text-[11px] font-medium text-slate-500">Reações</span>
-                <div className="text-base font-bold text-[#0F172A] font-sans mt-0.5">
+              <div className="bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-xl p-3">
+                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Reações</span>
+                <div className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                   287.654
                 </div>
-                <div className="text-[10.5px] font-semibold text-emerald-600 mt-0.5">
+                <div className="text-[10.5px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
                   ↑ 25%
                 </div>
               </div>
 
-              <div className="bg-slate-50/80 border border-slate-100 rounded-xl p-3">
-                <span className="text-[11px] font-medium text-slate-500">Partilhas</span>
-                <div className="text-base font-bold text-[#0F172A] font-sans mt-0.5">
+              <div className="bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 rounded-xl p-3">
+                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Partilhas</span>
+                <div className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                   45.321
                 </div>
-                <div className="text-[10.5px] font-semibold text-emerald-600 mt-0.5">
+                <div className="text-[10.5px] font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
                   ↑ 16%
                 </div>
               </div>
@@ -1112,8 +1112,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 })}
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-xl font-extrabold text-[#0F172A] font-sans">18.732</span>
-                <span className="text-[10px] font-medium text-slate-400">Comunidades</span>
+                <span className="text-xl font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">18.732</span>
+                <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500">Comunidades</span>
               </div>
             </div>
 
@@ -1123,10 +1123,10 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 <div key={`status-lg-${st.id}`} className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5 truncate">
                     <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: st.color }} />
-                    <span className="text-slate-700 font-medium truncate">{st.status}</span>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium truncate">{st.status}</span>
                   </div>
-                  <span className="font-semibold text-slate-900 shrink-0">
-                    {st.formattedCount} <span className="text-slate-400 font-normal">({st.percentage}%)</span>
+                  <span className="font-semibold text-slate-900 dark:text-slate-50 shrink-0">
+                    {st.formattedCount} <span className="text-slate-400 dark:text-slate-500 font-normal">({st.percentage}%)</span>
                   </span>
                 </div>
               ))}
@@ -1140,21 +1140,21 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* COLUNA 1: Comunidades com Maior Crescimento (Tabela) */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Comunidades com Maior Crescimento
               </h2>
               {/* Quick Search */}
               <div className="relative w-36">
-                <Search className="w-3 h-3 text-slate-400 absolute left-2 top-2" />
+                <Search className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute left-2 top-2" />
                 <input
                   type="text"
                   placeholder="Pesquisar..."
                   value={communitySearchTerm}
                   onChange={(e) => setCommunitySearchTerm(e.target.value)}
-                  className="w-full pl-6 pr-2 py-1 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 bg-slate-50/50"
+                  className="w-full pl-6 pr-2 py-1 text-xs border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:border-blue-500 bg-slate-50/50 dark:bg-slate-800/60"
                 />
               </div>
             </div>
@@ -1163,7 +1163,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-slate-400 font-semibold border-b border-slate-200/70 text-[11px]">
+                  <tr className="text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-200/70 dark:border-slate-700 text-[11px]">
                     <th className="pb-2 font-medium">Comunidade</th>
                     <th className="pb-2 font-medium">Categoria</th>
                     <th className="pb-2 font-medium text-right">Membros</th>
@@ -1171,28 +1171,28 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     <th className="pb-2 font-medium text-right">Localização</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {filteredCommunities.slice(0, 5).map((com) => (
                     <tr
                       key={com.id}
                       className="hover:bg-blue-50/40 transition-colors group cursor-pointer"
                       onClick={() => setActiveDetailModal(`Comunidade: ${com.name}`)}
                     >
-                      <td className="py-2.5 font-semibold text-slate-800 group-hover:text-[#1455AC] transition-colors">
+                      <td className="py-2.5 font-semibold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC] transition-colors">
                         {com.name}
                       </td>
                       <td className="py-2.5">
-                        <span className="px-2 py-0.5 rounded-full text-[10.5px] font-medium bg-slate-100 text-slate-700">
+                        <span className="px-2 py-0.5 rounded-full text-[10.5px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                           {com.category}
                         </span>
                       </td>
-                      <td className="py-2.5 text-right font-mono text-slate-700">
+                      <td className="py-2.5 text-right font-mono text-slate-700 dark:text-slate-300">
                         {com.formattedMembers}
                       </td>
-                      <td className="py-2.5 text-right font-bold text-emerald-600">
+                      <td className="py-2.5 text-right font-bold text-emerald-600 dark:text-emerald-400">
                         {com.growth}
                       </td>
-                      <td className="py-2.5 text-right text-slate-600">
+                      <td className="py-2.5 text-right text-slate-600 dark:text-slate-400">
                         {com.location}
                       </td>
                     </tr>
@@ -1202,8 +1202,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between mt-4">
-            <span className="text-[11px] text-slate-400">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-between mt-4">
+            <span className="text-[11px] text-slate-400 dark:text-slate-500">
               A exibir {Math.min(filteredCommunities.length, 5)} de {growthCommunities.length} comunidades
             </span>
             <button
@@ -1218,23 +1218,23 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 2: Membros Mais Ativos (Tabela com Avatares) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-200/70">
+            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans pb-3 border-b border-slate-200/70 dark:border-slate-700">
               Membros Mais Ativos
             </h2>
 
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-slate-400 font-semibold border-b border-slate-200/70 text-[11px]">
+                  <tr className="text-slate-400 dark:text-slate-500 font-semibold border-b border-slate-200/70 dark:border-slate-700 text-[11px]">
                     <th className="pb-2 font-medium">Membro</th>
                     <th className="pb-2 font-medium text-center">Comunidades</th>
                     <th className="pb-2 font-medium text-center">Posts</th>
                     <th className="pb-2 font-medium text-right">Interações</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {activeMembers.map((member) => (
                     <tr
                       key={member.id}
@@ -1246,21 +1246,21 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                           <img
                             src={member.avatar}
                             alt={member.name}
-                            className="w-6 h-6 rounded-full object-cover border border-slate-200 shrink-0"
+                            className="w-6 h-6 rounded-full object-cover border border-slate-200 dark:border-slate-700 shrink-0"
                             referrerPolicy="no-referrer"
                           />
-                          <span className="font-semibold text-slate-800 group-hover:text-[#1455AC] transition-colors truncate max-w-[110px]">
+                          <span className="font-semibold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC] transition-colors truncate max-w-[110px]">
                             {member.name}
                           </span>
                         </div>
                       </td>
-                      <td className="py-2.5 text-center font-mono text-slate-700">
+                      <td className="py-2.5 text-center font-mono text-slate-700 dark:text-slate-300">
                         {member.communities}
                       </td>
-                      <td className="py-2.5 text-center font-mono text-slate-700">
+                      <td className="py-2.5 text-center font-mono text-slate-700 dark:text-slate-300">
                         {member.posts}
                       </td>
-                      <td className="py-2.5 text-right font-mono font-semibold text-slate-900">
+                      <td className="py-2.5 text-right font-mono font-semibold text-slate-900 dark:text-slate-50">
                         {member.formattedInteractions}
                       </td>
                     </tr>
@@ -1270,7 +1270,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end mt-4">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Ranking Completo de Membros')}
@@ -1283,17 +1283,17 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 3: Atividade Recente (Feed em Tempo Real) */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-200/70">
+            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans pb-3 border-b border-slate-200/70 dark:border-slate-700">
               Atividade Recente
             </h2>
 
             <div className="mt-3 space-y-3">
               {recentActivities.map((act) => (
-                <div key={act.id} className="flex items-start gap-2.5 text-xs group cursor-pointer hover:bg-slate-50 p-1 rounded-lg transition-colors">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-slate-100 text-slate-600">
-                    {act.type === 'community' && <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />}
+                <div key={act.id} className="flex items-start gap-2.5 text-xs group cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/60 p-1 rounded-lg transition-colors">
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    {act.type === 'community' && <MessageSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
                     {act.type === 'user' && <Users className="w-3.5 h-3.5 text-blue-600" />}
                     {act.type === 'milestone' && <Award className="w-3.5 h-3.5 text-amber-500" />}
                     {act.type === 'post' && <Send className="w-3.5 h-3.5 text-blue-600" />}
@@ -1301,12 +1301,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <span className="font-semibold text-slate-800 text-[11px] truncate group-hover:text-[#1455AC] transition-colors">
+                      <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11px] truncate group-hover:text-[#1455AC] transition-colors">
                         {act.title}
                       </span>
-                      <span className="text-[10px] text-slate-400 shrink-0">{act.timeAgo}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0">{act.timeAgo}</span>
                     </div>
-                    <p className="text-[11px] text-slate-500 truncate mt-0.5">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
                       {act.description}
                     </p>
                   </div>
@@ -1315,7 +1315,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end mt-4">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Todas as Atividades da Rede')}
@@ -1335,18 +1335,18 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* Modal: Filtros Interativos */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="w-5 h-5 text-[#1455AC]" />
-                <h3 className="text-lg font-bold text-slate-900 font-sans">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Filtros de Utilizadores e Comunidades
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsFilterModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1355,13 +1355,13 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <div className="py-4 space-y-4 text-xs">
               {/* Filtro por Categoria */}
               <div>
-                <label className="block font-semibold text-slate-700 mb-1.5">
+                <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                   Filtrar por Categoria
                 </label>
                 <select
                   value={selectedCategoryFilter}
                   onChange={(e) => setSelectedCategoryFilter(e.target.value)}
-                  className="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-blue-500"
+                  className="w-full p-2.5 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60 focus:outline-none focus:border-blue-500"
                 >
                   <option value="all">Todas as Categorias</option>
                   <option value="Ambiental">Ambiental</option>
@@ -1374,13 +1374,13 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
 
               {/* Filtro por Período */}
               <div>
-                <label className="block font-semibold text-slate-700 mb-1.5">
+                <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                   Janela Temporal
                 </label>
                 <select
                   value={selectedDateRange}
                   onChange={(e) => setSelectedDateRange(e.target.value)}
-                  className="w-full p-2.5 border border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-blue-500"
+                  className="w-full p-2.5 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60 focus:outline-none focus:border-blue-500"
                 >
                   <option value="01 Mai 2024 - 24 Mai 2025">01 Mai 2024 - 24 Mai 2025 (Padrão)</option>
                   <option value="Últimos 30 dias">Últimos 30 dias</option>
@@ -1392,21 +1392,21 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
 
               {/* Status de Comunidades */}
               <div>
-                <label className="block font-semibold text-slate-700 mb-1.5">
+                <label className="block font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                   Status da Comunidade
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {['Ativas', 'Em Crescimento', 'Planeadas', 'Inativas'].map((st) => (
-                    <label key={st} className="flex items-center gap-2 p-2 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+                    <label key={st} className="flex items-center gap-2 p-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer">
                       <input type="checkbox" defaultChecked className="rounded text-[#1455AC] focus:ring-blue-500" />
-                      <span className="text-slate-700 font-medium">{st}</span>
+                      <span className="text-slate-700 dark:text-slate-300 font-medium">{st}</span>
                     </label>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-2.5 pt-3 border-t border-slate-200/70">
+            <div className="flex items-center justify-between gap-2.5 pt-3 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => {
@@ -1428,7 +1428,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setIsFilterModalOpen(false);
                     showToast('Filtros repostos com sucesso!');
                   }}
-                  className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl cursor-pointer"
+                  className="px-3.5 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl cursor-pointer"
                 >
                   Limpar Filtros
                 </button>
@@ -1451,42 +1451,42 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* Modal: Alterar Conteúdo / Personalizar Dados */}
       {isEditContentModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
               <div className="flex items-center gap-2">
                 <Edit3 className="w-5 h-5 text-[#1455AC]" />
-                <h3 className="text-lg font-bold text-slate-900 font-sans">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Alterar Conteúdo & Métricas
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsEditContentModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="py-4 space-y-5 text-xs">
-              <p className="text-slate-500">
+              <p className="text-slate-500 dark:text-slate-400">
                 Altere os valores principais da base de utilizadores ou adicione novas comunidades e membros ativos para testar cenários.
               </p>
 
               {/* Edição dos KPIs Principais */}
               <div className="space-y-3">
-                <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wider">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 text-xs uppercase tracking-wider">
                   Métricas dos Cards Superiores
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
                   {kpis.map((k) => (
-                    <div key={k.id} className="p-2.5 border border-slate-200 rounded-xl bg-slate-50">
-                      <span className="text-[11px] font-semibold text-slate-600 block mb-1">{k.label}</span>
+                    <div key={k.id} className="p-2.5 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60">
+                      <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400 block mb-1">{k.label}</span>
                       <input
                         type="text"
                         value={k.value}
                         onChange={(e) => handleUpdateKpi(k.id, e.target.value, k.trend)}
-                        className="w-full font-bold text-slate-900 bg-white border border-slate-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-500 font-mono"
+                        className="w-full font-bold text-slate-900 dark:text-slate-50 bg-white dark:bg-slate-900 border border-slate-300 rounded px-2 py-1 text-xs focus:outline-none focus:border-blue-500 font-mono"
                       />
                     </div>
                   ))}
@@ -1494,8 +1494,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               </div>
 
               {/* Adicionar Nova Comunidade */}
-              <div className="pt-3 border-t border-slate-200/70 space-y-3">
-                <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wider flex items-center justify-between">
+              <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 space-y-3">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 text-xs uppercase tracking-wider flex items-center justify-between">
                   <span>Adicionar Nova Comunidade</span>
                   <Plus className="w-4 h-4 text-[#1455AC]" />
                 </h4>
@@ -1526,12 +1526,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     type="text"
                     required
                     placeholder="Nome da comunidade..."
-                    className="w-full px-3 py-1.5 border border-slate-200 rounded-lg bg-white text-xs"
+                    className="w-full px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-xs"
                   />
                   <div className="grid grid-cols-2 gap-2">
                     <select
                       name="comCat"
-                      className="px-2 py-1.5 border border-slate-200 rounded-lg bg-white text-xs"
+                      className="px-2 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-xs"
                     >
                       <option value="Ambiental">Ambiental</option>
                       <option value="Educação">Educação</option>
@@ -1543,14 +1543,14 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                       name="comLoc"
                       type="text"
                       placeholder="País / Cidade"
-                      className="px-2 py-1.5 border border-slate-200 rounded-lg bg-white text-xs"
+                      className="px-2 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-xs"
                     />
                   </div>
                   <input
                     name="comMem"
                     type="number"
                     placeholder="Nº de membros (ex: 7500)"
-                    className="w-full px-3 py-1.5 border border-slate-200 rounded-lg bg-white text-xs"
+                    className="w-full px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-900 text-xs"
                   />
                   <button
                     type="submit"
@@ -1573,7 +1573,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setCountriesList(DEFAULT_COUNTRIES);
                     showToast('Dados repostos aos valores originais da imagem de referência!');
                   }}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-800 transition-colors cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Repor Dados Originais</span>
@@ -1581,7 +1581,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               </div>
             </div>
 
-            <div className="flex items-center justify-end pt-3 border-t border-slate-200/70">
+            <div className="flex items-center justify-end pt-3 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => setIsEditContentModalOpen(false)}
@@ -1597,24 +1597,24 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* Modal: Exportar Dados */}
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
               <div className="flex items-center gap-2">
                 <Download className="w-5 h-5 text-[#1455AC]" />
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Exportar Relatório
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsExportModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-500 py-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 py-3">
               Escolha o formato pretendido para descarregar todos os indicadores consolidados de utilizadores e comunidades:
             </p>
 
@@ -1631,15 +1631,15 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setIsExportModalOpen(false);
                     showToast(`Exportação ${item.format} gerada com sucesso!`);
                   }}
-                  className="w-full p-3 border border-slate-200 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all text-left flex items-center justify-between cursor-pointer group"
+                  className="w-full p-3 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all text-left flex items-center justify-between cursor-pointer group"
                 >
                   <div>
-                    <span className="font-bold text-slate-800 group-hover:text-[#1455AC] block text-xs">
+                    <span className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1455AC] block text-xs">
                       Exportar como {item.format}
                     </span>
-                    <span className="text-[11px] text-slate-400">{item.desc}</span>
+                    <span className="text-[11px] text-slate-400 dark:text-slate-500">{item.desc}</span>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC]" />
+                  <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC]" />
                 </button>
               ))}
             </div>
@@ -1650,26 +1650,26 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* Modal Genérico de Detalhe (Ao clicar em "Ver detalhes" / "Ver todas...") */}
       {activeDetailModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-xl bg-blue-100 text-[#1455AC] flex items-center justify-center">
                   <Users className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   {activeDetailModal}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveDetailModal(null)}
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="py-4 space-y-3 text-xs text-slate-600">
+            <div className="py-4 space-y-3 text-xs text-slate-600 dark:text-slate-400">
               <p>
                 Apresentação detalhada com dados em tempo real consolidados para <strong>{activeDetailModal}</strong>.
               </p>
@@ -1677,51 +1677,51 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               {/* Exibição condicional com base no modal */}
               {activeDetailModal.includes('Comunidade') ? (
                 <div className="space-y-2">
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
+                  <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700">
+                    <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-1">
                       Resumo da Entidade
                     </span>
-                    <p className="text-slate-700">
+                    <p className="text-slate-700 dark:text-slate-300">
                       Esta comunidade mantém moderação participativa ativa, fóruns cívicos abertos e iniciativas ligadas aos Objetivos de Desenvolvimento Sustentável.
                     </p>
                   </div>
                   <div className="grid grid-cols-3 gap-2 text-center pt-2">
-                    <div className="bg-blue-50 p-2 rounded-lg">
+                    <div className="bg-blue-50 dark:bg-blue-500/10 p-2 rounded-lg">
                       <span className="text-[10px] text-blue-700 block">Status</span>
-                      <strong className="text-slate-900 text-xs font-bold">Ativa</strong>
+                      <strong className="text-slate-900 dark:text-slate-50 text-xs font-bold">Ativa</strong>
                     </div>
-                    <div className="bg-emerald-50 p-2 rounded-lg">
-                      <span className="text-[10px] text-emerald-700 block">Moderação</span>
-                      <strong className="text-slate-900 text-xs font-bold">Aprovada</strong>
+                    <div className="bg-emerald-50 dark:bg-emerald-500/10 p-2 rounded-lg">
+                      <span className="text-[10px] text-emerald-700 dark:text-emerald-400 block">Moderação</span>
+                      <strong className="text-slate-900 dark:text-slate-50 text-xs font-bold">Aprovada</strong>
                     </div>
-                    <div className="bg-blue-50 p-2 rounded-lg">
+                    <div className="bg-blue-50 dark:bg-blue-500/10 p-2 rounded-lg">
                       <span className="text-[10px] text-blue-700 block">Engajamento</span>
-                      <strong className="text-slate-900 text-xs font-bold">Alto (92%)</strong>
+                      <strong className="text-slate-900 dark:text-slate-50 text-xs font-bold">Alto (92%)</strong>
                     </div>
                   </div>
                 </div>
               ) : activeDetailModal.includes('Membro') ? (
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
                     <div className="w-12 h-12 rounded-full bg-blue-100 text-[#1455AC] font-bold flex items-center justify-center text-sm">
                       M
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-sm">Perfil Cívico Ativo</h4>
-                      <p className="text-slate-500 text-xs">Identidade validada e participação em múltiplos territórios da VILA.</p>
+                      <h4 className="font-bold text-slate-900 dark:text-slate-50 text-sm">Perfil Cívico Ativo</h4>
+                      <p className="text-slate-500 dark:text-slate-400 text-xs">Identidade validada e participação em múltiplos territórios da VILA.</p>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80">
-                  <p className="text-slate-700 leading-relaxed">
+                <div className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700">
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                     Os dados completos foram agregados da telemetria da rede VILA para o período selecionado ({selectedDateRange}). Todos os registos cumprem as diretrizes de privacidade e governança transparente.
                   </p>
                 </div>
               )}
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => setActiveDetailModal(null)}

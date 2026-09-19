@@ -377,7 +377,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
           className={`inline-flex items-center gap-1.5 py-1.5 px-2.5 sm:px-3 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-150 whitespace-nowrap cursor-pointer shrink-0 font-sans ${
             isActive
               ? 'bg-[#1455AC] text-white border border-[#1455AC] shadow-xs hover:bg-[#0F448A]'
-              : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 shadow-2xs'
+              : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-50 hover:border-slate-300 dark:hover:border-slate-600 shadow-2xs'
           }`}
           aria-expanded={pill.hasDropdown ? isDropdownOpen : undefined}
           aria-current={isActive ? 'true' : undefined}
@@ -404,13 +404,13 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
         {pill.hasDropdown && isDropdownOpen && (
           <div
             id={`dropdown-menu-${pill.id}`}
-            className="absolute top-full right-0 sm:right-auto sm:left-0 mt-2 w-60 bg-white rounded-2xl border border-slate-200/90 shadow-xl py-1.5 z-30 animate-in fade-in zoom-in-95 duration-150 font-sans"
+            className="absolute top-full right-0 sm:right-auto sm:left-0 mt-2 w-60 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/90 dark:border-slate-700 shadow-xl py-1.5 z-30 animate-in fade-in zoom-in-95 duration-150 font-sans"
           >
             {/* Categorias que não couberam numa linha só ficam aqui dentro do "+ Mais" */}
             {isMore && overflowPills.length > 0 && (
               <>
-                <div className="px-3 py-1.5 border-b border-slate-100">
-                  <span className="text-[10.5px] font-bold text-slate-400 uppercase tracking-wider font-sans">
+                <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-700">
+                  <span className="text-[10.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider font-sans">
                     Mais categorias
                   </span>
                 </div>
@@ -425,8 +425,8 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                         onClick={() => handleOverflowPillSelect(hiddenPill)}
                         className={`w-full flex items-center gap-2 px-3.5 py-2 text-xs font-semibold transition-colors text-left cursor-pointer ${
                           isSelected
-                            ? 'bg-[#1455AC]/10 text-[#1455AC]'
-                            : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                            ? 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC]'
+                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-50'
                         }`}
                       >
                         <HiddenIcon
@@ -444,8 +444,8 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
 
             {pill.subcategories && (
               <>
-                <div className="px-3 py-1.5 border-b border-slate-100">
-                  <span className="text-[10.5px] font-bold text-slate-400 uppercase tracking-wider font-sans">
+                <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-700">
+                  <span className="text-[10.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider font-sans">
                     {pill.label}
                   </span>
                 </div>
@@ -460,8 +460,8 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                         onClick={() => handleSubcategorySelect(pill.id, subcat)}
                         className={`w-full flex items-center justify-between px-3.5 py-2 text-xs font-semibold transition-colors text-left cursor-pointer ${
                           isSelected
-                            ? 'bg-[#1455AC]/10 text-[#1455AC]'
-                            : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                            ? 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC]'
+                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-50'
                         }`}
                       >
                         <span className="truncate">{subcat}</span>
@@ -483,10 +483,10 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
       <div className="max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 py-5 sm:py-6 flex flex-col gap-6">
         {/* 1. Cabeçalho Principal da Página */}
         <header className="flex flex-col gap-1 font-sans">
-          <h1 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 leading-tight tracking-tight font-sans">
+          <h1 className="text-2xl sm:text-[28px] font-extrabold text-slate-900 dark:text-slate-50 leading-tight tracking-tight font-sans">
             Mundo em Movimento
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-3xl leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-normal">
             As notícias e acontecimentos que têm impacto global. <br className="hidden sm:inline" />
             Essencial para entender o presente e construir o futuro.
           </p>
@@ -671,11 +671,11 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
               {/* Card "Impacto em números" (~35% da coluna esquerda / lg:col-span-4) */}
               <aside
                 id="impacto-em-numeros-card"
-                className="lg:col-span-4 bg-white rounded-2xl border border-slate-200 shadow-2xs p-4 sm:p-5 flex flex-col justify-between font-sans"
+                className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xs p-4 sm:p-5 flex flex-col justify-between font-sans"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between gap-2 mb-3 font-sans">
-                  <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-sans tracking-tight">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                     Impacto em números
                   </h3>
                   <button
@@ -690,85 +690,85 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 {/* Grid 2x2 com os 4 Indicadores Estatísticos - Layout leve e horizontal com tipografia suave */}
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3 flex-1 content-center font-sans">
                   {/* Indicador 1: 195 Países afetados */}
-                  <div className="bg-slate-50/70 hover:bg-slate-50 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 transition-all">
+                  <div className="bg-slate-50/70 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 dark:border-slate-800 transition-all">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/70 flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-100/70 dark:border-emerald-500/20 flex items-center justify-center shrink-0">
                         <Users className="w-4.5 h-4.5" strokeWidth={2} />
                       </div>
-                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 font-sans tracking-tight">
+                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                         195
                       </div>
                     </div>
                     <div className="mt-2.5 flex flex-col gap-0.5">
-                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 leading-snug">
+                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 dark:text-slate-400 leading-snug">
                         Países afetados
                       </div>
-                      <div className="text-[10.5px] sm:text-[11px] font-medium text-emerald-600 flex items-center gap-1">
+                      <div className="text-[10.5px] sm:text-[11px] font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                         <span className="font-bold">+12</span>
-                        <span className="text-slate-400 font-normal">desde ontem</span>
+                        <span className="text-slate-400 dark:text-slate-500 font-normal">desde ontem</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Indicador 2: 28 Acontecimentos relevantes */}
-                  <div className="bg-slate-50/70 hover:bg-slate-50 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 transition-all">
+                  <div className="bg-slate-50/70 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 dark:border-slate-800 transition-all">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1455AC] border border-blue-100/70 flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400 border border-blue-100/70 dark:border-blue-500/20 flex items-center justify-center shrink-0">
                         <Globe className="w-4.5 h-4.5" strokeWidth={2} />
                       </div>
-                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 font-sans tracking-tight">
+                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                         28
                       </div>
                     </div>
                     <div className="mt-2.5 flex flex-col gap-0.5">
-                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 leading-snug">
+                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 dark:text-slate-400 leading-snug">
                         Acontecimentos relevantes
                       </div>
-                      <div className="text-[10.5px] sm:text-[11px] font-medium text-emerald-600 flex items-center gap-1">
+                      <div className="text-[10.5px] sm:text-[11px] font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                         <span className="font-bold">+5</span>
-                        <span className="text-slate-400 font-normal">desde ontem</span>
+                        <span className="text-slate-400 dark:text-slate-500 font-normal">desde ontem</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Indicador 3: 7,4B Pessoas impactadas */}
-                  <div className="bg-slate-50/70 hover:bg-slate-50 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 transition-all">
+                  <div className="bg-slate-50/70 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 dark:border-slate-800 transition-all">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-full bg-purple-50 text-purple-600 border border-purple-100/70 flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-100/70 dark:border-purple-500/20 flex items-center justify-center shrink-0">
                         <TrendingUp className="w-4.5 h-4.5" strokeWidth={2} />
                       </div>
-                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 font-sans tracking-tight">
+                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                         7,4B
                       </div>
                     </div>
                     <div className="mt-2.5 flex flex-col gap-0.5">
-                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 leading-snug">
+                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 dark:text-slate-400 leading-snug">
                         Pessoas impactadas
                       </div>
-                      <div className="text-[10.5px] sm:text-[11px] font-medium text-emerald-600 flex items-center gap-1">
+                      <div className="text-[10.5px] sm:text-[11px] font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                         <span className="font-bold">+1,2B</span>
-                        <span className="text-slate-400 font-normal">desde ontem</span>
+                        <span className="text-slate-400 dark:text-slate-500 font-normal">desde ontem</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Indicador 4: 12 Crises ativas */}
-                  <div className="bg-slate-50/70 hover:bg-slate-50 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 transition-all">
+                  <div className="bg-slate-50/70 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl p-3 sm:p-3.5 flex flex-col justify-between border border-slate-100 dark:border-slate-800 transition-all">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-full bg-orange-50 text-[#f58300] border border-orange-100/70 flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-orange-50 dark:bg-orange-500/10 text-[#f58300] border border-orange-100/70 dark:border-orange-500/20 flex items-center justify-center shrink-0">
                         <Flame className="w-4.5 h-4.5" strokeWidth={2} />
                       </div>
-                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 font-sans tracking-tight">
+                      <div className="text-xl sm:text-[22px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                         12
                       </div>
                     </div>
                     <div className="mt-2.5 flex flex-col gap-0.5">
-                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 leading-snug">
+                      <div className="text-[11.5px] sm:text-xs font-normal text-slate-500 dark:text-slate-400 leading-snug">
                         Crises ativas
                       </div>
                       <div className="text-[10.5px] sm:text-[11px] font-medium text-[#f58300] flex items-center gap-1">
                         <span className="font-bold">-1</span>
-                        <span className="text-slate-400 font-normal">desde ontem</span>
+                        <span className="text-slate-400 dark:text-slate-500 font-normal">desde ontem</span>
                       </div>
                     </div>
                   </div>
@@ -778,7 +778,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
               {/* Seção "Principais notícias" com cards mais largos nas laterais, altura reduzida e navegação fluida */}
               <section id="principais-noticias-section" className="flex flex-col gap-3.5 font-sans">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl sm:text-[22px] font-bold text-slate-900 font-sans tracking-tight">
+                  <h3 className="text-xl sm:text-[22px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                     Principais notícias
                   </h3>
                   <div className="flex items-center gap-1.5">
@@ -786,7 +786,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                     <button
                       type="button"
                       onClick={() => scrollMainNews('left')}
-                      className="w-7 h-7 rounded-full bg-white border border-slate-200/80 hover:border-slate-300 text-slate-500 hover:text-[#1455AC] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
+                      className="w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-400 hover:text-[#1455AC] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
                       aria-label="Notícia anterior"
                       title="Notícia anterior"
                     >
@@ -795,7 +795,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                     <button
                       type="button"
                       onClick={() => scrollMainNews('right')}
-                      className="w-7 h-7 rounded-full bg-white border border-slate-200/80 hover:border-slate-300 text-slate-500 hover:text-[#1455AC] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
+                      className="w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-500 dark:text-slate-400 hover:text-[#1455AC] flex items-center justify-center transition-colors shadow-2xs cursor-pointer"
                       aria-label="Próxima notícia"
                       title="Próxima notícia"
                     >
@@ -805,7 +805,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                     {/* Opção "Ver todas" com texto e seta dentro de borda arredondada (estilo pílula) */}
                     <button
                       type="button"
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200/90 hover:border-[#1455AC]/40 hover:bg-slate-50 text-xs sm:text-[13px] font-medium text-[#1455AC] transition-all shadow-2xs cursor-pointer group ml-1"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 hover:border-[#1455AC]/40 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs sm:text-[13px] font-medium text-[#1455AC] transition-all shadow-2xs cursor-pointer group ml-1"
                     >
                       <span>Ver todas</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform stroke-[2]" />
@@ -816,14 +816,14 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 {/* Carrossel de Cards: exatamente 4 cards visíveis sem cortar no desktop (w-[calc((100%-42px)/4)]) */}
                 <div
                   ref={mainNewsScrollRef}
-                  className="flex items-stretch gap-3.5 overflow-x-auto pb-2.5 pt-0.5 scrollbar-none snap-x scroll-smooth font-sans"
+                  className="flex items-stretch gap-3.5 overflow-x-auto pb-2.5 pt-0.5 no-scrollbar snap-x scroll-smooth font-sans"
                 >
                   {MAIN_NEWS_LIST.map((item) => {
                     const isSaved = savedNewsIds.has(item.id);
                     return (
                       <article
                         key={item.id}
-                        className="w-[82%] sm:w-[calc((100%-14px)/2)] md:w-[calc((100%-28px)/3)] lg:w-[calc((100%-42px)/4)] shrink-0 snap-start bg-white rounded-xl border border-slate-200 px-3.5 py-3 shadow-2xs hover:shadow-sm transition-all duration-200 flex flex-col justify-between group"
+                        className="w-[82%] sm:w-[calc((100%-14px)/2)] md:w-[calc((100%-28px)/3)] lg:w-[calc((100%-42px)/4)] shrink-0 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 px-3.5 py-3 shadow-2xs hover:shadow-sm transition-all duration-200 flex flex-col justify-between group"
                       >
                         {/* Topo: Categoria + Imagem + Metadados + Título */}
                         <div>
@@ -837,7 +837,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                           </div>
 
                           {/* 2. Imagem com cantos arredondados e proporção horizontal ampla (altura contida) */}
-                          <div className="relative w-full h-[88px] sm:h-[92px] overflow-hidden rounded-lg bg-slate-100">
+                          <div className="relative w-full h-[88px] sm:h-[92px] overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
                             <img
                               src={item.image}
                               alt={item.title}
@@ -848,27 +848,27 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
 
                           {/* 3. Timestamp e Título com tipografia equilibrada e altura contida em 2 linhas */}
                           <div className="mt-2 flex flex-col gap-0.5">
-                            <span className="text-[10.5px] font-medium text-slate-400">
+                            <span className="text-[10.5px] font-medium text-slate-400 dark:text-slate-500">
                               {item.time}
                             </span>
-                            <h4 className="text-xs sm:text-[12.5px] font-bold text-slate-900 leading-snug font-sans line-clamp-2 group-hover:text-[#1455AC] transition-colors">
+                            <h4 className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 leading-snug font-sans line-clamp-2 group-hover:text-[#1455AC] transition-colors">
                               {item.title}
                             </h4>
                           </div>
                         </div>
 
                         {/* Rodapé: Países e Ações (Bookmark / Share) com espaçamento limpo e compacto */}
-                        <div className="mt-2.5 pt-1.5 border-t border-slate-100/80 flex items-center justify-between text-[11px] text-slate-400 font-sans">
-                          <span className="inline-flex items-center gap-1 font-normal truncate text-slate-500 max-w-[130px]">
-                            <Globe className="w-3.5 h-3.5 text-slate-400 shrink-0" strokeWidth={1.8} />
+                        <div className="mt-2.5 pt-1.5 border-t border-slate-100/80 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 font-sans">
+                          <span className="inline-flex items-center gap-1 font-normal truncate text-slate-500 dark:text-slate-400 max-w-[130px]">
+                            <Globe className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" strokeWidth={1.8} />
                             <span className="truncate">{item.countries}</span>
                           </span>
 
-                          <div className="flex items-center gap-1.5 shrink-0 text-slate-400">
+                          <div className="flex items-center gap-1.5 shrink-0 text-slate-400 dark:text-slate-500">
                             <button
                               type="button"
                               onClick={() => toggleSaveNews(item.id)}
-                              className="p-1 rounded text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
+                              className="p-1 rounded text-slate-400 dark:text-slate-500 hover:text-[#1455AC] transition-colors cursor-pointer"
                               aria-label="Salvar"
                             >
                               <Bookmark
@@ -879,7 +879,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                             <button
                               type="button"
                               onClick={handleShare}
-                              className="p-1 rounded text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+                              className="p-1 rounded text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer"
                               aria-label="Compartilhar"
                             >
                               <Share2 className="w-3.5 h-3.5" strokeWidth={1.8} />
@@ -898,10 +898,10 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
             {/* Card 1: Em destaque agora */}
             <div
               id="em-destaque-agora-card"
-              className="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 shadow-2xs flex flex-col gap-4 font-sans"
+              className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col gap-4 font-sans"
             >
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-base font-bold text-slate-900 font-sans tracking-tight">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                   Em destaque agora
                 </h3>
                 <button
@@ -914,12 +914,12 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
               </div>
 
               {/* Lista com as 4 notícias em destaque */}
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-800">
                 {HIGHLIGHT_ITEMS.map((item) => {
                   const isSaved = savedNewsIds.has(item.id);
                   return (
                     <article key={item.id} className="py-3.5 first:pt-0 last:pb-0 flex items-center gap-3 group font-sans">
-                      <div className="w-[68px] h-[68px] rounded-lg overflow-hidden shrink-0 bg-slate-100">
+                      <div className="w-[68px] h-[68px] rounded-lg overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -932,15 +932,15 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                         <span className={`text-[9.5px] font-extrabold uppercase tracking-wider ${item.categoryColor}`}>
                           {item.category}
                         </span>
-                        <h4 className="text-[12px] font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#1455AC] transition-colors font-sans">
+                        <h4 className="text-[12px] font-bold text-slate-900 dark:text-slate-50 leading-snug line-clamp-2 group-hover:text-[#1455AC] transition-colors font-sans">
                           {item.title}
                         </h4>
-                        <div className="flex items-center justify-between text-[11px] text-slate-400">
+                        <div className="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
                           <span>{item.time}</span>
                           <button
                             type="button"
                             onClick={() => toggleSaveNews(item.id)}
-                            className="text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
+                            className="text-slate-400 dark:text-slate-500 hover:text-[#1455AC] transition-colors cursor-pointer"
                             aria-label="Salvar"
                           >
                             <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'text-[#1455AC] fill-current' : ''}`} />
@@ -956,10 +956,10 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
             {/* Card 2: Tendências globais - Altura reduzida e espaçamento mais compacto */}
             <div
               id="tendencias-globais-card"
-              className="bg-white rounded-xl border border-slate-200 px-4 py-3.5 sm:px-4.5 sm:py-3.5 shadow-2xs flex flex-col gap-2.5 font-sans"
+              className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-3.5 sm:px-4.5 sm:py-3.5 shadow-2xs flex flex-col gap-2.5 font-sans"
             >
-              <div className="flex items-center justify-between pb-1.5 border-b border-slate-100">
-                <h3 className="text-[15px] sm:text-base font-bold text-slate-900 font-sans tracking-tight">
+              <div className="flex items-center justify-between pb-1.5 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-[15px] sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                   Tendências globais
                 </h3>
                 <button
@@ -976,13 +976,13 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 {GLOBAL_TRENDS.map((trend) => (
                   <div
                     key={trend.rank}
-                    className="flex items-center justify-between py-1 px-1.5 rounded-lg hover:bg-slate-50 transition-colors"
+                    className="flex items-center justify-between py-1 px-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-5.5 h-5.5 rounded-full bg-[#1455AC]/10 text-[#1455AC] flex items-center justify-center text-[11px] font-bold font-sans shrink-0">
+                      <div className="w-5.5 h-5.5 rounded-full bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] flex items-center justify-center text-[11px] font-bold font-sans shrink-0">
                         {trend.rank}
                       </div>
-                      <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 tracking-tight font-sans">
+                      <span className="text-xs sm:text-[12.5px] font-bold text-slate-900 dark:text-slate-50 tracking-tight font-sans">
                         {trend.label}
                       </span>
                     </div>
@@ -1004,14 +1004,14 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
         {/* 4. Linha Inferior de Largura Total: "Acompanhe o mundo ao vivo" */}
         <section
           id="acompanhe-o-mundo-ao-vivo-section"
-          className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-2xs flex flex-col gap-4 mt-2 font-sans"
+          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs flex flex-col gap-4 mt-2 font-sans"
         >
           {/* Cabeçalho da Secção */}
           <div className="flex flex-col gap-0.5">
-            <h3 className="text-base sm:text-lg font-bold text-slate-900 font-sans tracking-tight">
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
               Acompanhe o mundo ao vivo
             </h3>
-            <p className="text-xs sm:text-[13px] text-slate-500 font-sans">
+            <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 font-sans">
               Monitore acontecimentos em tempo real que estão moldando o nosso futuro.
             </p>
           </div>
@@ -1019,7 +1019,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
           {/* Grade de Eventos ao Vivo + Card de Acesso ao Mapa */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3.5 items-stretch font-sans">
             {/* Evento 1: Cúpula do Clima 2024 */}
-            <div className="bg-slate-50/90 rounded-xl p-3.5 border border-slate-200/80 flex flex-col justify-between hover:border-slate-300 transition-colors">
+            <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-rose-600 text-white">
                   AO VIVO
@@ -1027,17 +1027,17 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 text-slate-700 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-300 shadow-2xs">
                   <Landmark className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-tight truncate font-sans">
+                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-50 leading-tight truncate font-sans">
                     Cúpula do Clima 2024
                   </h4>
-                  <p className="text-[11px] text-slate-500 mt-0.5 truncate flex items-center gap-1 font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate flex items-center gap-1 font-sans">
                     <span>📍 Dubai, Emirados Árabes</span>
                   </p>
-                  <p className="text-[10.5px] text-slate-400 mt-0.5 font-sans">
+                  <p className="text-[10.5px] text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                     • 2.4K assistindo
                   </p>
                 </div>
@@ -1045,7 +1045,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
             </div>
 
             {/* Evento 2: Mercados Globais */}
-            <div className="bg-slate-50/90 rounded-xl p-3.5 border border-slate-200/80 flex flex-col justify-between hover:border-slate-300 transition-colors">
+            <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-rose-600 text-white">
                   AO VIVO
@@ -1053,17 +1053,17 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 <span className="w-2 h-2 rounded-full bg-amber-500" />
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 text-slate-700 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-300 shadow-2xs">
                   <BarChart2 className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-tight truncate font-sans">
+                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-50 leading-tight truncate font-sans">
                     Mercados Globais
                   </h4>
-                  <p className="text-[11px] text-slate-500 mt-0.5 truncate font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                     Atualizações contínuas
                   </p>
-                  <p className="text-[10.5px] text-slate-400 mt-0.5 font-sans">
+                  <p className="text-[10.5px] text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                     • 1.8K assistindo
                   </p>
                 </div>
@@ -1071,7 +1071,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
             </div>
 
             {/* Evento 3: Eleições na Índia */}
-            <div className="bg-slate-50/90 rounded-xl p-3.5 border border-slate-200/80 flex flex-col justify-between hover:border-slate-300 transition-colors">
+            <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-slate-800 text-white">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
@@ -1080,17 +1080,17 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 text-slate-700 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-300 shadow-2xs">
                   <Vote className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-tight truncate font-sans">
+                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-50 leading-tight truncate font-sans">
                     Eleições na Índia
                   </h4>
-                  <p className="text-[11px] text-slate-500 mt-0.5 truncate font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                     Resultados parciais
                   </p>
-                  <p className="text-[10.5px] text-slate-400 mt-0.5 font-sans">
+                  <p className="text-[10.5px] text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                     • 856 assistindo
                   </p>
                 </div>
@@ -1098,7 +1098,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
             </div>
 
             {/* Evento 4: Crise Humanitária */}
-            <div className="bg-slate-50/90 rounded-xl p-3.5 border border-slate-200/80 flex flex-col justify-between hover:border-slate-300 transition-colors">
+            <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-rose-600 text-white">
                   AO VIVO
@@ -1106,17 +1106,17 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                 <span className="w-2 h-2 rounded-full bg-rose-500" />
               </div>
               <div className="flex items-start gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 text-slate-700 shadow-2xs">
+                <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-300 shadow-2xs">
                   <LifeBuoy className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-tight truncate font-sans">
+                  <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-50 leading-tight truncate font-sans">
                     Crise Humanitária
                   </h4>
-                  <p className="text-[11px] text-slate-500 mt-0.5 truncate font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate font-sans">
                     Ajuda internacional
                   </p>
-                  <p className="text-[10.5px] text-slate-400 mt-0.5 font-sans">
+                  <p className="text-[10.5px] text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                     • 3.1K assistindo
                   </p>
                 </div>
@@ -1126,9 +1126,9 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
             {/* Card 5: Link para o Mapa de Crises e Acontecimentos */}
             <div
               onClick={onExploreMap}
-              className="bg-[#1455AC]/5 hover:bg-[#1455AC]/10 rounded-xl p-3.5 border border-[#1455AC]/20 flex items-center justify-center gap-3 transition-colors cursor-pointer group text-center"
+              className="bg-[#1455AC]/5 dark:bg-[#1455AC]/15 hover:bg-[#1455AC]/10 dark:hover:bg-[#1455AC]/25 rounded-xl p-3.5 border border-[#1455AC]/20 flex items-center justify-center gap-3 transition-colors cursor-pointer group text-center"
             >
-              <div className="w-10 h-10 rounded-full bg-white border border-[#1455AC]/30 text-[#1455AC] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-[#1455AC]/30 text-[#1455AC] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                 <Globe className="w-5 h-5" />
               </div>
               <span className="text-xs sm:text-[13px] font-bold text-[#1455AC] group-hover:underline text-left leading-snug font-sans">

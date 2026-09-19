@@ -32,15 +32,16 @@ interface GlobalEventsViewProps {
   onExploreMap?: () => void;
 }
 
+// Cores dos ícones reaproveitadas das mesmas categorias já usadas nos badges dos eventos (categoryBadgeClass)
 const FILTER_PILLS = [
-  { id: 'todas', label: 'Todas', icon: Globe },
-  { id: 'tecnologia', label: 'Tecnologia', icon: Cpu },
-  { id: 'negocios', label: 'Negócios', icon: Briefcase },
-  { id: 'cultura', label: 'Cultura', icon: Palette },
-  { id: 'ambiente', label: 'Ambiente', icon: Leaf },
-  { id: 'saude', label: 'Saúde', icon: HeartPulse },
-  { id: 'educacao', label: 'Educação', icon: GraduationCap },
-  { id: 'desporto', label: 'Desporto', icon: Trophy },
+  { id: 'todas', label: 'Todas', icon: Globe, iconColor: 'text-[#1455AC]' },
+  { id: 'tecnologia', label: 'Tecnologia', icon: Cpu, iconColor: 'text-[#1E1B4B]' },
+  { id: 'negocios', label: 'Negócios', icon: Briefcase, iconColor: 'text-[#D97706]' },
+  { id: 'cultura', label: 'Cultura', icon: Palette, iconColor: 'text-[#7C3AED]' },
+  { id: 'ambiente', label: 'Ambiente', icon: Leaf, iconColor: 'text-[#059669]' },
+  { id: 'saude', label: 'Saúde', icon: HeartPulse, iconColor: 'text-[#DB2777]' },
+  { id: 'educacao', label: 'Educação', icon: GraduationCap, iconColor: 'text-[#1455AC]' },
+  { id: 'desporto', label: 'Desporto', icon: Trophy, iconColor: 'text-[#EA580C]' },
 ];
 
 const RECOMMENDED_EVENTS = [
@@ -332,6 +333,16 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
     return () => window.removeEventListener('resize', checkFiltersScroll);
   }, [checkFiltersScroll]);
 
+  // Centra automaticamente a pill ativa na área visível (ex: categoria escolhida no popup "Mais")
+  useEffect(() => {
+    const container = filtersScrollRef.current;
+    if (!container) return;
+    const activeBtn = container.querySelector<HTMLButtonElement>(`[data-pill="${activeFilter}"]`);
+    if (!activeBtn) return;
+    const target = activeBtn.offsetLeft - (container.clientWidth - activeBtn.offsetWidth) / 2;
+    container.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+  }, [activeFilter]);
+
   useEffect(() => {
     if (!isCalendarOpen) return;
     const handleClickOutside = (e: MouseEvent) => {
@@ -416,7 +427,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
   };
 
   return (
-    <div className="w-full bg-[#F8FAFC] min-h-screen">
+    <div className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen">
       <div className="px-4 sm:px-6 lg:px-8 pt-6 pb-16 max-w-[1600px] mx-auto">
         {/*
           LAYOUT PRINCIPAL: 2 Colunas
@@ -436,10 +447,10 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
           <section className="lg:col-span-8 xl:col-span-9 space-y-6 min-w-0" aria-label="Conteúdo Principal de Eventos">
             {/* Cabeçalho da Página */}
             <header className="pb-1 font-sans">
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-sans">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight font-sans">
                 Eventos Globais
               </h1>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1.5 leading-relaxed max-w-2xl font-sans">
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed max-w-2xl font-sans">
                 Descubra eventos que conectam pessoas, ideias e soluções.
                 <br className="hidden sm:inline" />
                 {' '}Participe presencialmente ou online de qualquer lugar do mundo.
@@ -488,70 +499,71 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
             </div>
 
             {/* 2. Linha Horizontal de Filtros em Pílula */}
-            <div className="flex items-center gap-2 font-sans">
-              {/* Área rolável das categorias (o botão "Mais" fica fora, sempre visível no fim) */}
-              <div className="relative min-w-0 flex-1">
-                {/* Esmaecimento à esquerda: indica que há categorias escondidas para trás */}
-                {canScrollFiltersLeft && (
-                  <div className="absolute left-0 top-0 bottom-1 w-8 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
-                )}
+            <div className="relative font-sans">
+              {/* Esmaecimento à esquerda: indica que há categorias escondidas para trás */}
+              {canScrollFiltersLeft && (
+                <div className="absolute left-0 top-0 bottom-0 w-14 bg-gradient-to-r from-[#F8FAFC] dark:from-slate-950 via-[#F8FAFC]/60 dark:via-slate-950/60 to-transparent z-10 pointer-events-none" />
+              )}
 
-                <div
-                  id="events-category-filters"
-                  ref={filtersScrollRef}
-                  onScroll={checkFiltersScroll}
-                  className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none select-none scroll-smooth"
-                >
+              {/* Fila única rolável: categorias + "Mais" no fim, nada fica cortado contra um botão fixo */}
+              <div
+                id="events-category-filters"
+                ref={filtersScrollRef}
+                onScroll={checkFiltersScroll}
+                className="flex items-center gap-2 overflow-x-auto no-scrollbar select-none scroll-smooth"
+              >
+                {FILTER_PILLS.map((pill) => {
+                  const Icon = pill.icon;
+                  const isActive = activeFilter === pill.id;
+                  return (
+                    <button
+                      key={pill.id}
+                      type="button"
+                      data-pill={pill.id}
+                      onClick={() => setActiveFilter(pill.id)}
+                      className={`inline-flex items-center gap-2 py-2 px-4 rounded-full text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shrink-0 font-sans ${
+                        isActive
+                          ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
+                          : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-2xs'
+                      }`}
+                    >
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : pill.iconColor}`} />
+                      <span>{pill.label}</span>
+                    </button>
+                  );
+                })}
+
+                {/* Pill Mais: último item da fila, desliza junto com as categorias */}
+                <div ref={moreFiltersRef} className="relative shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setIsMoreFiltersOpen((prev) => !prev)}
+                    aria-expanded={isMoreFiltersOpen}
+                    aria-haspopup="true"
+                    data-pill="mais"
+                    className={`inline-flex items-center gap-1.5 py-2 px-4 rounded-full border text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shadow-2xs font-sans ${
+                      isMoreFiltersOpen
+                        ? 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20 border-[#1455AC]/30 text-[#1455AC]'
+                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <MoreHorizontal className={`w-3.5 h-3.5 ${isMoreFiltersOpen ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400'}`} />
+                    <span>Mais</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Esmaecimento à direita: indica que há mais categorias por ver dentro da área rolável */}
+              {canScrollFiltersRight && (
+                <div className="absolute right-0 top-0 bottom-0 w-14 bg-gradient-to-l from-[#F8FAFC] dark:from-slate-950 via-[#F8FAFC]/60 dark:via-slate-950/60 to-transparent z-10 pointer-events-none" />
+              )}
+
+              {/* Popup com a lista completa de categorias (ancorado à fila inteira, abre alinhado à direita) */}
+              {isMoreFiltersOpen && (
+                <div className="absolute right-0 top-full mt-2 w-56 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg z-30 py-2 animate-in fade-in slide-in-from-top-2 duration-150 font-sans">
                   {FILTER_PILLS.map((pill) => {
                     const Icon = pill.icon;
                     const isActive = activeFilter === pill.id;
-                    return (
-                      <button
-                        key={pill.id}
-                        type="button"
-                        onClick={() => setActiveFilter(pill.id)}
-                        className={`inline-flex items-center gap-2 py-2 px-4 rounded-full text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shrink-0 font-sans ${
-                          isActive
-                            ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
-                            : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-2xs'
-                        }`}
-                      >
-                        <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                        <span>{pill.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Esmaecimento à direita: indica que há mais categorias por ver dentro da área rolável */}
-                {canScrollFiltersRight && (
-                  <div className="absolute right-0 top-0 bottom-1 w-8 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
-                )}
-              </div>
-
-              {/* Pill Mais: fixa fora da área de scroll, sempre visível como último item */}
-              <div ref={moreFiltersRef} className="relative shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setIsMoreFiltersOpen((prev) => !prev)}
-                  aria-expanded={isMoreFiltersOpen}
-                  aria-haspopup="true"
-                  className={`inline-flex items-center gap-1.5 py-2 px-4 rounded-full border text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shadow-2xs font-sans ${
-                    isMoreFiltersOpen
-                      ? 'bg-[#1455AC]/10 border-[#1455AC]/30 text-[#1455AC]'
-                      : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
-                  }`}
-                >
-                  <MoreHorizontal className={`w-3.5 h-3.5 ${isMoreFiltersOpen ? 'text-[#1455AC]' : 'text-slate-500'}`} />
-                  <span>Mais</span>
-                </button>
-
-                {/* Popup com a lista completa de categorias */}
-                {isMoreFiltersOpen && (
-                  <div className="absolute right-0 mt-2 w-56 rounded-xl bg-white border border-slate-200 shadow-lg z-30 py-2 animate-in fade-in slide-in-from-top-2 duration-150 font-sans">
-                    {FILTER_PILLS.map((pill) => {
-                      const Icon = pill.icon;
-                      const isActive = activeFilter === pill.id;
                       return (
                         <button
                           key={pill.id}
@@ -562,26 +574,25 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                           }}
                           className={`w-full flex items-center gap-2.5 px-4 py-2 text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer text-left ${
                             isActive
-                              ? 'bg-[#1455AC]/10 text-[#1455AC]'
-                              : 'text-slate-700 hover:bg-slate-50'
+                              ? 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC]'
+                              : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                           }`}
                         >
-                          <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#1455AC]' : 'text-slate-500'}`} />
+                          <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#1455AC]' : pill.iconColor}`} />
                           <span className="flex-1">{pill.label}</span>
                           {isActive && <Check className="w-3.5 h-3.5 text-[#1455AC] shrink-0" />}
                         </button>
                       );
-                    })}
-                  </div>
-                )}
-              </div>
+                  })}
+                </div>
+              )}
             </div>
 
             {/* 3. Seção: Eventos recomendados para si */}
             <div className="space-y-3 pt-1 font-sans">
               {/* Header da Seção */}
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 font-sans">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Eventos recomendados para si
                 </h3>
 
@@ -611,7 +622,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                     onClick={() => scrollCarousel('left')}
                     aria-label="Eventos anteriores"
                     disabled={!canScrollLeft}
-                    className={`absolute -left-3.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:text-[#1455AC] hover:bg-slate-50 flex items-center justify-center transition-all cursor-pointer hidden md:flex ${
+                    className={`absolute -left-3.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md text-slate-700 dark:text-slate-300 hover:text-[#1455AC] hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition-all cursor-pointer hidden md:flex ${
                       !canScrollLeft ? 'opacity-30 pointer-events-none' : 'opacity-100'
                     }`}
                   >
@@ -624,7 +635,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                   ref={carouselRef}
                   onScroll={checkScrollButtons}
                   id="recommended-events-carousel"
-                  className="flex gap-4 overflow-x-auto pb-2 pt-1 scroll-smooth scrollbar-none snap-x snap-mandatory font-sans"
+                  className="flex gap-4 overflow-x-auto pb-2 pt-1 scroll-smooth no-scrollbar snap-x snap-mandatory font-sans"
                 >
                   {filteredEvents.map((event) => {
                     const isBookmarked = bookmarkedIds.includes(event.id);
@@ -633,10 +644,10 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                       <article
                         key={event.id}
                         onClick={() => setSelectedEventModal(event)}
-                        className="w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] shrink-0 snap-start bg-white rounded-xl border border-slate-200 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-200 flex flex-col justify-between overflow-hidden group cursor-pointer"
+                        className="w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] shrink-0 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xs hover:shadow-sm hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-200 flex flex-col justify-between overflow-hidden group cursor-pointer"
                       >
                         {/* Imagem com Badges no Topo */}
-                        <div className="relative h-32 w-full overflow-hidden bg-slate-100">
+                        <div className="relative h-32 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                           <img
                             src={event.imageUrl}
                             alt={event.title}
@@ -664,27 +675,27 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                         <div className="p-4 flex-1 flex flex-col justify-between space-y-3 font-sans">
                           <div className="space-y-1">
                             {/* Data */}
-                            <span className="text-[11px] font-semibold text-slate-500 block font-sans">
+                            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block font-sans">
                               {event.date}
                             </span>
 
                             {/* Título */}
                             <h4
-                              className="text-sm font-bold text-slate-900 leading-snug line-clamp-1 group-hover:text-[#1455AC] transition-colors font-sans"
+                              className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-snug line-clamp-1 group-hover:text-[#1455AC] transition-colors font-sans"
                               title={event.title}
                             >
                               {event.title}
                             </h4>
 
                             {/* Localização */}
-                            <div className="flex items-center gap-1 text-[11px] text-slate-500 font-sans">
-                              <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                            <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-sans">
+                              <MapPin className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                               <span className="truncate">{event.location}</span>
                             </div>
 
                             {/* Descrição */}
                             <p
-                              className="text-xs text-slate-500 leading-relaxed pt-1 line-clamp-2 font-sans"
+                              className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed pt-1 line-clamp-2 font-sans"
                               title={event.description}
                             >
                               {event.description}
@@ -692,10 +703,10 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                           </div>
 
                           {/* Rodapé: Interessados + Bookmark */}
-                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between font-sans">
-                            <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                              <Users className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                              <span className="text-[11px] font-medium text-slate-500">
+                          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between font-sans">
+                            <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                              <Users className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+                              <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
                                 {event.interested}
                               </span>
                             </div>
@@ -704,7 +715,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                               type="button"
                               onClick={(e) => toggleBookmark(event.id, e)}
                               title={isBookmarked ? 'Remover dos guardados' : 'Guardar evento'}
-                              className="p-1 rounded-md text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
+                              className="p-1 rounded-md text-slate-400 dark:text-slate-500 hover:text-[#1455AC] transition-colors cursor-pointer"
                             >
                               <Bookmark
                                 className={`w-4 h-4 transition-transform active:scale-90 ${
@@ -728,7 +739,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                     onClick={() => scrollCarousel('right')}
                     aria-label="Próximos eventos"
                     disabled={!canScrollRight}
-                    className={`absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:text-[#1455AC] hover:bg-slate-50 flex items-center justify-center transition-all cursor-pointer hidden md:flex ${
+                    className={`absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md text-slate-700 dark:text-slate-300 hover:text-[#1455AC] hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center transition-all cursor-pointer hidden md:flex ${
                       !canScrollRight ? 'opacity-30 pointer-events-none' : 'opacity-100'
                     }`}
                   >
@@ -742,7 +753,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
             <div className="space-y-3 pt-2 font-sans">
               {/* Header da Seção */}
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 font-sans">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Explore por região
                 </h3>
 
@@ -825,11 +836,11 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
             {/* Card 1: Eventos em destaque */}
             <div
               id="featured-events-card"
-              className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs space-y-3.5 font-sans"
+              className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs space-y-3.5 font-sans"
             >
               {/* Header do Card */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100 font-sans">
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 font-sans">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Eventos em destaque
                 </h3>
                 <button
@@ -846,10 +857,10 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                 {FEATURED_EVENTS.map((item) => (
                   <article
                     key={item.id}
-                    className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group font-sans"
+                    className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group font-sans"
                   >
                     {/* Thumbnail quadrada arredondada */}
-                    <div className="w-13 h-13 rounded-xl overflow-hidden shrink-0 shadow-2xs border border-slate-100 relative flex items-center justify-center">
+                    <div className="w-13 h-13 rounded-xl overflow-hidden shrink-0 shadow-2xs border border-slate-100 dark:border-slate-800 relative flex items-center justify-center">
                       {item.customType === 'uefa' ? (
                         <div className="w-full h-full bg-gradient-to-br from-[#060D23] via-[#0A1A4A] to-[#040816] flex flex-col items-center justify-center text-white relative p-1">
                           <div className="text-[10px] font-black tracking-widest text-sky-400 leading-none">UEFA</div>
@@ -900,12 +911,12 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                         {item.category}
                       </span>
                       <h4
-                        className="text-xs font-bold text-slate-900 leading-snug line-clamp-1 mt-0.5 group-hover:text-[#1455AC] transition-colors font-sans"
+                        className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-snug line-clamp-1 mt-0.5 group-hover:text-[#1455AC] transition-colors font-sans"
                         title={item.title}
                       >
                         {item.title}
                       </h4>
-                      <p className="text-[10.5px] text-slate-400 font-medium truncate mt-0.5 font-sans">
+                      <p className="text-[10.5px] text-slate-400 dark:text-slate-500 font-medium truncate mt-0.5 font-sans">
                         {item.info}
                       </p>
                     </div>
@@ -914,7 +925,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
               </div>
 
               {/* Botão Ver todos os destaques */}
-              <div className="pt-2 border-t border-slate-100 font-sans">
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 font-sans">
                 <button
                   type="button"
                   className="w-full py-2.5 px-4 rounded-xl bg-[#1455AC]/10 hover:bg-[#1455AC]/20 text-[#1455AC] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs font-sans"
@@ -929,11 +940,11 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
             {/* Card 2: Próximos a começar */}
             <div
               id="upcoming-events-card"
-              className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs space-y-3.5 font-sans"
+              className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs space-y-3.5 font-sans"
             >
               {/* Header */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100 font-sans">
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-sans">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 font-sans">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Próximos a começar
                 </h3>
                 <button
@@ -950,9 +961,9 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                 {UPCOMING_EVENTS.map((item) => (
                   <article
                     key={item.id}
-                    className="flex items-start gap-3 p-1.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group font-sans"
+                    className="flex items-start gap-3 p-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group font-sans"
                   >
-                    <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-slate-100 shadow-2xs border border-slate-100 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800 shadow-2xs border border-slate-100 dark:border-slate-800 flex items-center justify-center">
                       <img
                         src={item.imageUrl}
                         alt={item.title}
@@ -970,12 +981,12 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                         {item.timeTag}
                       </span>
                       <h4
-                        className="text-xs font-bold text-slate-900 leading-snug line-clamp-1 mt-0.5 group-hover:text-[#1455AC] transition-colors font-sans"
+                        className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-snug line-clamp-1 mt-0.5 group-hover:text-[#1455AC] transition-colors font-sans"
                         title={item.title}
                       >
                         {item.title}
                       </h4>
-                      <div className="flex items-center gap-1 text-[10.5px] text-slate-400 font-medium truncate mt-0.5 font-sans">
+                      <div className="flex items-center gap-1 text-[10.5px] text-slate-400 dark:text-slate-500 font-medium truncate mt-0.5 font-sans">
                         <MapPin className="w-3 h-3 shrink-0" />
                         <span>{item.location}</span>
                       </div>
@@ -985,7 +996,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
               </div>
 
               {/* Botão Ver agenda completa */}
-              <div className="pt-2 border-t border-slate-100 font-sans">
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 font-sans">
                 <button
                   type="button"
                   className="w-full py-2.5 px-4 rounded-xl bg-[#1455AC]/10 hover:bg-[#1455AC]/20 text-[#1455AC] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs font-sans"
@@ -1009,7 +1020,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
           onClick={() => setSelectedEventModal(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 flex flex-col max-h-[90vh] font-sans"
+            className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col max-h-[90vh] font-sans"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Imagem de Capa */}
@@ -1047,23 +1058,23 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                 <span className="text-xs font-semibold text-[#1455AC] uppercase tracking-wide font-sans">
                   {selectedEventModal.date}
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 font-sans mt-1 leading-snug">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 font-sans mt-1 leading-snug">
                   {selectedEventModal.title}
                 </h3>
-                <div className="flex items-center gap-2 text-xs text-slate-500 mt-2 font-sans">
-                  <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mt-2 font-sans">
+                  <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
                   <span>{selectedEventModal.location}</span>
-                  <span className="text-slate-300">•</span>
-                  <Users className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <span className="text-slate-300 dark:text-slate-600">•</span>
+                  <Users className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
                   <span>{selectedEventModal.interested}</span>
                 </div>
               </div>
 
-              <div className="border-t border-slate-100 pt-3 font-sans">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5 font-sans">
+              <div className="border-t border-slate-100 dark:border-slate-800 pt-3 font-sans">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5 font-sans">
                   Sobre o Evento
                 </h4>
-                <p className="text-sm text-slate-600 leading-relaxed font-sans">
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
                   {selectedEventModal.fullDescription || selectedEventModal.description}
                 </p>
               </div>
@@ -1096,7 +1107,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                   type="button"
                   onClick={() => handleShare(selectedEventModal.title)}
                   title="Partilhar"
-                  className="p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-[#1455AC] transition-colors cursor-pointer"
+                  className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
                 >
                   <Share2 className="w-4 h-4" />
                 </button>
@@ -1105,7 +1116,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                   type="button"
                   onClick={(e) => toggleBookmark(selectedEventModal.id, e)}
                   title={bookmarkedIds.includes(selectedEventModal.id) ? 'Guardado' : 'Guardar'}
-                  className="p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-[#1455AC] transition-colors cursor-pointer"
+                  className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-[#1455AC] transition-colors cursor-pointer"
                 >
                   <Bookmark
                     className={`w-4 h-4 ${

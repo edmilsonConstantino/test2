@@ -303,20 +303,20 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5 animate-in fade-in duration-200">
       {/* 1. Header com Título, Ilustração de Skyline/Comunidade e Status */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 overflow-hidden relative">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 overflow-hidden relative">
         {/* Esquerda: Ícone Roxo + Título + Subtítulo */}
         <div className="flex items-start sm:items-center gap-3.5 z-10">
           <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/70 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <BarChart3 className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
               Visão Geral
             </h1>
-            <p className="text-xs sm:text-sm font-semibold text-slate-700 mt-0.5">
+            <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mt-0.5">
               Panorama global da rede VILA.
             </p>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               Indicadores-chave, tendências e alcance da plataforma.
             </p>
           </div>
@@ -388,10 +388,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
         {/* Direita: Última Atualização & Dados Consolidados */}
         <div className="flex flex-col sm:items-end gap-1 shrink-0 z-10">
-          <span className="text-xs text-slate-500 font-medium">
-            Última atualização: <strong className="text-slate-700">24 Mai 2025</strong>
+          <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+            Última atualização: <strong className="text-slate-700 dark:text-slate-300">24 Mai 2025</strong>
           </span>
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Dados consolidados</span>
           </div>
@@ -404,24 +404,24 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       {/* 3. Segunda Fileira: Gráfico de Evolução (Linha) + Mapa Global da Rede + Cobertura por Região (Rosca) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Card 1: Evolução da Rede VILA (5 colunas) */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             {/* Header com Título e Dropdown de Período */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 relative">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700 relative">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Evolução da Rede VILA
               </h2>
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setIsPeriodDropdownOpen(!isPeriodDropdownOpen)}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg transition-colors cursor-pointer"
                 >
                   <span>{selectedPeriod === '5anos' ? 'Últimos 5 anos' : selectedPeriod === '3anos' ? 'Últimos 3 anos' : 'Ano atual'}</span>
-                  <ChevronDown className="w-3 h-3 text-slate-400" />
+                  <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                 </button>
                 {isPeriodDropdownOpen && (
-                  <div className="absolute right-0 mt-1 w-36 bg-white border border-slate-200 rounded-xl shadow-lg z-20 py-1 text-xs">
+                  <div className="absolute right-0 mt-1 w-36 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg z-20 py-1 text-xs">
                     <button
                       type="button"
                       onClick={() => { setSelectedPeriod('5anos'); setIsPeriodDropdownOpen(false); }}
@@ -450,19 +450,19 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
             {/* Legenda com Marcadores de Cor */}
             <div className="flex flex-wrap items-center gap-3.5 pt-3 pb-1 text-[11px] font-semibold">
-              <div className="inline-flex items-center gap-1.5 text-slate-700">
+              <div className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Membros</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 text-slate-700">
+              <div className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
                 <span>Comunidades</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 text-slate-700">
+              <div className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                 <span>Territórios</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 text-slate-700">
+              <div className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
                 <span>Países</span>
               </div>
@@ -658,7 +658,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
 
           {/* Rodapé do Card: Link para Ver Relatório */}
-          <div className="pt-3 border-t border-slate-200/70 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end">
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
@@ -671,10 +671,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 2: Rede Global VILA (Mapa Cartográfico em Tons de Roxo) (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Rede Global VILA
               </h2>
             </div>
@@ -750,7 +750,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             </div>
 
             {/* Barra Gradiente de Menor/Maior Presença */}
-            <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium px-1 mt-1">
+            <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-medium px-1 mt-1">
               <span>Menor presença</span>
               <div className="h-2 w-28 rounded-full bg-gradient-to-r from-blue-200 via-blue-500 to-[#1455AC]" />
               <span>Maior presença</span>
@@ -758,7 +758,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
 
           {/* Rodapé do Card: Link para Ver Mapa Interativo */}
-          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-2">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-2">
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
@@ -771,10 +771,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 3: Cobertura por Região (Gráfico de Rosca) (3 colunas) */}
-        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Cobertura por Região
               </h2>
             </div>
@@ -845,46 +845,46 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               {/* Legenda com Cores e Percentuais */}
               <div className="space-y-2 text-xs flex-1">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-medium">
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                     <span>África</span>
                   </div>
-                  <span className="font-bold text-slate-900">32%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">32%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-medium">
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                     <span>América do Sul</span>
                   </div>
-                  <span className="font-bold text-slate-900">24%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">24%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-medium">
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
                     <span>Europa</span>
                   </div>
-                  <span className="font-bold text-slate-900">20%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">20%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-medium">
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
                     <span>Ásia</span>
                   </div>
-                  <span className="font-bold text-slate-900">16%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">16%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-medium">
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#5F9DE0]" />
                     <span>América do Norte</span>
                   </div>
-                  <span className="font-bold text-slate-900">8%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">8%</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Rodapé do Card: Link para Ver Detalhamento Regional */}
-          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
@@ -900,75 +900,75 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       {/* 4. Terceira Fileira: Ecossistema VILA + Principais Tendências + Organizações Parceiras + ODS */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
         {/* Card 1: Ecossistema VILA */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Ecossistema VILA
             </h2>
             <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-y-5 mt-5">
               {/* Municípios */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Building2 className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs text-slate-500 font-medium leading-tight">Municípios</div>
-                  <div className="text-xl font-bold text-[#0F172A] font-sans leading-snug mt-0.5">3.642</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Municípios</div>
+                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">3.642</div>
                 </div>
               </div>
 
               {/* Parceiros Institucionais */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
                   <Handshake className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs text-slate-500 font-medium leading-tight">Parceiros Institucionais</div>
-                  <div className="text-xl font-bold text-[#0F172A] font-sans leading-snug mt-0.5">342</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Parceiros Institucionais</div>
+                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">342</div>
                 </div>
               </div>
 
               {/* Comunidades */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Users className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs text-slate-500 font-medium leading-tight">Comunidades</div>
-                  <div className="text-xl font-bold text-[#0F172A] font-sans leading-snug mt-0.5">18.732</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Comunidades</div>
+                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">18.732</div>
                 </div>
               </div>
 
               {/* Eventos Realizados */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
                   <Calendar className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs text-slate-500 font-medium leading-tight">Eventos Realizados</div>
-                  <div className="text-xl font-bold text-[#0F172A] font-sans leading-snug mt-0.5">9.580</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Eventos Realizados</div>
+                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">9.580</div>
                 </div>
               </div>
 
               {/* Organizações */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Users className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs text-slate-500 font-medium leading-tight">Organizações</div>
-                  <div className="text-xl font-bold text-[#0F172A] font-sans leading-snug mt-0.5">1.248</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Organizações</div>
+                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">1.248</div>
                 </div>
               </div>
 
               {/* Consultas Realizadas */}
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <MessageSquare className="w-6 h-6" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs text-slate-500 font-medium leading-tight">Consultas Realizadas</div>
-                  <div className="text-xl font-bold text-[#0F172A] font-sans leading-snug mt-0.5">1.156</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Consultas Realizadas</div>
+                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">1.156</div>
                 </div>
               </div>
             </div>
@@ -987,20 +987,20 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 2: Principais Tendências da Rede */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Principais Tendências da Rede
             </h2>
             <div className="space-y-3.5 mt-4">
               {/* Tendência 1 */}
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
                   <Compass className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-slate-900">Expansão global contínua</h3>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Expansão global contínua</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
                     A rede VILA cresceu 18% no último ano, com destaque para a América Latina e África.
                   </p>
                 </div>
@@ -1008,12 +1008,12 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Tendência 2 */}
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                   <Sprout className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-slate-900">Municípios cada vez mais ativos</h3>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Municípios cada vez mais ativos</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
                     A participação dos municípios aumentou 31%, impulsionando projetos locais.
                   </p>
                 </div>
@@ -1021,12 +1021,12 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Tendência 3 */}
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-slate-900">Sustentabilidade em destaque</h3>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Sustentabilidade em destaque</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
                     Projetos ligados ao ODS 11, 13 e 3 lideram em número e impacto.
                   </p>
                 </div>
@@ -1034,12 +1034,12 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Tendência 4 */}
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-slate-900">Fortalecimento de parcerias</h3>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Fortalecimento de parcerias</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
                     Novas parcerias estratégicas aumentaram 27% desde o início do ano.
                   </p>
                 </div>
@@ -1060,9 +1060,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 3: Organizações Parceiras (Rosca) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Organizações Parceiras
             </h2>
             <div className="flex items-center gap-3.5 mt-5">
@@ -1119,32 +1119,32 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               {/* Legenda com percentuais */}
               <div className="space-y-2.5 text-xs flex-1">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
+                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
                     <span>ONGs</span>
                   </div>
-                  <span className="font-bold text-slate-900">42%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">42%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
+                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
                     <span>Instituições Públicas</span>
                   </div>
-                  <span className="font-bold text-slate-900">28%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">28%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
+                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#F58300]" />
                     <span>Empresas</span>
                   </div>
-                  <span className="font-bold text-slate-900">20%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">20%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-slate-700 font-medium">
+                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#2D79D1]" />
                     <span>Academia</span>
                   </div>
-                  <span className="font-bold text-slate-900">10%</span>
+                  <span className="font-bold text-slate-900 dark:text-slate-50">10%</span>
                 </div>
               </div>
             </div>
@@ -1163,12 +1163,12 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 4: Objetivos de Desenvolvimento Sustentável (ODS) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Objetivos de Desenvolvimento Sustentável
             </h2>
-            <p className="text-[11px] text-slate-500 mt-0.5">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
               Áreas com maior contribuição da rede VILA
             </p>
 
@@ -1206,10 +1206,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                   </div>
                 </div>
                 <div className="mt-1.5 text-center">
-                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight min-h-[30px] flex items-center justify-center">
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-tight min-h-[30px] flex items-center justify-center">
                     Cidades e Comunidades
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans mt-0.5">
+                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                     26%
                   </div>
                 </div>
@@ -1230,10 +1230,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                   </div>
                 </div>
                 <div className="mt-1.5 text-center">
-                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight min-h-[30px] flex items-center justify-center">
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-tight min-h-[30px] flex items-center justify-center">
                     Saúde e Bem-Estar
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans mt-0.5">
+                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                     21%
                   </div>
                 </div>
@@ -1256,10 +1256,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                   </div>
                 </div>
                 <div className="mt-1.5 text-center">
-                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight min-h-[30px] flex items-center justify-center">
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-tight min-h-[30px] flex items-center justify-center">
                     Ação Climática
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans mt-0.5">
+                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                     18%
                   </div>
                 </div>
@@ -1284,10 +1284,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                   </div>
                 </div>
                 <div className="mt-1.5 text-center">
-                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight min-h-[30px] flex items-center justify-center">
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-tight min-h-[30px] flex items-center justify-center">
                     Educação de Qualidade
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans mt-0.5">
+                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                     15%
                   </div>
                 </div>
@@ -1312,10 +1312,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                   </div>
                 </div>
                 <div className="mt-1.5 text-center">
-                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-tight min-h-[30px] flex items-center justify-center">
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-tight min-h-[30px] flex items-center justify-center">
                     Parcerias e Meios
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans mt-0.5">
+                  <div className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-0.5">
                     10%
                   </div>
                 </div>
@@ -1339,31 +1339,31 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       {/* 5. Quarta Fileira: Próximos Eventos Globais + Impacto Global da Rede + Parceiros em Destaque */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Card 1: Próximos Eventos Globais (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Próximos Eventos Globais
               </h2>
             </div>
             <div className="space-y-3.5 mt-3.5">
               {/* Evento 1 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-blue-700 font-sans leading-none">26</span>
                   <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">MAI</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1">
-                    <h3 className="text-xs font-bold text-slate-900 truncate">Fórum Global de Comunidades</h3>
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 shrink-0">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate">Fórum Global de Comunidades</h3>
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:text-emerald-400 shrink-0">
                       Ao vivo
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5 line-clamp-1">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5 line-clamp-1">
                     Encontro anual de líderes comunitários da rede VILA.
                   </p>
-                  <div className="flex items-center gap-1 text-[11px] text-slate-400 mt-1">
+                  <div className="flex items-center gap-1 text-[11px] text-slate-400 dark:text-slate-500 mt-1">
                     <MapPin className="w-3 h-3" />
                     <span>Lisboa, Portugal</span>
                   </div>
@@ -1372,21 +1372,21 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Evento 2 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-blue-700 font-sans leading-none">02</span>
                   <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">JUN</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1">
-                    <h3 className="text-xs font-bold text-slate-900 truncate">Semana da Sustentabilidade</h3>
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate">Semana da Sustentabilidade</h3>
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-700 shrink-0">
                       Em breve
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5 line-clamp-1">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5 line-clamp-1">
                     Ações globais para um futuro sustentável.
                   </p>
-                  <div className="flex items-center gap-1 text-[11px] text-slate-400 mt-1">
+                  <div className="flex items-center gap-1 text-[11px] text-slate-400 dark:text-slate-500 mt-1">
                     <MapPin className="w-3 h-3" />
                     <span>Online</span>
                   </div>
@@ -1395,21 +1395,21 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Evento 3 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-blue-700 font-sans leading-none">15</span>
                   <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">JUN</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1">
-                    <h3 className="text-xs font-bold text-slate-900 truncate">Cimeira de Inovação Social</h3>
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 truncate">Cimeira de Inovação Social</h3>
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-700 shrink-0">
                       Inscrições abertas
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5 line-clamp-1">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5 line-clamp-1">
                     Conectando ideias e soluções para transformar territórios.
                   </p>
-                  <div className="flex items-center gap-1 text-[11px] text-slate-400 mt-1">
+                  <div className="flex items-center gap-1 text-[11px] text-slate-400 dark:text-slate-500 mt-1">
                     <MapPin className="w-3 h-3" />
                     <span>Nairóbi, Quênia</span>
                   </div>
@@ -1418,7 +1418,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('eventos-globais-admin')}
@@ -1431,57 +1431,57 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 2: Impacto Global da Rede (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Impacto Global da Rede
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-4 mt-4">
               {/* Pessoas Alcançadas */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
                   <Users className="w-4 h-4" />
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium">Pessoas Alcançadas</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans">2,8M+</div>
-                <div className="text-[11px] font-bold text-emerald-600">↑ 22%</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Pessoas Alcançadas</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">2,8M+</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 22%</div>
               </div>
 
               {/* Projetos Implementados */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
                   <CheckSquare className="w-4 h-4" />
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium">Projetos Implementados</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans">5.430</div>
-                <div className="text-[11px] font-bold text-emerald-600">↑ 17%</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Projetos Implementados</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">5.430</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 17%</div>
               </div>
 
               {/* Países com Projetos Ativos */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
                   <Globe className="w-4 h-4" />
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium">Países com Projetos Ativos</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans">123</div>
-                <div className="text-[11px] font-bold text-emerald-600">↑ 12%</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Países com Projetos Ativos</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">123</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 12%</div>
               </div>
 
               {/* Investimento Mobilizado */}
               <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
                   <Coins className="w-4 h-4" />
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium">Investimento Mobilizado</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans">€98M+</div>
-                <div className="text-[11px] font-bold text-emerald-600">↑ 19%</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Investimento Mobilizado</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">€98M+</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 19%</div>
               </div>
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
@@ -1494,10 +1494,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 3: Parceiros em Destaque (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h2 className="text-base font-bold text-slate-900 font-sans">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Parceiros em Destaque
               </h2>
             </div>
@@ -1550,20 +1550,20 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Google.org */}
               <div className="col-span-2 h-11 flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity" title="Google.org">
-                <span className="font-sans font-bold text-base text-slate-800 whitespace-nowrap">
+                <span className="font-sans font-bold text-base text-slate-800 dark:text-slate-100 whitespace-nowrap">
                   <span className="text-[#4285F4]">G</span>
                   <span className="text-[#EA4335]">o</span>
                   <span className="text-[#FBBC05]">o</span>
                   <span className="text-[#4285F4]">g</span>
                   <span className="text-[#34A853]">l</span>
                   <span className="text-[#EA4335]">e</span>
-                  <span className="text-slate-500 font-normal text-sm">.org</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-normal text-sm">.org</span>
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('parceiros-colaboracoes')}

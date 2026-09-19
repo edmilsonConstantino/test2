@@ -112,8 +112,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
   const integrations = useMemo(() => [
     { name: 'Open Data', status: 'Ativa', availability: '98,7%', icon: <Database className="w-4 h-4 text-blue-600" /> },
     { name: 'AIMA (APIs)', status: 'Ativa', availability: '99,2%', icon: <ShieldCheck className="w-4 h-4 text-blue-600" /> },
-    { name: 'Portal dos Municípios', status: 'Ativa', availability: '97,8%', icon: <Building2 className="w-4 h-4 text-emerald-600" /> },
-    { name: 'Turismo de Portugal', status: 'Ativa', availability: '98,1%', icon: <Compass className="w-4 h-4 text-amber-600" /> },
+    { name: 'Portal dos Municípios', status: 'Ativa', availability: '97,8%', icon: <Building2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> },
+    { name: 'Turismo de Portugal', status: 'Ativa', availability: '98,1%', icon: <Compass className="w-4 h-4 text-amber-600 dark:text-amber-400" /> },
     { name: 'Transportes e Mobilidade', status: 'Ativa', availability: '97,5%', icon: <Activity className="w-4 h-4 text-blue-600" /> },
     { name: 'APIs Externas', status: 'Ativa', availability: '96,9%', icon: <Globe className="w-4 h-4 text-blue-600" /> },
   ], []);
@@ -137,8 +137,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 0,02 pp',
       trendPeriod: 'desde o ano passado',
       icon: <Activity className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50 border border-emerald-100/70',
-      iconClass: 'text-emerald-600',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100/70',
+      iconClass: 'text-emerald-600 dark:text-emerald-400',
       spark: [99.9, 99.92, 99.91, 99.94, 99.93, 99.95, 99.96, 99.95, 99.97, 99.96, 99.98, 99.98],
       onClick: () => setSelectedService('Portal VILA'),
     },
@@ -149,7 +149,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
       icon: <Server className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100/70',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70',
       iconClass: 'text-blue-600',
       spark: [98, 102, 105, 108, 110, 112, 115, 118, 121, 124, 126, 128],
       onClick: () => setSelectedDC('VILA-DC01'),
@@ -161,7 +161,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
       icon: <HardDrive className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100/70',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70',
       iconClass: 'text-blue-600',
       spark: [180, 190, 198, 208, 216, 224, 230, 238, 244, 250, 254, 256],
       onClick: () => setSelectedService('Armazenamento de Ficheiros'),
@@ -173,8 +173,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 22%',
       trendPeriod: 'desde o ano passado',
       icon: <Wifi className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-amber-50 border border-amber-100/70',
-      iconClass: 'text-amber-600',
+      bgClass: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100/70',
+      iconClass: 'text-amber-600 dark:text-amber-400',
       spark: [11.2, 11.8, 12.4, 13, 13.6, 14.4, 15, 15.9, 16.6, 17.4, 18.1, 18.7],
       onClick: () => setSelectedService('API Gateway'),
     },
@@ -185,7 +185,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 14%',
       trendPeriod: 'desde o ano passado',
       icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 border border-blue-100/70',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70',
       iconClass: 'text-blue-600',
       spark: [30, 31, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42],
       onClick: () => setSelectedService('Open Data'),
@@ -196,10 +196,10 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       value: '€2,48M',
       trend: '↓ 5%',
       trendPeriod: 'desde o ano passado',
-      trendClassName: 'text-red-700 bg-red-50 border border-red-200/70',
+      trendClassName: 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-500/10 border border-red-200/70',
       icon: <Euro className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-amber-50 border border-amber-100/70',
-      iconClass: 'text-amber-600',
+      bgClass: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100/70',
+      iconClass: 'text-amber-600 dark:text-amber-400',
       spark: [2.9, 2.85, 2.8, 2.75, 2.7, 2.65, 2.62, 2.58, 2.55, 2.52, 2.5, 2.48],
       onClick: () => onOpenSupportModal?.('Custo de Infraestrutura'),
     },
@@ -208,16 +208,16 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5 animate-in fade-in duration-200">
       {/* 1. Header do Módulo com Identidade VILA */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#E2ECF9]/80 border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <SlidersHorizontal className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
               Recursos e Infraestrutura
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-3xl mt-0.5 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-3xl mt-0.5 leading-relaxed">
               Monitorize a infraestrutura tecnológica e territorial que sustenta a rede global VILA e capacita comunidades, municípios e parceiros em todo o mundo.
             </p>
           </div>
@@ -225,22 +225,22 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
         {/* Telemetria e Controles */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full lg:w-auto justify-end">
-          <div className="flex items-center gap-4 text-xs text-slate-500 mr-2">
+          <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mr-2">
             <span className="flex items-center gap-1.5 font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Dados atualizados: 10:32
             </span>
-            <span className="flex items-center gap-1.5 font-medium text-slate-600">
+            <span className="flex items-center gap-1.5 font-medium text-slate-600 dark:text-slate-400">
               <span className="w-2 h-2 rounded-full bg-blue-600" />
               Dados em tempo real
             </span>
           </div>
 
           {/* Seletor de Período */}
-          <div className="inline-flex items-center gap-2 px-3 py-2 bg-white border border-slate-200/90 rounded-xl text-xs font-semibold text-slate-700 shadow-2xs">
-            <CalendarIcon className="w-3.5 h-3.5 text-slate-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-2xs">
+            <CalendarIcon className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>01 Mai 2024 - 24 Mai 2025</span>
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400 ml-1" />
+            <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 ml-1" />
           </div>
 
           {/* Exportar */}
@@ -249,9 +249,9 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               setIsExportToastOpen(true);
               setTimeout(() => setIsExportToastOpen(false), 3000);
             }}
-            className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200/90 hover:bg-slate-50 text-slate-700 rounded-xl text-xs font-semibold shadow-2xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold shadow-2xs transition-colors"
           >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Exportar</span>
           </button>
 
@@ -272,49 +272,49 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 3. LINHA 2: 3 Cards de Infraestrutura (Territorial, Digital VILA, VILA AI) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Card 1: Infraestrutura Territorial */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A]">Infraestrutura Territorial</h2>
-            <p className="text-xs text-slate-500 mt-0.5">A rede territorial que a VILA suporta</p>
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Infraestrutura Territorial</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">A rede territorial que a VILA suporta</p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Globe className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">156</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Países Ativos</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">156</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Países Ativos</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Compass className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">324</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Regiões</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">324</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Regiões</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Building2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">3.642</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Municípios</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">3.642</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Municípios</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
                   <Users className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">18.732</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Comunidades</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">18.732</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Comunidades</div>
                 </div>
               </div>
             </div>
@@ -332,49 +332,49 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Card 2: Infraestrutura Digital VILA */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A]">Infraestrutura Digital VILA</h2>
-            <p className="text-xs text-slate-500 mt-0.5">Portais, instâncias e aplicações ativas na rede</p>
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Infraestrutura Digital VILA</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Portais, instâncias e aplicações ativas na rede</p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Monitor className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">324</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Portais Regionais</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">324</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Portais Regionais</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Building2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">3.642</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Portais Municipais</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">3.642</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Portais Municipais</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
                 <div className="w-8 h-8 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">18.732</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Instâncias Comunitárias</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">18.732</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Instâncias Comunitárias</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <LayoutGrid className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">156</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Apps Ativas</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">156</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Apps Ativas</div>
                 </div>
               </div>
             </div>
@@ -392,49 +392,49 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Card 3: Infraestrutura IA (VILA AI) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-[#0F172A]">Infraestrutura IA (VILA AI)</h2>
-            <p className="text-xs text-slate-500 mt-0.5">Inteligência Artificial ao serviço dos territórios</p>
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50">Infraestrutura IA (VILA AI)</h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Inteligência Artificial ao serviço dos territórios</p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">1.248.562</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Pedidos IA Hoje</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">1.248.562</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Pedidos IA Hoje</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Bot className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">324</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Assistentes Territoriais</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">324</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Assistentes Territoriais</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <UserCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">3.642</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Assistentes Municipais</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">3.642</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Assistentes Municipais</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900 leading-none">1,2s</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Tempo Médio Resposta</div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">1,2s</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Tempo Médio Resposta</div>
                 </div>
               </div>
             </div>
@@ -455,19 +455,19 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 4. LINHA 3: Utilização de Recursos, Pirâmide da Rede e Centros de Dados */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Coluna 1: Utilização de Recursos (4 Gauges radiais) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-[#0F172A]">Utilização de Recursos</h3>
-            <div className="inline-flex items-center gap-1 px-2 py-1 rounded-lg border border-slate-200 text-[11px] text-slate-600 font-medium cursor-pointer hover:bg-slate-50">
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Utilização de Recursos</h3>
+            <div className="inline-flex items-center gap-1 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-400 font-medium cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/60">
               <span>Últimas 24 horas</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-auto py-4">
             {/* CPU - 35% */}
             <div className="flex flex-col items-center text-center">
-              <div className="text-xs font-bold text-slate-700 mb-2">CPU</div>
+              <div className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">CPU</div>
               <div className="relative w-18 h-18 flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   <path
@@ -487,14 +487,14 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                 </svg>
-                <span className="absolute text-sm font-bold text-slate-900">35%</span>
+                <span className="absolute text-sm font-bold text-slate-900 dark:text-slate-50">35%</span>
               </div>
-              <span className="text-[10px] text-slate-400 mt-2">Média de utilização</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-2">Média de utilização</span>
             </div>
 
             {/* Memória - 62% */}
             <div className="flex flex-col items-center text-center">
-              <div className="text-xs font-bold text-slate-700 mb-2">Memória</div>
+              <div className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">Memória</div>
               <div className="relative w-18 h-18 flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   <path
@@ -514,14 +514,14 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                 </svg>
-                <span className="absolute text-sm font-bold text-slate-900">62%</span>
+                <span className="absolute text-sm font-bold text-slate-900 dark:text-slate-50">62%</span>
               </div>
-              <span className="text-[10px] text-slate-400 mt-2">Média de utilização</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-2">Média de utilização</span>
             </div>
 
             {/* Armazenamento - 58% */}
             <div className="flex flex-col items-center text-center">
-              <div className="text-xs font-bold text-slate-700 mb-2">Armazenamento</div>
+              <div className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">Armazenamento</div>
               <div className="relative w-18 h-18 flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   <path
@@ -541,14 +541,14 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                 </svg>
-                <span className="absolute text-sm font-bold text-slate-900">58%</span>
+                <span className="absolute text-sm font-bold text-slate-900 dark:text-slate-50">58%</span>
               </div>
-              <span className="text-[10px] text-slate-400 mt-2">Média de utilização</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-2">Média de utilização</span>
             </div>
 
             {/* Rede - 41% */}
             <div className="flex flex-col items-center text-center">
-              <div className="text-xs font-bold text-slate-700 mb-2">Rede</div>
+              <div className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">Rede</div>
               <div className="relative w-18 h-18 flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   <path
@@ -568,17 +568,17 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                 </svg>
-                <span className="absolute text-sm font-bold text-slate-900">41%</span>
+                <span className="absolute text-sm font-bold text-slate-900 dark:text-slate-50">41%</span>
               </div>
-              <span className="text-[10px] text-slate-400 mt-2">Média de utilização</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-2">Média de utilização</span>
             </div>
           </div>
           <div className="h-4" />
         </div>
 
         {/* Coluna 2: Infraestrutura por Camada da Rede VILA (Pirâmide estilizada) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
-          <h3 className="text-sm font-bold text-[#0F172A]">Infraestrutura por Camada da Rede VILA</h3>
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+          <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Infraestrutura por Camada da Rede VILA</h3>
 
           <div className="flex items-center justify-between gap-4 my-auto py-2">
             {/* Diagrama Piramidal Vetorial */}
@@ -605,43 +605,43 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             {/* Lista com Indicadores e Totais */}
             <div className="flex-1 space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                   Global (Data Centers)
                 </span>
-                <span className="font-semibold text-slate-900">6 centros</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">6 centros</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                   Nível País
                 </span>
-                <span className="font-semibold text-slate-900">156 instâncias</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">156 instâncias</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#2D79D1]" />
                   Nível Região
                 </span>
-                <span className="font-semibold text-slate-900">324 instâncias</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">324 instâncias</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#10B981]" />
                   Nível Município
                 </span>
-                <span className="font-semibold text-slate-900">3.642 instâncias</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">3.642 instâncias</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
                   Nível Comunidade
                 </span>
-                <span className="font-semibold text-slate-900">18.732 instâncias</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">18.732 instâncias</span>
               </div>
             </div>
           </div>
@@ -658,13 +658,13 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 3: Centros de Dados */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
-          <h3 className="text-sm font-bold text-[#0F172A]">Centros de Dados</h3>
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+          <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Centros de Dados</h3>
 
           <div className="overflow-x-auto my-auto py-1">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="text-[11px] font-semibold text-slate-400 border-b border-slate-200/70">
+                <tr className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 border-b border-slate-200/70 dark:border-slate-700">
                   <th className="pb-2">Centro de Dados</th>
                   <th className="pb-2">Localização</th>
                   <th className="pb-2 text-center">Estado</th>
@@ -672,22 +672,22 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                   <th className="pb-2 text-right">Disponibilidade</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-50">
+              <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                 {dataCenters.map((dc) => (
                   <tr
                     key={dc.id}
                     onClick={() => setSelectedDC(dc.id)}
-                    className="hover:bg-slate-50/80 cursor-pointer transition-colors"
+                    className="hover:bg-slate-50/80 dark:hover:bg-slate-800/60 cursor-pointer transition-colors"
                   >
-                    <td className="py-2 font-semibold text-slate-900">{dc.id}</td>
-                    <td className="py-2 text-slate-500">{dc.name}</td>
+                    <td className="py-2 font-semibold text-slate-900 dark:text-slate-50">{dc.id}</td>
+                    <td className="py-2 text-slate-500 dark:text-slate-400">{dc.name}</td>
                     <td className="py-2 text-center">
-                      <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-600">
+                      <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                         {dc.status}
                       </span>
                     </td>
-                    <td className="py-2 text-right font-medium text-slate-700">{dc.utilization}</td>
-                    <td className="py-2 text-right font-semibold text-slate-900">{dc.availability}</td>
+                    <td className="py-2 text-right font-medium text-slate-700 dark:text-slate-300">{dc.utilization}</td>
+                    <td className="py-2 text-right font-semibold text-slate-900 dark:text-slate-50">{dc.availability}</td>
                   </tr>
                 ))}
               </tbody>
@@ -709,34 +709,34 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 5. LINHA 4: 4 Colunas (Serviços e Sistemas, Integrações, Segurança, Tipos de Recursos) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Coluna 1: Serviços e Sistemas */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Serviços e Sistemas</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Serviços e Sistemas</h3>
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-[10px] font-semibold text-slate-400 border-b border-slate-200/70">
+                  <tr className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 border-b border-slate-200/70 dark:border-slate-700">
                     <th className="pb-1.5">Serviço</th>
                     <th className="pb-1.5 text-center">Status</th>
                     <th className="pb-1.5 text-right">Disponibilidade</th>
                     <th className="pb-1.5 text-right">Tempo de Resposta</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
                   {servicesList.map((svc) => (
                     <tr
                       key={svc.name}
                       onClick={() => setSelectedService(svc.name)}
-                      className="hover:bg-slate-50/80 cursor-pointer transition-colors"
+                      className="hover:bg-slate-50/80 dark:hover:bg-slate-800/60 cursor-pointer transition-colors"
                     >
-                      <td className="py-1.5 font-medium text-slate-800 text-[11px]">{svc.name}</td>
+                      <td className="py-1.5 font-medium text-slate-800 dark:text-slate-100 text-[11px]">{svc.name}</td>
                       <td className="py-1.5 text-center">
-                        <span className="inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-semibold bg-emerald-50 text-emerald-600">
+                        <span className="inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                           {svc.status}
                         </span>
                       </td>
-                      <td className="py-1.5 text-right font-medium text-slate-900 text-[11px]">{svc.availability}</td>
-                      <td className="py-1.5 text-right text-slate-500 text-[11px]">{svc.responseTime}</td>
+                      <td className="py-1.5 text-right font-medium text-slate-900 dark:text-slate-50 text-[11px]">{svc.availability}</td>
+                      <td className="py-1.5 text-right text-slate-500 dark:text-slate-400 text-[11px]">{svc.responseTime}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -756,21 +756,21 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 2: Integrações Ativas */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Integrações Ativas</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Integrações Ativas</h3>
             <div className="space-y-2.5 mt-3 text-xs">
               {integrations.map((item) => (
                 <div key={item.name} className="flex items-center justify-between py-0.5">
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-500">{item.icon}</span>
-                    <span className="font-medium text-slate-800">{item.name}</span>
+                    <span className="text-slate-500 dark:text-slate-400">{item.icon}</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100">{item.name}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-600">
+                    <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                       {item.status}
                     </span>
-                    <span className="font-bold text-slate-900">{item.availability}</span>
+                    <span className="font-bold text-slate-900 dark:text-slate-50">{item.availability}</span>
                   </div>
                 </div>
               ))}
@@ -789,48 +789,48 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 3: Segurança da Plataforma */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Segurança da Plataforma</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Segurança da Plataforma</h3>
             <div className="space-y-3 mt-3 text-xs">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-slate-700">
+                <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                   <ShieldAlert className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Incidentes Bloqueados (30 dias)</span>
                 </div>
-                <span className="font-bold text-slate-900">1.248</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">1.248</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-slate-700">
+                <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                   <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Utilizadores com MFA Ativo</span>
                 </div>
-                <span className="font-bold text-slate-900">78,2%</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">78,2%</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-slate-700">
+                <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                   <UserCheck className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Utilizadores Verificados</span>
                 </div>
-                <span className="font-bold text-slate-900">2,1M</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">2,1M</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-slate-700">
+                <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                   <KeyRound className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Tentativas de Acesso Bloqueadas</span>
                 </div>
-                <span className="font-bold text-slate-900">19.732</span>
+                <span className="font-bold text-slate-900 dark:text-slate-50">19.732</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-slate-700">
+                <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                   <FileBadge className="w-4 h-4 text-blue-600 shrink-0" />
                   <span>Conformidade (ISO 27001)</span>
                 </div>
-                <span className="font-bold text-emerald-600">100%</span>
+                <span className="font-bold text-emerald-600 dark:text-emerald-400">100%</span>
               </div>
             </div>
           </div>
@@ -847,9 +847,9 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 4: Tipos de Recursos (Donut & Legenda) */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0F172A]">Tipos de Recursos</h3>
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Tipos de Recursos</h3>
 
             <div className="flex items-center gap-3.5 mt-3">
               {/* Donut Chart SVG */}
@@ -874,12 +874,12 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               <div className="flex-1 space-y-1 text-[11px]">
                 {resourceTypes.map((res) => (
                   <div key={res.label} className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-slate-700">
+                    <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                       <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: res.color }} />
                       <span className="truncate max-w-[90px]">{res.label}</span>
                     </span>
-                    <span className="font-semibold text-slate-900 shrink-0">
-                      {res.percent} <span className="text-slate-400 font-normal">({res.count})</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-50 shrink-0">
+                      {res.percent} <span className="text-slate-400 dark:text-slate-500 font-normal">({res.count})</span>
                     </span>
                   </div>
                 ))}
@@ -902,32 +902,32 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 6. LINHA 5: Backups, Incidentes e Sustentabilidade da Rede */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Coluna 1: Backups e Recuperação */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
-          <h3 className="text-sm font-bold text-[#0F172A]">Backups e Recuperação</h3>
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+          <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Backups e Recuperação</h3>
 
           <div className="flex items-center justify-between gap-4 my-auto py-3">
             {/* Ícone de Nuvem e Último Backup */}
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                 <CloudDownload className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-[11px] text-slate-500">Último Backup</div>
-                <div className="text-lg font-bold text-slate-900">Hoje, 08:32</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Próximo Backup: <span className="font-medium text-slate-600">Hoje, 20:00</span></div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400">Último Backup</div>
+                <div className="text-lg font-bold text-slate-900 dark:text-slate-50">Hoje, 08:32</div>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Próximo Backup: <span className="font-medium text-slate-600 dark:text-slate-400">Hoje, 20:00</span></div>
               </div>
             </div>
 
             {/* Métricas dos Últimos 7 dias */}
             <div className="text-right space-y-1">
               <div>
-                <div className="text-[10px] text-slate-400">Backups (últimos 7 dias)</div>
-                <div className="text-base font-bold text-slate-900">27</div>
-                <div className="text-[10px] text-emerald-600 font-medium">↑ 17% vs semana anterior</div>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500">Backups (últimos 7 dias)</div>
+                <div className="text-base font-bold text-slate-900 dark:text-slate-50">27</div>
+                <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">↑ 17% vs semana anterior</div>
               </div>
-              <div className="pt-1 border-t border-slate-200/70">
-                <div className="text-[10px] text-slate-400">Taxa de Sucesso</div>
-                <div className="text-sm font-bold text-emerald-600">100% <span className="text-slate-400 font-normal text-[10px]">(0 falhas)</span></div>
+              <div className="pt-1 border-t border-slate-200/70 dark:border-slate-700">
+                <div className="text-[10px] text-slate-400 dark:text-slate-500">Taxa de Sucesso</div>
+                <div className="text-sm font-bold text-emerald-600 dark:text-emerald-400">100% <span className="text-slate-400 dark:text-slate-500 font-normal text-[10px]">(0 falhas)</span></div>
               </div>
             </div>
           </div>
@@ -944,55 +944,55 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 2: Incidentes e Manutenção */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
-          <h3 className="text-sm font-bold text-[#0F172A]">Incidentes e Manutenção</h3>
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+          <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Incidentes e Manutenção</h3>
 
           <div className="grid grid-cols-2 gap-3 my-auto py-2">
             {/* Incidentes (30 dias) */}
-            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[10px] text-slate-500">Incidentes (30 dias)</div>
-                <div className="text-base font-bold text-slate-900">3</div>
-                <div className="text-[10px] text-emerald-600 font-medium">↓ -40% vs período anterior</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Incidentes (30 dias)</div>
+                <div className="text-base font-bold text-slate-900 dark:text-slate-50">3</div>
+                <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">↓ -40% vs período anterior</div>
               </div>
             </div>
 
             {/* Tempo Médio de Resolução */}
-            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                 <Clock className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[10px] text-slate-500">Tempo Médio de Resolução</div>
-                <div className="text-base font-bold text-slate-900">42 min</div>
-                <div className="text-[10px] text-emerald-600 font-medium">↓ -18% vs período anterior</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Tempo Médio de Resolução</div>
+                <div className="text-base font-bold text-slate-900 dark:text-slate-50">42 min</div>
+                <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">↓ -18% vs período anterior</div>
               </div>
             </div>
 
             {/* Manutenções Planeadas */}
-            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                 <Wrench className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[10px] text-slate-500">Manutenções Planeadas</div>
-                <div className="text-base font-bold text-slate-900">5</div>
-                <div className="text-[10px] text-slate-500 font-medium">Próxima: 02 Jun 2025</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Manutenções Planeadas</div>
+                <div className="text-base font-bold text-slate-900 dark:text-slate-50">5</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Próxima: 02 Jun 2025</div>
               </div>
             </div>
 
             {/* Manutenções Concluídas */}
-            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 border border-slate-100">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/60 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+              <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-[10px] text-slate-500">Manutenções Concluídas</div>
-                <div className="text-base font-bold text-slate-900">12</div>
-                <div className="text-[10px] text-slate-500 font-medium">Este mês</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Manutenções Concluídas</div>
+                <div className="text-base font-bold text-slate-900 dark:text-slate-50">12</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Este mês</div>
               </div>
             </div>
           </div>
@@ -1009,39 +1009,39 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 3: Sustentabilidade da Rede */}
-        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
-          <h3 className="text-sm font-bold text-[#0F172A]">Sustentabilidade da Rede</h3>
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+          <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Sustentabilidade da Rede</h3>
 
           <div className="flex items-center gap-4 my-auto py-2">
             {/* Ícone de Folha / Eco */}
-            <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+            <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
               <Leaf className="w-7 h-7" />
             </div>
 
             {/* 4 Indicadores de Sustentabilidade */}
             <div className="grid grid-cols-2 gap-3 flex-1">
               <div>
-                <div className="text-[10px] text-slate-500">Energia Renovável</div>
-                <div className="text-lg font-bold text-[#0F172A]">78%</div>
-                <div className="text-[10px] text-slate-400">dos centros de dados</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Energia Renovável</div>
+                <div className="text-lg font-bold text-[#0F172A] dark:text-slate-50">78%</div>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500">dos centros de dados</div>
               </div>
 
               <div>
-                <div className="text-[10px] text-slate-500">Eficiência Energética</div>
-                <div className="text-lg font-bold text-[#0F172A]">1.42</div>
-                <div className="text-[10px] text-slate-400">PUE médio global</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Eficiência Energética</div>
+                <div className="text-lg font-bold text-[#0F172A] dark:text-slate-50">1.42</div>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500">PUE médio global</div>
               </div>
 
               <div>
-                <div className="text-[10px] text-slate-500">Emissões Evitadas</div>
-                <div className="text-lg font-bold text-[#0F172A]">1.862 tCO₂</div>
-                <div className="text-[10px] text-slate-400">Este ano</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Emissões Evitadas</div>
+                <div className="text-lg font-bold text-[#0F172A] dark:text-slate-50">1.862 tCO₂</div>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500">Este ano</div>
               </div>
 
               <div>
-                <div className="text-[10px] text-slate-500">Centros Verdes</div>
-                <div className="text-lg font-bold text-[#0F172A]">5</div>
-                <div className="text-[10px] text-slate-400">certificados</div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400">Centros Verdes</div>
+                <div className="text-lg font-bold text-[#0F172A] dark:text-slate-50">5</div>
+                <div className="text-[10px] text-slate-400 dark:text-slate-500">certificados</div>
               </div>
             </div>
           </div>
@@ -1059,22 +1059,22 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       </div>
 
       {/* 7. LINHA 6: Capacidade e Crescimento (Full Width) */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Gráfico de Evolução Multilinha (7 Colunas) */}
           <div className="lg:col-span-7">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <h3 className="text-sm font-bold text-[#0F172A]">Capacidade e Crescimento</h3>
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Capacidade e Crescimento</h3>
               <div className="flex flex-wrap items-center gap-3 text-xs">
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#1E293B]" />
                   Armazenamento (TB)
                 </span>
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#5F9DE0]" />
                   Largura de Banda (Tbps)
                 </span>
-                <span className="flex items-center gap-1.5 text-slate-700 font-medium">
+                <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#1455AC]" />
                   Servidores Ativos
                 </span>
@@ -1213,38 +1213,38 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
           {/* 3 Caixas de Capacidade Total (2.5 Colunas) */}
           <div className="lg:col-span-2 flex flex-col justify-center gap-3">
-            <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100 text-center">
-              <div className="text-[10px] text-slate-400">Capacidade Total</div>
-              <div className="text-xl font-bold text-[#0F172A]">512 TB</div>
-              <div className="text-xs text-slate-600 font-medium">Armazenamento</div>
+            <div className="p-3 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-center">
+              <div className="text-[10px] text-slate-400 dark:text-slate-500">Capacidade Total</div>
+              <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50">512 TB</div>
+              <div className="text-xs text-slate-600 dark:text-slate-400 font-medium">Armazenamento</div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100 text-center">
-              <div className="text-[10px] text-slate-400">Capacidade Total</div>
-              <div className="text-xl font-bold text-[#0F172A]">25 Tbps</div>
-              <div className="text-xs text-slate-600 font-medium">Largura de Banda</div>
+            <div className="p-3 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-center">
+              <div className="text-[10px] text-slate-400 dark:text-slate-500">Capacidade Total</div>
+              <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50">25 Tbps</div>
+              <div className="text-xs text-slate-600 dark:text-slate-400 font-medium">Largura de Banda</div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100 text-center">
-              <div className="text-[10px] text-slate-400">Capacidade Total</div>
-              <div className="text-xl font-bold text-[#0F172A]">200</div>
-              <div className="text-xs text-slate-600 font-medium">Servidores</div>
+            <div className="p-3 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-center">
+              <div className="text-[10px] text-slate-400 dark:text-slate-500">Capacidade Total</div>
+              <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50">200</div>
+              <div className="text-xs text-slate-600 dark:text-slate-400 font-medium">Servidores</div>
             </div>
           </div>
 
           {/* Previsão de Crescimento (próx. 12 meses) (2.5 Colunas) */}
           <div className="lg:col-span-3 flex flex-col justify-between h-full pl-0 lg:pl-2">
             <div>
-              <h4 className="text-xs font-bold text-[#0F172A] mb-3">Previsão de Crescimento (próx. 12 meses)</h4>
+              <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 mb-3">Previsão de Crescimento (próx. 12 meses)</h4>
 
               <div className="space-y-3 text-xs">
                 {/* Armazenamento +40% */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-slate-600 font-medium">Armazenamento</span>
-                    <span className="font-bold text-emerald-600">↑ 40%</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Armazenamento</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">↑ 40%</span>
                   </div>
-                  <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className="h-full bg-slate-900 rounded-full" style={{ width: '80%' }} />
                   </div>
                 </div>
@@ -1252,10 +1252,10 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 {/* Largura de Banda +35% */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-slate-600 font-medium">Largura de Banda</span>
-                    <span className="font-bold text-emerald-600">↑ 35%</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Largura de Banda</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">↑ 35%</span>
                   </div>
-                  <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className="h-full bg-slate-900 rounded-full" style={{ width: '70%' }} />
                   </div>
                 </div>
@@ -1263,10 +1263,10 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 {/* Servidores +30% */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-slate-600 font-medium">Servidores</span>
-                    <span className="font-bold text-emerald-600">↑ 30%</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Servidores</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">↑ 30%</span>
                   </div>
-                  <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div className="h-full bg-slate-900 rounded-full" style={{ width: '60%' }} />
                   </div>
                 </div>
@@ -1289,22 +1289,22 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* Modal Interativo de Detalhes do Centro de Dados */}
       {selectedDC && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100 dark:border-slate-800 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center font-bold">
                   <Server className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 font-sans text-lg">{selectedDC}</h3>
-                  <p className="text-xs text-slate-500">
+                  <h3 className="font-bold text-slate-900 dark:text-slate-50 font-sans text-lg">{selectedDC}</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     {dataCenters.find((d) => d.id === selectedDC)?.name}
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setSelectedDC(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+                className="p-1.5 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1312,34 +1312,34 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
             {dataCenters.find((d) => d.id === selectedDC) && (
               <div className="space-y-2.5 text-xs">
-                <div className="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Endereço IP / Gateway</span>
-                    <span className="font-mono font-semibold text-slate-800">
+                    <span className="text-slate-500 dark:text-slate-400">Endereço IP / Gateway</span>
+                    <span className="font-mono font-semibold text-slate-800 dark:text-slate-100">
                       {dataCenters.find((d) => d.id === selectedDC)?.ip}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Latência Média</span>
-                    <span className="font-semibold text-emerald-600">
+                    <span className="text-slate-500 dark:text-slate-400">Latência Média</span>
+                    <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                       {dataCenters.find((d) => d.id === selectedDC)?.ping}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Disponibilidade</span>
-                    <span className="font-semibold text-slate-900">
+                    <span className="text-slate-500 dark:text-slate-400">Disponibilidade</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-50">
                       {dataCenters.find((d) => d.id === selectedDC)?.availability}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Carga Operacional</span>
-                    <span className="font-semibold text-slate-900">
+                    <span className="text-slate-500 dark:text-slate-400">Carga Operacional</span>
+                    <span className="font-semibold text-slate-900 dark:text-slate-50">
                       {dataCenters.find((d) => d.id === selectedDC)?.utilization}
                     </span>
                   </div>
                 </div>
 
-                <div className="text-[11px] text-slate-500 leading-relaxed">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Infraestrutura com redundância Tier III, alimentação 100% de fontes renováveis e monitorização 24/7 com proteção contra ataques DDoS integrados ao VILA Cloud Shield.
                 </div>
               </div>
@@ -1348,7 +1348,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="flex justify-end gap-2 pt-2">
               <button
                 onClick={() => setSelectedDC(null)}
-                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition-colors"
+                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors"
               >
                 Fechar
               </button>
@@ -1369,41 +1369,41 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* Modal de Detalhes de Serviço */}
       {selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100 dark:border-slate-800 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center font-bold">
                   <Activity className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 font-sans text-lg">{selectedService}</h3>
-                  <span className="text-[11px] text-emerald-600 font-medium">Operacional em todos os nós</span>
+                  <h3 className="font-bold text-slate-900 dark:text-slate-50 font-sans text-lg">{selectedService}</h3>
+                  <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Operacional em todos os nós</span>
                 </div>
               </div>
               <button
                 onClick={() => setSelectedService(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+                className="p-1.5 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="p-3 bg-slate-50 rounded-xl space-y-2 text-xs">
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2 text-xs">
               <div className="flex justify-between">
-                <span className="text-slate-500">Tempo de Resposta Médio</span>
-                <span className="font-semibold text-slate-900">
+                <span className="text-slate-500 dark:text-slate-400">Tempo de Resposta Médio</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-50">
                   {servicesList.find((s) => s.name === selectedService)?.responseTime || '95ms'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Taxa de Disponibilidade (SLA)</span>
-                <span className="font-semibold text-emerald-600">
+                <span className="text-slate-500 dark:text-slate-400">Taxa de Disponibilidade (SLA)</span>
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                   {servicesList.find((s) => s.name === selectedService)?.availability || '99,99%'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Versão Implementada</span>
-                <span className="font-mono text-slate-700">
+                <span className="text-slate-500 dark:text-slate-400">Versão Implementada</span>
+                <span className="font-mono text-slate-700 dark:text-slate-300">
                   {servicesList.find((s) => s.name === selectedService)?.version || 'v3.8.4'}
                 </span>
               </div>
@@ -1412,7 +1412,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="flex justify-end gap-2 pt-2">
               <button
                 onClick={() => setSelectedService(null)}
-                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition-colors"
+                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors"
               >
                 Fechar
               </button>
@@ -1433,12 +1433,12 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* Modal de Filtros */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-2xl max-w-sm w-full p-5 shadow-xl border border-slate-100 space-y-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-5 shadow-xl border border-slate-100 dark:border-slate-800 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-bold text-slate-900 font-sans text-base">Filtros de Infraestrutura</h3>
+              <h3 className="font-bold text-slate-900 dark:text-slate-50 font-sans text-base">Filtros de Infraestrutura</h3>
               <button
                 onClick={() => setIsFilterModalOpen(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100"
+                className="p-1.5 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1446,11 +1446,11 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-500 mb-1 font-medium">Período de Análise</label>
+                <label className="block text-slate-500 dark:text-slate-400 mb-1 font-medium">Período de Análise</label>
                 <select
                   value={selectedPeriod}
                   onChange={(e) => setSelectedPeriod(e.target.value as any)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-xl bg-white text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="24h">Últimas 24 horas</option>
                   <option value="7d">Últimos 7 dias</option>
@@ -1460,8 +1460,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               </div>
 
               <div>
-                <label className="block text-slate-500 mb-1 font-medium">Região de Centros de Dados</label>
-                <select className="w-full px-3 py-2 border border-slate-200 rounded-xl bg-white text-slate-800">
+                <label className="block text-slate-500 dark:text-slate-400 mb-1 font-medium">Região de Centros de Dados</label>
+                <select className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100">
                   <option>Todos os Centros de Dados (Global)</option>
                   <option>Europa (Lisboa, Frankfurt)</option>
                   <option>América Latina (São Paulo)</option>
@@ -1471,8 +1471,8 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
               </div>
 
               <div>
-                <label className="block text-slate-500 mb-1 font-medium">Nível de Severidade</label>
-                <select className="w-full px-3 py-2 border border-slate-200 rounded-xl bg-white text-slate-800">
+                <label className="block text-slate-500 dark:text-slate-400 mb-1 font-medium">Nível de Severidade</label>
+                <select className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100">
                   <option>Todos os Status</option>
                   <option>Apenas Online</option>
                   <option>Com Manutenção Agendada</option>

@@ -229,7 +229,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                       onOpenAiAssistant?.();
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded-lg flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-[#1455AC] hover:bg-[#1455AC]/10 rounded-lg flex items-center gap-2 cursor-pointer"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     Assistente VILA AI

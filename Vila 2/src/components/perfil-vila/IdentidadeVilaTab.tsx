@@ -86,14 +86,14 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
 
   // Interesses principais com ícones e paleta exata da UI
   const [interesses, setInteresses] = useState([
-    { id: 'sustentabilidade', label: 'Sustentabilidade', icon: Sparkles, color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-    { id: 'mobilidade', label: 'Mobilidade', icon: Bike, color: 'bg-blue-50 text-blue-700 border-blue-200' },
-    { id: 'habitacao', label: 'Habitação', icon: Home, color: 'bg-purple-50 text-purple-700 border-purple-200' },
-    { id: 'educacao', label: 'Educação', icon: GraduationCap, color: 'bg-amber-50 text-amber-700 border-amber-200' },
-    { id: 'inovacao', label: 'Inovação', icon: Lightbulb, color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
-    { id: 'tecnologia', label: 'Tecnologia', icon: Cpu, color: 'bg-sky-50 text-sky-700 border-sky-200' },
-    { id: 'saude', label: 'Saúde', icon: Heart, color: 'bg-rose-50 text-rose-700 border-rose-200' },
-    { id: 'cultura', label: 'Cultura', icon: Palette, color: 'bg-orange-50 text-orange-700 border-orange-200' },
+    { id: 'sustentabilidade', label: 'Sustentabilidade', icon: Sparkles, color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
+    { id: 'mobilidade', label: 'Mobilidade', icon: Bike, color: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800/40' },
+    { id: 'habitacao', label: 'Habitação', icon: Home, color: 'bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800/40' },
+    { id: 'educacao', label: 'Educação', icon: GraduationCap, color: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/40' },
+    { id: 'inovacao', label: 'Inovação', icon: Lightbulb, color: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800/40' },
+    { id: 'tecnologia', label: 'Tecnologia', icon: Cpu, color: 'bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-200 dark:border-sky-800/40' },
+    { id: 'saude', label: 'Saúde', icon: Heart, color: 'bg-rose-50 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-800/40' },
+    { id: 'cultura', label: 'Cultura', icon: Palette, color: 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-800/40' },
   ]);
 
   // Competências e causas
@@ -105,10 +105,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
   ]);
 
   const [causas, setCausas] = useState([
-    { id: 'clima', label: 'Ação Climática', color: 'bg-emerald-50 text-emerald-700' },
-    { id: 'genero', label: 'Igualdade de Género', color: 'bg-rose-50 text-rose-700' },
-    { id: 'educacao', label: 'Educação de Qualidade', color: 'bg-amber-50 text-amber-700' },
-    { id: 'cidades', label: 'Cidades Inclusivas', color: 'bg-blue-50 text-blue-700' },
+    { id: 'clima', label: 'Ação Climática', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400' },
+    { id: 'genero', label: 'Igualdade de Género', color: 'bg-rose-50 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400' },
+    { id: 'educacao', label: 'Educação de Qualidade', color: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400' },
+    { id: 'cidades', label: 'Cidades Inclusivas', color: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400' },
   ]);
 
   const showToast = (msg: string) => {
@@ -127,15 +127,15 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       )}
 
       {/* Sub-navegação interna de Identidade VILA (conforme UI IDENTIDADE VILA.png) */}
-      <div className="flex items-center gap-2 sm:gap-6 border-b border-slate-200/80 pb-2 overflow-x-auto no-scrollbar">
+      <div className="flex items-center gap-2 sm:gap-6 border-b border-slate-200/80 dark:border-slate-700 pb-2 overflow-x-auto no-scrollbar">
         <button
           type="button"
           onClick={() => setActiveSubTab('visao-geral')}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <Sparkles className={`w-3.5 h-3.5 ${activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <Sparkles className={`w-3.5 h-3.5 ${activeSubTab === 'visao-geral' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Visão geral</span>
           {activeSubTab === 'visao-geral' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -149,10 +149,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             showToast('A exibir pré-visualização do perfil público');
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'perfil-publico' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'perfil-publico' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <User className={`w-3.5 h-3.5 ${activeSubTab === 'perfil-publico' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <User className={`w-3.5 h-3.5 ${activeSubTab === 'perfil-publico' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Perfil público</span>
           {activeSubTab === 'perfil-publico' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -166,10 +166,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             setIsVerificacaoModalOpen(true);
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'verificacao' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'verificacao' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <ShieldCheck className={`w-3.5 h-3.5 ${activeSubTab === 'verificacao' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <ShieldCheck className={`w-3.5 h-3.5 ${activeSubTab === 'verificacao' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Verificação</span>
           {activeSubTab === 'verificacao' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -183,10 +183,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             setIsScoreModalOpen(true);
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'reputacao' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'reputacao' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <Star className={`w-3.5 h-3.5 ${activeSubTab === 'reputacao' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <Star className={`w-3.5 h-3.5 ${activeSubTab === 'reputacao' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Reputação</span>
           {activeSubTab === 'reputacao' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -200,10 +200,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             showToast('Preferências de identidade abertas');
           }}
           className={`flex items-center gap-2 py-2 px-1 text-xs sm:text-[13px] font-semibold transition-all relative cursor-pointer whitespace-nowrap ${
-            activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-500 hover:text-slate-800'
+            activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100'
           }`}
         >
-          <Sliders className={`w-3.5 h-3.5 ${activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+          <Sliders className={`w-3.5 h-3.5 ${activeSubTab === 'preferencias' ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
           <span>Preferências</span>
           {activeSubTab === 'preferencias' && (
             <span className="absolute bottom-[-9px] left-0 right-0 h-0.5 bg-[#1455AC] rounded-full" />
@@ -220,7 +220,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
           {/* LINHA 1 (3 CARDS): Perfil + Nível de Identidade + Visibilidade */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
             {/* Card 1: Perfil do Cidadão (Horizontal / Compacto) */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
               <div className="flex items-center gap-3.5 sm:gap-4">
                 {/* Avatar com Borda Azul e Botão de Edição */}
                 <div className="relative shrink-0">
@@ -232,7 +232,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsEditSobreModalOpen(true)}
-                    className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border border-slate-200 text-slate-600 shadow-xs flex items-center justify-center hover:bg-slate-50 hover:text-[#1455AC] transition-colors cursor-pointer"
+                    className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 shadow-xs flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[#1455AC] transition-colors cursor-pointer"
                     title="Alterar foto"
                   >
                     <Edit3 className="w-3 h-3" />
@@ -242,24 +242,24 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                 {/* Dados de Identidade */}
                 <div className="space-y-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-sans truncate">
+                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-sans truncate">
                       {profileName}
                     </h2>
                     <CheckCircle2 className="w-4 h-4 text-[#1455AC] fill-[#1455AC]/15 shrink-0" />
                   </div>
 
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-purple-50 text-purple-700">
-                    <Sparkles className="w-2.5 h-2.5 text-purple-600 shrink-0" />
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400">
+                    <Sparkles className="w-2.5 h-2.5 text-purple-600 dark:text-purple-400 shrink-0" />
                     <span className="truncate">{profileRole}</span>
                   </div>
 
-                  <div className="text-[11px] text-slate-500 space-y-0.5 pt-0.5">
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 space-y-0.5 pt-0.5">
                     <div className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                      <MapPin className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                       <span className="truncate">{profileLocation}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-slate-400 shrink-0" />
+                      <Calendar className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                       <span className="truncate">Membro desde {profileMemberSince}</span>
                     </div>
                   </div>
@@ -267,18 +267,18 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               </div>
 
               {/* Badge "Conta verificada" */}
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/70">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/70 dark:border-emerald-800/40">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                   <span>Conta verificada</span>
                 </span>
               </div>
             </div>
 
             {/* Card 2: Nível de Identidade */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   Nível de Identidade
                 </span>
 
@@ -287,37 +287,37 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                     <ShieldCheck className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="text-base font-black text-[#0F172A] font-sans">
+                    <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-sans">
                       Embaixadora
                     </h3>
-                    <p className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
                       Líder pelo exemplo e impacto positivo nas comunidades.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-1.5 pt-2 border-t border-slate-100">
-                <div className="w-full h-2 bg-purple-50 rounded-full overflow-hidden">
+              <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <div className="w-full h-2 bg-purple-50 dark:bg-purple-500/10 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full transition-all duration-500"
                     style={{ width: `${(2450 / 3000) * 100}%` }}
                   />
                 </div>
                 <div className="flex items-center justify-between text-[11px]">
-                  <span className="font-bold text-slate-800">2.450 / 3.000 XP</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">2.450 / 3.000 XP</span>
                 </div>
-                <p className="text-[10px] text-slate-400">Próximo nível: Líder Global</p>
+                <p className="text-[10px] text-slate-400 dark:text-slate-500">Próximo nível: Líder Global</p>
               </div>
             </div>
 
             {/* Card 3: Visibilidade do seu perfil */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1">
                     <span>Visibilidade do seu perfil</span>
-                    <Info className="w-3 h-3 text-slate-400" />
+                    <Info className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                   </span>
                 </div>
 
@@ -330,27 +330,27 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                     }}
                     className={`p-2 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
                       visibility === 'publico'
-                        ? 'bg-blue-50/50 border-blue-200'
-                        : 'border-slate-100 hover:bg-slate-50'
+                        ? 'bg-blue-50/50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-800/40'
+                        : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                      <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                         <Globe className="w-3.5 h-3.5" />
                       </div>
                       <div className="text-left">
-                        <div className="text-xs font-bold text-slate-800">Público</div>
-                        <div className="text-[10px] text-slate-500 leading-tight">
+                        <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Público</div>
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                           Qualquer pessoa pode ver o seu perfil e as suas contribuições.
                         </div>
                       </div>
                     </div>
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-2 ${
-                        visibility === 'publico' ? 'border-[#1455AC] bg-[#1455AC]' : 'border-slate-300'
+                        visibility === 'publico' ? 'border-[#1455AC] bg-[#1455AC]' : 'border-slate-300 dark:border-slate-600'
                       }`}
                     >
-                      {visibility === 'publico' && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                      {visibility === 'publico' && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />}
                     </div>
                   </label>
 
@@ -362,27 +362,27 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                     }}
                     className={`p-2 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
                       visibility === 'comunidade'
-                        ? 'bg-purple-50/50 border-purple-200'
-                        : 'border-slate-100 hover:bg-slate-50'
+                        ? 'bg-purple-50/50 dark:bg-purple-500/10 border-purple-200 dark:border-purple-800/40'
+                        : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                      <div className="w-7 h-7 rounded-lg bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
                         <Users className="w-3.5 h-3.5" />
                       </div>
                       <div className="text-left">
-                        <div className="text-xs font-bold text-slate-800">Comunidade</div>
-                        <div className="text-[10px] text-slate-500 leading-tight">
+                        <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Comunidade</div>
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                           Apenas membros das comunidades que participa.
                         </div>
                       </div>
                     </div>
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-2 ${
-                        visibility === 'comunidade' ? 'border-[#1455AC] bg-[#1455AC]' : 'border-slate-300'
+                        visibility === 'comunidade' ? 'border-[#1455AC] bg-[#1455AC]' : 'border-slate-300 dark:border-slate-600'
                       }`}
                     >
-                      {visibility === 'comunidade' && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                      {visibility === 'comunidade' && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />}
                     </div>
                   </label>
 
@@ -394,33 +394,33 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                     }}
                     className={`p-2 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
                       visibility === 'privado'
-                        ? 'bg-slate-100 border-slate-300'
-                        : 'border-slate-100 hover:bg-slate-50'
+                        ? 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-600'
+                        : 'border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                      <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                         <Lock className="w-3.5 h-3.5" />
                       </div>
                       <div className="text-left">
-                        <div className="text-xs font-bold text-slate-800">Privado</div>
-                        <div className="text-[10px] text-slate-500 leading-tight">
+                        <div className="text-xs font-bold text-slate-800 dark:text-slate-100">Privado</div>
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                           Apenas você pode ver o seu perfil.
                         </div>
                       </div>
                     </div>
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-2 ${
-                        visibility === 'privado' ? 'border-[#1455AC] bg-[#1455AC]' : 'border-slate-300'
+                        visibility === 'privado' ? 'border-[#1455AC] bg-[#1455AC]' : 'border-slate-300 dark:border-slate-600'
                       }`}
                     >
-                      {visibility === 'privado' && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                      {visibility === 'privado' && <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />}
                     </div>
                   </label>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 mt-2">
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
                 <button
                   type="button"
                   onClick={() => showToast('A abrir guia de visibilidade e privacidade')}
@@ -436,10 +436,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
           {/* LINHA 2 (3 CARDS): Sobre si + Interesses principais + Competências e causas */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
             {/* 2.1 Card "Sobre si" */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100">
                     Sobre si
                   </h3>
                   <button
@@ -455,56 +455,56 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                 <div className="mt-3 space-y-3">
                   {/* Nome completo */}
                   <div className="flex items-start gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
                       <User className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-medium block">Nome completo</span>
-                      <span className="text-xs font-bold text-slate-800">{sobreData.nome}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium block">Nome completo</span>
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-100">{sobreData.nome}</span>
                     </div>
                   </div>
 
                   {/* Idioma principal */}
                   <div className="flex items-start gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
                       <Globe className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-medium block">Idioma principal</span>
-                      <span className="text-xs text-slate-700 font-medium">{sobreData.idioma}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium block">Idioma principal</span>
+                      <span className="text-xs text-slate-700 dark:text-slate-300 font-medium">{sobreData.idioma}</span>
                     </div>
                   </div>
 
                   {/* Nacionalidade */}
                   <div className="flex items-start gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
                       <Shield className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-medium block">Nacionalidade</span>
-                      <span className="text-xs text-slate-700 font-medium">{sobreData.nacionalidade}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium block">Nacionalidade</span>
+                      <span className="text-xs text-slate-700 dark:text-slate-300 font-medium">{sobreData.nacionalidade}</span>
                     </div>
                   </div>
 
                   {/* Data de nascimento */}
                   <div className="flex items-start gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
                       <Calendar className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-medium block">Data de nascimento</span>
-                      <span className="text-xs text-slate-700 font-medium">{sobreData.nascimento}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium block">Data de nascimento</span>
+                      <span className="text-xs text-slate-700 dark:text-slate-300 font-medium">{sobreData.nascimento}</span>
                     </div>
                   </div>
 
                   {/* Biografia */}
                   <div className="flex items-start gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
                       <FileText className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-medium block">Biografia</span>
-                      <p className="text-xs text-slate-600 leading-relaxed">{sobreData.biografia}</p>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium block">Biografia</span>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{sobreData.biografia}</p>
                     </div>
                   </div>
                 </div>
@@ -512,11 +512,11 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             </div>
 
             {/* 2.2 Card "Interesses principais" */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100">
                       Interesses principais
                     </h3>
                   </div>
@@ -530,7 +530,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                   </button>
                 </div>
 
-                <p className="text-[11px] text-slate-500 mt-2 mb-3">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 mb-3">
                   Selecione os temas que mais se alinham consigo.
                 </p>
 
@@ -555,7 +555,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               <button
                 type="button"
                 onClick={() => setIsEditInteressesModalOpen(true)}
-                className="mt-4 w-full py-2 px-3 rounded-xl border border-dashed border-slate-300 hover:border-slate-400 text-slate-600 hover:text-slate-800 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="mt-4 w-full py-2 px-3 rounded-xl border border-dashed border-slate-300 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Adicionar interesse</span>
@@ -563,10 +563,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             </div>
 
             {/* 2.3 Card "Competências e causas" */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100">
                     Competências e causas
                   </h3>
                   <button
@@ -579,20 +579,20 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                   </button>
                 </div>
 
-                <p className="text-[11px] text-slate-500 mt-2 mb-3">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2 mb-3">
                   As suas competências e causas que apoia.
                 </p>
 
                 {/* Seção Competências */}
                 <div>
-                  <span className="text-[10.5px] font-bold text-slate-700 block mb-1.5">
+                  <span className="text-[10.5px] font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
                     Competências
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {competencias.map((comp) => (
                       <span
                         key={comp}
-                        className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-100 text-slate-700"
+                        className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
                       >
                         {comp}
                       </span>
@@ -602,7 +602,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
 
                 {/* Seção Causas que apoia */}
                 <div className="mt-3.5">
-                  <span className="text-[10.5px] font-bold text-slate-700 block mb-1.5">
+                  <span className="text-[10.5px] font-bold text-slate-700 dark:text-slate-300 block mb-1.5">
                     Causas que apoia
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -621,67 +621,67 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
           </div>
 
           {/* LINHA 3 (CARD LARGO): Verificação da identidade */}
-          <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs">
             <div>
-              <h3 className="text-xs sm:text-sm font-bold text-slate-800">
+              <h3 className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100">
                 Verificação da identidade
               </h3>
-              <p className="text-[11px] text-slate-500 mt-0.5">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                 Verifique a sua identidade para ganhar credibilidade e desbloquear mais funcionalidades.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-4">
               {/* Item 1: Email */}
-              <div className="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 text-slate-600 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 shadow-2xs">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[11px] font-bold text-slate-700 truncate">Email verificado</div>
-                  <div className="text-[10.5px] text-slate-500 truncate">ines.pereira@exemplo.com</div>
-                  <div className="text-[10px] font-bold text-emerald-600 mt-0.5">Verificado</div>
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate">Email verificado</div>
+                  <div className="text-[10.5px] text-slate-500 dark:text-slate-400 truncate">ines.pereira@exemplo.com</div>
+                  <div className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">Verificado</div>
                 </div>
               </div>
 
               {/* Item 2: Número de telemóvel */}
-              <div className="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 text-slate-600 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 shadow-2xs">
                   <Smartphone className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[11px] font-bold text-slate-700 truncate">Número de telemóvel</div>
-                  <div className="text-[10.5px] text-slate-500 truncate">+351 912 345 678</div>
-                  <div className="text-[10px] font-bold text-emerald-600 mt-0.5">Verificado</div>
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate">Número de telemóvel</div>
+                  <div className="text-[10.5px] text-slate-500 dark:text-slate-400 truncate">+351 912 345 678</div>
+                  <div className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">Verificado</div>
                 </div>
               </div>
 
               {/* Item 3: Documento de identificação */}
-              <div className="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 text-slate-600 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 shadow-2xs">
                   <FileCheck className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[11px] font-bold text-slate-700 truncate">Documento de identificação</div>
-                  <div className="text-[10.5px] text-slate-500 truncate">Cartão de cidadão</div>
-                  <div className="text-[10px] font-bold text-emerald-600 mt-0.5">Verificado</div>
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate">Documento de identificação</div>
+                  <div className="text-[10.5px] text-slate-500 dark:text-slate-400 truncate">Cartão de cidadão</div>
+                  <div className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">Verificado</div>
                 </div>
               </div>
 
               {/* Item 4: Prova de residência */}
-              <div className="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/80 text-slate-600 flex items-center justify-center shrink-0 shadow-2xs">
+              <div className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0 shadow-2xs">
                   <Home className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[11px] font-bold text-slate-700 truncate">Prova de residência</div>
-                  <div className="text-[10.5px] text-slate-500 truncate">Faro, Portugal</div>
-                  <div className="text-[10px] font-bold text-blue-600 mt-0.5">Em análise</div>
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate">Prova de residência</div>
+                  <div className="text-[10.5px] text-slate-500 dark:text-slate-400 truncate">Faro, Portugal</div>
+                  <div className="text-[10px] font-bold text-blue-600 dark:text-blue-400 mt-0.5">Em análise</div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-slate-100 mt-4">
+            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 mt-4">
               <button
                 type="button"
                 onClick={() => setIsVerificacaoModalOpen(true)}
@@ -699,8 +699,8 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
         ========================================================================= */}
         <div className="xl:col-span-4 2xl:col-span-3 space-y-4 sm:space-y-5 min-w-0">
           {/* 1. Card Resumo da Identidade com Gráfico Circular */}
-          <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100">
               Resumo da Identidade
             </h3>
 
@@ -760,10 +760,10 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
 
                 {/* Conteúdo Central */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-3xl font-black text-[#0F172A] font-sans leading-none">
+                  <span className="text-3xl font-black text-[#0F172A] dark:text-slate-50 font-sans leading-none">
                     82
                   </span>
-                  <span className="text-[9px] font-medium text-slate-500 mt-1 max-w-[80px] leading-tight">
+                  <span className="text-[9px] font-medium text-slate-500 dark:text-slate-400 mt-1 max-w-[80px] leading-tight">
                     Pontuação de Identidade
                   </span>
                 </div>
@@ -771,17 +771,17 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
             </div>
 
             {/* 4 Barras de Progresso */}
-            <div className="space-y-3 pt-2 border-t border-slate-100 text-xs">
+            <div className="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
               {/* Participação */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
-                    <Users className="w-3.5 h-3.5 text-emerald-600" />
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-semibold">
+                    <Users className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                     <span>Participação</span>
                   </div>
-                  <span className="font-bold text-slate-800 text-[11px]">85/100</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-[11px]">85/100</span>
                 </div>
-                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-emerald-500 rounded-full" style={{ width: '85%' }} />
                 </div>
               </div>
@@ -789,13 +789,13 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               {/* Impacto */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
-                    <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-semibold">
+                    <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                     <span>Impacto</span>
                   </div>
-                  <span className="font-bold text-slate-800 text-[11px]">78/100</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-[11px]">78/100</span>
                 </div>
-                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-purple-600 rounded-full" style={{ width: '78%' }} />
                 </div>
               </div>
@@ -803,13 +803,13 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               {/* Contribuições */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
-                    <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-semibold">
+                    <ShieldCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                     <span>Contribuições</span>
                   </div>
-                  <span className="font-bold text-slate-800 text-[11px]">90/100</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-[11px]">90/100</span>
                 </div>
-                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-[#1455AC] rounded-full" style={{ width: '90%' }} />
                 </div>
               </div>
@@ -817,19 +817,19 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               {/* Reputação */}
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
-                    <Award className="w-3.5 h-3.5 text-amber-600" />
+                  <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-semibold">
+                    <Award className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                     <span>Reputação</span>
                   </div>
-                  <span className="font-bold text-slate-800 text-[11px]">75/100</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-[11px]">75/100</span>
                 </div>
-                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div className="h-full bg-amber-500 rounded-full" style={{ width: '75%' }} />
                 </div>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-slate-100 mt-4">
+            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 mt-4">
               <button
                 type="button"
                 onClick={() => setIsScoreModalOpen(true)}
@@ -842,9 +842,9 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
           </div>
 
           {/* 2. Card "Os seus distintivos" */}
-          <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100">
                 Os seus distintivos
               </h3>
               <button
@@ -896,7 +896,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               {/* Tag +8 distintivos */}
               <span
                 onClick={() => setIsBadgesModalOpen(true)}
-                className="text-[11px] font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-lg transition-colors cursor-pointer"
+                className="text-[11px] font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-2 py-1 rounded-lg transition-colors cursor-pointer"
               >
                 +8 distintivos
               </span>
@@ -904,12 +904,12 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
           </div>
 
           {/* 3. Card Ilustração "A sua identidade é a base da confiança..." */}
-          <div className="bg-gradient-to-br from-slate-50 to-purple-50/40 rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs relative overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-50 to-purple-50/40 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs relative overflow-hidden">
             <div className="relative z-10 space-y-2">
-              <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 leading-snug">
+              <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-50 leading-snug">
                 A sua identidade é a base da confiança na comunidade.
               </h4>
-              <p className="text-[11px] text-slate-500 leading-relaxed">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                 Complete o seu perfil e aumente a sua reputação na VILA.
               </p>
 
@@ -919,15 +919,15 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                   <div className="absolute w-20 h-20 bg-gradient-to-tr from-purple-500 to-indigo-600 rounded-3xl rotate-12 shadow-lg shadow-purple-400/30 flex items-center justify-center text-white">
                     <ShieldCheck className="w-10 h-10 -rotate-12" />
                   </div>
-                  <div className="absolute -bottom-1 -left-2 w-10 h-6 bg-white/90 rounded-full blur-[0.5px] shadow-xs" />
-                  <div className="absolute top-1 -right-1 w-8 h-5 bg-white/90 rounded-full blur-[0.5px] shadow-xs" />
+                  <div className="absolute -bottom-1 -left-2 w-10 h-6 bg-white/90 dark:bg-slate-800/90 rounded-full blur-[0.5px] shadow-xs" />
+                  <div className="absolute top-1 -right-1 w-8 h-5 bg-white/90 dark:bg-slate-800/90 rounded-full blur-[0.5px] shadow-xs" />
                 </div>
               </div>
 
               <button
                 type="button"
                 onClick={() => setIsVerificacaoModalOpen(true)}
-                className="w-full py-2.5 px-3 rounded-xl bg-white border border-purple-200 hover:border-purple-300 text-purple-700 hover:text-purple-800 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-2xs cursor-pointer hover:shadow-xs"
+                className="w-full py-2.5 px-3 rounded-xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-800/40 hover:border-purple-300 text-purple-700 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-400 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-2xs cursor-pointer hover:shadow-xs"
               >
                 <span>Melhorar identidade</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -944,13 +944,13 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       {/* 1. Modal Editar "Sobre si" */}
       {isEditSobreModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-base font-bold text-slate-900 font-sans">Editar Sobre si</h3>
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">Editar Sobre si</h3>
               <button
                 type="button"
                 onClick={() => setIsEditSobreModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -958,61 +958,61 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Nome completo</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Nome completo</label>
                 <input
                   type="text"
                   value={sobreData.nome}
                   onChange={(e) => setSobreData({ ...sobreData, nome: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100"
                 />
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Idioma principal</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Idioma principal</label>
                 <input
                   type="text"
                   value={sobreData.idioma}
                   onChange={(e) => setSobreData({ ...sobreData, idioma: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100"
                 />
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Nacionalidade</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Nacionalidade</label>
                 <input
                   type="text"
                   value={sobreData.nacionalidade}
                   onChange={(e) => setSobreData({ ...sobreData, nacionalidade: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100"
                 />
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Data de nascimento</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Data de nascimento</label>
                 <input
                   type="text"
                   value={sobreData.nascimento}
                   onChange={(e) => setSobreData({ ...sobreData, nascimento: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100"
                 />
               </div>
 
               <div>
-                <label className="font-semibold text-slate-700 block mb-1">Biografia</label>
+                <label className="font-semibold text-slate-700 dark:text-slate-300 block mb-1">Biografia</label>
                 <textarea
                   rows={3}
                   value={sobreData.biografia}
                   onChange={(e) => setSobreData({ ...sobreData, biografia: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-hidden focus:border-[#1455AC] text-slate-800"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:outline-hidden focus:border-[#1455AC] text-slate-800 dark:text-slate-100"
                 />
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsEditSobreModalOpen(false)}
-                className="px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="px-3 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 Cancelar
               </button>
@@ -1034,20 +1034,20 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       {/* 2. Modal Editar "Interesses principais" */}
       {isEditInteressesModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Gerir Interesses Principais
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Selecione os temas cívicos e sustentáveis de seu maior interesse.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsEditInteressesModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1084,15 +1084,15 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                             id: item.id,
                             label: item.label,
                             icon: item.icon,
-                            color: 'bg-blue-50 text-blue-700 border-blue-200',
+                            color: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800/40',
                           },
                         ]);
                       }
                     }}
                     className={`p-2 rounded-xl border text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-blue-50/80 border-[#1455AC] text-[#1455AC]'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
+                        ? 'bg-blue-50/80 dark:bg-blue-500/10 border-[#1455AC] text-[#1455AC]'
+                        : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
                     }`}
                   >
                     <span className="flex items-center gap-1.5">
@@ -1105,7 +1105,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               })}
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsEditInteressesModalOpen(false)}
@@ -1121,67 +1121,67 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       {/* 3. Modal Detalhes da Pontuação (Score de Identidade) */}
       {isScoreModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Pontuação de Identidade: 82/100
               </h3>
               <button
                 type="button"
                 onClick={() => setIsScoreModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               A sua pontuação reflete a consistência da sua participação cívica, o impacto gerado nos territórios e o grau de validação documental.
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-100">
-                <div className="flex justify-between font-bold text-emerald-900">
+              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40">
+                <div className="flex justify-between font-bold text-emerald-900 dark:text-emerald-400">
                   <span>Participação</span>
                   <span>85 pts</span>
                 </div>
-                <p className="text-[11px] text-emerald-700 mt-0.5">
+                <p className="text-[11px] text-emerald-700 dark:text-emerald-400 mt-0.5">
                   Excelente presença em consultas públicas e votos orçamentais.
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-purple-50 border border-purple-100">
-                <div className="flex justify-between font-bold text-purple-900">
+              <div className="p-3 rounded-xl bg-purple-50 dark:bg-purple-500/10 border border-purple-100 dark:border-purple-800/40">
+                <div className="flex justify-between font-bold text-purple-900 dark:text-purple-400">
                   <span>Impacto Comunitário</span>
                   <span>78 pts</span>
                 </div>
-                <p className="text-[11px] text-purple-700 mt-0.5">
+                <p className="text-[11px] text-purple-700 dark:text-purple-400 mt-0.5">
                   1.244 pessoas alcançadas pelas suas propostas aprovadas.
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-blue-50 border border-blue-100">
-                <div className="flex justify-between font-bold text-blue-900">
+              <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40">
+                <div className="flex justify-between font-bold text-blue-900 dark:text-blue-400">
                   <span>Contribuições e Relatórios</span>
                   <span>90 pts</span>
                 </div>
-                <p className="text-[11px] text-blue-700 mt-0.5">
+                <p className="text-[11px] text-blue-700 dark:text-blue-400 mt-0.5">
                   127 contributos aceites e moderados positivamente.
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-amber-50 border border-amber-100">
-                <div className="flex justify-between font-bold text-amber-900">
+              <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-100 dark:border-amber-800/40">
+                <div className="flex justify-between font-bold text-amber-900 dark:text-amber-400">
                   <span>Reputação dos Pares</span>
                   <span>75 pts</span>
                 </div>
-                <p className="text-[11px] text-amber-700 mt-0.5">
+                <p className="text-[11px] text-amber-700 dark:text-amber-400 mt-0.5">
                   Reconhecida como guardiã em Faro por 18 comunidades locais.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center justify-end pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsScoreModalOpen(false)}
@@ -1197,20 +1197,20 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       {/* 4. Modal "Os seus distintivos" (12 distintivos completos) */}
       {isBadgesModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-sans">
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Distintivos de Cidadania ({12})
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Reconhecimentos conquistados pelo seu compromisso cívico.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsBadgesModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1233,19 +1233,19 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               ].map((badge, idx) => {
                 const Icon = badge.icon;
                 return (
-                  <div key={idx} className="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex flex-col items-center text-center">
+                  <div key={idx} className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60 flex flex-col items-center text-center">
                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${badge.color} text-white flex items-center justify-center shadow-xs mb-2`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-bold text-slate-800 leading-tight">{badge.name}</span>
-                    <span className="text-[10px] font-semibold text-purple-700 mt-0.5">{badge.status}</span>
-                    <span className="text-[9.5px] text-slate-400 mt-1 line-clamp-2">{badge.desc}</span>
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">{badge.name}</span>
+                    <span className="text-[10px] font-semibold text-purple-700 dark:text-purple-400 mt-0.5">{badge.status}</span>
+                    <span className="text-[9.5px] text-slate-400 dark:text-slate-500 mt-1 line-clamp-2">{badge.desc}</span>
                   </div>
                 );
               })}
             </div>
 
-            <div className="flex items-center justify-end pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsBadgesModalOpen(false)}
@@ -1261,61 +1261,61 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       {/* 5. Modal Processo de Verificação */}
       {isVerificacaoModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Estado da Verificação
               </h3>
               <button
                 type="button"
                 onClick={() => setIsVerificacaoModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-2.5 text-xs">
-              <div className="p-3 rounded-xl border border-emerald-100 bg-emerald-50/60 flex items-center justify-between">
+              <div className="p-3 rounded-xl border border-emerald-100 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-500/10 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-emerald-900">Email verificado</div>
-                  <div className="text-[11px] text-emerald-700">ines.pereira@exemplo.com</div>
+                  <div className="font-bold text-emerald-900 dark:text-emerald-400">Email verificado</div>
+                  <div className="text-[11px] text-emerald-700 dark:text-emerald-400">ines.pereira@exemplo.com</div>
                 </div>
-                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
 
-              <div className="p-3 rounded-xl border border-emerald-100 bg-emerald-50/60 flex items-center justify-between">
+              <div className="p-3 rounded-xl border border-emerald-100 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-500/10 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-emerald-900">Telemóvel verificado</div>
-                  <div className="text-[11px] text-emerald-700">+351 912 345 678</div>
+                  <div className="font-bold text-emerald-900 dark:text-emerald-400">Telemóvel verificado</div>
+                  <div className="text-[11px] text-emerald-700 dark:text-emerald-400">+351 912 345 678</div>
                 </div>
-                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
 
-              <div className="p-3 rounded-xl border border-emerald-100 bg-emerald-50/60 flex items-center justify-between">
+              <div className="p-3 rounded-xl border border-emerald-100 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-500/10 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-emerald-900">Cartão de Cidadão</div>
-                  <div className="text-[11px] text-emerald-700">Documento validado com sucesso</div>
+                  <div className="font-bold text-emerald-900 dark:text-emerald-400">Cartão de Cidadão</div>
+                  <div className="text-[11px] text-emerald-700 dark:text-emerald-400">Documento validado com sucesso</div>
                 </div>
-                <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
 
-              <div className="p-3 rounded-xl border border-blue-100 bg-blue-50/60 flex items-center justify-between">
+              <div className="p-3 rounded-xl border border-blue-100 dark:border-blue-800/40 bg-blue-50/60 dark:bg-blue-500/10 flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-blue-900">Prova de Residência</div>
-                  <div className="text-[11px] text-blue-700">Comprovativo submetido — Em análise pela moderação</div>
+                  <div className="font-bold text-blue-900 dark:text-blue-400">Prova de Residência</div>
+                  <div className="text-[11px] text-blue-700 dark:text-blue-400">Comprovativo submetido — Em análise pela moderação</div>
                 </div>
-                <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md">
+                <span className="text-[10px] font-bold text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-500/15 px-2 py-0.5 rounded-md">
                   Em análise
                 </span>
               </div>
             </div>
 
-            <div className="pt-2 text-[11px] text-slate-500">
+            <div className="pt-2 text-[11px] text-slate-500 dark:text-slate-400">
               A verificação de residência permite votar em orçamentos participativos e assembleias de freguesia no município de Faro.
             </div>
 
-            <div className="flex items-center justify-end pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setIsVerificacaoModalOpen(false)}
@@ -1331,15 +1331,15 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
       {/* 6. Modal Editar "Competências e Causas" */}
       {isEditCompetenciasModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 sm:p-6 shadow-xl space-y-4 border border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Competências e Causas
               </h3>
               <button
                 type="button"
                 onClick={() => setIsEditCompetenciasModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1347,16 +1347,16 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="font-bold text-slate-700 block mb-1.5">Competências selecionadas</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">Competências selecionadas</label>
                 <div className="flex flex-wrap gap-1.5">
                   {competencias.map((comp, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 flex items-center gap-1 font-medium"
+                      className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center gap-1 font-medium"
                     >
                       <span>{comp}</span>
                       <X
-                        className="w-3 h-3 text-slate-400 hover:text-rose-500 cursor-pointer"
+                        className="w-3 h-3 text-slate-400 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 cursor-pointer"
                         onClick={() => setCompetencias(competencias.filter((_, i) => i !== idx))}
                       />
                     </span>
@@ -1365,7 +1365,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 block mb-1.5">Causas que apoia</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1.5">Causas que apoia</label>
                 <div className="flex flex-wrap gap-1.5">
                   {causas.map((c, idx) => (
                     <span
@@ -1374,7 +1374,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
                     >
                       <span>{c.label}</span>
                       <X
-                        className="w-3 h-3 text-slate-400 hover:text-rose-500 cursor-pointer"
+                        className="w-3 h-3 text-slate-400 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 cursor-pointer"
                         onClick={() => setCausas(causas.filter((_, i) => i !== idx))}
                       />
                     </span>
@@ -1383,7 +1383,7 @@ export const IdentidadeVilaTab: React.FC<IdentidadeVilaTabProps> = ({
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => {

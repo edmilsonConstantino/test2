@@ -405,7 +405,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
       <div className="max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 pt-4 sm:pt-6 space-y-6">
 
         {/* Barra Superior de Categorias Rápidas */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
           {CATEGORIES_NAV.map((cat) => {
             const Icon = cat.icon;
             const isActive = selectedCategory === cat.id;

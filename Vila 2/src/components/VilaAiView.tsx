@@ -50,28 +50,28 @@ const SAMPLE_PROMPTS = [
     title: 'Projetos de Clima & Oceanos',
     prompt: 'Quais são os projetos ativos de conservação marinha e limpeza costeira no Atlântico?',
     category: 'Ambiente',
-    color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
+    color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20',
   },
   {
     icon: Rocket,
     title: 'Financiamento de Startups',
     prompt: 'Como posso submeter uma proposta para aceleradoras de impacto socioambiental na VILA?',
     category: 'Empreendedorismo',
-    color: 'text-purple-600 bg-purple-50 border-purple-200',
+    color: 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-500/10 border-purple-200 dark:border-purple-500/20',
   },
   {
     icon: Cpu,
     title: 'IA Ética & Cívica',
     prompt: 'Mostre iniciativas de código aberto focadas em resolver desafios ecológicos com tecnologia.',
     category: 'Tecnologia',
-    color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
+    color: 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 border-indigo-200 dark:border-indigo-500/20',
   },
   {
     icon: HeartPulse,
     title: 'Saúde Primária Comunitária',
     prompt: 'Onde encontrar grupos de voluntariado médico e apoio psicológico comunitário?',
     category: 'Saúde',
-    color: 'text-rose-600 bg-rose-50 border-rose-200',
+    color: 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 border-rose-200 dark:border-rose-500/20',
   },
 ];
 
@@ -165,7 +165,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
         replyText =
           `Compreendi a sua questão sobre "${query}". O ecossistema VILA abrange 195 países e 7 causas globais estruturadas (Ambiente, Educação, Direitos Humanos, Cultura, Saúde, Tecnologia e Empreendedorismo). Recomendo consultar as abas "Explorar Comunidade" ou "Impacto Global" para estatísticas detalhadas.`;
         categoryBadge = 'Inteligência Coletiva';
-        categoryColor = 'bg-slate-100 text-slate-800';
+        categoryColor = 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100';
       }
 
       const aiMsg: ChatMessage = {
@@ -199,7 +199,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
   };
 
   return (
-    <div className="w-full bg-slate-50 min-h-screen text-slate-900 pb-16 font-sans">
+    <div className="w-full bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-900 dark:text-slate-50 pb-16 font-sans">
       <div className="max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 pt-4 sm:pt-6 space-y-6 font-sans">
 
         {/* Hero Banner: VILA AI */}
@@ -238,7 +238,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
 
         {/* Prompt Suggestions Rápidas */}
         <div className="font-sans">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5 font-sans">
+          <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2.5 font-sans">
             Perguntas & Ideias de Pesquisa
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-sans">
@@ -250,18 +250,18 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                   key={idx}
                   type="button"
                   onClick={() => handleSend(sample.prompt)}
-                  className="p-3.5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 shadow-2xs hover:shadow-xs transition-all text-left group cursor-pointer flex flex-col justify-between space-y-2 font-sans"
+                  className="p-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 shadow-2xs hover:shadow-xs transition-all text-left group cursor-pointer flex flex-col justify-between space-y-2 font-sans"
                 >
                   <div className="flex items-center justify-between font-sans">
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${sample.color} font-sans`}>
                       {sample.category}
                     </span>
-                    <Icon className="w-4 h-4 text-slate-400 group-hover:text-[#1455AC] transition-colors" />
+                    <Icon className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-[#1455AC] transition-colors" />
                   </div>
-                  <p className="text-xs font-semibold text-slate-900 group-hover:text-[#1455AC] line-clamp-2 font-sans">
+                  <p className="text-xs font-semibold text-slate-900 dark:text-slate-50 group-hover:text-[#1455AC] line-clamp-2 font-sans">
                     {sample.title}
                   </p>
-                  <p className="text-[11px] text-slate-500 line-clamp-2 font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 font-sans">
                     {sample.prompt}
                   </p>
                 </button>
@@ -274,17 +274,17 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 font-sans">
 
           {/* Área de Conversa (8 colunas) */}
-          <div className="lg:col-span-8 bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col h-[650px] overflow-hidden font-sans">
+          <div className="lg:col-span-8 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xs flex flex-col h-[650px] overflow-hidden font-sans">
 
             {/* Cabeçalho do Chat */}
-            <div className="px-5 py-3.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 font-sans">
+            <div className="px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800 font-sans">
               <div className="flex items-center gap-2.5 font-sans">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#1455AC] to-emerald-600 flex items-center justify-center text-white shadow-2xs">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div className="font-sans">
-                  <h2 className="text-xs sm:text-sm font-bold text-slate-900 font-sans">VILA AI Collective Engine</h2>
-                  <p className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1 font-sans">
+                  <h2 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">VILA AI Collective Engine</h2>
+                  <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1 font-sans">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     Online • Respostas em tempo real
                   </p>
@@ -294,7 +294,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
               <button
                 type="button"
                 onClick={handleClearChat}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-[11px] font-bold text-slate-600 hover:bg-white hover:text-slate-900 transition-all cursor-pointer font-sans"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50 transition-all cursor-pointer font-sans"
                 title="Limpar conversa"
               >
                 <RefreshCw className="w-3 h-3" />
@@ -303,7 +303,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
             </div>
 
             {/* Histórico de Mensagens */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-slate-50/30 font-sans">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-slate-50/30 dark:bg-slate-800 font-sans">
               {messages.map((msg) => {
                 const isAi = msg.sender === 'ai';
 
@@ -322,13 +322,13 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                       <div
                         className={`p-4 rounded-xl text-xs sm:text-sm leading-relaxed font-sans ${
                           isAi
-                            ? 'bg-white border border-slate-200 text-slate-900 shadow-2xs'
+                            ? 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-50 shadow-2xs'
                             : 'bg-[#1455AC] text-white font-medium shadow-xs'
                         }`}
                       >
                         {msg.categoryBadge && (
                           <div className="mb-2 font-sans">
-                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${msg.categoryColor || 'bg-slate-100 text-slate-700'} font-sans`}>
+                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${msg.categoryColor || 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} font-sans`}>
                               {msg.categoryBadge}
                             </span>
                           </div>
@@ -343,7 +343,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                           <button
                             type="button"
                             onClick={() => handleCopy(msg.id, msg.text)}
-                            className="inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-600 transition-colors cursor-pointer font-sans"
+                            className="inline-flex items-center gap-1 text-[10px] text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer font-sans"
                           >
                             {copiedId === msg.id ? (
                               <>
@@ -368,7 +368,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                               key={sIdx}
                               type="button"
                               onClick={() => handleSend(sug)}
-                              className="text-[11px] font-medium bg-blue-50/80 hover:bg-blue-100 text-[#1455AC] border border-blue-200 rounded-full px-3 py-1 transition-colors cursor-pointer text-left font-sans"
+                              className="text-[11px] font-medium bg-blue-50/80 dark:bg-blue-500/10 hover:bg-blue-100 text-[#1455AC] border border-blue-200 dark:border-blue-500/20 rounded-full px-3 py-1 transition-colors cursor-pointer text-left font-sans"
                             >
                               {sug} →
                             </button>
@@ -378,7 +378,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                     </div>
 
                     {!isAi && (
-                      <div className="w-8 h-8 rounded-xl bg-slate-200 flex items-center justify-center text-slate-700 shrink-0 font-sans">
+                      <div className="w-8 h-8 rounded-xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 shrink-0 font-sans">
                         <User className="w-4 h-4" />
                       </div>
                     )}
@@ -391,7 +391,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                   <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#1455AC] to-emerald-600 flex items-center justify-center text-white shrink-0">
                     <Bot className="w-4 h-4" />
                   </div>
-                  <div className="bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-2xs flex items-center gap-1.5 font-sans">
+                  <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 shadow-2xs flex items-center gap-1.5 font-sans">
                     <span className="w-2 h-2 rounded-full bg-[#1455AC] animate-bounce" />
                     <span className="w-2 h-2 rounded-full bg-[#10B981] animate-bounce [animation-delay:0.2s]" />
                     <span className="w-2 h-2 rounded-full bg-[#8B5CF6] animate-bounce [animation-delay:0.4s]" />
@@ -403,7 +403,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
             </div>
 
             {/* Barra de Envio */}
-            <div className="p-3.5 sm:p-4 border-t border-slate-100 bg-white font-sans">
+            <div className="p-3.5 sm:p-4 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 font-sans">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -416,7 +416,7 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Escreva uma pergunta sobre iniciativas, comunidades, causas ou voluntariado..."
-                  className="flex-1 px-4 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC]/30 focus:border-[#1455AC] text-slate-900 placeholder-slate-400 font-sans"
+                  className="flex-1 px-4 py-2.5 text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC]/30 focus:border-[#1455AC] text-slate-900 dark:text-slate-50 placeholder-slate-400 dark:placeholder-slate-500 font-sans"
                 />
 
                 <button
@@ -435,41 +435,41 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
           <div className="lg:col-span-4 space-y-6 font-sans">
 
             {/* Como a VILA AI funciona */}
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs space-y-4 font-sans">
+            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs space-y-4 font-sans">
               <div className="flex items-center gap-2 font-sans">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <h3 className="text-sm font-bold text-slate-900 font-sans">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Capacidades da VILA AI
                 </h3>
               </div>
 
               <div className="space-y-3 font-sans">
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1 font-sans">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 font-sans">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 space-y-1 font-sans">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     <Search className="w-3.5 h-3.5 text-[#1455AC]" />
                     <span>Mapeamento Multidimensional</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
                     Pesquisa simultânea em comunidades, iniciativas, artigos acadêmicos e notícias globais.
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1 font-sans">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 font-sans">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 space-y-1 font-sans">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     <Zap className="w-3.5 h-3.5 text-amber-500" />
                     <span>Matchmaking Inteligente</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
                     Cruza competências e disponibilidade de voluntários com necessidades reais de comunidades locais.
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1 font-sans">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 font-sans">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 space-y-1 font-sans">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                     <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
                     <span>Síntese de Métricas de Impacto</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed font-sans">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
                     Resumos estatísticos sobre emissões evitadas, pessoas capacitadas e árvores plantadas.
                   </p>
                 </div>
@@ -477,8 +477,8 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
             </div>
 
             {/* Atalhos Rápidos para outras Secções */}
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs space-y-3 font-sans">
-              <h3 className="text-sm font-bold text-slate-900 font-sans">
+            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs space-y-3 font-sans">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Explorar Ecossistema VILA
               </h3>
 
@@ -486,37 +486,37 @@ export const VilaAiView: React.FC<VilaAiViewProps> = ({
                 <button
                   type="button"
                   onClick={() => onNavigateToTab?.('explorar')}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 text-left flex items-center justify-between transition-all cursor-pointer group font-sans"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:bg-blue-50/50 text-left flex items-center justify-between transition-all cursor-pointer group font-sans"
                 >
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-[#1455AC] font-sans">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-slate-50 group-hover:text-[#1455AC] font-sans">
                     <Compass className="w-4 h-4 text-[#1455AC]" />
                     <span>Mapa Global Interativo</span>
                   </div>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                 </button>
 
                 <button
                   type="button"
                   onClick={() => onNavigateToTab?.('comunidade')}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 text-left flex items-center justify-between transition-all cursor-pointer group font-sans"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-emerald-300 hover:bg-emerald-50/50 text-left flex items-center justify-between transition-all cursor-pointer group font-sans"
                 >
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-emerald-600 font-sans">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-slate-50 group-hover:text-emerald-600 font-sans">
                     <Globe className="w-4 h-4 text-emerald-500" />
                     <span>Comunidade Global</span>
                   </div>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                 </button>
 
                 <button
                   type="button"
                   onClick={() => onNavigateToTab?.('impacto')}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-purple-300 hover:bg-purple-50/50 text-left flex items-center justify-between transition-all cursor-pointer group font-sans"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-300 hover:bg-purple-50/50 text-left flex items-center justify-between transition-all cursor-pointer group font-sans"
                 >
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-purple-600 font-sans">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-slate-50 group-hover:text-purple-600 font-sans">
                     <Leaf className="w-4 h-4 text-purple-500" />
                     <span>Painel de Impacto Global</span>
                   </div>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>
             </div>

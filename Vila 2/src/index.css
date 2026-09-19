@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Ativa o dark mode por classe (.dark no <html>), controlado pelo toggle Tema Claro/Escuro */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Brand / Nova Identidade 6valley: Azul Marinho Forte e Laranja de Acento */
   --color-brand-blue: #1455AC;
@@ -69,6 +72,14 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  .dark body {
+    background-color: #0B1220;
+  }
 }
 
 @keyframes pulseGlow {
@@ -135,6 +146,14 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }
 
 /* Utilitário para ocultar barras de scroll mantendo a funcionalidade de deslizamento */

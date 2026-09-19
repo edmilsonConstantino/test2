@@ -64,11 +64,11 @@ const TOP_METRICS: TopMetric[] = [
     id: 'paises',
     icon: Globe,
     iconBg: 'bg-blue-50',
-    iconColor: 'text-[#3D4ED8]',
+    iconColor: 'text-[#1455AC]',
     value: '195',
     label: 'Países representados',
     changeText: '+4 desde ontem',
-    changeColor: 'text-[#3D4ED8]',
+    changeColor: 'text-[#1455AC]',
   },
   {
     id: 'comunidades',
@@ -115,7 +115,7 @@ const OFFICIAL_FEATURED_COMMUNITIES: FeaturedCommunityItem[] = [
     name: 'Ação Climática Global',
     badge: 'AMBIENTE',
     badgeBg: 'bg-[#10B981]',
-    image: 'https://images.unsplash.com/photo-1511497584788-87676104235f?w=600&auto=format&fit=crop&q=80',
+    image: '/imagens-paginas/05-comunidade-global/oficial/acao-climatica.png',
     icon: Leaf,
     iconBorderColor: 'border-emerald-200 text-[#059669]',
     members: '128.540 membros',
@@ -136,7 +136,7 @@ const OFFICIAL_FEATURED_COMMUNITIES: FeaturedCommunityItem[] = [
     name: 'Inovação & Tecnologia',
     badge: 'TECNOLOGIA',
     badgeBg: 'bg-[#6366F1]',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80',
+    image: '/imagens-paginas/05-comunidade-global/oficial/inovacao-tecnologia.png',
     icon: Cpu,
     iconBorderColor: 'border-indigo-200 text-[#6366F1]',
     members: '96.432 membros',
@@ -156,7 +156,7 @@ const OFFICIAL_FEATURED_COMMUNITIES: FeaturedCommunityItem[] = [
     name: 'Educação Sem Fronteiras',
     badge: 'EDUCAÇÃO',
     badgeBg: 'bg-[#D97706]',
-    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&auto=format&fit=crop&q=80',
+    image: '/imagens-paginas/05-comunidade-global/oficial/educacao-fronteiras.png',
     icon: GraduationCap,
     iconBorderColor: 'border-amber-200 text-[#D97706]',
     members: '78.911 membros',
@@ -176,7 +176,7 @@ const OFFICIAL_FEATURED_COMMUNITIES: FeaturedCommunityItem[] = [
     name: 'Direitos Humanos',
     badge: 'DIREITOS HUMANOS',
     badgeBg: 'bg-[#DC2626]',
-    image: 'https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=600&auto=format&fit=crop&q=80',
+    image: '/imagens-paginas/05-comunidade-global/oficial/direitos-humanos.png',
     icon: Heart,
     iconBorderColor: 'border-red-200 text-[#DC2626]',
     members: '64.231 membros',
@@ -304,7 +304,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6">
         {/* 2. Cabeçalho Principal com Título e Subtítulo */}
         <header className="flex flex-col gap-1.5">
-          <h1 className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight font-sans leading-tight">
             Comunidade Global
           </h1>
           <p className="text-xs sm:text-sm text-[#64748B] max-w-2xl font-normal leading-relaxed">
@@ -328,7 +328,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                   <Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="text-2xl font-extrabold text-[#0F172A] font-['Outfit'] tracking-tight leading-none mb-1">
+                  <div className="text-2xl font-extrabold text-[#0F172A] font-sans tracking-tight leading-none mb-1">
                     {metric.value}
                   </div>
                   <div className="text-xs font-semibold text-[#64748B] mb-0.5 leading-tight">
@@ -352,25 +352,24 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
               id="hero-official-community-banner"
               className="relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[280px] flex items-center p-6 sm:p-10 text-white shadow-md border border-slate-900/10 bg-[#030718]"
             >
-              {/* Imagem de Fundo: Terra vista do espaço com conexões douradas e digitais */}
+              {/* Imagem de Fundo: Terra vista do espaço com rede de conexões globais */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&auto=format&fit=crop&q=85"
-                  alt="Terra vista do espaço"
-                  className="w-full h-full object-cover object-right opacity-90 scale-105"
-                  referrerPolicy="no-referrer"
+                  src="/imagens-paginas/05-comunidade-global/oficial/comunidade.png"
+                  alt="Terra vista do espaço com rede de conexões globais"
+                  className="w-full h-full object-cover object-right scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#030718] via-[#030c24]/90 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent" />
                 <div className="absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
               </div>
 
               {/* Textos e Botões do Hero */}
               <div className="relative z-10 max-w-xl flex flex-col gap-2.5">
-                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white leading-tight font-['Outfit'] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white leading-tight font-sans tracking-tight">
                   Um mundo de pessoas <br />
                   com um propósito.
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-200/90 leading-relaxed font-normal max-w-md">
+                <p className="text-xs sm:text-sm text-white leading-relaxed font-normal max-w-md">
                   Troque experiências, colabore em projetos <br className="hidden sm:inline" />
                   e faça parte da mudança global.
                 </p>
@@ -381,7 +380,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                     type="button"
                     onClick={onNavigateToExplorarComunidade || onNavigateToAmbiente}
                     id="btn-explorar-comunidades-hero"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#0052FF] via-[#0088FF] to-[#00D285] hover:opacity-95 text-white text-xs sm:text-[13px] font-bold transition-all shadow-md hover:shadow-lg cursor-pointer group"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs sm:text-[13px] font-bold transition-all shadow-md hover:shadow-lg cursor-pointer group"
                   >
                     <span>Explorar Comunidades</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform stroke-[2.4]" />
@@ -397,7 +396,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                     <div className="w-4 h-4 rounded-full border border-white/80 flex items-center justify-center text-[11px] leading-none shrink-0 font-bold">
                       +
                     </div>
-                    <span>Criar Comunidade +</span>
+                    <span>Criar Comunidade</span>
                   </button>
                 </div>
               </div>
@@ -406,13 +405,13 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             {/* Seção: Comunidades em destaque (4 Cards com botão Ver todas) */}
             <section id="comunidades-destaque-official" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-sans tracking-tight">
                   Comunidades em destaque
                 </h3>
                 <button
                   type="button"
                   onClick={onNavigateToExplorarComunidade || onNavigateToAmbiente}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#0066FF] hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:underline cursor-pointer"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -462,7 +461,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                         {/* Conteúdo */}
                         <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                           <div>
-                            <h4 className="text-xs font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 group-hover:text-blue-600 transition-colors">
+                            <h4 className="text-xs font-bold text-[#0F172A] font-sans line-clamp-1 group-hover:text-[#1455AC] transition-colors">
                               {comm.name}
                             </h4>
                             <div className="flex items-center gap-1.5 text-[10px] text-slate-500 mb-1.5">
@@ -513,8 +512,8 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             </section>
 
             {/* Fita de Filtros do Feed */}
-            <div className="flex items-center justify-between gap-2 overflow-x-auto no-scrollbar pt-1">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-2 pt-1">
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar min-w-0 flex-1 pb-0.5">
                 {[
                   { id: 'para-si', label: 'Para si', icon: Star },
                   { id: 'seguindo', label: 'Seguindo', icon: Users },
@@ -533,7 +532,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                       onClick={() => setActiveFeedTab(tab.id)}
                       className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                         isActive
-                          ? 'bg-[#3D4ED8] text-white shadow-xs'
+                          ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
                           : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
                       }`}
                     >
@@ -547,10 +546,15 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
               {/* Botão Filtros */}
               <button
                 type="button"
-                className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-bold shrink-0 cursor-pointer"
+                className="relative flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-bold shrink-0 cursor-pointer ml-1"
               >
-                <SlidersHorizontal className="w-3.5 h-3.5" />
-                <span>Filtros</span>
+                {/* Gradiente a desvanecer sobre a fita rolável, indicando que há mais conteúdo */}
+                <span
+                  aria-hidden="true"
+                  className="absolute right-full top-0 h-full w-6 pointer-events-none bg-gradient-to-l from-white to-transparent"
+                />
+                <SlidersHorizontal className="w-3.5 h-3.5 shrink-0" />
+                <span className="hidden lg:inline">Filtros</span>
               </button>
             </div>
 
@@ -584,30 +588,32 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                 </button>
               </div>
 
-              {/* Conteúdo Textual do Post */}
-              <div>
-                <h5 className="text-sm font-bold text-[#0F172A] font-['Outfit'] mb-1">
-                  Soluções locais para um impacto global
-                </h5>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Partilho convosco uma iniciativa da nossa comunidade que está a transformar resíduos plásticos em material de construção sustentável. Vamos escalar esta solução!
-                </p>
-                {/* Hashtags */}
-                <div className="flex flex-wrap gap-2 mt-2 text-[11px] font-semibold text-[#0066FF]">
-                  <span className="cursor-pointer hover:underline">#Sustentabilidade</span>
-                  <span className="cursor-pointer hover:underline">#Inovação</span>
-                  <span className="cursor-pointer hover:underline">#Comunidade</span>
+              {/* Conteúdo Textual do Post + Imagem (miniatura compacta ao lado, não em banner grande) */}
+              <div className="flex items-start gap-4">
+                <div className="flex-1 min-w-0">
+                  <h5 className="text-sm font-bold text-[#0F172A] font-sans mb-1">
+                    Soluções locais para um impacto global
+                  </h5>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Partilho convosco uma iniciativa da nossa comunidade que está a transformar resíduos plásticos em material de construção sustentável. Vamos escalar esta solução!
+                  </p>
+                  {/* Hashtags */}
+                  <div className="flex flex-wrap gap-2 mt-2 text-[11px] font-semibold text-[#1455AC]">
+                    <span className="cursor-pointer hover:underline">#Sustentabilidade</span>
+                    <span className="cursor-pointer hover:underline">#Inovação</span>
+                    <span className="cursor-pointer hover:underline">#Comunidade</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Imagem do Post: Jovens plantando mudas na terra */}
-              <div className="rounded-xl overflow-hidden max-h-[300px] w-full bg-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=900&auto=format&fit=crop&q=85"
-                  alt="Iniciativa sustentável no terreno"
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
+                {/* Imagem do Post: Jovens plantando mudas na terra */}
+                <div className="w-28 h-20 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-slate-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&auto=format&fit=crop&q=85"
+                    alt="Iniciativa sustentável no terreno"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
               </div>
 
               {/* Rodapé de Interações (Like, Comentário, Partilha, Salvar) */}
@@ -655,7 +661,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                     });
                   }}
                   className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                    savedPosts.has('post-1') ? 'text-blue-600 bg-blue-50' : 'text-slate-400 hover:text-slate-600'
+                    savedPosts.has('post-1') ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-400 hover:text-slate-600'
                   }`}
                   title="Guardar publicação"
                 >
@@ -670,13 +676,13 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             {/* 1. Card: Comunidades em tendência */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
                   Comunidades em tendência
                 </h3>
                 <button
                   type="button"
                   onClick={onNavigateToExplorarComunidade || onNavigateToAmbiente}
-                  className="text-[11px] font-bold text-[#0066FF] hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-[#1455AC] hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3 h-3" />
@@ -734,7 +740,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                           <Icon className="w-4 h-4" strokeWidth={2.2} />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-blue-600 transition-colors">
+                          <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-[#1455AC] transition-colors">
                             {t.name}
                           </h4>
                           <span className="text-[10.5px] text-slate-500 block truncate">
@@ -754,12 +760,12 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             {/* 2. Card: Membros em destaque */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
                   Membros em destaque
                 </h3>
                 <button
                   type="button"
-                  className="text-[11px] font-bold text-[#0066FF] hover:underline cursor-pointer"
+                  className="text-[11px] font-bold text-[#1455AC] hover:underline cursor-pointer"
                 >
                   Ver todos →
                 </button>
@@ -793,7 +799,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                         className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                           isFollowing
                             ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                            : 'bg-[#3D4ED8]/10 text-[#3D4ED8] hover:bg-[#3D4ED8] hover:text-white'
+                            : 'bg-[#1455AC]/10 text-[#1455AC] hover:bg-[#1455AC] hover:text-white'
                         }`}
                       >
                         {isFollowing ? 'A seguir' : 'Seguir'}
@@ -807,13 +813,13 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             {/* 3. Card: Próximos eventos da comunidade */}
             <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
                   Próximos eventos da comunidade
                 </h3>
                 <button
                   type="button"
                   onClick={() => onNavigateToTab && onNavigateToTab('eventos')}
-                  className="text-[11px] font-bold text-[#0066FF] hover:underline cursor-pointer"
+                  className="text-[11px] font-bold text-[#1455AC] hover:underline cursor-pointer"
                 >
                   Ver todas →
                 </button>
@@ -827,7 +833,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                       <span className="text-[9px] font-bold text-rose-500 uppercase leading-none">
                         {evt.month}
                       </span>
-                      <span className="text-sm font-black text-slate-800 leading-none mt-0.5 font-['Outfit']">
+                      <span className="text-sm font-black text-slate-800 leading-none mt-0.5 font-sans">
                         {evt.day}
                       </span>
                     </div>
@@ -858,7 +864,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
           type="button"
           onClick={onOpenAiAssistant}
           id="floating-vila-ai-btn"
-          className="flex flex-col items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-[#3D4ED8] to-[#2D3BA8] text-white shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer group"
+          className="flex flex-col items-center justify-center w-14 h-14 rounded-full bg-[#1455AC] hover:bg-[#11468F] text-white shadow-xl shadow-blue-900/30 hover:scale-105 active:scale-95 transition-all cursor-pointer group"
           title="Assistente VILA AI"
         >
           <Sparkles className="w-5 h-5 text-white" />

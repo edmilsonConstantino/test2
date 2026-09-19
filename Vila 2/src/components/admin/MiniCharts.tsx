@@ -158,7 +158,9 @@ export const DonutChart: React.FC<{
   thickness?: number;
   centerLabel?: string;
   centerSub?: string;
-}> = ({ slices, size = 150, thickness = 26, centerLabel, centerSub }) => {
+  /** Esconde a legenda embutida (usar quando o pai fornece a sua própria lista) */
+  hideLegend?: boolean;
+}> = ({ slices, size = 150, thickness = 26, centerLabel, centerSub, hideLegend = false }) => {
   const total = slices.reduce((a, s) => a + s.value, 0) || 1;
   const r = (size - thickness) / 2;
   const c = size / 2;
@@ -203,19 +205,21 @@ export const DonutChart: React.FC<{
       </svg>
 
       {/* Legenda */}
+      {!hideLegend && (
       <div className="flex-1 min-w-[140px] flex flex-col gap-1.5">
         {slices.map((s) => (
           <div key={s.label} className="flex items-center justify-between gap-2 text-[11px]">
-            <span className="flex items-center gap-1.5 text-slate-600 font-medium min-w-0">
+            <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 font-medium min-w-0">
               <span className="w-2 h-2 rounded-full shrink-0" style={{ background: s.color }} />
               <span className="truncate">{s.label}</span>
             </span>
-            <span className="font-bold text-slate-800 whitespace-nowrap">
+            <span className="font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap">
               {Math.round((s.value / total) * 100)}%
             </span>
           </div>
         ))}
       </div>
+      )}
     </div>
   );
 };
@@ -239,16 +243,16 @@ export const HorizontalBars: React.FC<{
     <div className="flex flex-col gap-2.5">
       {items.map((it) => (
         <div key={it.label} className="flex items-center gap-3">
-          <span className="w-28 shrink-0 text-[11px] font-medium text-slate-600 truncate text-right" title={it.label}>
+          <span className="w-28 shrink-0 text-[11px] font-medium text-slate-600 dark:text-slate-400 truncate text-right" title={it.label}>
             {it.label}
           </span>
-          <div className="flex-1 rounded-full bg-slate-100 overflow-hidden" style={{ height }}>
+          <div className="flex-1 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden" style={{ height }}>
             <div
               className="h-full rounded-full transition-all duration-500"
               style={{ width: `${(it.value / maxVal) * 100}%`, background: it.color || color }}
             />
           </div>
-          <span className="w-12 shrink-0 text-[11px] font-bold text-slate-800 text-right">
+          <span className="w-12 shrink-0 text-[11px] font-bold text-slate-800 dark:text-slate-100 text-right">
             {it.display ?? it.value}
           </span>
         </div>
@@ -268,7 +272,7 @@ export const VerticalBars: React.FC<{
     <div className="flex items-end justify-between gap-2" style={{ height: height + 26 }}>
       {items.map((it) => (
         <div key={it.label} className="flex-1 flex flex-col items-center gap-1 min-w-0">
-          <span className="text-[10px] font-bold text-slate-700">{it.value}</span>
+          <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300">{it.value}</span>
           <div
             className="w-full max-w-[38px] rounded-t-md transition-all duration-500"
             style={{
@@ -277,7 +281,7 @@ export const VerticalBars: React.FC<{
               opacity: 0.85,
             }}
           />
-          <span className="text-[8.5px] font-medium text-slate-500 truncate w-full text-center" title={it.label}>
+          <span className="text-[8.5px] font-medium text-slate-500 dark:text-slate-400 truncate w-full text-center" title={it.label}>
             {it.label}
           </span>
         </div>

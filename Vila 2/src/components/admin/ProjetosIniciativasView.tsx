@@ -198,7 +198,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '1.248',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
       iconType: 'folder',
     },
     {
@@ -207,7 +207,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '856',
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-emerald-50 text-emerald-700 border border-emerald-100',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
       iconType: 'document',
     },
     {
@@ -216,7 +216,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '342',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
       iconType: 'check',
     },
     {
@@ -225,7 +225,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '€24,6M',
       trend: '↑ 21%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-amber-50 text-amber-700 border border-amber-100',
+      bgClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-100',
       iconType: 'wallet',
     },
     {
@@ -234,7 +234,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '€15,2M',
       trend: '↑ 25%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
       iconType: 'trend',
     },
     {
@@ -243,7 +243,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '2,8M+',
       trend: '↑ 23%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
       iconType: 'users',
     },
   ], []);
@@ -678,7 +678,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <button
             type="button"
             onClick={() => setToastMessage(null)}
-            className="ml-2 text-slate-400 hover:text-white"
+            className="ml-2 text-slate-400 dark:text-slate-500 hover:text-white"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -688,17 +688,17 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* ========================================================================= */}
       {/* 1. HEADER DA PÁGINA (Compacto, elegante e proporcional)                   */}
       {/* ========================================================================= */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-200/70 dark:border-slate-700">
         {/* Esquerda: Ícone Reduzido + Título + Subtítulo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E2ECF9] border border-blue-200/60 flex items-center justify-center text-[#1455AC] shrink-0 shadow-2xs">
             <FolderKanban className="w-5 h-5 text-[#1455AC]" strokeWidth={2.2} />
           </div>
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
+            <h1 className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight leading-tight">
               Projetos e Iniciativas
             </h1>
-            <p className="text-xs text-slate-500 font-normal mt-0.5 max-w-xl">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-normal mt-0.5 max-w-xl">
               Acompanhe todos os projetos e iniciativas em curso na rede VILA. Explore o impacto, o progresso e as áreas de atuação.
             </p>
           </div>
@@ -711,15 +711,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <button
               type="button"
               onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
-              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-2xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 shadow-2xs transition-colors cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5 text-slate-500" />
+              <Calendar className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>{selectedDateRange}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
             </button>
             {isDateDropdownOpen && (
-              <div className="absolute right-0 mt-1.5 w-60 bg-white border border-slate-200 rounded-xl shadow-xl z-30 py-1 text-xs">
-                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-200/70">
+              <div className="absolute right-0 mt-1.5 w-60 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl z-30 py-1 text-xs">
+                <div className="px-3 py-1.5 font-bold text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-wider border-b border-slate-200/70 dark:border-slate-700">
                   Período de Análise
                 </div>
                 {[
@@ -739,7 +739,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       showToast(`Filtro de período alterado para: ${p}`);
                     }}
                     className={`w-full text-left px-3 py-2 hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700'
+                      selectedDateRange === p ? 'text-[#1455AC] font-bold bg-blue-50/50' : 'text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     <span>{p}</span>
@@ -754,9 +754,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           <button
             type="button"
             onClick={() => setIsExportModalOpen(true)}
-            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 border border-slate-200/90 shadow-2xs transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 shadow-2xs transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
+            <Download className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Exportar</span>
           </button>
 
@@ -771,16 +771,16 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </button>
 
           {/* Indicadores de Telemetria */}
-          <div className="flex flex-col justify-center text-[11px] text-slate-600 pl-1 space-y-0.5 border-l border-slate-200/80 pl-2.5 ml-1">
+          <div className="flex flex-col justify-center text-[11px] text-slate-600 dark:text-slate-400 pl-1 space-y-0.5 border-l border-slate-200/80 dark:border-slate-700 pl-2.5 ml-1">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] shrink-0" />
-              <span className="whitespace-nowrap text-slate-600">
-                Dados atualizados: <strong className="font-semibold text-slate-800">{lastUpdateTime}</strong>
+              <span className="whitespace-nowrap text-slate-600 dark:text-slate-400">
+                Dados atualizados: <strong className="font-semibold text-slate-800 dark:text-slate-100">{lastUpdateTime}</strong>
               </span>
               <button
                 type="button"
                 onClick={handleManualRefresh}
-                className="text-slate-400 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-[#1455AC] transition-colors p-0.5 rounded cursor-pointer"
                 title="Atualizar dados agora"
               >
                 <RefreshCw className={`w-2.5 h-2.5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -788,7 +788,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] shrink-0 animate-pulse" />
-              <span className="font-medium text-slate-500 whitespace-nowrap">
+              <span className="font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap">
                 Dados em tempo real
               </span>
             </div>
@@ -811,9 +811,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         {/* CARD 1: Projetos por Área de Atuação */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Projetos por Área de Atuação
             </h2>
             
@@ -831,19 +831,19 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
                   {hoveredAreaIndex !== null ? (
                     <>
-                      <span className="text-base font-extrabold text-[#0F172A] font-sans">
+                      <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">
                         {areaDistribution[hoveredAreaIndex].percentage}%
                       </span>
-                      <span className="text-[9px] font-medium text-slate-500 max-w-[70px] truncate">
+                      <span className="text-[9px] font-medium text-slate-500 dark:text-slate-400 max-w-[70px] truncate">
                         {areaDistribution[hoveredAreaIndex].name}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="text-base font-extrabold text-[#0F172A] font-sans">
+                      <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">
                         1.248
                       </span>
-                      <span className="text-[9px] font-medium text-slate-400">
+                      <span className="text-[9px] font-medium text-slate-400 dark:text-slate-500">
                         Projetos
                       </span>
                     </>
@@ -859,7 +859,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     onMouseEnter={() => setHoveredAreaIndex(idx)}
                     onMouseLeave={() => setHoveredAreaIndex(null)}
                     className={`flex items-center justify-between py-0.5 px-1.5 rounded cursor-pointer transition-colors ${
-                      hoveredAreaIndex === idx ? 'bg-slate-100 font-semibold' : 'hover:bg-slate-50'
+                      hoveredAreaIndex === idx ? 'bg-slate-100 dark:bg-slate-800 font-semibold' : 'hover:bg-slate-50 dark:hover:bg-slate-800/60'
                     }`}
                   >
                     <div className="flex items-center gap-2 min-w-0">
@@ -867,11 +867,11 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                         className="w-2.5 h-2.5 rounded-full shrink-0"
                         style={{ backgroundColor: area.color }}
                       />
-                      <span className="text-slate-700 truncate">{area.name}</span>
+                      <span className="text-slate-700 dark:text-slate-300 truncate">{area.name}</span>
                     </div>
                     <div className="text-right shrink-0 pl-2">
-                      <span className="font-bold text-[#0F172A]">{area.percentage}%</span>{' '}
-                      <span className="text-slate-400 text-[10px]">({area.count})</span>
+                      <span className="font-bold text-[#0F172A] dark:text-slate-50">{area.percentage}%</span>{' '}
+                      <span className="text-slate-400 dark:text-slate-500 text-[10px]">({area.count})</span>
                     </div>
                   </div>
                 ))}
@@ -880,7 +880,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as áreas */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllAreasModalOpen(true)}
@@ -893,9 +893,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         </div>
 
         {/* CARD 2: Distribuição Global dos Projetos (World Map) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 sm:p-6 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 sm:p-6 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-base sm:text-lg font-bold text-[#0F172A] font-sans">
+            <h2 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Distribuição Global dos Projetos
             </h2>
 
@@ -919,7 +919,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   <span>Menos de 10 projetos</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs font-medium text-[#0B2C58]">
-                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#F1F5F9] border border-slate-200 shrink-0" />
+                  <span className="w-3.5 h-3.5 rounded-[3px] bg-[#F1F5F9] border border-slate-200 dark:border-slate-700 shrink-0" />
                   <span>Sem projetos</span>
                 </div>
               </div>
@@ -989,9 +989,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         </div>
 
         {/* CARD 3: Status dos Projetos */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Status dos Projetos
             </h2>
 
@@ -1008,19 +1008,19 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
                   {hoveredStatusIndex !== null ? (
                     <>
-                      <span className="text-base font-extrabold text-[#0F172A] font-sans">
+                      <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">
                         {statusDistribution[hoveredStatusIndex].percentage}%
                       </span>
-                      <span className="text-[9px] font-medium text-slate-500 max-w-[70px] truncate">
+                      <span className="text-[9px] font-medium text-slate-500 dark:text-slate-400 max-w-[70px] truncate">
                         {statusDistribution[hoveredStatusIndex].name}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="text-base font-extrabold text-[#0F172A] font-sans">
+                      <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">
                         1.248
                       </span>
-                      <span className="text-[9px] font-medium text-slate-400">
+                      <span className="text-[9px] font-medium text-slate-400 dark:text-slate-500">
                         Total
                       </span>
                     </>
@@ -1036,7 +1036,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     onMouseEnter={() => setHoveredStatusIndex(idx)}
                     onMouseLeave={() => setHoveredStatusIndex(null)}
                     className={`flex items-center justify-between py-0.5 px-1.5 rounded cursor-pointer transition-colors ${
-                      hoveredStatusIndex === idx ? 'bg-slate-100 font-semibold' : 'hover:bg-slate-50'
+                      hoveredStatusIndex === idx ? 'bg-slate-100 dark:bg-slate-800 font-semibold' : 'hover:bg-slate-50 dark:hover:bg-slate-800/60'
                     }`}
                   >
                     <div className="flex items-center gap-2 min-w-0">
@@ -1044,11 +1044,11 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                         className="w-2.5 h-2.5 rounded-full shrink-0"
                         style={{ backgroundColor: status.color }}
                       />
-                      <span className="text-slate-700 truncate">{status.name}</span>
+                      <span className="text-slate-700 dark:text-slate-300 truncate">{status.name}</span>
                     </div>
                     <div className="text-right shrink-0 pl-2">
-                      <span className="font-bold text-[#0F172A]">{status.percentage}%</span>{' '}
-                      <span className="text-slate-400 text-[10px]">({status.count})</span>
+                      <span className="font-bold text-[#0F172A] dark:text-slate-50">{status.percentage}%</span>{' '}
+                      <span className="text-slate-400 dark:text-slate-500 text-[10px]">({status.count})</span>
                     </div>
                   </div>
                 ))}
@@ -1057,7 +1057,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todos os status */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllStatusModalOpen(true)}
@@ -1075,10 +1075,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         {/* CARD 1: Evolução dos Projetos (Multi-line SVG Chart) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
             <div className="flex items-center justify-between gap-2">
-              <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+              <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                 Evolução dos Projetos
               </h2>
               {/* Dropdown Período */}
@@ -1086,13 +1086,13 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <button
                   type="button"
                   onClick={() => setIsEvolutionPeriodDropdownOpen(!isEvolutionPeriodDropdownOpen)}
-                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-600 bg-slate-50 hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded-md cursor-pointer transition-colors"
+                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-1 rounded-md cursor-pointer transition-colors"
                 >
                   <span>{evolutionPeriod === '12meses' ? 'Últimos 12 meses' : evolutionPeriod === '6meses' ? 'Últimos 6 meses' : 'Últimos 30 dias'}</span>
-                  <ChevronDown className="w-3 h-3 text-slate-400" />
+                  <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                 </button>
                 {isEvolutionPeriodDropdownOpen && (
-                  <div className="absolute right-0 mt-1 w-36 bg-white border border-slate-200 rounded-xl shadow-lg z-20 py-1 text-xs">
+                  <div className="absolute right-0 mt-1 w-36 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg z-20 py-1 text-xs">
                     <button
                       type="button"
                       onClick={() => { setEvolutionPeriod('12meses'); setIsEvolutionPeriodDropdownOpen(false); }}
@@ -1125,7 +1125,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 type="button"
                 onClick={() => setActiveEvolutionSeries((p) => ({ ...p, criados: !p.criados }))}
                 className={`inline-flex items-center gap-1.5 cursor-pointer transition-opacity ${
-                  activeEvolutionSeries.criados ? 'text-slate-800' : 'opacity-40 line-through text-slate-400'
+                  activeEvolutionSeries.criados ? 'text-slate-800 dark:text-slate-100' : 'opacity-40 line-through text-slate-400 dark:text-slate-500'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
@@ -1135,7 +1135,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 type="button"
                 onClick={() => setActiveEvolutionSeries((p) => ({ ...p, execucao: !p.execucao }))}
                 className={`inline-flex items-center gap-1.5 cursor-pointer transition-opacity ${
-                  activeEvolutionSeries.execucao ? 'text-slate-800' : 'opacity-40 line-through text-slate-400'
+                  activeEvolutionSeries.execucao ? 'text-slate-800 dark:text-slate-100' : 'opacity-40 line-through text-slate-400 dark:text-slate-500'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
@@ -1145,7 +1145,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 type="button"
                 onClick={() => setActiveEvolutionSeries((p) => ({ ...p, concluidos: !p.concluidos }))}
                 className={`inline-flex items-center gap-1.5 cursor-pointer transition-opacity ${
-                  activeEvolutionSeries.concluidos ? 'text-slate-800' : 'opacity-40 line-through text-slate-400'
+                  activeEvolutionSeries.concluidos ? 'text-slate-800 dark:text-slate-100' : 'opacity-40 line-through text-slate-400 dark:text-slate-500'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
@@ -1313,7 +1313,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver relatório completo */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsFullReportModalOpen(true)}
@@ -1326,14 +1326,14 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         </div>
 
         {/* CARD 2: Top 5 Projetos por Impacto (Tabela com Barras de Progresso e Badges) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Top 5 Projetos por Impacto
             </h2>
 
             {/* Cabeçalho da Tabela */}
-            <div className="grid grid-cols-12 text-[10.5px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70">
+            <div className="grid grid-cols-12 text-[10.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70 dark:border-slate-700">
               <span className="col-span-4">Projeto</span>
               <span className="col-span-2">Área</span>
               <span className="col-span-2 text-right">Beneficiários</span>
@@ -1358,30 +1358,30 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       {p.iconType === 'heart' && <Heart className="w-3 h-3" />}
                       {p.iconType === 'health' && <Activity className="w-3 h-3" />}
                     </div>
-                    <span className="font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#1455AC]">
+                    <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11.5px] truncate group-hover:text-[#1455AC]">
                       {p.name}
                     </span>
                   </div>
 
                   {/* Área */}
-                  <span className="col-span-2 text-slate-500 text-[11px] truncate">
+                  <span className="col-span-2 text-slate-500 dark:text-slate-400 text-[11px] truncate">
                     {p.area}
                   </span>
 
                   {/* Beneficiários */}
-                  <span className="col-span-2 text-right font-medium text-slate-700 text-[11px]">
+                  <span className="col-span-2 text-right font-medium text-slate-700 dark:text-slate-300 text-[11px]">
                     {p.beneficiaries}
                   </span>
 
                   {/* Barra de Progresso */}
                   <div className="col-span-2 px-1 flex flex-col items-center">
-                    <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                    <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
                       <div
                         className="bg-[#1455AC] h-1.5 rounded-full"
                         style={{ width: `${p.progress}%` }}
                       />
                     </div>
-                    <span className="text-[9.5px] font-semibold text-slate-500 mt-0.5">
+                    <span className="text-[9.5px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
                       {p.progress}%
                     </span>
                   </div>
@@ -1391,8 +1391,8 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     <span
                       className={`text-[9.5px] font-bold px-1.5 py-0.5 rounded ${
                         p.impactLevel === 'Alto'
-                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200/60'
-                          : 'bg-amber-50 text-amber-700 border border-amber-200/60'
+                          ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60'
+                          : 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200/60'
                       }`}
                     >
                       {p.impactLevel}
@@ -1404,7 +1404,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todos os projetos */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllProjectsModalOpen(true)}
@@ -1417,9 +1417,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         </div>
 
         {/* CARD 3: Fontes de Financiamento (Donut) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Fontes de Financiamento
             </h2>
 
@@ -1436,19 +1436,19 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
                   {hoveredFundingIndex !== null ? (
                     <>
-                      <span className="text-base font-extrabold text-[#0F172A] font-sans">
+                      <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">
                         {fundingSources[hoveredFundingIndex].percentage}%
                       </span>
-                      <span className="text-[9px] font-medium text-slate-500 max-w-[70px] truncate">
+                      <span className="text-[9px] font-medium text-slate-500 dark:text-slate-400 max-w-[70px] truncate">
                         {fundingSources[hoveredFundingIndex].amount}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="text-base font-extrabold text-[#0F172A] font-sans">
+                      <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 font-sans">
                         €24,6M
                       </span>
-                      <span className="text-[9px] font-medium text-slate-400">
+                      <span className="text-[9px] font-medium text-slate-400 dark:text-slate-500">
                         Total
                       </span>
                     </>
@@ -1464,7 +1464,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     onMouseEnter={() => setHoveredFundingIndex(idx)}
                     onMouseLeave={() => setHoveredFundingIndex(null)}
                     className={`flex items-center justify-between py-0.5 px-1.5 rounded cursor-pointer transition-colors ${
-                      hoveredFundingIndex === idx ? 'bg-slate-100 font-semibold' : 'hover:bg-slate-50'
+                      hoveredFundingIndex === idx ? 'bg-slate-100 dark:bg-slate-800 font-semibold' : 'hover:bg-slate-50 dark:hover:bg-slate-800/60'
                     }`}
                   >
                     <div className="flex items-center gap-2 min-w-0">
@@ -1472,11 +1472,11 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                         className="w-2.5 h-2.5 rounded-full shrink-0"
                         style={{ backgroundColor: source.color }}
                       />
-                      <span className="text-slate-700 truncate">{source.name}</span>
+                      <span className="text-slate-700 dark:text-slate-300 truncate">{source.name}</span>
                     </div>
                     <div className="text-right shrink-0 pl-2">
-                      <span className="font-bold text-[#0F172A]">{source.percentage}%</span>{' '}
-                      <span className="text-slate-400 text-[10px]">({source.amount})</span>
+                      <span className="font-bold text-[#0F172A] dark:text-slate-50">{source.percentage}%</span>{' '}
+                      <span className="text-slate-400 dark:text-slate-500 text-[10px]">({source.amount})</span>
                     </div>
                   </div>
                 ))}
@@ -1485,7 +1485,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as fontes */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllFundingModalOpen(true)}
@@ -1503,14 +1503,14 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
         {/* CARD 1: Projetos Recentes (Tabela) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Projetos Recentes
             </h2>
 
             {/* Cabeçalho */}
-            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70">
+            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70 dark:border-slate-700">
               <span className="col-span-3">Projeto</span>
               <span className="col-span-2">Área</span>
               <span className="col-span-3">Localização</span>
@@ -1526,25 +1526,25 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   onClick={() => setActiveProjectDetail(p)}
                   className="grid grid-cols-12 items-center py-2 hover:bg-blue-50/40 rounded transition-colors cursor-pointer group"
                 >
-                  <span className="col-span-3 font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#1455AC]">
+                  <span className="col-span-3 font-semibold text-slate-800 dark:text-slate-100 text-[11.5px] truncate group-hover:text-[#1455AC]">
                     {p.name}
                   </span>
-                  <span className="col-span-2 text-slate-500 text-[11px] truncate">
+                  <span className="col-span-2 text-slate-500 dark:text-slate-400 text-[11px] truncate">
                     {p.area}
                   </span>
-                  <span className="col-span-3 text-slate-600 text-[11px] truncate">
+                  <span className="col-span-3 text-slate-600 dark:text-slate-400 text-[11px] truncate">
                     {p.location}
                   </span>
-                  <span className="col-span-1 text-center text-slate-500 text-[11px]">
+                  <span className="col-span-1 text-center text-slate-500 dark:text-slate-400 text-[11px]">
                     {p.partnersCount}
                   </span>
                   <div className="col-span-3 text-right space-y-0.5">
-                    <p className="font-semibold text-slate-800 text-[11px]">{p.budget}</p>
+                    <p className="font-semibold text-slate-800 dark:text-slate-100 text-[11px]">{p.budget}</p>
                     <span
                       className={`inline-block text-[9px] font-bold px-1.5 py-0.2 rounded ${
                         p.status === 'Em Execução'
-                          ? 'bg-emerald-50 text-emerald-700'
-                          : 'bg-blue-50 text-blue-700'
+                          ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'
+                          : 'bg-blue-50 dark:bg-blue-500/10 text-blue-700'
                       }`}
                     >
                       {p.status}
@@ -1556,7 +1556,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todos os projetos */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllProjectsModalOpen(true)}
@@ -1569,14 +1569,14 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         </div>
 
         {/* CARD 2: Chamadas e Oportunidades Abertas */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Chamadas e Oportunidades Abertas
             </h2>
 
             {/* Cabeçalho */}
-            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70">
+            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70 dark:border-slate-700">
               <span className="col-span-5">Título</span>
               <span className="col-span-2">Área</span>
               <span className="col-span-3 text-center">Encerramento</span>
@@ -1591,17 +1591,17 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   onClick={() => showToast(`Detalhes da Chamada: ${c.title} (Orçamento: ${c.budget})`)}
                   className="grid grid-cols-12 items-center py-2.5 hover:bg-blue-50/40 rounded transition-colors cursor-pointer group"
                 >
-                  <span className="col-span-5 font-semibold text-slate-800 text-[11.5px] truncate group-hover:text-[#1455AC]">
+                  <span className="col-span-5 font-semibold text-slate-800 dark:text-slate-100 text-[11.5px] truncate group-hover:text-[#1455AC]">
                     {c.title}
                   </span>
-                  <span className="col-span-2 text-slate-500 text-[11px] truncate">
+                  <span className="col-span-2 text-slate-500 dark:text-slate-400 text-[11px] truncate">
                     {c.area}
                   </span>
-                  <span className="col-span-3 text-center text-slate-600 text-[11px]">
+                  <span className="col-span-3 text-center text-slate-600 dark:text-slate-400 text-[11px]">
                     {c.deadline}
                   </span>
                   <div className="col-span-2 text-right">
-                    <span className="text-[11px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-full">
+                    <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
                       {c.candidatesCount}
                     </span>
                   </div>
@@ -1611,7 +1611,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as chamadas */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllCallsModalOpen(true)}
@@ -1624,9 +1624,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         </div>
 
         {/* CARD 3: Atividade Recente (Feed com Ícones) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-all">
           <div>
-            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+            <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Atividade Recente
             </h2>
 
@@ -1639,26 +1639,26 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   className="py-2 flex items-start gap-2.5 hover:bg-blue-50/40 rounded px-1 transition-colors cursor-pointer group"
                 >
                   {/* Ícone por tipo */}
-                  <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0 mt-0.5">
                     {act.type === 'project_created' && <FolderKanban className="w-3.5 h-3.5 text-blue-600" />}
-                    {act.type === 'milestone' && <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />}
+                    {act.type === 'milestone' && <TrendingUp className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
                     {act.type === 'partnership' && <HeartHandshake className="w-3.5 h-3.5 text-blue-600" />}
                     {act.type === 'report' && <FileText className="w-3.5 h-3.5 text-blue-600" />}
-                    {act.type === 'call_published' && <Megaphone className="w-3.5 h-3.5 text-amber-600" />}
+                    {act.type === 'call_published' && <Megaphone className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />}
                   </div>
 
                   {/* Textos */}
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-slate-800 text-[11.5px] leading-tight truncate group-hover:text-[#1455AC]">
+                    <p className="font-semibold text-slate-800 dark:text-slate-100 text-[11.5px] leading-tight truncate group-hover:text-[#1455AC]">
                       {act.title}
                     </p>
-                    <p className="text-slate-500 text-[10.5px] leading-snug mt-0.5 truncate">
+                    <p className="text-slate-500 dark:text-slate-400 text-[10.5px] leading-snug mt-0.5 truncate">
                       {act.subtitle}
                     </p>
                   </div>
 
                   {/* Timestamp */}
-                  <span className="text-[10px] text-slate-400 shrink-0 whitespace-nowrap pl-1">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0 whitespace-nowrap pl-1">
                     {act.timestamp}
                   </span>
                 </div>
@@ -1667,7 +1667,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as atividades */}
-          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 dark:border-slate-700 text-right">
             <button
               type="button"
               onClick={() => setIsAllActivitiesModalOpen(true)}
@@ -1687,22 +1687,22 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Exportação */}
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <div className="flex items-center gap-2 text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
                 <Download className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Exportar Dados de Projetos</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsExportModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-3">
               Selecione o formato desejado para exportar o relatório consolidado de <strong>1.248 projetos</strong> e dados financeiros.
             </p>
 
@@ -1713,10 +1713,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsExportModalOpen(false);
                   showToast('Exportação CSV iniciada: Projetos_VILA_2025.csv');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700 dark:text-slate-300"
               >
                 <span>Planilha Completa (CSV / Excel)</span>
-                <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-bold">.CSV</span>
+                <span className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded font-bold">.CSV</span>
               </button>
               <button
                 type="button"
@@ -1724,10 +1724,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsExportModalOpen(false);
                   showToast('Exportação PDF gerada com sucesso.');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700 dark:text-slate-300"
               >
                 <span>Dossiê Executivo de Impacto (PDF)</span>
-                <span className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">.PDF</span>
+                <span className="text-[10px] bg-red-100 text-red-700 dark:text-red-400 px-2 py-0.5 rounded font-bold">.PDF</span>
               </button>
               <button
                 type="button"
@@ -1735,7 +1735,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsExportModalOpen(false);
                   showToast('Exportação de dados abertos JSON concluída.');
                 }}
-                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700"
+                className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-[#1455AC] hover:bg-blue-50/50 transition-all font-medium text-slate-700 dark:text-slate-300"
               >
                 <span>Dados Abertos para Integrações (JSON API)</span>
                 <span className="text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-bold">.JSON</span>
@@ -1746,7 +1746,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               <button
                 type="button"
                 onClick={() => setIsExportModalOpen(false)}
-                className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+                className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
               >
                 Fechar
               </button>
@@ -1758,16 +1758,16 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Filtros */}
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <div className="flex items-center gap-2 text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
                 <SlidersHorizontal className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Filtros de Projetos e Iniciativas</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsFilterModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1775,11 +1775,11 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
 
             <div className="space-y-3.5 mt-4 text-xs">
               <div>
-                <label className="font-bold text-slate-700 block mb-1">Área de Atuação</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Área de Atuação</label>
                 <select
                   value={filterArea}
                   onChange={(e) => setFilterArea(e.target.value)}
-                  className="w-full border border-slate-200 rounded-lg p-2 text-slate-700 text-xs focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]"
+                  className="w-full border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-slate-700 dark:text-slate-300 text-xs focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]"
                 >
                   <option value="Todas">Todas as Áreas</option>
                   <option value="Ambiente">Ambiente</option>
@@ -1792,11 +1792,11 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </div>
 
               <div>
-                <label className="font-bold text-slate-700 block mb-1">Status do Projeto</label>
+                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Status do Projeto</label>
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full border border-slate-200 rounded-lg p-2 text-slate-700 text-xs focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]"
+                  className="w-full border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-slate-700 dark:text-slate-300 text-xs focus:border-[#1455AC] focus:ring-1 focus:ring-[#1455AC]"
                 >
                   <option value="Todos">Todos os Status</option>
                   <option value="Em Execução">Em Execução</option>
@@ -1816,7 +1816,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsFilterModalOpen(false);
                   showToast('Filtros repostos com sucesso.');
                 }}
-                className="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg"
+                className="px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
               >
                 Limpar
               </button>
@@ -1838,16 +1838,16 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Detalhes do Projeto / Dossiê */}
       {activeProjectDetail && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <div className="flex items-center gap-2 text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
                 <FolderKanban className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">{activeProjectDetail.name}</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveProjectDetail(null)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1855,47 +1855,47 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
 
             <div className="mt-4 space-y-3 text-xs">
               <div className="flex items-center justify-between">
-                <span className="text-slate-500">Área temática:</span>
-                <span className="font-bold text-blue-800 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                <span className="text-slate-500 dark:text-slate-400">Área temática:</span>
+                <span className="font-bold text-blue-800 bg-blue-50 dark:bg-blue-500/10 px-2 py-0.5 rounded border border-blue-200">
                   {activeProjectDetail.area}
                 </span>
               </div>
 
               {'location' in activeProjectDetail && (
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Localização geográfica:</span>
-                  <span className="font-semibold text-slate-800">{activeProjectDetail.location}</span>
+                  <span className="text-slate-500 dark:text-slate-400">Localização geográfica:</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100">{activeProjectDetail.location}</span>
                 </div>
               )}
 
               {'beneficiaries' in activeProjectDetail && (
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Beneficiários Diretos:</span>
-                  <span className="font-bold text-emerald-700">{activeProjectDetail.beneficiaries} pessoas</span>
+                  <span className="text-slate-500 dark:text-slate-400">Beneficiários Diretos:</span>
+                  <span className="font-bold text-emerald-700 dark:text-emerald-400">{activeProjectDetail.beneficiaries} pessoas</span>
                 </div>
               )}
 
               {'budget' in activeProjectDetail && activeProjectDetail.budget && (
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Orçamento Alocado:</span>
-                  <span className="font-bold text-[#0F172A]">{activeProjectDetail.budget}</span>
+                  <span className="text-slate-500 dark:text-slate-400">Orçamento Alocado:</span>
+                  <span className="font-bold text-[#0F172A] dark:text-slate-50">{activeProjectDetail.budget}</span>
                 </div>
               )}
 
               {'progress' in activeProjectDetail && (
                 <div className="space-y-1">
-                  <div className="flex justify-between text-slate-500">
+                  <div className="flex justify-between text-slate-500 dark:text-slate-400">
                     <span>Execução física:</span>
                     <span className="font-bold text-[#1455AC]">{activeProjectDetail.progress}%</span>
                   </div>
-                  <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
                     <div className="bg-[#1455AC] h-2 rounded-full" style={{ width: `${activeProjectDetail.progress}%` }} />
                   </div>
                 </div>
               )}
 
               {'description' in activeProjectDetail && activeProjectDetail.description && (
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-slate-600 leading-relaxed">
+                <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400 leading-relaxed">
                   {activeProjectDetail.description}
                 </div>
               )}
@@ -1908,7 +1908,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setActiveProjectDetail(null);
                   showToast(`Dossiê de ${activeProjectDetail.name} descarregado.`);
                 }}
-                className="px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5"
+                className="px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 rounded-lg flex items-center gap-1.5"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Descarregar Ficha</span>
@@ -1928,25 +1928,25 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: KPI Detail */}
       {activeKpiDetail && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Detalhamento: {activeKpiDetail}
               </h3>
               <button
                 type="button"
                 onClick={() => setActiveKpiDetail(null)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
               Os dados consolidados de <strong>{activeKpiDetail}</strong> abrangem projetos cívicos, municipais e comunitários auditados nos 11 países ativos da rede VILA.
             </p>
 
-            <div className="mt-4 p-3 bg-blue-50/60 rounded-xl border border-blue-100 text-xs space-y-1 text-slate-700">
+            <div className="mt-4 p-3 bg-blue-50/60 rounded-xl border border-blue-100 text-xs space-y-1 text-slate-700 dark:text-slate-300">
               <p>• <strong>Validação em tempo real:</strong> Auditado por comissões locais.</p>
               <p>• <strong>Critérios:</strong> Transparência de verbas e impacto comunitário direto.</p>
             </div>
@@ -1967,41 +1967,41 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Mapa Interativo Expandido */}
       {isMapModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <div className="flex items-center gap-2 text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
                 <Globe className="w-4 h-4 text-[#1455AC]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Presença Global de Projetos VILA</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsMapModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-3">
               A rede VILA apoia 1.248 projetos em 4 continentes, com densidade máxima em Portugal, Brasil, Moçambique e Angola.
             </p>
 
             <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-              <div className="p-2.5 rounded-lg border border-slate-100 bg-slate-50">
-                <p className="text-slate-400 text-[10px]">Europa</p>
-                <p className="text-sm font-bold text-[#0F172A]">452 projetos</p>
+              <div className="p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                <p className="text-slate-400 dark:text-slate-500 text-[10px]">Europa</p>
+                <p className="text-sm font-bold text-[#0F172A] dark:text-slate-50">452 projetos</p>
               </div>
-              <div className="p-2.5 rounded-lg border border-slate-100 bg-slate-50">
-                <p className="text-slate-400 text-[10px]">África</p>
-                <p className="text-sm font-bold text-[#0F172A]">418 projetos</p>
+              <div className="p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                <p className="text-slate-400 dark:text-slate-500 text-[10px]">África</p>
+                <p className="text-sm font-bold text-[#0F172A] dark:text-slate-50">418 projetos</p>
               </div>
-              <div className="p-2.5 rounded-lg border border-slate-100 bg-slate-50">
-                <p className="text-slate-400 text-[10px]">América Latina</p>
-                <p className="text-sm font-bold text-[#0F172A]">326 projetos</p>
+              <div className="p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                <p className="text-slate-400 dark:text-slate-500 text-[10px]">América Latina</p>
+                <p className="text-sm font-bold text-[#0F172A] dark:text-slate-50">326 projetos</p>
               </div>
-              <div className="p-2.5 rounded-lg border border-slate-100 bg-slate-50">
-                <p className="text-slate-400 text-[10px]">Ásia-Pacífico</p>
-                <p className="text-sm font-bold text-[#0F172A]">52 projetos</p>
+              <div className="p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
+                <p className="text-slate-400 dark:text-slate-500 text-[10px]">Ásia-Pacífico</p>
+                <p className="text-sm font-bold text-[#0F172A] dark:text-slate-50">52 projetos</p>
               </div>
             </div>
 
@@ -2021,15 +2021,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Ver Todas as Áreas */}
       {isAllAreasModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Todas as Áreas de Atuação
               </h3>
               <button
                 type="button"
                 onClick={() => setIsAllAreasModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2040,7 +2040,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div key={a.name} className="py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: a.color }} />
-                    <span className="font-medium text-slate-800">{a.name}</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100">{a.name}</span>
                   </div>
                   <span className="font-bold text-[#1455AC]">{a.count} projetos ({a.percentage}%)</span>
                 </div>
@@ -2063,15 +2063,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Ver Todos os Status */}
       {isAllStatusModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Distribuição de Status dos Projetos
               </h3>
               <button
                 type="button"
                 onClick={() => setIsAllStatusModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2082,7 +2082,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div key={s.name} className="py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: s.color }} />
-                    <span className="font-medium text-slate-800">{s.name}</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100">{s.name}</span>
                   </div>
                   <span className="font-bold text-[#1455AC]">{s.count} projetos ({s.percentage}%)</span>
                 </div>
@@ -2105,15 +2105,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Ver Todas as Fontes de Financiamento */}
       {isAllFundingModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Fontes de Financiamento Auditadas
               </h3>
               <button
                 type="button"
                 onClick={() => setIsAllFundingModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2124,7 +2124,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                 <div key={f.name} className="py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: f.color }} />
-                    <span className="font-medium text-slate-800">{f.name}</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100">{f.name}</span>
                   </div>
                   <span className="font-bold text-[#1455AC]">{f.amount} ({f.percentage}%)</span>
                 </div>
@@ -2147,15 +2147,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Ver Todos os Projetos */}
       {isAllProjectsModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150 max-h-[85vh] flex flex-col">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 shrink-0">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150 max-h-[85vh] flex flex-col">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700 shrink-0">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Diretório Geral de Projetos (1.248)
               </h3>
               <button
                 type="button"
                 onClick={() => setIsAllProjectsModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2163,10 +2163,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
 
             <div className="overflow-y-auto flex-1 divide-y divide-slate-200/70 mt-3 text-xs">
               {[...topProjects, ...recentProjects].map((p, idx) => (
-                <div key={`${p.id}-${idx}`} className="py-2.5 flex items-center justify-between hover:bg-slate-50 px-2 rounded">
+                <div key={`${p.id}-${idx}`} className="py-2.5 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/60 px-2 rounded">
                   <div>
-                    <p className="font-bold text-slate-800">{p.name}</p>
-                    <p className="text-slate-500 text-[11px]">{p.area}</p>
+                    <p className="font-bold text-slate-800 dark:text-slate-100">{p.name}</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-[11px]">{p.area}</p>
                   </div>
                   <button
                     type="button"
@@ -2182,7 +2182,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               ))}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-200/70 flex justify-end shrink-0">
+            <div className="mt-4 pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end shrink-0">
               <button
                 type="button"
                 onClick={() => setIsAllProjectsModalOpen(false)}
@@ -2198,15 +2198,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Ver Todas as Chamadas */}
       {isAllCallsModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Chamadas Públicas e Bolsas Abertas
               </h3>
               <button
                 type="button"
                 onClick={() => setIsAllCallsModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2215,12 +2215,12 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {openCalls.map((c) => (
                 <div key={c.id} className="py-2.5">
-                  <div className="flex justify-between font-bold text-slate-800">
+                  <div className="flex justify-between font-bold text-slate-800 dark:text-slate-100">
                     <span>{c.title}</span>
-                    <span className="text-emerald-700">{c.budget}</span>
+                    <span className="text-emerald-700 dark:text-emerald-400">{c.budget}</span>
                   </div>
-                  <p className="text-slate-500 text-[11px] mt-0.5">{c.description}</p>
-                  <div className="flex justify-between text-[10px] text-slate-400 mt-1.5">
+                  <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-0.5">{c.description}</p>
+                  <div className="flex justify-between text-[10px] text-slate-400 dark:text-slate-500 mt-1.5">
                     <span>Encerra: {c.deadline}</span>
                     <span>{c.candidatesCount} candidaturas submetidas</span>
                   </div>
@@ -2244,15 +2244,15 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Ver Todas as Atividades */}
       {isAllActivitiesModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Fluxo em Tempo Real de Atividades
               </h3>
               <button
                 type="button"
                 onClick={() => setIsAllActivitiesModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -2261,9 +2261,9 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {recentActivities.map((act) => (
                 <div key={act.id} className="py-2">
-                  <p className="font-semibold text-slate-800">{act.title}</p>
-                  <p className="text-slate-500 text-[11px]">{act.subtitle}</p>
-                  <span className="text-[10px] text-slate-400">{act.timestamp}</span>
+                  <p className="font-semibold text-slate-800 dark:text-slate-100">{act.title}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-[11px]">{act.subtitle}</p>
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500">{act.timestamp}</span>
                 </div>
               ))}
             </div>
@@ -2284,25 +2284,25 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* Modal: Relatório Completo */}
       {isFullReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
-              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in-95 duration-150">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800 dark:text-slate-100">
                 Relatório de Evolução Trimestral
               </h3>
               <button
                 type="button"
                 onClick={() => setIsFullReportModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700 p-1"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-700 p-1"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
               O relatório trimestral detalha os 1.390 projetos criados nos últimos 12 meses, com 910 em execução contínua e 390 concluídos com impacto verificado.
             </p>
 
-            <div className="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+            <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 text-xs space-y-1">
               <p>• Taxa de conclusão com êxito: <strong>94,8%</strong></p>
               <p>• Tempo médio de execução: <strong>7,4 meses</strong></p>
               <p>• Retenção de parceiros: <strong>89,2%</strong></p>
@@ -2315,7 +2315,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                   setIsFullReportModalOpen(false);
                   showToast('Download do Relatório Completo iniciado.');
                 }}
-                className="px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5"
+                className="px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 rounded-lg flex items-center gap-1.5"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Descarregar PDF</span>

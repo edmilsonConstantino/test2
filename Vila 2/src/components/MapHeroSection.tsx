@@ -30,7 +30,7 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
   return (
     <section
       id="map-hero-section"
-      className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 lg:p-7 shadow-xs"
+      className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 lg:p-7 shadow-xs"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
         {/* =========================================================================
@@ -47,12 +47,12 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
             </div>
 
             {/* 2. Título principal */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 tracking-tight leading-[1.2] font-sans">
+            <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] font-sans">
               Mapeamento e cooperação territorial em escala global
             </h1>
 
             {/* 3. Texto descritivo */}
-            <p className="text-[13.5px] sm:text-sm text-slate-600 leading-relaxed font-normal">
+            <p className="text-[13.5px] sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
               Plataforma integrada de dados abertos, projetos comunitários e monitorização contínua de impacto social e territorial em Portugal e na rede internacional.
             </p>
 
@@ -72,16 +72,16 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
                 id="hero-cta-watch-video"
                 type="button"
                 onClick={onWatchTour}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-[13.5px] font-medium transition-all shadow-2xs cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 text-[13.5px] font-medium transition-all shadow-2xs cursor-pointer"
               >
-                <Play className="w-3.5 h-3.5 fill-slate-600 text-slate-600" />
+                <Play className="w-3.5 h-3.5 fill-slate-600 dark:fill-slate-400 text-slate-600 dark:text-slate-400" />
                 <span>Apresentação (2:14)</span>
               </button>
             </div>
 
             {/* 5. Em foco (alinhados na mesma linha) */}
             <div className="pt-2 flex items-center gap-2 overflow-x-auto no-scrollbar flex-nowrap py-0.5">
-              <span className="text-xs font-medium text-slate-400 shrink-0 whitespace-nowrap">Em foco:</span>
+              <span className="text-xs font-medium text-slate-400 dark:text-slate-500 shrink-0 whitespace-nowrap">Em foco:</span>
               <div className="flex items-center gap-1.5 shrink-0 flex-nowrap">
                 {QUICK_TERRITORIES.map((territory) => {
                   const isSelected = selectedCountry.id === territory.id;
@@ -96,10 +96,10 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
                       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer shrink-0 ${
                         isSelected
                           ? 'bg-[#1455AC] text-white shadow-xs'
-                          : 'bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200'
+                          : 'bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 border border-slate-200 dark:border-slate-700'
                       }`}
                     >
-                      <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-white/80' : 'text-slate-400'}`}>
+                      <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-white/80' : 'text-slate-400 dark:text-slate-500'}`}>
                         {territory.code}
                       </span>
                       <span>{territory.label}</span>
@@ -111,9 +111,9 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
           </div>
 
           {/* 6. Resumo da Plataforma */}
-          <div className="pt-4 border-t border-slate-100 mt-auto">
+          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+              <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                 Resumo da Plataforma
               </span>
               <span className="text-[11px] text-[#1455AC] font-medium flex items-center gap-1.5">
@@ -123,38 +123,38 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-              <div className="bg-slate-50/90 rounded-xl p-3 border border-slate-200 hover:border-slate-300 transition-colors shadow-2xs">
+              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
                 <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
                   128
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium mt-1.5 leading-tight">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
                   Territórios ativos
                 </div>
               </div>
 
-              <div className="bg-slate-50/90 rounded-xl p-3 border border-slate-200 hover:border-slate-300 transition-colors shadow-2xs">
+              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
                 <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
                   7.8M
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium mt-1.5 leading-tight">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
                   Cidadãos alcançados
                 </div>
               </div>
 
-              <div className="bg-slate-50/90 rounded-xl p-3 border border-slate-200 hover:border-slate-300 transition-colors shadow-2xs">
+              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
                 <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
                   24.651
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium mt-1.5 leading-tight">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
                   Projetos registados
                 </div>
               </div>
 
-              <div className="bg-slate-50/90 rounded-xl p-3 border border-slate-200 hover:border-slate-300 transition-colors shadow-2xs">
+              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
                 <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
                   3.412
                 </div>
-                <div className="text-[11px] text-slate-500 font-medium mt-1.5 leading-tight">
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
                   Entidades parceiras
                 </div>
               </div>
@@ -166,14 +166,14 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
             COLUNA DA DIREITA: Módulo Cartográfico Autocontido
             ========================================================================= */}
         <div className="lg:col-span-7 flex flex-col">
-          <div className="w-full h-[380px] sm:h-[420px] lg:h-[460px] rounded-xl border border-slate-200 bg-[#F8FAFC] relative overflow-hidden flex flex-col shadow-2xs">
+          <div className="w-full h-[380px] sm:h-[420px] lg:h-[460px] rounded-xl border border-slate-200 dark:border-slate-700 bg-[#F8FAFC] dark:bg-slate-900 relative overflow-hidden flex flex-col shadow-2xs">
             {/* Top Bar do Módulo do Mapa */}
-            <div className="px-3.5 py-2 border-b border-slate-200 bg-white/90 backdrop-blur-xs flex items-center justify-between text-xs z-10 select-none">
+            <div className="px-3.5 py-2 border-b border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs flex items-center justify-between text-xs z-10 select-none">
               <div className="flex items-center gap-2">
                 <Globe2 className="w-3.5 h-3.5 text-[#1455AC]" />
-                <span className="font-semibold text-slate-800 text-[11.5px]">Mapa Territorial Interativo</span>
+                <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11.5px]">Mapa Territorial Interativo</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 <span>128 territórios integrados</span>
               </div>
@@ -191,23 +191,23 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
             </div>
 
             {/* Rodapé Integrado do Módulo: Legenda e Apoio */}
-            <div className="px-3.5 py-2 border-t border-slate-200 bg-white/90 backdrop-blur-xs flex items-center justify-between text-[11px] text-slate-600 z-10 select-none">
+            <div className="px-3.5 py-2 border-t border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs flex items-center justify-between text-[11px] text-slate-600 dark:text-slate-400 z-10 select-none">
               <div className="flex items-center gap-3.5">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                  <span className="font-medium text-slate-700">País Ativo</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">País Ativo</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#1455AC] shrink-0" />
-                  <span className="font-medium text-slate-700">Com Atividade</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">Com Atividade</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-slate-400 shrink-0" />
-                  <span className="font-medium text-slate-700">Mapeamento</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">Mapeamento</span>
                 </div>
               </div>
 
-              <span className="text-slate-400 hidden sm:inline text-[10.5px]">
+              <span className="text-slate-400 dark:text-slate-500 hidden sm:inline text-[10.5px]">
                 Selecione um ponto para inspecionar
               </span>
             </div>

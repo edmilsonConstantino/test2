@@ -77,9 +77,9 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       trend: '↑ 24%',
       period: 'desde o mês passado',
       icon: Users,
-      iconBg: 'bg-purple-50/90',
-      iconColor: 'text-purple-600',
-      borderColor: 'border-purple-100/70',
+      iconBg: 'bg-purple-50/90 dark:bg-purple-500/10',
+      iconColor: 'text-purple-600 dark:text-purple-400',
+      borderColor: 'border-purple-100/70 dark:border-purple-500/20',
       details: [
         { label: 'Utilizadores Diretos', val: '1.248.300' },
         { label: 'Beneficiários Indiretos', val: '1.599.262' },
@@ -93,9 +93,9 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       trend: '↑ 18%',
       period: 'desde o mês passado',
       icon: Users,
-      iconBg: 'bg-indigo-50/90',
-      iconColor: 'text-indigo-600',
-      borderColor: 'border-indigo-100/70',
+      iconBg: 'bg-indigo-50/90 dark:bg-indigo-500/10',
+      iconColor: 'text-indigo-600 dark:text-indigo-400',
+      borderColor: 'border-indigo-100/70 dark:border-indigo-500/20',
       details: [
         { label: 'Comunidades Rurais', val: '7.420' },
         { label: 'Comunidades Urbanas', val: '11.312' },
@@ -109,9 +109,9 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       trend: '↑ 15%',
       period: 'desde o mês passado',
       icon: Flag,
-      iconBg: 'bg-rose-50/90',
-      iconColor: 'text-rose-600',
-      borderColor: 'border-rose-100/70',
+      iconBg: 'bg-rose-50/90 dark:bg-rose-500/10',
+      iconColor: 'text-rose-600 dark:text-rose-400',
+      borderColor: 'border-rose-100/70 dark:border-rose-500/20',
       details: [
         { label: 'Municípios Digitais', val: '864' },
         { label: 'Regiões Transfronteiriças', val: '384' },
@@ -125,9 +125,9 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       trend: '↑ 8%',
       period: 'desde o mês passado',
       icon: Globe2,
-      iconBg: 'bg-blue-50/90',
-      iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      iconBg: 'bg-blue-50/90 dark:bg-blue-500/10',
+      iconColor: 'text-blue-600 dark:text-blue-400',
+      borderColor: 'border-blue-100/70 dark:border-blue-500/20',
       details: [
         { label: 'CPLP & Lusofonia', val: '9 países (100%)' },
         { label: 'Europa', val: '38 países' },
@@ -141,9 +141,9 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       trend: '↑ 27%',
       period: 'desde o mês passado',
       icon: Zap,
-      iconBg: 'bg-emerald-50/90',
-      iconColor: 'text-emerald-600',
-      borderColor: 'border-emerald-100/70',
+      iconBg: 'bg-emerald-50/90 dark:bg-emerald-500/10',
+      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      borderColor: 'border-emerald-100/70 dark:border-emerald-500/20',
       details: [
         { label: 'Projetos em Curso', val: '16.420' },
         { label: 'Consultas Populares', val: '5.120' },
@@ -157,9 +157,9 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       trend: '↑ 12%',
       period: 'desde o mês passado',
       icon: Handshake,
-      iconBg: 'bg-amber-50/90',
-      iconColor: 'text-amber-600',
-      borderColor: 'border-amber-100/70',
+      iconBg: 'bg-amber-50/90 dark:bg-amber-500/10',
+      iconColor: 'text-amber-600 dark:text-amber-400',
+      borderColor: 'border-amber-100/70 dark:border-amber-500/20',
       details: [
         { label: 'Governos & Municípios', val: '184' },
         { label: 'ONGs & Fundações', val: '98' },
@@ -298,24 +298,24 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       {/* Modal Detalhes de KPI */}
       {activeKpiModal && (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-150">
-          <div className="bg-white border border-slate-100 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <button
               onClick={() => setActiveKpiModal(null)}
-              className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+              className="absolute top-4 right-4 p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
-            <h3 className="text-base font-bold text-[#0D1E3A]">{activeKpiModal.title}</h3>
+            <h3 className="text-base font-bold text-[#0D1E3A] dark:text-slate-50">{activeKpiModal.title}</h3>
             <div className="flex items-baseline gap-2 my-2">
-              <span className="text-2xl font-extrabold text-[#0D1E3A]">{activeKpiModal.value}</span>
-              <span className="text-xs font-semibold text-emerald-600">{activeKpiModal.growth}</span>
+              <span className="text-2xl font-extrabold text-[#0D1E3A] dark:text-slate-50">{activeKpiModal.value}</span>
+              <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">{activeKpiModal.growth}</span>
             </div>
 
-            <div className="divide-y divide-slate-100 my-4 border-y border-slate-100">
+            <div className="divide-y divide-slate-100 dark:divide-slate-800 my-4 border-y border-slate-100 dark:border-slate-800">
               {activeKpiModal.details.map((d, i) => (
                 <div key={i} className="py-2 flex items-center justify-between text-xs">
-                  <span className="text-slate-500">{d.label}</span>
-                  <span className="font-semibold text-slate-800">{d.val}</span>
+                  <span className="text-slate-500 dark:text-slate-400">{d.label}</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100">{d.val}</span>
                 </div>
               ))}
             </div>
@@ -331,16 +331,16 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       )}
 
       {/* 1. HEADER DO MÓDULO COM ARTE ILUSTRADA DAS COMUNIDADES GLOBAIS */}
-      <div className="bg-white border border-slate-100 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 overflow-hidden relative">
+      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 overflow-hidden relative">
         <div className="flex items-start sm:items-center gap-3.5 z-10 max-w-2xl">
-          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 dark:bg-purple-500/10 border border-purple-200/60 dark:border-purple-500/20 flex items-center justify-center text-[#5B21B6] dark:text-purple-400 shrink-0 shadow-2xs">
             <Globe className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0D1E3A] font-['Outfit'] tracking-tight">
+            <h1 className="text-2xl sm:text-[28px] font-bold text-[#0D1E3A] dark:text-slate-50 font-['Outfit'] tracking-tight">
               Impacto Global da Plataforma VILA
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
               Visão geral do impacto coletivo gerado pela plataforma VILA e pela sua rede global de pessoas, comunidades e territórios.
             </p>
           </div>
@@ -417,33 +417,33 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
             <div
               key={kpi.id}
               id={`kpi-impact-${kpi.id}`}
-              className="bg-white rounded-2xl border border-slate-200/70 p-3 sm:p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-purple-200/90 transition-all duration-200 flex flex-col justify-between group min-w-0"
+              className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/70 dark:border-slate-700 p-3 sm:p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-purple-200/90 dark:hover:border-purple-500/40 transition-all duration-200 flex flex-col justify-between group min-w-0"
             >
               {/* Linha Superior: Ícone + Indicador/Delta */}
               <div className="flex items-center justify-between gap-1.5">
                 <div className={`w-8 h-8 rounded-xl ${kpi.iconBg} ${kpi.iconColor} ${kpi.borderColor} border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs`}>
                   <Icon className="w-4 h-4" strokeWidth={2.2} />
                 </div>
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50/90 border border-emerald-200/60 px-1.5 py-0.5 rounded-md whitespace-nowrap">
+                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50/90 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/20 px-1.5 py-0.5 rounded-md whitespace-nowrap">
                   {kpi.trend}
                 </span>
               </div>
 
               {/* Conteúdo Central: Métrica de Alto Impacto + Rótulo com Quebra Natural */}
               <div className="mt-3">
-                <p className="text-xl sm:text-2xl font-extrabold text-[#0D1E3A] font-['Outfit'] tracking-tight leading-none">
+                <p className="text-xl sm:text-2xl font-extrabold text-[#0D1E3A] dark:text-slate-50 font-['Outfit'] tracking-tight leading-none">
                   {kpi.value}
                 </p>
-                <p className="text-[11.5px] font-semibold text-[#64748B] mt-1.5 leading-snug whitespace-normal break-words min-h-[32px] flex items-center">
+                <p className="text-[11.5px] font-semibold text-[#64748B] dark:text-slate-400 mt-1.5 leading-snug whitespace-normal break-words min-h-[32px] flex items-center">
                   <span>{kpi.title}</span>
                 </p>
-                <p className="text-[10px] font-medium text-slate-400 mt-0.5">
+                <p className="text-[10px] font-medium text-slate-400 dark:text-slate-500 mt-0.5">
                   {kpi.period}
                 </p>
               </div>
 
               {/* Rodapé: Divisor com link e transição suave */}
-              <div className="pt-2 mt-2.5 border-t border-slate-100/90 flex items-center justify-between">
+              <div className="pt-2 mt-2.5 border-t border-slate-100/90 dark:border-slate-800 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() =>
@@ -454,7 +454,7 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
                       details: kpi.details,
                     })
                   }
-                  className="text-[11px] font-semibold text-[#5B21B6] hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline"
+                  className="text-[11px] font-semibold text-[#5B21B6] dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline"
                 >
                   <span>Ver detalhes</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -468,25 +468,25 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       {/* 3. LINHA 2 (3 CARDS): Evolução do Impacto (45%), Impacto por Dimensão (27%), Presença Global (28%) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Card 1: Evolução do Impacto Global (5 cols) */}
-        <div className="lg:col-span-5 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h3 className="text-sm font-bold text-[#0D1E3A]">Evolução do Impacto Global</h3>
+              <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Evolução do Impacto Global</h3>
               <div className="relative">
                 <select
                   value={timeframe}
                   onChange={(e) => setTimeframe(e.target.value as any)}
-                  className="text-[10.5px] font-medium text-slate-600 bg-slate-50 border border-slate-200/80 rounded-lg px-2.5 py-1 pr-5 cursor-pointer focus:outline-none appearance-none"
+                  className="text-[10.5px] font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-lg px-2.5 py-1 pr-5 cursor-pointer focus:outline-none appearance-none"
                 >
                   <option value="Últimos 12 meses">Últimos 12 meses</option>
                   <option value="Últimos 6 meses">Últimos 6 meses</option>
                   <option value="Ano Corrente">Ano Corrente</option>
                   <option value="Desde o Início">Desde o Início</option>
                 </select>
-                <ChevronDown className="w-3 h-3 text-slate-400 absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-3 h-3 text-slate-400 dark:text-slate-500 absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
-            <p className="text-[11px] text-slate-400 mb-4">
+            <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-4">
               Crescimento do impacto agregado da plataforma ao longo do tempo.
             </p>
 
@@ -560,10 +560,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
         </div>
 
         {/* Card 2: Impacto por dimensão (3.5 cols) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0D1E3A]">Impacto por dimensão</h3>
-            <p className="text-[11px] text-slate-400 mb-4">
+            <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Impacto por dimensão</h3>
+            <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-4">
               Distribuição do impacto gerado pela plataforma.
             </p>
 
@@ -634,46 +634,46 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
-                    <span className="text-slate-600 font-medium">Ambiental</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Ambiental</span>
                   </div>
-                  <span className="font-bold text-slate-800">36%</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">36%</span>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#4F46E5]" />
-                    <span className="text-slate-600 font-medium">Social</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Social</span>
                   </div>
-                  <span className="font-bold text-slate-800">29%</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">29%</span>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#F97316]" />
-                    <span className="text-slate-600 font-medium">Económico</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Económico</span>
                   </div>
-                  <span className="font-bold text-slate-800">18%</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">18%</span>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]" />
-                    <span className="text-slate-600 font-medium">Educação</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Educação</span>
                   </div>
-                  <span className="font-bold text-slate-800">10%</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">10%</span>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#E11D48]" />
-                    <span className="text-slate-600 font-medium">Cultural</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-medium">Cultural</span>
                   </div>
-                  <span className="font-bold text-slate-800">7%</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100">7%</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-50 mt-4 flex justify-center">
+          <div className="pt-4 border-t border-slate-50 dark:border-slate-800 mt-4 flex justify-center">
             <button
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group cursor-pointer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1 group cursor-pointer"
             >
               <span>Ver relatório completo</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -682,10 +682,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
         </div>
 
         {/* Card 3: Presença Global (3.5 cols) */}
-        <div className="lg:col-span-3 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0D1E3A]">Presença Global</h3>
-            <p className="text-[11px] text-slate-400 mb-3">
+            <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Presença Global</h3>
+            <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-3">
               A plataforma VILA está presente em todos os continentes.
             </p>
 
@@ -727,10 +727,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-50 mt-4 flex justify-center">
+          <div className="pt-4 border-t border-slate-50 dark:border-slate-800 mt-4 flex justify-center">
             <button
               onClick={() => onNavigateToTab('territorios-paises')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group cursor-pointer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1 group cursor-pointer"
             >
               <span>Ver mapa completo</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -742,18 +742,18 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       {/* 4. LINHA 3: Contribuição para os ODS (70%) + Destaques do período (30%) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Contribuição para os ODS (8 cols) */}
-        <div className="lg:col-span-8 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="lg:col-span-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between mb-1">
-            <h3 className="text-sm font-bold text-[#0D1E3A]">Contribuição da VILA para os ODS</h3>
+            <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Contribuição da VILA para os ODS</h3>
             <button
               onClick={() => showToast('A abrir catálogo completo dos 17 Objetivos de Desenvolvimento Sustentável')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group cursor-pointer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1 group cursor-pointer"
             >
               <span>Ver todos os ODS</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
-          <p className="text-[11px] text-slate-400 mb-4">
+          <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-4">
             A plataforma VILA contribui ativamente para os Objetivos de Desenvolvimento Sustentável.
           </p>
 
@@ -762,7 +762,7 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
               <div
                 key={i}
                 onClick={() => showToast(`ODS ${ods.number}: ${ods.title} — ${ods.percentage} de progresso consolidado`)}
-                className="p-3 border border-slate-100 rounded-xl hover:border-slate-300 hover:shadow-2xs transition-all cursor-pointer flex flex-col justify-between"
+                className="p-3 border border-slate-100 dark:border-slate-800 rounded-xl hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-2xs transition-all cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-start justify-between">
@@ -771,19 +771,19 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
                     </span>
                     <div className="shrink-0">{ods.icon}</div>
                   </div>
-                  <h4 className="text-[11px] font-bold text-slate-700 mt-2 line-clamp-2 leading-tight">
+                  <h4 className="text-[11px] font-bold text-slate-700 dark:text-slate-300 mt-2 line-clamp-2 leading-tight">
                     {ods.title}
                   </h4>
                 </div>
 
                 <div className="mt-4">
-                  <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                  <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-500"
                       style={{ width: ods.width, backgroundColor: ods.color }}
                     />
                   </div>
-                  <div className="text-right text-[10.5px] font-bold text-slate-600 mt-1">
+                  <div className="text-right text-[10.5px] font-bold text-slate-600 dark:text-slate-400 mt-1">
                     {ods.percentage}
                   </div>
                 </div>
@@ -793,10 +793,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
         </div>
 
         {/* Destaques do período (4 cols) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0D1E3A]">Destaques do período</h3>
-            <p className="text-[11px] text-slate-400 mb-3">
+            <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Destaques do período</h3>
+            <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-3">
               Principais marcos alcançados pela plataforma.
             </p>
 
@@ -808,8 +808,8 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
                 { icon: <Flag className="w-3.5 h-3.5 text-indigo-600" />, text: '+850 projetos comunitários apoiados' },
                 { icon: <Megaphone className="w-3.5 h-3.5 text-purple-600" />, text: '3 grandes campanhas globais realizadas' },
               ].map((m, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
-                  <div className="w-6 h-6 rounded-lg bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
+                <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
+                  <div className="w-6 h-6 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-800">
                     {m.icon}
                   </div>
                   <span className="truncate">{m.text}</span>
@@ -818,10 +818,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-50 mt-4 flex justify-center">
+          <div className="pt-4 border-t border-slate-50 dark:border-slate-800 mt-4 flex justify-center">
             <button
               onClick={() => showToast('A exibir todos os marcos de impacto histórico')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group cursor-pointer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1 group cursor-pointer"
             >
               <span>Ver todos os marcos</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -833,18 +833,18 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
       {/* 5. LINHA 4: Atividades Recentes com Maior Alcance (70%) + Relatórios e Dados (30%) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Atividades Recentes com Maior Alcance (8 cols) */}
-        <div className="lg:col-span-8 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="lg:col-span-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center justify-between mb-1">
-            <h3 className="text-sm font-bold text-[#0D1E3A]">Atividades Recentes com Maior Alcance</h3>
+            <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Atividades Recentes com Maior Alcance</h3>
             <button
               onClick={() => onNavigateToTab('projetos-iniciativas')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group cursor-pointer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1 group cursor-pointer"
             >
               <span>Ver todas as atividades</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
-          <p className="text-[11px] text-slate-400 mb-4">
+          <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-4">
             Principais iniciativas da plataforma que geraram mais impacto recentemente.
           </p>
 
@@ -853,21 +853,21 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
               <div
                 key={idx}
                 onClick={() => onNavigateToTab('projetos-iniciativas')}
-                className="p-3 border border-slate-100 rounded-xl hover:border-slate-300 hover:shadow-2xs transition-all cursor-pointer flex flex-col justify-between"
+                className="p-3 border border-slate-100 dark:border-slate-800 rounded-xl hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-2xs transition-all cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className={`w-8 h-8 rounded-lg ${act.bg} flex items-center justify-center mb-2.5`}>
                     {act.icon}
                   </div>
-                  <h4 className="text-[11px] font-bold text-slate-800 line-clamp-2 leading-tight">
+                  <h4 className="text-[11px] font-bold text-slate-800 dark:text-slate-100 line-clamp-2 leading-tight">
                     {act.title}
                   </h4>
                 </div>
 
-                <div className="mt-3 pt-2 border-t border-slate-50">
-                  <div className="text-[10px] text-slate-400">Pessoas alcançadas</div>
-                  <div className="text-sm font-black text-[#0D1E3A] font-['Outfit']">{act.reach}</div>
-                  <div className="text-[10.5px] text-slate-500 mt-0.5">{act.countries}</div>
+                <div className="mt-3 pt-2 border-t border-slate-50 dark:border-slate-800">
+                  <div className="text-[10px] text-slate-400 dark:text-slate-500">Pessoas alcançadas</div>
+                  <div className="text-sm font-black text-[#0D1E3A] dark:text-slate-50 font-['Outfit']">{act.reach}</div>
+                  <div className="text-[10.5px] text-slate-500 dark:text-slate-400 mt-0.5">{act.countries}</div>
                 </div>
               </div>
             ))}
@@ -875,10 +875,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
         </div>
 
         {/* Relatórios e Dados (4 cols) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-[#0D1E3A]">Relatórios e Dados</h3>
-            <p className="text-[11px] text-slate-400 mb-3">
+            <h3 className="text-sm font-bold text-[#0D1E3A] dark:text-slate-50">Relatórios e Dados</h3>
+            <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-3">
               Aceda a relatórios detalhados e dados abertos da plataforma.
             </p>
 
@@ -891,15 +891,15 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
                 <div
                   key={i}
                   onClick={() => showToast(`A descarregar ficheiro: ${doc.title}`)}
-                  className="flex items-center justify-between p-2.5 rounded-xl border border-slate-100 hover:bg-slate-50 cursor-pointer group transition-all"
+                  className="flex items-center justify-between p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer group transition-all"
                 >
-                  <div className="flex items-center gap-2.5 text-xs text-slate-700 font-semibold truncate pr-2">
-                    <div className="w-7 h-7 rounded-lg bg-purple-50 flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-2.5 text-xs text-slate-700 dark:text-slate-300 font-semibold truncate pr-2">
+                    <div className="w-7 h-7 rounded-lg bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center shrink-0">
                       {doc.icon}
                     </div>
                     <span className="truncate">{doc.title}</span>
                   </div>
-                  <button className="p-1 text-slate-400 group-hover:text-purple-600 transition-colors">
+                  <button className="p-1 text-slate-400 dark:text-slate-500 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                     <Download className="w-4 h-4" />
                   </button>
                 </div>
@@ -907,10 +907,10 @@ export const ImpactoGlobalView: React.FC<ImpactoGlobalViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-50 mt-4 flex justify-center">
+          <div className="pt-4 border-t border-slate-50 dark:border-slate-800 mt-4 flex justify-center">
             <button
               onClick={() => onNavigateToTab('relatorios-dados')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group cursor-pointer"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1 group cursor-pointer"
             >
               <span>Ver todos os relatórios</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

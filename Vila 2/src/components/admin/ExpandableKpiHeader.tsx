@@ -63,7 +63,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
               if (kpi.onClick) kpi.onClick();
               else onOpenDetail?.(kpi.label);
             }}
-            className="bg-white rounded-xl border border-slate-200/80 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer animate-in fade-in duration-300"
+            className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 p-2.5 sm:p-3 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group min-w-0 cursor-pointer animate-in fade-in duration-300"
           >
             {/* Topo: Ícone pastel + Delta */}
             <div className="flex items-center justify-between gap-1.5">
@@ -76,7 +76,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
                 <span
                   className={`text-[9.5px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap shadow-2xs ${
                     kpi.trendClassName ||
-                    'text-emerald-700 bg-emerald-50 border border-emerald-200/70'
+                    'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/70'
                   }`}
                 >
                   {kpi.trend}
@@ -86,17 +86,17 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
 
             {/* Valor + rótulo */}
             <div className="mt-2">
-              <p className="text-lg sm:text-[20px] font-bold text-[#0F172A] font-sans tracking-tight leading-tight">
+              <p className="text-lg sm:text-[20px] font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight leading-tight">
                 {kpi.value}
               </p>
               <p
-                className="text-[11px] sm:text-[11.5px] font-medium text-slate-700 mt-0.5 leading-tight truncate"
+                className="text-[11px] sm:text-[11.5px] font-medium text-slate-700 dark:text-slate-300 mt-0.5 leading-tight truncate"
                 title={kpi.label}
               >
                 {kpi.label}
               </p>
               {kpi.trendPeriod && (
-                <p className="text-[9.5px] sm:text-[10px] text-slate-400 mt-0.5 truncate">
+                <p className="text-[9.5px] sm:text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">
                   {kpi.trendPeriod}
                 </p>
               )}
@@ -110,7 +110,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
             )}
 
             {/* Rodapé: link compacto */}
-            <div className="pt-1.5 mt-2 border-t border-slate-200/70 flex items-center justify-between">
+            <div className="pt-1.5 mt-2 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-between">
               <span className="text-[10.5px] font-semibold text-[#1455AC] group-hover:text-blue-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
                 <span>{kpi.actionText || 'Ver detalhes'}</span>
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -127,7 +127,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
           onClick={() => setExpanded((v) => !v)}
           className={`self-center inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all cursor-pointer shadow-2xs ${
             expanded
-              ? 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              ? 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
               : 'bg-[#E2ECF9] border border-blue-200 text-[#1455AC] hover:bg-blue-100'
           }`}
           aria-expanded={expanded}

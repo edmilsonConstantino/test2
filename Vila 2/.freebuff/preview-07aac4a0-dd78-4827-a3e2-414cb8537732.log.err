@@ -1,0 +1,134 @@
+[2m13:35:56[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Projetos\Mano calos projetos\VILA\Vila 2\src\components\admin\MiniCharts.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (222:4)
+
+[0m [90m 220 |[31m         ))}
+ [90m 221 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 222 |[31m     [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m     [31m[1m^[22m[31m
+ [90m 223 |[31m   )[33m;[31m
+ [90m 224 |[31m }[33m;[31m
+ [90m 225 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/Projetos/Mano calos projetos/VILA/Vila 2/src/components/admin/MiniCharts.tsx[39m:222:4
+[33m  220|          ))}
+  221|        </div>
+  222|      </div>
+     |      ^
+  223|    );
+  224|  };[39m
+      at constructor (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:6622:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4760:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4767:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4777:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11107:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11092:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11072:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9860:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10925:61)
+      at TypeScriptParserMixin.parseExprOps (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10930:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10907:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10857:21)
+      at D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9798:39
+      at TypeScriptParserMixin.tryParse (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:6930:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9798:18)
+      at D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10826:39
+      at TypeScriptParserMixin.allowInAnd (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:12460:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10826:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:12527:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11706:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11362:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4782:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11107:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11092:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11072:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9860:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10925:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11012:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11007:21)
+      at TypeScriptParserMixin.parseExprOp (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10973:27)
+      at TypeScriptParserMixin.parseExprOp (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9329:18)
+      at TypeScriptParserMixin.parseExprOps (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10934:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10907:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10857:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9809:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10810:23)
+      at D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10806:39
+      at TypeScriptParserMixin.allowInAnd (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:12460:12)
+      at TypeScriptParserMixin.parseExpression (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10806:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4650:31)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4729:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4767:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4777:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11107:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11092:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11072:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9860:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10925:61)
+      at TypeScriptParserMixin.parseExprOps (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10930:23)
+[2m13:35:56[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Projetos\Mano calos projetos\VILA\Vila 2\src\components\admin\MiniCharts.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (222:4)
+
+[0m [90m 220 |[31m         ))}
+ [90m 221 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+[31m[1m>[22m[31m[90m 222 |[31m     [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m     |[31m     [31m[1m^[22m[31m
+ [90m 223 |[31m   )[33m;[31m
+ [90m 224 |[31m }[33m;[31m
+ [90m 225 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/Projetos/Mano calos projetos/VILA/Vila 2/src/components/admin/MiniCharts.tsx[39m:222:4
+[33m  220|          ))}
+  221|        </div>
+  222|      </div>
+     |      ^
+  223|    );
+  224|  };[39m
+      at constructor (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:6622:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4760:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4767:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4777:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11107:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11092:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11072:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9860:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10925:61)
+      at TypeScriptParserMixin.parseExprOps (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10930:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10907:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10857:21)
+      at D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9798:39
+      at TypeScriptParserMixin.tryParse (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:6930:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9798:18)
+      at D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10826:39
+      at TypeScriptParserMixin.allowInAnd (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:12460:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10826:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:12527:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11706:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11362:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4782:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11107:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11092:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11072:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9860:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10925:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11012:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11007:21)
+      at TypeScriptParserMixin.parseExprOp (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10973:27)
+      at TypeScriptParserMixin.parseExprOp (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9329:18)
+      at TypeScriptParserMixin.parseExprOps (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10934:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10907:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10857:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9809:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10810:23)
+      at D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10806:39
+      at TypeScriptParserMixin.allowInAnd (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:12460:12)
+      at TypeScriptParserMixin.parseExpression (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10806:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4650:31)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4729:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4767:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:4777:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11107:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11092:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:11072:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:9860:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10925:61)
+      at TypeScriptParserMixin.parseExprOps (D:\Projetos\Mano calos projetos\VILA\Vila 2\node_modules\@babel\parser\lib\index.js:10930:23)

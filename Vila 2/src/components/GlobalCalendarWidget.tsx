@@ -132,18 +132,18 @@ export const GlobalCalendarWidget: React.FC<GlobalCalendarWidgetProps> = ({
   return (
     <div
       id="global-calendar-widget"
-      className={`rounded-[18px] bg-white border border-slate-200/80 p-5 min-h-[360px] sm:min-h-[380px] lg:min-h-[410px] flex flex-col justify-between shadow-xs ${className}`}
+      className={`rounded-[18px] bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 p-5 min-h-[360px] sm:min-h-[380px] lg:min-h-[410px] flex flex-col justify-between shadow-xs ${className}`}
     >
       <div>
         {/* Cabeçalho do Card */}
-        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-          <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-sans tracking-tight">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+          <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
             Calendário Global
           </h3>
           <button
             type="button"
             aria-label="Opções do Calendário"
-            className="text-slate-300 hover:text-slate-500 transition-colors p-0.5 rounded cursor-pointer"
+            className="text-slate-300 dark:text-slate-600 hover:text-slate-500 dark:hover:text-slate-400 transition-colors p-0.5 rounded cursor-pointer"
           >
             <ChevronRight className="w-4 h-4 stroke-[2]" />
           </button>
@@ -156,11 +156,11 @@ export const GlobalCalendarWidget: React.FC<GlobalCalendarWidgetProps> = ({
             onClick={handlePrevMonth}
             disabled={currentMonthIndex === 0}
             aria-label="Mês anterior"
-            className="p-1 rounded-md text-[#1455AC] hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer"
+            className="p-1 rounded-md text-[#1455AC] hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4 stroke-[2.2]" />
           </button>
-          <span className="text-xs sm:text-[13px] font-bold text-slate-900 font-sans select-none">
+          <span className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-50 font-sans select-none">
             {activeMonth.name}
           </span>
           <button
@@ -168,14 +168,14 @@ export const GlobalCalendarWidget: React.FC<GlobalCalendarWidgetProps> = ({
             onClick={handleNextMonth}
             disabled={currentMonthIndex === MONTHS_DATA.length - 1}
             aria-label="Próximo mês"
-            className="p-1 rounded-md text-[#1455AC] hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer"
+            className="p-1 rounded-md text-[#1455AC] hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer"
           >
             <ChevronRight className="w-4 h-4 stroke-[2.2]" />
           </button>
         </div>
 
         {/* Dias da Semana: SEG TER QUA QUI SEX SÁB DOM */}
-        <div className="grid grid-cols-7 gap-1 text-center text-[10.5px] font-bold text-slate-400 mb-1.5 select-none font-sans">
+        <div className="grid grid-cols-7 gap-1 text-center text-[10.5px] font-bold text-slate-400 dark:text-slate-500 mb-1.5 select-none font-sans">
           <span>SEG</span>
           <span>TER</span>
           <span>QUA</span>
@@ -198,10 +198,10 @@ export const GlobalCalendarWidget: React.FC<GlobalCalendarWidgetProps> = ({
                   disabled={!d.isCurrentMonth}
                   className={`relative w-7 h-7 sm:w-8 sm:h-8 rounded-full flex flex-col items-center justify-center transition-all select-none ${
                     !d.isCurrentMonth
-                      ? 'text-slate-300 cursor-default font-normal'
+                      ? 'text-slate-300 dark:text-slate-700 cursor-default font-normal'
                       : isSelected
                       ? 'bg-[#1455AC] text-white font-bold shadow-xs cursor-pointer'
-                      : 'text-slate-700 hover:bg-slate-100 font-medium cursor-pointer'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium cursor-pointer'
                   }`}
                 >
                   <span className="text-[11.5px] sm:text-xs leading-none">{d.day}</span>
@@ -220,7 +220,7 @@ export const GlobalCalendarWidget: React.FC<GlobalCalendarWidgetProps> = ({
       </div>
 
       {/* Rodapé: Link "Ver calendário completo →" */}
-      <div className="pt-3 border-t border-slate-100 text-center mt-3">
+      <div className="pt-3 border-t border-slate-100 dark:border-slate-800 text-center mt-3">
         <button
           type="button"
           onClick={onViewFullCalendar}

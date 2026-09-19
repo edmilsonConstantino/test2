@@ -220,12 +220,12 @@ export const GlobalImpactView: React.FC<GlobalImpactViewProps> = ({
   }
 
   return (
-    <ImpactoGlobalView
-      currentUser={restProps.currentUser}
-      onNavigateToTab={onNavigateToTab || (() => {})}
-      onBreadcrumbChange={onBreadcrumbChange}
+    <MainImpactGlobalView
+      onNavigateToCategory={handleCategoryNavigation}
+      onNavigateToTab={onNavigateToTab}
       onOpenAuth={onOpenAuth}
       onOpenAiAssistant={onOpenAiAssistant}
+      onOpenMobileMenu={onOpenMobileMenu}
     />
   );
 };
