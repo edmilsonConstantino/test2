@@ -1669,7 +1669,7 @@ export const PrivacySecurityTab: React.FC = () => {
       {activeModal === 'delete-account' && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-150">
           <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-red-200 p-6 space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-red-100">
+            <div className="flex items-center justify-between pb-3 border-b border-red-100 dark:border-red-800/40">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center">
                   <AlertTriangle className="w-4 h-4" />

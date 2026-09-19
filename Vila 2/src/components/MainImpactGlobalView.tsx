@@ -68,8 +68,8 @@ const IMPACT_AREAS: AreaItem[] = [
     name: 'Ambiente',
     count: '842 iniciativas',
     growth: '+23%',
-    iconBg: 'bg-[#064E3B] text-white',
-    iconSoftBg: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400',
+    iconBg: 'bg-[#1455AC] text-white',
+    iconSoftBg: 'bg-blue-50 text-[#1455AC] dark:bg-blue-500/10 dark:text-blue-400',
     icon: <Leaf className="w-5 h-5" />,
     categoryTarget: 'ambiente',
   },
@@ -130,7 +130,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     id: 'p-oceano',
     tag: 'Oceano Limpo',
-    tagBg: 'bg-emerald-600 text-white',
+    tagBg: 'bg-blue-50 text-[#1455AC] border border-blue-100',
     image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&auto=format&fit=crop&q=80',
     title: 'Oceano Limpo',
     subtitle: 'Proteção dos oceanos e vida marinha',
@@ -141,7 +141,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     id: 'p-cidades',
     tag: 'Cidades Verdes',
-    tagBg: 'bg-teal-600 text-white',
+    tagBg: 'bg-blue-50 text-[#1455AC] border border-blue-100',
     image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=400&auto=format&fit=crop&q=80',
     title: 'Cidades Verdes',
     subtitle: 'Transformação urbana sustentável',
@@ -152,7 +152,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     id: 'p-agua',
     tag: 'Água para Todos',
-    tagBg: 'bg-sky-600 text-white',
+    tagBg: 'bg-blue-50 text-[#1455AC] border border-blue-100',
     image: 'https://images.unsplash.com/photo-1541919329513-35f7af297129?w=400&auto=format&fit=crop&q=80',
     title: 'Água para Todos',
     subtitle: 'Acesso à água potável e saneamento',
@@ -163,7 +163,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     id: 'p-inovacao',
     tag: 'Inovação Social',
-    tagBg: 'bg-amber-600 text-white',
+    tagBg: 'bg-blue-50 text-[#1455AC] border border-blue-100',
     image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&auto=format&fit=crop&q=80',
     title: 'Inovação Social',
     subtitle: 'Soluções inovadoras para desafios sociais',
@@ -194,7 +194,7 @@ const ODS_OUTROS = 401;
 
 // KPIs do topo (estilo referência com variação vs. último ano)
 const TOP_KPIS = [
-  { value: '2.847', label: 'Iniciativas de Impacto', delta: '+18% vs. último ano', icon: Leaf, iconBg: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400' },
+  { value: '2.847', label: 'Iniciativas de Impacto', delta: '+18% vs. último ano', icon: Leaf, iconBg: 'bg-blue-50 text-[#1455AC] dark:bg-blue-500/10 dark:text-blue-400' },
   { value: '185M', label: 'Pessoas Impactadas', delta: '+24% vs. último ano', icon: Users, iconBg: 'bg-sky-50 text-sky-600 dark:bg-sky-500/10 dark:text-sky-400' },
   { value: '197', label: 'Países Envolvidos', delta: '+6 novos este ano', icon: Globe, iconBg: 'bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400' },
   { value: '14,2B €', label: 'Investimento Mobilizado', delta: '+21% vs. último ano', icon: Coins, iconBg: 'bg-amber-50 text-amber-600 dark:bg-amber-500/10 dark:text-amber-400' },
@@ -211,7 +211,7 @@ const HIGHLIGHTS = [
 
 // Sidebar: Ações que Fazem a Diferença
 const ACTIONS = [
-  { title: 'Apoie iniciativas de impacto', desc: 'Descubra projetos para apoiar', icon: Leaf, bg: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400' },
+  { title: 'Apoie iniciativas de impacto', desc: 'Descubra projetos para apoiar', icon: Leaf, bg: 'bg-blue-50 text-[#1455AC] dark:bg-blue-500/10 dark:text-blue-400' },
   { title: 'Partilhe conhecimento', desc: 'Ajude a inspirar e transformar', icon: BookOpen, bg: 'bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400' },
   { title: 'Participe na comunidade', desc: 'Colabore em ações globais', icon: Users, bg: 'bg-violet-50 text-violet-600 dark:bg-violet-500/10 dark:text-violet-400' },
   { title: 'Meça o seu impacto', desc: 'Acompanhe e gere resultados', icon: Target, bg: 'bg-amber-50 text-amber-600 dark:bg-amber-500/10 dark:text-amber-400' },
@@ -253,7 +253,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
   const odsSeries: LineSeries[] = [
     {
       name: 'Índice de Impacto',
-      color: '#059669',
+      color: '#1455AC',
       values: [56, 60, 64, 68, 72],
     },
   ];
@@ -261,8 +261,8 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
   return (
     <div className="min-h-screen bg-[#F4F7FB] dark:bg-slate-950">
       {isSuccessToast && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#064E3B] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-emerald-700 animate-in fade-in slide-in-from-bottom-4">
-          <Check className="w-5 h-5 text-emerald-300" />
+        <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-700 animate-in fade-in slide-in-from-bottom-4">
+          <Check className="w-5 h-5 text-emerald-400" />
           <span className="text-sm font-semibold">Iniciativa enviada com sucesso para moderação comunitária!</span>
         </div>
       )}
@@ -271,11 +271,11 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
       {/* 1. CABEÇALHO: ícone + título + subtítulo à esquerda; imagem de rede global à direita */}
         <section id="impacto-global-header" className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-3.5 min-w-0">
-            <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-[#064E3B] text-white flex items-center justify-center shrink-0 shadow-sm border border-emerald-950/20">
+            <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-[#1455AC] text-white flex items-center justify-center shrink-0 shadow-sm border border-blue-950/20">
               <Leaf className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.4} />
             </div>
             <div className="flex flex-col min-w-0">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight leading-tight">
                 Impacto Global
               </h1>
               <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug max-w-lg">
@@ -289,7 +289,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
             type="button"
             onClick={() => setIsLaunchModalOpen(true)}
             id="btn-lancar-iniciativa-global"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#064E3B] hover:bg-[#04382A] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer shrink-0"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer shrink-0"
           >
             <span>Lançar Iniciativa</span>
             <Plus className="w-4 h-4 stroke-[2.8]" />
@@ -313,7 +313,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   <Icon className="w-5.5 h-5.5" strokeWidth={2} />
                 </div>
                 <div className="min-w-0">
-                  <span className="block text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-none">
+                  <span className="block text-lg font-black text-[#0F172A] dark:text-slate-50 leading-none">
                     {m.value}
                   </span>
                   <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block mt-1 leading-tight">
@@ -332,7 +332,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         <section id="areas-de-impacto-main" className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
           <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-1.5">
-              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                 Áreas de Impacto
               </h3>
               <Info className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600" />
@@ -340,7 +340,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
             <button
               type="button"
               onClick={() => onNavigateToCategory && onNavigateToCategory('mais')}
-              className="text-[11px] sm:text-xs font-bold text-[#059669] hover:underline cursor-pointer inline-flex items-center gap-1"
+              className="text-[11px] sm:text-xs font-bold text-[#1455AC] hover:underline cursor-pointer inline-flex items-center gap-1"
             >
               <span>Ver todas as áreas</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -353,12 +353,12 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 key={area.id}
                 type="button"
                 onClick={() => onNavigateToCategory && onNavigateToCategory(area.categoryTarget)}
-                className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 hover:border-emerald-200 dark:hover:border-emerald-800 hover:shadow-xs transition-all p-3 flex flex-col items-start text-left cursor-pointer group"
+                className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-xs transition-all p-3 flex flex-col items-start text-left cursor-pointer group"
               >
                 <div className={`w-10 h-10 rounded-xl ${area.iconSoftBg} flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform`}>
                   {area.icon}
                 </div>
-                <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-snug">
+                <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-snug">
                   {area.name}
                 </span>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
@@ -376,7 +376,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
           {/* Impacto por ODS */}
           <section id="ods-alignment-main" className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col gap-3">
-            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight leading-snug">
+            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight leading-snug">
               Impacto por Objetivos de Desenvolvimento Sustentável (ODS)
             </h3>
 
@@ -422,7 +422,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           {/* Evolução do Impacto Global */}
           <section id="impact-evolution-main" className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col gap-2">
             <div className="flex items-center justify-between gap-2">
-              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                 Evolução do Impacto Global
               </h3>
               <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1">
@@ -433,7 +433,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
 
             {/* Índice de Impacto Global: número grande + delta */}
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400 font-['Outfit'] leading-none">72</span>
+              <span className="text-3xl font-black text-[#1455AC] dark:text-blue-400 leading-none">72</span>
               <span className="text-xs font-bold text-slate-400 dark:text-slate-500">/100</span>
               <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 rounded-full px-2 py-0.5 ml-1">
                 ▲ +16 pontos vs. 5 anos atrás
@@ -455,13 +455,13 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         {/* 5. PROJETOS DE IMPACTO EM DESTAQUE (4 mini-cards horizontais) */}
         <section id="projetos-em-destaque-main" className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
           <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
               Projetos de Impacto em Destaque
             </h3>
             <button
               type="button"
               onClick={() => onNavigateToCategory && onNavigateToCategory('ambiente')}
-              className="text-[11px] sm:text-xs font-bold text-[#059669] hover:underline cursor-pointer inline-flex items-center gap-1"
+              className="text-[11px] sm:text-xs font-bold text-[#1455AC] hover:underline cursor-pointer inline-flex items-center gap-1"
             >
               <span>Ver todos os projetos</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -490,7 +490,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   <span className={`inline-block text-[8.5px] font-bold px-1.5 py-0.5 rounded ${proj.tagBg}`}>
                     {proj.tag}
                   </span>
-                  <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-snug mt-1.5 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                  <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 leading-snug mt-1.5 group-hover:text-[#1455AC] dark:group-hover:text-blue-400 transition-colors">
                     {proj.title}
                   </h4>
                   <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5 line-clamp-2">
@@ -510,14 +510,14 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         {/* 6. CTA FINAL: Pequenas ações, grande impacto (faixa larga verde clara) */}
         <section
           id="cta-impacto-global-final"
-          className="rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-900/40 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-900/40 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <div className="flex items-start sm:items-center gap-3.5 min-w-0">
-            <div className="w-11 h-11 rounded-full bg-white dark:bg-slate-900 border border-emerald-100 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-11 h-11 rounded-full bg-white dark:bg-slate-900 border border-blue-100 dark:border-blue-800 text-[#1455AC] dark:text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
               <Leaf className="w-5 h-5" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-sm sm:text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+              <h3 className="text-sm sm:text-base font-black text-[#0F172A] dark:text-slate-50">
                 Pequenas ações, grande impacto.
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
@@ -529,7 +529,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           <button
             type="button"
             onClick={() => setIsLaunchModalOpen(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#059669] to-[#10B981] hover:from-[#047857] hover:to-[#059669] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs sm:text-sm font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer shrink-0"
           >
             <span>Explorar oportunidades de impacto</span>
             <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -542,10 +542,10 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         {/* 1. Destaques de Impacto (4 itens com imagem à esquerda) */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
           <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-            <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">Destaques de Impacto</h3>
+            <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Destaques de Impacto</h3>
             <button
               type="button"
-              className="text-[11px] font-bold text-[#059669] hover:underline cursor-pointer inline-flex items-center gap-0.5"
+              className="text-[11px] font-bold text-[#1455AC] hover:underline cursor-pointer inline-flex items-center gap-0.5"
             >
               <span>Ver todos</span>
               <ArrowRight className="w-3 h-3" />
@@ -559,7 +559,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   <img src={h.image} alt={h.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                  <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#1455AC] dark:group-hover:text-blue-400 transition-colors leading-snug">
                     {h.title}
                   </h4>
                   <p className="text-[10.5px] text-slate-600 dark:text-slate-400 leading-tight mt-0.5">{h.desc}</p>
@@ -572,7 +572,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
 
         {/* 2. Ações que Fazem a Diferença (4 linhas com ícone e chevron) */}
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-2">
-          <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] pb-1 border-b border-slate-100 dark:border-slate-800">
+          <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 pb-1 border-b border-slate-100 dark:border-slate-800">
             Ações que Fazem a Diferença
           </h3>
 
@@ -586,7 +586,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                      <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#1455AC] dark:group-hover:text-blue-400 transition-colors leading-snug">
                         {a.title}
                       </h4>
                       <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate leading-tight">{a.desc}</p>
@@ -603,7 +603,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         <div className="rounded-2xl bg-[#0B2C58] text-white p-5 shadow-sm flex flex-col gap-3">
           <div className="flex items-center gap-2.5">
             <Sparkles className="w-5 h-5 text-sky-300" />
-            <span className="text-sm font-black font-['Outfit']">VILA AI</span>
+            <span className="text-sm font-black">VILA AI</span>
             <span className="text-[10px] text-sky-200/80">A sua assistente inteligente</span>
           </div>
           <p className="text-xs text-sky-100/90 leading-relaxed">
@@ -612,7 +612,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           <button
             type="button"
             onClick={onOpenAiAssistant}
-            className="mt-1 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#10B981] to-[#3B82F6] hover:from-[#059669] hover:to-[#2563EB] text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+            className="mt-1 w-full py-2.5 px-4 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
           >
             <span>Falar com a VILA AI</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -627,10 +627,10 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in duration-200">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400 flex items-center justify-center">
                   <Plus className="w-4 h-4 stroke-[3]" />
                 </div>
-                <h3 className="font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">Lançar Nova Iniciativa</h3>
+                <h3 className="font-bold text-slate-900 dark:text-slate-50">Lançar Nova Iniciativa</h3>
               </div>
               <button
                 type="button"
@@ -650,7 +650,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   placeholder="Ex: Reflorestamento e Proteção de Nascentes"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -659,7 +659,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 <select
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white dark:bg-slate-800 dark:text-slate-100"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs focus:ring-2 focus:ring-blue-500 outline-none bg-white dark:bg-slate-800 dark:text-slate-100"
                 >
                   <option value="Ambiente">Ambiente</option>
                   <option value="Educação">Educação</option>
@@ -678,7 +678,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   value={newLocation}
                   onChange={(e) => setNewLocation(e.target.value)}
                   placeholder="Ex: Brasil, Amazônia"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -689,7 +689,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   value={newGoal}
                   onChange={(e) => setNewGoal(e.target.value)}
                   placeholder="Ex: 50.000 árvores plantadas"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -703,7 +703,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-[#064E3B] hover:bg-[#04382A] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  className="px-5 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs"
                 >
                   <Plus className="w-4 h-4 stroke-[3]" />
                   <span>Publicar Iniciativa</span>
@@ -720,8 +720,8 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <Target className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
-                <h3 className="font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">Objetivos de Desenvolvimento Sustentável (ODS)</h3>
+                <Target className="w-5 h-5 text-[#1455AC] dark:text-blue-400" />
+                <h3 className="font-bold text-slate-900 dark:text-slate-50">Objetivos de Desenvolvimento Sustentável (ODS)</h3>
               </div>
               <button
                 type="button"
@@ -754,7 +754,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsOdsModalOpen(false)}
-                className="px-5 py-2 rounded-xl bg-[#064E3B] text-white text-xs font-bold"
+                className="px-5 py-2 rounded-xl bg-[#1455AC] text-white text-xs font-bold"
               >
                 Fechar
               </button>
@@ -787,7 +787,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50">
                   {selectedProjectModal.title}
                 </h3>
                 <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">{selectedProjectModal.subtitle}</span>
@@ -803,7 +803,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 </div>
                 <div className="text-right">
                   <span className="text-slate-400 dark:text-slate-500 block text-[10px]">Pessoas Impactadas</span>
-                  <span className="font-bold text-emerald-700 dark:text-emerald-400 text-sm">{selectedProjectModal.people}</span>
+                  <span className="font-bold text-[#1455AC] dark:text-blue-400 text-sm">{selectedProjectModal.people}</span>
                 </div>
               </div>
 
@@ -822,7 +822,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                     setIsSuccessToast(true);
                     setTimeout(() => setIsSuccessToast(false), 4000);
                   }}
-                  className="px-4 py-2 rounded-xl bg-[#064E3B] hover:bg-[#04382A] text-white text-xs font-bold flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold flex items-center gap-1.5"
                 >
                   <Heart className="w-3.5 h-3.5 fill-white" />
                   <span>Apoiar este Projeto</span>

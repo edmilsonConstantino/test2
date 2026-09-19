@@ -1,5 +1,13 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import {
+  GlobeAltIcon,
+  MapPinIcon,
+  BuildingOffice2Icon,
+  FlagIcon,
+  PlusCircleIcon,
+  ChartPieIcon,
+} from '@heroicons/react/24/outline';
+import {
   Globe,
   MapPin,
   Building2,
@@ -96,7 +104,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 8%',
     trendPeriod: 'desde o ano passado',
     icon: 'globe',
-    bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 border',
+    bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 dark:border-amber-800/40 border',
     iconClass: 'text-amber-600 dark:text-amber-400',
   },
   {
@@ -106,7 +114,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 10%',
     trendPeriod: 'desde o ano passado',
     icon: 'mappin',
-    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 dark:border-emerald-800/40 border',
     iconClass: 'text-emerald-600 dark:text-emerald-400',
   },
   {
@@ -116,7 +124,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 12%',
     trendPeriod: 'desde o ano passado',
     icon: 'building',
-    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-[#1455AC]',
   },
   {
@@ -126,7 +134,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 14%',
     trendPeriod: 'desde o ano passado',
     icon: 'flag',
-    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-[#1455AC]',
   },
   {
@@ -136,7 +144,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 36%',
     trendPeriod: 'desde o período anterior',
     icon: 'plus',
-    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 dark:border-emerald-800/40 border',
     iconClass: 'text-emerald-600 dark:text-emerald-400',
   },
   {
@@ -146,7 +154,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: 'dos países do mundo',
     trendPeriod: '156 de 195 nações',
     icon: 'pie',
-    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-[#1455AC]',
   },
 ];
@@ -358,17 +366,17 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             : 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/70',
         icon:
           kpi.icon === 'globe' ? (
-            <Globe className="w-3.5 h-3.5" strokeWidth={2.2} />
+            <GlobeAltIcon className="w-4 h-4" />
           ) : kpi.icon === 'mappin' ? (
-            <MapPin className="w-3.5 h-3.5" strokeWidth={2.2} />
+            <MapPinIcon className="w-4 h-4" />
           ) : kpi.icon === 'building' ? (
-            <Building2 className="w-3.5 h-3.5" strokeWidth={2.2} />
+            <BuildingOffice2Icon className="w-4 h-4" />
           ) : kpi.icon === 'flag' ? (
-            <Flag className="w-3.5 h-3.5" strokeWidth={2.2} />
+            <FlagIcon className="w-4 h-4" />
           ) : kpi.icon === 'plus' ? (
-            <PlusCircle className="w-3.5 h-3.5" strokeWidth={2.2} />
+            <PlusCircleIcon className="w-4 h-4" />
           ) : (
-            <PieChart className="w-3.5 h-3.5" strokeWidth={2.2} />
+            <ChartPieIcon className="w-4 h-4" />
           ),
         bgClass: kpi.bgClass,
         iconClass: kpi.iconClass,
@@ -1262,7 +1270,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             </div>
 
             <div className="space-y-3 text-xs text-slate-600 dark:text-slate-400">
-              <div className="p-3 bg-blue-50/60 border border-blue-100 rounded-xl space-y-1">
+              <div className="p-3 bg-blue-50/60 border border-blue-100 dark:border-blue-800/40 rounded-xl space-y-1">
                 <p className="font-semibold text-blue-900">Estado Atual da Região/Métrica</p>
                 <p className="text-blue-700">
                   Os dados territoriais da rede VILA são validados em tempo real com base na geolocalização dos membros e lideranças de projetos locais.

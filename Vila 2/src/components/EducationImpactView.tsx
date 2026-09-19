@@ -343,49 +343,49 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       title: 'Guia de Projetos Educacionais',
       description: 'Passo a passo para criar iniciativas pedagógicas',
       icon: <BookOpen className="w-4 h-4 text-blue-600" />,
-      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'cursos',
       title: 'Plataforma de Cursos Abertos',
       description: 'Cursos gratuitos com certificados reconhecidos',
       icon: <Monitor className="w-4 h-4 text-indigo-600" />,
-      bg: 'bg-indigo-50 border-indigo-100',
+      bg: 'bg-indigo-50 border-indigo-100 dark:border-indigo-800/40',
     },
     {
       id: 'biblioteca',
       title: 'Biblioteca de Recursos',
       description: 'Materiais pedagógicos e didáticos para todos',
       icon: <FileText className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'financiamento',
       title: 'Financiamento e Bolsas',
       description: 'Encontre apoio financeiro para estudantes e escolas',
       icon: <Award className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
-      bg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100',
+      bg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-800/40',
     },
     {
       id: 'parcerias',
       title: 'Parcerias Educacionais',
       description: 'Conecte-se com universidades, ONGs e fundações',
       icon: <Handshake className="w-4 h-4 text-rose-600 dark:text-rose-400" />,
-      bg: 'bg-rose-50 dark:bg-rose-500/10 border-rose-100',
+      bg: 'bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-800/40',
     },
     {
       id: 'webinars',
       title: 'Webinars e Workshops',
       description: 'Aprenda com educadores e especialistas da área',
       icon: <Video className="w-4 h-4 text-cyan-600" />,
-      bg: 'bg-cyan-50 border-cyan-100',
+      bg: 'bg-cyan-50 border-cyan-100 dark:border-cyan-800/40',
     },
     {
       id: 'ferramentas',
       title: 'Ferramentas Gratuitas',
       description: 'Recursos digitais para ensinar e aprender melhor',
       icon: <Sparkles className="w-4 h-4 text-purple-600" />,
-      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100',
+      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100 dark:border-purple-800/40',
     },
   ];
 
@@ -887,7 +887,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                       <span className="w-5 text-center text-xs font-bold text-slate-400 dark:text-slate-500 shrink-0">
                         {item.rank}
                       </span>
-                      <div className="w-9 h-9 rounded-xl overflow-hidden bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <div className="w-9 h-9 rounded-xl overflow-hidden bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                       </div>
                       <div className="min-w-0">
@@ -1028,7 +1028,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-3 bg-blue-50 dark:bg-blue-500/10/70 border border-blue-100 rounded-2xl text-xs text-blue-900 space-y-1">
+              <div className="p-3 bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 rounded-2xl text-xs text-blue-900 space-y-1">
                 <span className="font-bold">Impacto estimado com {donationAmount} €:</span>
                 <p className="text-[11.5px] text-blue-800">
                   {donationAmount * 3} livros escolares e material didático para {Math.round(donationAmount / 5)} estudantes por um trimestre.
@@ -1176,7 +1176,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-blue-50 dark:bg-blue-500/10/60 rounded-xl border border-blue-100 text-blue-900">
+              <div className="p-3 bg-blue-50 dark:bg-blue-500/10 rounded-xl border border-blue-100 dark:border-blue-800/40 text-blue-900">
                 <span className="font-bold block mb-1">África (34% do impacto total)</span>
                 Construção de escolas rurais, formação de professores e bolsas para estudantes de baixa renda.
               </div>

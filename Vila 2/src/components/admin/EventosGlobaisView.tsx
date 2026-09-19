@@ -120,7 +120,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       icon: Calendar,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
     {
       id: 'kpi-eventos-ativos',
@@ -131,7 +131,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       icon: CalendarCheck2,
       iconBg: 'bg-emerald-50/90',
       iconColor: 'text-emerald-600 dark:text-emerald-400',
-      borderColor: 'border-emerald-100/70',
+      borderColor: 'border-emerald-100/70 dark:border-emerald-800/40',
     },
     {
       id: 'kpi-participantes-totais',
@@ -142,7 +142,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       icon: Users,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
     {
       id: 'kpi-paises-eventos',
@@ -153,7 +153,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       icon: Globe2,
       iconBg: 'bg-amber-50/90',
       iconColor: 'text-amber-600 dark:text-amber-400',
-      borderColor: 'border-amber-100/70',
+      borderColor: 'border-amber-100/70 dark:border-amber-800/40',
     },
     {
       id: 'kpi-eventos-online',
@@ -164,7 +164,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       icon: Wifi,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
     {
       id: 'kpi-taxa-participacao',
@@ -175,7 +175,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       icon: TrendingUp,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
   ];
 
@@ -565,7 +565,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       subtitle: 'por João Silva • Município de Lisboa',
       time: 'há 10 min',
       icon: <Calendar className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'ar-2',
@@ -574,7 +574,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       subtitle: 'por Maria Costa • VILA Global',
       time: 'há 25 min',
       icon: <Calendar className="w-4 h-4 text-[#1455AC]" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'ar-3',
@@ -583,7 +583,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       subtitle: '245 novas inscrições',
       time: 'há 1 h',
       icon: <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'ar-4',
@@ -592,7 +592,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       subtitle: '1.200 participaram',
       time: 'há 2 h',
       icon: <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
     },
   ];
 
@@ -1226,7 +1226,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                   className="py-3 flex items-start gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800/60 p-2 rounded-xl cursor-pointer transition-all group"
                 >
                   {/* Badge Quadrado com Data (Dia + Mês) */}
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0 group-hover:bg-[#1455AC] group-hover:text-white transition-colors">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex flex-col items-center justify-center shrink-0 group-hover:bg-[#1455AC] group-hover:text-white transition-colors">
                     <span className="text-sm font-black text-[#1455AC] group-hover:text-white leading-none font-sans">
                       {ev.dayBadge}
                     </span>

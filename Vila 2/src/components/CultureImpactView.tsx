@@ -342,49 +342,49 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       title: 'Guia de Financiamento Cultural',
       description: 'Encontre fundos para projetos culturais',
       icon: <FileText className="w-4 h-4 text-purple-600" />,
-      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100',
+      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100 dark:border-purple-800/40',
     },
     {
       id: 'colaboracao',
       title: 'Plataforma de Colaboração',
       description: 'Conecte-se com artistas e organizações',
       icon: <Network className="w-4 h-4 text-indigo-600" />,
-      bg: 'bg-indigo-50 border-indigo-100',
+      bg: 'bg-indigo-50 border-indigo-100 dark:border-indigo-800/40',
     },
     {
       id: 'calendario',
       title: 'Calendário Cultural Global',
       description: 'Eventos, festivais e chamadas abertas',
       icon: <Clock className="w-4 h-4 text-blue-600" />,
-      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'biblioteca',
       title: 'Biblioteca de Recursos',
       description: 'Estudos, relatórios e publicações',
       icon: <BookOpen className="w-4 h-4 text-violet-600" />,
-      bg: 'bg-violet-50 border-violet-100',
+      bg: 'bg-violet-50 border-violet-100 dark:border-violet-800/40',
     },
     {
       id: 'cursos',
       title: 'Cursos e Webinars',
       description: 'Capacitação para profissionais da cultura',
       icon: <Video className="w-4 h-4 text-teal-600" />,
-      bg: 'bg-teal-50 border-teal-100',
+      bg: 'bg-teal-50 border-teal-100 dark:border-teal-800/40',
     },
     {
       id: 'parcerias',
       title: 'Parcerias Culturais',
       description: 'Conecte-se com instituições culturais',
       icon: <Building2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'ferramentas',
       title: 'Ferramentas Gratuitas',
       description: 'Recursos para criar e divulgar projetos',
       icon: <Sparkles className="w-4 h-4 text-pink-600" />,
-      bg: 'bg-pink-50 border-pink-100',
+      bg: 'bg-pink-50 border-pink-100 dark:border-pink-800/40',
     },
   ];
 
@@ -1031,7 +1031,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-3 bg-violet-50 rounded-2xl border border-violet-100 text-xs text-violet-900 space-y-1">
+              <div className="p-3 bg-violet-50 rounded-2xl border border-violet-100 dark:border-violet-800/40 text-xs text-violet-900 space-y-1">
                 <div className="font-bold flex items-center gap-1.5 text-[#371B80]">
                   <Sparkles className="w-4 h-4" />
                   Impacto estimado com {donationAmount} €:

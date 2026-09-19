@@ -107,7 +107,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 26%',
       trendPeriod: 'desde o ano passado',
       icon: <FileText className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       actionText: 'Ver relatórios',
       spark: [780, 830, 870, 910, 950, 990, 1030, 1080, 1120, 1170, 1210, 1248],
@@ -120,7 +120,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 32%',
       trendPeriod: 'desde o ano passado',
       icon: <Search className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
       iconClass: 'text-emerald-600 dark:text-emerald-400',
       actionText: 'Ver detalhes',
       spark: [15.2, 16.1, 17, 17.8, 18.6, 19.4, 20.3, 21.1, 22, 23, 23.8, 24.56],
@@ -133,7 +133,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
       icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       actionText: 'Ver conjuntos',
       spark: [268, 276, 284, 292, 300, 308, 316, 326, 336, 344, 350, 356],
@@ -146,7 +146,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
       icon: <Share2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       actionText: 'Ver fontes',
       spark: [34, 35, 35, 36, 37, 37, 38, 39, 40, 41, 42, 42],
@@ -159,7 +159,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 25%',
       trendPeriod: 'desde o ano passado',
       icon: <TrendingUp className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
       iconClass: 'text-emerald-600 dark:text-emerald-400',
       actionText: 'Ver downloads',
       spark: [5.4, 5.8, 6.1, 6.5, 6.8, 7.1, 7.4, 7.7, 8, 8.3, 8.55, 8.73],
@@ -172,7 +172,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       trend: '↑ 20%',
       trendPeriod: 'desde o ano passado',
       icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       actionText: 'Ver utilizadores',
       spark: [620, 645, 665, 688, 706, 725, 744, 762, 784, 806, 824, 842],
@@ -322,7 +322,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '20 Mai 2025',
       format: 'PDF',
       size: '12.4 MB',
-      iconCol: 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      iconCol: 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'rep-2',
@@ -331,7 +331,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '15 Mai 2025',
       format: 'PDF',
       size: '8.7 MB',
-      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'rep-3',
@@ -340,7 +340,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '10 Mai 2025',
       format: 'PDF',
       size: '6.1 MB',
-      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'rep-4',
@@ -349,7 +349,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '05 Mai 2025',
       format: 'PDF',
       size: '9.3 MB',
-      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'rep-5',
@@ -358,7 +358,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       date: '01 Mai 2025',
       format: 'PDF',
       size: '7.8 MB',
-      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      iconCol: 'text-blue-600 bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
   ];
 
@@ -480,7 +480,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 15 min',
       type: 'success',
       icon: <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'alt-2',
@@ -489,7 +489,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 45 min',
       type: 'error',
       icon: <AlertCircle className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'alt-3',
@@ -498,7 +498,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 1 h',
       type: 'warning',
       icon: <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
-      iconBg: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100',
+      iconBg: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100 dark:border-amber-800/40',
     },
     {
       id: 'alt-4',
@@ -507,7 +507,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 2 h',
       type: 'info',
       icon: <Database className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'alt-5',
@@ -516,7 +516,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       time: 'há 3 h',
       type: 'info',
       icon: <Activity className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
   ];
 

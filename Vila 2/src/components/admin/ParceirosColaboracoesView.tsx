@@ -109,7 +109,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
       icon: <Users className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50/90 border border-blue-100/70',
+      bgClass: 'bg-blue-50/90 border border-blue-100/70 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       spark: [268, 280, 275, 295, 302, 310, 305, 318, 325, 330, 336, 342],
     },
@@ -120,7 +120,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 16%',
       trendPeriod: 'desde o ano passado',
       icon: <Building2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50/90 border border-emerald-100/70',
+      bgClass: 'bg-emerald-50/90 border border-emerald-100/70 dark:border-emerald-800/40',
       iconClass: 'text-emerald-600 dark:text-emerald-400',
       spark: [190, 198, 205, 210, 208, 218, 225, 230, 236, 240, 244, 248],
     },
@@ -131,7 +131,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 20%',
       trendPeriod: 'desde o ano passado',
       icon: <Handshake className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50/90 border border-blue-100/70',
+      bgClass: 'bg-blue-50/90 border border-blue-100/70 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       spark: [88, 92, 96, 94, 101, 105, 108, 112, 116, 120, 123, 126],
     },
@@ -142,7 +142,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
       icon: <Globe2 className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50/90 border border-emerald-100/70',
+      bgClass: 'bg-emerald-50/90 border border-emerald-100/70 dark:border-emerald-800/40',
       iconClass: 'text-emerald-600 dark:text-emerald-400',
       spark: [64, 66, 68, 67, 70, 71, 72, 74, 75, 76, 77, 78],
     },
@@ -153,7 +153,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 23%',
       trendPeriod: 'desde o ano passado',
       icon: <Briefcase className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50/90 border border-blue-100/70',
+      bgClass: 'bg-blue-50/90 border border-blue-100/70 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       spark: [130, 138, 142, 148, 152, 158, 162, 170, 176, 180, 185, 189],
     },
@@ -164,7 +164,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       trend: '↑ 32%',
       trendPeriod: 'desde o ano passado',
       icon: <Euro className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-amber-50/90 border border-amber-100/70',
+      bgClass: 'bg-amber-50/90 border border-amber-100/70 dark:border-amber-800/40',
       iconClass: 'text-amber-600 dark:text-amber-400',
       spark: [9.2, 9.8, 10.4, 10.1, 11, 11.6, 12.2, 13, 13.8, 14.5, 15.1, 15.7],
     },
@@ -366,7 +366,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Estratégicos',
       count: '48',
       icon: <Crown className="w-4 h-4 text-blue-700" />,
-      containerBg: 'bg-blue-50/90 border border-blue-100/70 text-blue-900',
+      containerBg: 'bg-blue-50/90 border border-blue-100/70 dark:border-blue-800/40 text-blue-900',
       iconBoxBg: 'bg-blue-200/70',
     },
     {
@@ -374,7 +374,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Institucionais',
       count: '126',
       icon: <Landmark className="w-4 h-4 text-blue-700" />,
-      containerBg: 'bg-blue-50/90 border border-blue-100/70 text-blue-900',
+      containerBg: 'bg-blue-50/90 border border-blue-100/70 dark:border-blue-800/40 text-blue-900',
       iconBoxBg: 'bg-blue-200/70',
     },
     {
@@ -382,7 +382,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Operacionais',
       count: '342',
       icon: <Shield className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />,
-      containerBg: 'bg-emerald-50/90 border border-emerald-100/70 text-emerald-900',
+      containerBg: 'bg-emerald-50/90 border border-emerald-100/70 dark:border-emerald-800/40 text-emerald-900',
       iconBoxBg: 'bg-emerald-200/70',
     },
     {
@@ -390,7 +390,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Locais',
       count: '1.248',
       icon: <Users className="w-4 h-4 text-amber-700 dark:text-amber-400" />,
-      containerBg: 'bg-amber-50/90 border border-amber-100/70 text-amber-900',
+      containerBg: 'bg-amber-50/90 border border-amber-100/70 dark:border-amber-800/40 text-amber-900',
       iconBoxBg: 'bg-amber-200/70',
     },
   ];
@@ -470,7 +470,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       desc: 'Oportunidades de financiamento e colaboração abertas',
       count: 12,
       icon: <FileText className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'op-2',
@@ -478,7 +478,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       desc: 'Parcerias em fase avançada de negociação',
       count: 8,
       icon: <Handshake className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'op-3',
@@ -486,7 +486,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       desc: 'Projetos que procuram parceiros estratégicos',
       count: 15,
       icon: <Search className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'op-4',
@@ -494,7 +494,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       desc: 'Organizações que manifestaram interesse na VILA',
       count: 23,
       icon: <Building2 className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
   ];
 
@@ -661,7 +661,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       subtitle: 'Portugal • Fundação • Cultura',
       time: 'há 30 min',
       icon: <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'ar-2',
@@ -670,7 +670,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       subtitle: 'Inclusão Social • 3 anos',
       time: 'há 1 h',
       icon: <FileText className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'ar-3',
@@ -679,7 +679,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       subtitle: '12 países • 78% de progresso',
       time: 'há 2 h',
       icon: <Briefcase className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'ar-4',
@@ -688,7 +688,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       subtitle: 'Ambiente • Internacional',
       time: 'há 3 h',
       icon: <HeartHandshake className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'ar-5',
@@ -697,7 +697,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       subtitle: '35 participantes • Online',
       time: 'há 4 h',
       icon: <Users className="w-4 h-4 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40',
     },
   ];
 

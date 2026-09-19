@@ -123,7 +123,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Redução de emissões e transição para energias renováveis.',
       initiativesCount: '312 iniciativas',
       icon: <Leaf className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
       badgeColor: 'text-emerald-700 dark:text-emerald-400',
     },
     {
@@ -132,7 +132,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Preservação de recursos hídricos e saneamento.',
       initiativesCount: '126 iniciativas',
       icon: <Droplets className="w-5 h-5 text-blue-600" />,
-      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
       badgeColor: 'text-blue-700',
     },
     {
@@ -150,7 +150,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Redução, reutilização e reciclagem de resíduos.',
       initiativesCount: '142 iniciativas',
       icon: <Recycle className="w-5 h-5 text-purple-600" />,
-      iconBg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100',
+      iconBg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100 dark:border-purple-800/40',
       badgeColor: 'text-purple-700',
     },
     {
@@ -159,7 +159,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Práticas agrícolas que regeneram o solo e comunidades.',
       initiativesCount: '98 iniciativas',
       icon: <Sprout className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
-      iconBg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100',
+      iconBg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-800/40',
       badgeColor: 'text-amber-700 dark:text-amber-400',
     },
     {
@@ -168,7 +168,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Promoção de estilos de vida sustentáveis e responsáveis.',
       initiativesCount: '116 iniciativas',
       icon: <Lightbulb className="w-5 h-5 text-teal-600" />,
-      iconBg: 'bg-teal-50 border-teal-100',
+      iconBg: 'bg-teal-50 border-teal-100 dark:border-teal-800/40',
       badgeColor: 'text-teal-700',
     },
   ];
@@ -364,42 +364,42 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       title: 'Guia de Ação Ambiental',
       description: 'Passo a passo para iniciar sua iniciativa',
       icon: <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'carbono',
       title: 'Calculadora de Carbono',
       description: 'Meça e reduza sua pegada de carbono',
       icon: <Calculator className="w-4 h-4 text-teal-600" />,
-      bg: 'bg-teal-50 border-teal-100',
+      bg: 'bg-teal-50 border-teal-100 dark:border-teal-800/40',
     },
     {
       id: 'financiamento',
       title: 'Financiamento Verde',
       description: 'Encontre apoios para projetos ambientais',
       icon: <Coins className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />,
-      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'cursos',
       title: 'Cursos e Webinars',
       description: 'Aprenda com especialistas em sustentabilidade',
       icon: <Video className="w-4 h-4 text-cyan-600" />,
-      bg: 'bg-cyan-50 border-cyan-100',
+      bg: 'bg-cyan-50 border-cyan-100 dark:border-cyan-800/40',
     },
     {
       id: 'parcerias',
       title: 'Parcerias Ambientais',
       description: 'Conecte-se com organizações e redes',
       icon: <Network className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'ferramentas',
       title: 'Ferramentas gratuitas',
       description: 'Recursos para potencializar projetos',
       icon: <Wrench className="w-4 h-4 text-orange-600" />,
-      bg: 'bg-orange-50 border-orange-100',
+      bg: 'bg-orange-50 border-orange-100 dark:border-orange-800/40',
     },
   ];
 
@@ -1070,7 +1070,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10/70 border border-emerald-100 rounded-2xl text-xs text-emerald-900 space-y-1">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40 rounded-2xl text-xs text-emerald-900 space-y-1">
                 <span className="font-bold">Impacto estimado com {donationAmount} €:</span>
                 <p className="text-[11.5px] text-emerald-800">
                   {donationAmount * 4} árvores nativas plantadas e aproximadamente {donationAmount * 25} kg de resíduos plásticos retirados do ecossistema marinho.
@@ -1232,7 +1232,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10/60 rounded-xl border border-emerald-100 text-emerald-900">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 rounded-xl border border-emerald-100 dark:border-emerald-800/40 text-emerald-900">
                 <span className="font-bold block mb-1">América do Norte (32% do impacto total)</span>
                 Projetos de energia renovável descentralizada e proteção de corredores ecológicos na Costa Oeste e Grandes Lagos.
               </div>

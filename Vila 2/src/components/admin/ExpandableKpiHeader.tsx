@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+import { ChevronUp, ArrowRight } from 'lucide-react';
 import { Sparkline } from './MiniCharts';
 
 export interface KpiCardData {
@@ -125,24 +125,20 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className={`self-center inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold transition-all cursor-pointer shadow-2xs ${
-            expanded
-              ? 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60'
-              : 'bg-[#E2ECF9] border border-blue-200 text-[#1455AC] hover:bg-blue-100'
-          }`}
+          className="self-end inline-flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#1455AC] hover:text-[#0F448A] dark:hover:text-blue-300 hover:underline transition-colors cursor-pointer"
           aria-expanded={expanded}
         >
           {expanded ? (
             <>
-              <ChevronUp className="w-3.5 h-3.5" />
               <span>{labelVerMenos}</span>
+              <ChevronUp className="w-3.5 h-3.5" />
             </>
           ) : (
             <>
               <span>
                 Ver mais {hiddenCount} {hiddenCount === 1 ? 'card' : 'cards'}
               </span>
-              <ChevronDown className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </>
           )}
         </button>

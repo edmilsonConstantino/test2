@@ -136,7 +136,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 0,02 pp',
       trendPeriod: 'desde o ano passado',
       icon: <Activity className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100/70',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100/70 dark:border-emerald-800/40',
       iconClass: 'text-emerald-600 dark:text-emerald-400',
       spark: [99.9, 99.92, 99.91, 99.94, 99.93, 99.95, 99.96, 99.95, 99.97, 99.96, 99.98, 99.98],
       onClick: () => setSelectedService('Portal VILA'),
@@ -148,7 +148,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
       icon: <Server className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       spark: [98, 102, 105, 108, 110, 112, 115, 118, 121, 124, 126, 128],
       onClick: () => setSelectedDC('VILA-DC01'),
@@ -160,7 +160,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
       icon: <HardDrive className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       spark: [180, 190, 198, 208, 216, 224, 230, 238, 244, 250, 254, 256],
       onClick: () => setSelectedService('Armazenamento de Ficheiros'),
@@ -172,7 +172,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 22%',
       trendPeriod: 'desde o ano passado',
       icon: <Wifi className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100/70',
+      bgClass: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100/70 dark:border-amber-800/40',
       iconClass: 'text-amber-600 dark:text-amber-400',
       spark: [11.2, 11.8, 12.4, 13, 13.6, 14.4, 15, 15.9, 16.6, 17.4, 18.1, 18.7],
       onClick: () => setSelectedService('API Gateway'),
@@ -184,7 +184,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trend: '↑ 14%',
       trendPeriod: 'desde o ano passado',
       icon: <Database className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70 dark:border-blue-800/40',
       iconClass: 'text-blue-600',
       spark: [30, 31, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42],
       onClick: () => setSelectedService('Open Data'),
@@ -197,7 +197,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       trendPeriod: 'desde o ano passado',
       trendClassName: 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-500/10 border border-red-200/70',
       icon: <Euro className="w-3.5 h-3.5" strokeWidth={2.2} />,
-      bgClass: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100/70',
+      bgClass: 'bg-amber-50 dark:bg-amber-500/10 border border-amber-100/70 dark:border-amber-800/40',
       iconClass: 'text-amber-600 dark:text-amber-400',
       spark: [2.9, 2.85, 2.8, 2.75, 2.7, 2.65, 2.62, 2.58, 2.55, 2.52, 2.5, 2.48],
       onClick: () => onOpenSupportModal?.('Custo de Infraestrutura'),
@@ -1013,7 +1013,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
 
           <div className="flex items-center gap-4 my-auto py-2">
             {/* Ícone de Folha / Eco */}
-            <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
               <Leaf className="w-7 h-7" />
             </div>
 

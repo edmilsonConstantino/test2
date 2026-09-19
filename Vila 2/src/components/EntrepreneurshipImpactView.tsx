@@ -1133,7 +1133,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
               Ao apoiar esta categoria, você ajuda a financiar startups de impacto, bolsas de capacitação e mentorias especializadas para negócios emergentes ao redor do globo.
             </p>
 
-            <div className="my-4 bg-emerald-50 dark:bg-emerald-500/10/70 border border-emerald-100 rounded-xl p-3 flex items-center gap-3">
+            <div className="my-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40 rounded-xl p-3 flex items-center gap-3">
               <Check className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div className="text-xs">
                 <p className="font-bold text-emerald-900">Total de Iniciativas Ativas</p>
@@ -1251,7 +1251,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10/70 rounded-xl border border-emerald-100 text-emerald-950">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 rounded-xl border border-emerald-100 dark:border-emerald-800/40 text-emerald-950">
                 <span className="font-bold block mb-1 text-emerald-800">África (34% do impacto total)</span>
                 Aceleração de fintechs comunitárias, startups de agritech e capacitação de jovens e mulheres empreendedoras.
               </div>

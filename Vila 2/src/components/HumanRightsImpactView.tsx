@@ -325,49 +325,49 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       title: 'Guia de Direitos Humanos',
       description: 'Aprenda sobre direitos fundamentais',
       icon: <BookOpen className="w-4 h-4 text-[#6366F1]" />,
-      bg: 'bg-indigo-50/80 border-indigo-100',
+      bg: 'bg-indigo-50/80 border-indigo-100 dark:border-indigo-800/40',
     },
     {
       id: 'monitor',
       title: 'Ferramenta de Monitorização',
       description: 'Acompanhe violações e alertas',
       icon: <ShieldAlert className="w-4 h-4 text-[#4F46E5]" />,
-      bg: 'bg-violet-50/80 border-violet-100',
+      bg: 'bg-violet-50/80 border-violet-100 dark:border-violet-800/40',
     },
     {
       id: 'base',
       title: 'Base de Dados de Organizações',
       description: 'Encontre ONGs e defensores',
       icon: <Database className="w-4 h-4 text-[#3D4ED8]" />,
-      bg: 'bg-blue-50 dark:bg-blue-500/10/80 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-800/40',
     },
     {
       id: 'financiamento',
       title: 'Financiamento e Doações',
       description: 'Apoie causas de direitos humanos',
       icon: <Coins className="w-4 h-4 text-[#D97706]" />,
-      bg: 'bg-amber-50 dark:bg-amber-500/10/80 border-amber-100',
+      bg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-800/40',
     },
     {
       id: 'cursos',
       title: 'Cursos e Capacitações',
       description: 'Formação em direitos humanos',
       icon: <GraduationCap className="w-4 h-4 text-[#059669]" />,
-      bg: 'bg-emerald-50 dark:bg-emerald-500/10/80 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-800/40',
     },
     {
       id: 'webinars',
       title: 'Webinars e Debates',
       description: 'Participe de eventos e discussões',
       icon: <Video className="w-4 h-4 text-[#0D9488]" />,
-      bg: 'bg-teal-50/80 border-teal-100',
+      bg: 'bg-teal-50/80 border-teal-100 dark:border-teal-800/40',
     },
     {
       id: 'documentos',
       title: 'Documentos e Relatórios',
       description: 'Acesse estudos e relatórios globais',
       icon: <FileText className="w-4 h-4 text-[#7C3AED]" />,
-      bg: 'bg-purple-50 dark:bg-purple-500/10/80 border-purple-100',
+      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100 dark:border-purple-800/40',
     },
   ];
 
@@ -939,7 +939,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-3 bg-violet-50/70 border border-violet-100 rounded-2xl text-xs text-violet-900 space-y-1">
+              <div className="p-3 bg-violet-50/70 border border-violet-100 dark:border-violet-800/40 rounded-2xl text-xs text-violet-900 space-y-1">
                 <span className="font-bold">Impacto estimado com {donationAmount} €:</span>
                 <p className="text-[11.5px] text-violet-800">
                   Apoio jurídico para {donationAmount * 2} pessoas e {donationAmount * 3} horas de capacitação em direitos humanos para defensores locais.
@@ -1097,7 +1097,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-violet-50/60 rounded-xl border border-violet-100 text-violet-900">
+              <div className="p-3 bg-violet-50/60 rounded-xl border border-violet-100 dark:border-violet-800/40 text-violet-900">
                 <span className="font-bold block mb-1">África (34% do impacto total)</span>
                 Campanhas de igualdade, apoio jurídico a comunidades marginalizadas e proteção de defensores de direitos humanos.
               </div>

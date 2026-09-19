@@ -140,7 +140,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       icon: MessageSquare,
       iconBg: 'bg-emerald-50/90',
       iconColor: 'text-emerald-600 dark:text-emerald-400',
-      borderColor: 'border-emerald-100/70',
+      borderColor: 'border-emerald-100/70 dark:border-emerald-800/40',
     },
     {
       id: 'kpi-concluidas',
@@ -151,7 +151,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       icon: CheckCircle2,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
     {
       id: 'kpi-participantes',
@@ -162,7 +162,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       icon: Users,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
     {
       id: 'kpi-contributos',
@@ -173,7 +173,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       icon: MessageSquareQuote,
       iconBg: 'bg-amber-50/90',
       iconColor: 'text-amber-600 dark:text-amber-400',
-      borderColor: 'border-amber-100/70',
+      borderColor: 'border-amber-100/70 dark:border-amber-800/40',
     },
     {
       id: 'kpi-taxa',
@@ -184,7 +184,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       icon: Clock,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
     {
       id: 'kpi-iniciativas',
@@ -195,7 +195,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
       icon: Lightbulb,
       iconBg: 'bg-blue-50/90',
       iconColor: 'text-blue-600',
-      borderColor: 'border-blue-100/70',
+      borderColor: 'border-blue-100/70 dark:border-blue-800/40',
     },
   ];
 
@@ -1485,7 +1485,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </button>
             </div>
 
-            <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100 flex items-center justify-between">
+            <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100 dark:border-blue-800/40 flex items-center justify-between">
               <div>
                 <span className="text-[10px] uppercase font-bold text-blue-600">Apoio Cidadão</span>
                 <p className="text-sm font-black text-blue-900">{selectedIniciativa.supporters}</p>

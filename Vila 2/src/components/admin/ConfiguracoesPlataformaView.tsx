@@ -288,7 +288,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
 
             {/* Profile Avatar & Info */}
             <div className="flex items-center gap-3 my-3">
-              <div className="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-base shadow-2xs">
+              <div className="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex items-center justify-center text-blue-600 font-bold text-base shadow-2xs">
                 <Building2 className="w-5 h-5" />
               </div>
               <div>
@@ -304,7 +304,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             <div className="space-y-2 mt-3 text-xs border-t border-slate-200/70 dark:border-slate-700 pt-3">
               <div className="flex items-center justify-between">
                 <span className="text-slate-500 dark:text-slate-400">Plano Atual</span>
-                <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100">
+                <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40">
                   Enterprise
                 </span>
               </div>
@@ -444,7 +444,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Modelos IA',
                   badge: '5 ativos',
                   icon: <Cpu className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
                 { label: 'Assistentes Territoriais', value: '324', icon: <Bot className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Assistentes Municipais', value: '3.642', icon: <Bot className="w-3.5 h-3.5 text-blue-600" /> },
@@ -452,13 +452,13 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Base de Conhecimento',
                   badge: 'Ativa',
                   icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
                 {
                   label: 'Políticas IA',
                   badge: 'Configurado',
                   icon: <Shield className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
               ].map((row, i) => (
                 <div
@@ -515,7 +515,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Autenticação Multifator (MFA)',
                   badge: 'Ativo',
                   icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
                 },
                 { label: 'Sessões Ativas', value: '5', icon: <Smartphone className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Políticas de Segurança', icon: <Lock className="w-3.5 h-3.5 text-blue-600" /> },
@@ -621,7 +621,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Qualidade dos Dados',
                   badge: 'Excelente',
                   icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
                 },
                 { label: 'Governança de Dados', icon: <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> },
               ].map((row, i) => (
@@ -677,7 +677,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Validação de Parceiros',
                   badge: 'Ativa',
                   icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
                 },
                 { label: 'Acordos e Contratos', value: '126', icon: <FileText className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
                 { label: 'Colaborações Ativas', value: '342', icon: <Zap className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
@@ -735,25 +735,25 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Email',
                   badge: 'Ativo',
                   icon: <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
                 },
                 {
                   label: 'Notificações Push',
                   badge: 'Ativo',
                   icon: <Smartphone className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
                 },
                 {
                   label: 'Alertas e Avisos',
                   badge: 'Ativo',
                   icon: <AlertTriangle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+                  badgeCol: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
                 },
                 {
                   label: 'Digestos e Relatórios',
                   badge: 'Semanal',
                   icon: <Calendar className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
                 { label: 'Preferências de Comunicação', icon: <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
               ].map((row, i) => (
@@ -808,7 +808,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Retenção de Dados',
                   badge: '24 meses',
                   icon: <Clock className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
                 { label: 'Consentimentos', icon: <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Anonimização de Dados', icon: <EyeOff className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> },
@@ -862,7 +862,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Tema da Plataforma',
                   badge: 'Claro',
                   icon: <Sun className="w-3.5 h-3.5 text-blue-600" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
                 { label: 'Cores e Identidade Visual', icon: <Paintbrush className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Logótipo e Marca', icon: <Palette className="w-3.5 h-3.5 text-blue-600" /> },
@@ -1079,7 +1079,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   label: 'Ambientes',
                   badge: 'Produção',
                   icon: <Globe className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />,
-                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+                  badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
                 },
                 { label: 'Logs da API', icon: <Terminal className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (

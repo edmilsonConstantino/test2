@@ -140,7 +140,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 24%',
     trendPeriod: 'desde o ano passado',
     icon: 'users',
-    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-[#1455AC]',
   },
   {
@@ -150,7 +150,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 18%',
     trendPeriod: 'desde o período anterior',
     icon: 'user-plus',
-    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 dark:border-emerald-800/40 border',
     iconClass: 'text-emerald-600 dark:text-emerald-400',
   },
   {
@@ -160,7 +160,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 21%',
     trendPeriod: 'desde o período anterior',
     icon: 'flag',
-    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-[#1455AC]',
   },
   {
@@ -170,7 +170,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 15%',
     trendPeriod: 'desde o período anterior',
     icon: 'globe',
-    bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 border',
+    bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 dark:border-amber-800/40 border',
     iconClass: 'text-amber-600 dark:text-amber-400',
   },
   {
@@ -180,7 +180,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 6,3 pp',
     trendPeriod: 'desde o período anterior',
     icon: 'heart',
-    bgClass: 'bg-blue-50/90 text-blue-600 border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-blue-600 border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-blue-600',
   },
   {
@@ -190,7 +190,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 18%',
     trendPeriod: 'desde o ano passado',
     icon: 'community',
-    bgClass: 'bg-blue-50/90 text-blue-600 border-blue-100/70 border',
+    bgClass: 'bg-blue-50/90 text-blue-600 border-blue-100/70 dark:border-blue-800/40 border',
     iconClass: 'text-blue-600',
   },
 ];
@@ -224,11 +224,11 @@ const DEFAULT_COMMUNITY_STATUS: CommunityStatusItem[] = [
 ];
 
 const DEFAULT_CATEGORIES: CategoryItem[] = [
-  { id: 'ambiental', name: 'Ambiental', count: 3852, formattedCount: '3.852', icon: 'leaf', color: '#10B981', bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100' },
-  { id: 'educacao', name: 'Educação', count: 3242, formattedCount: '3.242', icon: 'education', color: '#2D79D1', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 border-blue-100' },
-  { id: 'saude', name: 'Saúde', count: 2981, formattedCount: '2.981', icon: 'health', color: '#F58300', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 border-blue-100' },
-  { id: 'cultura', name: 'Cultura', count: 2456, formattedCount: '2.456', icon: 'culture', color: '#DC7600', bgClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-100' },
-  { id: 'inovacao', name: 'Inovação', count: 2120, formattedCount: '2.120', icon: 'tech', color: '#0F448A', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 border-blue-100' },
+  { id: 'ambiental', name: 'Ambiental', count: 3852, formattedCount: '3.852', icon: 'leaf', color: '#10B981', bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
+  { id: 'educacao', name: 'Educação', count: 3242, formattedCount: '3.242', icon: 'education', color: '#2D79D1', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' },
+  { id: 'saude', name: 'Saúde', count: 2981, formattedCount: '2.981', icon: 'health', color: '#F58300', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' },
+  { id: 'cultura', name: 'Cultura', count: 2456, formattedCount: '2.456', icon: 'culture', color: '#DC7600', bgClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400' },
+  { id: 'inovacao', name: 'Inovação', count: 2120, formattedCount: '2.120', icon: 'tech', color: '#0F448A', bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' },
 ];
 
 const DEFAULT_GROWTH_COMMUNITIES: GrowthCommunityItem[] = [
@@ -935,11 +935,11 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setSelectedCategoryFilter(selectedCategoryFilter === cat.name ? 'all' : cat.name);
                     showToast(`Filtrando comunidades por: ${cat.name}`);
                   }}
-                  className={`border rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all cursor-pointer ${
-                    cat.bgClass
-                  } ${selectedCategoryFilter === cat.name ? 'ring-2 ring-[#1455AC] shadow-xs' : 'hover:scale-[1.02]'}`}
+                  className={`border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all cursor-pointer ${
+                    selectedCategoryFilter === cat.name ? 'ring-2 ring-[#1455AC] shadow-xs' : 'hover:scale-[1.02] hover:border-slate-300 dark:hover:border-slate-600'
+                  }`}
                 >
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center mb-1">
+                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center mb-1 ${cat.bgClass}`}>
                     {cat.icon === 'leaf' && <Leaf className="w-4 h-4" />}
                     {cat.icon === 'education' && <GraduationCap className="w-4 h-4" />}
                     {cat.icon === 'health' && <HeartPulse className="w-4 h-4" />}
@@ -959,12 +959,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   setSelectedCategoryFilter(selectedCategoryFilter === categoriesList[4].name ? 'all' : categoriesList[4].name);
                   showToast(`Filtrando comunidades por: ${categoriesList[4].name}`);
                 }}
-                className={`w-full mt-2 border rounded-xl px-3 py-1.5 flex items-center justify-between text-xs transition-all cursor-pointer ${
-                  categoriesList[4].bgClass
-                } ${selectedCategoryFilter === categoriesList[4].name ? 'ring-2 ring-[#1455AC]' : 'hover:scale-[1.01]'}`}
+                className={`w-full mt-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs transition-all cursor-pointer ${
+                  selectedCategoryFilter === categoriesList[4].name ? 'ring-2 ring-[#1455AC]' : 'hover:scale-[1.01] hover:border-slate-300 dark:hover:border-slate-600'
+                }`}
               >
                 <div className="flex items-center gap-2">
-                  <Cpu className="w-3.5 h-3.5 text-blue-600" />
+                  <Cpu className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                   <span className="font-semibold text-slate-700 dark:text-slate-300 text-[11px]">{categoriesList[4].name}</span>
                 </div>
                 <span className="font-bold text-slate-900 dark:text-slate-50">{categoriesList[4].formattedCount}</span>
@@ -1518,7 +1518,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                       form.reset();
                     }
                   }}
-                  className="space-y-2 bg-blue-50/40 p-3 rounded-xl border border-blue-100"
+                  className="space-y-2 bg-blue-50/40 p-3 rounded-xl border border-blue-100 dark:border-blue-800/40"
                 >
                   <input
                     name="comName"

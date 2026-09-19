@@ -612,7 +612,7 @@ export const CreateCommunityWizardView: React.FC<CreateCommunityWizardViewProps>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-500/10/60 border border-blue-100 flex items-start gap-3 font-sans">
+                <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex items-start gap-3 font-sans">
                   <Sparkles className="w-5 h-5 text-[#1455AC] shrink-0 mt-0.5" />
                   <p className="text-xs text-[#1455AC] leading-relaxed font-sans">
                     Tags bem definidas ajudam a Inteligência Artificial e a busca do VILA a recomendar sua comunidade para pessoas com os mesmos interesses globais.
@@ -663,7 +663,7 @@ export const CreateCommunityWizardView: React.FC<CreateCommunityWizardViewProps>
                         onClick={() => setPrivacy(p.id)}
                         className={`p-3.5 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer font-sans ${
                           isSelected
-                            ? 'border-[#1455AC] bg-blue-50 dark:bg-blue-500/10/40 ring-1 ring-[#1455AC]'
+                            ? 'border-[#1455AC] bg-blue-50 dark:bg-blue-500/10 ring-1 ring-[#1455AC]'
                             : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-slate-300'
                         }`}
                       >
@@ -730,7 +730,7 @@ export const CreateCommunityWizardView: React.FC<CreateCommunityWizardViewProps>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 flex items-center gap-3">
+                <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-800/40 flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <p className="text-xs text-emerald-900">
                     Sua comunidade está pronta para ser lançada e acolher novos membros de todo o mundo.
@@ -907,7 +907,7 @@ export const CreateCommunityWizardView: React.FC<CreateCommunityWizardViewProps>
             </div>
 
             {/* 3. Card: "Dicas para uma comunidade de impacto" com Ilustração */}
-            <div className="relative rounded-xl overflow-hidden p-4 bg-[#EEF2FF] border border-indigo-100 flex flex-col justify-between min-h-[160px] font-sans">
+            <div className="relative rounded-xl overflow-hidden p-4 bg-[#EEF2FF] border border-indigo-100 dark:border-indigo-800/40 flex flex-col justify-between min-h-[160px] font-sans">
               <div className="relative z-10 flex flex-col gap-2 font-sans">
                 <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Dicas para uma comunidade de impacto

@@ -774,7 +774,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                   className="bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200/90 dark:border-slate-700 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 text-blue-600 flex items-center justify-center shrink-0">
                       <Users className="w-5 h-5 stroke-[2.2]" />
                     </div>
                     <div>

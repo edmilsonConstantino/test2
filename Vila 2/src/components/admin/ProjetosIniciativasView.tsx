@@ -197,7 +197,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '1.248',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
       iconType: 'folder',
     },
     {
@@ -206,7 +206,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '856',
       trend: '↑ 12%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100',
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/40',
       iconType: 'document',
     },
     {
@@ -215,7 +215,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '342',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
       iconType: 'check',
     },
     {
@@ -224,7 +224,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '€24,6M',
       trend: '↑ 21%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-100',
+      bgClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-100 dark:border-amber-800/40',
       iconType: 'wallet',
     },
     {
@@ -233,7 +233,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '€15,2M',
       trend: '↑ 25%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
       iconType: 'trend',
     },
     {
@@ -242,7 +242,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       value: '2,8M+',
       trend: '↑ 23%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
+      bgClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100 dark:border-blue-800/40',
       iconType: 'users',
     },
   ], []);
@@ -286,8 +286,8 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
   const areaDistribution: AreaDistributionItem[] = useMemo(() => [
     { name: 'Ambiente', percentage: 26, count: 324, color: '#10B981' },
     { name: 'Educação', percentage: 20, count: 250, color: '#1455AC' },
-    { name: 'Inclusão Social', percentage: 16, count: 200, color: '#5F9DE0' },
-    { name: 'Desenvolvimento Econ.', percentage: 14, count: 174, color: '#5F9DE0' },
+    { name: 'Inclusão Social', percentage: 16, count: 200, color: '#2D79D1' },
+    { name: 'Desenvolvimento Econ.', percentage: 14, count: 174, color: '#99C0EB' },
     { name: 'Saúde', percentage: 10, count: 124, color: '#F59E0B' },
     { name: 'Cultura', percentage: 7, count: 86, color: '#F58300' },
     { name: 'Outros', percentage: 7, count: 90, color: '#64748B' },
@@ -353,11 +353,13 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         } else if (['Canada', 'Australia', 'Italy', 'Japan', 'Mexico', 'Colombia', 'Argentina', 'Kenya', 'Nigeria', 'Egypt', 'Cape Verde', 'Guinea-Bissau', 'Timor-Leste', 'Sao Tome and Principe', 'Poland', 'Indonesia'].includes(name)) {
           fill = '#99C0EB';
           category = 'Entre 10 e 50 projetos';
-          projects = 28;
+          const tier3: Record<string, number> = { Canada: 34, Australia: 31, Italy: 42, Japan: 27, Mexico: 38, Colombia: 29, Argentina: 22, Kenya: 47, Nigeria: 33, Egypt: 19, 'Cape Verde': 15, 'Guinea-Bissau': 12, 'Timor-Leste': 11, 'Sao Tome and Principe': 10, Poland: 24, Indonesia: 41 };
+          projects = tier3[name] ?? 25;
         } else if (['Greenland', 'Chile', 'Peru', 'Norway', 'Sweden', 'Finland', 'Morocco', 'Algeria', 'Dem. Rep. Congo', 'Saudi Arabia', 'Turkey', 'Kazakhstan', 'New Zealand', 'Thailand'].includes(name)) {
           fill = '#C4DAF3';
           category = 'Menos de 10 projetos';
-          projects = 6;
+          const tier4: Record<string, number> = { Greenland: 1, Chile: 8, Peru: 7, Norway: 5, Sweden: 6, Finland: 4, Morocco: 9, Algeria: 3, 'Dem. Rep. Congo': 7, 'Saudi Arabia': 2, Turkey: 9, Kazakhstan: 2, 'New Zealand': 5, Thailand: 8 };
+          projects = tier4[name] ?? 5;
         }
 
         const uniqueKey = `pi-map-${f.id !== undefined && f.id !== null ? f.id : index}-${index}`;
@@ -399,10 +401,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
 
   const evolutionMonths = ['Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez', 'Jan', 'Fev', 'Mar', 'Abr', 'Mai'];
   const evolutionSeries = {
-    // 0 to 1500 scale
-    criados: [620, 680, 740, 810, 890, 980, 1050, 1140, 1210, 1260, 1310, 1390],
-    execucao: [450, 480, 520, 550, 600, 680, 710, 750, 790, 830, 860, 910],
-    concluidos: [120, 150, 190, 220, 240, 270, 300, 320, 340, 350, 360, 390],
+    // Escala 0 a 1200 — variação orgânica com quebras sazonais (férias de Agosto e Dezembro)
+    criados: [620, 648, 592, 704, 738, 765, 698, 812, 845, 902, 938, 1004],
+    execucao: [450, 471, 438, 512, 538, 556, 521, 598, 624, 661, 689, 724],
+    concluidos: [120, 134, 128, 158, 172, 185, 176, 214, 228, 249, 262, 288],
   };
 
   const [hoveredMonthIndex, setHoveredMonthIndex] = useState<number | null>(null);
@@ -478,10 +480,10 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
   // ---------------------------------------------------------------------------
   const fundingSources: FundingSourceItem[] = useMemo(() => [
     { name: 'Fundos Públicos', percentage: 42, amount: '€10,3M', color: '#1455AC' },
-    { name: 'Doações', percentage: 24, amount: '€5,9M', color: '#1455AC' },
+    { name: 'Doações', percentage: 24, amount: '€5,9M', color: '#5F9DE0' },
     { name: 'Parcerias Privadas', percentage: 18, amount: '€4,4M', color: '#F59E0B' },
-    { name: 'Organizações Internacionais', percentage: 10, amount: '€2,5M', color: '#F58300' },
-    { name: 'Outros', percentage: 6, amount: '€1,5M', color: '#64748B' },
+    { name: 'Organizações Internacionais', percentage: 10, amount: '€2,5M', color: '#0F448A' },
+    { name: 'Outros', percentage: 6, amount: '€1,5M', color: '#94A3B8' },
   ], []);
 
   const [hoveredFundingIndex, setHoveredFundingIndex] = useState<number | null>(null);
@@ -1156,34 +1158,53 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             <div className="relative mt-3 h-44 w-full">
               <svg viewBox="0 0 460 160" className="w-full h-full overflow-visible">
                 {/* Linhas de Grade Horizontal */}
-                {[0, 40, 80, 120].map((y, i) => (
-                  <line
-                    key={i}
-                    x1="35"
-                    y1={y + 10}
-                    x2="450"
-                    y2={y + 10}
-                    stroke="#F1F5F9"
-                    strokeWidth={1}
-                  />
-                ))}
-
-                {/* Rótulos do Eixo Y */}
-                <text x="30" y="15" textAnchor="end" className="text-[9px] fill-slate-400 font-medium">1.5K</text>
-                <text x="30" y="55" textAnchor="end" className="text-[9px] fill-slate-400 font-medium">900</text>
-                <text x="30" y="95" textAnchor="end" className="text-[9px] fill-slate-400 font-medium">600</text>
-                <text x="30" y="135" textAnchor="end" className="text-[9px] fill-slate-400 font-medium">0</text>
+                {[
+                  { val: 1200, label: '1.2K' },
+                  { val: 900, label: '900' },
+                  { val: 600, label: '600' },
+                  { val: 300, label: '300' },
+                  { val: 0, label: '0' },
+                ].map((t) => {
+                  const y = 135 - (t.val / 1200) * 123;
+                  return (
+                    <g key={t.val}>
+                      <line
+                        x1="35"
+                        y1={y}
+                        x2="450"
+                        y2={y}
+                        stroke="#F1F5F9"
+                        strokeWidth={1}
+                        strokeDasharray={t.val === 0 ? undefined : '4 4'}
+                      />
+                      <text x="30" y={y + 3} textAnchor="end" className="text-[9px] fill-slate-400 font-medium">
+                        {t.label}
+                      </text>
+                    </g>
+                  );
+                })}
 
                 {/* Caminhos SVG */}
                 {/* Helper para converter índice e valor em coordenadas x,y */}
                 {(() => {
                   const getX = (i: number) => 40 + i * (400 / 11);
-                  const getY = (val: number) => 135 - (val / 1500) * 120;
+                  const getY = (val: number) => 135 - (val / 1200) * 123;
 
-                  const generatePath = (vals: number[]) => {
-                    return vals
-                      .map((val, i) => `${i === 0 ? 'M' : 'L'} ${getX(i)} ${getY(val)}`)
-                      .join(' ');
+                  // Curva suave (Catmull-Rom → Bézier): os pontos mantêm-se exatos nos dados
+                  const smoothPath = (vals: number[]) => {
+                    const pts = vals.map((v, i) => [getX(i), getY(v)] as const);
+                    return pts.reduce((d, p, i, arr) => {
+                      if (i === 0) return `M ${p[0]} ${p[1]}`;
+                      const p0 = arr[i - 1];
+                      const pm = arr[i - 2] ?? p0;
+                      const p2 = arr[i + 1] ?? p;
+                      const p3 = arr[i + 2] ?? p2;
+                      const c1x = p0[0] + (p[0] - pm[0]) / 6;
+                      const c1y = p0[1] + (p[1] - pm[1]) / 6;
+                      const c2x = p[0] - (p3[0] - p0[0]) / 6;
+                      const c2y = p[1] - (p3[1] - p0[1]) / 6;
+                      return `${d} C ${c1x.toFixed(2)} ${c1y.toFixed(2)}, ${c2x.toFixed(2)} ${c2y.toFixed(2)}, ${p[0]} ${p[1]}`;
+                    }, '');
                   };
 
                   return (
@@ -1192,7 +1213,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       {activeEvolutionSeries.criados && (
                         <>
                           <path
-                            d={generatePath(evolutionSeries.criados)}
+                            d={smoothPath(evolutionSeries.criados)}
                             fill="none"
                             stroke="#1455AC"
                             strokeWidth={2.5}
@@ -1220,7 +1241,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       {activeEvolutionSeries.execucao && (
                         <>
                           <path
-                            d={generatePath(evolutionSeries.execucao)}
+                            d={smoothPath(evolutionSeries.execucao)}
                             fill="none"
                             stroke="#10B981"
                             strokeWidth={2.5}
@@ -1248,7 +1269,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                       {activeEvolutionSeries.concluidos && (
                         <>
                           <path
-                            d={generatePath(evolutionSeries.concluidos)}
+                            d={smoothPath(evolutionSeries.concluidos)}
                             fill="none"
                             stroke="#0F448A"
                             strokeWidth={2.5}
@@ -1298,13 +1319,13 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                     {evolutionMonths[hoveredMonthIndex]} 2024/25
                   </p>
                   <p className="text-blue-300">
-                    Criados: <strong>{evolutionSeries.criados[hoveredMonthIndex]}</strong>
+                    Criados: <strong>{evolutionSeries.criados[hoveredMonthIndex].toLocaleString('pt-PT')}</strong>
                   </p>
                   <p className="text-emerald-300">
-                    Execução: <strong>{evolutionSeries.execucao[hoveredMonthIndex]}</strong>
+                    Execução: <strong>{evolutionSeries.execucao[hoveredMonthIndex].toLocaleString('pt-PT')}</strong>
                   </p>
                   <p className="text-blue-300">
-                    Concluídos: <strong>{evolutionSeries.concluidos[hoveredMonthIndex]}</strong>
+                    Concluídos: <strong>{evolutionSeries.concluidos[hoveredMonthIndex].toLocaleString('pt-PT')}</strong>
                   </p>
                 </div>
               )}
@@ -1945,7 +1966,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               Os dados consolidados de <strong>{activeKpiDetail}</strong> abrangem projetos cívicos, municipais e comunitários auditados nos 11 países ativos da rede VILA.
             </p>
 
-            <div className="mt-4 p-3 bg-blue-50/60 rounded-xl border border-blue-100 text-xs space-y-1 text-slate-700 dark:text-slate-300">
+            <div className="mt-4 p-3 bg-blue-50/60 rounded-xl border border-blue-100 dark:border-blue-800/40 text-xs space-y-1 text-slate-700 dark:text-slate-300">
               <p>• <strong>Validação em tempo real:</strong> Auditado por comissões locais.</p>
               <p>• <strong>Critérios:</strong> Transparência de verbas e impacto comunitário direto.</p>
             </div>

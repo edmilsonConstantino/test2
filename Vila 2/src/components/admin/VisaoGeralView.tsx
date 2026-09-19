@@ -115,7 +115,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '2.847.562',
       trend: '↑ 24%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
       iconClass: 'text-[#1455AC]',
       icon: <Users className="w-4.5 h-4.5" />,
       spark: [20, 27, 24, 32, 30, 38, 35, 44, 41, 50, 47, 56],
@@ -126,7 +126,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '18.732',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+      bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 dark:border-emerald-800/40 border',
       iconClass: 'text-emerald-600 dark:text-emerald-400',
       icon: <Users className="w-4.5 h-4.5" />,
       spark: [18, 24, 21, 29, 27, 34, 32, 40, 37, 46, 43, 52],
@@ -137,7 +137,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '1.248',
       trend: '↑ 15%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
       iconClass: 'text-[#1455AC]',
       icon: <Flag className="w-4.5 h-4.5" />,
       spark: [22, 28, 25, 33, 31, 39, 36, 45, 42, 51, 48, 57],
@@ -148,7 +148,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '156',
       trend: '↑ 8%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 border',
+      bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 dark:border-amber-800/40 border',
       iconClass: 'text-amber-600 dark:text-amber-400',
       icon: <Globe className="w-4.5 h-4.5" />,
       spark: [16, 22, 19, 26, 24, 31, 29, 36, 34, 42, 40, 48],
@@ -159,7 +159,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '1.248',
       trend: '↑ 16%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
       iconClass: 'text-[#1455AC]',
       icon: <Zap className="w-4.5 h-4.5" />,
       spark: [21, 27, 24, 31, 29, 37, 34, 43, 40, 49, 46, 55],
@@ -170,7 +170,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '3.642',
       trend: '↑ 9%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
       iconClass: 'text-[#1455AC]',
       icon: <Building2 className="w-4.5 h-4.5" />,
       spark: [17, 23, 20, 27, 25, 32, 30, 37, 35, 43, 41, 49],
@@ -181,7 +181,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '€24,6M',
       trend: '↑ 21%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 dark:border-blue-800/40 border',
       iconClass: 'text-[#1455AC]',
       icon: <Coins className="w-4.5 h-4.5" />,
       spark: [24, 30, 27, 34, 32, 40, 37, 46, 43, 52, 49, 58],
@@ -1406,7 +1406,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <div className="space-y-3.5 mt-3.5">
               {/* Evento 1 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-blue-700 font-sans leading-none">26</span>
                   <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">MAI</span>
                 </div>
@@ -1429,7 +1429,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Evento 2 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-blue-700 font-sans leading-none">02</span>
                   <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">JUN</span>
                 </div>
@@ -1452,7 +1452,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
 
               {/* Evento 3 */}
               <div className="flex items-start gap-3">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex flex-col items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-800/40 flex flex-col items-center justify-center shrink-0">
                   <span className="text-xs font-bold text-blue-700 font-sans leading-none">15</span>
                   <span className="text-[9px] font-bold text-blue-600 uppercase tracking-wider mt-0.5">JUN</span>
                 </div>
