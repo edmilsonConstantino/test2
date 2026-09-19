@@ -400,7 +400,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="w-full bg-[#F8FAFC] min-h-screen text-[#0F1E3D] pb-16">
+    <div className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F1E3D] dark:text-slate-50 pb-16">
       {/* Container Principal Centralizado */}
       <div className="max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 pt-4 sm:pt-6 space-y-6">
 
@@ -424,12 +424,12 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                 className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer ${
                   isActive
                     ? 'bg-[#0F1E3D] text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-700'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : cat.color || 'text-slate-500'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : cat.color || 'text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} />
                 <span>{cat.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`}>
                   {cat.count}
                 </span>
               </button>
@@ -497,29 +497,29 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
         </div>
 
         {/* Barra de Pesquisa e Filtros */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-4">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-4">
           {/* Campo de Pesquisa */}
           <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Pesquisar por nome, palavra-chave, causa ou localidade..."
-              className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3D4ED8]/30 focus:border-[#3D4ED8] text-[#0F1E3D] placeholder-slate-400 transition-all"
+              className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3D4ED8]/30 focus:border-[#3D4ED8] text-[#0F1E3D] dark:text-slate-50 placeholder-slate-400 transition-all"
             />
           </div>
 
           {/* Filtros em Linha */}
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium shrink-0">
+            <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium shrink-0">
               <Filter className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Ordenar:</span>
             </div>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="px-3 py-2 text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl text-slate-700 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500"
             >
               <option value="populares">Mais Populares</option>
               <option value="crescimento">Maior Crescimento</option>
@@ -530,7 +530,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
               <button
                 type="button"
                 onClick={onBackToOfficial}
-                className="px-3 py-2 text-xs font-bold text-[#3D4ED8] hover:bg-blue-50 border border-blue-200 rounded-xl transition-colors cursor-pointer shrink-0"
+                className="px-3 py-2 text-xs font-bold text-[#3D4ED8] hover:bg-blue-50 dark:bg-blue-500/10 border border-blue-200 rounded-xl transition-colors cursor-pointer shrink-0"
               >
                 Página Oficial
               </button>
@@ -545,12 +545,12 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
           <div className="lg:col-span-8 space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-bold text-[#0F1E3D] font-['Outfit']">
+                <h2 className="text-lg font-bold text-[#0F1E3D] dark:text-slate-50 font-['Outfit']">
                   {selectedCategory === 'todas'
                     ? 'Todas as Comunidades'
                     : `Comunidades de ${CATEGORIES_NAV.find((c) => c.id === selectedCategory)?.label}`}
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
                   A mostrar {filteredCommunities.length} comunidades encontradas
                 </p>
               </div>
@@ -575,10 +575,10 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                 return (
                   <div
                     key={comm.id}
-                    className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col group"
+                    className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col group"
                   >
                     {/* Imagem de Capa com Badge da Categoria */}
-                    <div className="relative h-36 w-full overflow-hidden bg-slate-100">
+                    <div className="relative h-36 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                       <img
                         src={comm.image}
                         alt={comm.name}
@@ -602,21 +602,21 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                         <div className="flex items-start justify-between gap-2">
                           <h3
                             onClick={() => setSelectedCommunityModal(comm)}
-                            className="text-sm font-bold text-[#0F1E3D] hover:text-[#3D4ED8] cursor-pointer line-clamp-1"
+                            className="text-sm font-bold text-[#0F1E3D] dark:text-slate-50 hover:text-[#3D4ED8] cursor-pointer line-clamp-1"
                           >
                             {comm.name}
                           </h3>
                         </div>
 
-                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                        <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-relaxed">
                           {comm.description}
                         </p>
                       </div>
 
                       {/* Localização e Tags */}
                       <div className="space-y-2">
-                        <div className="flex items-center gap-1 text-[11px] text-slate-500">
-                          <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                        <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500">
+                          <MapPin className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                           <span className="truncate">{comm.location}</span>
                         </div>
 
@@ -624,7 +624,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                           {comm.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="text-[10px] font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full"
+                              className="text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 dark:text-slate-500 px-2 py-0.5 rounded-full"
                             >
                               #{tag}
                             </span>
@@ -633,7 +633,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                       </div>
 
                       {/* Rodapé do Card: Avatares + Botão de Aderir */}
-                      <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
                         <div className="flex items-center gap-1.5">
                           <div className="flex -space-x-1.5">
                             {comm.avatars.map((av, idx) => (
@@ -646,7 +646,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                               />
                             ))}
                           </div>
-                          <span className="text-[10px] font-bold text-slate-500">
+                          <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">
                             {comm.membersCount}
                           </span>
                         </div>
@@ -656,7 +656,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                           onClick={() => toggleJoin(comm.id)}
                           className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 ${
                             isJoined
-                              ? 'bg-emerald-50 text-[#10B981] border border-emerald-200'
+                              ? 'bg-emerald-50 dark:bg-emerald-500/10 text-[#10B981] border border-emerald-200'
                               : 'bg-[#3D4ED8] text-white hover:bg-blue-700 shadow-2xs'
                           }`}
                         >
@@ -670,10 +670,10 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
             </div>
 
             {filteredCommunities.length === 0 && (
-              <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center space-y-3">
+              <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 text-center space-y-3">
                 <Search className="w-8 h-8 text-slate-300 mx-auto" />
-                <h3 className="text-sm font-bold text-[#0F1E3D]">Nenhuma comunidade encontrada</h3>
-                <p className="text-xs text-slate-500">
+                <h3 className="text-sm font-bold text-[#0F1E3D] dark:text-slate-50">Nenhuma comunidade encontrada</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
                   Tente ajustar a sua pesquisa ou selecionar outra categoria.
                 </p>
                 <button
@@ -682,7 +682,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                     setSelectedCategory('todas');
                     setSearchQuery('');
                   }}
-                  className="px-4 py-2 text-xs font-bold text-[#3D4ED8] bg-blue-50 rounded-xl"
+                  className="px-4 py-2 text-xs font-bold text-[#3D4ED8] bg-blue-50 dark:bg-blue-500/10 rounded-xl"
                 >
                   Limpar Filtros
                 </button>
@@ -694,18 +694,18 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
           <div className="lg:col-span-4 space-y-6">
 
             {/* Card de Tendências Globais */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-[#3D4ED8]" />
-                  <h3 className="text-sm font-bold text-[#0F1E3D] font-['Outfit']">
+                  <h3 className="text-sm font-bold text-[#0F1E3D] dark:text-slate-50 font-['Outfit']">
                     Em Alta no Ecossistema
                   </h3>
                 </div>
-                <span className="text-[10px] font-bold text-slate-400">Top 5</span>
+                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">Top 5</span>
               </div>
 
-              <div className="divide-y divide-slate-100">
+              <div className="divide-y divide-slate-100 dark:divide-slate-700">
                 {TRENDING_COMMUNITIES.map((trend) => {
                   const Icon = trend.icon;
 
@@ -716,26 +716,26 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                         const target = ALL_COMMUNITIES.find((c) => c.id === trend.id);
                         if (target) setSelectedCommunityModal(target);
                       }}
-                      className="py-2.5 flex items-center justify-between gap-3 hover:bg-slate-50 rounded-xl px-2 -mx-2 transition-colors cursor-pointer group"
+                      className="py-2.5 flex items-center justify-between gap-3 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl px-2 -mx-2 transition-colors cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <span className="text-xs font-black text-slate-400 group-hover:text-[#3D4ED8] w-4 shrink-0">
+                        <span className="text-xs font-black text-slate-400 dark:text-slate-500 group-hover:text-[#3D4ED8] w-4 shrink-0">
                           0{trend.rank}
                         </span>
-                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 shrink-0">
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 shrink-0">
                           <Icon className="w-3.5 h-3.5" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-xs font-bold text-[#0F1E3D] truncate group-hover:text-[#3D4ED8]">
+                          <p className="text-xs font-bold text-[#0F1E3D] dark:text-slate-50 truncate group-hover:text-[#3D4ED8]">
                             {trend.name}
                           </p>
-                          <p className="text-[10px] text-slate-400 truncate">
+                          <p className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
                             {trend.category} • {trend.members} membros
                           </p>
                         </div>
                       </div>
 
-                      <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded shrink-0">
+                      <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded shrink-0">
                         {trend.growth}
                       </span>
                     </div>
@@ -745,11 +745,11 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
             </div>
 
             {/* Próximos Eventos Globais */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-[#3D4ED8]" />
-                  <h3 className="text-sm font-bold text-[#0F1E3D] font-['Outfit']">
+                  <h3 className="text-sm font-bold text-[#0F1E3D] dark:text-slate-50 font-['Outfit']">
                     Eventos Comunitários
                   </h3>
                 </div>
@@ -766,23 +766,23 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                 {GLOBAL_EVENTS.map((ev) => (
                   <div
                     key={ev.id}
-                    className="p-3 rounded-xl border border-slate-100 hover:border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition-all space-y-2"
+                    className="p-3 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all space-y-2"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex flex-col items-center justify-center shrink-0 shadow-2xs">
+                      <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center shrink-0 shadow-2xs">
                         <span className="text-xs font-black text-[#3D4ED8] leading-none">{ev.day}</span>
-                        <span className="text-[9px] font-bold text-slate-400 uppercase">{ev.month}</span>
+                        <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase">{ev.month}</span>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F1E3D] line-clamp-1">{ev.title}</h4>
-                        <div className="flex items-center gap-1 text-[10px] text-slate-500 mt-0.5">
-                          <Clock className="w-3 h-3 text-slate-400" />
+                        <h4 className="text-xs font-bold text-[#0F1E3D] dark:text-slate-50 line-clamp-1">{ev.title}</h4>
+                        <div className="flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
+                          <Clock className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                           <span>{ev.time}</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pt-1 border-t border-slate-100 text-[10px] text-slate-500">
+                    <div className="flex items-center justify-between pt-1 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500">
                       <span>{ev.location}</span>
                       <span className="font-semibold text-[#3D4ED8]">{ev.attendees}</span>
                     </div>
@@ -822,8 +822,8 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
       {/* Modal de Detalhes da Comunidade */}
       {selectedCommunityModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 space-y-4">
-            <div className="relative h-44 w-full bg-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+            <div className="relative h-44 w-full bg-slate-100 dark:bg-slate-800">
               <img
                 src={selectedCommunityModal.image}
                 alt={selectedCommunityModal.name}
@@ -845,17 +845,17 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
 
             <div className="p-6 pt-0 space-y-4">
               <div>
-                <h3 className="text-lg font-bold text-[#0F1E3D] font-['Outfit']">
+                <h3 className="text-lg font-bold text-[#0F1E3D] dark:text-slate-50 font-['Outfit']">
                   {selectedCommunityModal.name}
                 </h3>
-                <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
+                <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">
                   <span>{selectedCommunityModal.membersCount}</span>
                   <span>•</span>
                   <span>{selectedCommunityModal.location}</span>
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedCommunityModal.description}
               </p>
 
@@ -863,14 +863,14 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                 {selectedCommunityModal.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full"
+                    className="text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 dark:text-slate-500 px-2.5 py-1 rounded-full"
                   >
                     #{tag}
                   </span>
                 ))}
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
                 {onNavigateToCategory && (
                   <button
                     type="button"
@@ -879,7 +879,7 @@ export const ExploreCommunityView: React.FC<ExploreCommunityViewProps> = ({
                       setSelectedCommunityModal(null);
                       onNavigateToCategory(cat);
                     }}
-                    className="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     Ir para Causa
                   </button>

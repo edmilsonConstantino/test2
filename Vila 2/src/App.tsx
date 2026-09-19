@@ -768,6 +768,10 @@ export default function App() {
         onSelectUser={(user) => {
           setCurrentUser(user);
           setIsLoggedIn(true);
+          if (user.isAdmin) {
+            setCurrentTab('painel-gestao');
+            window.location.hash = 'painel-gestao';
+          }
         }}
         onClose={() => setAuthModal({ isOpen: false, mode: 'login' })}
         onLoginSuccess={() => setIsLoggedIn(true)}

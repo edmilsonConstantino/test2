@@ -94,7 +94,7 @@ const TECH_IMPACT_AREAS: TechImpactArea[] = [
     name: 'Inclusão Digital',
     description: 'Levar acesso à internet e dispositivos para todos.',
     count: '152 iniciativas',
-    iconBg: 'bg-blue-50',
+    iconBg: 'bg-blue-50 dark:bg-blue-500/10',
     iconColor: 'text-blue-600',
     iconType: 'wifi',
   },
@@ -103,8 +103,8 @@ const TECH_IMPACT_AREAS: TechImpactArea[] = [
     name: 'Educação Tecnológica',
     description: 'Ensino de habilidades digitais para o futuro do trabalho.',
     count: '138 iniciativas',
-    iconBg: 'bg-emerald-50',
-    iconColor: 'text-emerald-600',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-500/10',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
     iconType: 'laptop',
   },
   {
@@ -112,7 +112,7 @@ const TECH_IMPACT_AREAS: TechImpactArea[] = [
     name: 'Inteligência Artificial',
     description: 'IA ética para resolver desafios sociais e ambientais.',
     count: '121 iniciativas',
-    iconBg: 'bg-purple-50',
+    iconBg: 'bg-purple-50 dark:bg-purple-500/10',
     iconColor: 'text-purple-600',
     iconType: 'brain',
   },
@@ -121,8 +121,8 @@ const TECH_IMPACT_AREAS: TechImpactArea[] = [
     name: 'Saúde Digital',
     description: 'Tecnologias que melhoram o acesso e a qualidade da saúde.',
     count: '98 iniciativas',
-    iconBg: 'bg-amber-50',
-    iconColor: 'text-amber-600',
+    iconBg: 'bg-amber-50 dark:bg-amber-500/10',
+    iconColor: 'text-amber-600 dark:text-amber-400',
     iconType: 'health',
   },
   {
@@ -277,14 +277,14 @@ const TECH_RESOURCES: TechResource[] = [
     id: 'res-t1',
     title: 'Guia de Inovação Social',
     description: 'Passo a passo para criar soluções tecnológicas',
-    iconBg: 'bg-emerald-50 text-emerald-600',
-    iconColor: 'text-emerald-600',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
   },
   {
     id: 'res-t2',
     title: 'Ferramentas de IA Ética',
     description: 'Recursos para desenvolver com responsabilidade',
-    iconBg: 'bg-blue-50 text-blue-600',
+    iconBg: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600',
     iconColor: 'text-blue-600',
   },
   {
@@ -298,8 +298,8 @@ const TECH_RESOURCES: TechResource[] = [
     id: 'res-t4',
     title: 'Financiamento Tech',
     description: 'Encontre apoio para projetos tecnológicos',
-    iconBg: 'bg-amber-50 text-amber-600',
-    iconColor: 'text-amber-600',
+    iconBg: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400',
+    iconColor: 'text-amber-600 dark:text-amber-400',
   },
   {
     id: 'res-t5',
@@ -312,7 +312,7 @@ const TECH_RESOURCES: TechResource[] = [
     id: 'res-t6',
     title: 'Parcerias Tech',
     description: 'Conecte-se com hubs e organizações tech',
-    iconBg: 'bg-purple-50 text-purple-600',
+    iconBg: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600',
     iconColor: 'text-purple-600',
   },
 ];
@@ -414,16 +414,16 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             return (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-slate-200/80 p-3 shadow-2xs flex items-center gap-2.5 hover:border-slate-300 transition-colors"
+                className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700/80 p-3 shadow-2xs flex items-center gap-2.5 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
               >
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon className="w-4 h-4" strokeWidth={2} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <span className="block text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-none truncate">
                     {m.value}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-medium truncate block mt-0.5">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate block mt-0.5">
                     {m.label}
                   </span>
                 </div>
@@ -461,10 +461,10 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#064E3B] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -483,14 +483,14 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                   setIsMaisDropdownOpen(!isMaisDropdownOpen);
                 }
               }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 whitespace-nowrap cursor-pointer shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 whitespace-nowrap cursor-pointer shadow-2xs"
             >
-              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>Mais</span>
             </button>
 
             {isMaisDropdownOpen && (
-              <div className="absolute left-0 mt-1 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
+              <div className="absolute left-0 mt-1 w-52 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
                 {[
                   'Inclusão Social',
                   'Saneamento Básico',
@@ -510,7 +510,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         onNavigateToTab('mais');
                       }
                     }}
-                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 text-slate-700 flex items-center justify-between cursor-pointer"
+                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between cursor-pointer"
                   >
                     <span>{extra}</span>
                   </button>
@@ -588,7 +588,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         const el = document.getElementById('projetos-em-destaque-tecnologia');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-emerald-50 text-[#064E3B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-emerald-50 dark:hover:bg-emerald-500/10 text-[#064E3B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
                     >
                       <span>Explorar iniciativas tecnológicas</span>
                       <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -656,7 +656,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedArea(null)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:underline cursor-pointer"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -672,10 +672,10 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                     <div
                       key={area.id}
                       onClick={() => setSelectedArea(isSelected ? null : area.id)}
-                      className={`bg-white rounded-xl border p-3.5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer group ${
+                      className={`bg-white dark:bg-slate-900 rounded-xl border p-3.5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer group ${
                         isSelected
                           ? 'border-emerald-600 ring-2 ring-emerald-600/20'
-                          : 'border-slate-200/80 hover:border-slate-300'
+                          : 'border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600'
                       }`}
                     >
                       <div>
@@ -688,13 +688,13 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                           {area.name}
                         </h4>
 
-                        <p className="text-[10px] text-slate-500 leading-tight mt-1 mb-2.5 line-clamp-3">
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-1 mb-2.5 line-clamp-3">
                           {area.description}
                         </p>
                       </div>
 
-                      <div className="pt-2 border-t border-slate-100">
-                        <span className="text-[10px] font-bold text-emerald-700">
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400">
                           {area.count}
                         </span>
                       </div>
@@ -717,7 +717,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, FEATURED_TECH_PROJECTS.length - 3)))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Anterior"
                         title="Projetos anteriores"
                       >
@@ -726,7 +726,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev < FEATURED_TECH_PROJECTS.length - 3 ? prev + 1 : 0))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Seguinte"
                         title="Próximos projetos"
                       >
@@ -741,10 +741,10 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         <article
                           key={proj.id}
                           onClick={() => setSelectedProjectModal(proj)}
-                          className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 overflow-hidden shadow-2xs hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                         >
                           {/* Imagem do Projeto com Badge "Tecnologia" Sobreposta */}
-                          <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-slate-100">
+                          <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                             <img
                               src={proj.image}
                               alt={proj.title}
@@ -759,24 +759,24 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                           {/* Conteúdo */}
                           <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2.5">
                             <div>
-                              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                 {proj.location}
                               </div>
                               <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 transition-colors mt-0.5">
                                 {proj.title}
                               </h4>
-                              <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-1">
+                              <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mt-1">
                                 {proj.description}
                               </p>
                             </div>
 
                             {/* Barra de Progresso da Meta */}
-                            <div className="pt-2 border-t border-slate-100 space-y-1.5">
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
                               <div className="flex items-center justify-between text-[10.5px]">
-                                <span className="text-slate-500 truncate">{proj.impacted}</span>
-                                <span className="font-bold text-emerald-700 shrink-0">{proj.progressPercent}% da meta</span>
+                                <span className="text-slate-500 dark:text-slate-400 truncate">{proj.impacted}</span>
+                                <span className="font-bold text-emerald-700 dark:text-emerald-400 shrink-0">{proj.progressPercent}% da meta</span>
                               </div>
-                              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                              <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                   className={`h-full rounded-full ${proj.progressBarColor}`}
                                   style={{ width: `${proj.progressPercent}%` }}
@@ -792,7 +792,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                       type="button"
                       title="Ver mais projetos"
                       onClick={() => setCarouselIndex((prev) => (prev < FEATURED_TECH_PROJECTS.length - 3 ? prev + 1 : 0))}
-                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer z-10"
+                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer z-10"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
@@ -876,19 +876,19 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                   return (
                     <div
                       key={idx}
-                      className="bg-white rounded-xl border border-slate-200/80 p-3 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-colors"
+                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700/80 p-3 shadow-2xs flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1.5">
-                          <Icon className="w-4 h-4 text-slate-400" />
-                          <span className="text-[9px] font-bold text-emerald-600">
+                          <Icon className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                          <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400">
                             {item.change}
                           </span>
                         </div>
                         <span className="text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] block truncate">
                           {item.value}
                         </span>
-                        <span className="text-[9.5px] text-slate-500 font-medium block leading-tight mt-0.5">
+                        <span className="text-[9.5px] text-slate-500 dark:text-slate-400 font-medium block leading-tight mt-0.5">
                           {item.label}
                         </span>
                       </div>
@@ -914,7 +914,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             {/* SEÇÃO 4: Análise de Impacto — Gráficos Completos (Linha Temporal + Donut) */}
             <ImpactAnalyticsSection
               accent="#059669"
-              softBg="bg-emerald-50"
+              softBg="bg-emerald-50 dark:bg-emerald-500/10"
               labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
               series={[
                 {
@@ -941,28 +941,28 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
           {/* COLUNA LATERAL DIREITA (lg:col-span-3) */}
           <aside className="lg:col-span-3 flex flex-col gap-4">
             {/* 1. Card: Mais populares em Tecnologia */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
                 <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Mais populares em Tecnologia
                 </h3>
                 <button
                   type="button"
-                  className="text-[11px] font-bold text-emerald-700 hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {POPULAR_TECH_ITEMS.map((item) => (
                   <div
                     key={item.id}
-                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-xs font-bold text-slate-400 w-3 shrink-0">
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-3 shrink-0">
                         {item.rank}
                       </span>
                       <img
@@ -974,7 +974,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-emerald-700 transition-colors">
                           {item.name}
                         </h4>
-                        <span className="text-[10px] text-slate-500 block truncate">
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">
                           {item.supporters}
                         </span>
                       </div>
@@ -988,25 +988,25 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
             </div>
 
             {/* 2. Card: Recursos e Ferramentas (6 Itens) */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
                 <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Recursos e ferramentas
                 </h3>
                 <button
                   type="button"
-                  className="text-[11px] font-bold text-emerald-700 hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {TECH_RESOURCES.map((res) => (
                   <div
                     key={res.id}
-                    className="py-2 flex items-center justify-between gap-2.5 hover:bg-slate-50 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center justify-between gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0 flex-1">
                       <div className={`w-8 h-8 rounded-lg ${res.iconBg} flex items-center justify-center shrink-0`}>
@@ -1016,12 +1016,12 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                         <h4 className="text-[11px] font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-emerald-700 transition-colors">
                           {res.title}
                         </h4>
-                        <span className="text-[9.5px] text-slate-500 block truncate">
+                        <span className="text-[9.5px] text-slate-500 dark:text-slate-400 block truncate">
                           {res.description}
                         </span>
                       </div>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0 group-hover:text-slate-700" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0 group-hover:text-slate-700 dark:group-hover:text-slate-300" />
                   </div>
                 ))}
               </div>
@@ -1057,7 +1057,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={handleSupportClick}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#041E26] hover:bg-slate-100 text-xs font-bold shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#041E26] hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold shadow-sm transition-all cursor-pointer"
                 >
                   <span>Explorar Iniciativas</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1071,7 +1071,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
       {/* Modal de Detalhes do Projeto */}
       {selectedProjectModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
             <div className="relative h-48 w-full">
               <img
                 src={selectedProjectModal.image}
@@ -1096,21 +1096,21 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 <h3 className="text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   {selectedProjectModal.title}
                 </h3>
-                <span className="text-xs text-slate-500 font-medium">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                   {selectedProjectModal.location}
                 </span>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 {selectedProjectModal.description} Esta iniciativa impulsiona inclusão digital, educação de alta qualidade e sustentabilidade comunitária através de inovação aberta e tecnologias conectadas.
               </p>
 
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-800">
                 <div className="flex items-center justify-between text-xs mb-1.5">
-                  <span className="font-bold text-slate-700">{selectedProjectModal.impacted}</span>
-                  <span className="font-bold text-emerald-700">{selectedProjectModal.progressPercent}% da meta</span>
+                  <span className="font-bold text-slate-700 dark:text-slate-300">{selectedProjectModal.impacted}</span>
+                  <span className="font-bold text-emerald-700 dark:text-emerald-400">{selectedProjectModal.progressPercent}% da meta</span>
                 </div>
-                <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full ${selectedProjectModal.progressBarColor}`}
                     style={{ width: `${selectedProjectModal.progressPercent}%` }}
@@ -1122,7 +1122,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedProjectModal(null)}
-                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                 >
                   Fechar
                 </button>
@@ -1145,17 +1145,17 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
       {/* Modal Apoiar Iniciativa */}
       {isSupportModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 flex flex-col gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center">
                   <Cpu className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     Apoiar Iniciativa Tech
                   </h3>
-                  <span className="text-xs text-slate-500">
+                  <span className="text-xs text-slate-500 dark:text-slate-400">
                     Tecnologia e Inovação para o Impacto Global
                   </span>
                 </div>
@@ -1163,13 +1163,13 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 text-sm cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 text-sm cursor-pointer"
               >
                 ✕
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Ao apoiar esta iniciativa, você se une a mais de 3.2 milhões de pessoas que impulsionam acesso digital, soluções abertas e ferramentas de alto impacto para comunidades vulneráveis.
             </p>
 
@@ -1177,7 +1177,7 @@ export const TechnologyImpactView: React.FC<TechnologyImpactViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(false)}
-                className="flex-1 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer"
+                className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 Cancelar
               </button>

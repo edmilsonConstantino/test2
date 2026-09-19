@@ -103,9 +103,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-16">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16">
       {/* 1. Header / Topbar da Área de Definições */}
-      <header className="bg-white border-b border-slate-200/80 sticky top-0 z-30">
+      <header className="bg-white dark:bg-slate-900/95 border-b border-slate-200/80 dark:border-slate-700/80 sticky top-0 z-30">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           {/* Esquerda: Menu Mobile e Breadcrumb exato "Preferências > Contas e Acessos" */}
           <div className="flex items-center gap-3 min-w-0">
@@ -113,7 +113,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               <button
                 type="button"
                 onClick={onOpenMobileMenu}
-                className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
                 title="Abrir menu lateral"
               >
                 <Menu className="w-5 h-5" />
@@ -121,7 +121,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             )}
 
             {/* Breadcrumb idêntico à imagem: Ícone + Preferências > [Nome da Aba] */}
-            <nav className="flex items-center gap-2 text-xs text-slate-500 min-w-0 font-sans">
+            <nav className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 min-w-0 font-sans">
               <button
                 type="button"
                 onClick={() => onNavigateToTab?.('inicio')}
@@ -130,8 +130,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 <Sliders className="w-3.5 h-3.5 text-[#1455AC]" />
                 <span>Preferências</span>
               </button>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <span className="font-bold text-slate-900 truncate font-sans">
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
+              <span className="font-bold text-slate-900 dark:text-slate-50 truncate font-sans">
                 {tabMetadata[activeTab].breadcrumb}
               </span>
             </nav>
@@ -141,13 +141,13 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           <div className="flex items-center gap-3 sm:gap-4 shrink-0 font-sans">
             {/* Input de Pesquisa Pill */}
             <div className="relative hidden md:block w-48 lg:w-64 font-sans">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Pesquisar..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-50/80 hover:bg-slate-50 text-xs text-slate-800 pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:border-[#1455AC] focus:bg-white outline-none transition-all shadow-2xs font-sans"
+                className="w-full bg-slate-50/80 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 pl-9 pr-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-[#1455AC] focus:bg-white dark:focus:bg-slate-900 outline-none transition-all shadow-2xs font-sans"
               />
             </div>
 
@@ -155,11 +155,11 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <button
               type="button"
               onClick={() => setActiveTab('notificacoes')}
-              className="relative p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer font-sans"
+              className="relative p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer font-sans"
               title="Notificações"
             >
-              <Bell className="w-4.5 h-4.5 text-slate-700" />
-              <span className="absolute top-1 right-1 w-4 h-4 bg-[#f58300] text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">
+              <Bell className="w-4.5 h-4.5 text-slate-700 dark:text-slate-300" />
+              <span className="absolute top-1 right-1 w-4 h-4 bg-[#f58300] text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white dark:ring-slate-900">
                 3
               </span>
             </button>
@@ -169,26 +169,26 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center gap-2 p-1.5 sm:px-2.5 sm:py-1.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
+                className="flex items-center gap-2 p-1.5 sm:px-2.5 sm:py-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
                   alt="Divan Mellert"
-                  className="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200"
+                  className="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200 dark:ring-slate-700"
                 />
                 <div className="hidden sm:block text-left">
-                  <p className="text-xs font-bold text-[#0F172A] leading-tight">Divan Mellert</p>
-                  <p className="text-[11px] text-slate-400 leading-tight">Administrador</p>
+                  <p className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight">Divan Mellert</p>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500 leading-tight">Administrador</p>
                 </div>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400 hidden sm:block" />
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 hidden sm:block" />
               </button>
 
               {/* Dropdown do Usuário */}
               {isUserMenuOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl border border-slate-200 shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
-                  <div className="p-2 border-b border-slate-100 mb-1">
-                    <p className="text-xs font-bold text-[#0F172A]">Divan Mellert</p>
-                    <p className="text-[11px] text-slate-500">divan@vilaglobal.org</p>
+                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="p-2 border-b border-slate-100 dark:border-slate-700 mb-1">
+                    <p className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Divan Mellert</p>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">divan@vilaglobal.org</p>
                   </div>
                   <button
                     type="button"
@@ -196,9 +196,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                       setActiveTab('perfil');
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded-lg flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg flex items-center gap-2 cursor-pointer"
                   >
-                    <User className="w-3.5 h-3.5 text-slate-400" />
+                    <User className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     O meu perfil
                   </button>
                   <button
@@ -207,9 +207,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                       setActiveTab('contas');
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded-lg flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg flex items-center gap-2 cursor-pointer"
                   >
-                    <Users className="w-3.5 h-3.5 text-slate-400" />
+                    <Users className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     Contas e Acessos
                   </button>
                   <button
@@ -218,9 +218,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                       setActiveTab('preferencias');
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded-lg flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg flex items-center gap-2 cursor-pointer"
                   >
-                    <Sliders className="w-3.5 h-3.5 text-slate-400" />
+                    <Sliders className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     Preferências
                   </button>
                   <button
@@ -229,7 +229,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                       onOpenAiAssistant?.();
                       setIsUserMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-[#1455AC] hover:bg-[#1455AC]/10 rounded-lg flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-1.5 text-xs font-medium text-[#1455AC] hover:bg-[#1455AC]/10 dark:hover:bg-[#1455AC]/20 rounded-lg flex items-center gap-2 cursor-pointer"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     Assistente VILA AI
@@ -245,16 +245,16 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
       <main className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 space-y-6">
         {/* Título & Subtítulo dinâmico da Aba Ativa (exatamente como em UI CONTAS E ACESSOS) */}
         <div className="space-y-1 font-sans">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-sans tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
             {tabMetadata[activeTab].title}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 font-sans">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-sans">
             {tabMetadata[activeTab].subtitle}
           </p>
         </div>
 
         {/* 3. Barra de Navegação das 7 Abas na ordem exata */}
-        <div className="border-b border-slate-200 overflow-x-auto no-scrollbar font-sans">
+        <div className="border-b border-slate-200 dark:border-slate-700 overflow-x-auto no-scrollbar font-sans">
           <div className="flex items-center gap-4 sm:gap-7 min-w-max">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -267,10 +267,10 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   className={`py-3 px-1 sm:px-2 flex items-center gap-2 text-xs sm:text-sm font-semibold transition-all relative cursor-pointer font-sans ${
                     isActive
                       ? 'text-[#1455AC]'
-                      : 'text-slate-500 hover:text-slate-900'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#1455AC]' : 'text-slate-400'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#1455AC]' : 'text-slate-400 dark:text-slate-500'}`} />
                   <span>{tab.label}</span>
 
                   {/* Linha azul sublinhada para aba ativa */}

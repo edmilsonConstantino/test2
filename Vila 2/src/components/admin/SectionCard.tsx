@@ -65,7 +65,7 @@ export const SectionCard: React.FC<SectionCardProps> = ({
           <button
             type="button"
             onClick={onFooterClick}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1455AC] hover:text-blue-800 dark:hover:text-blue-300 transition-colors cursor-pointer group"
           >
             <span>{footerLabel}</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

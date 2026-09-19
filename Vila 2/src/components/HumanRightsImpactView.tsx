@@ -79,13 +79,13 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
 
   // 1. Ribbon de Métricas do Topo (7 Métricas exatas da imagem)
   const ribbonMetrics = [
-    { label: 'Iniciativas Ativas', value: '1.124', icon: <Users className="w-4 h-4 text-slate-500" /> },
-    { label: 'Organizações', value: '276', icon: <Landmark className="w-4 h-4 text-slate-500" /> },
-    { label: 'Países', value: '98', icon: <Globe className="w-4 h-4 text-slate-500" /> },
-    { label: 'Pessoas Impactadas', value: '4.875.320', icon: <Users className="w-4 h-4 text-slate-500" /> },
-    { label: 'Campanhas Ativas', value: '214', icon: <Megaphone className="w-4 h-4 text-slate-500" /> },
-    { label: 'Pessoas Apoiadas', value: '783.650', icon: <HeartHandshake className="w-4 h-4 text-slate-500" /> },
-    { label: 'Horas de Voluntariado', value: '2.143.480 h', icon: <Clock className="w-4 h-4 text-slate-500" /> },
+    { label: 'Iniciativas Ativas', value: '1.124', icon: <Users className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
+    { label: 'Organizações', value: '276', icon: <Landmark className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
+    { label: 'Países', value: '98', icon: <Globe className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
+    { label: 'Pessoas Impactadas', value: '4.875.320', icon: <Users className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
+    { label: 'Campanhas Ativas', value: '214', icon: <Megaphone className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
+    { label: 'Pessoas Apoiadas', value: '783.650', icon: <HeartHandshake className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
+    { label: 'Horas de Voluntariado', value: '2.143.480 h', icon: <Clock className="w-4 h-4 text-slate-500 dark:text-slate-400" /> },
   ];
 
   // 2. Fita de Categorias
@@ -339,21 +339,21 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       title: 'Base de Dados de Organizações',
       description: 'Encontre ONGs e defensores',
       icon: <Database className="w-4 h-4 text-[#3D4ED8]" />,
-      bg: 'bg-blue-50/80 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-500/10/80 border-blue-100',
     },
     {
       id: 'financiamento',
       title: 'Financiamento e Doações',
       description: 'Apoie causas de direitos humanos',
       icon: <Coins className="w-4 h-4 text-[#D97706]" />,
-      bg: 'bg-amber-50/80 border-amber-100',
+      bg: 'bg-amber-50 dark:bg-amber-500/10/80 border-amber-100',
     },
     {
       id: 'cursos',
       title: 'Cursos e Capacitações',
       description: 'Formação em direitos humanos',
       icon: <GraduationCap className="w-4 h-4 text-[#059669]" />,
-      bg: 'bg-emerald-50/80 border-emerald-100',
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10/80 border-emerald-100',
     },
     {
       id: 'webinars',
@@ -367,12 +367,12 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       title: 'Documentos e Relatórios',
       description: 'Acesse estudos e relatórios globais',
       icon: <FileText className="w-4 h-4 text-[#7C3AED]" />,
-      bg: 'bg-purple-50/80 border-purple-100',
+      bg: 'bg-purple-50 dark:bg-purple-500/10/80 border-purple-100',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-16 antialiased text-[#1E293B]">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16 antialiased text-[#1E293B] dark:text-slate-100">
       {/* TOAST FLUTUANTE */}
       {supportSuccessToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#312E81] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-violet-700 animate-in fade-in slide-in-from-bottom-4">
@@ -393,7 +393,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0F1E3D] font-['Outfit'] tracking-tight">
                 Direitos Humanos
               </h1>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium mt-0.5">
                 Dignidade, igualdade e justiça para todas as pessoas, em todos os lugares.
               </p>
             </div>
@@ -409,18 +409,18 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
         </div>
 
         {/* STATS RIBBON (7 METRICS IN 1 WHITE BAR) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-3 sm:p-4 shadow-2xs overflow-x-auto">
-          <div className="flex items-center justify-between min-w-[860px] divide-x divide-slate-100">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-3 sm:p-4 shadow-2xs overflow-x-auto">
+          <div className="flex items-center justify-between min-w-[860px] divide-x divide-slate-100 dark:divide-slate-700">
             {ribbonMetrics.map((m, idx) => (
               <div key={idx} className="flex items-center gap-3 px-3.5 first:pl-1 last:pr-1 flex-1">
-                <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0">
                   {m.icon}
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs sm:text-sm font-black text-[#0F1E3D] font-['Outfit'] tracking-tight truncate">
                     {m.value}
                   </div>
-                  <div className="text-[10.5px] text-slate-500 font-medium truncate">
+                  <div className="text-[10.5px] text-slate-500 dark:text-slate-400 font-medium truncate">
                     {m.label}
                   </div>
                 </div>
@@ -444,7 +444,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'bg-[#312E81] text-white shadow-xs border border-[#312E81]'
-                    : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
                 <span>{cat.icon}</span>
@@ -463,7 +463,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 showToast('Mais categorias em breve!');
               }
             }}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-slate-500 hover:text-slate-800 border border-slate-200 hover:border-slate-300 transition-colors whitespace-nowrap cursor-pointer"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors whitespace-nowrap cursor-pointer"
           >
             <MoreHorizontal className="w-3.5 h-3.5" />
             <span>Mais</span>
@@ -556,7 +556,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                   <div
                     key={area.id}
                     onClick={() => showToast(`Área selecionada: ${area.title}`)}
-                    className="bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs hover:border-violet-300 transition-all cursor-pointer flex flex-col justify-between group"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs hover:border-violet-300 transition-all cursor-pointer flex flex-col justify-between group"
                   >
                     <div>
                       <div className={`w-9 h-9 rounded-full ${area.circleBg} flex items-center justify-center mb-3 group-hover:scale-105 transition-transform shadow-xs`}>
@@ -565,15 +565,15 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                       <h3 className="text-xs sm:text-[13px] font-bold text-[#0F1E3D] font-['Outfit'] mb-1 leading-snug line-clamp-2 min-h-[34px]">
                         {area.title}
                       </h3>
-                      <p className="text-[11px] text-slate-500 leading-relaxed line-clamp-2 min-h-[32px]">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2 min-h-[32px]">
                         {area.description}
                       </p>
                     </div>
-                    <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                    <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                       <span className="text-[11px] font-bold text-[#059669]">
                         {area.initiativesCount}
                       </span>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
                 ))}
@@ -592,7 +592,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                     <button
                       type="button"
                       onClick={() => setCarouselIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, featuredProjects.length - 3)))}
-                      className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                      className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                       aria-label="Anterior"
                       title="Projetos anteriores"
                     >
@@ -601,7 +601,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                     <button
                       type="button"
                       onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                      className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                      className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                       aria-label="Seguinte"
                       title="Próximos projetos"
                     >
@@ -616,10 +616,10 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                       <div
                         key={proj.id}
                         onClick={() => setSelectedProject(proj)}
-                        className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col group justify-between"
+                        className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col group justify-between"
                       >
                         <div>
-                          <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                          <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100 dark:bg-slate-800">
                             <img
                               src={proj.imageUrl}
                               alt={proj.title}
@@ -632,26 +632,26 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                           </div>
 
                           <div className="p-3.5 space-y-1">
-                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                            <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                               {proj.location}
                             </div>
                             <h3 className="text-xs sm:text-[13px] font-bold text-[#0F1E3D] font-['Outfit'] leading-snug line-clamp-1 group-hover:text-[#312E81] transition-colors mt-0.5">
                               {proj.title}
                             </h3>
-                            <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-1">
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mt-1">
                               {proj.description}
                             </p>
                           </div>
                         </div>
 
                         <div className="p-3.5 pt-0 space-y-1.5">
-                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10.5px]">
-                            <span className="text-slate-500 truncate">
-                              Impactadas: <strong className="text-slate-800 font-bold">{proj.impactPeople}</strong>
+                          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10.5px]">
+                            <span className="text-slate-500 dark:text-slate-400 truncate">
+                              Impactadas: <strong className="text-slate-800 dark:text-slate-100 font-bold">{proj.impactPeople}</strong>
                             </span>
                             <span className="font-bold text-[#312E81] shrink-0">{proj.progressPercent}%</span>
                           </div>
-                          <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-[#312E81] rounded-full transition-all duration-500"
                               style={{ width: `${proj.progressPercent}%` }}
@@ -666,7 +666,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                   <button
                     type="button"
                     onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                    className="hidden md:flex absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-[#312E81] hover:bg-slate-50 transition-all cursor-pointer z-10"
+                    className="hidden md:flex absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 hover:text-[#312E81] hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer z-10"
                     title="Próximos projetos"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -694,7 +694,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 {impactCards.map((c) => (
                   <div
                     key={c.id}
-                    className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
@@ -705,10 +705,10 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                           {c.value}
                         </div>
                       </div>
-                      <div className="text-[11px] text-slate-500 font-medium mb-1.5 truncate">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mb-1.5 truncate">
                         {c.label}
                       </div>
-                      <div className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-50 text-slate-600 border border-slate-100">
+                      <div className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-100 dark:border-slate-800">
                         ▲ {c.change}
                       </div>
                     </div>
@@ -766,7 +766,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
           {/* COLUNA DIREITA (SIDEBAR DE 3 COLUNAS) */}
           <div className="xl:col-span-3 space-y-6">
             {/* 1. MAIS POPULARES EM DIREITOS HUMANOS (ALINHADO AO LADO DO HERO) */}
-            <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-2xs space-y-3.5">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs space-y-3.5">
               <div className="flex items-center justify-between pb-0.5">
                 <h3 className="text-xs sm:text-sm font-bold text-[#0F1E3D] font-['Outfit']">
                   Mais populares em Direitos Humanos
@@ -785,23 +785,23 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                   <div
                     key={item.id}
                     onClick={() => showToast(`Iniciativa: ${item.title}`)}
-                    className="flex items-center justify-between gap-2.5 p-1 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group"
+                    className="flex items-center justify-between gap-2.5 p-1 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="w-5 h-5 rounded-full bg-slate-100 text-[10.5px] font-bold text-slate-500 flex items-center justify-center shrink-0">
+                      <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-[10.5px] font-bold text-slate-500 dark:text-slate-400 flex items-center justify-center shrink-0">
                         {item.rank}
                       </span>
                       <img
                         src={item.avatar}
                         alt={item.title}
-                        className="w-9 h-9 rounded-xl object-cover shrink-0 border border-slate-100 group-hover:scale-105 transition-transform"
+                        className="w-9 h-9 rounded-xl object-cover shrink-0 border border-slate-100 dark:border-slate-800 group-hover:scale-105 transition-transform"
                         referrerPolicy="no-referrer"
                       />
                       <div className="min-w-0">
                         <h4 className="text-xs font-bold text-[#0F1E3D] truncate group-hover:text-[#312E81] transition-colors">
                           {item.title}
                         </h4>
-                        <p className="text-[11px] text-slate-500 truncate">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                           {item.supporters}
                         </p>
                       </div>
@@ -816,7 +816,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
             </div>
 
             {/* 2. RECURSOS E FERRAMENTAS */}
-            <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-2xs space-y-3.5">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs space-y-3.5">
               <div className="flex items-center justify-between pb-0.5">
                 <h3 className="text-xs sm:text-sm font-bold text-[#0F1E3D] font-['Outfit']">
                   Recursos e ferramentas
@@ -835,7 +835,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                   <div
                     key={t.id}
                     onClick={() => setActiveToolModal(t.title)}
-                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all cursor-pointer group"
+                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-100 dark:hover:border-slate-800 transition-all cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className={`w-8 h-8 rounded-xl ${t.bg} border flex items-center justify-center shrink-0`}>
@@ -845,12 +845,12 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                         <div className="text-xs font-bold text-[#0F1E3D] group-hover:text-[#312E81] transition-colors truncate">
                           {t.title}
                         </div>
-                        <div className="text-[10.5px] text-slate-500 truncate">
+                        <div className="text-[10.5px] text-slate-500 dark:text-slate-400 truncate">
                           {t.description}
                         </div>
                       </div>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
                   </div>
                 ))}
               </div>
@@ -881,7 +881,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
               <div className="relative z-10 pt-4">
                 <button
                   onClick={() => setIsSupportModalOpen(true)}
-                  className="px-4 py-2.5 rounded-xl bg-white hover:bg-violet-50 text-[#1E1B4B] font-bold text-xs shadow-xs transition-all inline-flex items-center gap-2 cursor-pointer group"
+                  className="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-violet-50 text-[#1E1B4B] font-bold text-xs shadow-xs transition-all inline-flex items-center gap-2 cursor-pointer group"
                 >
                   <span>Explorar Iniciativas</span>
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
@@ -895,8 +895,8 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       {/* MODAL: APOIAR INICIATIVA */}
       {isSupportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2.5">
                 <div className="w-10 h-10 rounded-xl bg-[#312E81] text-white flex items-center justify-center">
                   <Heart className="w-5 h-5" />
@@ -905,12 +905,12 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                   <h3 className="text-base font-black text-[#0F1E3D] font-['Outfit']">
                     Apoiar Iniciativa de Direitos Humanos
                   </h3>
-                  <p className="text-xs text-slate-500">Contribua diretamente para a defesa da dignidade humana</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Contribua diretamente para a defesa da dignidade humana</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsSupportModalOpen(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -918,7 +918,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-2">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
                   Escolha o valor de contribuição (EUR)
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -930,7 +930,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                       className={`py-2 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
                         donationAmount === amt
                           ? 'bg-[#312E81] text-white border-[#312E81] shadow-xs'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                          : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'
                       }`}
                     >
                       {amt} €
@@ -960,7 +960,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsSupportModalOpen(false)}
-                  className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                  className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>
@@ -973,7 +973,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       {/* MODAL: DETALHES DO PROJETO */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
             <div className="relative h-56">
               <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               <button
@@ -992,18 +992,18 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 <h3 className="text-xl font-black text-[#0F1E3D] font-['Outfit']">
                   {selectedProject.title}
                 </h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                   {selectedProject.description} Este projeto reúne organizações locais, defensores de direitos humanos e voluntários comprometidos com mudanças estruturais duradouras.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-2xl text-xs">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 dark:bg-slate-800 rounded-2xl text-xs">
                 <div>
-                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Pessoas Beneficiadas</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px] uppercase font-bold">Pessoas Beneficiadas</span>
                   <span className="font-extrabold text-[#0F1E3D] text-sm">{selectedProject.impactPeople}</span>
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Status do Projeto</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px] uppercase font-bold">Status do Projeto</span>
                   <span className="font-extrabold text-[#312E81] text-sm">{selectedProject.progressPercent}% Concluído</span>
                 </div>
               </div>
@@ -1021,7 +1021,7 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 </button>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                  className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl transition-colors cursor-pointer"
                 >
                   Fechar
                 </button>
@@ -1034,24 +1034,24 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       {/* MODAL: FERRAMENTA / RECURSO */}
       {activeToolModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <h3 className="text-base font-black text-[#0F1E3D] font-['Outfit']">
                 {activeToolModal}
               </h3>
               <button
                 onClick={() => setActiveToolModal(null)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               O módulo <strong>{activeToolModal}</strong> faz parte do ecossistema aberto VILA para apoiar defensores de direitos humanos, organizações e cidadãos com informação confiável e recursos práticos.
             </p>
 
-            <div className="p-3 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2 text-xs">
+            <div className="p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 rounded-2xl space-y-2 text-xs">
               <div className="flex items-center gap-2 text-violet-700 font-bold">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Acesso público e gratuito</span>
@@ -1080,17 +1080,17 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
       {/* MODAL: RELATÓRIO COMPLETO */}
       {isReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
                 <h3 className="text-base font-black text-[#0F1E3D] font-['Outfit']">
                   Relatório de Impacto Regional
                 </h3>
-                <p className="text-xs text-slate-500">Distribuição global de iniciativas de direitos humanos ativas</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Distribuição global de iniciativas de direitos humanos ativas</p>
               </div>
               <button
                 onClick={() => setIsReportModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1101,11 +1101,11 @@ export const HumanRightsImpactView: React.FC<HumanRightsImpactViewProps> = ({
                 <span className="font-bold block mb-1">África (34% do impacto total)</span>
                 Campanhas de igualdade, apoio jurídico a comunidades marginalizadas e proteção de defensores de direitos humanos.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">Ásia (26% do impacto total)</span>
                 Liberdade de expressão, proteção de minorias religiosas e acesso à justiça para populações rurais.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">América Latina (20% do impacto total)</span>
                 Direitos das crianças, proteção de jornalistas e combate à violência de género.
               </div>

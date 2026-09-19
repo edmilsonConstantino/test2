@@ -11,7 +11,6 @@ import {
   TrendingUp,
   Compass,
   Sprout,
-  Sparkles,
   ShieldCheck,
   Calendar,
   MessageSquare,
@@ -116,8 +115,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '2.847.562',
       trend: '↑ 24%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#F0F5FC]',
-      iconClass: 'text-[#2D79D1]',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      iconClass: 'text-[#1455AC]',
       icon: <Users className="w-4.5 h-4.5" />,
       spark: [20, 27, 24, 32, 30, 38, 35, 44, 41, 50, 47, 56],
     },
@@ -127,8 +126,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '18.732',
       trend: '↑ 18%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#ECFDF5]',
-      iconClass: 'text-[#059669]',
+      bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+      iconClass: 'text-emerald-600 dark:text-emerald-400',
       icon: <Users className="w-4.5 h-4.5" />,
       spark: [18, 24, 21, 29, 27, 34, 32, 40, 37, 46, 43, 52],
     },
@@ -138,7 +137,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '1.248',
       trend: '↑ 15%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#EFF6FF]',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
       iconClass: 'text-[#1455AC]',
       icon: <Flag className="w-4.5 h-4.5" />,
       spark: [22, 28, 25, 33, 31, 39, 36, 45, 42, 51, 48, 57],
@@ -149,8 +148,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '156',
       trend: '↑ 8%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#FFFBEB]',
-      iconClass: 'text-[#D97706]',
+      bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 border',
+      iconClass: 'text-amber-600 dark:text-amber-400',
       icon: <Globe className="w-4.5 h-4.5" />,
       spark: [16, 22, 19, 26, 24, 31, 29, 36, 34, 42, 40, 48],
     },
@@ -160,8 +159,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '1.248',
       trend: '↑ 16%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#F0F5FC]',
-      iconClass: 'text-[#F58300]',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      iconClass: 'text-[#1455AC]',
       icon: <Zap className="w-4.5 h-4.5" />,
       spark: [21, 27, 24, 31, 29, 37, 34, 43, 40, 49, 46, 55],
     },
@@ -171,8 +170,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '3.642',
       trend: '↑ 9%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#F0F5FC]',
-      iconClass: 'text-[#0F448A]',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+      iconClass: 'text-[#1455AC]',
       icon: <Building2 className="w-4.5 h-4.5" />,
       spark: [17, 23, 20, 27, 25, 32, 30, 37, 35, 43, 41, 49],
     },
@@ -182,7 +181,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       value: '€24,6M',
       trend: '↑ 21%',
       trendPeriod: 'desde o ano passado',
-      bgClass: 'bg-[#F0F5FC]',
+      bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
       iconClass: 'text-[#1455AC]',
       icon: <Coins className="w-4.5 h-4.5" />,
       spark: [24, 30, 27, 34, 32, 40, 37, 46, 43, 52, 49, 58],
@@ -897,7 +896,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
       </div>
 
-      {/* 4. Terceira Fileira: Ecossistema VILA + Principais Tendências + Organizações Parceiras + ODS */}
+      {/* 4. Terceira Fileira: Ecossistema VILA + Organizações Parceiras + ODS + Principais Tendências */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
         {/* Card 1: Ecossistema VILA */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
@@ -905,71 +904,66 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Ecossistema VILA
             </h2>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-y-5 mt-5">
-              {/* Municípios */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
-                  <Building2 className="w-6 h-6" strokeWidth={1.8} />
+            <div className="space-y-3.5 mt-5">
+
+              <div key="Municípios" className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-blue-50 dark:bg-blue-500/10 text-blue-600">
+                    <Building2 className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">Municípios</span>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Municípios</div>
-                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">3.642</div>
-                </div>
+                <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans shrink-0">3.642</span>
               </div>
 
-              {/* Parceiros Institucionais */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
-                  <Handshake className="w-6 h-6" strokeWidth={1.8} />
+              <div key="Comunidades" className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <Users className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">Comunidades</span>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Parceiros Institucionais</div>
-                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">342</div>
-                </div>
+                <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans shrink-0">18.732</span>
               </div>
 
-              {/* Comunidades */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <Users className="w-6 h-6" strokeWidth={1.8} />
+              <div key="Organizações" className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-blue-50 dark:bg-blue-500/10 text-blue-600">
+                    <Users className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">Organizações</span>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Comunidades</div>
-                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">18.732</div>
-                </div>
+                <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans shrink-0">1.248</span>
               </div>
 
-              {/* Eventos Realizados */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
-                  <Calendar className="w-6 h-6" strokeWidth={1.8} />
+              <div key="Parceiros Institucionais" className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-amber-50 dark:bg-amber-500/10 text-amber-500">
+                    <Handshake className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">Parceiros Institucionais</span>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Eventos Realizados</div>
-                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">9.580</div>
-                </div>
+                <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans shrink-0">342</span>
               </div>
 
-              {/* Organizações */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
-                  <Users className="w-6 h-6" strokeWidth={1.8} />
+              <div key="Eventos Realizados" className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-blue-50 dark:bg-blue-500/10 text-blue-500">
+                    <Calendar className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">Eventos Realizados</span>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Organizações</div>
-                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">1.248</div>
-                </div>
+                <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans shrink-0">9.580</span>
               </div>
 
-              {/* Consultas Realizadas */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
-                  <MessageSquare className="w-6 h-6" strokeWidth={1.8} />
+              <div key="Consultas Realizadas" className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-blue-50 dark:bg-blue-500/10 text-blue-600">
+                    <MessageSquare className="w-5 h-5" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 truncate">Consultas Realizadas</span>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">Consultas Realizadas</div>
-                  <div className="text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans leading-snug mt-0.5">1.156</div>
-                </div>
+                <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans shrink-0">1.156</span>
               </div>
             </div>
           </div>
@@ -986,80 +980,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
         </div>
 
-        {/* Card 2: Principais Tendências da Rede */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
-              Principais Tendências da Rede
-            </h2>
-            <div className="space-y-3.5 mt-4">
-              {/* Tendência 1 */}
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Expansão global contínua</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                    A rede VILA cresceu 18% no último ano, com destaque para a América Latina e África.
-                  </p>
-                </div>
-              </div>
-
-              {/* Tendência 2 */}
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                  <Sprout className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Municípios cada vez mais ativos</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                    A participação dos municípios aumentou 31%, impulsionando projetos locais.
-                  </p>
-                </div>
-              </div>
-
-              {/* Tendência 3 */}
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Sustentabilidade em destaque</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                    Projetos ligados ao ODS 11, 13 e 3 lideram em número e impacto.
-                  </p>
-                </div>
-              </div>
-
-              {/* Tendência 4 */}
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Fortalecimento de parcerias</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                    Novas parcerias estratégicas aumentaram 27% desde o início do ano.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-auto pt-4 flex justify-end">
-            <button
-              type="button"
-              onClick={() => onNavigateToTab('relatorios-dados')}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F448A] hover:text-[#1455AC] transition-colors cursor-pointer"
-            >
-              <span>Ver todas as tendências</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Card 3: Organizações Parceiras (Rosca) */}
+        {/* Card 2: Organizações Parceiras (Rosca) */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
@@ -1162,7 +1083,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
         </div>
 
-        {/* Card 4: Objetivos de Desenvolvimento Sustentável (ODS) */}
+        {/* Card 3: Objetivos de Desenvolvimento Sustentável (ODS) */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
@@ -1336,9 +1257,145 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
       </div>
 
-      {/* 5. Quarta Fileira: Próximos Eventos Globais + Impacto Global da Rede + Parceiros em Destaque */}
+        {/* Card 4: Principais Tendências da Rede */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+          <div>
+            <h2 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans">
+              Principais Tendências da Rede
+            </h2>
+            <div className="space-y-3.5 mt-4">
+              {/* Tendência 1 */}
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <Compass className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Expansão global contínua</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
+                    A rede VILA cresceu 18% no último ano, com destaque para a América Latina e África.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tendência 2 */}
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Sprout className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Municípios cada vez mais ativos</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
+                    A participação dos municípios aumentou 31%, impulsionando projetos locais.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tendência 3 */}
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Sustentabilidade em destaque</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
+                    Projetos ligados ao ODS 11, 13 e 3 lideram em número e impacto.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tendência 4 */}
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50">Fortalecimento de parcerias</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
+                    Novas parcerias estratégicas aumentaram 27% desde o início do ano.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-auto pt-4 flex justify-end">
+            <button
+              type="button"
+              onClick={() => onNavigateToTab('relatorios-dados')}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F448A] hover:text-[#1455AC] transition-colors cursor-pointer"
+            >
+              <span>Ver todas as tendências</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+
+      {/* 5. Quarta Fileira: Impacto Global da Rede + Próximos Eventos Globais + Parceiros em Destaque */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        {/* Card 1: Próximos Eventos Globais (4 colunas) */}
+        {/* Card 1: Impacto Global da Rede (4 colunas) */}
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
+                Impacto Global da Rede
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              {/* Pessoas Alcançadas */}
+              <div className="space-y-1">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Pessoas Alcançadas</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">2,8M+</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 22%</div>
+              </div>
+
+              {/* Projetos Implementados */}
+              <div className="space-y-1">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                  <CheckSquare className="w-4 h-4" />
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Projetos Implementados</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">5.430</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 17%</div>
+              </div>
+
+              {/* Países com Projetos Ativos */}
+              <div className="space-y-1">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                  <Globe className="w-4 h-4" />
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Países com Projetos Ativos</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">123</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 12%</div>
+              </div>
+
+              {/* Investimento Mobilizado */}
+              <div className="space-y-1">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
+                  <Coins className="w-4 h-4" />
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Investimento Mobilizado</div>
+                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">€98M+</div>
+                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 19%</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-4">
+            <button
+              type="button"
+              onClick={() => onNavigateToTab('relatorios-dados')}
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
+            >
+              <span>Ver relatório de impacto</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Card 2: Próximos Eventos Globais (4 colunas) */}
         <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
@@ -1425,69 +1482,6 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
               className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
             >
               <span>Ver todos os eventos</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Card 2: Impacto Global da Rede (4 colunas) */}
-        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
-              <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
-                Impacto Global da Rede
-              </h2>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {/* Pessoas Alcançadas */}
-              <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
-                  <Users className="w-4 h-4" />
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Pessoas Alcançadas</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">2,8M+</div>
-                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 22%</div>
-              </div>
-
-              {/* Projetos Implementados */}
-              <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
-                  <CheckSquare className="w-4 h-4" />
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Projetos Implementados</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">5.430</div>
-                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 17%</div>
-              </div>
-
-              {/* Países com Projetos Ativos */}
-              <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
-                  <Globe className="w-4 h-4" />
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Países com Projetos Ativos</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">123</div>
-                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 12%</div>
-              </div>
-
-              {/* Investimento Mobilizado */}
-              <div className="space-y-1">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center">
-                  <Coins className="w-4 h-4" />
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Investimento Mobilizado</div>
-                <div className="text-lg sm:text-xl font-bold text-[#0F172A] dark:text-slate-50 font-sans">€98M+</div>
-                <div className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">↑ 19%</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex justify-end mt-4">
-            <button
-              type="button"
-              onClick={() => onNavigateToTab('relatorios-dados')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer"
-            >
-              <span>Ver relatório de impacto</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

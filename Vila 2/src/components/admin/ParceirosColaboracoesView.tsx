@@ -27,7 +27,7 @@ import {
   Search,
   PlusCircle,
   Clock,
-  Sparkles,
+  CheckCircle2,
   Award,
   ExternalLink,
   Filter,
@@ -366,7 +366,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Estratégicos',
       count: '48',
       icon: <Crown className="w-4 h-4 text-blue-700" />,
-      containerBg: 'bg-[#F0F5FC] border border-blue-200/90 text-blue-900',
+      containerBg: 'bg-blue-50/90 border border-blue-100/70 text-blue-900',
       iconBoxBg: 'bg-blue-200/70',
     },
     {
@@ -374,7 +374,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Institucionais',
       count: '126',
       icon: <Landmark className="w-4 h-4 text-blue-700" />,
-      containerBg: 'bg-[#F0F5FC] border border-blue-200/90 text-blue-900',
+      containerBg: 'bg-blue-50/90 border border-blue-100/70 text-blue-900',
       iconBoxBg: 'bg-blue-200/70',
     },
     {
@@ -382,7 +382,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Operacionais',
       count: '342',
       icon: <Shield className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />,
-      containerBg: 'bg-[#DCFCE7] border border-emerald-200/90 text-emerald-900',
+      containerBg: 'bg-emerald-50/90 border border-emerald-100/70 text-emerald-900',
       iconBoxBg: 'bg-emerald-200/70',
     },
     {
@@ -390,7 +390,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       name: 'Parceiros Locais',
       count: '1.248',
       icon: <Users className="w-4 h-4 text-amber-700 dark:text-amber-400" />,
-      containerBg: 'bg-[#FEF3C7] border border-amber-200/90 text-amber-900',
+      containerBg: 'bg-amber-50/90 border border-amber-100/70 text-amber-900',
       iconBoxBg: 'bg-amber-200/70',
     },
   ];
@@ -706,7 +706,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
+          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}

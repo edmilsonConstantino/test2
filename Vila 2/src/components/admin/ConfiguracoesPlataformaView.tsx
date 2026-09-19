@@ -10,7 +10,6 @@ import {
   FileCheck,
   ShieldCheck,
   UserCheck,
-  Sparkles,
   Cpu,
   Bot,
   Database,
@@ -116,7 +115,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
+          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -434,7 +433,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600">
-                <Sparkles className="w-4 h-4" />
+                <Cpu className="w-4 h-4" />
               </div>
               <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">VILA AI</h3>
             </div>
@@ -866,7 +865,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
                   badgeCol: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 border border-blue-100',
                 },
                 { label: 'Cores e Identidade Visual', icon: <Paintbrush className="w-3.5 h-3.5 text-blue-600" /> },
-                { label: 'Logótipo e Marca', icon: <Sparkles className="w-3.5 h-3.5 text-blue-600" /> },
+                { label: 'Logótipo e Marca', icon: <Palette className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Página de Login', icon: <LayoutTemplate className="w-3.5 h-3.5 text-blue-600" /> },
                 { label: 'Dashboard Personalizado', icon: <LayoutGrid className="w-3.5 h-3.5 text-blue-600" /> },
               ].map((row, i) => (

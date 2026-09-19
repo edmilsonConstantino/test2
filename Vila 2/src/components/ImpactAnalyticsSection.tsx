@@ -26,13 +26,13 @@ export const ImpactAnalyticsSection: React.FC<ImpactAnalyticsSectionProps> = ({
   series,
   slices,
   accent,
-  softBg = 'bg-slate-50',
+  softBg = 'bg-slate-50 dark:bg-slate-800',
   onSeeAll,
 }) => {
   return (
     <section className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+        <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
           Análise de impacto
         </h2>
         {onSeeAll && (
@@ -50,20 +50,20 @@ export const ImpactAnalyticsSection: React.FC<ImpactAnalyticsSectionProps> = ({
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-stretch">
         {/* Gráfico de Linhas — Evolução Mensal */}
-        <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-4 sm:p-5 flex flex-col min-w-0">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xs p-4 sm:p-5 flex flex-col min-w-0">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <div className="flex items-center gap-2 min-w-0">
               <div
-                className={`w-8 h-8 rounded-lg ${softBg} border border-slate-100 flex items-center justify-center shrink-0`}
+                className={`w-8 h-8 rounded-lg ${softBg} border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0`}
                 style={{ color: accent }}
               >
                 <TrendingUp className="w-4 h-4" />
               </div>
               <div className="min-w-0">
-                <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit'] tracking-tight leading-tight truncate">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight leading-tight truncate">
                   Evolução mensal de impacto
                 </h3>
-                <p className="text-[11px] text-slate-500 leading-tight">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
                   Pessoas impactadas e iniciativas ativas (últimos 12 meses)
                 </p>
               </div>
@@ -72,7 +72,7 @@ export const ImpactAnalyticsSection: React.FC<ImpactAnalyticsSectionProps> = ({
             {/* Legenda compacta */}
             <div className="flex items-center gap-3 flex-wrap">
               {series.map((s) => (
-                <span key={s.name} className="inline-flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                <span key={s.name} className="inline-flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600 dark:text-slate-400">
                   <span className="w-2 h-2 rounded-full shrink-0" style={{ background: s.color }} />
                   {s.name}
                 </span>
@@ -86,19 +86,19 @@ export const ImpactAnalyticsSection: React.FC<ImpactAnalyticsSectionProps> = ({
         </div>
 
         {/* Donut — Distribuição por Região */}
-        <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-4 sm:p-5 flex flex-col min-w-0">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xs p-4 sm:p-5 flex flex-col min-w-0">
           <div className="flex items-center gap-2">
             <div
-              className={`w-8 h-8 rounded-lg ${softBg} border border-slate-100 flex items-center justify-center shrink-0`}
+              className={`w-8 h-8 rounded-lg ${softBg} border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0`}
               style={{ color: accent }}
             >
               <PieChart className="w-4 h-4" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit'] tracking-tight leading-tight truncate">
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight leading-tight truncate">
                 Distribuição por região
               </h3>
-              <p className="text-[11px] text-slate-500 leading-tight">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
                 Participação no impacto global
               </p>
             </div>

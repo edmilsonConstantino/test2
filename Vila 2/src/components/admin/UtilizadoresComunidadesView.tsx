@@ -10,7 +10,6 @@ import {
   Filter,
   ArrowRight,
   TrendingUp,
-  Sparkles,
   Search,
   CheckCircle2,
   RefreshCw,

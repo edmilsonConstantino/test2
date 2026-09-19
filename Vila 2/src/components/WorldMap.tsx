@@ -291,7 +291,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
   return (
     <div
       id="interactive-world-map-wrapper"
-      className={`relative w-full h-full select-none bg-[#F8FAFC] overflow-hidden ${className}`}
+      className={`relative w-full h-full select-none bg-[#F8FAFC] dark:bg-slate-950 overflow-hidden ${className}`}
       style={{
         perspective: is3DMode ? '1200px' : 'none',
       }}
@@ -300,19 +300,19 @@ export const WorldMap: React.FC<WorldMapProps> = ({
       {showLegend && (
         <div
           id="world-map-fixed-legend"
-          className="absolute bottom-3 right-3 z-25 bg-white/90 backdrop-blur-xs border border-slate-200 rounded-md px-3 py-1.5 shadow-2xs flex items-center gap-3 select-none text-[11px]"
+          className="absolute bottom-3 right-3 z-25 bg-white/90 backdrop-blur-xs border border-slate-200 rounded-md px-3 py-1.5 shadow-2xs flex items-center gap-3 select-none text-[11px] dark:bg-slate-800/90 dark:border-slate-700"
         >
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-            <span className="text-slate-700 font-medium whitespace-nowrap">Ativo</span>
+            <span className="text-slate-700 font-medium whitespace-nowrap dark:text-slate-300">Ativo</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-            <span className="text-slate-700 font-medium whitespace-nowrap">Com Atividade</span>
+            <span className="text-slate-700 font-medium whitespace-nowrap dark:text-slate-300">Com Atividade</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-slate-400 shrink-0" />
-            <span className="text-slate-700 font-medium whitespace-nowrap">Mapeamento</span>
+            <span className="text-slate-700 font-medium whitespace-nowrap dark:text-slate-300">Mapeamento</span>
           </div>
         </div>
       )}
@@ -430,7 +430,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               ) : (
                 /* Subtle Slate Dot */
                 <div className="relative flex items-center justify-center">
-                  <div className={`w-2 h-2 rounded-full bg-slate-400 ring-1.5 ring-white shadow-2xs transition-transform duration-150 ${isSelected ? 'ring-2 ring-slate-400 scale-125' : 'group-hover:scale-125'}`} />
+                  <div className={`w-2 h-2 rounded-full bg-slate-400 ring-1.5 ring-white dark:ring-slate-900 shadow-2xs transition-transform duration-150 ${isSelected ? 'ring-2 ring-slate-400 scale-125' : 'group-hover:scale-125'}`} />
                 </div>
               )}
 
@@ -457,16 +457,16 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 : 'translate(0%, -50%)',
             }}
             id="country-card-pin-tooltip"
-            className="absolute z-35 min-w-[190px] sm:min-w-[210px] bg-white border border-slate-200 rounded-lg p-3 shadow-sm select-none pointer-events-auto"
+            className="absolute z-35 min-w-[190px] sm:min-w-[210px] bg-white border border-slate-200 rounded-lg p-3 shadow-sm select-none pointer-events-auto dark:bg-slate-900 dark:border-slate-700"
           >
             {/* Card Header: Code/Flag + Country Name + Status Badge + Close Button */}
-            <div className="relative flex items-center justify-between gap-2 pb-2 border-b border-slate-100">
+            <div className="relative flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-1.5 min-w-0">
                 <span className="text-sm leading-none shrink-0" role="img" aria-label={selectedCountry.name}>
                   {selectedCountry.flag}
                 </span>
 
-                <h3 className="text-xs font-bold text-slate-900 tracking-tight font-sans truncate">
+                <h3 className="text-xs font-bold text-slate-900 tracking-tight font-sans truncate dark:text-slate-50">
                   {selectedCountry.name}
                 </h3>
               </div>
@@ -475,10 +475,10 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 <span
                   className={`text-[9.5px] font-semibold px-1.5 py-0.5 rounded border uppercase ${
                     selectedCountry.status === 'active'
-                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                      ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800'
                       : selectedCountry.status === 'with-activity'
-                      ? 'bg-blue-50 text-[#1E3A8A] border-blue-200'
-                      : 'bg-slate-50 text-slate-600 border-slate-200'
+                      ? 'bg-blue-50 dark:bg-blue-500/10 text-[#1E3A8A] dark:text-blue-400 border-blue-200 dark:border-blue-800'
+                      : 'bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'
                   }`}
                 >
                   {selectedCountry.status === 'active'
@@ -494,7 +494,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                     e.stopPropagation();
                     setIsPopupDismissed(true);
                   }}
-                  className="w-4.5 h-4.5 rounded flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="w-4.5 h-4.5 rounded flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer dark:text-slate-500 dark:hover:text-slate-200 dark:hover:bg-slate-800"
                   title="Fechar painel"
                 >
                   <X className="w-3 h-3" />
@@ -504,22 +504,22 @@ export const WorldMap: React.FC<WorldMapProps> = ({
 
             {/* Stats List */}
             <div className="relative py-2 space-y-1.5 text-[11.5px]">
-              <div className="flex items-center justify-between text-slate-500">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
                 <span>Projetos</span>
-                <span className="font-semibold text-slate-900 tabular-nums">
+                <span className="font-semibold text-slate-900 tabular-nums dark:text-slate-50">
                   {selectedCountry.projectsCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                 </span>
               </div>
-              <div className="flex items-center justify-between text-slate-500">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
                 <span>Comunidades</span>
-                <span className="font-semibold text-slate-900 tabular-nums">
+                <span className="font-semibold text-slate-900 tabular-nums dark:text-slate-50">
                   {selectedCountry.communitiesCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                 </span>
               </div>
             </div>
 
             {/* Explore Action Link */}
-            <div className="relative pt-1.5 border-t border-slate-100">
+            <div className="relative pt-1.5 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => onExploreCountry(selectedCountry)}
@@ -536,13 +536,13 @@ export const WorldMap: React.FC<WorldMapProps> = ({
       {/* 2. Floating Map Controls (Zoom +/-, Reset) - Compact & integrated */}
       <div
         id="map-floating-controls"
-        className="absolute top-2.5 right-2.5 z-25 flex flex-col items-center bg-white/95 border border-slate-200 rounded-md p-0.5 shadow-2xs space-y-0.5 select-none"
+        className="absolute top-2.5 right-2.5 z-25 flex flex-col items-center bg-white/95 border border-slate-200 rounded-md p-0.5 shadow-2xs space-y-0.5 select-none dark:bg-slate-800/95 dark:border-slate-700"
       >
         <button
           onClick={handleZoomIn}
           title="Aumentar Zoom (+)"
           type="button"
-          className="w-6 h-6 flex items-center justify-center rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer"
+          className="w-6 h-6 flex items-center justify-center rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-50"
         >
           <Plus className="w-3 h-3 stroke-[2.2]" />
         </button>
@@ -551,18 +551,18 @@ export const WorldMap: React.FC<WorldMapProps> = ({
           onClick={handleReset}
           title="Recentrar mapa"
           type="button"
-          className="w-6 h-6 flex items-center justify-center rounded text-slate-400 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer"
+          className="w-6 h-6 flex items-center justify-center rounded text-slate-400 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-50"
         >
           <Crosshair className="w-3 h-3 stroke-[2]" />
         </button>
 
-        <div className="w-3.5 h-[1px] bg-slate-200" />
+        <div className="w-3.5 h-[1px] bg-slate-200 dark:bg-slate-700" />
 
         <button
           onClick={handleZoomOut}
           title="Diminuir Zoom (-)"
           type="button"
-          className="w-6 h-6 flex items-center justify-center rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer"
+          className="w-6 h-6 flex items-center justify-center rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors cursor-pointer dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-50"
         >
           <Minus className="w-3 h-3 stroke-[2.2]" />
         </button>

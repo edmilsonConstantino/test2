@@ -281,7 +281,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       label: 'Países Ativos',
       value: TOTAL_ACTIVE_COUNTRIES_COUNT,
       icon: Globe,
-      iconBg: 'bg-[#1455AC]/10',
+      iconBg: 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20',
       iconColor: 'text-[#1455AC]',
       onClick: () => {
         setViewMode('grid');
@@ -293,7 +293,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       label: 'Projetos Ativos',
       value: '24.651',
       icon: Sprout,
-      iconBg: 'bg-emerald-50/90',
+      iconBg: 'bg-emerald-50/90 dark:bg-emerald-500/10',
       iconColor: 'text-emerald-600',
       onClick: () => {
         setViewMode('grid');
@@ -305,7 +305,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       label: 'Cidadãos Ativos',
       value: '7.842.521',
       icon: Users,
-      iconBg: 'bg-blue-50/90',
+      iconBg: 'bg-blue-50/90 dark:bg-blue-500/10',
       iconColor: 'text-blue-600',
       onClick: () => {
         setViewMode('grid');
@@ -317,7 +317,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       label: 'Parceiros Globais',
       value: '3.412',
       icon: HeartHandshake,
-      iconBg: 'bg-amber-50/90',
+      iconBg: 'bg-amber-50/90 dark:bg-amber-500/10',
       iconColor: 'text-amber-600',
       onClick: () => {
         setViewMode('grid');
@@ -328,7 +328,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       label: 'Ações Sustentáveis',
       value: '2,4M',
       icon: Leaf,
-      iconBg: 'bg-teal-50/90',
+      iconBg: 'bg-teal-50/90 dark:bg-teal-500/10',
       iconColor: 'text-teal-600',
       onClick: () => {
         setSelectedCategory('sustentabilidade');
@@ -367,17 +367,17 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
               type="button"
               onClick={onOpenMobileMenu}
               id="explore-mobile-menu-trigger"
-              className="lg:hidden p-2 mt-0.5 rounded-xl text-slate-700 bg-white border border-slate-200/80 shadow-2xs hover:bg-slate-50 transition-colors cursor-pointer shrink-0"
+              className="lg:hidden p-2 mt-0.5 rounded-xl text-slate-700 bg-white border border-slate-200/80 shadow-2xs hover:bg-slate-50 transition-colors cursor-pointer shrink-0 dark:text-slate-300 dark:bg-slate-900 dark:border-slate-700 dark:hover:bg-slate-800"
               aria-label="Abrir menu lateral"
             >
-              <Menu className="w-5 h-5 text-slate-900" />
+              <Menu className="w-5 h-5 text-slate-900 dark:text-slate-50" />
             </button>
           )}
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-sans tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-sans tracking-tight dark:text-slate-50">
               Explorar o Mundo
             </h1>
-            <p className="text-xs sm:text-[13px] text-slate-500 mt-1 font-normal leading-relaxed">
+            <p className="text-xs sm:text-[13px] text-slate-500 mt-1 font-normal leading-relaxed dark:text-slate-400">
               Descubra países, culturas, iniciativas e oportunidades<br className="hidden sm:inline" />
               {' '}em qualquer lugar do planeta.
             </p>
@@ -388,27 +388,27 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
         <div className="flex items-center gap-3 sm:gap-4 flex-wrap sm:flex-nowrap flex-1 max-w-2xl justify-start xl:justify-center">
           {/* Barra de Pesquisa */}
           <div className="relative flex-1 min-w-[240px] max-w-md">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none dark:text-slate-500" />
             <input
               type="text"
               id="top-main-search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Pesquisar países, regiões, projetos, comunidades..."
-              className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-12 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC] shadow-2xs font-medium transition-all"
+              className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-12 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC] shadow-2xs font-medium transition-all dark:bg-slate-900 dark:border-slate-700 dark:text-slate-50 dark:placeholder:text-slate-500"
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
               {searchQuery ? (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="text-slate-400 hover:text-slate-600 p-0.5 rounded-full cursor-pointer"
+                  className="text-slate-400 hover:text-slate-600 p-0.5 rounded-full cursor-pointer dark:text-slate-500 dark:hover:text-slate-300"
                   title="Limpar busca"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               ) : (
-                <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 font-mono bg-slate-50 border border-slate-200/80 rounded shadow-2xs select-none">
+                <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 font-mono bg-slate-50 border border-slate-200/80 rounded shadow-2xs select-none dark:text-slate-500 dark:bg-slate-800 dark:border-slate-700">
                   ⌘K
                 </kbd>
               )}
@@ -423,7 +423,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
               id="btn-header-favoritos"
               onClick={() => setShowOnlyFavorites((prev) => !prev)}
               className={`flex flex-col items-center justify-center gap-1 p-1 px-2 rounded-xl transition-all cursor-pointer group ${
-                showOnlyFavorites ? 'text-rose-600 bg-rose-50' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                showOnlyFavorites ? 'text-rose-600 bg-rose-50 dark:bg-rose-500/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 dark:text-slate-400 dark:hover:text-slate-50 dark:hover:bg-slate-800'
               }`}
               title="Favoritos"
             >
@@ -441,7 +441,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                 setSearchQuery('');
                 setShowOnlyFavorites(false);
               }}
-              className="flex flex-col items-center justify-center gap-1 p-1 px-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-all cursor-pointer group"
+              className="flex flex-col items-center justify-center gap-1 p-1 px-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 transition-all cursor-pointer group dark:text-slate-400 dark:hover:text-slate-50 dark:hover:bg-slate-800"
               title="Histórico"
             >
               <History className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -460,8 +460,8 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
               }}
               className={`flex flex-col items-center justify-center gap-1 p-1 px-2 rounded-xl transition-all cursor-pointer group ${
                 selectedCategory !== 'todas' || selectedRegion !== 'all'
-                  ? 'text-[#1455AC] bg-[#1455AC]/10'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                  ? 'text-[#1455AC] bg-[#1455AC]/10 dark:bg-[#1455AC]/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 dark:text-slate-400 dark:hover:text-slate-50 dark:hover:bg-slate-800'
               }`}
               title="Filtros"
             >
@@ -475,17 +475,17 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
         <div
           id="header-vila-ai-card"
           onClick={onOpenAiAssistant}
-          className="w-full sm:w-auto xl:w-[340px] shrink-0 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#1455AC]/40 hover:shadow-xs transition-all p-3 px-3.5 flex items-center justify-between gap-3 cursor-pointer group select-none"
+          className="w-full sm:w-auto xl:w-[340px] shrink-0 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#1455AC]/40 hover:shadow-xs transition-all p-3 px-3.5 flex items-center justify-between gap-3 cursor-pointer group select-none dark:bg-slate-900 dark:border-slate-700"
         >
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-9 h-9 rounded-lg bg-[#1455AC]/10 text-[#1455AC] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
+            <div className="w-9 h-9 rounded-lg bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
               <Sparkles className="w-5 h-5 text-[#1455AC]" />
             </div>
             <div className="min-w-0">
-              <p className="text-xs font-bold text-slate-900 font-sans group-hover:text-[#1455AC] transition-colors leading-tight">
+              <p className="text-xs font-bold text-slate-900 font-sans group-hover:text-[#1455AC] transition-colors leading-tight dark:text-slate-50">
                 VILA AI
               </p>
-              <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+              <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5 dark:text-slate-400">
                 Pergunte-me sobre<br />qualquer lugar do mundo
               </p>
             </div>
@@ -518,7 +518,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                   <div
                     key={item.id}
                     id={item.id}
-                    className="bg-white rounded-xl border border-slate-200/60 p-3 sm:p-3.5 xl:p-3 2xl:p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-slate-300/70 transition-all duration-200 flex flex-col justify-between group min-w-0"
+                    className="bg-white rounded-xl border border-slate-200/60 p-3 sm:p-3.5 xl:p-3 2xl:p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:border-slate-300/70 transition-all duration-200 flex flex-col justify-between group min-w-0 dark:bg-slate-900 dark:border-slate-700 dark:hover:border-slate-600"
                   >
                     <div className="flex items-start gap-2.5">
                       <div
@@ -527,18 +527,18 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                         <Icon className="w-4 h-4" strokeWidth={2.2} />
                       </div>
                       <div className="min-w-0 flex-1 overflow-visible">
-                        <p className="text-base sm:text-lg xl:text-[17px] 2xl:text-[19px] font-extrabold text-slate-900 tracking-tight font-sans leading-tight whitespace-nowrap">
+                        <p className="text-base sm:text-lg xl:text-[17px] 2xl:text-[19px] font-extrabold text-slate-900 tracking-tight font-sans leading-tight whitespace-nowrap dark:text-slate-50">
                           {item.value}
                         </p>
                         <p
-                          className="text-[11.5px] xl:text-[10.5px] 2xl:text-[11.5px] font-medium text-slate-500 mt-0.5 leading-snug whitespace-normal break-words"
+                          className="text-[11.5px] xl:text-[10.5px] 2xl:text-[11.5px] font-medium text-slate-500 mt-0.5 leading-snug whitespace-normal break-words dark:text-slate-400"
                         >
                           {item.label}
                         </p>
                       </div>
                     </div>
 
-                    <div className="pt-2 mt-2 border-t border-slate-100/90 flex items-center justify-between">
+                    <div className="pt-2 mt-2 border-t border-slate-100/90 dark:border-slate-800 flex items-center justify-between">
                       <button
                         type="button"
                         onClick={item.onClick}
@@ -563,7 +563,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
           {/* - Legenda flutuante centralizada na parte inferior        */}
           {/* --------------------------------------------------------- */}
           {viewMode === 'map' ? (
-            <div className="relative w-full rounded-2xl bg-[#F8FAFD] border border-slate-200/80 shadow-xs overflow-hidden">
+            <div className="relative w-full rounded-2xl bg-[#F8FAFD] border border-slate-200/80 shadow-xs overflow-hidden dark:bg-slate-950 dark:border-slate-700">
               <WorldMap
                 selectedCountry={selectedCountry}
                 onSelectCountry={handleCountryClick}
@@ -599,7 +599,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                 id="floating-interactive-map-pill"
                 className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-25 inline-flex items-center select-none"
               >
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[12.5px] font-bold bg-white text-slate-900 shadow-xs border border-slate-200/80">
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[12.5px] font-bold bg-white text-slate-900 shadow-xs border border-slate-200/80 dark:bg-slate-900 dark:text-slate-50 dark:border-slate-700">
                   <Map className="w-4 h-4 text-[#1455AC] stroke-[2.2]" />
                   <span>Mapa Interativo</span>
                 </div>
@@ -608,23 +608,23 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
               {/* 3. LEGENDA FLUTUANTE DO MAPA (Centralizada na Parte Inferior) */}
               <div
                 id="world-map-floating-legend"
-                className="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-25 bg-white rounded-full px-5 sm:px-6 py-2 sm:py-2.5 shadow-sm border border-slate-200/80 flex items-center gap-5 sm:gap-6 select-none"
+                className="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-25 bg-white rounded-full px-5 sm:px-6 py-2 sm:py-2.5 shadow-sm border border-slate-200/80 flex items-center gap-5 sm:gap-6 select-none dark:bg-slate-900 dark:border-slate-700"
               >
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] shrink-0 shadow-[0_0_6px_rgba(16,185,129,0.4)]" />
-                  <span className="text-slate-900 font-semibold text-xs sm:text-[12.5px] whitespace-nowrap font-sans">
+                  <span className="text-slate-900 font-semibold text-xs sm:text-[12.5px] whitespace-nowrap font-sans dark:text-slate-50">
                     País Ativo
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC] shrink-0 shadow-[0_0_6px_rgba(20,85,172,0.4)]" />
-                  <span className="text-slate-900 font-semibold text-xs sm:text-[12.5px] whitespace-nowrap font-sans">
+                  <span className="text-slate-900 font-semibold text-xs sm:text-[12.5px] whitespace-nowrap font-sans dark:text-slate-50">
                     País com Atividade
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-slate-400 shrink-0" />
-                  <span className="text-slate-900 font-semibold text-xs sm:text-[12.5px] whitespace-nowrap font-sans">
+                  <span className="text-slate-900 font-semibold text-xs sm:text-[12.5px] whitespace-nowrap font-sans dark:text-slate-50">
                     País Inativo
                   </span>
                 </div>
@@ -632,17 +632,17 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
             </div>
           ) : (
             /* Visualização em Grade quando o usuário clica no toggle Grade */
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-xs flex flex-col gap-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-xs flex flex-col gap-4 dark:bg-slate-900 dark:border-slate-700">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-[#1455AC]/10 text-[#1455AC] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-xl bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] flex items-center justify-center">
                     <LayoutGrid className="w-4 h-4" />
                   </div>
                   <div>
-                    <h2 className="text-base font-extrabold text-slate-900 font-sans">
+                    <h2 className="text-base font-extrabold text-slate-900 font-sans dark:text-slate-50">
                       Grade Geral de Territórios
                     </h2>
-                    <p className="text-[11px] text-slate-500">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
                       Exibindo {filteredAndSortedCountries.length} países cadastrados na VILA.
                     </p>
                   </div>
@@ -664,10 +664,10 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                   <div
                     key={`grid-card-${country.id}`}
                     onClick={() => handleCountryClick(country)}
-                    className="bg-white rounded-2xl border border-slate-200/90 p-3.5 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer flex flex-col justify-between group"
+                    className="bg-white rounded-2xl border border-slate-200/90 p-3.5 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer flex flex-col justify-between group dark:bg-slate-900 dark:border-slate-700"
                   >
                     <div>
-                      <div className="relative h-28 w-full rounded-xl overflow-hidden bg-slate-100 mb-3">
+                      <div className="relative h-28 w-full rounded-xl overflow-hidden bg-slate-100 mb-3 dark:bg-slate-800">
                         <img
                           src={country.imageUrl}
                           alt={country.name}
@@ -696,19 +696,19 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
 
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-xl">{country.flag}</span>
-                        <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1455AC] transition-colors truncate font-sans">
+                        <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1455AC] transition-colors truncate font-sans dark:text-slate-50">
                           {country.name}
                         </h3>
                       </div>
-                      <p className="text-xs text-slate-500 line-clamp-2 mb-3">
+                      <p className="text-xs text-slate-500 line-clamp-2 mb-3 dark:text-slate-400">
                         {country.description}
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
                       <div>
-                        <span className="text-[10px] text-slate-400 block">Projetos:</span>
-                        <span className="font-extrabold text-slate-900">
+                        <span className="text-[10px] text-slate-400 block dark:text-slate-500">Projetos:</span>
+                        <span className="font-extrabold text-slate-900 dark:text-slate-50">
                           {country.projectsCount.toLocaleString('pt-PT')}
                         </span>
                       </div>
@@ -746,8 +746,8 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                   onClick={() => setSelectedCategory(category.id)}
                   className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer border ${
                     isSelected
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-xs font-bold'
-                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-xs font-bold dark:bg-slate-700 dark:border-slate-700'
+                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5 shrink-0" />
@@ -761,12 +761,12 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
           {/* C. SEÇÃO "TODOS OS PAÍSES (128)" COM CARROSSEL HORIZONTAL */}
           {/* Busca + Dropdown Ordenar alinhados na mesma linha do título */}
           {/* --------------------------------------------------------- */}
-          <section className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-xs flex flex-col gap-3.5">
-            
+          <section className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-xs flex flex-col gap-3.5 dark:bg-slate-900 dark:border-slate-700">
+
             {/* Cabeçalho da seção com Título, Busca, Ordenar e Seta Próximo */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-extrabold text-slate-900 font-sans">
+                <h3 className="text-base font-extrabold text-slate-900 font-sans dark:text-slate-50">
                   Todos os Países (128)
                 </h3>
               </div>
@@ -774,20 +774,20 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
               <div className="flex items-center gap-2.5 flex-wrap sm:flex-nowrap">
                 {/* Busca "Pesquisar país..." */}
                 <div className="relative flex items-center min-w-[160px] sm:min-w-[190px]">
-                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 pointer-events-none" />
+                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 pointer-events-none dark:text-slate-500" />
                   <input
                     type="text"
                     id="input-search-countries-carousel"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Pesquisar país..."
-                    className="w-full pl-8 pr-7 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC] font-medium transition-all"
+                    className="w-full pl-8 pr-7 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 focus:border-[#1455AC] font-medium transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-50 dark:placeholder:text-slate-500"
                   />
                   {searchQuery && (
                     <button
                       type="button"
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                      className="absolute right-2 text-slate-400 hover:text-slate-600 cursor-pointer dark:text-slate-500 dark:hover:text-slate-300"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -800,7 +800,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                     id="select-sort-order-carousel"
                     value={sortOrder}
                     onChange={(e) => setSortOrder(e.target.value as any)}
-                    className="text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl pl-2.5 pr-7 py-1.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 cursor-pointer appearance-none"
+                    className="text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl pl-2.5 pr-7 py-1.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#1455AC]/20 cursor-pointer appearance-none dark:bg-slate-800 dark:border-slate-700 dark:text-slate-50"
                   >
                     <option value="name-asc">Ordenar: A-Z</option>
                     <option value="name-desc">Ordenar: Z-A</option>
@@ -808,7 +808,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                     <option value="communities-desc">Mais Comunidades</option>
                     <option value="status">Status Operacional</option>
                   </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-2 pointer-events-none" />
+                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-2 pointer-events-none dark:text-slate-500" />
                 </div>
 
                 {/* Botão Único Próximo (›) com scroll suave */}
@@ -826,7 +826,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                       }
                     }
                   }}
-                  className="p-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-[#1455AC] transition-colors cursor-pointer shrink-0 shadow-2xs"
+                  className="p-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-[#1455AC] transition-colors cursor-pointer shrink-0 shadow-2xs dark:border-slate-700 dark:hover:bg-slate-800 dark:text-slate-400"
                   title="Próximos países"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -836,7 +836,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
 
             {/* Carrossel Horizontal de Cards de Países */}
             {filteredAndSortedCountries.length === 0 ? (
-              <div className="bg-slate-50 rounded-xl border border-slate-200/80 p-6 text-center text-slate-500">
+              <div className="bg-slate-50 rounded-xl border border-slate-200/80 p-6 text-center text-slate-500 dark:bg-slate-800/60 dark:border-slate-700 dark:text-slate-400">
                 <p className="text-xs">Nenhum país encontrado com os filtros selecionados.</p>
                 <button
                   type="button"
@@ -864,15 +864,15 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                       key={`carousel-${country.id}`}
                       id={`country-carousel-card-${country.id}`}
                       onClick={() => handleCountryClick(country)}
-                      className={`w-[230px] shrink-0 bg-white rounded-xl p-3 border transition-all duration-200 flex flex-col justify-between cursor-pointer group hover:shadow-md hover:-translate-y-0.5 select-none ${
+                      className={`w-[230px] shrink-0 bg-white rounded-xl p-3 border transition-all duration-200 flex flex-col justify-between cursor-pointer group hover:shadow-md hover:-translate-y-0.5 select-none dark:bg-slate-900 ${
                         isSelected
                           ? 'border-[#1455AC] ring-2 ring-[#1455AC]/15 shadow-2xs'
-                          : 'border-slate-200 hover:border-slate-300'
+                          : 'border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600'
                       }`}
                     >
                       <div>
                         {/* Imagem + Badge de Status */}
-                        <div className="relative h-28 w-full rounded-lg overflow-hidden bg-slate-100 mb-2.5 shadow-2xs">
+                        <div className="relative h-28 w-full rounded-lg overflow-hidden bg-slate-100 mb-2.5 shadow-2xs dark:bg-slate-800">
                           <img
                             src={country.imageUrl}
                             alt={country.name}
@@ -902,22 +902,22 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                         {/* Bandeira e Nome */}
                         <div className="flex items-center gap-1.5 mb-2">
                           <span className="text-xl shrink-0">{country.flag}</span>
-                          <h4 className="text-sm font-bold text-slate-900 font-sans truncate group-hover:text-[#1455AC] transition-colors">
+                          <h4 className="text-sm font-bold text-slate-900 font-sans truncate group-hover:text-[#1455AC] transition-colors dark:text-slate-50">
                             {country.name}
                           </h4>
                         </div>
 
                         {/* Projetos e Comunidades */}
-                        <div className="grid grid-cols-2 gap-1.5 text-[11px] bg-slate-50/80 rounded-lg p-2 border border-slate-100 mb-2">
+                        <div className="grid grid-cols-2 gap-1.5 text-[11px] bg-slate-50/80 rounded-lg p-2 border border-slate-100 mb-2 dark:bg-slate-800/60 dark:border-slate-700">
                           <div>
-                            <p className="text-[9.5px] font-semibold text-slate-400">Projetos</p>
-                            <p className="font-extrabold text-slate-900 truncate">
+                            <p className="text-[9.5px] font-semibold text-slate-400 dark:text-slate-500">Projetos</p>
+                            <p className="font-extrabold text-slate-900 truncate dark:text-slate-50">
                               {country.projectsCount.toLocaleString('pt-PT')}
                             </p>
                           </div>
                           <div>
-                            <p className="text-[9.5px] font-semibold text-slate-400">Comunidades</p>
-                            <p className="font-extrabold text-slate-900 truncate">
+                            <p className="text-[9.5px] font-semibold text-slate-400 dark:text-slate-500">Comunidades</p>
+                            <p className="font-extrabold text-slate-900 truncate dark:text-slate-50">
                               {(country.communitiesCount || 0).toLocaleString('pt-PT')}
                             </p>
                           </div>
@@ -925,8 +925,8 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                       </div>
 
                       {/* Link Explorar → */}
-                      <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-[10px] text-slate-400 font-medium truncate">
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-[10px] text-slate-400 font-medium truncate dark:text-slate-500">
                           {country.region}
                         </span>
                         <button
@@ -967,14 +967,14 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
             return (
               <div
                 id="card-destaque-pais"
-                className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all group/feat"
+                className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all group/feat dark:bg-slate-900 dark:border-slate-700 dark:hover:border-slate-600"
               >
                 <div>
                   {/* Linha Superior: Bandeira + Nome + Badge "PAÍS ATIVO" numa linha, ACIMA da imagem */}
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2 min-w-0">
                       <span className="text-2xl shrink-0 leading-none">{featuredCountry.flag}</span>
-                      <h4 className="text-base font-extrabold text-slate-900 font-sans truncate">
+                      <h4 className="text-base font-extrabold text-slate-900 font-sans truncate dark:text-slate-50">
                         {featuredCountry.name}
                       </h4>
                     </div>
@@ -985,7 +985,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                   </div>
 
                   {/* Imagem de Capa Abaixo (tamanho moderado, cantos arredondados, sem texto sobreposto) */}
-                  <div className="relative w-full h-32 rounded-xl overflow-hidden mb-3 bg-slate-100 shadow-2xs">
+                  <div className="relative w-full h-32 rounded-xl overflow-hidden mb-3 bg-slate-100 shadow-2xs dark:bg-slate-800">
                     <img
                       src={featuredCountry.imageUrl}
                       alt={featuredCountry.name}
@@ -995,52 +995,52 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                   </div>
 
                   {/* Texto Descritivo Curto Abaixo da Imagem */}
-                  <p className="text-xs text-slate-500 leading-relaxed mb-3 line-clamp-3 font-medium">
+                  <p className="text-xs text-slate-500 leading-relaxed mb-3 line-clamp-3 font-medium dark:text-slate-400">
                     {shortDesc}
                   </p>
 
                   {/* As 4 Estatísticas em LISTA VERTICAL SIMPLES (sem caixas/grid quadrado) */}
-                  <div className="divide-y divide-slate-100 border-t border-b border-slate-100 py-0.5 mb-4">
+                  <div className="divide-y divide-slate-100 border-t border-b border-slate-100 py-0.5 mb-4 dark:divide-slate-800 dark:border-slate-800">
                     {/* Linha 1: Projetos Ativos */}
                     <div className="flex items-center justify-between py-2 text-xs">
-                      <div className="flex items-center gap-2 text-slate-500">
+                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                         <FolderKanban className="w-3.5 h-3.5 text-[#1455AC] shrink-0" />
                         <span className="font-medium text-[11.5px]">Projetos Ativos</span>
                       </div>
-                      <span className="font-bold text-slate-900 font-sans text-xs">
+                      <span className="font-bold text-slate-900 font-sans text-xs dark:text-slate-50">
                         {formatWithDot(featuredCountry.projectsCount)}
                       </span>
                     </div>
 
                     {/* Linha 2: Comunidades */}
                     <div className="flex items-center justify-between py-2 text-xs">
-                      <div className="flex items-center gap-2 text-slate-500">
+                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                         <Users className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
                         <span className="font-medium text-[11.5px]">Comunidades</span>
                       </div>
-                      <span className="font-bold text-slate-900 font-sans text-xs">
+                      <span className="font-bold text-slate-900 font-sans text-xs dark:text-slate-50">
                         {formatWithDot(featuredCountry.communitiesCount || 532760)}
                       </span>
                     </div>
 
                     {/* Linha 3: Parceiros */}
                     <div className="flex items-center justify-between py-2 text-xs">
-                      <div className="flex items-center gap-2 text-slate-500">
+                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                         <Handshake className="w-3.5 h-3.5 text-[#F58300] shrink-0" />
                         <span className="font-medium text-[11.5px]">Parceiros</span>
                       </div>
-                      <span className="font-bold text-slate-900 font-sans text-xs">
+                      <span className="font-bold text-slate-900 font-sans text-xs dark:text-slate-50">
                         {isPortugal ? '312' : formatWithDot(Math.round(featuredCountry.projectsCount * 0.28 || 84))}
                       </span>
                     </div>
 
                     {/* Linha 4: Iniciativas */}
                     <div className="flex items-center justify-between py-2 text-xs">
-                      <div className="flex items-center gap-2 text-slate-500">
+                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                         <Leaf className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                         <span className="font-medium text-[11.5px]">Iniciativas</span>
                       </div>
-                      <span className="font-bold text-slate-900 font-sans text-xs">
+                      <span className="font-bold text-slate-900 font-sans text-xs dark:text-slate-50">
                         {isPortugal ? '86' : (featuredCountry.initiatives?.length ? String(featuredCountry.initiatives.length) : '86')}
                       </span>
                     </div>
@@ -1064,10 +1064,10 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
           {/* 2. Card "Atividade Global" Simplificado (Formato Original) */}
           <div
             id="card-atividade-global"
-            className="bg-white rounded-xl border border-slate-200/80 p-4 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all"
+            className="bg-white rounded-xl border border-slate-200/80 p-4 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all dark:bg-slate-900 dark:border-slate-700 dark:hover:border-slate-600"
           >
-            <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-              <h3 className="text-sm font-extrabold text-slate-900 font-sans flex items-center gap-1.5">
+            <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-sm font-extrabold text-slate-900 font-sans flex items-center gap-1.5 dark:text-slate-50">
                 <Activity className="w-4 h-4 text-[#1455AC]" />
                 <span>Atividade Global</span>
               </h3>
@@ -1117,12 +1117,12 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
           {/* 3. Seção "Descubra o Mundo" com 3 mini-cards (Colômbia, Japão, Islândia) */}
           <div
             id="secao-descubra-o-mundo"
-            className="bg-white rounded-xl border border-slate-200/80 p-4 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all"
+            className="bg-white rounded-xl border border-slate-200/80 p-4 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all dark:bg-slate-900 dark:border-slate-700 dark:hover:border-slate-600"
           >
             <div>
               {/* Cabeçalho */}
-              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
-                <h3 className="text-sm font-extrabold text-slate-900 font-sans flex items-center gap-1.5">
+              <div className="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-sm font-extrabold text-slate-900 font-sans flex items-center gap-1.5 dark:text-slate-50">
                   <Compass className="w-4 h-4 text-[#1455AC]" />
                   <span>Descubra o Mundo</span>
                 </h3>
@@ -1153,7 +1153,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                           setSearchQuery(item.name);
                         }
                       }}
-                      className="flex items-center gap-2.5 p-2 rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-slate-200 hover:shadow-2xs transition-all cursor-pointer group select-none"
+                      className="flex items-center gap-2.5 p-2 rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-slate-200 hover:shadow-2xs transition-all cursor-pointer group select-none dark:border-slate-800 dark:bg-slate-800/40 dark:hover:bg-slate-800 dark:hover:border-slate-700"
                     >
                       <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 shadow-2xs">
                         <img
@@ -1168,14 +1168,14 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-1 mb-0.5">
-                          <h4 className="text-xs font-bold text-slate-900 font-sans truncate group-hover:text-[#1455AC] transition-colors">
+                          <h4 className="text-xs font-bold text-slate-900 font-sans truncate group-hover:text-[#1455AC] transition-colors dark:text-slate-50">
                             {item.name}
                           </h4>
                           <span className={`text-[9.5px] font-extrabold px-1.5 py-0.5 rounded-md border whitespace-nowrap ${item.categoryColor}`}>
                             {item.category}
                           </span>
                         </div>
-                        <p className="text-[11px] font-semibold text-slate-500 flex items-center gap-1">
+                        <p className="text-[11px] font-semibold text-slate-500 flex items-center gap-1 dark:text-slate-400">
                           <Sprout className="w-3 h-3 text-emerald-500 shrink-0" />
                           <span className="truncate">{item.metric}</span>
                         </p>
@@ -1194,58 +1194,58 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
       {/* Modal Interativo de Relatório de Atividade Global */}
       {showReportModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl border border-slate-100 flex flex-col gap-4 animate-in zoom-in-95 duration-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-6 shadow-2xl border border-slate-100 flex flex-col gap-4 animate-in zoom-in-95 duration-200 dark:bg-slate-900 dark:border-slate-800">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-[#1455AC]/10 text-[#1455AC] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] flex items-center justify-center">
                   <BarChart3 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-extrabold text-slate-900 font-sans">
+                  <h3 className="text-base font-extrabold text-slate-900 font-sans dark:text-slate-50">
                     Relatório de Atividade Global
                   </h3>
-                  <p className="text-xs text-slate-500">Consolidado Mensal VILA • 2026</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Consolidado Mensal VILA • 2026</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setShowReportModal(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer dark:text-slate-500 dark:hover:text-slate-300 dark:hover:bg-slate-800"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="space-y-3 text-xs text-slate-900">
-              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-2">
+            <div className="space-y-3 text-xs text-slate-900 dark:text-slate-100">
+              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-2 dark:bg-slate-800/60 dark:border-slate-800">
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-slate-600">Crescimento Mensal:</span>
-                  <span className="font-extrabold text-emerald-600">+12% vs. mês anterior</span>
+                  <span className="font-semibold text-slate-600 dark:text-slate-400">Crescimento Mensal:</span>
+                  <span className="font-extrabold text-emerald-600 dark:text-emerald-400">+12% vs. mês anterior</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-slate-600">Projetos Ativos no Mundo:</span>
-                  <span className="font-extrabold text-slate-900">24.651 iniciativas</span>
+                  <span className="font-semibold text-slate-600 dark:text-slate-400">Projetos Ativos no Mundo:</span>
+                  <span className="font-extrabold text-slate-900 dark:text-slate-50">24.651 iniciativas</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-slate-600">Cidadãos Conectados:</span>
-                  <span className="font-extrabold text-slate-900">7.842.521 membros</span>
+                  <span className="font-semibold text-slate-600 dark:text-slate-400">Cidadãos Conectados:</span>
+                  <span className="font-extrabold text-slate-900 dark:text-slate-50">7.842.521 membros</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-slate-600">Alinhamento com ODS:</span>
+                  <span className="font-semibold text-slate-600 dark:text-slate-400">Alinhamento com ODS:</span>
                   <span className="font-extrabold text-[#1455AC]">98.6% de conformidade</span>
                 </div>
               </div>
 
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed dark:text-slate-400">
                 As redes comunitárias registraram crescimento contínuo nos polos de Portugal, Brasil, Quénia e novos núcleos na América do Sul e Europa.
               </p>
             </div>
 
-            <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-slate-100 dark:border-slate-800">
               <button
                 type="button"
                 onClick={() => setShowReportModal(false)}
-                className="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                className="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer dark:text-slate-400 dark:hover:bg-slate-800"
               >
                 Fechar
               </button>

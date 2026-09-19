@@ -252,7 +252,7 @@ const TRENDING_DATA: TrendingItem[] = [
     growth: '▲ 18%',
     iconType: 'brain',
     color: 'text-[#EC4899]',
-    bg: 'bg-pink-50',
+    bg: 'bg-pink-50 dark:bg-pink-500/10',
   },
   {
     rank: 2,
@@ -282,7 +282,7 @@ const TRENDING_DATA: TrendingItem[] = [
     growth: '▲ 10%',
     iconType: 'rocket',
     color: 'text-[#8B5CF6]',
-    bg: 'bg-purple-50',
+    bg: 'bg-purple-50 dark:bg-purple-500/10',
   },
   {
     rank: 5,
@@ -292,7 +292,7 @@ const TRENDING_DATA: TrendingItem[] = [
     growth: '▲ 9%',
     iconType: 'building',
     color: 'text-[#10B981]',
-    bg: 'bg-emerald-50',
+    bg: 'bg-emerald-50 dark:bg-emerald-500/10',
   },
 ];
 
@@ -451,7 +451,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
   }, [searchQuery]);
 
   return (
-    <div id="community-environment-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="community-environment-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Central (busca/idioma/notificações/perfil/breadcrumb já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 2. Cabeçalho da Categoria "Ambiente" com Ícone de Folha e Métricas */}
@@ -463,26 +463,26 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Ambiente
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
                 Comunidades que trabalham por um planeta saudável e sustentável.
               </p>
 
               {/* Fita de Métricas: Comunidades, Membros e Países */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B]">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B] dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">1.254</strong> comunidades
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">1.254</strong> comunidades
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">248.540</strong> membros
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">248.540</strong> membros
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Globe className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">195</strong> países
+                  <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">195</strong> países
                 </span>
               </div>
             </div>
@@ -538,10 +538,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#064E3B] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -553,12 +553,12 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
           {/* COLUNA ESQUERDA: Filtros (lg:col-span-2) */}
           <aside
             id="filtros-sidebar"
-            className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-5"
+            className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-5"
           >
             {/* Título e Botão Limpar Tudo */}
-            <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-              <span className="text-sm font-bold text-[#0F172A] flex items-center gap-1.5">
-                <Filter className="w-3.5 h-3.5 text-slate-500" />
+            <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 flex items-center gap-1.5">
+                <Filter className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
                 Filtros
               </span>
               <button
@@ -572,7 +572,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
 
             {/* Grupo 1: Tipo de Comunidade (Radio Buttons) */}
             <div className="flex flex-col gap-2.5">
-              <span className="text-xs font-bold text-[#0F172A]">Tipo de comunidade</span>
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tipo de comunidade</span>
               <div className="flex flex-col gap-2">
                 {[
                   'Todas',
@@ -586,7 +586,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                   return (
                     <label
                       key={type}
-                      className="flex items-center gap-2.5 text-xs text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2.5 text-xs text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="radio"
@@ -599,7 +599,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#059669] bg-[#059669]'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -612,8 +612,8 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             </div>
 
             {/* Grupo 2: Tamanho (Checkboxes) */}
-            <div className="flex flex-col gap-2.5 pt-1 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#0F172A]">Tamanho</span>
+            <div className="flex flex-col gap-2.5 pt-1 border-t border-slate-100 dark:border-slate-800">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tamanho</span>
               <div className="flex flex-col gap-2">
                 {['1 - 100 membros', '101 - 1.000 membros', '1.001 - 10.000 membros', '10.000+ membros'].map(
                   (size) => {
@@ -621,7 +621,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                     return (
                       <label
                         key={size}
-                        className="flex items-center gap-2.5 text-xs text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                        className="flex items-center gap-2.5 text-xs text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                       >
                         <input
                           type="checkbox"
@@ -633,7 +633,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                           className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${
                             isChecked
                               ? 'border-[#059669] bg-[#059669] text-white'
-                              : 'border-slate-300 bg-white hover:border-slate-400'
+                              : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                           }`}
                         >
                           {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -647,19 +647,19 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             </div>
 
             {/* Grupo 3: Localização (Dropdown) */}
-            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Localização</span>
+            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Localização</span>
               <button
                 type="button"
                 onClick={() => setIsLocationOpen(!isLocationOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{locationFilter}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLocationOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {[
                     'Qualquer lugar',
                     'Global',
@@ -676,10 +676,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         setLocationFilter(loc);
                         setIsLocationOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{loc}</span>
-                      {locationFilter === loc && <Check className="w-3 h-3 text-emerald-600" />}
+                      {locationFilter === loc && <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />}
                     </button>
                   ))}
                 </div>
@@ -687,19 +687,19 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             </div>
 
             {/* Grupo 4: Idioma (Dropdown) */}
-            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Idioma</span>
+            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Idioma</span>
               <button
                 type="button"
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{languageFilter}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {['Qualquer idioma', 'Português', 'Inglês', 'Espanhol', 'Francês'].map((lang) => (
                     <button
                       key={lang}
@@ -708,10 +708,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         setLanguageFilter(lang);
                         setIsLanguageOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{lang}</span>
-                      {languageFilter === lang && <Check className="w-3 h-3 text-emerald-600" />}
+                      {languageFilter === lang && <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />}
                     </button>
                   ))}
                 </div>
@@ -756,7 +756,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         setSelectedCommunityModal(FEATURED_COMMUNITIES_DATA[0]);
                       }
                     }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-[#064E3B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-[#064E3B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
                   >
                     <span>Juntar-se a uma comunidade</span>
                     <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -768,7 +768,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             {/* 2. Seção: Comunidades em destaque (4 Cards horizontais com botão '>' no final) */}
             <section id="comunidades-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Comunidades em destaque
                 </h3>
                 <button
@@ -791,10 +791,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                       <article
                         key={comm.id}
                         onClick={() => setSelectedCommunityModal(comm)}
-                        className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                        className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                       >
                         {/* Imagem do Card com Badge "EM ALTA", "POPULAR", etc. */}
-                        <div className="relative h-28 w-full overflow-hidden bg-slate-100">
+                        <div className="relative h-28 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                           <img
                             src={comm.image}
                             alt={comm.name}
@@ -809,7 +809,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                           </span>
 
                           {/* Ícone Redondo Flutuante no Canto Inferior Esquerdo */}
-                          <div className="absolute -bottom-3 left-3 w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-xs">
+                          <div className="absolute -bottom-3 left-3 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-xs">
                             {renderCardBadgeIcon(comm.iconType)}
                           </div>
                         </div>
@@ -817,18 +817,18 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         {/* Conteúdo do Card */}
                         <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                           <div>
-                            <h4 className="text-xs font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 group-hover:text-emerald-700 transition-colors">
+                            <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
                               {comm.name}
                             </h4>
-                            <p className="text-[10px] text-slate-500 mb-1.5">{comm.membersCount}</p>
-                            <p className="text-[11px] text-slate-600 line-clamp-2 leading-tight mb-2.5">
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1.5">{comm.membersCount}</p>
+                            <p className="text-[11px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight mb-2.5">
                               {comm.description}
                             </p>
                           </div>
 
                           {/* Rodapé do Card: Tag "Global" + Stack de Avatares */}
-                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-1">
-                            <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+                          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-1">
+                            <span className="text-[9.5px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded">
                               {comm.locationTag}
                             </span>
 
@@ -839,11 +839,11 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                                     key={idx}
                                     src={av}
                                     alt="Membro"
-                                    className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white object-cover"
+                                    className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white dark:ring-slate-900 object-cover"
                                   />
                                 ))}
                               </div>
-                              <span className="text-[10px] font-bold text-slate-500 ml-1">
+                              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 ml-1">
                                 {comm.extraAvatarsText}
                               </span>
                             </div>
@@ -863,7 +863,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                     el?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   title="Avançar comunidades"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
+                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer z-10 transition-transform hover:scale-105"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -873,7 +873,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             {/* 3. Seção: Iniciativas em destaque (5 Cards) */}
             <section id="iniciativas-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Iniciativas em destaque
                 </h3>
                 <button
@@ -895,10 +895,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                     <article
                       key={init.id}
                       onClick={() => setSelectedInitiativeModal(init)}
-                      className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                     >
                       {/* Imagem da Iniciativa com Tag */}
-                      <div className="relative h-24 w-full overflow-hidden bg-slate-100">
+                      <div className="relative h-24 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                         <img
                           src={init.image}
                           alt={init.title}
@@ -915,19 +915,19 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                       {/* Informações da Iniciativa */}
                       <div className="p-2.5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-[11.5px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 transition-colors">
+                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
                             {init.title}
                           </h4>
-                          <p className="text-[9.5px] text-slate-500 mb-1">{init.subtitle}</p>
-                          <p className="text-[10.5px] text-slate-600 line-clamp-2 leading-tight">
+                          <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{init.subtitle}</p>
+                          <p className="text-[10.5px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight">
                             {init.description}
                           </p>
                         </div>
 
                         {/* Rodapé com Participantes e Botão de Ação */}
-                        <div className="mt-2 pt-1.5 border-t border-slate-100 flex items-center justify-between">
-                          <span className="text-[9.5px] font-bold text-slate-500 flex items-center gap-1">
-                            <Users className="w-3 h-3 text-slate-400" />
+                        <div className="mt-2 pt-1.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                          <span className="text-[9.5px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center gap-1">
+                            <Users className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                             {init.participantsCount}
                           </span>
 
@@ -940,8 +940,8 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                             title={isRegistered ? 'Inscrito' : 'Participar'}
                             className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] transition-colors ${
                               isRegistered
-                                ? 'bg-emerald-100 text-emerald-700'
-                                : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                                ? 'bg-emerald-100 text-emerald-700 dark:text-emerald-400'
+                                : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-600 dark:text-slate-400 dark:text-slate-500'
                             }`}
                           >
                             {isRegistered ? <Check className="w-3 h-3 stroke-[2.5]" /> : <Plus className="w-3 h-3" />}
@@ -960,10 +960,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             {/* 1. Card: Comunidades em tendência (1 a 5) */}
             <div
               id="comunidades-tendencia-widget"
-              className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3"
+              className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3"
             >
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Comunidades em tendência
                 </h3>
                 <button
@@ -977,18 +977,18 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
               </div>
 
               {/* Lista 1 a 5 */}
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {TRENDING_DATA.map((t) => (
                   <div
                     key={t.id}
                     onClick={() => {
                       if (onOpenAuth) onOpenAuth('login');
                     }}
-                    className="py-2.5 flex items-center justify-between gap-2 hover:bg-slate-50/80 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2.5 flex items-center justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800/80 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       {/* Número do Ranking */}
-                      <span className="text-xs font-bold text-slate-400 w-3 shrink-0">
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-3 shrink-0">
                         {t.rank}
                       </span>
 
@@ -1033,10 +1033,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
 
                       {/* Informações */}
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
                           {t.name}
                         </h4>
-                        <span className="text-[10.5px] text-slate-500 block truncate">
+                        <span className="text-[10.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 block truncate">
                           {t.members}
                         </span>
                       </div>
@@ -1054,10 +1054,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             {/* 2. Card: Atividade recente */}
             <div
               id="atividade-recente-widget"
-              className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3"
+              className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3"
             >
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Atividade recente
                 </h3>
                 <button
@@ -1071,7 +1071,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
               </div>
 
               {/* Lista de Atividades */}
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {RECENT_ACTIVITY_DATA.map((act) => (
                   <div key={act.id} className="py-2.5 flex items-start gap-2.5">
                     {/* Avatar do Usuário/Organização */}
@@ -1082,19 +1082,19 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         className="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200"
                       />
                       {act.isOrg && (
-                        <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full flex items-center justify-center text-white ring-1 ring-white">
+                        <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full flex items-center justify-center text-white ring-1 ring-white dark:ring-slate-900">
                           <Leaf className="w-2 h-2" />
                         </span>
                       )}
                     </div>
 
                     <div className="min-w-0 flex-1 text-[11.5px] leading-tight">
-                      <p className="text-slate-700">
-                        <strong className="font-bold text-[#0F172A]">{act.user}</strong>{' '}
+                      <p className="text-slate-700 dark:text-slate-300">
+                        <strong className="font-bold text-[#0F172A] dark:text-slate-50">{act.user}</strong>{' '}
                         {act.action}{' '}
-                        <strong className="font-bold text-[#0F172A]">{act.target}</strong>
+                        <strong className="font-bold text-[#0F172A] dark:text-slate-50">{act.target}</strong>
                       </p>
-                      <span className="text-[10px] text-slate-400 block mt-0.5">
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 block mt-0.5">
                         {act.timeAgo}
                       </span>
                     </div>
@@ -1140,7 +1140,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 <button
                   type="button"
                   onClick={() => setIsCreateModalOpen(true)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#3D4ED8] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-[#3D4ED8] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
                 >
                   <span>Criar Comunidade</span>
                   <Plus className="w-3.5 h-3.5 stroke-[2.8]" />
@@ -1154,41 +1154,41 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
       {/* MODAL: Criar Comunidade */}
       {isCreateModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 relative flex flex-col gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full p-6 relative flex flex-col gap-4">
             <button
               type="button"
               onClick={() => setIsCreateModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:text-slate-300 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                 <Plus className="w-6 h-6 stroke-[2.5]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                   Criar Nova Comunidade
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
                   Lidere um movimento em prol da sustentabilidade e gere impacto.
                 </p>
               </div>
             </div>
 
             {createSuccessMsg ? (
-              <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-2xl text-center flex flex-col items-center gap-2">
-                <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+              <div className="p-6 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 rounded-2xl text-center flex flex-col items-center gap-2">
+                <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
                 <h4 className="text-base font-bold text-emerald-900">Comunidade Criada com Sucesso!</h4>
-                <p className="text-xs text-emerald-700">
+                <p className="text-xs text-emerald-700 dark:text-emerald-400">
                   A sua comunidade foi registada na rede VILA e já está visível para membros de todo o mundo.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleCreateCommunitySubmit} className="flex flex-col gap-3.5 mt-1">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     Nome da Comunidade *
                   </label>
                   <input
@@ -1197,17 +1197,17 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                     placeholder="Ex: Cidades Limpas 2030"
                     value={newCommunityName}
                     onChange={(e) => setNewCommunityName(e.target.value)}
-                    className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none"
+                    className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Categoria</label>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Categoria</label>
                     <select
                       value={newCommunityCategory}
                       onChange={(e) => setNewCommunityCategory(e.target.value)}
-                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:border-emerald-500 outline-none"
+                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-500 outline-none"
                     >
                       <option value="Ambiente">Ambiente</option>
                       <option value="Tecnologia">Tecnologia</option>
@@ -1218,11 +1218,11 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Alcance</label>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Alcance</label>
                     <select
                       value={newCommunityLocation}
                       onChange={(e) => setNewCommunityLocation(e.target.value)}
-                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:border-emerald-500 outline-none"
+                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-emerald-500 outline-none"
                     >
                       <option value="Global">Global</option>
                       <option value="Portugal">Portugal</option>
@@ -1234,7 +1234,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     Descrição do Propósito
                   </label>
                   <textarea
@@ -1242,15 +1242,15 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                     placeholder="Descreva as metas, iniciativas e o impacto que a sua comunidade procura alcançar..."
                     value={newCommunityDesc}
                     onChange={(e) => setNewCommunityDesc(e.target.value)}
-                    className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none resize-none"
+                    className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none resize-none"
                   />
                 </div>
 
-                <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+                <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                   <button
                     type="button"
                     onClick={() => setIsCreateModalOpen(false)}
-                    className="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                    className="px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
                   >
                     Cancelar
                   </button>
@@ -1270,11 +1270,11 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
       {/* MODAL: Detalhes da Comunidade */}
       {selectedCommunityModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-lg w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedCommunityModal(null)}
-              className="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white text-slate-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors cursor-pointer"
+              className="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1296,13 +1296,13 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             <div className="p-6 flex flex-col gap-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                     {selectedCommunityModal.name}
                   </h3>
-                  <p className="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center gap-2 mt-0.5">
                     <span>{selectedCommunityModal.membersCount}</span>
                     <span>•</span>
-                    <span className="text-emerald-700 font-bold">{selectedCommunityModal.locationTag}</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-bold">{selectedCommunityModal.locationTag}</span>
                   </p>
                 </div>
 
@@ -1319,11 +1319,11 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 </button>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedCommunityModal.description} Esta comunidade reúne voluntários, especialistas e entusiastas focados na implementação de soluções ecológicas escaláveis e impacto regenerativo.
               </p>
 
-              <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3 flex items-center justify-between">
+              <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-xl p-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {selectedCommunityModal.avatars.map((av, i) => (
@@ -1331,11 +1331,11 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         key={i}
                         src={av}
                         alt="Avatar"
-                        className="w-6 h-6 rounded-full ring-2 ring-white object-cover"
+                        className="w-6 h-6 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover"
                       />
                     ))}
                   </div>
-                  <span className="text-xs font-semibold text-slate-600">
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400 dark:text-slate-500">
                     {selectedCommunityModal.extraAvatarsText} membros conectados
                   </span>
                 </div>
@@ -1346,7 +1346,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                     navigator.clipboard?.writeText(window.location.href);
                     alert('Link da comunidade copiado para a área de transferência!');
                   }}
-                  className="p-1.5 text-slate-500 hover:text-slate-800 rounded-lg hover:bg-white transition-colors cursor-pointer"
+                  className="p-1.5 text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:text-slate-100 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   title="Partilhar comunidade"
                 >
                   <Share2 className="w-4 h-4" />
@@ -1360,11 +1360,11 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
       {/* MODAL: Detalhes da Iniciativa */}
       {selectedInitiativeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-lg w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedInitiativeModal(null)}
-              className="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white text-slate-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors cursor-pointer"
+              className="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1386,13 +1386,13 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             <div className="p-6 flex flex-col gap-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                     {selectedInitiativeModal.title}
                   </h3>
-                  <p className="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center gap-2 mt-0.5">
                     <span>{selectedInitiativeModal.subtitle}</span>
                     <span>•</span>
-                    <span className="text-emerald-700 font-bold">{selectedInitiativeModal.status}</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-bold">{selectedInitiativeModal.status}</span>
                   </p>
                 </div>
 
@@ -1409,17 +1409,17 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 </button>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedInitiativeModal.description} Esta ação está alinhada aos Objetivos de Desenvolvimento Sustentável das Nações Unidas, contando com voluntários dedicados à preservação ecológica no terreno.
               </p>
 
-              <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3 flex items-center justify-between text-xs text-slate-700">
+              <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 rounded-xl p-3 flex items-center justify-between text-xs text-slate-700 dark:text-slate-300">
                 <span className="flex items-center gap-1.5 font-semibold">
-                  <Users className="w-4 h-4 text-slate-500" />
+                  <Users className="w-4 h-4 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
                   {selectedInitiativeModal.participantsCount}
                 </span>
 
-                <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
+                <span className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-bold">
                   <Sparkles className="w-4 h-4" />
                   Ação Verificada pela VILA
                 </span>

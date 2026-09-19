@@ -94,13 +94,13 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
 
   // Top Metrics Ribbon (Fiel à referência exata da imagem)
   const ribbonMetrics = [
-    { label: 'Iniciativas Ativas', value: '1.248', icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
-    { label: 'Organizações', value: '382', icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
-    { label: 'Países', value: '96', icon: <Globe className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
-    { label: 'Pessoas Impactadas', value: '5.684.230', icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
-    { label: 'Escolas Apoiadas', value: '1.890', icon: <School className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
-    { label: 'Bolsas Concedidas', value: '428.760', icon: <Award className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
-    { label: 'Horas de Voluntariado', value: '2.147.580 h', icon: <Heart className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 stroke-[1.8]" /> },
+    { label: 'Iniciativas Ativas', value: '1.248', icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
+    { label: 'Organizações', value: '382', icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
+    { label: 'Países', value: '96', icon: <Globe className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
+    { label: 'Pessoas Impactadas', value: '5.684.230', icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
+    { label: 'Escolas Apoiadas', value: '1.890', icon: <School className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
+    { label: 'Bolsas Concedidas', value: '428.760', icon: <Award className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
+    { label: 'Horas de Voluntariado', value: '2.147.580 h', icon: <Heart className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 dark:text-slate-400 stroke-[1.8]" /> },
   ];
 
   // Category Filter Pills
@@ -122,9 +122,9 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       title: 'Ação Climática',
       description: 'Redução de emissões e transição para energias renováveis.',
       initiativesCount: '312 iniciativas',
-      icon: <Leaf className="w-5 h-5 text-emerald-600" />,
-      iconBg: 'bg-emerald-50 border-emerald-100',
-      badgeColor: 'text-emerald-700',
+      icon: <Leaf className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+      iconBg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
+      badgeColor: 'text-emerald-700 dark:text-emerald-400',
     },
     {
       id: 'agua',
@@ -132,7 +132,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Preservação de recursos hídricos e saneamento.',
       initiativesCount: '126 iniciativas',
       icon: <Droplets className="w-5 h-5 text-blue-600" />,
-      iconBg: 'bg-blue-50 border-blue-100',
+      iconBg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100',
       badgeColor: 'text-blue-700',
     },
     {
@@ -150,7 +150,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       description: 'Redução, reutilização e reciclagem de resíduos.',
       initiativesCount: '142 iniciativas',
       icon: <Recycle className="w-5 h-5 text-purple-600" />,
-      iconBg: 'bg-purple-50 border-purple-100',
+      iconBg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100',
       badgeColor: 'text-purple-700',
     },
     {
@@ -158,9 +158,9 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       title: 'Agricultura Sustentável',
       description: 'Práticas agrícolas que regeneram o solo e comunidades.',
       initiativesCount: '98 iniciativas',
-      icon: <Sprout className="w-5 h-5 text-amber-600" />,
-      iconBg: 'bg-amber-50 border-amber-100',
-      badgeColor: 'text-amber-700',
+      icon: <Sprout className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+      iconBg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100',
+      badgeColor: 'text-amber-700 dark:text-amber-400',
     },
     {
       id: 'consumo',
@@ -250,11 +250,11 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       value: '3.215.780',
       label: 'Pessoas Impactadas',
       change: '12,4% este mês',
-      icon: <Users className="w-4 h-4 text-emerald-600" />,
+      icon: <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
       color: 'emerald',
       sparkline: [25, 30, 42, 38, 55, 62, 70, 85, 95],
       stroke: '#059669',
-      badgeBg: 'bg-emerald-50 text-emerald-700',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400',
     },
     {
       id: 'num2',
@@ -272,11 +272,11 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       value: '78.540 ha',
       label: 'Áreas Restauradas',
       change: '15,3% este mês',
-      icon: <TreePine className="w-4 h-4 text-emerald-700" />,
+      icon: <TreePine className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />,
       color: 'emerald',
       sparkline: [20, 28, 35, 48, 44, 60, 72, 85, 98],
       stroke: '#059669',
-      badgeBg: 'bg-emerald-50 text-emerald-800',
+      badgeBg: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-800',
     },
     {
       id: 'num4',
@@ -298,18 +298,18 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       color: 'purple',
       sparkline: [22, 28, 38, 46, 52, 65, 75, 82, 94],
       stroke: '#8B5CF6',
-      badgeBg: 'bg-purple-50 text-purple-700',
+      badgeBg: 'bg-purple-50 dark:bg-purple-500/10 text-purple-700',
     },
     {
       id: 'num6',
       value: '159.342',
       label: 'Voluntários Ativos',
       change: '10,2% este mês',
-      icon: <HeartHandshake className="w-4 h-4 text-amber-600" />,
+      icon: <HeartHandshake className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
       color: 'amber',
       sparkline: [28, 35, 44, 52, 50, 68, 77, 85, 96],
       stroke: '#F59E0B',
-      badgeBg: 'bg-amber-50 text-amber-700',
+      badgeBg: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400',
     },
   ];
 
@@ -363,8 +363,8 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       id: 'guia',
       title: 'Guia de Ação Ambiental',
       description: 'Passo a passo para iniciar sua iniciativa',
-      icon: <BookOpen className="w-4 h-4 text-emerald-600" />,
-      bg: 'bg-emerald-50 border-emerald-100',
+      icon: <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
     },
     {
       id: 'carbono',
@@ -377,8 +377,8 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       id: 'financiamento',
       title: 'Financiamento Verde',
       description: 'Encontre apoios para projetos ambientais',
-      icon: <Coins className="w-4 h-4 text-emerald-700" />,
-      bg: 'bg-emerald-50 border-emerald-100',
+      icon: <Coins className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />,
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
     },
     {
       id: 'cursos',
@@ -391,8 +391,8 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       id: 'parcerias',
       title: 'Parcerias Ambientais',
       description: 'Conecte-se com organizações e redes',
-      icon: <Network className="w-4 h-4 text-emerald-600" />,
-      bg: 'bg-emerald-50 border-emerald-100',
+      icon: <Network className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
     },
     {
       id: 'ferramentas',
@@ -404,7 +404,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-16 antialiased text-[#1E293B]">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16 antialiased text-[#1E293B] dark:text-slate-100">
       {/* Toast de Confirmação */}
       {supportSuccessToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#064E3B] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-emerald-700 animate-in fade-in slide-in-from-bottom-4">
@@ -423,7 +423,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
               <Leaf className="w-7 h-7 sm:w-8 sm:h-8 text-white" strokeWidth={2.2} />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0F172A] font-['Outfit'] tracking-tight leading-none">
+              <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight leading-none">
                 Ambiente
               </h1>
               <p className="text-xs sm:text-sm text-[#1E3A8A] font-semibold mt-1.5">
@@ -442,18 +442,18 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
         </div>
 
         {/* STATS RIBBON (7 MÉTRICAS HORIZONTAIS CONFORME A IMAGEM DE REFERÊNCIA) */}
-        <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 px-4 sm:px-6 py-3.5 sm:py-4 shadow-2xs">
-          <div className="flex items-center justify-between gap-4 lg:gap-6 overflow-x-auto no-scrollbar divide-x divide-slate-100">
+        <div className="w-full bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-700/80 px-4 sm:px-6 py-3.5 sm:py-4 shadow-2xs">
+          <div className="flex items-center justify-between gap-4 lg:gap-6 overflow-x-auto no-scrollbar divide-x divide-slate-100 dark:divide-slate-700">
             {ribbonMetrics.map((m, idx) => (
               <div key={idx} className={`flex items-center gap-3 shrink-0 ${idx > 0 ? 'pl-4 sm:pl-6' : ''}`}>
-                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100/90 flex items-center justify-center text-slate-600 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100/90 dark:border-slate-800/90 flex items-center justify-center text-slate-600 dark:text-slate-400 shrink-0">
                   {m.icon}
                 </div>
                 <div className="flex flex-col leading-tight">
-                  <span className="font-bold text-[#0F172A] text-sm sm:text-[15px] font-['Outfit'] tracking-tight">
+                  <span className="font-bold text-[#0F172A] dark:text-slate-50 text-sm sm:text-[15px] font-['Outfit'] tracking-tight">
                     {m.value}
                   </span>
-                  <span className="text-[11px] sm:text-xs text-slate-500 font-medium whitespace-nowrap mt-0.5">
+                  <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap mt-0.5">
                     {m.label}
                   </span>
                 </div>
@@ -479,7 +479,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'bg-[#064E3B] text-white shadow-xs border border-[#064E3B]'
-                    : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
+                    : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
                 <span>{cat.icon}</span>
@@ -498,7 +498,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 showToast('Mais categorias em breve!');
               }
             }}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-slate-500 hover:text-slate-800 border border-slate-200 hover:border-slate-300 transition-colors whitespace-nowrap cursor-pointer"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors whitespace-nowrap cursor-pointer"
           >
             <MoreHorizontal className="w-3.5 h-3.5" />
             <span>Mais</span>
@@ -672,7 +672,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                   <div
                     key={area.id}
                     onClick={() => setSelectedArea(area.title)}
-                    className="bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all cursor-pointer flex flex-col justify-between group"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs hover:border-emerald-300 transition-all cursor-pointer flex flex-col justify-between group"
                   >
                     <div>
                       <div className={`w-9 h-9 rounded-full ${area.iconBg} border flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform`}>
@@ -681,11 +681,11 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                       <h3 className="text-xs sm:text-[13px] font-bold text-[#0F1E3D] font-['Outfit'] mb-1">
                         {area.title}
                       </h3>
-                      <p className="text-[11px] text-slate-500 leading-snug line-clamp-2">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug line-clamp-2">
                         {area.description}
                       </p>
                     </div>
-                    <div className="mt-3 pt-2 border-t border-slate-100">
+                    <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800">
                       <span className={`text-[11px] font-bold ${area.badgeColor}`}>
                         {area.initiativesCount}
                       </span>
@@ -708,7 +708,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, featuredProjects.length - 3)))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Anterior"
                         title="Projetos anteriores"
                       >
@@ -717,7 +717,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Seguinte"
                         title="Próximos projetos"
                       >
@@ -732,10 +732,10 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                         <div
                           key={proj.id}
                           onClick={() => setSelectedProject(proj)}
-                          className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col group"
+                          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col group"
                         >
                           {/* Imagem do Projeto com Tag Ambiente */}
-                          <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100">
+                          <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100 dark:bg-slate-800">
                             <img
                               src={proj.imageUrl}
                               alt={proj.title}
@@ -750,26 +750,26 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                           {/* Detalhes */}
                           <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2.5">
                             <div>
-                              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                 {proj.location}
                               </div>
                               <h3 className="text-xs sm:text-[13px] font-bold text-[#0F1E3D] font-['Outfit'] mt-0.5 group-hover:text-[#064E3B] transition-colors line-clamp-1">
                                 {proj.title}
                               </h3>
-                              <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
                                 {proj.description}
                               </p>
                             </div>
 
                             {/* Progresso e Pessoas Impactadas */}
-                            <div className="space-y-1.5 pt-2 border-t border-slate-100">
+                            <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
                               <div className="flex items-center justify-between text-[10.5px]">
-                                <span className="text-slate-500">
-                                  Impactadas: <strong className="text-slate-800 font-bold">{proj.impactPeople}</strong>
+                                <span className="text-slate-500 dark:text-slate-400">
+                                  Impactadas: <strong className="text-slate-800 dark:text-slate-100 font-bold">{proj.impactPeople}</strong>
                                 </span>
                                 <span className="font-bold text-[#064E3B] shrink-0">{proj.progressPercent}% da meta</span>
                               </div>
-                              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                              <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                   className="h-full bg-[#064E3B] rounded-full transition-all duration-500"
                                   style={{ width: `${proj.progressPercent}%` }}
@@ -785,7 +785,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                     <button
                       type="button"
                       onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:bg-slate-50 z-10 cursor-pointer"
+                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-900 shadow-md border border-slate-200 dark:border-slate-700 items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 z-10 cursor-pointer"
                       title="Ver mais projetos"
                     >
                       <ChevronRight className="w-4 h-4" />
@@ -822,18 +822,18 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 {impactCards.map((c) => (
                   <div
                     key={c.id}
-                    className="bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
-                        <div className="w-6 h-6 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
+                        <div className="w-6 h-6 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0">
                           {c.icon}
                         </div>
                         <div className="text-sm sm:text-[15px] font-black text-[#0F1E3D] font-['Outfit'] tracking-tight truncate">
                           {c.value}
                         </div>
                       </div>
-                      <div className="text-[11px] text-slate-500 font-medium mb-1.5 truncate">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mb-1.5 truncate">
                         {c.label}
                       </div>
                       <div className={`inline-flex items-center gap-0.5 text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 ${c.badgeBg}`}>
@@ -871,7 +871,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
             {/* 5. ANÁLISE DE IMPACTO — GRÁFICOS COMPLETOS (LINHA TEMPORAL + DONUT) */}
             <ImpactAnalyticsSection
               accent="#059669"
-              softBg="bg-emerald-50"
+              softBg="bg-emerald-50 dark:bg-emerald-500/10"
               labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
               series={[
                 {
@@ -898,9 +898,9 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
           {/* COLUNA DIREITA / SIDEBAR (lg:col-span-4 xl:col-span-3) */}
           <div className="lg:col-span-4 xl:col-span-3 space-y-4 min-w-0">
             {/* 1. MAIS POPULARES EM AMBIENTE */}
-            <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-2xs space-y-3.5">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-100 dark:border-slate-800 shadow-2xs space-y-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Mais populares em Ambiente
                 </h3>
                 <button
@@ -917,11 +917,11 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                   <div
                     key={item.id}
                     onClick={() => showToast(`Iniciativa: ${item.title}`)}
-                    className="flex items-center justify-between gap-3 p-1.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group"
+                    className="flex items-center justify-between gap-3 p-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       {/* Posição 1, 2, 3... */}
-                      <span className="w-5 h-5 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[10.5px] font-bold shrink-0">
+                      <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center text-[10.5px] font-bold shrink-0">
                         {item.rank}
                       </span>
                       {/* Miniatura */}
@@ -931,10 +931,10 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                         className="w-9 h-9 rounded-xl object-cover shrink-0 shadow-2xs group-hover:scale-105 transition-transform"
                       />
                       <div className="min-w-0">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-[#064E3B] transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-[#064E3B] transition-colors">
                           {item.title}
                         </h4>
-                        <p className="text-[11px] text-slate-500 truncate">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                           {item.supporters}
                         </p>
                       </div>
@@ -949,9 +949,9 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
             </div>
 
             {/* 2. RECURSOS E FERRAMENTAS (TODOS OS 6 ITENS) */}
-            <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-2xs space-y-3">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-100 dark:border-slate-800 shadow-2xs space-y-3">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm sm:text-[15px] font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Recursos e ferramentas
                 </h3>
                 <button
@@ -968,22 +968,22 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                   <div
                     key={t.id}
                     onClick={() => setActiveToolModal(t.title)}
-                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 transition-all cursor-pointer group"
+                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className={`w-8 h-8 rounded-lg ${t.bg} border flex items-center justify-center shrink-0`}>
                         {t.icon}
                       </div>
                       <div className="min-w-0">
-                        <div className="text-xs font-bold text-[#0F172A] group-hover:text-[#064E3B] transition-colors truncate">
+                        <div className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#064E3B] transition-colors truncate">
                           {t.title}
                         </div>
-                        <div className="text-[10.5px] text-slate-500 truncate">
+                        <div className="text-[10.5px] text-slate-500 dark:text-slate-400 truncate">
                           {t.description}
                         </div>
                       </div>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
                   </div>
                 ))}
               </div>
@@ -1013,7 +1013,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(true)}
-                className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-emerald-50 text-[#064E3B] font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                className="w-full py-2.5 px-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 text-[#064E3B] font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer group"
               >
                 <span>Explorar Iniciativas</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
@@ -1026,8 +1026,8 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       {/* MODAL: APOIAR INICIATIVA */}
       {isSupportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2.5">
                 <div className="w-10 h-10 rounded-xl bg-[#064E3B] text-white flex items-center justify-center">
                   <Heart className="w-5 h-5" />
@@ -1036,12 +1036,12 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                   <h3 className="text-base font-black text-[#0F1E3D] font-['Outfit']">
                     Apoiar Iniciativa Ambiental
                   </h3>
-                  <p className="text-xs text-slate-500">Contribua diretamente para a regeneração do planeta</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Contribua diretamente para a regeneração do planeta</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsSupportModalOpen(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1049,7 +1049,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-2">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
                   Escolha o valor de contribuição (EUR)
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -1061,7 +1061,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                       className={`py-2 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
                         donationAmount === amt
                           ? 'bg-[#064E3B] text-white border-[#064E3B] shadow-xs'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                          : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'
                       }`}
                     >
                       {amt} €
@@ -1070,7 +1070,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-3 bg-emerald-50/70 border border-emerald-100 rounded-2xl text-xs text-emerald-900 space-y-1">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10/70 border border-emerald-100 rounded-2xl text-xs text-emerald-900 space-y-1">
                 <span className="font-bold">Impacto estimado com {donationAmount} €:</span>
                 <p className="text-[11.5px] text-emerald-800">
                   {donationAmount * 4} árvores nativas plantadas e aproximadamente {donationAmount * 25} kg de resíduos plásticos retirados do ecossistema marinho.
@@ -1091,7 +1091,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsSupportModalOpen(false)}
-                  className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                  className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>
@@ -1104,7 +1104,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       {/* MODAL: DETALHES DO PROJETO */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
             <div className="relative h-56">
               <img
                 src={selectedProject.imageUrl}
@@ -1127,18 +1127,18 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 <h3 className="text-xl font-black text-[#0F1E3D] font-['Outfit']">
                   {selectedProject.title}
                 </h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                   {selectedProject.description} Este projeto colaborativo reúne ONGs, comunidades locais e cidadãos voluntários comprometidos com soluções de longo prazo e monitoramento por satélite.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-2xl text-xs">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 dark:bg-slate-800 rounded-2xl text-xs">
                 <div>
-                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Pessoas Beneficiadas</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px] uppercase font-bold">Pessoas Beneficiadas</span>
                   <span className="font-extrabold text-[#0F1E3D] text-sm">{selectedProject.impactPeople}</span>
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Status do Projeto</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px] uppercase font-bold">Status do Projeto</span>
                   <span className="font-extrabold text-[#064E3B] text-sm">{selectedProject.progressPercent}% Concluído</span>
                 </div>
               </div>
@@ -1156,7 +1156,7 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
                 </button>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                  className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl transition-colors cursor-pointer"
                 >
                   Fechar
                 </button>
@@ -1169,29 +1169,29 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       {/* MODAL: FERRAMENTA / RECURSO */}
       {activeToolModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <h3 className="text-base font-black text-[#0F1E3D] font-['Outfit']">
                 {activeToolModal}
               </h3>
               <button
                 onClick={() => setActiveToolModal(null)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               O módulo <strong>{activeToolModal}</strong> faz parte do ecossistema aberto VILA para empoderar coletivos, organizações e cidadãos com metodologias científicas de regeneração.
             </p>
 
-            <div className="p-3 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2 text-xs">
-              <div className="flex items-center gap-2 text-emerald-700 font-bold">
+            <div className="p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 rounded-2xl space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Acesso público e gratuito</span>
               </div>
-              <div className="flex items-center gap-2 text-emerald-700 font-bold">
+              <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Dados auditados e certificados</span>
               </div>
@@ -1215,32 +1215,32 @@ export const EnvironmentImpactView: React.FC<EnvironmentImpactViewProps> = ({
       {/* MODAL: RELATÓRIO COMPLETO */}
       {isReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
                 <h3 className="text-base font-black text-[#0F1E3D] font-['Outfit']">
                   Relatório de Impacto Regional
                 </h3>
-                <p className="text-xs text-slate-500">Distribuição global de intervenções ecológicas ativas</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Distribuição global de intervenções ecológicas ativas</p>
               </div>
               <button
                 onClick={() => setIsReportModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-emerald-50/60 rounded-xl border border-emerald-100 text-emerald-900">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10/60 rounded-xl border border-emerald-100 text-emerald-900">
                 <span className="font-bold block mb-1">América do Norte (32% do impacto total)</span>
                 Projetos de energia renovável descentralizada e proteção de corredores ecológicos na Costa Oeste e Grandes Lagos.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">Europa (24% do impacto total)</span>
                 Restauração de bacias fluviais, reciclagem circular e hortas comunitárias metropolitanas.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">América Latina (20% do impacto total)</span>
                 Reflorestamento de biomas tropicais, conservação de nascentes e apoio a populações tradicionais.
               </div>

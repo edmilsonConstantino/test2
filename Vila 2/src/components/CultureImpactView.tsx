@@ -237,7 +237,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
   const impactCards = [
     {
       id: 'num1',
-      icon: <Users className="w-4 h-4 text-emerald-600" />,
+      icon: <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
       value: '3.215.780',
       label: 'Pessoas Impactadas',
       change: '12,4% este mês',
@@ -273,7 +273,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
     },
     {
       id: 'num5',
-      icon: <Clock className="w-4 h-4 text-amber-600" />,
+      icon: <Clock className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
       value: '78.540 h',
       label: 'Horas de Voluntariado',
       change: '14,8% este mês',
@@ -282,7 +282,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
     },
     {
       id: 'num6',
-      icon: <Globe className="w-4 h-4 text-rose-600" />,
+      icon: <Globe className="w-4 h-4 text-rose-600 dark:text-rose-400" />,
       value: '98',
       label: 'Países',
       change: '6,3% este mês',
@@ -342,7 +342,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       title: 'Guia de Financiamento Cultural',
       description: 'Encontre fundos para projetos culturais',
       icon: <FileText className="w-4 h-4 text-purple-600" />,
-      bg: 'bg-purple-50 border-purple-100',
+      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100',
     },
     {
       id: 'colaboracao',
@@ -356,7 +356,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       title: 'Calendário Cultural Global',
       description: 'Eventos, festivais e chamadas abertas',
       icon: <Clock className="w-4 h-4 text-blue-600" />,
-      bg: 'bg-blue-50 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100',
     },
     {
       id: 'biblioteca',
@@ -376,8 +376,8 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       id: 'parcerias',
       title: 'Parcerias Culturais',
       description: 'Conecte-se com instituições culturais',
-      icon: <Building2 className="w-4 h-4 text-emerald-600" />,
-      bg: 'bg-emerald-50 border-emerald-100',
+      icon: <Building2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
     },
     {
       id: 'ferramentas',
@@ -389,7 +389,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-16 antialiased text-[#1E293B]">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16 antialiased text-[#1E293B] dark:text-slate-100">
       {supportSuccessToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#371B80] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-violet-400 animate-in fade-in slide-in-from-bottom-4">
           <CheckCircle2 className="w-5 h-5 text-violet-200" />
@@ -407,10 +407,10 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 <Landmark className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.2]" />
               </div>
               <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Cultura
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                   Celebramos a diversidade, preservamos o património e fortalecemos identidades.
                 </p>
               </div>
@@ -429,7 +429,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
           </div>
 
           {/* Fita de Métricas Globais (Fiel à imagem de referência enviada) */}
-          <div className="w-full bg-white rounded-2xl border border-slate-200/80 px-4 sm:px-6 py-3.5 shadow-2xs">
+          <div className="w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 px-4 sm:px-6 py-3.5 shadow-2xs">
             <div className="flex items-center justify-between gap-4 lg:gap-6 overflow-x-auto no-scrollbar">
               {ribbonMetrics.map((m, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 sm:gap-3 shrink-0">
@@ -437,10 +437,10 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                     {m.icon}
                   </div>
                   <div className="flex flex-col leading-tight">
-                    <span className="font-black text-[#0F172A] text-sm sm:text-[15px] font-['Outfit'] tracking-tight">
+                    <span className="font-black text-[#0F172A] dark:text-slate-50 text-sm sm:text-[15px] font-['Outfit'] tracking-tight">
                       {m.value}
                     </span>
-                    <span className="text-[11px] sm:text-xs text-slate-500 font-medium whitespace-nowrap mt-0.5">
+                    <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap mt-0.5">
                       {m.label}
                     </span>
                   </div>
@@ -474,10 +474,10 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#371B80] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <span className={isActive ? 'text-white' : 'text-slate-500'}>{cat.icon}</span>
+                <span className={isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400'}>{cat.icon}</span>
                 <span>{cat.label}</span>
               </button>
             );
@@ -488,9 +488,9 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
               if (onNavigateToCategory) onNavigateToCategory('mais');
               else if (onNavigateToTab) onNavigateToTab('mais');
             }}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900 transition-all whitespace-nowrap cursor-pointer shadow-2xs"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50 transition-all whitespace-nowrap cursor-pointer shadow-2xs"
           >
-            <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+            <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Mais</span>
           </button>
         </nav>
@@ -566,10 +566,10 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                     <div className="absolute top-6 right-2 w-7 h-7 rounded-full bg-white text-pink-600 flex items-center justify-center shadow-md">
                       <Theater className="w-3.5 h-3.5" />
                     </div>
-                    <div className="absolute bottom-6 right-2 w-7 h-7 rounded-full bg-white text-amber-600 flex items-center justify-center shadow-md">
+                    <div className="absolute bottom-6 right-2 w-7 h-7 rounded-full bg-white text-amber-600 dark:text-amber-400 flex items-center justify-center shadow-md">
                       <Building2 className="w-3.5 h-3.5" />
                     </div>
-                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white text-rose-600 flex items-center justify-center shadow-md">
+                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white text-rose-600 dark:text-rose-400 flex items-center justify-center shadow-md">
                       <Palette className="w-3.5 h-3.5" />
                     </div>
                     <div className="absolute bottom-6 left-2 w-7 h-7 rounded-full bg-white text-teal-600 flex items-center justify-center shadow-md">
@@ -613,7 +613,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
             {/* 3.2 ÁREAS DE IMPACTO EM CULTURA (6 Cards em uma única linha no desktop) */}
             <section className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Áreas de impacto em cultura
                 </h2>
                 <button
@@ -631,25 +631,25 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                   <div
                     key={area.id}
                     onClick={() => showToast(`Filtrando por ${area.title}`)}
-                    className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs hover:border-violet-300 transition-all cursor-pointer flex flex-col justify-between group"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs hover:border-violet-300 transition-all cursor-pointer flex flex-col justify-between group"
                   >
                     <div>
                       {/* Ícone Circular Colorido */}
                       <div className={`w-10 h-10 rounded-full ${area.iconBg} flex items-center justify-center mb-3 shadow-xs group-hover:scale-105 transition-transform`}>
                         {area.icon}
                       </div>
-                      <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] font-['Outfit'] mb-1 group-hover:text-[#371B80] transition-colors leading-snug">
+                      <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] mb-1 group-hover:text-[#371B80] transition-colors leading-snug">
                         {area.title}
                       </h3>
-                      <p className="text-[11px] text-slate-500 leading-relaxed line-clamp-2">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
                         {area.description}
                       </p>
                     </div>
-                    <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-emerald-600">
+                    <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
                         {area.initiativesCount}
                       </span>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
                 ))}
@@ -662,14 +662,14 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 {/* 3 Cards de Projetos (lg:col-span-8) */}
                 <div className="lg:col-span-8 flex flex-col min-w-0">
                   <div className="flex items-center justify-between mb-3 h-7">
-                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                       Projetos em destaque
                     </h2>
                     <div className="flex items-center gap-1.5">
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, featuredProjects.length - 3)))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Anterior"
                       >
                         <ChevronRight className="w-4 h-4 rotate-180" />
@@ -677,7 +677,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Seguinte"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -691,10 +691,10 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                         <div
                           key={proj.id}
                           onClick={() => setSelectedProject(proj)}
-                          className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col justify-between group h-full"
+                          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col justify-between group h-full"
                         >
                           {/* Imagem do Projeto com Badge da Categoria */}
-                          <div className="relative h-28 sm:h-30 overflow-hidden bg-slate-100 shrink-0">
+                          <div className="relative h-28 sm:h-30 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
                             <img
                               src={proj.imageUrl}
                               alt={proj.title}
@@ -709,26 +709,26 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                           {/* Informações do Projeto */}
                           <div className="p-3 flex-1 flex flex-col justify-between gap-2.5">
                             <div>
-                              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                 {proj.location}
                               </div>
-                              <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] font-['Outfit'] mt-0.5 line-clamp-2 group-hover:text-[#371B80] transition-colors leading-snug">
+                              <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] mt-0.5 line-clamp-2 group-hover:text-[#371B80] transition-colors leading-snug">
                                 {proj.title}
                               </h3>
-                              <p className="text-[10.5px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                              <p className="text-[10.5px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
                                 {proj.description}
                               </p>
                             </div>
 
                             {/* Barra de Progresso e Pessoas Impactadas */}
-                            <div className="pt-2 border-t border-slate-100 flex flex-col gap-1">
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-1">
                               <div className="flex items-center justify-between text-[10px] gap-2">
-                                <span className="text-slate-500 truncate">
-                                  Impactadas: <strong className="text-slate-800 font-bold">{proj.impactPeople}</strong>
+                                <span className="text-slate-500 dark:text-slate-400 truncate">
+                                  Impactadas: <strong className="text-slate-800 dark:text-slate-100 font-bold">{proj.impactPeople}</strong>
                                 </span>
                                 <span className="font-bold text-[#371B80] whitespace-nowrap shrink-0">{proj.progressPercent}% da meta</span>
                               </div>
-                              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                              <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                   className="h-full bg-[#371B80] rounded-full transition-all duration-500"
                                   style={{ width: `${proj.progressPercent}%` }}
@@ -745,7 +745,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 {/* Widget: Impacto por Região (lg:col-span-4) - Mesmo formato e mapa da aba de Empreendedorismo */}
                 <div className="lg:col-span-4 flex flex-col min-w-0">
                   <div className="flex items-center justify-between mb-3 h-7">
-                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                       Impacto por região
                     </h2>
                     <button
@@ -775,7 +775,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
 
             {/* 3.4 O IMPACTO EM NÚMEROS (6 KPI Cards com curvas sparklines) */}
             <section className="flex flex-col gap-3">
-              <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 O impacto em números
               </h2>
 
@@ -783,21 +783,21 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 {impactCards.map((c) => (
                   <div
                     key={c.id}
-                    className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <div className="w-7 h-7 rounded-lg bg-slate-50 flex items-center justify-center">
+                        <div className="w-7 h-7 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
                           {c.icon}
                         </div>
                       </div>
-                      <div className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                      <div className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                         {c.value}
                       </div>
-                      <div className="text-[11px] text-slate-500 font-medium mb-1 truncate">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mb-1 truncate">
                         {c.label}
                       </div>
-                      <div className="text-[10px] font-bold text-emerald-600 mb-2">
+                      <div className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                         ▲ {c.change}
                       </div>
                     </div>
@@ -850,9 +850,9 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
           {/* COLUNA DIREITA (BARRA LATERAL DIREITA: lg:col-span-4 xl:col-span-3) */}
           <aside id="cultura-right-sidebar" className="lg:col-span-4 xl:col-span-3 flex flex-col gap-4">
             {/* 1. CARD: Mais populares em Cultura */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col gap-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-5 shadow-2xs flex flex-col gap-4">
               <div className="flex items-center justify-between pb-1">
-                <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Mais populares em Cultura
                 </h3>
                 <button
@@ -870,14 +870,14 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                   <div
                     key={item.id}
                     onClick={() => showToast(`Iniciativa: ${item.title}`)}
-                    className="flex items-center justify-between gap-3 p-1.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group"
+                    className="flex items-center justify-between gap-3 p-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="w-4 text-center text-xs font-bold text-slate-400 shrink-0">
+                      <span className="w-4 text-center text-xs font-bold text-slate-400 dark:text-slate-500 shrink-0">
                         {item.rank}
                       </span>
                       {/* Thumbnail circular com imagem real */}
-                      <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0 border border-slate-200/60 shadow-2xs group-hover:scale-105 transition-transform">
+                      <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border border-slate-200/60 dark:border-slate-700/60 shadow-2xs group-hover:scale-105 transition-transform">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -886,16 +886,16 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                         />
                       </div>
                       <div className="min-w-0">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-[#371B80] transition-colors leading-tight">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-[#371B80] transition-colors leading-tight">
                           {item.title}
                         </h4>
-                        <p className="text-[11px] text-slate-500 truncate">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                           {item.supporters}
                         </p>
                       </div>
                     </div>
 
-                    <span className="text-[10.5px] font-bold text-emerald-600 flex items-center gap-0.5 shrink-0">
+                    <span className="text-[10.5px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5 shrink-0">
                       <span>▲</span>
                       <span>{item.growth}</span>
                     </span>
@@ -905,9 +905,9 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
             </div>
 
             {/* 2. CARD: Recursos e ferramentas */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col gap-3.5">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-5 shadow-2xs flex flex-col gap-3.5">
               <div className="flex items-center justify-between pb-1">
-                <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Recursos e ferramentas
                 </h3>
                 <button
@@ -925,22 +925,22 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                   <div
                     key={t.id}
                     onClick={() => setActiveToolModal(t.title)}
-                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200/60 transition-all cursor-pointer group"
+                    className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200/60 dark:hover:border-slate-700/60 transition-all cursor-pointer group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className={`w-9 h-9 rounded-xl ${t.bg} border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}>
                         {t.icon}
                       </div>
                       <div className="min-w-0">
-                        <div className="text-xs font-bold text-[#0F172A] group-hover:text-[#371B80] transition-colors truncate">
+                        <div className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#371B80] transition-colors truncate">
                           {t.title}
                         </div>
-                        <div className="text-[11px] text-slate-500 truncate">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                           {t.description}
                         </div>
                       </div>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
                   </div>
                 ))}
               </div>
@@ -974,7 +974,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsSupportModalOpen(true)}
-                  className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-violet-50 text-[#371B80] font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                  className="w-full py-2.5 px-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-violet-50 text-[#371B80] font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer group"
                 >
                   <span>Explorar Iniciativas</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
@@ -988,23 +988,23 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       {/* MODAL: APOIAR INICIATIVA */}
       {isSupportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2.5">
                 <div className="w-10 h-10 rounded-xl bg-[#371B80] text-white flex items-center justify-center">
                   <Heart className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     Apoiar Iniciativa Cultural
                   </h3>
-                  <p className="text-xs text-slate-500">Contribua diretamente para a preservação cultural</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Contribua diretamente para a preservação cultural</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1012,7 +1012,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-2">Selecione o valor do apoio:</label>
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">Selecione o valor do apoio:</label>
                 <div className="grid grid-cols-4 gap-2">
                   {[10, 25, 50, 100].map((amount) => (
                     <button
@@ -1022,7 +1022,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                       className={`py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                         donationAmount === amount
                           ? 'bg-[#371B80] text-white border-[#371B80] shadow-xs'
-                          : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
+                          : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                       }`}
                     >
                       {amount} €
@@ -1036,7 +1036,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
                   <Sparkles className="w-4 h-4" />
                   Impacto estimado com {donationAmount} €:
                 </div>
-                <p className="text-[11px] text-slate-600">
+                <p className="text-[11px] text-slate-600 dark:text-slate-400">
                   Ajuda a financiar materiais educativos para oficinas culturais comunitárias e registro de património imaterial.
                 </p>
               </div>
@@ -1059,7 +1059,7 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       {/* MODAL: DETALHES DO PROJETO */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl animate-in fade-in zoom-in-95">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl animate-in fade-in zoom-in-95">
             <div className="relative h-44">
               <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-full object-cover" />
               <button
@@ -1074,14 +1074,14 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
               </span>
             </div>
             <div className="p-5 space-y-4">
-              <h3 className="text-base font-black text-[#0F172A] font-['Outfit']">
+              <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                 {selectedProject.title}
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 {selectedProject.description} Este projeto atua diretamente com mestres de tradição oral e comunidades locais para preservar saberes históricos.
               </p>
-              <div className="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs">
-                <span>Pessoas impactadas: <strong className="text-slate-900">{selectedProject.impactPeople}</strong></span>
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl flex items-center justify-between text-xs">
+                <span>Pessoas impactadas: <strong className="text-slate-900 dark:text-slate-50">{selectedProject.impactPeople}</strong></span>
                 <span className="font-bold text-[#371B80]">{selectedProject.progressPercent}% da meta</span>
               </div>
               <button
@@ -1102,20 +1102,20 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       {/* MODAL: RECURSO / FERRAMENTA */}
       {activeToolModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+              <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                 {activeToolModal}
               </h3>
               <button
                 type="button"
                 onClick={() => setActiveToolModal(null)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
-            <p className="text-xs text-slate-600">
+            <p className="text-xs text-slate-600 dark:text-slate-400">
               O recurso <strong>{activeToolModal}</strong> permite que artistas, criadores e gestores culturais tenham acesso a instrumentos de trabalho e capacitação profissional.
             </p>
             <button
@@ -1135,33 +1135,33 @@ export const CultureImpactView: React.FC<CultureImpactViewProps> = ({
       {/* MODAL: RELATÓRIO COMPLETO */}
       {isReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Globe className="w-5 h-5 text-[#371B80]" />
-                <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Relatório Global de Cultura 2026
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsReportModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               O relatório consolida dados de 1.132 iniciativas em 98 países, detalhando investimentos, impacto social e salvaguarda do património material e imaterial.
             </p>
             <div className="space-y-2 text-xs">
-              <div className="flex justify-between p-2 bg-slate-50 rounded-lg font-medium">
+              <div className="flex justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg font-medium">
                 <span>Total de Investimento:</span>
-                <strong className="text-slate-900">2.145.890 €</strong>
+                <strong className="text-slate-900 dark:text-slate-50">2.145.890 €</strong>
               </div>
-              <div className="flex justify-between p-2 bg-slate-50 rounded-lg font-medium">
+              <div className="flex justify-between p-2 bg-slate-50 dark:bg-slate-800 rounded-lg font-medium">
                 <span>Comunidades Beneficiadas:</span>
-                <strong className="text-slate-900">3.215.780 pessoas</strong>
+                <strong className="text-slate-900 dark:text-slate-50">3.215.780 pessoas</strong>
               </div>
             </div>
             <button

@@ -13,7 +13,6 @@ import {
   Monitor,
   ShieldCheck,
   LayoutGrid,
-  Sparkles,
   Bot,
   UserCheck,
   Clock,
@@ -400,7 +399,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">
               <div className="flex items-center gap-2 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/60">
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4" />
+                  <Cpu className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">1.248.562</div>

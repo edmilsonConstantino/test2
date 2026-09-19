@@ -61,22 +61,22 @@ export const LatestNewsUpdatesWidget: React.FC<LatestNewsUpdatesWidgetProps> = (
   return (
     <div
       id="latest-news-updates-widget"
-      className={`rounded-2xl bg-white border border-slate-200 p-5 sm:p-6 min-h-[340px] sm:min-h-[370px] lg:min-h-[400px] flex flex-col justify-between shadow-2xs font-sans ${className}`}
+      className={`rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-5 sm:p-6 min-h-[340px] sm:min-h-[370px] lg:min-h-[400px] flex flex-col justify-between shadow-2xs font-sans ${className}`}
     >
       <div>
         {/* Cabeçalho do Card: Ícone de Relógio + Título + Badge Ao Vivo */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-slate-100">
+        <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#1455AC]/10 text-[#1455AC] flex items-center justify-center shrink-0 border border-[#1455AC]/20">
+            <div className="w-8 h-8 rounded-lg bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] flex items-center justify-center shrink-0 border border-[#1455AC]/20">
               <Clock className="w-4 h-4 stroke-[2.2]" />
             </div>
-            <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-sans tracking-tight">
+            <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 dark:text-slate-50 font-sans tracking-tight">
               Últimas Atualizações
             </h3>
           </div>
 
           {/* Badge Indicador "Ao Vivo" */}
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 text-[10.5px] font-bold">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10.5px] font-bold">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
@@ -90,7 +90,7 @@ export const LatestNewsUpdatesWidget: React.FC<LatestNewsUpdatesWidgetProps> = (
           {LATEST_UPDATES.map((item) => (
             <article
               key={item.id}
-              className="group flex items-start gap-2.5 p-1.5 -mx-1.5 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
+              className="group flex items-start gap-2.5 p-1.5 -mx-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
               {/* Bolinha colorida de status */}
               <div className="pt-1 shrink-0">
@@ -104,11 +104,11 @@ export const LatestNewsUpdatesWidget: React.FC<LatestNewsUpdatesWidgetProps> = (
 
               {/* Conteúdo: Horário Relativo + Título da Notícia */}
               <div className="flex-1 min-w-0">
-                <span className="text-[10.5px] font-semibold text-slate-400 block leading-none mb-1">
+                <span className="text-[10.5px] font-semibold text-slate-400 dark:text-slate-500 block leading-none mb-1">
                   {item.time}
                 </span>
                 <h4
-                  className="text-xs sm:text-[12.5px] font-medium text-slate-800 leading-snug line-clamp-1 group-hover:text-[#1455AC] transition-colors font-sans truncate"
+                  className="text-xs sm:text-[12.5px] font-medium text-slate-800 dark:text-slate-100 leading-snug line-clamp-1 group-hover:text-[#1455AC] transition-colors font-sans truncate"
                   title={item.title}
                 >
                   {item.title}
@@ -120,7 +120,7 @@ export const LatestNewsUpdatesWidget: React.FC<LatestNewsUpdatesWidgetProps> = (
       </div>
 
       {/* Link de Rodapé: "Ver linha do tempo completa →" */}
-      <div className="pt-3 border-t border-slate-100 mt-2">
+      <div className="pt-3 border-t border-slate-100 dark:border-slate-800 mt-2">
         <button
           type="button"
           onClick={onOpenTimeline}

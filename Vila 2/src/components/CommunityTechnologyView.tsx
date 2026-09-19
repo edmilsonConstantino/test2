@@ -112,7 +112,7 @@ const FEATURED_TECH_COMMUNITIES: FeaturedTechCommunity[] = [
     members: '96.450 membros',
     description: 'Rede de desenvolvedores que constroem soluções de impacto.',
     tag: 'Desenvolvimento',
-    tagColor: 'text-[#059669] bg-emerald-50',
+    tagColor: 'text-[#059669] bg-emerald-50 dark:bg-emerald-500/10',
     avatars: [
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80',
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80',
@@ -131,7 +131,7 @@ const FEATURED_TECH_COMMUNITIES: FeaturedTechCommunity[] = [
     members: '45.670 membros',
     description: 'Explorando fronteiras e promovendo inovação espacial sustentável.',
     tag: 'Espaço',
-    tagColor: 'text-[#334155] bg-slate-100',
+    tagColor: 'text-[#334155] dark:text-slate-300 bg-slate-100 dark:bg-slate-800',
     avatars: [
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80',
       'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&auto=format&fit=crop&q=80',
@@ -323,7 +323,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
   };
 
   return (
-    <div id="community-technology-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="community-technology-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Principal (busca/idioma/notificações/perfil/breadcrumb já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 2. Cabeçalho de Tecnologia com Ícone e Métricas */}
@@ -334,25 +334,25 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Tecnologia
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
                 Inovação, transformação digital e soluções tecnológicas para um futuro melhor.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B]">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B] dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">1.386</strong> comunidades
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">1.386</strong> comunidades
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">312.450</strong> membros
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">312.450</strong> membros
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Globe className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">198</strong> países
+                  <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">198</strong> países
                 </span>
               </div>
             </div>
@@ -398,10 +398,10 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#4F46E5] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -419,14 +419,14 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                   setIsMaisDropdownOpen(!isMaisDropdownOpen);
                 }
               }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 whitespace-nowrap cursor-pointer shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 whitespace-nowrap cursor-pointer shadow-2xs"
             >
-              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
               <span>Mais</span>
             </button>
 
             {isMaisDropdownOpen && (
-              <div className="absolute left-0 mt-1 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
+              <div className="absolute left-0 mt-1 w-52 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
                 {[
                   'Turismo',
                   'Desporto',
@@ -448,7 +448,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         onNavigateToTab('mais');
                       }
                     }}
-                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 text-slate-700 flex items-center justify-between cursor-pointer"
+                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between cursor-pointer"
                   >
                     <span>{extra}</span>
                   </button>
@@ -463,11 +463,11 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
           {/* COLUNA ESQUERDA: Filtros (lg:col-span-2) */}
           <aside
             id="filtros-tecnologia-sidebar"
-            className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-4"
+            className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-4"
           >
-            <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-              <span className="text-sm font-bold text-[#0F172A] flex items-center gap-1.5">
-                <Filter className="w-3.5 h-3.5 text-slate-500" />
+            <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 flex items-center gap-1.5">
+                <Filter className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
                 Filtros
               </span>
               <button
@@ -481,14 +481,14 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
             {/* Tipo de comunidade (Radio) */}
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold text-[#0F172A]">Tipo de comunidade</span>
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tipo de comunidade</span>
               <div className="flex flex-col gap-1.5">
                 {['Todas', 'Organizações', 'ONGs', 'Grupos de Interesse', 'Iniciativas Locais', 'Redes Profissionais'].map((type) => {
                   const isChecked = communityType === type;
                   return (
                     <label
                       key={type}
-                      className="flex items-center gap-2 text-[11.5px] text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2 text-[11.5px] text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="radio"
@@ -501,7 +501,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#4F46E5] bg-[#4F46E5]'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -514,15 +514,15 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             {/* Tamanho (Checkboxes) */}
-            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#0F172A]">Tamanho</span>
+            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 dark:border-slate-800">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tamanho</span>
               <div className="flex flex-col gap-1.5">
                 {['1 - 100 membros', '101 - 1.000 membros', '1.001 - 10.000 membros', '10.000+ membros'].map((size) => {
                   const isChecked = selectedSizes.has(size);
                   return (
                     <label
                       key={size}
-                      className="flex items-center gap-2 text-[11.5px] text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2 text-[11.5px] text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="checkbox"
@@ -534,7 +534,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#4F46E5] bg-[#4F46E5] text-white'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -547,19 +547,19 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             {/* Foco tecnológico (Dropdown) */}
-            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Foco tecnológico</span>
+            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Foco tecnológico</span>
               <button
                 type="button"
                 onClick={() => setIsTechFocusOpen(!isTechFocusOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{techFocus}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isTechFocusOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isTechFocusOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isTechFocusOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {['Selecione um foco', 'Inteligência Artificial', 'Desenvolvimento', 'Espaço', 'Segurança', 'Blockchain'].map((f) => (
                     <button
                       key={f}
@@ -568,7 +568,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         setTechFocus(f);
                         setIsTechFocusOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{f}</span>
                       {techFocus === f && <Check className="w-3 h-3 text-indigo-600" />}
@@ -579,19 +579,19 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             {/* Localização (Dropdown) */}
-            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Localização</span>
+            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Localização</span>
               <button
                 type="button"
                 onClick={() => setIsLocationOpen(!isLocationOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{locationFilter}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLocationOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {['Qualquer lugar', 'Global', 'África', 'América Latina', 'Europa', 'Ásia'].map((loc) => (
                     <button
                       key={loc}
@@ -600,7 +600,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         setLocationFilter(loc);
                         setIsLocationOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{loc}</span>
                       {locationFilter === loc && <Check className="w-3 h-3 text-indigo-600" />}
@@ -611,19 +611,19 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             {/* Idioma (Dropdown) */}
-            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Idioma</span>
+            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Idioma</span>
               <button
                 type="button"
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{languageFilter}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {['Qualquer idioma', 'Português', 'Inglês', 'Espanhol', 'Francês'].map((lang) => (
                     <button
                       key={lang}
@@ -632,7 +632,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         setLanguageFilter(lang);
                         setIsLanguageOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{lang}</span>
                       {languageFilter === lang && <Check className="w-3 h-3 text-indigo-600" />}
@@ -684,7 +684,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                         setSelectedCommunityModal(FEATURED_TECH_COMMUNITIES[0]);
                       }
                     }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-[#4F46E5] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-[#4F46E5] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
                   >
                     <span>Juntar-se a uma comunidade</span>
                     <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -696,7 +696,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             {/* Seção: Comunidades em destaque (4 Cards) */}
             <section id="comunidades-destaque-tecnologia-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Comunidades em destaque
                 </h3>
                 <button
@@ -714,7 +714,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                     <article
                       key={comm.id}
                       onClick={() => setSelectedCommunityModal(comm)}
-                      className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                      className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                     >
                       <div className="relative h-24 w-full overflow-hidden bg-[#0B1120] flex items-center justify-center">
                         <span
@@ -731,11 +731,11 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
                       <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-xs font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 group-hover:text-indigo-600 transition-colors">
+                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 group-hover:text-indigo-600 transition-colors">
                             {comm.name}
                           </h4>
-                          <div className="text-[10px] text-slate-500 mb-1.5 mt-0.5">{comm.members}</div>
-                          <p className="text-[11px] text-slate-600 line-clamp-2 leading-tight mb-2.5">
+                          <div className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1.5 mt-0.5">{comm.members}</div>
+                          <p className="text-[11px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight mb-2.5">
                             {comm.description}
                           </p>
                           <span className={`inline-block text-[9px] font-bold px-2 py-0.5 rounded ${comm.tagColor}`}>
@@ -743,18 +743,18 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                           </span>
                         </div>
 
-                        <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+                        <div className="pt-2.5 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                           <div className="flex -space-x-1.5 overflow-hidden">
                             {comm.avatars.map((av, idx) => (
                               <img
                                 key={idx}
                                 src={av}
                                 alt="Membro"
-                                className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white object-cover"
+                                className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white dark:ring-slate-900 object-cover"
                               />
                             ))}
                           </div>
-                          <span className="text-[10px] font-bold text-slate-500">{comm.extraAvatars}</span>
+                          <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">{comm.extraAvatars}</span>
                         </div>
                       </div>
                     </article>
@@ -766,7 +766,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             {/* Seção: Iniciativas em destaque (4 Cards) */}
             <section id="iniciativas-destaque-tecnologia-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Iniciativas em destaque
                 </h3>
                 <button
@@ -783,9 +783,9 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                   <article
                     key={init.id}
                     onClick={() => setSelectedInitiativeModal(init)}
-                    className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                    className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                   >
-                    <div className="relative h-24 w-full overflow-hidden bg-slate-100">
+                    <div className="relative h-24 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                       <img
                         src={init.image}
                         alt={init.title}
@@ -801,16 +801,16 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
                     <div className="p-3 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-xs font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 group-hover:text-indigo-600 transition-colors">
                           {init.title}
                         </h4>
-                        <p className="text-[10px] text-slate-500 mt-1">{init.meta}</p>
-                        <p className="text-[11px] text-slate-600 line-clamp-2 leading-tight mt-1.5">
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">{init.meta}</p>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight mt-1.5">
                           {init.description}
                         </p>
                       </div>
-                      <div className="pt-2 mt-2 border-t border-slate-100 flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
-                        <Users className="w-3 h-3 text-slate-400" />
+                      <div className="pt-2 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[10px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500">
+                        <Users className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                         <span>{init.stat}</span>
                       </div>
                     </div>
@@ -823,9 +823,9 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
           {/* COLUNA DIREITA: Comunidades em tendência, Atividade recente e CTA (lg:col-span-3) */}
           <aside className="lg:col-span-3 flex flex-col gap-4">
             {/* 1. Card: Comunidades em tendência */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Comunidades em tendência
                 </h3>
                 <button
@@ -837,22 +837,22 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {TRENDING_TECH_COMMUNITIES.map((item) => (
                   <div
                     key={item.id}
-                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="text-xs font-bold text-slate-400 w-3 shrink-0">{item.rank}</span>
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-3 shrink-0">{item.rank}</span>
                       <div className={`w-7 h-7 rounded-lg ${item.iconBg} text-white flex items-center justify-center shrink-0 shadow-2xs`}>
                         {renderCardIcon(item.iconType)}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-indigo-600 transition-colors">
                           {item.name}
                         </h4>
-                        <span className="text-[10px] text-slate-500 block truncate">{item.members}</span>
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 block truncate">{item.members}</span>
                       </div>
                     </div>
                     <span className="text-[11px] font-bold text-[#10B981] shrink-0">{item.growth}</span>
@@ -862,9 +862,9 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             {/* 2. Card: Atividade recente */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Atividade recente
                 </h3>
                 <button
@@ -876,7 +876,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {RECENT_ACTIVITY.map((act) => (
                   <div key={act.id} className="py-2.5 flex items-start gap-2.5">
                     <img
@@ -885,12 +885,12 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                       className="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200 shrink-0"
                     />
                     <div className="min-w-0 flex-1 text-[11px] leading-snug">
-                      <p className="text-slate-700">
-                        <span className="font-bold text-[#0F172A]">{act.actor}</span>{' '}
+                      <p className="text-slate-700 dark:text-slate-300">
+                        <span className="font-bold text-[#0F172A] dark:text-slate-50">{act.actor}</span>{' '}
                         {act.action}{' '}
                         <span className="font-bold text-indigo-600">{act.target}</span>
                       </p>
-                      <span className="text-[10px] text-slate-400 block mt-0.5">{act.time}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 block mt-0.5">{act.time}</span>
                     </div>
                   </div>
                 ))}
@@ -916,7 +916,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                 <button
                   type="button"
                   onClick={onOpenCreateCommunity}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#4F46E5] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-[#4F46E5] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
                 >
                   <span>Criar Comunidade</span>
                   <Plus className="w-3.5 h-3.5 stroke-[2.8]" />
@@ -936,11 +936,11 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
       {/* Modal de Detalhes da Comunidade Selecionada */}
       {selectedCommunityModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedCommunityModal(null)}
-              className="absolute top-3 right-3 text-slate-600 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center z-10 cursor-pointer"
+              className="absolute top-3 right-3 text-slate-600 dark:text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center z-10 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -951,14 +951,14 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                   {renderCardIcon(selectedCommunityModal.iconType)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     {selectedCommunityModal.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">{selectedCommunityModal.members}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">{selectedCommunityModal.members}</p>
                 </div>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedCommunityModal.description}
               </p>
 
@@ -966,7 +966,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                 {selectedCommunityModal.tag}
               </span>
 
-              <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => {
@@ -975,7 +975,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                   }}
                   className={`flex-1 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     joinedCommunities.has(selectedCommunityModal.id)
-                      ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
                       : 'bg-[#4F46E5] text-white hover:bg-[#4338CA] shadow-xs'
                   }`}
                 >
@@ -990,7 +990,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
       {/* Modal de Detalhes da Iniciativa Selecionada */}
       {selectedInitiativeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedInitiativeModal(null)}
@@ -1012,25 +1012,25 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   {selectedInitiativeModal.title}
                 </h3>
-                <div className="flex flex-col gap-1 text-xs text-slate-500 mt-2">
+                <div className="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-2">
                   <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {selectedInitiativeModal.meta}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-slate-400" />
+                    <Users className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {selectedInitiativeModal.stat}
                   </span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed mt-2">
+                <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed mt-2">
                   {selectedInitiativeModal.description}
                 </p>
               </div>
 
-              <div className="pt-2 flex items-center justify-end border-t border-slate-100">
+              <div className="pt-2 flex items-center justify-end border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => setSelectedInitiativeModal(null)}

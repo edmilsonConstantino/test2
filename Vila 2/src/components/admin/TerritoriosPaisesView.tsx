@@ -19,7 +19,6 @@ import {
   CheckCircle2,
   Activity,
   Layers,
-  Sparkles,
   Edit3,
   Users,
   Compass,
@@ -97,8 +96,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 8%',
     trendPeriod: 'desde o ano passado',
     icon: 'globe',
-    bgClass: 'bg-[#FFEDD5]',
-    iconClass: 'text-[#DC7600]',
+    bgClass: 'bg-amber-50/90 text-amber-600 dark:text-amber-400 border-amber-100/70 border',
+    iconClass: 'text-amber-600 dark:text-amber-400',
   },
   {
     id: 'kpi-regioes',
@@ -107,8 +106,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 10%',
     trendPeriod: 'desde o ano passado',
     icon: 'mappin',
-    bgClass: 'bg-[#DCFCE7]',
-    iconClass: 'text-[#16A34A]',
+    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+    iconClass: 'text-emerald-600 dark:text-emerald-400',
   },
   {
     id: 'kpi-municipios',
@@ -117,8 +116,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 12%',
     trendPeriod: 'desde o ano passado',
     icon: 'building',
-    bgClass: 'bg-[#F0F5FC]',
-    iconClass: 'text-[#0F448A]',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
+    iconClass: 'text-[#1455AC]',
   },
   {
     id: 'kpi-territorios',
@@ -127,7 +126,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 14%',
     trendPeriod: 'desde o ano passado',
     icon: 'flag',
-    bgClass: 'bg-[#DBEAFE]',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
     iconClass: 'text-[#1455AC]',
   },
   {
@@ -137,8 +136,8 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: '↑ 36%',
     trendPeriod: 'desde o período anterior',
     icon: 'plus',
-    bgClass: 'bg-[#DCFCE7]',
-    iconClass: 'text-[#10B981]',
+    bgClass: 'bg-emerald-50/90 text-emerald-600 dark:text-emerald-400 border-emerald-100/70 border',
+    iconClass: 'text-emerald-600 dark:text-emerald-400',
   },
   {
     id: 'kpi-cobertura',
@@ -147,7 +146,7 @@ const DEFAULT_KPIS: KPIItem[] = [
     trend: 'dos países do mundo',
     trendPeriod: '156 de 195 nações',
     icon: 'pie',
-    bgClass: 'bg-[#E2ECF9]',
+    bgClass: 'bg-blue-50/90 text-[#1455AC] border-blue-100/70 border',
     iconClass: 'text-[#1455AC]',
   },
 ];
@@ -957,7 +956,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               {/* Inativo */}
               <div className="flex flex-col items-center text-center p-2 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                 <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center mb-1">
-                  <Sparkles className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </div>
                 <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">Inativo</span>
                 <span className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-sans mt-1">110</span>

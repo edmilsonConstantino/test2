@@ -259,7 +259,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
   ];
 
   return (
-    <div className="flex min-h-screen bg-[#F4F7FB]">
+    <div className="min-h-screen bg-[#F4F7FB] dark:bg-slate-950">
       {isSuccessToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#064E3B] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-emerald-700 animate-in fade-in slide-in-from-bottom-4">
           <Check className="w-5 h-5 text-emerald-300" />
@@ -267,19 +267,18 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         </div>
       )}
 
-      {/* CONTEÚDO PRINCIPAL */}
-      <main className="flex-1 min-w-0 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
-        {/* 1. CABEÇALHO: ícone + título + subtítulo à esquerda; imagem de rede global à direita */}
+      <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
+      {/* 1. CABEÇALHO: ícone + título + subtítulo à esquerda; imagem de rede global à direita */}
         <section id="impacto-global-header" className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-3.5 min-w-0">
             <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-[#064E3B] text-white flex items-center justify-center shrink-0 shadow-sm border border-emerald-950/20">
               <Leaf className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.4} />
             </div>
             <div className="flex flex-col min-w-0">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Impacto Global
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug max-w-lg">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug max-w-lg">
                 Acompanhe o impacto das iniciativas, projetos e ações que estão a transformar o mundo em direção a um futuro melhor.
               </p>
             </div>
@@ -297,6 +296,10 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           </button>
         </section>
 
+        {/* Linha principal: conteúdo + sidebar começando ao nível dos KPIs */}
+        <div className="flex flex-col xl:flex-row gap-5 items-start w-full">
+        {/* CONTEÚDO PRINCIPAL */}
+        <main className="flex-1 min-w-0 flex flex-col gap-5 w-full">
         {/* 2. KPIs DO TOPO (5 cards com ícone à esquerda, valor, label e variação) */}
         <section id="impacto-global-top-metrics" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {TOP_KPIS.map((m) => {
@@ -304,19 +307,19 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
             return (
               <div
                 key={m.label}
-                className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex items-center gap-3 hover:border-slate-300 transition-colors"
+                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex items-center gap-3 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
               >
                 <div className={`w-11 h-11 rounded-xl ${m.iconBg} flex items-center justify-center shrink-0`}>
                   <Icon className="w-5.5 h-5.5" strokeWidth={2} />
                 </div>
                 <div className="min-w-0">
-                  <span className="block text-lg font-black text-[#0F172A] font-['Outfit'] leading-none">
+                  <span className="block text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-none">
                     {m.value}
                   </span>
-                  <span className="text-[11px] text-slate-500 font-medium block mt-1 leading-tight">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block mt-1 leading-tight">
                     {m.label}
                   </span>
-                  <span className="text-[10px] font-semibold text-emerald-600 block mt-0.5">
+                  <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 block mt-0.5">
                     {m.delta}
                   </span>
                 </div>
@@ -326,13 +329,13 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         </section>
 
         {/* 3. ÁREAS DE IMPACTO (6 cards com header "Ver todas as áreas") */}
-        <section id="areas-de-impacto-main" className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-          <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+        <section id="areas-de-impacto-main" className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+          <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-1.5">
-              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 Áreas de Impacto
               </h3>
-              <Info className="w-3.5 h-3.5 text-slate-300" />
+              <Info className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600" />
             </div>
             <button
               type="button"
@@ -350,18 +353,18 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 key={area.id}
                 type="button"
                 onClick={() => onNavigateToCategory && onNavigateToCategory(area.categoryTarget)}
-                className="rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-emerald-200 hover:shadow-xs transition-all p-3 flex flex-col items-start text-left cursor-pointer group"
+                className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 hover:border-emerald-200 dark:hover:border-emerald-800 hover:shadow-xs transition-all p-3 flex flex-col items-start text-left cursor-pointer group"
               >
                 <div className={`w-10 h-10 rounded-xl ${area.iconSoftBg} flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform`}>
                   {area.icon}
                 </div>
-                <span className="text-xs font-bold text-[#0F172A] font-['Outfit'] leading-snug">
+                <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-snug">
                   {area.name}
                 </span>
-                <span className="text-[10px] text-slate-500 mt-0.5">
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
                   {area.count}
                 </span>
-                <span className="text-[10px] font-bold text-emerald-600 mt-0.5">
+                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">
                   {area.growth}
                 </span>
               </button>
@@ -372,8 +375,8 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         {/* 4. ODS (donut + barras) LADO A LADO com EVOLUÇÃO (linha) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
           {/* Impacto por ODS */}
-          <section id="ods-alignment-main" className="lg:col-span-6 bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-2xs flex flex-col gap-3">
-            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Outfit'] tracking-tight leading-snug">
+          <section id="ods-alignment-main" className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col gap-3">
+            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight leading-snug">
               Impacto por Objetivos de Desenvolvimento Sustentável (ODS)
             </h3>
 
@@ -417,12 +420,12 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           </section>
 
           {/* Evolução do Impacto Global */}
-          <section id="impact-evolution-main" className="lg:col-span-6 bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 shadow-2xs flex flex-col gap-2">
+          <section id="impact-evolution-main" className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col gap-2">
             <div className="flex items-center justify-between gap-2">
-              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 Evolução do Impacto Global
               </h3>
-              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1">
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1">
                 Últimos 5 anos
                 <ChevronRight className="w-3 h-3 rotate-90" />
               </span>
@@ -430,9 +433,9 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
 
             {/* Índice de Impacto Global: número grande + delta */}
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-black text-emerald-600 font-['Outfit'] leading-none">72</span>
-              <span className="text-xs font-bold text-slate-400">/100</span>
-              <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 rounded-full px-2 py-0.5 ml-1">
+              <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400 font-['Outfit'] leading-none">72</span>
+              <span className="text-xs font-bold text-slate-400 dark:text-slate-500">/100</span>
+              <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 rounded-full px-2 py-0.5 ml-1">
                 ▲ +16 pontos vs. 5 anos atrás
               </span>
             </div>
@@ -450,9 +453,9 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         </div>
 
         {/* 5. PROJETOS DE IMPACTO EM DESTAQUE (4 mini-cards horizontais) */}
-        <section id="projetos-em-destaque-main" className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-          <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+        <section id="projetos-em-destaque-main" className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+          <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+            <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
               Projetos de Impacto em Destaque
             </h3>
             <button
@@ -470,10 +473,10 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
               <article
                 key={proj.id}
                 onClick={() => setSelectedProjectModal(proj)}
-                className="rounded-xl border border-slate-100 overflow-hidden bg-white hover:shadow-xs hover:border-slate-200 transition-all cursor-pointer group flex"
+                className="rounded-xl border border-slate-100 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 hover:shadow-xs hover:border-slate-200 dark:hover:border-slate-700 transition-all cursor-pointer group flex"
               >
                 {/* Imagem quadrada à esquerda */}
-                <div className="relative w-20 h-auto shrink-0 overflow-hidden bg-slate-100">
+                <div className="relative w-20 h-auto shrink-0 overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
                     src={proj.image}
                     alt={proj.title}
@@ -487,13 +490,13 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                   <span className={`inline-block text-[8.5px] font-bold px-1.5 py-0.5 rounded ${proj.tagBg}`}>
                     {proj.tag}
                   </span>
-                  <h4 className="text-[11.5px] font-bold text-[#0F172A] font-['Outfit'] leading-snug mt-1.5 group-hover:text-emerald-700 transition-colors">
+                  <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-snug mt-1.5 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                     {proj.title}
                   </h4>
-                  <p className="text-[10px] text-slate-500 leading-tight mt-0.5 line-clamp-2">
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5 line-clamp-2">
                     {proj.subtitle}
                   </p>
-                  <div className="flex items-center gap-2 mt-1.5 text-[9px] text-slate-400 font-medium">
+                  <div className="flex items-center gap-2 mt-1.5 text-[9px] text-slate-400 dark:text-slate-500 font-medium">
                     <Globe className="w-3 h-3" />
                     <span>{proj.countries} países</span>
                     <span>{proj.people}</span>
@@ -507,17 +510,17 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         {/* 6. CTA FINAL: Pequenas ações, grande impacto (faixa larga verde clara) */}
         <section
           id="cta-impacto-global-final"
-          className="rounded-2xl bg-emerald-50 border border-emerald-100 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-900/40 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <div className="flex items-start sm:items-center gap-3.5 min-w-0">
-            <div className="w-11 h-11 rounded-full bg-white border border-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-11 h-11 rounded-full bg-white dark:bg-slate-900 border border-emerald-100 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 shadow-xs">
               <Leaf className="w-5 h-5" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-sm sm:text-base font-black text-[#0F172A] font-['Outfit']">
+              <h3 className="text-sm sm:text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                 Pequenas ações, grande impacto.
               </h3>
-              <p className="text-xs text-slate-600 mt-0.5">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
                 Juntos, estamos a construir um mundo melhor para hoje e para as próximas gerações.
               </p>
             </div>
@@ -534,12 +537,12 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         </section>
       </main>
 
-      {/* BARRA LATERAL DIREITA (lg:col-span-3 equivalente — flex row no wrapper) */}
-      <aside className="hidden xl:flex w-[300px] shrink-0 flex-col gap-4 pr-4 lg:pr-8 py-5">
+      {/* BARRA LATERAL DIREITA — começa ao nível dos KPIs, por baixo do cabeçalho */}
+      <aside className="hidden xl:flex w-[300px] shrink-0 flex-col gap-4">
         {/* 1. Destaques de Impacto (4 itens com imagem à esquerda) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-          <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-            <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">Destaques de Impacto</h3>
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+          <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+            <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">Destaques de Impacto</h3>
             <button
               type="button"
               className="text-[11px] font-bold text-[#059669] hover:underline cursor-pointer inline-flex items-center gap-0.5"
@@ -549,18 +552,18 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
             </button>
           </div>
 
-          <div className="flex flex-col divide-y divide-slate-100">
+          <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
             {HIGHLIGHTS.map((h) => (
-              <div key={h.title} className="py-2.5 flex items-center gap-3 hover:bg-slate-50 px-1 -mx-1 rounded-lg transition-colors cursor-pointer group">
-                <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-slate-100">
+              <div key={h.title} className="py-2.5 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 -mx-1 rounded-lg transition-colors cursor-pointer group">
+                <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
                   <img src={h.image} alt={h.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h4 className="text-xs font-bold text-[#0F172A] group-hover:text-emerald-700 transition-colors leading-snug">
+                  <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                     {h.title}
                   </h4>
-                  <p className="text-[10.5px] text-slate-600 leading-tight mt-0.5">{h.desc}</p>
-                  <p className="text-[10px] text-slate-400 mt-0.5">{h.meta}</p>
+                  <p className="text-[10.5px] text-slate-600 dark:text-slate-400 leading-tight mt-0.5">{h.desc}</p>
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{h.meta}</p>
                 </div>
               </div>
             ))}
@@ -568,28 +571,28 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         </div>
 
         {/* 2. Ações que Fazem a Diferença (4 linhas com ícone e chevron) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-2">
-          <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit'] pb-1 border-b border-slate-100">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-2">
+          <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] pb-1 border-b border-slate-100 dark:border-slate-800">
             Ações que Fazem a Diferença
           </h3>
 
-          <div className="flex flex-col divide-y divide-slate-100">
+          <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
             {ACTIONS.map((a) => {
               const Icon = a.icon;
               return (
-                <div key={a.title} className="py-2.5 flex items-center justify-between gap-2.5 hover:bg-slate-50 px-1 -mx-1 rounded-lg transition-colors cursor-pointer group">
+                <div key={a.title} className="py-2.5 flex items-center justify-between gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 -mx-1 rounded-lg transition-colors cursor-pointer group">
                   <div className="flex items-center gap-2.5 min-w-0 flex-1">
                     <div className={`w-9 h-9 rounded-xl ${a.bg} flex items-center justify-center shrink-0`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-xs font-bold text-[#0F172A] group-hover:text-emerald-700 transition-colors leading-snug">
+                      <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                         {a.title}
                       </h4>
-                      <p className="text-[10px] text-slate-500 truncate leading-tight">{a.desc}</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate leading-tight">{a.desc}</p>
                     </div>
                   </div>
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0 group-hover:text-slate-600 transition-colors" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" />
                 </div>
               );
             })}
@@ -616,21 +619,23 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
           </button>
         </div>
       </aside>
+      </div>
+      </div>
       {/* MODAL: Lançar Iniciativa + */}
       {isLaunchModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center">
                   <Plus className="w-4 h-4 stroke-[3]" />
                 </div>
-                <h3 className="font-bold text-slate-900 font-['Outfit']">Lançar Nova Iniciativa</h3>
+                <h3 className="font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">Lançar Nova Iniciativa</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsLaunchModalOpen(false)}
-                className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 flex items-center justify-center"
+                className="w-7 h-7 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -638,23 +643,23 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
 
             <form onSubmit={handleLaunchSubmit} className="mt-4 flex flex-col gap-3">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Título da Iniciativa</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Título da Iniciativa</label>
                 <input
                   type="text"
                   required
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   placeholder="Ex: Reflorestamento e Proteção de Nascentes"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Categoria de Impacto</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Categoria de Impacto</label>
                 <select
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs focus:ring-2 focus:ring-emerald-500 outline-none bg-white dark:bg-slate-800 dark:text-slate-100"
                 >
                   <option value="Ambiente">Ambiente</option>
                   <option value="Educação">Educação</option>
@@ -666,33 +671,33 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Localização (País / Cidade)</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Localização (País / Cidade)</label>
                 <input
                   type="text"
                   required
                   value={newLocation}
                   onChange={(e) => setNewLocation(e.target.value)}
                   placeholder="Ex: Brasil, Amazônia"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Meta de Impacto</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Meta de Impacto</label>
                 <input
                   type="text"
                   value={newGoal}
                   onChange={(e) => setNewGoal(e.target.value)}
                   placeholder="Ex: 50.000 árvores plantadas"
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 mt-2">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800 mt-2">
                 <button
                   type="button"
                   onClick={() => setIsLaunchModalOpen(false)}
-                  className="px-4 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50 cursor-pointer"
+                  className="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
                 >
                   Cancelar
                 </button>
@@ -712,34 +717,34 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
       {/* MODAL: Alinhamento com os ODS Detalhado */}
       {isOdsModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 max-h-[85vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <Target className="w-5 h-5 text-emerald-700" />
-                <h3 className="font-bold text-slate-900 font-['Outfit']">Objetivos de Desenvolvimento Sustentável (ODS)</h3>
+                <Target className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
+                <h3 className="font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">Objetivos de Desenvolvimento Sustentável (ODS)</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOdsModalOpen(false)}
-                className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 flex items-center justify-center"
+                className="w-7 h-7 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
               A plataforma VILA alinha todas as suas iniciativas diretamente aos 17 Objetivos de Desenvolvimento Sustentável da ONU, assegurando transparência e impacto verificável.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
               {ODS_ITEMS.map((ods) => (
-                <div key={ods.number} className="flex items-center gap-2.5 p-2 rounded-xl border border-slate-100 bg-slate-50/70">
+                <div key={ods.number} className="flex items-center gap-2.5 p-2 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/60">
                   <div className="w-8 h-8 rounded-lg text-white flex items-center justify-center font-bold text-xs shrink-0" style={{ background: ods.color }}>
                     {ods.number}
                   </div>
                   <div className="min-w-0">
-                    <span className="font-bold text-xs text-slate-800 block truncate">{ods.short}</span>
-                    <span className="text-[10px] text-slate-400">Meta Global 2030</span>
+                    <span className="font-bold text-xs text-slate-800 dark:text-slate-100 block truncate">{ods.short}</span>
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500">Meta Global 2030</span>
                   </div>
                 </div>
               ))}
@@ -761,7 +766,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
       {/* Modal de Detalhes do Projeto */}
       {selectedProjectModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
             <div className="relative h-44 w-full">
               <img
                 src={selectedProjectModal.image}
@@ -782,23 +787,23 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                   {selectedProjectModal.title}
                 </h3>
-                <span className="text-xs text-slate-400 font-medium">{selectedProjectModal.subtitle}</span>
-                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">{selectedProjectModal.subtitle}</span>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                   {selectedProjectModal.description}
                 </p>
               </div>
 
-              <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-between text-xs">
+              <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-slate-400 block text-[10px]">Alcance</span>
-                  <span className="font-bold text-slate-800 text-sm">{selectedProjectModal.countries} países</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px]">Alcance</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-sm">{selectedProjectModal.countries} países</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-slate-400 block text-[10px]">Pessoas Impactadas</span>
-                  <span className="font-bold text-emerald-700 text-sm">{selectedProjectModal.people}</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px]">Pessoas Impactadas</span>
+                  <span className="font-bold text-emerald-700 dark:text-emerald-400 text-sm">{selectedProjectModal.people}</span>
                 </div>
               </div>
 
@@ -806,7 +811,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedProjectModal(null)}
-                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700"
+                  className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300"
                 >
                   Fechar
                 </button>

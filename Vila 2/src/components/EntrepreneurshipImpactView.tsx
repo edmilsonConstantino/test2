@@ -406,7 +406,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
   };
 
   return (
-    <div id="entrepreneurship-impact-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="entrepreneurship-impact-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Principal (busca/idioma/notificações/perfil/breadcrumb já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 2. Cabeçalho de Empreendedorismo com Ícone de Foguete, Subtítulo e Botão Apoiar Iniciativa */}
@@ -418,10 +418,10 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Empreendedorismo
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
                 Impulsionamos ideias, fortalecemos negócios e criamos impacto positivo no mundo.
               </p>
             </div>
@@ -454,16 +454,16 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
             return (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-slate-200/80 p-3 shadow-2xs flex items-center gap-2.5 hover:border-slate-300 transition-colors"
+                className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700/80 p-3 shadow-2xs flex items-center gap-2.5 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
               >
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon className="w-4 h-4" strokeWidth={2} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="block text-sm font-black text-[#0F172A] font-['Outfit'] leading-none truncate">
+                  <span className="block text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-none truncate">
                     {m.value}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-medium truncate block mt-0.5">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate block mt-0.5">
                     {m.label}
                   </span>
                 </div>
@@ -501,10 +501,10 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#064E3B] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -523,14 +523,14 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                   setIsMaisDropdownOpen(!isMaisDropdownOpen);
                 }
               }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 whitespace-nowrap cursor-pointer shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 whitespace-nowrap cursor-pointer shadow-2xs"
             >
-              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>Mais</span>
             </button>
 
             {isMaisDropdownOpen && (
-              <div className="absolute left-0 mt-1 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
+              <div className="absolute left-0 mt-1 w-52 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
                 {[
                   'Economia Circular',
                   'Impacto Social',
@@ -550,7 +550,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                         onNavigateToTab('mais');
                       }
                     }}
-                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 text-slate-700 flex items-center justify-between cursor-pointer"
+                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between cursor-pointer"
                   >
                     <span>{extra}</span>
                   </button>
@@ -627,7 +627,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                         const el = document.getElementById('projetos-em-destaque-empreendedorismo');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-emerald-50 text-[#064E3B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-emerald-50 dark:hover:bg-emerald-500/10 text-[#064E3B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
                     >
                       <span>Explorar iniciativas de empreendedorismo</span>
                       <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -697,13 +697,13 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
             {/* SEÇÃO 1: Áreas de impacto no empreendedorismo (6 Cards) */}
             <section id="areas-impacto-empreendedorismo" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Áreas de impacto no empreendedorismo
                 </h3>
                 <button
                   type="button"
                   onClick={() => setSelectedArea(null)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:underline cursor-pointer"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -719,10 +719,10 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                     <div
                       key={area.id}
                       onClick={() => setSelectedArea(isSelected ? null : area.id)}
-                      className={`bg-white rounded-xl border p-3.5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer group ${
+                      className={`bg-white dark:bg-slate-900 rounded-xl border p-3.5 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer group ${
                         isSelected
                           ? 'border-emerald-600 ring-2 ring-emerald-600/20'
-                          : 'border-slate-200/80 hover:border-slate-300'
+                          : 'border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600'
                       }`}
                     >
                       <div>
@@ -731,17 +731,17 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                           {renderAreaIcon(area.iconType)}
                         </div>
 
-                        <h4 className="text-xs font-bold text-[#0F172A] font-['Outfit'] leading-snug group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                           {area.name}
                         </h4>
 
-                        <p className="text-[10px] text-slate-500 leading-tight mt-1 mb-2.5 line-clamp-3">
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-1 mb-2.5 line-clamp-3">
                           {area.description}
                         </p>
                       </div>
 
-                      <div className="pt-2 border-t border-slate-100">
-                        <span className="text-[10px] font-bold text-emerald-700">
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400">
                           {area.count}
                         </span>
                       </div>
@@ -757,14 +757,14 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                 {/* Projetos em destaque (3 em 3 cards) */}
                 <div className="lg:col-span-8 flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                       Projetos em destaque
                     </h3>
                     <div className="flex items-center gap-1.5">
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, FEATURED_ENTREPRENEURSHIP_PROJECTS.length - 3)))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Anterior"
                         title="Projetos anteriores"
                       >
@@ -773,7 +773,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev < FEATURED_ENTREPRENEURSHIP_PROJECTS.length - 3 ? prev + 1 : 0))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Seguinte"
                         title="Próximos projetos"
                       >
@@ -788,10 +788,10 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                         <article
                           key={proj.id}
                           onClick={() => setSelectedProjectModal(proj)}
-                          className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 overflow-hidden shadow-2xs hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                         >
                           {/* Imagem do Projeto com Badge Sobreposta */}
-                          <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-slate-100">
+                          <div className="relative h-28 sm:h-32 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                             <img
                               src={proj.image}
                               alt={proj.title}
@@ -806,24 +806,24 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                           {/* Conteúdo */}
                           <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2.5">
                             <div>
-                              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                 {proj.location}
                               </div>
-                              <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 transition-colors mt-0.5">
+                              <h4 className="text-xs sm:text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors mt-0.5">
                                 {proj.title}
                               </h4>
-                              <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-1">
+                              <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mt-1">
                                 {proj.description}
                               </p>
                             </div>
 
                             {/* Investimento & Barra de Progresso da Meta */}
-                            <div className="pt-2 border-t border-slate-100 space-y-1.5">
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
                               <div className="flex items-center justify-between text-[10.5px]">
-                                <span className="text-slate-500 truncate">Investimento: <strong className="text-slate-800 font-bold">{proj.investment}</strong></span>
-                                <span className="font-bold text-emerald-700 shrink-0">{proj.progressPercent}% da meta</span>
+                                <span className="text-slate-500 dark:text-slate-400 truncate">Investimento: <strong className="text-slate-800 dark:text-slate-100 font-bold">{proj.investment}</strong></span>
+                                <span className="font-bold text-emerald-700 dark:text-emerald-400 shrink-0">{proj.progressPercent}% da meta</span>
                               </div>
-                              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                              <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                   className={`h-full rounded-full ${proj.progressBarColor}`}
                                   style={{ width: `${proj.progressPercent}%` }}
@@ -839,7 +839,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                       type="button"
                       title="Ver mais projetos"
                       onClick={() => setCarouselIndex((prev) => (prev < FEATURED_ENTREPRENEURSHIP_PROJECTS.length - 3 ? prev + 1 : 0))}
-                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer z-10"
+                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer z-10"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
@@ -858,7 +858,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
 
             {/* SEÇÃO 3: O impacto em números (6 Cards com Gráficos de Linha) */}
             <section id="impacto-em-numeros-empreendedorismo" className="flex flex-col gap-3">
-              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 O impacto em números
               </h3>
 
@@ -918,19 +918,19 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                   return (
                     <div
                       key={idx}
-                      className="bg-white rounded-xl border border-slate-200/80 p-3 shadow-2xs flex flex-col justify-between hover:border-slate-300 transition-colors"
+                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700/80 p-3 shadow-2xs flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1.5">
-                          <Icon className="w-4 h-4 text-slate-400" />
-                          <span className="text-[9px] font-bold text-emerald-600">
+                          <Icon className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                          <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400">
                             {item.change}
                           </span>
                         </div>
-                        <span className="text-sm font-black text-[#0F172A] font-['Outfit'] block truncate">
+                        <span className="text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] block truncate">
                           {item.value}
                         </span>
-                        <span className="text-[9.5px] text-slate-500 font-medium block leading-tight mt-0.5">
+                        <span className="text-[9.5px] text-slate-500 dark:text-slate-400 font-medium block leading-tight mt-0.5">
                           {item.label}
                         </span>
                       </div>
@@ -956,7 +956,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
             {/* SEÇÃO 4: Análise de Impacto — Gráficos Completos (Linha Temporal + Donut) */}
             <ImpactAnalyticsSection
               accent="#059669"
-              softBg="bg-emerald-50"
+              softBg="bg-emerald-50 dark:bg-emerald-500/10"
               labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
               series={[
                 {
@@ -983,28 +983,28 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
           {/* COLUNA LATERAL DIREITA (lg:col-span-3) */}
           <aside className="lg:col-span-3 flex flex-col gap-4">
             {/* 1. Card: Mais populares em Empreendedorismo */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Mais populares em Empreendedorismo
                 </h3>
                 <button
                   type="button"
-                  className="text-[11px] font-bold text-emerald-700 hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {POPULAR_ENTREPRENEURSHIP_ITEMS.map((item) => (
                   <div
                     key={item.id}
-                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-xs font-bold text-slate-400 w-3 shrink-0">
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-3 shrink-0">
                         {item.rank}
                       </span>
                       <img
@@ -1013,10 +1013,10 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                         className="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200 shrink-0"
                       />
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-emerald-700 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                           {item.name}
                         </h4>
-                        <span className="text-[10px] text-slate-500 block truncate">
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">
                           {item.supporters}
                         </span>
                       </div>
@@ -1030,40 +1030,40 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
             </div>
 
             {/* 2. Card: Recursos e Ferramentas (7 Itens) */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Recursos e ferramentas
                 </h3>
                 <button
                   type="button"
-                  className="text-[11px] font-bold text-emerald-700 hover:underline cursor-pointer flex items-center gap-0.5"
+                  className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline cursor-pointer flex items-center gap-0.5"
                 >
                   <span>Ver todas</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {ENTREPRENEURSHIP_RESOURCES.map((res) => (
                   <div
                     key={res.id}
-                    className="py-2 flex items-center justify-between gap-2.5 hover:bg-slate-50 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center justify-between gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0 flex-1">
                       <div className={`w-8 h-8 rounded-lg ${res.iconBg} flex items-center justify-center shrink-0`}>
                         {renderResourceIcon(res.icon)}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F172A] group-hover:text-emerald-700 transition-colors leading-snug">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                           {res.title}
                         </h4>
-                        <p className="text-[10px] text-slate-500 truncate leading-tight">
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate leading-tight">
                           {res.description}
                         </p>
                       </div>
                     </div>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0 group-hover:text-slate-600 transition-colors" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
                   </div>
                 ))}
               </div>
@@ -1098,7 +1098,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                     const el = document.getElementById('projetos-em-destaque-empreendedorismo');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-emerald-50 text-[#0F172A] text-xs font-bold inline-flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 text-[#0F172A] dark:text-slate-50 text-xs font-bold inline-flex items-center justify-center gap-2 shadow-xs transition-colors cursor-pointer"
                 >
                   <span>Explorar Iniciativas</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -1112,32 +1112,32 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
       {/* Modal Interativo para Apoiar Iniciativa */}
       {isSupportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 animate-in fade-in zoom-in duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center">
                   <Rocket className="w-4 h-4" />
                 </div>
-                <h3 className="font-bold text-slate-900 font-['Outfit']">Apoiar Empreendedorismo</h3>
+                <h3 className="font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">Apoiar Empreendedorismo</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(false)}
-                className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 flex items-center justify-center"
+                className="w-7 h-7 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
               Ao apoiar esta categoria, você ajuda a financiar startups de impacto, bolsas de capacitação e mentorias especializadas para negócios emergentes ao redor do globo.
             </p>
 
-            <div className="my-4 bg-emerald-50/70 border border-emerald-100 rounded-xl p-3 flex items-center gap-3">
-              <Check className="w-5 h-5 text-emerald-600 shrink-0" />
+            <div className="my-4 bg-emerald-50 dark:bg-emerald-500/10/70 border border-emerald-100 rounded-xl p-3 flex items-center gap-3">
+              <Check className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div className="text-xs">
                 <p className="font-bold text-emerald-900">Total de Iniciativas Ativas</p>
-                <p className="text-emerald-700">{supportedCount} projetos com apoio comunitário</p>
+                <p className="text-emerald-700 dark:text-emerald-400">{supportedCount} projetos com apoio comunitário</p>
               </div>
             </div>
 
@@ -1145,7 +1145,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(false)}
-                className="px-4 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+                className="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
               >
                 Cancelar
               </button>
@@ -1165,7 +1165,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
       {/* Modal de Detalhes do Projeto */}
       {selectedProjectModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
             <div className="relative h-44 w-full">
               <img
                 src={selectedProjectModal.image}
@@ -1186,23 +1186,23 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                   {selectedProjectModal.title}
                 </h3>
-                <span className="text-xs text-slate-400 font-medium">{selectedProjectModal.location}</span>
-                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">{selectedProjectModal.location}</span>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                   {selectedProjectModal.description}
                 </p>
               </div>
 
-              <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-center justify-between text-xs">
+              <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-slate-400 block text-[10px]">Investimento</span>
-                  <span className="font-bold text-slate-800 text-sm">{selectedProjectModal.investment}</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px]">Investimento</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-sm">{selectedProjectModal.investment}</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-slate-400 block text-[10px]">Progresso</span>
-                  <span className="font-bold text-emerald-700 text-sm">{selectedProjectModal.progressPercent}%</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px]">Progresso</span>
+                  <span className="font-bold text-emerald-700 dark:text-emerald-400 text-sm">{selectedProjectModal.progressPercent}%</span>
                 </div>
               </div>
 
@@ -1210,7 +1210,7 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
                 <button
                   type="button"
                   onClick={() => setSelectedProjectModal(null)}
-                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700"
+                  className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300"
                 >
                   Fechar
                 </button>
@@ -1234,37 +1234,37 @@ export const EntrepreneurshipImpactView: React.FC<EntrepreneurshipImpactViewProp
       {/* MODAL: RELATÓRIO REGIONAL DE EMPREENDEDORISMO */}
       {isReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-black text-[#0F172A] font-['Outfit']">
+                <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Relatório de Impacto Regional
                 </h3>
-                <p className="text-xs text-slate-500">Distribuição global de iniciativas de empreendedorismo ativas</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Distribuição global de iniciativas de empreendedorismo ativas</p>
               </div>
               <button
                 onClick={() => setIsReportModalOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer"
+                className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-emerald-50/70 rounded-xl border border-emerald-100 text-emerald-950">
+              <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10/70 rounded-xl border border-emerald-100 text-emerald-950">
                 <span className="font-bold block mb-1 text-emerald-800">África (34% do impacto total)</span>
                 Aceleração de fintechs comunitárias, startups de agritech e capacitação de jovens e mulheres empreendedoras.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
-                <span className="font-bold block mb-1 text-slate-900">Ásia (26% do impacto total)</span>
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                <span className="font-bold block mb-1 text-slate-900 dark:text-slate-50">Ásia (26% do impacto total)</span>
                 Ecossistemas de manufatura tecnológica, inclusão financeira digital e microempreendedorismo rural.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
-                <span className="font-bold block mb-1 text-slate-900">América Latina (20% do impacto total)</span>
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                <span className="font-bold block mb-1 text-slate-900 dark:text-slate-50">América Latina (20% do impacto total)</span>
                 Inovação social, negócios de impacto ecológico e incubação de cooperativas locais.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
-                <span className="font-bold block mb-1 text-slate-900">Europa & América do Norte (20% do impacto total)</span>
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                <span className="font-bold block mb-1 text-slate-900 dark:text-slate-50">Europa & América do Norte (20% do impacto total)</span>
                 Transferência de tecnologia, mentoria transfronteiriça e fundos semente para startups sustentáveis.
               </div>
             </div>

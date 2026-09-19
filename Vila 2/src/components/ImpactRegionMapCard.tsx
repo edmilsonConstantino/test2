@@ -428,7 +428,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
 
   return (
     <div
-      className={`bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-2xs flex flex-col justify-between font-sans ${className}`}
+      className={`bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700 shadow-2xs flex flex-col justify-between font-sans ${className}`}
     >
       {/* 1. Header com Título e Ação "Ver todas" */}
       {!hideHeader && (
@@ -533,7 +533,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
 
         {/* Escala Percentual Vertical na lateral direita se showPercentagesInLegend for false */}
         {!showPercentagesInLegend && (
-          <div className="flex flex-col justify-between py-1 text-[9.5px] font-bold text-slate-400 select-none shrink-0 h-[100px] text-right pr-0.5">
+          <div className="flex flex-col justify-between py-1 text-[9.5px] font-bold text-slate-400 dark:text-slate-500 select-none shrink-0 h-[100px] text-right pr-0.5">
             <span>{regions[0]?.percent || 34}%</span>
             <span>{regions[1]?.percent || 26}%</span>
             <span>{regions[2]?.percent || 20}%</span>
@@ -544,7 +544,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
 
         {/* Tooltip flutuante ao passar o cursor na região */}
         {hoveredRegionId && (
-          <div className="absolute bottom-1 left-2 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs text-[11px] font-bold text-slate-800 pointer-events-none animate-in fade-in zoom-in-95 duration-150">
+          <div className="absolute bottom-1 left-2 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700 shadow-2xs text-[11px] font-bold text-slate-800 dark:text-slate-100 pointer-events-none animate-in fade-in zoom-in-95 duration-150">
             {regions.find((r) => r.id === hoveredRegionId)?.name}:{' '}
             <span style={{ color: theme.btnText }}>
               {regions.find((r) => r.id === hoveredRegionId)?.percent}%
@@ -554,7 +554,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
       </div>
 
       {/* 3. Legenda Vertical com Pontos Coloridos (África, Ásia, América Latina, Europa, América do Norte) */}
-      <div className="flex flex-col gap-1.5 text-xs text-slate-700 font-medium pt-1 select-none">
+      <div className="flex flex-col gap-1.5 text-xs text-slate-700 dark:text-slate-300 font-medium pt-1 select-none">
         {regions.slice(0, 5).map((reg) => {
           const regPalette = theme.palette[reg.id] || theme.palette['oceania'];
           const isHovered = hoveredRegionId === reg.id;
@@ -565,7 +565,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
               onMouseEnter={() => setHoveredRegionId(reg.id)}
               onMouseLeave={() => setHoveredRegionId(null)}
               className={`flex items-center justify-between cursor-pointer transition-colors ${
-                isHovered ? 'font-bold text-slate-950' : 'text-slate-600 hover:text-slate-900'
+                isHovered ? 'font-bold text-slate-950 dark:text-slate-50' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -573,7 +573,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
                 <span className="truncate">{reg.name}</span>
               </div>
               {showPercentagesInLegend ? (
-                <span className="font-bold text-[#0F172A] text-xs shrink-0">
+                <span className="font-bold text-[#0F172A] dark:text-slate-50 text-xs shrink-0">
                   {reg.percent}%
                 </span>
               ) : null}
@@ -587,7 +587,7 @@ export const ImpactRegionMapCard: React.FC<ImpactRegionMapCardProps> = ({
         <button
           type="button"
           onClick={onOpenReport}
-          className="w-full py-2 px-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer group mt-2"
+          className="w-full py-2 px-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer group mt-2"
           style={{ color: theme.btnText }}
         >
           <span>Ver relatório completo</span>

@@ -238,7 +238,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
   const impactCards = [
     {
       id: 'num1',
-      icon: <Users className="w-4 h-4 text-emerald-600" />,
+      icon: <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
       value: '5.684.230',
       label: 'Pessoas Impactadas',
       change: '12,4% este mês',
@@ -265,7 +265,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
     },
     {
       id: 'num4',
-      icon: <Clock className="w-4 h-4 text-amber-600" />,
+      icon: <Clock className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
       value: '2.147.580 h',
       label: 'Horas de Voluntariado',
       change: '11,6% este mês',
@@ -283,7 +283,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
     },
     {
       id: 'num6',
-      icon: <Globe className="w-4 h-4 text-rose-600" />,
+      icon: <Globe className="w-4 h-4 text-rose-600 dark:text-rose-400" />,
       value: '96',
       label: 'Países',
       change: '6,2% este mês',
@@ -343,7 +343,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       title: 'Guia de Projetos Educacionais',
       description: 'Passo a passo para criar iniciativas pedagógicas',
       icon: <BookOpen className="w-4 h-4 text-blue-600" />,
-      bg: 'bg-blue-50 border-blue-100',
+      bg: 'bg-blue-50 dark:bg-blue-500/10 border-blue-100',
     },
     {
       id: 'cursos',
@@ -356,22 +356,22 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       id: 'biblioteca',
       title: 'Biblioteca de Recursos',
       description: 'Materiais pedagógicos e didáticos para todos',
-      icon: <FileText className="w-4 h-4 text-emerald-600" />,
-      bg: 'bg-emerald-50 border-emerald-100',
+      icon: <FileText className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+      bg: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100',
     },
     {
       id: 'financiamento',
       title: 'Financiamento e Bolsas',
       description: 'Encontre apoio financeiro para estudantes e escolas',
-      icon: <Award className="w-4 h-4 text-amber-600" />,
-      bg: 'bg-amber-50 border-amber-100',
+      icon: <Award className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
+      bg: 'bg-amber-50 dark:bg-amber-500/10 border-amber-100',
     },
     {
       id: 'parcerias',
       title: 'Parcerias Educacionais',
       description: 'Conecte-se com universidades, ONGs e fundações',
-      icon: <Handshake className="w-4 h-4 text-rose-600" />,
-      bg: 'bg-rose-50 border-rose-100',
+      icon: <Handshake className="w-4 h-4 text-rose-600 dark:text-rose-400" />,
+      bg: 'bg-rose-50 dark:bg-rose-500/10 border-rose-100',
     },
     {
       id: 'webinars',
@@ -385,12 +385,12 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       title: 'Ferramentas Gratuitas',
       description: 'Recursos digitais para ensinar e aprender melhor',
       icon: <Sparkles className="w-4 h-4 text-purple-600" />,
-      bg: 'bg-purple-50 border-purple-100',
+      bg: 'bg-purple-50 dark:bg-purple-500/10 border-purple-100',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] pb-16 antialiased text-[#1E293B]">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16 antialiased text-[#1E293B] dark:text-slate-100">
       {supportSuccessToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#2D3BA8] text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-blue-400 animate-in fade-in slide-in-from-bottom-4">
           <CheckCircle2 className="w-5 h-5 text-blue-200" />
@@ -408,10 +408,10 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.2]" />
               </div>
               <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Educação
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                   Educação de qualidade para todos. Aprender hoje, liderar o amanhã.
                 </p>
               </div>
@@ -430,7 +430,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
           </div>
 
           {/* Fita de Métricas Globais (Fiel à imagem de referência enviada) */}
-          <div className="w-full bg-white rounded-2xl border border-slate-200/80 px-4 sm:px-6 py-3.5 shadow-2xs">
+          <div className="w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 px-4 sm:px-6 py-3.5 shadow-2xs">
             <div className="flex items-center justify-between gap-4 lg:gap-6 overflow-x-auto no-scrollbar">
               {ribbonMetrics.map((m, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 sm:gap-3 shrink-0">
@@ -438,10 +438,10 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                     {m.icon}
                   </div>
                   <div className="flex flex-col leading-tight">
-                    <span className="font-black text-[#0F172A] text-sm sm:text-[15px] font-['Outfit'] tracking-tight">
+                    <span className="font-black text-[#0F172A] dark:text-slate-50 text-sm sm:text-[15px] font-['Outfit'] tracking-tight">
                       {m.value}
                     </span>
-                    <span className="text-[11px] sm:text-xs text-slate-500 font-medium whitespace-nowrap mt-0.5">
+                    <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap mt-0.5">
                       {m.label}
                     </span>
                   </div>
@@ -475,10 +475,10 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#2D3BA8] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <span className={isActive ? 'text-white' : 'text-slate-500'}>{cat.icon}</span>
+                <span className={isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400'}>{cat.icon}</span>
                 <span>{cat.label}</span>
               </button>
             );
@@ -489,9 +489,9 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
               if (onNavigateToCategory) onNavigateToCategory('mais');
               else if (onNavigateToTab) onNavigateToTab('mais');
             }}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900 transition-all whitespace-nowrap cursor-pointer shadow-2xs"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700/90 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50 transition-all whitespace-nowrap cursor-pointer shadow-2xs"
           >
-            <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+            <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
             <span>Mais</span>
           </button>
         </nav>
@@ -567,13 +567,13 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                     <div className="absolute top-6 right-2 w-7 h-7 rounded-full bg-white text-cyan-600 flex items-center justify-center shadow-md">
                       <Monitor className="w-3.5 h-3.5" />
                     </div>
-                    <div className="absolute bottom-6 right-2 w-7 h-7 rounded-full bg-white text-amber-600 flex items-center justify-center shadow-md">
+                    <div className="absolute bottom-6 right-2 w-7 h-7 rounded-full bg-white text-amber-600 dark:text-amber-400 flex items-center justify-center shadow-md">
                       <School className="w-3.5 h-3.5" />
                     </div>
-                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white text-rose-600 flex items-center justify-center shadow-md">
+                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white text-rose-600 dark:text-rose-400 flex items-center justify-center shadow-md">
                       <Award className="w-3.5 h-3.5" />
                     </div>
-                    <div className="absolute bottom-6 left-2 w-7 h-7 rounded-full bg-white text-emerald-600 flex items-center justify-center shadow-md">
+                    <div className="absolute bottom-6 left-2 w-7 h-7 rounded-full bg-white text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-md">
                       <Sprout className="w-3.5 h-3.5" />
                     </div>
                     <div className="absolute top-6 left-2 w-7 h-7 rounded-full bg-white text-indigo-600 flex items-center justify-center shadow-md">
@@ -614,7 +614,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
             {/* 3.2 ÁREAS DE IMPACTO EM EDUCAÇÃO (6 Cards em uma única linha no desktop) */}
             <section className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Áreas de impacto em educação
                 </h2>
                 <button
@@ -632,22 +632,22 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                   <div
                     key={area.id}
                     onClick={() => showToast(`Filtrando por ${area.title}`)}
-                    className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between group"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between group"
                   >
                     <div>
                       {/* Ícone Circular Colorido */}
                       <div className={`w-10 h-10 rounded-full ${area.iconBg} flex items-center justify-center mb-3 shadow-xs group-hover:scale-105 transition-transform`}>
                         {area.icon}
                       </div>
-                      <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] font-['Outfit'] mb-1 group-hover:text-[#2D3BA8] transition-colors leading-snug">
+                      <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] mb-1 group-hover:text-[#2D3BA8] transition-colors leading-snug">
                         {area.title}
                       </h3>
-                      <p className="text-[11px] text-slate-500 leading-relaxed line-clamp-2">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
                         {area.description}
                       </p>
                     </div>
-                    <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-emerald-600">
+                    <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
                         {area.initiativesCount}
                       </span>
                     </div>
@@ -662,14 +662,14 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 {/* Lado Esquerdo: Projetos com Carrossel de 3 em 3 (lg:col-span-8) */}
                 <div className="lg:col-span-8 flex flex-col min-w-0">
                   <div className="flex items-center justify-between mb-3 h-7">
-                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                       Projetos em destaque
                     </h2>
                     <div className="flex items-center gap-1.5">
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, featuredProjects.length - 3)))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Anterior"
                         title="Projetos anteriores"
                       >
@@ -678,7 +678,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                       <button
                         type="button"
                         onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                        className="w-7 h-7 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 cursor-pointer shadow-2xs transition-colors"
+                        className="w-7 h-7 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 cursor-pointer shadow-2xs transition-colors"
                         aria-label="Seguinte"
                         title="Próximos projetos"
                       >
@@ -693,9 +693,9 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                         <div
                           key={proj.id}
                           onClick={() => setSelectedProject(proj)}
-                          className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col justify-between group h-full"
+                          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs overflow-hidden transition-all cursor-pointer flex flex-col justify-between group h-full"
                         >
-                          <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100 shrink-0">
+                          <div className="relative h-28 sm:h-32 overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
                             <img
                               src={proj.imageUrl}
                               alt={proj.title}
@@ -709,25 +709,25 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
 
                           <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2.5">
                             <div>
-                              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                 {proj.location}
                               </div>
-                              <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] font-['Outfit'] mt-0.5 group-hover:text-[#2D3BA8] transition-colors line-clamp-1">
+                              <h3 className="text-xs sm:text-[13px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] mt-0.5 group-hover:text-[#2D3BA8] transition-colors line-clamp-1">
                                 {proj.title}
                               </h3>
-                              <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
                                 {proj.description}
                               </p>
                             </div>
 
-                            <div className="space-y-1.5 pt-2 border-t border-slate-100">
+                            <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
                               <div className="flex items-center justify-between text-[10.5px]">
-                                <span className="text-slate-500">
-                                  Impactadas: <strong className="text-slate-800 font-bold">{proj.impactPeople}</strong>
+                                <span className="text-slate-500 dark:text-slate-400">
+                                  Impactadas: <strong className="text-slate-800 dark:text-slate-100 font-bold">{proj.impactPeople}</strong>
                                 </span>
                                 <span className="font-bold text-[#2D3BA8] shrink-0">{proj.progressPercent}% da meta</span>
                               </div>
-                              <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                              <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                   className="h-full bg-[#2D3BA8] rounded-full transition-all duration-500"
                                   style={{ width: `${proj.progressPercent}%` }}
@@ -742,7 +742,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                     <button
                       type="button"
                       onClick={() => setCarouselIndex((prev) => (prev < featuredProjects.length - 3 ? prev + 1 : 0))}
-                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-700 hover:bg-slate-50 z-10 cursor-pointer"
+                      className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-900 shadow-md border border-slate-200 dark:border-slate-700 items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 z-10 cursor-pointer"
                       title="Ver mais projetos"
                     >
                       <ChevronRight className="w-4 h-4" />
@@ -753,7 +753,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 {/* Lado Direito: Impacto por Região com Mapa (lg:col-span-4) */}
                 <div className="lg:col-span-4 flex flex-col min-w-0">
                   <div className="flex items-center justify-between mb-3 h-7">
-                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+                    <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                       Impacto por região
                     </h2>
                     <button
@@ -783,7 +783,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
 
             {/* 3.4 O IMPACTO EM NÚMEROS (6 KPI cards com sparklines em linha) */}
             <section className="flex flex-col gap-3">
-              <h2 className="text-base sm:text-lg font-black text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h2 className="text-base sm:text-lg font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 O impacto em números
               </h2>
 
@@ -791,19 +791,19 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 {impactCards.map((c) => (
                   <div
                     key={c.id}
-                    className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between"
                   >
                     <div>
-                      <div className="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center mb-2">
+                      <div className="w-8 h-8 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-2">
                         {c.icon}
                       </div>
-                      <div className="text-sm sm:text-[15px] font-black text-[#0F172A] font-['Outfit'] tracking-tight truncate">
+                      <div className="text-sm sm:text-[15px] font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight truncate">
                         {c.value}
                       </div>
-                      <div className="text-[11px] text-slate-500 font-medium mb-1.5 truncate">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mb-1.5 truncate">
                         {c.label}
                       </div>
-                      <div className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 bg-blue-50 text-blue-700">
+                      <div className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 bg-blue-50 dark:bg-blue-500/10 text-blue-700">
                         ▲ {c.change}
                       </div>
                     </div>
@@ -834,7 +834,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
             {/* 3.5 ANÁLISE DE IMPACTO — GRÁFICOS COMPLETOS (LINHA TEMPORAL + DONUT) */}
             <ImpactAnalyticsSection
               accent="#2D3BA8"
-              softBg="bg-blue-50"
+              softBg="bg-blue-50 dark:bg-blue-500/10"
               labels={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']}
               series={[
                 {
@@ -861,9 +861,9 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
           {/* COLUNA DIREITA: Barra Lateral (lg:col-span-4 xl:col-span-3) */}
           <div className="lg:col-span-4 xl:col-span-3 flex flex-col gap-6">
             {/* Mais populares em Educação */}
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-black text-[#0F172A] font-['Outfit']">
+                <h3 className="text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Mais populares em Educação
                 </h3>
                 <button
@@ -881,26 +881,26 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                   <div
                     key={item.id}
                     onClick={() => showToast(`Iniciativa: ${item.title}`)}
-                    className="flex items-center justify-between gap-3 p-2 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer group"
+                    className="flex items-center justify-between gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="w-5 text-center text-xs font-bold text-slate-400 shrink-0">
+                      <span className="w-5 text-center text-xs font-bold text-slate-400 dark:text-slate-500 shrink-0">
                         {item.rank}
                       </span>
-                      <div className="w-9 h-9 rounded-xl overflow-hidden bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <div className="w-9 h-9 rounded-xl overflow-hidden bg-blue-50 dark:bg-blue-500/10 border border-blue-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                       </div>
                       <div className="min-w-0">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-[#2D3BA8] transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-[#2D3BA8] transition-colors">
                           {item.title}
                         </h4>
-                        <p className="text-[11px] text-slate-500 truncate">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                           {item.supporters}
                         </p>
                       </div>
                     </div>
 
-                    <span className="text-[10.5px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0">
+                    <span className="text-[10.5px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full shrink-0">
                       ▲ {item.growth}
                     </span>
                   </div>
@@ -909,9 +909,9 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
             </div>
 
             {/* Recursos e ferramentas */}
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-2xs space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-black text-[#0F172A] font-['Outfit']">
+                <h3 className="text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Recursos e ferramentas
                 </h3>
                 <button
@@ -929,22 +929,22 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                   <div
                     key={t.id}
                     onClick={() => setActiveToolModal(t.title)}
-                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200/60 transition-all cursor-pointer group"
+                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 border border-transparent hover:border-slate-200/60 dark:hover:border-slate-700/60 transition-all cursor-pointer group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className={`w-9 h-9 rounded-xl ${t.bg} border flex items-center justify-center shrink-0`}>
                         {t.icon}
                       </div>
                       <div className="min-w-0">
-                        <div className="text-xs font-bold text-[#0F172A] group-hover:text-[#2D3BA8] transition-colors truncate">
+                        <div className="text-xs font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-[#2D3BA8] transition-colors truncate">
                           {t.title}
                         </div>
-                        <div className="text-[11px] text-slate-500 truncate">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                           {t.description}
                         </div>
                       </div>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
                   </div>
                 ))}
               </div>
@@ -974,7 +974,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
               <button
                 type="button"
                 onClick={() => setIsSupportModalOpen(true)}
-                className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-blue-50 text-[#2D3BA8] font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                className="w-full py-2.5 px-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-500/10 text-[#2D3BA8] font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer group"
               >
                 <span>Apoiar Iniciativas</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
@@ -987,27 +987,27 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       {/* MODAL APOIAR INICIATIVA */}
       {isSupportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2.5">
                 <div className="w-10 h-10 rounded-xl bg-[#2D3BA8] text-white flex items-center justify-center">
                   <Heart className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-black text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     Apoiar Iniciativa Educacional
                   </h3>
-                  <p className="text-xs text-slate-500">Contribua diretamente para o acesso à educação</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Contribua diretamente para o acesso à educação</p>
                 </div>
               </div>
-              <button onClick={() => setIsSupportModalOpen(false)} className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer">
+              <button onClick={() => setIsSupportModalOpen(false)} className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs font-bold text-slate-700 block mb-2">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
                   Escolha o valor de contribuição (EUR)
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -1019,7 +1019,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                       className={`py-2 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
                         donationAmount === amt
                           ? 'bg-[#2D3BA8] text-white border-[#2D3BA8] shadow-xs'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                          : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800'
                       }`}
                     >
                       {amt} €
@@ -1028,7 +1028,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 </div>
               </div>
 
-              <div className="p-3 bg-blue-50/70 border border-blue-100 rounded-2xl text-xs text-blue-900 space-y-1">
+              <div className="p-3 bg-blue-50 dark:bg-blue-500/10/70 border border-blue-100 rounded-2xl text-xs text-blue-900 space-y-1">
                 <span className="font-bold">Impacto estimado com {donationAmount} €:</span>
                 <p className="text-[11.5px] text-blue-800">
                   {donationAmount * 3} livros escolares e material didático para {Math.round(donationAmount / 5)} estudantes por um trimestre.
@@ -1049,7 +1049,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsSupportModalOpen(false)}
-                  className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer"
+                  className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>
@@ -1062,7 +1062,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       {/* MODAL DETALHES DO PROJETO */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
             <div className="relative h-56">
               <img src={selectedProject.imageUrl} alt={selectedProject.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               <button onClick={() => setSelectedProject(null)} className="absolute top-3 right-3 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white cursor-pointer">
@@ -1075,21 +1075,21 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
 
             <div className="p-6 pt-2 space-y-4">
               <div>
-                <h3 className="text-xl font-black text-[#0F172A] font-['Outfit']">
+                <h3 className="text-xl font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   {selectedProject.title}
                 </h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                   {selectedProject.description} Este projeto reúne escolas, professores e voluntários comprometidos com o acesso duradouro à educação de qualidade.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-2xl text-xs">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 dark:bg-slate-800 rounded-2xl text-xs">
                 <div>
-                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Pessoas Beneficiadas</span>
-                  <span className="font-extrabold text-[#0F172A] text-sm">{selectedProject.impactPeople}</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px] uppercase font-bold">Pessoas Beneficiadas</span>
+                  <span className="font-extrabold text-[#0F172A] dark:text-slate-50 text-sm">{selectedProject.impactPeople}</span>
                 </div>
                 <div>
-                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Status do Projeto</span>
+                  <span className="text-slate-400 dark:text-slate-500 block text-[10px] uppercase font-bold">Status do Projeto</span>
                   <span className="font-extrabold text-[#2D3BA8] text-sm">{selectedProject.progressPercent}% Concluído</span>
                 </div>
               </div>
@@ -1106,7 +1106,7 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
                   <Heart className="w-4 h-4" />
                   <span>Apoiar este Projeto</span>
                 </button>
-                <button onClick={() => setSelectedProject(null)} className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer">
+                <button onClick={() => setSelectedProject(null)} className="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl transition-colors cursor-pointer">
                   Fechar
                 </button>
               </div>
@@ -1118,21 +1118,21 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       {/* MODAL FERRAMENTA / RECURSO */}
       {activeToolModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-base font-black text-[#0F172A] font-['Outfit']">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                 {activeToolModal}
               </h3>
-              <button onClick={() => setActiveToolModal(null)} className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer">
+              <button onClick={() => setActiveToolModal(null)} className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               O módulo <strong>{activeToolModal}</strong> faz parte do ecossistema aberto VILA para apoiar estudantes, educadores e organizações com recursos práticos de educação.
             </p>
 
-            <div className="p-3 bg-slate-50 border border-slate-200/80 rounded-2xl space-y-2 text-xs">
+            <div className="p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 rounded-2xl space-y-2 text-xs">
               <div className="flex items-center gap-2 text-blue-700 font-bold">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Acesso público e gratuito</span>
@@ -1162,33 +1162,33 @@ export const EducationImpactView: React.FC<EducationImpactViewProps> = ({
       {/* MODAL RELATÓRIO DE IMPACTO REGIONAL */}
       {isReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 animate-in fade-in zoom-in-95">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div>
-                <h3 className="text-base font-black text-[#0F172A] font-['Outfit']">
+                <h3 className="text-base font-black text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Relatório de Impacto Regional
                 </h3>
-                <p className="text-xs text-slate-500">Distribuição global de iniciativas educacionais ativas</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Distribuição global de iniciativas educacionais ativas</p>
               </div>
-              <button onClick={() => setIsReportModalOpen(false)} className="p-1 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 cursor-pointer">
+              <button onClick={() => setIsReportModalOpen(false)} className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100 text-blue-900">
+              <div className="p-3 bg-blue-50 dark:bg-blue-500/10/60 rounded-xl border border-blue-100 text-blue-900">
                 <span className="font-bold block mb-1">África (34% do impacto total)</span>
                 Construção de escolas rurais, formação de professores e bolsas para estudantes de baixa renda.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">Ásia (28% do impacto total)</span>
                 Laboratórios digitais, educação STEM para meninas e alfabetização digital.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">América Latina (20% do impacto total)</span>
                 Bolsas de estudo integrais e programas de mentoria para jovens em vulnerabilidade.
               </div>
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <span className="font-bold block mb-1">Europa (12% do impacto total)</span>
                 Inclusão escolar, educação especial e inovação pedagógica digital.
               </div>

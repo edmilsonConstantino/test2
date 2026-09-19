@@ -197,7 +197,7 @@ const EXTRA_CATEGORIES_TILES: ExtraCategoryTile[] = [
     description: 'Descubra ainda mais áreas de interesse.',
     count: 'Explorar tudo →',
     icon: LayoutGrid,
-    iconBg: 'bg-slate-100 text-blue-600',
+    iconBg: 'bg-slate-100 dark:bg-slate-800 text-blue-600',
     isSpecial: true,
   },
 ];
@@ -346,7 +346,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
   });
 
   return (
-    <div className="w-full min-h-screen bg-[#F8FAFC] pb-16">
+    <div className="w-full min-h-screen bg-[#F8FAFC] dark:bg-slate-950 pb-16">
       <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 1. Header Superior da Página */}
         <section id="more-categories-header" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -355,33 +355,33 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
               <LayoutGrid className="w-6 h-6 stroke-[2.2]" />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] font-['Outfit'] tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                 Mais Categorias
               </h1>
-              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
                 Explore todas as áreas de interesse e encontre comunidades que combinam com você.
               </p>
 
               {/* Fita de Métricas Globais */}
-              <div className="flex items-center gap-6 text-xs text-slate-600 flex-wrap pt-1.5 font-medium">
+              <div className="flex items-center gap-6 text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 flex-wrap pt-1.5 font-medium">
                 <div className="flex items-center gap-1.5">
                   <Users className="w-4 h-4 text-blue-600" />
-                  <span className="font-bold text-[#0F172A]">2.450</span>
+                  <span className="font-bold text-[#0F172A] dark:text-slate-50">2.450</span>
                   <span>comunidades</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-emerald-600" />
-                  <span className="font-bold text-[#0F172A]">312.680</span>
+                  <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span className="font-bold text-[#0F172A] dark:text-slate-50">312.680</span>
                   <span>membros</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Globe className="w-4 h-4 text-indigo-600" />
-                  <span className="font-bold text-[#0F172A]">196</span>
+                  <span className="font-bold text-[#0F172A] dark:text-slate-50">196</span>
                   <span>países</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Package className="w-4 h-4 text-amber-600" />
-                  <span className="font-bold text-[#0F172A]">5.120</span>
+                  <Package className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <span className="font-bold text-[#0F172A] dark:text-slate-50">5.120</span>
                   <span>recursos</span>
                 </div>
               </div>
@@ -426,10 +426,10 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isMais
                     ? 'bg-[#0B1536] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isMais ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isMais ? 'text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -441,11 +441,11 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
           {/* COLUNA ESQUERDA: Filtros (lg:col-span-2) */}
           <aside
             id="filtros-sidebar"
-            className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-5"
+            className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-5"
           >
                 {/* Título e Botão Limpar Tudo */}
-                <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                  <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit'] uppercase tracking-wider">
+                <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                  <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] uppercase tracking-wider">
                     Filtrar comunidades
                   </h3>
                   <button
@@ -459,7 +459,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
 
                 {/* Grupo 1: Tipo de Comunidade (Radios) */}
                 <div className="flex flex-col gap-2.5">
-                  <span className="text-xs font-bold text-[#0F172A]">Tipo de comunidade</span>
+                  <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tipo de comunidade</span>
                   <div className="flex flex-col gap-2">
                     {[
                       'Todas',
@@ -475,7 +475,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                       return (
                         <label
                           key={type}
-                          className="flex items-center gap-2.5 text-xs text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                          className="flex items-center gap-2.5 text-xs text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                         >
                           <input
                             type="radio"
@@ -488,7 +488,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                             className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all shrink-0 ${
                               isChecked
                                 ? 'border-blue-600 bg-blue-600'
-                                : 'border-slate-300 bg-white hover:border-slate-400'
+                                : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                             }`}
                           >
                             {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -501,8 +501,8 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 </div>
 
                 {/* Grupo 2: Recursos Disponíveis (Checkboxes) */}
-                <div className="flex flex-col gap-2.5 pt-1 border-t border-slate-100">
-                  <span className="text-xs font-bold text-[#0F172A]">Recursos disponíveis</span>
+                <div className="flex flex-col gap-2.5 pt-1 border-t border-slate-100 dark:border-slate-800">
+                  <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Recursos disponíveis</span>
                   <div className="flex flex-col gap-2">
                     {[
                       'Eventos',
@@ -517,7 +517,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                       return (
                         <label
                           key={rec}
-                          className="flex items-center gap-2.5 text-xs text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                          className="flex items-center gap-2.5 text-xs text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                         >
                           <input
                             type="checkbox"
@@ -529,7 +529,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                             className={`w-4 h-4 rounded-md border flex items-center justify-center transition-all shrink-0 ${
                               isChecked
                                 ? 'border-blue-600 bg-blue-600 text-white'
-                                : 'border-slate-300 bg-white hover:border-slate-400'
+                                : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                             }`}
                           >
                             {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -542,13 +542,13 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 </div>
 
                 {/* Grupo 3: Localização (Dropdown) */}
-                <div className="flex flex-col gap-2 pt-1 border-t border-slate-100">
-                  <span className="text-xs font-bold text-[#0F172A]">Localização</span>
+                <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 dark:border-slate-800">
+                  <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Localização</span>
                   <div className="relative">
                     <select
                       value={selectedLocation}
                       onChange={(e) => setSelectedLocation(e.target.value)}
-                      className="w-full appearance-none bg-slate-50 border border-slate-200/90 rounded-xl px-3 py-2 text-xs text-[#334155] focus:outline-none focus:ring-1 focus:ring-blue-600 cursor-pointer font-medium"
+                      className="w-full appearance-none bg-slate-50 dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-[#334155] dark:text-slate-300 focus:outline-none focus:ring-1 focus:ring-blue-600 cursor-pointer font-medium"
                     >
                       <option value="Qualquer lugar">Qualquer lugar</option>
                       <option value="Global">Global</option>
@@ -559,7 +559,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                       <option value="Cabo Verde">Cabo Verde</option>
                       <option value="Outros">Outros</option>
                     </select>
-                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
@@ -591,20 +591,20 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
 
                       {/* Campo de Busca Embutido */}
                       <div className="mt-4 relative">
-                        <div className="bg-white rounded-xl sm:rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-md">
-                          <Search className="w-4 h-4 text-slate-400 shrink-0" />
+                        <div className="bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-md">
+                          <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 shrink-0" />
                           <input
                             type="text"
                             placeholder="Buscar em todas as categorias..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
+                            className="w-full text-xs sm:text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 bg-transparent focus:outline-none"
                           />
                           {searchQuery && (
                             <button
                               type="button"
                               onClick={() => setSearchQuery('')}
-                              className="text-slate-400 hover:text-slate-600 cursor-pointer p-0.5"
+                              className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500 cursor-pointer p-0.5"
                             >
                               <X className="w-3.5 h-3.5" />
                             </button>
@@ -625,13 +625,13 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                       </div>
 
                       {/* Badges Flutuantes Orbitando em Círculos */}
-                      <div className="absolute top-1 left-4 w-7 h-7 rounded-full bg-white/95 text-emerald-600 shadow-md flex items-center justify-center animate-pulse">
+                      <div className="absolute top-1 left-4 w-7 h-7 rounded-full bg-white/95 text-emerald-600 dark:text-emerald-400 shadow-md flex items-center justify-center animate-pulse">
                         <PawPrint className="w-3.5 h-3.5" />
                       </div>
                       <div className="absolute top-2 right-4 w-7 h-7 rounded-full bg-white/95 text-orange-600 shadow-md flex items-center justify-center">
                         <Dumbbell className="w-3.5 h-3.5" />
                       </div>
-                      <div className="absolute top-1/2 -translate-y-1/2 -left-1 w-7 h-7 rounded-full bg-white/95 text-rose-600 shadow-md flex items-center justify-center">
+                      <div className="absolute top-1/2 -translate-y-1/2 -left-1 w-7 h-7 rounded-full bg-white/95 text-rose-600 dark:text-rose-400 shadow-md flex items-center justify-center">
                         <Heart className="w-3.5 h-3.5" />
                       </div>
                       <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-7 h-7 rounded-full bg-white/95 text-blue-600 shadow-md flex items-center justify-center">
@@ -649,44 +649,44 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                     </div>
 
                     {/* Lado Direito do Hero: Painel de Estatísticas com fundo branco conforme a imagem */}
-                    <div className="md:col-span-4 bg-white rounded-2xl p-4 sm:p-5 flex flex-col justify-center gap-3.5 shadow-xs border border-slate-100">
+                    <div className="md:col-span-4 bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 flex flex-col justify-center gap-3.5 shadow-xs border border-slate-100 dark:border-slate-800">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                           <LayoutGrid className="w-4 h-4 stroke-[2.2]" />
                         </div>
                         <div>
-                          <span className="text-base font-extrabold text-[#0F172A] block leading-tight">+100</span>
-                          <span className="text-[11px] text-slate-500 font-medium">Categorias de interesse</span>
+                          <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 block leading-tight">+100</span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Categorias de interesse</span>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                           <Globe2 className="w-4 h-4 stroke-[2.2]" />
                         </div>
                         <div>
-                          <span className="text-base font-extrabold text-[#0F172A] block leading-tight">24.500+</span>
-                          <span className="text-[11px] text-slate-500 font-medium">Comunidades ativas</span>
+                          <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 block leading-tight">24.500+</span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Comunidades ativas</span>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                           <Users className="w-4 h-4 stroke-[2.2]" />
                         </div>
                         <div>
-                          <span className="text-base font-extrabold text-[#0F172A] block leading-tight">1.2M+</span>
-                          <span className="text-[11px] text-slate-500 font-medium">Membros no total</span>
+                          <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 block leading-tight">1.2M+</span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Membros no total</span>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                           <ShieldCheck className="w-4 h-4 stroke-[2.2]" />
                         </div>
                         <div>
-                          <span className="text-base font-extrabold text-[#0F172A] block leading-tight">Todos os temas</span>
-                          <span className="text-[11px] text-slate-500 font-medium">Em um só lugar</span>
+                          <span className="text-base font-extrabold text-[#0F172A] dark:text-slate-50 block leading-tight">Todos os temas</span>
+                          <span className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Em um só lugar</span>
                         </div>
                       </div>
                     </div>
@@ -696,11 +696,11 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 {/* SEÇÃO: "Todas as categorias" */}
                 <section id="all-categories-grid-section" className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base sm:text-lg font-extrabold text-[#0F172A] font-['Outfit']">
+                    <h3 className="text-base sm:text-lg font-extrabold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                       Todas as categorias
                     </h3>
                     {searchQuery && (
-                      <span className="text-xs text-slate-500 font-medium">
+                      <span className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">
                         {filteredTiles.length} encontradas
                       </span>
                     )}
@@ -716,20 +716,20 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                           <div
                             key={cat.id}
                             onClick={() => onNavigateToCategory?.('todas')}
-                            className="bg-slate-50/90 rounded-2xl border border-dashed border-slate-300 p-4 hover:bg-slate-100/90 transition-all flex flex-col justify-between group cursor-pointer h-full min-h-[165px]"
+                            className="bg-slate-50 dark:bg-slate-800/90 rounded-2xl border border-dashed border-slate-300 p-4 hover:bg-slate-100 dark:hover:bg-slate-800/90 transition-all flex flex-col justify-between group cursor-pointer h-full min-h-[165px]"
                           >
                             <div>
-                              <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-blue-600 mb-3 group-hover:scale-105 transition-transform">
+                              <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-blue-600 mb-3 group-hover:scale-105 transition-transform">
                                 <Icon className="w-5 h-5 stroke-[2.2]" />
                               </div>
-                              <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] leading-snug">
+                              <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 leading-snug">
                                 {cat.name}
                               </h4>
-                              <p className="text-[11px] text-slate-500 leading-relaxed mt-1 line-clamp-2">
+                              <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed mt-1 line-clamp-2">
                                 {cat.description}
                               </p>
                             </div>
-                            <div className="mt-3 pt-2 border-t border-slate-200/60">
+                            <div className="mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-700">
                               <span className="text-[11px] font-bold text-blue-600 group-hover:underline flex items-center gap-1">
                                 {cat.count}
                               </span>
@@ -742,7 +742,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                         <div
                           key={cat.id}
                           onClick={() => setSelectedCategoryModal(cat)}
-                          className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between group cursor-pointer h-full min-h-[165px]"
+                          className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between group cursor-pointer h-full min-h-[165px]"
                         >
                           <div>
                             <div
@@ -750,15 +750,15 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                             >
                               <Icon className="w-5 h-5 stroke-[2.2]" />
                             </div>
-                            <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] leading-snug group-hover:text-blue-600 transition-colors">
+                            <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] dark:text-slate-50 leading-snug group-hover:text-blue-600 transition-colors">
                               {cat.name}
                             </h4>
-                            <p className="text-[11px] text-slate-500 leading-relaxed mt-1 line-clamp-2">
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed mt-1 line-clamp-2">
                               {cat.description}
                             </p>
                           </div>
-                          <div className="mt-3 pt-2 border-t border-slate-100">
-                            <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400">
+                          <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 dark:text-slate-500">
                               {cat.count}
                             </span>
                           </div>
@@ -771,17 +771,17 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 {/* FAIXA HORIZONTAL FINAL: "Não encontrou o que procura?" */}
                 <div
                   id="cta-bottom-bar"
-                  className="bg-[#F8FAFC] border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs"
+                  className="bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200/90 dark:border-slate-700 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 text-blue-600 flex items-center justify-center shrink-0">
                       <Users className="w-5 h-5 stroke-[2.2]" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+                      <h4 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                         Não encontrou o que procura?
                       </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
                         Crie sua própria comunidade e reúna pessoas com os mesmos interesses que você.
                       </p>
                     </div>
@@ -790,7 +790,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                   <button
                     type="button"
                     onClick={onOpenCreateCommunity}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-slate-800 text-xs font-bold transition-all shadow-2xs cursor-pointer shrink-0"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 hover:border-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100 text-xs font-bold transition-all shadow-2xs cursor-pointer shrink-0"
                   >
                     <span>Criar Comunidade</span>
                     <ArrowRight className="w-3.5 h-3.5 stroke-[2.4]" />
@@ -801,9 +801,9 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
           {/* COLUNA DIREITA: Card de Categorias mais populares no Topo + Artigos + CTA (lg:col-span-3) */}
           <aside id="right-sidebar" className="lg:col-span-3 flex flex-col gap-4">
             {/* 1. CARD: Categorias mais populares (EM CIMA, EXATAMENTE COMO NA IMAGEM) */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col gap-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col gap-4">
               <div className="flex items-center justify-between pb-1">
-                <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Categorias mais populares
                 </h3>
                 <button
@@ -823,10 +823,10 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                     <div
                       key={item.id}
                       onClick={() => onNavigateToCategory?.('cultura')}
-                      className="flex items-center justify-between gap-3 p-1 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer group"
+                      className="flex items-center justify-between gap-3 p-1 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
                     >
                       <div className="flex items-center gap-3 min-w-0">
-                        <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-600 text-xs font-bold flex items-center justify-center shrink-0">
+                        <span className="w-6 h-6 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 text-xs font-bold flex items-center justify-center shrink-0">
                           {item.rank}
                         </span>
                         <div
@@ -835,15 +835,15 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                           <Icon className="w-4 h-4 stroke-[2.2]" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-blue-600 transition-colors">
+                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-blue-600 transition-colors">
                             {item.name}
                           </h4>
-                          <span className="text-[11px] text-slate-400 block truncate font-normal">
+                          <span className="text-[11px] text-slate-400 dark:text-slate-500 block truncate font-normal">
                             {item.members}
                           </span>
                         </div>
                       </div>
-                      <span className="text-xs font-bold text-emerald-600 shrink-0 flex items-center gap-0.5">
+                      <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 shrink-0 flex items-center gap-0.5">
                         ▲ {item.growth.replace('▲', '').trim()}
                       </span>
                     </div>
@@ -853,9 +853,9 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
             </div>
 
             {/* 2. Card: Artigos e recursos em destaque */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Artigos e recursos em destaque
                 </h3>
                 <button
@@ -868,12 +868,12 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {FEATURED_ARTICLES.map((art) => (
                   <div
                     key={art.id}
                     onClick={() => onNavigateToTab?.('noticias')}
-                    className="py-2 flex items-center gap-2.5 hover:bg-slate-50 p-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 p-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <img
                       src={art.image}
@@ -881,10 +881,10 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                       className="w-10 h-10 rounded-lg object-cover ring-1 ring-slate-200 shrink-0"
                     />
                     <div className="min-w-0 flex-1 text-[11px] leading-tight">
-                      <h4 className="font-bold text-[#0F172A] group-hover:text-blue-600 transition-colors line-clamp-2">
+                      <h4 className="font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-blue-600 transition-colors line-clamp-2">
                         {art.title}
                       </h4>
-                      <span className="text-[9.5px] text-slate-400 block mt-0.5 font-medium">
+                      <span className="text-[9.5px] text-slate-400 dark:text-slate-500 block mt-0.5 font-medium">
                         {art.type}
                       </span>
                     </div>
@@ -911,7 +911,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 <button
                   type="button"
                   onClick={() => onNavigateToCategory?.('todas')}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#0066FF] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-[#0066FF] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
                 >
                   <span>Explorar Comunidades</span>
                   <ArrowRight className="w-3.5 h-3.5 stroke-[2.8]" />
@@ -937,11 +937,11 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
       {/* Modal de Detalhes da Categoria Selecionada */}
       {selectedCategoryModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedCategoryModal(null)}
-              className="absolute top-3 right-3 text-slate-600 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center z-10 cursor-pointer"
+              className="absolute top-3 right-3 text-slate-600 dark:text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center z-10 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -954,20 +954,20 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                   <selectedCategoryModal.icon className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     {selectedCategoryModal.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
                     {selectedCategoryModal.count}
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedCategoryModal.description}
               </p>
 
-              <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => {

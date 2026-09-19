@@ -362,7 +362,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
   };
 
   return (
-    <div id="community-culture-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="community-culture-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Principal (busca/idioma/notificações/perfil/breadcrumb já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 2. Cabeçalho de Cultura com Ícone e Métricas */}
@@ -374,30 +374,30 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Cultura
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
                 Celebre a diversidade, preserve tradições e conecte-se através da arte e da cultura.
               </p>
 
               {/* Fita de Métricas: 1.482 comunidades, 189.750 membros, 167 países, 3.980 recursos */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B]">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B] dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">1.482</strong> comunidades
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">1.482</strong> comunidades
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">189.750</strong> membros
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">189.750</strong> membros
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Globe className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">167</strong> países
+                  <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">167</strong> países
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Building2 className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">3.980</strong> recursos
+                  <Building2 className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">3.980</strong> recursos
                 </span>
               </div>
             </div>
@@ -444,10 +444,10 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#1E1B4B] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -466,14 +466,14 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                   setIsMaisDropdownOpen(!isMaisDropdownOpen);
                 }
               }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 whitespace-nowrap cursor-pointer shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 whitespace-nowrap cursor-pointer shadow-2xs"
             >
-              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
               <span>Mais</span>
             </button>
 
             {isMaisDropdownOpen && (
-              <div className="absolute left-0 mt-1 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
+              <div className="absolute left-0 mt-1 w-52 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
                 {[
                   'Turismo',
                   'Desporto',
@@ -495,7 +495,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                         onNavigateToTab('mais');
                       }
                     }}
-                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 text-slate-700 flex items-center justify-between cursor-pointer"
+                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between cursor-pointer"
                   >
                     <span>{extra}</span>
                   </button>
@@ -510,11 +510,11 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
           {/* COLUNA ESQUERDA: Filtros (lg:col-span-2) */}
           <aside
             id="filtros-cultura-sidebar"
-            className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-4"
+            className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-4"
           >
-            <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-              <span className="text-sm font-bold text-[#0F172A] flex items-center gap-1.5">
-                <Filter className="w-3.5 h-3.5 text-slate-500" />
+            <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 flex items-center gap-1.5">
+                <Filter className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
                 Filtrar comunidades
               </span>
               <button
@@ -528,7 +528,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
 
             {/* Tipo de comunidade (Radio) */}
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold text-[#0F172A]">Tipo de comunidade</span>
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tipo de comunidade</span>
               <div className="flex flex-col gap-1.5">
                 {[
                   'Todas',
@@ -546,7 +546,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                   return (
                     <label
                       key={type}
-                      className="flex items-center gap-2 text-[11.5px] text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2 text-[11.5px] text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="radio"
@@ -559,7 +559,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                         className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#1E1B4B] bg-[#1E1B4B]'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -572,8 +572,8 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
             </div>
 
             {/* Temas de Cultura (Checkboxes) */}
-            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#0F172A]">Temas de Cultura</span>
+            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 dark:border-slate-800">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Temas de Cultura</span>
               <div className="flex flex-col gap-1.5">
                 {[
                   'Arte Contemporânea',
@@ -597,7 +597,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                   return (
                     <label
                       key={theme}
-                      className="flex items-center gap-2 text-[11.5px] text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2 text-[11.5px] text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="checkbox"
@@ -609,7 +609,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                         className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#1E1B4B] bg-[#1E1B4B] text-white'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -630,19 +630,19 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
             </div>
 
             {/* Localização (Dropdown) */}
-            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Localização</span>
+            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Localização</span>
               <button
                 type="button"
                 onClick={() => setIsLocationOpen(!isLocationOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{locationFilter}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLocationOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {['Qualquer lugar', 'Global', 'África', 'América Latina', 'Europa', 'Ásia'].map((loc) => (
                     <button
                       key={loc}
@@ -651,7 +651,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                         setLocationFilter(loc);
                         setIsLocationOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{loc}</span>
                       {locationFilter === loc && <Check className="w-3 h-3 text-blue-600" />}
@@ -708,7 +708,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                           setSelectedCommunityModal(TRENDING_CULTURE_COMMUNITIES[0]);
                         }
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-[#1E1B4B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-[#1E1B4B] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
                     >
                       <span>Juntar-se a uma comunidade</span>
                       <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -756,7 +756,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
             {/* Seção: Comunidades em tendência (Cultura) (5 Cards) */}
             <section id="comunidades-tendencia-cultura-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Comunidades em tendência (Cultura)
                 </h3>
                 <button
@@ -776,12 +776,12 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                     <article
                       key={comm.id}
                       onClick={() => setSelectedCommunityModal(comm)}
-                      className="bg-white rounded-xl border border-slate-200/80 p-3 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between cursor-pointer group"
+                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 p-3 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between cursor-pointer group"
                     >
                       <div>
                         {/* Topo com Rank e Ícone Circular Colorido */}
                         <div className="flex items-center justify-between mb-2.5">
-                          <span className="w-5 h-5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold flex items-center justify-center">
+                          <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 dark:text-slate-500 text-[10px] font-bold flex items-center justify-center">
                             {comm.rank}
                           </span>
                           <div className={`w-9 h-9 rounded-full ${comm.iconBg} ${comm.iconColor} flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform`}>
@@ -790,30 +790,30 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                         </div>
 
                         {/* Nome e Membros */}
-                        <h4 className="text-[12px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-[12px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
                           {comm.name}
                         </h4>
-                        <p className="text-[9.5px] text-slate-500 mb-1">{comm.membersCount}</p>
+                        <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{comm.membersCount}</p>
                         <span className="text-[10px] font-bold text-[#10B981] block mb-2">
                           {comm.growth}
                         </span>
 
                         {/* Descrição */}
-                        <p className="text-[10.5px] text-slate-600 line-clamp-2 leading-tight mb-2.5">
+                        <p className="text-[10.5px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight mb-2.5">
                           {comm.description}
                         </p>
                       </div>
 
                       {/* Tópicos em Alta */}
-                      <div className="pt-2 border-t border-slate-100">
-                        <span className="text-[9px] font-bold text-slate-400 block mb-1">
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                        <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 block mb-1">
                           Tópicos em alta:
                         </span>
                         <div className="flex flex-wrap gap-1">
                           {comm.topics.map((t) => (
                             <span
                               key={t}
-                              className="text-[8.5px] font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-1.5 py-0.5 rounded"
+                              className="text-[8.5px] font-semibold text-slate-600 dark:text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 px-1.5 py-0.5 rounded"
                             >
                               {t}
                             </span>
@@ -827,7 +827,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                 <button
                   type="button"
                   title="Avançar"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer z-10 transition-transform hover:scale-105"
+                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
@@ -837,7 +837,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
             {/* Seção: Eventos culturais em destaque (5 Cards) */}
             <section id="eventos-culturais-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Eventos culturais em destaque
                 </h3>
                 <button
@@ -856,10 +856,10 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                     <article
                       key={evt.id}
                       onClick={() => setSelectedEventModal(evt)}
-                      className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                     >
                       {/* Imagem do Evento com Badge de Data Sobreposta */}
-                      <div className="relative h-24 w-full overflow-hidden bg-slate-100">
+                      <div className="relative h-24 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                         <img
                           src={evt.image}
                           alt={evt.title}
@@ -875,28 +875,28 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                       {/* Informações do Evento */}
                       <div className="p-2.5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-[11.5px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
+                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
                             {evt.title}
                           </h4>
 
-                          <div className="flex flex-col gap-0.5 mt-1.5 text-[10px] text-slate-500">
+                          <div className="flex flex-col gap-0.5 mt-1.5 text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500">
                             <span className="flex items-center gap-1 truncate">
-                              <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                              <MapPin className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                               <span className="truncate">{evt.location}</span>
                             </span>
                             <span className="flex items-center gap-1 truncate">
-                              <Clock className="w-3 h-3 text-slate-400 shrink-0" />
+                              <Clock className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                               <span className="truncate">{evt.time}</span>
                             </span>
                             <span className="flex items-center gap-1 truncate">
-                              <Users className="w-3 h-3 text-slate-400 shrink-0" />
+                              <Users className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
                               <span className="truncate">{evt.attendees}</span>
                             </span>
                           </div>
                         </div>
 
                         {/* Tag no Rodapé */}
-                        <div className="mt-2 pt-1.5 border-t border-slate-100">
+                        <div className="mt-2 pt-1.5 border-t border-slate-100 dark:border-slate-800">
                           <span className="text-[9px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">
                             {evt.tag}
                           </span>
@@ -909,7 +909,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                 <button
                   type="button"
                   title="Avançar"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer z-10 transition-transform hover:scale-105"
+                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
@@ -920,9 +920,9 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
           {/* COLUNA DIREITA: Mais populares, Artigos em destaque e Banner CTA (lg:col-span-3) */}
           <aside className="lg:col-span-3 flex flex-col gap-4">
             {/* 1. Card: Mais populares em Cultura */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Mais populares em Cultura
                 </h3>
                 <button
@@ -935,24 +935,24 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
               </div>
 
               {/* Lista 1 a 5 */}
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {POPULAR_CULTURE_ITEMS.map((item) => (
                   <div
                     key={item.id}
-                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 px-1 rounded-lg transition-colors cursor-pointer group"
+                    className="py-2 flex items-center justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800 px-1 rounded-lg transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <span className="text-xs font-bold text-slate-400 w-3 shrink-0">
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-3 shrink-0">
                         {item.rank}
                       </span>
                       <div className={`w-7 h-7 rounded-lg ${item.iconBg} text-white flex items-center justify-center shrink-0 shadow-2xs`}>
                         {renderCardIcon(item.iconType)}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-indigo-600 transition-colors">
                           {item.name}
                         </h4>
-                        <span className="text-[10px] text-slate-500 block truncate">
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 block truncate">
                           {item.members}
                         </span>
                       </div>
@@ -966,9 +966,9 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
             </div>
 
             {/* 2. Card: Artigos e recursos em destaque */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Artigos e recursos em destaque
                 </h3>
                 <button
@@ -980,19 +980,19 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {FEATURED_ARTICLES.map((art) => (
-                  <div key={art.id} className="py-2 flex items-center gap-2.5 hover:bg-slate-50 p-1 rounded-lg transition-colors cursor-pointer group">
+                  <div key={art.id} className="py-2 flex items-center gap-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 p-1 rounded-lg transition-colors cursor-pointer group">
                     <img
                       src={art.image}
                       alt={art.title}
                       className="w-10 h-10 rounded-lg object-cover ring-1 ring-slate-200 shrink-0"
                     />
                     <div className="min-w-0 flex-1 text-[11px] leading-tight">
-                      <h4 className="font-bold text-[#0F172A] group-hover:text-indigo-600 transition-colors line-clamp-2">
+                      <h4 className="font-bold text-[#0F172A] dark:text-slate-50 group-hover:text-indigo-600 transition-colors line-clamp-2">
                         {art.title}
                       </h4>
-                      <span className="text-[9.5px] text-slate-400 block mt-0.5 font-medium">
+                      <span className="text-[9.5px] text-slate-400 dark:text-slate-500 block mt-0.5 font-medium">
                         {art.type}
                       </span>
                     </div>
@@ -1022,7 +1022,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                 <button
                   type="button"
                   onClick={onOpenCreateCommunity}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#1E1B4B] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-[#1E1B4B] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
                 >
                   <span>Criar Comunidade</span>
                   <Plus className="w-3.5 h-3.5 stroke-[2.8]" />
@@ -1057,11 +1057,11 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
       {/* Modal de Detalhes da Comunidade Selecionada */}
       {selectedCommunityModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedCommunityModal(null)}
-              className="absolute top-3 right-3 text-slate-600 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center z-10 cursor-pointer"
+              className="absolute top-3 right-3 text-slate-600 dark:text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center z-10 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1072,28 +1072,28 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                   {renderCardIcon(selectedCommunityModal.iconType)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                     {selectedCommunityModal.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
                     {selectedCommunityModal.membersCount} • {selectedCommunityModal.growth}
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedCommunityModal.description}
               </p>
 
               <div>
-                <span className="text-[11px] font-bold text-slate-400 block mb-1.5">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 block mb-1.5">
                   Tópicos em alta:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedCommunityModal.topics.map((t) => (
                     <span
                       key={t}
-                      className="text-xs font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md"
+                      className="text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md"
                     >
                       {t}
                     </span>
@@ -1101,7 +1101,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => {
@@ -1110,7 +1110,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
                   }}
                   className={`flex-1 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     joinedCommunities.has(selectedCommunityModal.id)
-                      ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
                       : 'bg-[#1E1B4B] text-white hover:bg-[#2E1065] shadow-xs'
                   }`}
                 >
@@ -1127,7 +1127,7 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
       {/* Modal de Detalhes do Evento Selecionado */}
       {selectedEventModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-md w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedEventModal(null)}
@@ -1149,26 +1149,26 @@ export const CommunityCultureView: React.FC<CommunityCultureViewProps> = ({
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A] font-['Outfit']">
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   {selectedEventModal.title}
                 </h3>
-                <div className="flex flex-col gap-1 text-xs text-slate-500 mt-2">
+                <div className="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-2">
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                    <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {selectedEventModal.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {selectedEventModal.time}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-slate-400" />
+                    <Users className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {selectedEventModal.attendees}
                   </span>
                 </div>
               </div>
 
-              <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+              <div className="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
                 <span className="text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">
                   {selectedEventModal.tag}
                 </span>

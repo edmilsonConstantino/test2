@@ -21,7 +21,6 @@ import {
   Activity,
   FileText,
   Clock,
-  Sparkles,
   Award,
   Globe,
   PlusCircle,

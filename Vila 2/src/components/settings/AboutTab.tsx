@@ -104,7 +104,7 @@ export const AboutTab: React.FC = () => {
       {/* Row 1: Hero Card VILA + A VILA em números */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Hero Card VILA (7 Cols) */}
-        <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 p-6 shadow-2xs flex flex-col justify-between">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-6 shadow-2xs flex flex-col justify-between">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             {/* VILA Circular Vector Emblem */}
             <div className="shrink-0 relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center">
@@ -211,61 +211,61 @@ export const AboutTab: React.FC = () => {
 
             {/* Text details */}
             <div className="space-y-2 text-center sm:text-left font-sans">
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-50 font-sans tracking-tight">
                 VILA
               </h2>
-              <p className="text-[13.5px] font-semibold text-slate-500 font-sans">
+              <p className="text-[13.5px] font-semibold text-slate-500 dark:text-slate-400 font-sans">
                 Um ecossistema. Um propósito. Um futuro melhor.
               </p>
-              <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
                 A VILA é a infraestrutura digital que conecta o mundo através de pessoas, comunidades, negócios e governos, promovendo colaboração, inovação e impacto positivo em cada território.
               </p>
             </div>
           </div>
 
           {/* 4 Metadata Chips/Pills exactly matching UI SOBRE */}
-          <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center gap-2.5">
+          <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-2.5">
             {/* Pill 1: Lançamento */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[12px] text-slate-600">
-              <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 text-[12px] text-slate-600 dark:text-slate-400">
+              <Calendar className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
               <span>
-                Lançamento <strong className="text-[#0F172A] font-bold">2024</strong>
+                Lançamento <strong className="text-[#0F172A] dark:text-slate-50 font-bold">2024</strong>
               </span>
             </div>
 
             {/* Pill 2: Sede */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[12px] text-slate-600">
-              <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 text-[12px] text-slate-600 dark:text-slate-400">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
               <span>
-                Sede <strong className="text-[#0F172A] font-bold">Portugal</strong>
+                Sede <strong className="text-[#0F172A] dark:text-slate-50 font-bold">Portugal</strong>
               </span>
             </div>
 
             {/* Pill 3: Plataforma */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[12px] text-slate-600">
-              <Layers className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 text-[12px] text-slate-600 dark:text-slate-400">
+              <Layers className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" />
               <span>
-                Plataforma <strong className="text-[#0F172A] font-bold">VILA 1.0</strong>
+                Plataforma <strong className="text-[#0F172A] dark:text-slate-50 font-bold">VILA 1.0</strong>
               </span>
             </div>
 
             {/* Pill 4: Status Ativa */}
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-50/70 border border-emerald-200/80 text-[12px] text-slate-700">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-500/10 border border-emerald-200/80 dark:border-emerald-800/40 text-[12px] text-slate-700 dark:text-slate-300">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span>
-                Status <strong className="text-emerald-700 font-bold">Ativa</strong>
+                Status <strong className="text-emerald-700 dark:text-emerald-400 font-bold">Ativa</strong>
               </span>
             </div>
           </div>
         </div>
 
         {/* Card A VILA em números (5 Cols) */}
-        <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200 p-6 shadow-2xs flex flex-col justify-between font-sans">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-2xs flex flex-col justify-between font-sans">
           <div>
-            <h3 className="text-[15px] sm:text-base font-bold text-slate-900 font-sans mb-4">
+            <h3 className="text-[15px] sm:text-base font-bold text-slate-900 dark:text-slate-50 font-sans mb-4">
               A VILA em números
             </h3>
 
@@ -273,14 +273,14 @@ export const AboutTab: React.FC = () => {
             <div className="grid grid-cols-2 gap-x-4 gap-y-5 font-sans">
               {/* 1. Países conectados */}
               <div className="flex items-center gap-3 font-sans">
-                <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                   <Globe className="w-4.5 h-4.5" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans leading-none">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-none">
                     190+
                   </p>
-                  <p className="text-[11.5px] text-slate-500 leading-tight mt-1">
+                  <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-tight mt-1">
                     Países conectados
                   </p>
                 </div>
@@ -288,14 +288,14 @@ export const AboutTab: React.FC = () => {
 
               {/* 2. Municípios ativos */}
               <div className="flex items-center gap-3 font-sans">
-                <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                   <Building2 className="w-4.5 h-4.5" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans leading-none">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-none">
                     2.500+
                   </p>
-                  <p className="text-[11.5px] text-slate-500 leading-tight mt-1">
+                  <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-tight mt-1">
                     Municípios ativos
                   </p>
                 </div>
@@ -303,14 +303,14 @@ export const AboutTab: React.FC = () => {
 
               {/* 3. Utilizadores globais */}
               <div className="flex items-center gap-3 font-sans">
-                <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                   <Users className="w-4.5 h-4.5" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans leading-none">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-none">
                     1.2M+
                   </p>
-                  <p className="text-[11.5px] text-slate-500 leading-tight mt-1">
+                  <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-tight mt-1">
                     Utilizadores globais
                   </p>
                 </div>
@@ -318,14 +318,14 @@ export const AboutTab: React.FC = () => {
 
               {/* 4. Organizações */}
               <div className="flex items-center gap-3 font-sans">
-                <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1455AC] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                   <Briefcase className="w-4.5 h-4.5" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans leading-none">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-none">
                     35K+
                   </p>
-                  <p className="text-[11.5px] text-slate-500 leading-tight mt-1">
+                  <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-tight mt-1">
                     Organizações
                   </p>
                 </div>
@@ -333,14 +333,14 @@ export const AboutTab: React.FC = () => {
 
               {/* 5. Projetos de impacto */}
               <div className="flex items-center gap-3 font-sans">
-                <div className="w-9 h-9 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-full bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
                   <Heart className="w-4.5 h-4.5" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans leading-none">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-none">
                     15K+
                   </p>
-                  <p className="text-[11.5px] text-slate-500 leading-tight mt-1">
+                  <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-tight mt-1">
                     Projetos de impacto
                   </p>
                 </div>
@@ -348,14 +348,14 @@ export const AboutTab: React.FC = () => {
 
               {/* 6. Interações diárias */}
               <div className="flex items-center gap-3 font-sans">
-                <div className="w-9 h-9 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
                   <TrendingUp className="w-4.5 h-4.5" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans leading-none">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans leading-none">
                     8.4M+
                   </p>
-                  <p className="text-[11.5px] text-slate-500 leading-tight mt-1">
+                  <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-tight mt-1">
                     Interações diárias
                   </p>
                 </div>
@@ -363,9 +363,9 @@ export const AboutTab: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
             <span>Dados consolidados em tempo real</span>
-            <span className="font-semibold text-emerald-600 flex items-center gap-1">
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> 99.98% Uptime
             </span>
           </div>
@@ -375,15 +375,15 @@ export const AboutTab: React.FC = () => {
       {/* Row 2: Grid 4 Cards (Missão, Visão, Propósito, Valores) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-sans">
         {/* Card 1: Missão */}
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 transition-all font-sans">
+        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 dark:hover:border-slate-600 transition-all font-sans">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
               <Target className="w-5 h-5" strokeWidth={2.2} />
             </div>
-            <h3 className="text-base font-bold text-slate-900 font-sans">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
               Missão
             </h3>
-            <p className="text-xs sm:text-[12.5px] text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-[12.5px] text-slate-600 dark:text-slate-400 leading-relaxed">
               Capacitar pessoas, comunidades e organizações com tecnologia e dados inteligentes para construir territórios mais sustentáveis, inclusivos e prósperos.
             </p>
           </div>
@@ -392,15 +392,15 @@ export const AboutTab: React.FC = () => {
         </div>
 
         {/* Card 2: Visão */}
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 transition-all font-sans">
+        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 dark:hover:border-slate-600 transition-all font-sans">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center">
               <Eye className="w-5 h-5" strokeWidth={2.2} />
             </div>
-            <h3 className="text-base font-bold text-slate-900 font-sans">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
               Visão
             </h3>
-            <p className="text-xs sm:text-[12.5px] text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-[12.5px] text-slate-600 dark:text-slate-400 leading-relaxed">
               Ser a principal infraestrutura global que transforma a forma como o mundo se conecta, colabora e cria valor para as gerações presentes e futuras.
             </p>
           </div>
@@ -409,15 +409,15 @@ export const AboutTab: React.FC = () => {
         </div>
 
         {/* Card 3: Propósito */}
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 transition-all font-sans">
+        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 dark:hover:border-slate-600 transition-all font-sans">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
               <Heart className="w-5 h-5" strokeWidth={2.2} />
             </div>
-            <h3 className="text-base font-bold text-slate-900 font-sans">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
               Propósito
             </h3>
-            <p className="text-xs sm:text-[12.5px] text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-[12.5px] text-slate-600 dark:text-slate-400 leading-relaxed">
               Conectar o mundo com significado, promovendo o bem comum, a inovação e o desenvolvimento sustentável de cada território.
             </p>
           </div>
@@ -426,45 +426,45 @@ export const AboutTab: React.FC = () => {
         </div>
 
         {/* Card 4: Valores */}
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 transition-all font-sans">
+        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 dark:hover:border-slate-600 transition-all font-sans">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
               <Gem className="w-5 h-5" strokeWidth={2.2} />
             </div>
-            <h3 className="text-base font-bold text-slate-900 font-sans">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
               Valores
             </h3>
 
             {/* List of 5 Values with Orange Checkmarks */}
-            <div className="space-y-2 text-xs sm:text-[11.5px] text-slate-600 font-sans">
+            <div className="space-y-2 text-xs sm:text-[11.5px] text-slate-600 dark:text-slate-400 font-sans">
               <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-900 font-semibold">Colaboração:</strong> Acreditamos no poder de trabalhar juntos.
+                  <strong className="text-slate-900 dark:text-slate-50 font-semibold">Colaboração:</strong> Acreditamos no poder de trabalhar juntos.
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-900 font-semibold">Transparência:</strong> Agimos com integridade e clareza.
+                  <strong className="text-slate-900 dark:text-slate-50 font-semibold">Transparência:</strong> Agimos com integridade e clareza.
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-900 font-semibold">Inovação:</strong> Criamos soluções para um mundo em constante mudança.
+                  <strong className="text-slate-900 dark:text-slate-50 font-semibold">Inovação:</strong> Criamos soluções para um mundo em constante mudança.
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-900 font-semibold">Sustentabilidade:</strong> Promovemos um impacto positivo e duradouro.
+                  <strong className="text-slate-900 dark:text-slate-50 font-semibold">Sustentabilidade:</strong> Promovemos um impacto positivo e duradouro.
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-900 font-semibold">Inclusão:</strong> Valorizamos a diversidade e a igualdade de oportunidades.
+                  <strong className="text-slate-900 dark:text-slate-50 font-semibold">Inclusão:</strong> Valorizamos a diversidade e a igualdade de oportunidades.
                 </span>
               </div>
             </div>
@@ -477,83 +477,83 @@ export const AboutTab: React.FC = () => {
       {/* Row 3: Os nossos objetivos estratégicos & Certificações e conformidade */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 font-sans">
         {/* Left: Os nossos objetivos estratégicos (7 Cols) */}
-        <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 p-6 shadow-2xs flex flex-col justify-between font-sans">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-2xs flex flex-col justify-between font-sans">
           <div>
-            <h3 className="text-base font-bold text-slate-900 font-sans mb-4">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans mb-4">
               Os nossos objetivos estratégicos
             </h3>
 
             {/* 4 Objective Blocks */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-sans">
               {/* (1) Conectar */}
-              <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-200/70 space-y-2">
-                <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">
+              <div className="p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 space-y-2">
+                <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center justify-center">
                   1
                 </div>
-                <h4 className="text-xs font-bold text-slate-900 font-sans">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Conectar
                 </h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Integrar pessoas, dados e territórios numa plataforma global e interoperável.
                 </p>
               </div>
 
               {/* (2) Empoderar */}
-              <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-200/70 space-y-2">
-                <div className="w-6 h-6 rounded-full bg-blue-100 text-[#1455AC] text-xs font-bold flex items-center justify-center">
+              <div className="p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 space-y-2">
+                <div className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-500/20 text-[#1455AC] text-xs font-bold flex items-center justify-center">
                   2
                 </div>
-                <h4 className="text-xs font-bold text-slate-900 font-sans">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Empoderar
                 </h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Fornecer ferramentas inteligentes para cidadãos, negócios e governos.
                 </p>
               </div>
 
               {/* (3) Transformar */}
-              <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-200/70 space-y-2">
-                <div className="w-6 h-6 rounded-full bg-purple-100 text-purple-700 text-xs font-bold flex items-center justify-center">
+              <div className="p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 space-y-2">
+                <div className="w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 text-xs font-bold flex items-center justify-center">
                   3
                 </div>
-                <h4 className="text-xs font-bold text-slate-900 font-sans">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Transformar
                 </h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Impulsionar a inovação e a digitalização para resolver desafios reais.
                 </p>
               </div>
 
               {/* (4) Gerar Impacto */}
-              <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-200/70 space-y-2">
-                <div className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center">
+              <div className="p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 space-y-2">
+                <div className="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold flex items-center justify-center">
                   4
                 </div>
-                <h4 className="text-xs font-bold text-slate-900 font-sans">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">
                   Gerar Impacto
                 </h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Promover desenvolvimento sustentável e qualidade de vida em escala global.
                 </p>
               </div>
             </div>
           </div>
 
-          <p className="text-[11px] text-slate-400 mt-4 pt-3 border-t border-slate-100">
+          <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
             Metas monitorizadas no âmbito da Agenda de Desenvolvimento 2030 das Nações Unidas.
           </p>
         </div>
 
         {/* Right: Certificações e conformidade (5 Cols) */}
-        <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200 p-6 shadow-2xs flex flex-col justify-between font-sans">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-2xs flex flex-col justify-between font-sans">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <ShieldCheck className="w-5 h-5 text-[#1455AC]" />
-              <h3 className="text-base font-bold text-slate-900 font-sans">
+              <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Certificações e conformidade
               </h3>
             </div>
-            <p className="text-xs text-slate-500 mb-4">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
               A VILA segue os mais altos padrões de segurança, privacidade e conformidade.
             </p>
 
@@ -563,17 +563,17 @@ export const AboutTab: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSelectedCert(certifications[0])}
-                className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group font-sans"
+                className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50/60 dark:hover:bg-blue-500/10 border border-slate-200/80 dark:border-slate-700/80 hover:border-blue-200 dark:hover:border-blue-800/40 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group font-sans"
                 title="Clique para ver o certificado ISO 27001"
               >
-                <div className="w-8 h-8 rounded-full bg-blue-100 text-[#1455AC] flex items-center justify-center group-hover:scale-105 transition-transform">
+                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-500/20 text-[#1455AC] flex items-center justify-center group-hover:scale-105 transition-transform">
                   <Lock className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-900 leading-tight">
+                  <p className="text-xs font-bold text-slate-900 dark:text-slate-50 leading-tight">
                     ISO 27001
                   </p>
-                  <p className="text-[10px] text-slate-500 leading-tight">
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                     Segurança da Informação
                   </p>
                 </div>
@@ -583,17 +583,17 @@ export const AboutTab: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSelectedCert(certifications[1])}
-                className="p-3 rounded-xl bg-slate-50 hover:bg-amber-50/60 border border-slate-200/80 hover:border-amber-200 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group"
+                className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-amber-50/60 dark:hover:bg-amber-500/10 border border-slate-200/80 dark:border-slate-700/80 hover:border-amber-200 dark:hover:border-amber-800/40 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group"
                 title="Clique para ver detalhes de conformidade RGPD"
               >
-                <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 flex items-center justify-center group-hover:scale-105 transition-transform">
                   <Award className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#0F172A] leading-tight">
+                  <p className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight">
                     Conformidade
                   </p>
-                  <p className="text-[10px] text-slate-500 leading-tight">
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                     Proteção de Dados
                   </p>
                 </div>
@@ -603,17 +603,17 @@ export const AboutTab: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSelectedCert(certifications[2])}
-                className="p-3 rounded-xl bg-slate-50 hover:bg-purple-50/60 border border-slate-200/80 hover:border-purple-200 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group"
+                className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-purple-50/60 dark:hover:bg-purple-500/10 border border-slate-200/80 dark:border-slate-700/80 hover:border-purple-200 dark:hover:border-purple-800/40 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group"
                 title="Clique para ver o relatório SOC 2 Tipo II"
               >
-                <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 flex items-center justify-center group-hover:scale-105 transition-transform">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#0F172A] leading-tight">
+                  <p className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight">
                     Tipo II
                   </p>
-                  <p className="text-[10px] text-slate-500 leading-tight">
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                     Controles de Segurança
                   </p>
                 </div>
@@ -623,17 +623,17 @@ export const AboutTab: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSelectedCert(certifications[3])}
-                className="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50/60 border border-slate-200/80 hover:border-emerald-200 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group"
+                className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50/60 dark:hover:bg-emerald-500/10 border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-200 dark:hover:border-emerald-800/40 text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer group"
                 title="Clique para ver a certificação de Nuvem"
               >
-                <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <div className="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 flex items-center justify-center group-hover:scale-105 transition-transform">
                   <Cloud className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#0F172A] leading-tight">
+                  <p className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight">
                     Segurança
                   </p>
-                  <p className="text-[10px] text-slate-500 leading-tight">
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                     na Nuvem
                   </p>
                 </div>
@@ -641,7 +641,7 @@ export const AboutTab: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-sans">
+          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 font-sans">
             <span>Certificados auditados por entidades externas</span>
             <span className="text-[#1455AC] font-medium hover:underline cursor-pointer font-sans" onClick={() => setSelectedCert(certifications[0])}>
               Ver credenciais
@@ -653,16 +653,16 @@ export const AboutTab: React.FC = () => {
       {/* Row 4: Bottom 2 Banners (Saiba mais & Fale connosco) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans">
         {/* Banner 1: Saiba mais */}
-        <div className="bg-[#F0F6FF] border border-blue-100 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans">
+        <div className="bg-[#F0F6FF] dark:bg-blue-500/10 border border-blue-100 dark:border-blue-900/40 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans">
           <div className="flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-full bg-white text-[#1455AC] flex items-center justify-center shrink-0 shadow-2xs border border-blue-100">
+            <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-900 text-[#1455AC] flex items-center justify-center shrink-0 shadow-2xs border border-blue-100 dark:border-blue-900/40">
               <Info className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 font-sans">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Saiba mais
               </h4>
-              <p className="text-xs text-slate-600 leading-relaxed mt-0.5">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-0.5">
                 Visite o nosso site oficial para conhecer mais sobre a VILA, os nossos projetos e iniciativas.
               </p>
             </div>
@@ -685,16 +685,16 @@ export const AboutTab: React.FC = () => {
         </div>
 
         {/* Banner 2: Fale connosco */}
-        <div className="bg-[#FAF5FF] border border-purple-100 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans">
+        <div className="bg-[#FAF5FF] dark:bg-purple-500/10 border border-purple-100 dark:border-purple-900/40 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans">
           <div className="flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-full bg-white text-purple-600 flex items-center justify-center shrink-0 shadow-2xs border border-purple-100">
+            <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 shadow-2xs border border-purple-100 dark:border-purple-900/40">
               <Mail className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 font-sans">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-sans">
                 Fale connosco
               </h4>
-              <p className="text-xs text-slate-600 leading-relaxed mt-0.5">
+              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-0.5">
                 Tem dúvidas ou sugestões? Estamos aqui para ajudar.
               </p>
             </div>
@@ -717,49 +717,49 @@ export const AboutTab: React.FC = () => {
 
       {/* Certification Details Modal */}
       {selectedCert && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-center justify-center p-4 font-sans">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 animate-in fade-in zoom-in-95 duration-200 font-sans">
-            <div className="flex items-start justify-between pb-4 border-b border-slate-100">
+        <div className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 font-sans">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full p-6 animate-in fade-in zoom-in-95 duration-200 font-sans">
+            <div className="flex items-start justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1455AC] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center">
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 font-sans">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
                     {selectedCert.name}
                   </h3>
-                  <p className="text-xs text-slate-500">{selectedCert.category}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{selectedCert.category}</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedCert(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="py-4 space-y-3.5 text-xs text-slate-600">
+            <div className="py-4 space-y-3.5 text-xs text-slate-600 dark:text-slate-400">
               <p className="leading-relaxed">{selectedCert.description}</p>
 
-              <div className="grid grid-cols-2 gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="grid grid-cols-2 gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80">
                 <div>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold">Emitente / Auditor</p>
-                  <p className="font-semibold text-slate-800">{selectedCert.issuer}</p>
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold">Emitente / Auditor</p>
+                  <p className="font-semibold text-slate-800 dark:text-slate-100">{selectedCert.issuer}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-slate-400 uppercase font-bold">Validade / Estado</p>
-                  <p className="font-semibold text-emerald-600">{selectedCert.validUntil}</p>
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold">Validade / Estado</p>
+                  <p className="font-semibold text-emerald-600 dark:text-emerald-400">{selectedCert.validUntil}</p>
                 </div>
               </div>
 
               <div>
-                <p className="font-bold text-slate-900 mb-1.5">Controlos e Âmbito Auditado:</p>
+                <p className="font-bold text-slate-900 dark:text-slate-50 mb-1.5">Controlos e Âmbito Auditado:</p>
                 <ul className="space-y-1.5">
                   {selectedCert.complianceScope.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                      <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -767,11 +767,11 @@ export const AboutTab: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 flex justify-end gap-2 font-sans">
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-2 font-sans">
               <button
                 type="button"
                 onClick={() => setSelectedCert(null)}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
               >
                 Fechar
               </button>

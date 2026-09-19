@@ -53,7 +53,7 @@ const TOP_METRICS: TopMetric[] = [
   {
     id: 'membros',
     icon: Users,
-    iconBg: 'bg-emerald-50',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-500/10',
     iconColor: 'text-[#10B981]',
     value: '7.842.521',
     label: 'Membros ativos',
@@ -63,7 +63,7 @@ const TOP_METRICS: TopMetric[] = [
   {
     id: 'paises',
     icon: Globe,
-    iconBg: 'bg-blue-50',
+    iconBg: 'bg-blue-50 dark:bg-blue-500/10',
     iconColor: 'text-[#1455AC]',
     value: '195',
     label: 'Países representados',
@@ -73,7 +73,7 @@ const TOP_METRICS: TopMetric[] = [
   {
     id: 'comunidades',
     icon: Handshake,
-    iconBg: 'bg-purple-50',
+    iconBg: 'bg-purple-50 dark:bg-purple-500/10',
     iconColor: 'text-[#8B5CF6]',
     value: '45.230',
     label: 'Comunidades',
@@ -83,7 +83,7 @@ const TOP_METRICS: TopMetric[] = [
   {
     id: 'interacoes',
     icon: Star,
-    iconBg: 'bg-amber-50',
+    iconBg: 'bg-amber-50 dark:bg-amber-500/10',
     iconColor: 'text-[#F59E0B]',
     value: '2.1M',
     label: 'Interações hoje',
@@ -299,15 +299,15 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
   };
 
   return (
-    <div id="comunidade-global-official-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="comunidade-global-official-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Principal (a busca/idioma/notificações/perfil já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6">
         {/* 2. Cabeçalho Principal com Título e Subtítulo */}
         <header className="flex flex-col gap-1.5">
-          <h1 className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight font-sans leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-sans leading-tight">
             Comunidade Global
           </h1>
-          <p className="text-xs sm:text-sm text-[#64748B] max-w-2xl font-normal leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 max-w-2xl font-normal leading-relaxed">
             Conecte-se com pessoas, organizações e comunidades <br className="hidden sm:inline" />
             de todo o mundo. Compartilhe ideias, colabore e gere impacto.
           </p>
@@ -320,7 +320,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             return (
               <div
                 key={metric.id}
-                className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex items-center gap-4 hover:border-slate-300 transition-colors"
+                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex items-center gap-4 hover:border-slate-300 transition-colors"
               >
                 <div
                   className={`w-12 h-12 rounded-2xl ${metric.iconBg} ${metric.iconColor} flex items-center justify-center shrink-0`}
@@ -328,10 +328,10 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                   <Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="text-2xl font-extrabold text-[#0F172A] font-sans tracking-tight leading-none mb-1">
+                  <div className="text-2xl font-extrabold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight leading-none mb-1">
                     {metric.value}
                   </div>
-                  <div className="text-xs font-semibold text-[#64748B] mb-0.5 leading-tight">
+                  <div className="text-xs font-semibold text-[#64748B] dark:text-slate-400 mb-0.5 leading-tight">
                     {metric.label}
                   </div>
                   <div className={`text-[11px] font-bold ${metric.changeColor}`}>
@@ -405,7 +405,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             {/* Seção: Comunidades em destaque (4 Cards com botão Ver todas) */}
             <section id="comunidades-destaque-official" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-sans tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-sans tracking-tight">
                   Comunidades em destaque
                 </h3>
                 <button
@@ -434,10 +434,10 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                             onNavigateToEducacao();
                           }
                         }}
-                        className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                        className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                       >
                         {/* Imagem do Card com Badge */}
-                        <div className="relative h-28 w-full overflow-hidden bg-slate-100">
+                        <div className="relative h-28 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                           <img
                             src={comm.image}
                             alt={comm.name}
@@ -452,7 +452,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
 
                           {/* Ícone Redondo Flutuante */}
                           <div
-                            className={`absolute -bottom-3 left-3 w-7 h-7 rounded-full bg-white border flex items-center justify-center shadow-xs ${comm.iconBorderColor}`}
+                            className={`absolute -bottom-3 left-3 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border flex items-center justify-center shadow-xs ${comm.iconBorderColor}`}
                           >
                             <CardIcon className="w-4 h-4" strokeWidth={2.4} />
                           </div>
@@ -461,35 +461,35 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                         {/* Conteúdo */}
                         <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                           <div>
-                            <h4 className="text-xs font-bold text-[#0F172A] font-sans line-clamp-1 group-hover:text-[#1455AC] transition-colors">
+                            <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-sans line-clamp-1 group-hover:text-[#1455AC] transition-colors">
                               {comm.name}
                             </h4>
-                            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 mb-1.5">
+                            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1.5">
                               <span>{comm.members}</span>
                               <span>•</span>
-                              <span className="flex items-center gap-1 text-emerald-600 font-semibold">
+                              <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
                                 {comm.status}
                               </span>
                             </div>
-                            <p className="text-[11px] text-slate-600 line-clamp-2 leading-tight mb-2.5">
+                            <p className="text-[11px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight mb-2.5">
                               {comm.description}
                             </p>
                           </div>
 
                           {/* Rodapé com Stack de Avatares */}
-                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                             <div className="flex -space-x-1.5 overflow-hidden">
                               {comm.avatars.slice(0, 5).map((av, idx) => (
                                 <img
                                   key={idx}
                                   src={av}
                                   alt="Membro"
-                                  className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white object-cover"
+                                  className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white dark:ring-slate-900 object-cover"
                                 />
                               ))}
                             </div>
-                            <span className="text-[10px] font-bold text-slate-500">
+                            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">
                               {comm.extraAvatars}
                             </span>
                           </div>
@@ -504,7 +504,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                   type="button"
                   onClick={onNavigateToExplorarComunidade || onNavigateToAmbiente}
                   title="Explorar mais comunidades"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
+                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer z-10 transition-transform hover:scale-105"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -533,7 +533,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                       className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                         isActive
                           ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
-                          : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+                          : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800'
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" strokeWidth={2.2} />
@@ -546,7 +546,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
               {/* Botão Filtros */}
               <button
                 type="button"
-                className="relative flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 text-xs font-bold shrink-0 cursor-pointer ml-1"
+                className="relative flex items-center gap-1 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold shrink-0 cursor-pointer ml-1"
               >
                 {/* Gradiente a desvanecer sobre a fita rolável, indicando que há mais conteúdo */}
                 <span
@@ -559,7 +559,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             </div>
 
             {/* Post em Destaque do Feed (Ana Silva - Soluções locais para um impacto global) */}
-            <article className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col gap-3">
+            <article className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col gap-3">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <img
@@ -569,12 +569,12 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                   />
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-bold text-[#0F172A]">Ana Silva</h4>
-                      <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      <h4 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">Ana Silva</h4>
+                      <span className="text-[9.5px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">
                         Verificado
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-500">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500">
                       Membro em Ação Climática Global • Há 2 horas
                     </p>
                   </div>
@@ -582,7 +582,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
 
                 <button
                   type="button"
-                  className="p-1 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50 cursor-pointer"
+                  className="p-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
                 >
                   <MoreHorizontal className="w-4 h-4" />
                 </button>
@@ -591,10 +591,10 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
               {/* Conteúdo Textual do Post + Imagem (miniatura compacta ao lado, não em banner grande) */}
               <div className="flex items-start gap-4">
                 <div className="flex-1 min-w-0">
-                  <h5 className="text-sm font-bold text-[#0F172A] font-sans mb-1">
+                  <h5 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-1">
                     Soluções locais para um impacto global
                   </h5>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                     Partilho convosco uma iniciativa da nossa comunidade que está a transformar resíduos plásticos em material de construção sustentável. Vamos escalar esta solução!
                   </p>
                   {/* Hashtags */}
@@ -606,7 +606,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                 </div>
 
                 {/* Imagem do Post: Jovens plantando mudas na terra */}
-                <div className="w-28 h-20 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-slate-100">
+                <div className="w-28 h-20 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
                     src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&auto=format&fit=crop&q=85"
                     alt="Iniciativa sustentável no terreno"
@@ -617,13 +617,13 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
               </div>
 
               {/* Rodapé de Interações (Like, Comentário, Partilha, Salvar) */}
-              <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs font-semibold text-slate-500">
+              <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500">
                 <div className="flex items-center gap-4">
                   <button
                     type="button"
                     onClick={() => toggleLike('post-1')}
                     className={`flex items-center gap-1.5 transition-colors cursor-pointer ${
-                      likedPosts.has('post-1') ? 'text-rose-600' : 'hover:text-slate-700'
+                      likedPosts.has('post-1') ? 'text-rose-600 dark:text-rose-400' : 'hover:text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     <Heart
@@ -635,7 +635,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
 
                   <button
                     type="button"
-                    className="flex items-center gap-1.5 hover:text-slate-700 transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 hover:text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>56</span>
@@ -643,7 +643,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
 
                   <button
                     type="button"
-                    className="flex items-center gap-1.5 hover:text-slate-700 transition-colors cursor-pointer"
+                    className="flex items-center gap-1.5 hover:text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
                   >
                     <Share2 className="w-4 h-4" />
                     <span>28</span>
@@ -661,7 +661,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                     });
                   }}
                   className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                    savedPosts.has('post-1') ? 'text-[#1455AC] bg-[#1455AC]/10' : 'text-slate-400 hover:text-slate-600'
+                    savedPosts.has('post-1') ? 'text-[#1455AC] bg-[#1455AC]/10 dark:bg-[#1455AC]/20' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'
                   }`}
                   title="Guardar publicação"
                 >
@@ -674,9 +674,9 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
           {/* COLUNA LATERAL DIREITA (lg:col-span-4) */}
           <aside className="lg:col-span-4 flex flex-col gap-4">
             {/* 1. Card: Comunidades em tendência */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                   Comunidades em tendência
                 </h3>
                 <button
@@ -689,9 +689,9 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {[
-                  { rank: 1, name: 'Saúde Mental Global', members: '45.2K membros', growth: '▲ 18%', icon: Brain, bg: 'bg-pink-50', color: 'text-pink-600' },
+                  { rank: 1, name: 'Saúde Mental Global', members: '45.2K membros', growth: '▲ 18%', icon: Brain, bg: 'bg-pink-50 dark:bg-pink-500/10', color: 'text-pink-600' },
                   {
                     rank: 2,
                     name: 'Mulheres que Inspiram',
@@ -722,28 +722,28 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                     bg: 'bg-sky-50',
                     color: 'text-sky-600',
                   },
-                  { rank: 4, name: 'Empreendedorismo Social', members: '28.9K membros', growth: '▲ 10%', icon: Rocket, bg: 'bg-purple-50', color: 'text-purple-600' },
-                  { rank: 5, name: 'Cidades Sustentáveis', members: '26.3K membros', growth: '▲ 9%', icon: Building2, bg: 'bg-emerald-50', color: 'text-emerald-600' },
+                  { rank: 4, name: 'Empreendedorismo Social', members: '28.9K membros', growth: '▲ 10%', icon: Rocket, bg: 'bg-purple-50 dark:bg-purple-500/10', color: 'text-purple-600' },
+                  { rank: 5, name: 'Cidades Sustentáveis', members: '26.3K membros', growth: '▲ 9%', icon: Building2, bg: 'bg-emerald-50 dark:bg-emerald-500/10', color: 'text-emerald-600 dark:text-emerald-400' },
                 ].map((t) => {
                   const Icon = t.icon;
                   return (
                     <div
                       key={t.rank}
                       onClick={onNavigateToExplorarComunidade || onNavigateToAmbiente}
-                      className="py-2.5 flex items-center justify-between gap-2 hover:bg-slate-50/80 px-1 rounded-lg transition-colors cursor-pointer group"
+                      className="py-2.5 flex items-center justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800/80 px-1 rounded-lg transition-colors cursor-pointer group"
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <span className="text-xs font-bold text-slate-400 w-3 shrink-0">
+                        <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-3 shrink-0">
                           {t.rank}
                         </span>
                         <div className={`w-7 h-7 rounded-lg ${t.bg} ${t.color} flex items-center justify-center shrink-0`}>
                           <Icon className="w-4 h-4" strokeWidth={2.2} />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-[#1455AC] transition-colors">
+                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-[#1455AC] transition-colors">
                             {t.name}
                           </h4>
-                          <span className="text-[10.5px] text-slate-500 block truncate">
+                          <span className="text-[10.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 block truncate">
                             {t.members}
                           </span>
                         </div>
@@ -758,9 +758,9 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             </div>
 
             {/* 2. Card: Membros em destaque */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                   Membros em destaque
                 </h3>
                 <button
@@ -771,7 +771,7 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {FEATURED_MEMBERS.map((m) => {
                   const isFollowing = followingMembers.has(m.id);
 
@@ -784,10 +784,10 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                           className="w-8 h-8 rounded-full object-cover ring-1 ring-slate-200 shrink-0"
                         />
                         <div className="min-w-0">
-                          <h4 className="text-xs font-bold text-[#0F172A] truncate">
+                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate">
                             {m.name}
                           </h4>
-                          <p className="text-[10.5px] text-slate-500 truncate">
+                          <p className="text-[10.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 truncate">
                             {m.location} • {m.role}
                           </p>
                         </div>
@@ -798,8 +798,8 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                         onClick={() => toggleFollow(m.id)}
                         className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                           isFollowing
-                            ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                            : 'bg-[#1455AC]/10 text-[#1455AC] hover:bg-[#1455AC] hover:text-white'
+                            ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
+                            : 'bg-[#1455AC]/10 dark:bg-[#1455AC]/20 text-[#1455AC] hover:bg-[#1455AC] hover:text-white'
                         }`}
                       >
                         {isFollowing ? 'A seguir' : 'Seguir'}
@@ -811,9 +811,9 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
             </div>
 
             {/* 3. Card: Próximos eventos da comunidade */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-sans">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-sans">
                   Próximos eventos da comunidade
                 </h3>
                 <button
@@ -825,27 +825,27 @@ export const CommunityOfficialHomeView: React.FC<CommunityOfficialHomeViewProps>
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {COMMUNITY_EVENTS.map((evt) => (
                   <div key={evt.id} className="py-2.5 flex items-center gap-3">
                     {/* Badge de Data com Dia e Mês */}
-                    <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center shrink-0">
                       <span className="text-[9px] font-bold text-rose-500 uppercase leading-none">
                         {evt.month}
                       </span>
-                      <span className="text-sm font-black text-slate-800 leading-none mt-0.5 font-sans">
+                      <span className="text-sm font-black text-slate-800 dark:text-slate-100 leading-none mt-0.5 font-sans">
                         {evt.day}
                       </span>
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-xs font-bold text-[#0F172A] truncate">
+                      <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate">
                         {evt.title}
                       </h4>
-                      <p className="text-[10.5px] text-slate-500 truncate">
+                      <p className="text-[10.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 truncate">
                         {evt.dateTime}
                       </p>
-                      <span className="text-[9.5px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
+                      <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1 mt-0.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                         {evt.location}
                       </span>

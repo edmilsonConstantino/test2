@@ -348,7 +348,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
   };
 
   return (
-    <div id="community-education-view" className="w-full bg-[#F8FAFC] min-h-screen text-[#0F172A] flex flex-col">
+    <div id="community-education-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
       {/* Conteúdo Principal (busca/idioma/notificações/perfil/breadcrumb já vêm do Topbar compartilhado no AppLayout) */}
       <main className="flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-5">
         {/* 2. Cabeçalho de Educação com Ícone, Título, Métricas e Botão Criar Comunidade (mesmo padrão da seção de tecnologia) */}
@@ -360,26 +360,26 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
                 Educação
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B] font-normal leading-snug">
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
                 Aprendizagem para todos. Compartilhe conhecimento, recursos e oportunidades educacionais.
               </p>
 
               {/* Fita de Métricas: Comunidades, Membros e Países */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B]">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-1.5 text-[11.5px] sm:text-xs font-semibold text-[#64748B] dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">1.572</strong> comunidades
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">1.572</strong> comunidades
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">285.620</strong> membros
+                  <Users className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">285.620</strong> membros
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Globe className="w-3.5 h-3.5 text-slate-500" />
-                  <strong className="font-bold text-[#0F172A]">192</strong> países
+                  <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                  <strong className="font-bold text-[#0F172A] dark:text-slate-50">192</strong> países
                 </span>
               </div>
             </div>
@@ -432,10 +432,10 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
                   isActive
                     ? 'bg-[#3730A3] text-white shadow-xs'
-                    : 'bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 hover:text-slate-900'
+                    : 'bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-50'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} strokeWidth={2.2} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} strokeWidth={2.2} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -453,14 +453,14 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                   setIsMaisDropdownOpen(!isMaisDropdownOpen);
                 }
               }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white border border-slate-200/90 text-[#334155] hover:bg-slate-50 whitespace-nowrap cursor-pointer shadow-2xs"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700 text-[#334155] dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 whitespace-nowrap cursor-pointer shadow-2xs"
             >
-              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
+              <MoreHorizontal className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
               <span>Mais</span>
             </button>
 
             {isMaisDropdownOpen && (
-              <div className="absolute left-0 mt-1 w-52 bg-white border border-slate-200 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
+              <div className="absolute left-0 mt-1 w-52 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl py-1.5 z-40 text-xs font-medium">
                 {[
                   'Turismo',
                   'Desporto',
@@ -482,7 +482,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                         onNavigateToTab('mais');
                       }
                     }}
-                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 text-slate-700 flex items-center justify-between cursor-pointer"
+                    className="w-full px-3.5 py-1.5 text-left hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-between cursor-pointer"
                   >
                     <span>{extra}</span>
                   </button>
@@ -497,11 +497,11 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
           {/* COLUNA ESQUERDA: Filtros (lg:col-span-2) */}
           <aside
             id="filtros-educacao-sidebar"
-            className="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-4"
+            className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-4"
           >
-            <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-              <span className="text-sm font-bold text-[#0F172A] flex items-center gap-1.5">
-                <Filter className="w-3.5 h-3.5 text-slate-500" />
+            <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-sm font-bold text-[#0F172A] dark:text-slate-50 flex items-center gap-1.5">
+                <Filter className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
                 Filtros
               </span>
               <button
@@ -515,7 +515,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
 
             {/* Grupo 1: Tipo de comunidade (Radio) */}
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold text-[#0F172A]">Tipo de comunidade</span>
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Tipo de comunidade</span>
               <div className="flex flex-col gap-1.5">
                 {[
                   'Todas',
@@ -532,7 +532,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                   return (
                     <label
                       key={type}
-                      className="flex items-center gap-2 text-[11.5px] text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2 text-[11.5px] text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="radio"
@@ -545,7 +545,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                         className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#3D4ED8] bg-[#3D4ED8]'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -558,8 +558,8 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             </div>
 
             {/* Grupo 2: Nível Educacional (Checkboxes) */}
-            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100">
-              <span className="text-xs font-bold text-[#0F172A]">Nível Educacional</span>
+            <div className="flex flex-col gap-2 pt-1 border-t border-slate-100 dark:border-slate-800">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Nível Educacional</span>
               <div className="flex flex-col gap-1.5">
                 {[
                   'Educação Infantil',
@@ -573,7 +573,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                   return (
                     <label
                       key={level}
-                      className="flex items-center gap-2 text-[11.5px] text-[#334155] hover:text-slate-900 cursor-pointer select-none"
+                      className="flex items-center gap-2 text-[11.5px] text-[#334155] dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer select-none"
                     >
                       <input
                         type="checkbox"
@@ -585,7 +585,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                         className={`w-3.5 h-3.5 rounded border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'border-[#3D4ED8] bg-[#3D4ED8] text-white'
-                            : 'border-slate-300 bg-white hover:border-slate-400'
+                            : 'border-slate-300 bg-white dark:bg-slate-800 hover:border-slate-400'
                         }`}
                       >
                         {isChecked && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -598,19 +598,19 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             </div>
 
             {/* Grupo 3: Idioma (Dropdown) */}
-            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 relative">
-              <span className="text-xs font-bold text-[#0F172A]">Idioma</span>
+            <div className="flex flex-col gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-800 relative">
+              <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50">Idioma</span>
               <button
                 type="button"
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 bg-[#F8FAFC] border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-[#F8FAFC] dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <span className="truncate">{languageFilter}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-1 z-20 text-xs font-medium">
                   {['Qualquer idioma', 'Português', 'Inglês', 'Espanhol', 'Francês'].map((lang) => (
                     <button
                       key={lang}
@@ -619,7 +619,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                         setLanguageFilter(lang);
                         setIsLanguageOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 flex items-center justify-between text-slate-700"
+                      className="w-full text-left px-3 py-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between text-slate-700 dark:text-slate-300"
                     >
                       <span>{lang}</span>
                       {languageFilter === lang && <Check className="w-3 h-3 text-blue-600" />}
@@ -676,7 +676,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                           setSelectedCommunityModal(TRENDING_EDUCATION_COMMUNITIES[0]);
                         }
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-[#0F172A] text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-[#0F172A] dark:text-slate-50 text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer"
                     >
                       <span>Juntar-se a uma comunidade</span>
                       <ArrowRight className="w-4 h-4 stroke-[2.4]" />
@@ -716,7 +716,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             {/* Seção: Comunidades em tendência na Educação (5 Cards) */}
             <section id="comunidades-tendencia-educacao-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Comunidades em tendência na Educação
                 </h3>
                 <button
@@ -736,10 +736,10 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                     <article
                       key={comm.id}
                       onClick={() => setSelectedCommunityModal(comm)}
-                      className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                     >
                       {/* Imagem do Card com Badge Numérica 1, 2, 3... */}
-                      <div className="relative h-24 w-full overflow-hidden bg-slate-100">
+                      <div className="relative h-24 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                         <img
                           src={comm.image}
                           alt={comm.name}
@@ -754,18 +754,18 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                       {/* Informações do Card */}
                       <div className="p-2.5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-[11.5px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
+                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
                             {comm.name}
                           </h4>
-                          <p className="text-[9.5px] text-slate-500 mb-1">{comm.membersCount}</p>
-                          <p className="text-[10px] text-slate-600 line-clamp-2 leading-tight mb-2">
+                          <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{comm.membersCount}</p>
+                          <p className="text-[10px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight mb-2">
                             {comm.description}
                           </p>
                         </div>
 
                         {/* Tag e Percentual de Crescimento */}
-                        <div className="pt-2 border-t border-slate-100 flex flex-col gap-1">
-                          <span className="text-[9px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded truncate self-start">
+                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-1">
+                          <span className="text-[9px] font-bold text-blue-700 bg-blue-50 dark:bg-blue-500/10 px-2 py-0.5 rounded truncate self-start">
                             {comm.tag}
                           </span>
                           <span className="text-[10px] font-bold text-[#10B981]">{comm.growth}</span>
@@ -778,7 +778,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                 <button
                   type="button"
                   title="Avançar"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer z-10 transition-transform hover:scale-105"
+                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
@@ -788,7 +788,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             {/* Seção: Recursos em destaque (5 Cards) */}
             <section id="recursos-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
                   Recursos em destaque
                 </h3>
                 <button
@@ -806,10 +806,10 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                   <article
                     key={res.id}
                     onClick={() => setSelectedResourceModal(res)}
-                    className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
+                    className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 overflow-hidden shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col cursor-pointer group"
                   >
                     {/* Imagem do Recurso com Badge */}
-                    <div className="relative h-24 w-full overflow-hidden bg-slate-100">
+                    <div className="relative h-24 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                       <img
                         src={res.image}
                         alt={res.title}
@@ -826,21 +826,21 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                     {/* Informações */}
                     <div className="p-2.5 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-[11.5px] font-bold text-[#0F172A] font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
                           {res.title}
                         </h4>
-                        <p className="text-[9.5px] text-slate-500 mb-1">{res.subtitle}</p>
-                        <p className="text-[10px] text-slate-600 line-clamp-2 leading-tight">
+                        <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{res.subtitle}</p>
+                        <p className="text-[10px] text-slate-600 dark:text-slate-400 dark:text-slate-500 line-clamp-2 leading-tight">
                           {res.description}
                         </p>
                       </div>
 
                       {/* Rodapé */}
-                      <div className="mt-2 pt-1.5 border-t border-slate-100 flex items-center justify-between text-[10px]">
-                        <span className="text-slate-500 font-medium">{res.meta}</span>
+                      <div className="mt-2 pt-1.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px]">
+                        <span className="text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">{res.meta}</span>
                         <span
                           className={`font-bold ${
-                            res.isActionLink ? 'text-blue-600 hover:underline' : 'text-emerald-600'
+                            res.isActionLink ? 'text-blue-600 hover:underline' : 'text-emerald-600 dark:text-emerald-400'
                           }`}
                         >
                           {res.actionText}
@@ -856,9 +856,9 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
           {/* COLUNA DIREITA: Card Comunidades em tendência (Educação) no Topo + Atividades + CTA (lg:col-span-3) */}
           <aside id="right-sidebar-educacao" className="lg:col-span-3 flex flex-col gap-4">
         {/* 1. Card: Comunidades em tendência (Educação) */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs flex flex-col gap-4">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col gap-4">
           <div className="flex items-center justify-between pb-1">
-            <h3 className="text-sm font-bold text-[#0F172A] font-['Outfit']">
+            <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
               Comunidades em tendência (Educação)
             </h3>
             <button
@@ -878,10 +878,10 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             {TRENDING_RIGHT_ITEMS.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between gap-3 p-1 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer group"
+                className="flex items-center justify-between gap-3 p-1 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="w-4 text-xs font-semibold text-slate-400 text-center shrink-0">
+                  <span className="w-4 text-xs font-semibold text-slate-400 dark:text-slate-500 text-center shrink-0">
                     {item.rank}
                   </span>
                   <div className={`w-9 h-9 rounded-full ${item.bg} ${item.color} flex items-center justify-center shrink-0 shadow-2xs`}>
@@ -892,15 +892,15 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                     {item.iconType === 'stem' && <Atom className="w-4 h-4 stroke-[2.2]" />}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h4 className="text-xs font-bold text-[#0F172A] truncate group-hover:text-blue-600 transition-colors">
+                    <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 truncate group-hover:text-blue-600 transition-colors">
                       {item.name}
                     </h4>
-                    <span className="text-[11px] text-slate-400 block truncate font-normal">
+                    <span className="text-[11px] text-slate-400 dark:text-slate-500 block truncate font-normal">
                       {item.members}
                     </span>
                   </div>
                 </div>
-                <span className="text-xs font-bold text-emerald-600 shrink-0 flex items-center gap-0.5">
+                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 shrink-0 flex items-center gap-0.5">
                   {item.growth}
                 </span>
               </div>
@@ -909,9 +909,9 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
         </div>
 
             {/* 2. Card: Atividades recentes (Educação) */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-2xs flex flex-col gap-3">
-              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                <h3 className="text-xs font-bold text-[#0F172A] font-['Outfit']">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
                   Atividades recentes (Educação)
                 </h3>
                 <button
@@ -923,7 +923,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                 </button>
               </div>
 
-              <div className="flex flex-col divide-y divide-slate-100">
+              <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-700">
                 {RECENT_EDUCATION_ACTIVITIES.map((act) => (
                   <div key={act.id} className="py-2.5 flex items-start gap-2.5">
                     <img
@@ -932,12 +932,12 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                       className="w-7 h-7 rounded-full object-cover ring-1 ring-slate-200 shrink-0 mt-0.5"
                     />
                     <div className="min-w-0 flex-1 text-[11px] leading-tight">
-                      <p className="text-slate-700">
-                        <strong className="font-bold text-[#0F172A]">{act.user}</strong>{' '}
+                      <p className="text-slate-700 dark:text-slate-300">
+                        <strong className="font-bold text-[#0F172A] dark:text-slate-50">{act.user}</strong>{' '}
                         {act.action}{' '}
-                        <strong className="font-bold text-[#0F172A]">{act.target}</strong>
+                        <strong className="font-bold text-[#0F172A] dark:text-slate-50">{act.target}</strong>
                       </p>
-                      <span className="text-[9.5px] text-slate-400 block mt-0.5">
+                      <span className="text-[9.5px] text-slate-400 dark:text-slate-500 block mt-0.5">
                         {act.timeAgo}
                       </span>
                     </div>
@@ -966,7 +966,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsCreateModalOpen(true)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-[#4338CA] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-[#4338CA] text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
                 >
                   <span>Criar Comunidade</span>
                   <Plus className="w-3.5 h-3.5 stroke-[2.8]" />
@@ -999,11 +999,11 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
       {/* Modal Criar Comunidade Educacional */}
       {isCreateModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 relative flex flex-col gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full p-6 relative flex flex-col gap-4">
             <button
               type="button"
               onClick={() => setIsCreateModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:text-slate-300 w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1013,10 +1013,10 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                 <GraduationCap className="w-6 h-6 stroke-[2.2]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                   Criar Comunidade Educacional
                 </h3>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
                   Conecte educadores, estudantes e compartilhe conhecimento transformador.
                 </p>
               </div>
@@ -1031,21 +1031,21 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
               className="flex flex-col gap-3.5 mt-1"
             >
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   Nome da Comunidade *
                 </label>
                 <input
                   type="text"
                   required
                   placeholder="Ex: Robótica para Jovens"
-                  className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none"
+                  className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Tipo</label>
-                  <select className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:border-indigo-500 outline-none">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Tipo</label>
+                  <select className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-indigo-500 outline-none">
                     <option>Cursos e Formação</option>
                     <option>Grupos de Estudo</option>
                     <option>Escolas e Universidades</option>
@@ -1053,8 +1053,8 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Nível</label>
-                  <select className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:border-indigo-500 outline-none">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Nível</label>
+                  <select className="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-indigo-500 outline-none">
                     <option>Ensino Médio</option>
                     <option>Ensino Superior</option>
                     <option>Educação Contínua</option>
@@ -1064,21 +1064,21 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   Missão e Atividades
                 </label>
                 <textarea
                   rows={3}
                   placeholder="Descreva o propósito da comunidade, tópicos de estudo e frequência dos encontros..."
-                  className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none resize-none"
+                  className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none resize-none"
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+              <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => setIsCreateModalOpen(false)}
-                  className="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                  className="px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>
@@ -1097,11 +1097,11 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
       {/* Modal Detalhes da Comunidade */}
       {selectedCommunityModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-lg w-full overflow-hidden relative flex flex-col">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-lg w-full overflow-hidden relative flex flex-col">
             <button
               type="button"
               onClick={() => setSelectedCommunityModal(null)}
-              className="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white text-slate-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors cursor-pointer"
+              className="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1121,13 +1121,13 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
             <div className="p-6 flex flex-col gap-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
                     {selectedCommunityModal.name}
                   </h3>
-                  <p className="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center gap-2 mt-0.5">
                     <span>{selectedCommunityModal.membersCount}</span>
                     <span>•</span>
-                    <span className="text-emerald-700 font-bold">{selectedCommunityModal.growth}</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-bold">{selectedCommunityModal.growth}</span>
                   </p>
                 </div>
 
@@ -1144,7 +1144,7 @@ export const CommunityEducationView: React.FC<CommunityEducationViewProps> = ({
                 </button>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                 {selectedCommunityModal.description} Uma rede internacional de educadores e alunos promovendo a troca contínua de metodologias e materiais didáticos abertos.
               </p>
             </div>

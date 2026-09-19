@@ -10,7 +10,6 @@ import {
   Calendar as CalendarIcon,
   ChevronDown,
   ArrowRight,
-  Sparkles,
   TrendingUp,
   Globe2,
   Compass,
@@ -630,7 +629,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#0F172A] text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-700 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
+          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
