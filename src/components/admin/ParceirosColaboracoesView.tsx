@@ -1308,7 +1308,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 pb-2">
+                  <tr className="text-[10px] uppercase font-bold text-slate-400 border-b border-slate-200/70 pb-2">
                     <th className="pb-2">Projeto</th>
                     <th className="pb-2">Parceiros Principais</th>
                     <th className="pb-2 text-center">Países</th>
@@ -1316,7 +1316,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                     <th className="pb-2 text-right">Impacto</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-slate-200/70 text-xs">
                   {projetosEmParceria.map((proj) => (
                     <tr
                       key={proj.id}
@@ -1431,7 +1431,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 pb-2">
+                  <tr className="text-[10px] uppercase font-bold text-slate-400 border-b border-slate-200/70 pb-2">
                     <th className="pb-2">Acordo</th>
                     <th className="pb-2">Parceiros</th>
                     <th className="pb-2">Área</th>
@@ -1439,7 +1439,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                     <th className="pb-2 text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-slate-200/70 text-xs">
                   {acordosRecentes.map((ac) => (
                     <tr
                       key={ac.id}
@@ -1622,7 +1622,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
               </p>
             </div>
 
-            <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-100">
+            <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => setSelectedPartnerModal(null)}
@@ -1786,7 +1786,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                 </select>
               </div>
 
-              <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-100">
+              <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200/70">
                 <button
                   type="button"
                   onClick={() => setIsFilterModalOpen(false)}

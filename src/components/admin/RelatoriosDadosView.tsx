@@ -636,7 +636,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       )}
 
       {/* 1. Header do Módulo com Identidade VILA */}
-      <div className="bg-white border border-slate-100 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
             <SlidersHorizontal className="w-6 h-6" />
@@ -701,7 +701,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 3. LINHA 2: 3 Cards (Dados por Categoria, Cobertura Territorial, Evolução de Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Coluna 1: Dados por Categoria (Donut Chart) - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Dados por Categoria</h3>
 
@@ -762,7 +762,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 2: Cobertura de Dados por Território (Mapa Vetorial) - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Cobertura de Dados por Território</h3>
 
@@ -830,7 +830,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 3: Evolução de Dados (Gráfico de Linhas) - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-[#0F172A]">Evolução de Dados</h3>
@@ -1025,7 +1025,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 4. LINHA 3: 3 Cards (Relatórios em Destaque, Fontes de Dados Ativas, Qualidade dos Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Card 1: Relatórios em Destaque - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Relatórios em Destaque</h3>
 
@@ -1083,14 +1083,14 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 2: Fontes de Dados Ativas - 5 cols */}
-        <div className="lg:col-span-5 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Fontes de Dados Ativas</h3>
 
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-[10px] font-semibold text-slate-400 border-b border-slate-100">
+                  <tr className="text-[10px] font-semibold text-slate-400 border-b border-slate-200/70">
                     <th className="pb-2">Fonte</th>
                     <th className="pb-2">Tipo</th>
                     <th className="pb-2">Atualização</th>
@@ -1136,7 +1136,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 3: Qualidade dos Dados - 3 cols */}
-        <div className="lg:col-span-3 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Qualidade dos Dados</h3>
 
@@ -1197,7 +1197,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 5. LINHA 4: 4 Colunas (Dados por Dimensão, Explorar Dados, Relatórios Agendados, Alertas e Notificações) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Coluna 1: Dados por Dimensão */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Dados por Dimensão</h3>
 
@@ -1231,7 +1231,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 2: Explorar Dados (2x2 Cards) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Explorar Dados</h3>
 
@@ -1266,7 +1266,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 3: Relatórios Agendados (com Toggle Switches) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Relatórios Agendados</h3>
 
@@ -1309,7 +1309,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Coluna 4: Alertas e Notificações de Dados */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Alertas e Notificações de Dados</h3>
 
@@ -1352,7 +1352,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       {/* 6. LINHA 5: 3 Cards (Tendências de Utilização, Top Datasets, Impacto dos Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Card 1: Tendências de Utilização de Dados - 5 cols */}
-        <div className="lg:col-span-5 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-[#0F172A]">Tendências de Utilização de Dados</h3>
@@ -1502,7 +1502,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 2: Top Datasets Mais Utilizados - 3 cols */}
-        <div className="lg:col-span-3 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Top Datasets Mais Utilizados</h3>
 
@@ -1535,7 +1535,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
         </div>
 
         {/* Card 3: Impacto dos Dados - 4 cols */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Impacto dos Dados</h3>
 

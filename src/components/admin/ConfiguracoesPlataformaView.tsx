@@ -141,7 +141,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
               </div>
             </div>
 
-            <div className="divide-y divide-slate-100 my-4 border-y border-slate-100">
+            <div className="divide-y divide-slate-200/70 my-4 border-y border-slate-100">
               {selectedSettingModal.details.map((item, idx) => (
                 <div key={idx} className="py-2.5 flex items-center justify-between text-xs">
                   <span className="text-slate-500 font-medium">{item.label}</span>
@@ -225,7 +225,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       )}
 
       {/* 1. Header do Módulo com Identidade VILA */}
-      <div className="bg-white border border-slate-100 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
             <Settings className="w-6 h-6" />
@@ -278,7 +278,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 2. LINHA 1 (4 Cards): Organização, Governança Territorial, Governança da Rede, VILA AI */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1: Informações da Organização */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
@@ -302,7 +302,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
 
             {/* Key Values */}
-            <div className="space-y-2 mt-3 text-xs border-t border-slate-100 pt-3">
+            <div className="space-y-2 mt-3 text-xs border-t border-slate-200/70 pt-3">
               <div className="flex items-center justify-between">
                 <span className="text-slate-500">Plano Atual</span>
                 <span className="px-2 py-0.5 rounded-full text-[10.5px] font-bold bg-purple-50 text-purple-700 border border-purple-100">
@@ -324,7 +324,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir perfil da organização VILA Global')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -336,7 +336,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 2: Governança Territorial */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
@@ -371,7 +371,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('territorios-paises')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -383,7 +383,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 3: Governança da Rede */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
@@ -418,7 +418,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('gestao-utilizadores')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -430,7 +430,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 4: VILA AI */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
@@ -485,7 +485,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A carregar centro de controlo do VILA AI')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -500,7 +500,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 3. LINHA 2 (4 Cards): Segurança e Acesso, Integrações, Dados e Open Data, Parceiros */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 5: Segurança e Acesso */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
@@ -545,7 +545,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir painel completo de segurança')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -557,7 +557,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 6: Integrações e Conectores */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
@@ -592,7 +592,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A gerir integrações e webhooks')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -604,7 +604,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 7: Dados e Open Data */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
@@ -649,7 +649,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('relatorios-dados')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -661,7 +661,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 8: Parceiros e Ecossistema */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
@@ -706,7 +706,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('gestao-parceiros')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -721,7 +721,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 4. LINHA 3 (4 Cards): Notificações, Dados e Privacidade, Marca e Identidade, Atividade */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 9: Notificações e Comunicações */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-amber-50 flex items-center justify-center text-amber-600">
@@ -780,7 +780,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir preferências de notificação')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -792,7 +792,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 10: Dados e Privacidade */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
@@ -836,7 +836,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A gerir políticas de RGPD e retenção de dados')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -848,7 +848,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 11: Marca e Identidade */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
@@ -892,7 +892,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir editor de identidade visual')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -904,7 +904,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 12: Atividade da Plataforma */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
@@ -954,7 +954,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('relatorios-dados')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -969,7 +969,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
       {/* 5. LINHA 4 (4 Cards): Backups, Permissões, APIs & Desenvolvimento, Sistema */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 13: Backups e Recuperação */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600">
@@ -1006,7 +1006,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir consola de backups e snapshots')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1018,7 +1018,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 14: Gestão de Permissões */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
@@ -1050,7 +1050,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => onNavigateToTab('gestao-utilizadores')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1062,7 +1062,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 15: APIs e Desenvolvimento */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
@@ -1110,7 +1110,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir consola de desenvolvedores e chaves')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"
@@ -1122,7 +1122,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
         </div>
 
         {/* Card 16: Sistema e Plataforma */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between hover:border-slate-200 transition-all">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
@@ -1160,7 +1160,7 @@ export const ConfiguracoesPlataformaView: React.FC<ConfiguracoesPlataformaViewPr
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 mt-4 flex justify-end">
+          <div className="pt-4 border-t border-slate-200/70 mt-4 flex justify-end">
             <button
               onClick={() => showToast('A abrir definições globais do sistema')}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 group cursor-pointer"

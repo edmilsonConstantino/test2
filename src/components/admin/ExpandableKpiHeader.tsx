@@ -110,7 +110,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
             )}
 
             {/* Rodapé: link compacto */}
-            <div className="pt-1.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+            <div className="pt-1.5 mt-2 border-t border-slate-200/70 flex items-center justify-between">
               <span className="text-[10.5px] font-semibold text-[#5B21B6] group-hover:text-purple-800 inline-flex items-center gap-1 transition-colors cursor-pointer group-hover:underline">
                 <span>{kpi.actionText || 'Ver detalhes'}</span>
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />

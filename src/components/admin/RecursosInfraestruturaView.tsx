@@ -208,7 +208,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5 animate-in fade-in duration-200">
       {/* 1. Header do Módulo com Identidade VILA */}
-      <div className="bg-white border border-slate-100 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-start sm:items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/80 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
             <SlidersHorizontal className="w-6 h-6" />
@@ -272,7 +272,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 3. LINHA 2: 3 Cards de Infraestrutura (Territorial, Digital VILA, VILA AI) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Card 1: Infraestrutura Territorial */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A]">Infraestrutura Territorial</h2>
             <p className="text-xs text-slate-500 mt-0.5">A rede territorial que a VILA suporta</p>
@@ -332,7 +332,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Card 2: Infraestrutura Digital VILA */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A]">Infraestrutura Digital VILA</h2>
             <p className="text-xs text-slate-500 mt-0.5">Portais, instâncias e aplicações ativas na rede</p>
@@ -392,7 +392,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Card 3: Infraestrutura IA (VILA AI) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A]">Infraestrutura IA (VILA AI)</h2>
             <p className="text-xs text-slate-500 mt-0.5">Inteligência Artificial ao serviço dos territórios</p>
@@ -455,7 +455,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 4. LINHA 3: Utilização de Recursos, Pirâmide da Rede e Centros de Dados */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Coluna 1: Utilização de Recursos (4 Gauges radiais) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-[#0F172A]">Utilização de Recursos</h3>
             <div className="inline-flex items-center gap-1 px-2 py-1 rounded-lg border border-slate-200 text-[11px] text-slate-600 font-medium cursor-pointer hover:bg-slate-50">
@@ -577,7 +577,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 2: Infraestrutura por Camada da Rede VILA (Pirâmide estilizada) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <h3 className="text-sm font-bold text-[#0F172A]">Infraestrutura por Camada da Rede VILA</h3>
 
           <div className="flex items-center justify-between gap-4 my-auto py-2">
@@ -658,13 +658,13 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 3: Centros de Dados */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <h3 className="text-sm font-bold text-[#0F172A]">Centros de Dados</h3>
 
           <div className="overflow-x-auto my-auto py-1">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="text-[11px] font-semibold text-slate-400 border-b border-slate-100">
+                <tr className="text-[11px] font-semibold text-slate-400 border-b border-slate-200/70">
                   <th className="pb-2">Centro de Dados</th>
                   <th className="pb-2">Localização</th>
                   <th className="pb-2 text-center">Estado</th>
@@ -709,13 +709,13 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 5. LINHA 4: 4 Colunas (Serviços e Sistemas, Integrações, Segurança, Tipos de Recursos) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Coluna 1: Serviços e Sistemas */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Serviços e Sistemas</h3>
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-[10px] font-semibold text-slate-400 border-b border-slate-100">
+                  <tr className="text-[10px] font-semibold text-slate-400 border-b border-slate-200/70">
                     <th className="pb-1.5">Serviço</th>
                     <th className="pb-1.5 text-center">Status</th>
                     <th className="pb-1.5 text-right">Disponibilidade</th>
@@ -756,7 +756,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 2: Integrações Ativas */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Integrações Ativas</h3>
             <div className="space-y-2.5 mt-3 text-xs">
@@ -789,7 +789,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 3: Segurança da Plataforma */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Segurança da Plataforma</h3>
             <div className="space-y-3 mt-3 text-xs">
@@ -847,7 +847,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 4: Tipos de Recursos (Donut & Legenda) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h3 className="text-sm font-bold text-[#0F172A]">Tipos de Recursos</h3>
 
@@ -902,7 +902,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       {/* 6. LINHA 5: Backups, Incidentes e Sustentabilidade da Rede */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Coluna 1: Backups e Recuperação */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <h3 className="text-sm font-bold text-[#0F172A]">Backups e Recuperação</h3>
 
           <div className="flex items-center justify-between gap-4 my-auto py-3">
@@ -925,7 +925,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="text-base font-bold text-slate-900">27</div>
                 <div className="text-[10px] text-emerald-600 font-medium">↑ 17% vs semana anterior</div>
               </div>
-              <div className="pt-1 border-t border-slate-100">
+              <div className="pt-1 border-t border-slate-200/70">
                 <div className="text-[10px] text-slate-400">Taxa de Sucesso</div>
                 <div className="text-sm font-bold text-emerald-600">100% <span className="text-slate-400 font-normal text-[10px]">(0 falhas)</span></div>
               </div>
@@ -944,7 +944,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 2: Incidentes e Manutenção */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <h3 className="text-sm font-bold text-[#0F172A]">Incidentes e Manutenção</h3>
 
           <div className="grid grid-cols-2 gap-3 my-auto py-2">
@@ -1009,7 +1009,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
         </div>
 
         {/* Coluna 3: Sustentabilidade da Rede */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <h3 className="text-sm font-bold text-[#0F172A]">Sustentabilidade da Rede</h3>
 
           <div className="flex items-center gap-4 my-auto py-2">
@@ -1059,7 +1059,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       </div>
 
       {/* 7. LINHA 6: Capacidade e Crescimento (Full Width) */}
-      <div className="bg-white border border-slate-100 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Gráfico de Evolução Multilinha (7 Colunas) */}
           <div className="lg:col-span-7">
