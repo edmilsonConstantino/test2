@@ -41,7 +41,7 @@ export const GlobalWorldMapHero: React.FC<GlobalWorldMapHeroProps> = ({
   return (
     <div
       id="global-world-map-hero"
-      className={`rounded-3xl bg-[#060C1E] p-6 sm:p-7 lg:p-8 min-h-[380px] flex flex-col justify-between text-white shadow-2xs border border-slate-800/80 relative overflow-hidden select-none group ${className}`}
+      className={`rounded-3xl bg-[#060C1E] p-6 sm:p-7 lg:p-8 min-h-[300px] sm:min-h-[320px] flex flex-col justify-between text-white shadow-2xs border border-slate-800/80 relative overflow-hidden select-none group ${className}`}
     >
       {/* 
         1. Imagem de Satélite Noturna da Terra com Luzes das Cidades (NASA / Suomi NPP)
@@ -144,27 +144,27 @@ export const GlobalWorldMapHero: React.FC<GlobalWorldMapHeroProps> = ({
         - Subtítulo em duas linhas nítidas
         - Botão com gradiente Azul -> Verde Esmeralda e cantos suaves
       */}
-      <div className="relative z-10 max-w-[320px] sm:max-w-[360px] pt-1 font-sans">
-        <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-extrabold text-white leading-[1.18] font-sans tracking-tight">
+      <div className="relative z-10 max-w-[360px] sm:max-w-[400px] lg:max-w-[440px] pt-1 font-sans">
+        <h2 className="text-[26px] sm:text-3xl lg:text-4xl font-extrabold text-white leading-[1.18] font-sans tracking-tight">
           O mundo está
           <br />
           acontecendo agora.
         </h2>
 
-        <p className="text-slate-200/90 text-xs sm:text-[13.5px] mt-2.5 leading-relaxed font-normal font-sans">
+        <p className="text-slate-200/90 text-xs sm:text-sm lg:text-[15px] mt-3 leading-relaxed font-normal font-sans">
           Explore eventos em todo o planeta
           <br />
           em tempo real.
         </p>
 
-        {/* 
+        {/*
           Botão Brand Navy com Acento Orange
         */}
         <div className="mt-5 sm:mt-6">
           <button
             type="button"
             onClick={handleAction}
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-[13px] sm:text-sm font-semibold transition-all shadow-md shadow-black/20 hover:scale-[1.01] active:scale-[0.98] cursor-pointer group"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs sm:text-sm font-semibold transition-all shadow-md shadow-black/20 hover:scale-[1.01] active:scale-[0.98] cursor-pointer group"
           >
             <span>{buttonText}</span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform stroke-[2.3]" />

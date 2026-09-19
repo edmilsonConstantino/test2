@@ -298,8 +298,39 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  const [canScrollFiltersLeft, setCanScrollFiltersLeft] = useState(false);
+  const [canScrollFiltersRight, setCanScrollFiltersRight] = useState(false);
+  const [isMoreFiltersOpen, setIsMoreFiltersOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const calendarDropdownRef = useRef<HTMLDivElement>(null);
+  const filtersScrollRef = useRef<HTMLDivElement>(null);
+  const moreFiltersRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isMoreFiltersOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (moreFiltersRef.current && !moreFiltersRef.current.contains(e.target as Node)) {
+        setIsMoreFiltersOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMoreFiltersOpen]);
+
+  const checkFiltersScroll = useCallback(() => {
+    if (filtersScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = filtersScrollRef.current;
+      setCanScrollFiltersLeft(scrollLeft > 10);
+      setCanScrollFiltersRight(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkFiltersScroll();
+    window.addEventListener('resize', checkFiltersScroll);
+    return () => window.removeEventListener('resize', checkFiltersScroll);
+  }, [checkFiltersScroll]);
 
   useEffect(() => {
     if (!isCalendarOpen) return;
@@ -333,6 +364,26 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
     window.addEventListener('resize', checkScrollButtons);
     return () => window.removeEventListener('resize', checkScrollButtons);
   }, [activeFilter, selectedRegion, checkScrollButtons]);
+
+  // Mini carrossel automático: avança suavemente card a card e volta ao início ao chegar ao fim
+  useEffect(() => {
+    if (isCarouselPaused || filteredEvents.length <= 3) return;
+
+    const interval = setInterval(() => {
+      const el = carouselRef.current;
+      if (!el) return;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      const cardWidth = el.firstElementChild instanceof HTMLElement ? el.firstElementChild.offsetWidth + 16 : clientWidth / 3;
+
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [isCarouselPaused, filteredEvents]);
 
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
@@ -437,38 +488,93 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
             </div>
 
             {/* 2. Linha Horizontal de Filtros em Pílula */}
-            <div
-              id="events-category-filters"
-              className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none select-none font-sans"
-            >
-              {FILTER_PILLS.map((pill) => {
-                const Icon = pill.icon;
-                const isActive = activeFilter === pill.id;
-                return (
-                  <button
-                    key={pill.id}
-                    type="button"
-                    onClick={() => setActiveFilter(pill.id)}
-                    className={`inline-flex items-center gap-2 py-2 px-4 rounded-full text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shrink-0 font-sans ${
-                      isActive
-                        ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
-                        : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-2xs'
-                    }`}
-                  >
-                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                    <span>{pill.label}</span>
-                  </button>
-                );
-              })}
+            <div className="flex items-center gap-2 font-sans">
+              {/* Área rolável das categorias (o botão "Mais" fica fora, sempre visível no fim) */}
+              <div className="relative min-w-0 flex-1">
+                {/* Esmaecimento à esquerda: indica que há categorias escondidas para trás */}
+                {canScrollFiltersLeft && (
+                  <div className="absolute left-0 top-0 bottom-1 w-8 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+                )}
 
-              {/* Pill Mais */}
-              <button
-                type="button"
-                className="inline-flex items-center gap-1.5 py-2 px-4 rounded-full bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shadow-2xs shrink-0 font-sans"
-              >
-                <MoreHorizontal className="w-3.5 h-3.5 text-slate-500" />
-                <span>Mais</span>
-              </button>
+                <div
+                  id="events-category-filters"
+                  ref={filtersScrollRef}
+                  onScroll={checkFiltersScroll}
+                  className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none select-none scroll-smooth"
+                >
+                  {FILTER_PILLS.map((pill) => {
+                    const Icon = pill.icon;
+                    const isActive = activeFilter === pill.id;
+                    return (
+                      <button
+                        key={pill.id}
+                        type="button"
+                        onClick={() => setActiveFilter(pill.id)}
+                        className={`inline-flex items-center gap-2 py-2 px-4 rounded-full text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shrink-0 font-sans ${
+                          isActive
+                            ? 'bg-[#1455AC] text-white shadow-xs border border-[#1455AC]'
+                            : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-2xs'
+                        }`}
+                      >
+                        <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                        <span>{pill.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Esmaecimento à direita: indica que há mais categorias por ver dentro da área rolável */}
+                {canScrollFiltersRight && (
+                  <div className="absolute right-0 top-0 bottom-1 w-8 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+                )}
+              </div>
+
+              {/* Pill Mais: fixa fora da área de scroll, sempre visível como último item */}
+              <div ref={moreFiltersRef} className="relative shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsMoreFiltersOpen((prev) => !prev)}
+                  aria-expanded={isMoreFiltersOpen}
+                  aria-haspopup="true"
+                  className={`inline-flex items-center gap-1.5 py-2 px-4 rounded-full border text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer shadow-2xs font-sans ${
+                    isMoreFiltersOpen
+                      ? 'bg-[#1455AC]/10 border-[#1455AC]/30 text-[#1455AC]'
+                      : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                  }`}
+                >
+                  <MoreHorizontal className={`w-3.5 h-3.5 ${isMoreFiltersOpen ? 'text-[#1455AC]' : 'text-slate-500'}`} />
+                  <span>Mais</span>
+                </button>
+
+                {/* Popup com a lista completa de categorias */}
+                {isMoreFiltersOpen && (
+                  <div className="absolute right-0 mt-2 w-56 rounded-xl bg-white border border-slate-200 shadow-lg z-30 py-2 animate-in fade-in slide-in-from-top-2 duration-150 font-sans">
+                    {FILTER_PILLS.map((pill) => {
+                      const Icon = pill.icon;
+                      const isActive = activeFilter === pill.id;
+                      return (
+                        <button
+                          key={pill.id}
+                          type="button"
+                          onClick={() => {
+                            setActiveFilter(pill.id);
+                            setIsMoreFiltersOpen(false);
+                          }}
+                          className={`w-full flex items-center gap-2.5 px-4 py-2 text-xs sm:text-[13px] font-semibold transition-colors cursor-pointer text-left ${
+                            isActive
+                              ? 'bg-[#1455AC]/10 text-[#1455AC]'
+                              : 'text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#1455AC]' : 'text-slate-500'}`} />
+                          <span className="flex-1">{pill.label}</span>
+                          {isActive && <Check className="w-3.5 h-3.5 text-[#1455AC] shrink-0" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* 3. Seção: Eventos recomendados para si */}
@@ -493,9 +599,13 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
               </div>
 
               {/* Carrossel com Botões Laterais Centrais < e > */}
-              <div className="relative group/carousel font-sans">
+              <div
+                className="relative group/carousel font-sans"
+                onMouseEnter={() => setIsCarouselPaused(true)}
+                onMouseLeave={() => setIsCarouselPaused(false)}
+              >
                 {/* Botão Seta Esquerda */}
-                {filteredEvents.length > 4 && (
+                {filteredEvents.length > 3 && (
                   <button
                     type="button"
                     onClick={() => scrollCarousel('left')}
@@ -523,10 +633,10 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                       <article
                         key={event.id}
                         onClick={() => setSelectedEventModal(event)}
-                        className="w-full sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)] shrink-0 snap-start bg-white rounded-xl border border-slate-200 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-200 flex flex-col justify-between overflow-hidden group cursor-pointer"
+                        className="w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] shrink-0 snap-start bg-white rounded-xl border border-slate-200 shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all duration-200 flex flex-col justify-between overflow-hidden group cursor-pointer"
                       >
                         {/* Imagem com Badges no Topo */}
-                        <div className="relative h-40 w-full overflow-hidden bg-slate-100">
+                        <div className="relative h-32 w-full overflow-hidden bg-slate-100">
                           <img
                             src={event.imageUrl}
                             alt={event.title}
@@ -612,7 +722,7 @@ export const GlobalEventsView: React.FC<GlobalEventsViewProps> = ({
                 </div>
 
                 {/* Botão Seta Direita */}
-                {filteredEvents.length > 4 && (
+                {filteredEvents.length > 3 && (
                   <button
                     type="button"
                     onClick={() => scrollCarousel('right')}
