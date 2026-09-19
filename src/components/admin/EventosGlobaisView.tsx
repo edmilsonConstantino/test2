@@ -1183,7 +1183,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               Próximos Eventos Globais
             </h2>
 
-            <div className="mt-3 divide-y divide-slate-100">
+            <div className="mt-3 divide-y divide-slate-200/70">
               {proximosEventos.map((ev) => (
                 <div
                   key={ev.id}
@@ -1329,7 +1329,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
             </div>
 
             {/* Legenda do Calendário */}
-            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-center gap-4 text-[11px] font-medium text-slate-600">
+            <div className="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-center gap-4 text-[11px] font-medium text-slate-600">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#6366F1]" />
                 <span>Eventos Presenciais</span>
@@ -1773,7 +1773,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               </div>
             )}
 
-            <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-100">
+            <div className="pt-2 flex items-center justify-end gap-2 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => setSelectedEvent(null)}
@@ -1937,7 +1937,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                 </select>
               </div>
 
-              <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-100">
+              <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200/70">
                 <button
                   type="button"
                   onClick={() => setIsFilterModalOpen(false)}

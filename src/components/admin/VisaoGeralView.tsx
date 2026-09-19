@@ -303,7 +303,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
   return (
     <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5 animate-in fade-in duration-200">
       {/* 1. Header com Título, Ilustração de Skyline/Comunidade e Status */}
-      <div className="bg-white border border-slate-100 rounded-2xl p-5 sm:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 overflow-hidden relative">
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 overflow-hidden relative">
         {/* Esquerda: Ícone Roxo + Título + Subtítulo */}
         <div className="flex items-start sm:items-center gap-3.5 z-10">
           <div className="w-12 h-12 rounded-2xl bg-[#EDE9FE]/70 border border-purple-200/60 flex items-center justify-center text-[#5B21B6] shrink-0 shadow-2xs">
@@ -404,10 +404,10 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       {/* 3. Segunda Fileira: Gráfico de Evolução (Linha) + Mapa Global da Rede + Cobertura por Região (Rosca) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Card 1: Evolução da Rede VILA (5 colunas) */}
-        <div className="lg:col-span-5 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             {/* Header com Título e Dropdown de Período */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 relative">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 relative">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Evolução da Rede VILA
               </h2>
@@ -652,7 +652,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
 
           {/* Rodapé do Card: Link para Ver Relatório */}
-          <div className="pt-3 border-t border-slate-100 flex justify-end">
+          <div className="pt-3 border-t border-slate-200/70 flex justify-end">
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
@@ -665,9 +665,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 2: Rede Global VILA (Mapa Cartográfico em Tons de Roxo) (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Rede Global VILA
               </h2>
@@ -752,7 +752,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
 
           {/* Rodapé do Card: Link para Ver Mapa Interativo */}
-          <div className="pt-3 border-t border-slate-100 flex justify-end mt-2">
+          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-2">
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
@@ -765,9 +765,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 3: Cobertura por Região (Gráfico de Rosca) (3 colunas) */}
-        <div className="lg:col-span-3 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Cobertura por Região
               </h2>
@@ -878,7 +878,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
           </div>
 
           {/* Rodapé do Card: Link para Ver Detalhamento Regional */}
-          <div className="pt-3 border-t border-slate-100 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('territorios-paises')}
@@ -894,7 +894,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       {/* 4. Terceira Fileira: Ecossistema VILA + Principais Tendências + Organizações Parceiras + ODS */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
         {/* Card 1: Ecossistema VILA */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A] font-sans">
               Ecossistema VILA
@@ -981,7 +981,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 2: Principais Tendências da Rede */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A] font-sans">
               Principais Tendências da Rede
@@ -1054,7 +1054,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 3: Organizações Parceiras (Rosca) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A] font-sans">
               Organizações Parceiras
@@ -1157,7 +1157,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 4: Objetivos de Desenvolvimento Sustentável (ODS) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-[#0F172A] font-sans">
               Objetivos de Desenvolvimento Sustentável
@@ -1333,9 +1333,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       {/* 5. Quarta Fileira: Próximos Eventos Globais + Impacto Global da Rede + Parceiros em Destaque */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Card 1: Próximos Eventos Globais (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Próximos Eventos Globais
               </h2>
@@ -1412,7 +1412,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('eventos-globais-admin')}
@@ -1425,9 +1425,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 2: Impacto Global da Rede (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Impacto Global da Rede
               </h2>
@@ -1475,7 +1475,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('relatorios-dados')}
@@ -1488,9 +1488,9 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
         </div>
 
         {/* Card 3: Parceiros em Destaque (4 colunas) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all duration-200 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 duration-200 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Parceiros em Destaque
               </h2>
@@ -1557,7 +1557,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex justify-end mt-4">
             <button
               type="button"
               onClick={() => onNavigateToTab('parceiros-colaboracoes')}

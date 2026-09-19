@@ -1062,7 +1062,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
             <div className="mt-3 overflow-x-auto no-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-100 text-[11px] font-semibold text-slate-400">
+                  <tr className="border-b border-slate-200/70 text-[11px] font-semibold text-slate-400">
                     <th className="pb-2 font-medium">Consulta</th>
                     <th className="pb-2 text-right font-medium">Participantes</th>
                     <th className="pb-2 text-right font-medium">Contributos</th>
@@ -1070,7 +1070,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                     <th className="pb-2 text-right font-medium">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-slate-200/70 text-xs">
                   {topConsultas.map((c) => (
                     <tr
                       key={c.id}
@@ -1228,7 +1228,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
             <div className="mt-3 overflow-x-auto no-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-100 text-[11px] font-semibold text-slate-400">
+                  <tr className="border-b border-slate-200/70 text-[11px] font-semibold text-slate-400">
                     <th className="pb-2 font-medium">Consulta</th>
                     <th className="pb-2 font-medium">Área</th>
                     <th className="pb-2 font-medium">Início</th>
@@ -1236,7 +1236,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                     <th className="pb-2 text-right font-medium">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-slate-200/70 text-xs">
                   {consultasRecentes.map((cr) => (
                     <tr
                       key={cr.id}
@@ -1288,14 +1288,14 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
             <div className="mt-3 overflow-x-auto no-scrollbar">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-100 text-[11px] font-semibold text-slate-400">
+                  <tr className="border-b border-slate-200/70 text-[11px] font-semibold text-slate-400">
                     <th className="pb-2 font-medium">Consulta</th>
                     <th className="pb-2 font-medium">Área</th>
                     <th className="pb-2 font-medium">Início Previsto</th>
                     <th className="pb-2 text-right font-medium">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-slate-200/70 text-xs">
                   {proximasConsultas.map((pc) => (
                     <tr
                       key={pc.id}
@@ -1440,7 +1440,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => setSelectedConsulta(null)}
@@ -1497,7 +1497,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => setSelectedIniciativa(null)}
@@ -1568,7 +1568,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => {
@@ -1763,7 +1763,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
               </svg>
             </div>
 
-            <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-200/70">
               <span>* Clique em qualquer país para inspecionar os índices de participação ativa.</span>
               <button
                 type="button"

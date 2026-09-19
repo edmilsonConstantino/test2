@@ -719,7 +719,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </button>
             {isDateDropdownOpen && (
               <div className="absolute right-0 mt-1.5 w-60 bg-white border border-slate-200 rounded-xl shadow-xl z-30 py-1 text-xs">
-                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-100">
+                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-200/70">
                   Período de Análise
                 </div>
                 {[
@@ -880,7 +880,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as áreas */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllAreasModalOpen(true)}
@@ -1057,7 +1057,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todos os status */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllStatusModalOpen(true)}
@@ -1313,7 +1313,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver relatório completo */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsFullReportModalOpen(true)}
@@ -1333,7 +1333,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </h2>
 
             {/* Cabeçalho da Tabela */}
-            <div className="grid grid-cols-12 text-[10.5px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-100">
+            <div className="grid grid-cols-12 text-[10.5px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70">
               <span className="col-span-4">Projeto</span>
               <span className="col-span-2">Área</span>
               <span className="col-span-2 text-right">Beneficiários</span>
@@ -1342,7 +1342,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </div>
 
             {/* Linhas de Projetos */}
-            <div className="divide-y divide-slate-100 text-xs">
+            <div className="divide-y divide-slate-200/70 text-xs">
               {topProjects.map((p) => (
                 <div
                   key={p.id}
@@ -1404,7 +1404,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todos os projetos */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllProjectsModalOpen(true)}
@@ -1485,7 +1485,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as fontes */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllFundingModalOpen(true)}
@@ -1510,7 +1510,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </h2>
 
             {/* Cabeçalho */}
-            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-100">
+            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70">
               <span className="col-span-3">Projeto</span>
               <span className="col-span-2">Área</span>
               <span className="col-span-3">Localização</span>
@@ -1519,7 +1519,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </div>
 
             {/* Linhas */}
-            <div className="divide-y divide-slate-100 text-xs">
+            <div className="divide-y divide-slate-200/70 text-xs">
               {recentProjects.map((p) => (
                 <div
                   key={p.id}
@@ -1556,7 +1556,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todos os projetos */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllProjectsModalOpen(true)}
@@ -1576,7 +1576,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </h2>
 
             {/* Cabeçalho */}
-            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-100">
+            <div className="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-3 pb-1 border-b border-slate-200/70">
               <span className="col-span-5">Título</span>
               <span className="col-span-2">Área</span>
               <span className="col-span-3 text-center">Encerramento</span>
@@ -1584,7 +1584,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </div>
 
             {/* Linhas */}
-            <div className="divide-y divide-slate-100 text-xs">
+            <div className="divide-y divide-slate-200/70 text-xs">
               {openCalls.map((c) => (
                 <div
                   key={c.id}
@@ -1611,7 +1611,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as chamadas */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllCallsModalOpen(true)}
@@ -1631,7 +1631,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
             </h2>
 
             {/* Linhas de Atividades */}
-            <div className="divide-y divide-slate-100 text-xs mt-3">
+            <div className="divide-y divide-slate-200/70 text-xs mt-3">
               {recentActivities.map((act) => (
                 <div
                   key={act.id}
@@ -1667,7 +1667,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
           </div>
 
           {/* Rodapé: Ver todas as atividades */}
-          <div className="pt-2 mt-3 border-t border-slate-100 text-right">
+          <div className="pt-2 mt-3 border-t border-slate-200/70 text-right">
             <button
               type="button"
               onClick={() => setIsAllActivitiesModalOpen(true)}
@@ -1688,7 +1688,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
                 <Download className="w-4 h-4 text-[#5B21B6]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Exportar Dados de Projetos</h3>
@@ -1759,7 +1759,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
                 <SlidersHorizontal className="w-4 h-4 text-[#5B21B6]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Filtros de Projetos e Iniciativas</h3>
@@ -1839,7 +1839,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {activeProjectDetail && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
                 <FolderKanban className="w-4 h-4 text-[#5B21B6]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">{activeProjectDetail.name}</h3>
@@ -1929,7 +1929,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {activeKpiDetail && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Detalhamento: {activeKpiDetail}
               </h3>
@@ -1968,7 +1968,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isMapModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2 text-slate-800">
                 <Globe className="w-4 h-4 text-[#5B21B6]" />
                 <h3 className="font-bold text-sm sm:text-base font-sans">Presença Global de Projetos VILA</h3>
@@ -2022,7 +2022,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isAllAreasModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Todas as Áreas de Atuação
               </h3>
@@ -2035,7 +2035,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 mt-3 text-xs">
+            <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {areaDistribution.map((a) => (
                 <div key={a.name} className="py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -2064,7 +2064,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isAllStatusModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Distribuição de Status dos Projetos
               </h3>
@@ -2077,7 +2077,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 mt-3 text-xs">
+            <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {statusDistribution.map((s) => (
                 <div key={s.name} className="py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -2106,7 +2106,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isAllFundingModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Fontes de Financiamento Auditadas
               </h3>
@@ -2119,7 +2119,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 mt-3 text-xs">
+            <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {fundingSources.map((f) => (
                 <div key={f.name} className="py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -2148,7 +2148,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isAllProjectsModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-2xl w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150 max-h-[85vh] flex flex-col">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 shrink-0">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 shrink-0">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Diretório Geral de Projetos (1.248)
               </h3>
@@ -2161,7 +2161,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </button>
             </div>
 
-            <div className="overflow-y-auto flex-1 divide-y divide-slate-100 mt-3 text-xs">
+            <div className="overflow-y-auto flex-1 divide-y divide-slate-200/70 mt-3 text-xs">
               {[...topProjects, ...recentProjects].map((p, idx) => (
                 <div key={`${p.id}-${idx}`} className="py-2.5 flex items-center justify-between hover:bg-slate-50 px-2 rounded">
                   <div>
@@ -2182,7 +2182,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               ))}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-100 flex justify-end shrink-0">
+            <div className="mt-4 pt-3 border-t border-slate-200/70 flex justify-end shrink-0">
               <button
                 type="button"
                 onClick={() => setIsAllProjectsModalOpen(false)}
@@ -2199,7 +2199,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isAllCallsModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Chamadas Públicas e Bolsas Abertas
               </h3>
@@ -2212,7 +2212,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 mt-3 text-xs">
+            <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {openCalls.map((c) => (
                 <div key={c.id} className="py-2.5">
                   <div className="flex justify-between font-bold text-slate-800">
@@ -2245,7 +2245,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isAllActivitiesModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Fluxo em Tempo Real de Atividades
               </h3>
@@ -2258,7 +2258,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
               </button>
             </div>
 
-            <div className="divide-y divide-slate-100 mt-3 text-xs">
+            <div className="divide-y divide-slate-200/70 mt-3 text-xs">
               {recentActivities.map((act) => (
                 <div key={act.id} className="py-2">
                   <p className="font-semibold text-slate-800">{act.title}</p>
@@ -2285,7 +2285,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {isFullReportModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h3 className="font-bold text-sm sm:text-base font-sans text-slate-800">
                 Relatório de Evolução Trimestral
               </h3>

@@ -39,6 +39,7 @@ import {
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { SectionCard } from './SectionCard';
 import { LineChart } from './MiniCharts';
 
 interface UtilizadoresComunidadesViewProps {
@@ -555,7 +556,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </button>
             {isDateDropdownOpen && (
               <div className="absolute right-0 mt-1.5 w-60 bg-white border border-slate-200 rounded-xl shadow-xl z-30 py-1 text-xs">
-                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-100">
+                <div className="px-3 py-1.5 font-bold text-slate-400 text-[10px] uppercase tracking-wider border-b border-slate-200/70">
                   Período de Análise
                 </div>
                 {[
@@ -647,9 +648,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* COLUNA 1: Crescimento de Utilizadores (Gráfico Multi-linha SVG) */}
-        <div className="lg:col-span-5 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Crescimento de Utilizadores
               </h2>
@@ -781,7 +782,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end">
+          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Relatório Completo de Crescimento')}
@@ -794,9 +795,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 2: Distribuição por Segmento (Donut Chart + Legenda) */}
-        <div className="lg:col-span-3 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
+            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-200/70">
               Distribuição por Segmento
             </h2>
 
@@ -859,7 +860,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end">
+          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Segmentos de Utilizadores')}
@@ -872,9 +873,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 3: Utilizadores por País (Top 10) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Utilizadores por País (Top 10)
               </h2>
@@ -905,7 +906,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end">
+          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Ranking Global de Países')}
@@ -919,78 +920,14 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       </div>
 
       {/* ========================================================================= */}
-      {/* 4. TERCEIRA LINHA: 4 COLUNAS (Status | Tipos | Engajamento | Registos/Dia) */}
+      {/* 4. TERCEIRA LINHA: grelha assimétrica 8+4 (Engajamento/Tipos/Registos em cima, Status à direita) */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Card 1: Comunidades por Status */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
-              Comunidades por Status
-            </h2>
-
-            <div className="flex items-center justify-between gap-3 pt-4">
-              {/* Donut Mini */}
-              <div className="relative w-24 h-24 shrink-0">
-                <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 transform">
-                  <circle cx="50" cy="50" r="38" fill="none" stroke="#F1F5F9" strokeWidth="18" />
-                  {statusDonutData.map((st) => {
-                    const dash = (st.percentage * 2 * Math.PI * 38) / 100;
-                    const offset = -((st.startAngle * 2 * Math.PI * 38) / 360);
-                    return (
-                      <circle
-                        key={st.id}
-                        cx="50"
-                        cy="50"
-                        r="38"
-                        fill="none"
-                        stroke={st.color}
-                        strokeWidth="18"
-                        strokeDasharray={`${dash} ${2 * Math.PI * 38}`}
-                        strokeDashoffset={offset}
-                      />
-                    );
-                  })}
-                </svg>
-              </div>
-
-              {/* Legenda com percentuais */}
-              <div className="space-y-1.5 text-xs flex-1">
-                {statusDonutData.map((st) => (
-                  <div key={st.id} className="flex items-center justify-between text-[11px]">
-                    <div className="flex items-center gap-1.5 truncate">
-                      <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: st.color }} />
-                      <span className="text-slate-700 font-medium truncate">{st.status}</span>
-                    </div>
-                    <span className="font-semibold text-slate-900 shrink-0">
-                      {st.formattedCount} <span className="text-slate-400 font-normal">({st.percentage}%)</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end mt-4">
-            <button
-              type="button"
-              onClick={() => setActiveDetailModal('Todas as Comunidades')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
-            >
-              <span>Ver todas as comunidades</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        </div>
-
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        {/* Bloco esquerdo: Tipos + Engajamento + Registos/Dia (8 colunas) */}
+        <div className="lg:col-span-8 flex flex-col gap-4 min-w-0">
         {/* Card 2: Tipos de Comunidades (Cards de Categorias) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
-              Tipos de Comunidades
-            </h2>
-
-            <div className="grid grid-cols-2 gap-2 mt-3">
+        <SectionCard title="Tipos de Comunidades" footerLabel="Ver todas as categorias" onFooterClick={() => setActiveDetailModal('Categorias de Comunidades')}>
+            <div className="grid grid-cols-2 gap-2">
               {categoriesList.slice(0, 4).map((cat) => (
                 <button
                   key={cat.id}
@@ -1034,28 +971,11 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 <span className="font-bold text-slate-900">{categoriesList[4].formattedCount}</span>
               </button>
             )}
-          </div>
-
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end mt-4">
-            <button
-              type="button"
-              onClick={() => setActiveDetailModal('Categorias de Comunidades')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
-            >
-              <span>Ver todas as categorias</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        </div>
+        </SectionCard>
 
         {/* Card 3: Engajamento nas Comunidades */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
-              Engajamento nas Comunidades
-            </h2>
-
-            <div className="grid grid-cols-2 gap-3 mt-3">
+        <SectionCard title="Engajamento nas Comunidades" footerLabel="Ver métricas de engajamento" onFooterClick={() => setActiveDetailModal('Métricas Detalhadas de Engajamento')}>
+            <div className="grid grid-cols-2 gap-3">
               <div className="bg-slate-50/80 border border-slate-100 rounded-xl p-3">
                 <span className="text-[11px] font-medium text-slate-500">Publicações</span>
                 <div className="text-base font-bold text-[#0F172A] font-sans mt-0.5">
@@ -1096,29 +1016,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end mt-4">
-            <button
-              type="button"
-              onClick={() => setActiveDetailModal('Métricas Detalhadas de Engajamento')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
-            >
-              <span>Ver métricas de engajamento</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        </div>
+        </SectionCard>
 
         {/* Card 4: Novos Registos por Dia (30 dias) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
-              Novos Registos por Dia (30 dias)
-            </h2>
-
+        <SectionCard title="Novos Registos por Dia (30 dias)" footerLabel="Ver análise completa" onFooterClick={() => setActiveDetailModal('Análise Diária de Registos')}>
             {/* Gráfico de Barras SVG */}
-            <div className="relative mt-2 h-36 w-full">
+            <div className="relative h-36 w-full">
               <svg viewBox="0 0 300 130" className="w-full h-full overflow-visible">
                 {/* Linhas Horizontais de Referência */}
                 {[0, 1000, 2000, 3000, 4000].map((val) => {
@@ -1176,18 +1079,59 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                 </div>
               )}
             </div>
-          </div>
+        </SectionCard>
+        </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end mt-4">
-            <button
-              type="button"
-              onClick={() => setActiveDetailModal('Análise Diária de Registos')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#5B21B6] hover:text-purple-800 transition-colors cursor-pointer group"
-            >
-              <span>Ver análise completa</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
+        {/* Coluna direita: Comunidades por Status (donut, 4 colunas) */}
+        <div className="lg:col-span-4 min-w-0">
+          <SectionCard
+            title="Comunidades por Status"
+            footerLabel="Ver todas as comunidades"
+            onFooterClick={() => setActiveDetailModal('Todas as Comunidades')}
+            contentClassName="flex items-center justify-center"
+          >
+            <div className="relative w-40 h-40 shrink-0">
+              <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 transform">
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#F1F5F9" strokeWidth="14" />
+                {statusDonutData.map((st) => {
+                  const dash = (st.percentage * 2 * Math.PI * 38) / 100;
+                  const offset = -((st.startAngle * 2 * Math.PI * 38) / 360);
+                  return (
+                    <circle
+                      key={`status-lg-${st.id}`}
+                      cx="50"
+                      cy="50"
+                      r="38"
+                      fill="none"
+                      stroke={st.color}
+                      strokeWidth="14"
+                      strokeDasharray={`${dash} ${2 * Math.PI * 38}`}
+                      strokeDashoffset={offset}
+                    />
+                  );
+                })}
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-xl font-extrabold text-[#0F172A] font-sans">18.732</span>
+                <span className="text-[10px] font-medium text-slate-400">Comunidades</span>
+              </div>
+            </div>
+
+            {/* Legenda com percentuais */}
+            <div className="w-full space-y-2 mt-2">
+              {statusDonutData.map((st) => (
+                <div key={`status-lg-${st.id}`} className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 truncate">
+                    <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: st.color }} />
+                    <span className="text-slate-700 font-medium truncate">{st.status}</span>
+                  </div>
+                  <span className="font-semibold text-slate-900 shrink-0">
+                    {st.formattedCount} <span className="text-slate-400 font-normal">({st.percentage}%)</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </SectionCard>
         </div>
       </div>
 
@@ -1196,9 +1140,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* COLUNA 1: Comunidades com Maior Crescimento (Tabela) */}
-        <div className="lg:col-span-5 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <h2 className="text-base font-bold text-slate-900 font-sans">
                 Comunidades com Maior Crescimento
               </h2>
@@ -1219,7 +1163,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-slate-400 font-semibold border-b border-slate-100 text-[11px]">
+                  <tr className="text-slate-400 font-semibold border-b border-slate-200/70 text-[11px]">
                     <th className="pb-2 font-medium">Comunidade</th>
                     <th className="pb-2 font-medium">Categoria</th>
                     <th className="pb-2 font-medium text-right">Membros</th>
@@ -1258,7 +1202,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between mt-4">
             <span className="text-[11px] text-slate-400">
               A exibir {Math.min(filteredCommunities.length, 5)} de {growthCommunities.length} comunidades
             </span>
@@ -1274,16 +1218,16 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 2: Membros Mais Ativos (Tabela com Avatares) */}
-        <div className="lg:col-span-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
+            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-200/70">
               Membros Mais Ativos
             </h2>
 
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-slate-400 font-semibold border-b border-slate-100 text-[11px]">
+                  <tr className="text-slate-400 font-semibold border-b border-slate-200/70 text-[11px]">
                     <th className="pb-2 font-medium">Membro</th>
                     <th className="pb-2 font-medium text-center">Comunidades</th>
                     <th className="pb-2 font-medium text-center">Posts</th>
@@ -1326,7 +1270,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end mt-4">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Ranking Completo de Membros')}
@@ -1339,9 +1283,9 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 3: Atividade Recente (Feed em Tempo Real) */}
-        <div className="lg:col-span-3 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:border-slate-200/80 transition-all flex flex-col justify-between">
+        <div className="lg:col-span-3 bg-white border border-slate-200 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
-            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-100">
+            <h2 className="text-base font-bold text-slate-900 font-sans pb-3 border-b border-slate-200/70">
               Atividade Recente
             </h2>
 
@@ -1371,7 +1315,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             </div>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-end mt-4">
+          <div className="pt-3 border-t border-slate-200/70 flex items-center justify-end mt-4">
             <button
               type="button"
               onClick={() => setActiveDetailModal('Todas as Atividades da Rede')}
@@ -1392,7 +1336,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {isFilterModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="w-5 h-5 text-[#5B21B6]" />
                 <h3 className="text-lg font-bold text-slate-900 font-sans">
@@ -1462,7 +1406,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-2.5 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-between gap-2.5 pt-3 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => {
@@ -1508,7 +1452,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {isEditContentModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2">
                 <Edit3 className="w-5 h-5 text-[#5B21B6]" />
                 <h3 className="text-lg font-bold text-slate-900 font-sans">
@@ -1550,7 +1494,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               </div>
 
               {/* Adicionar Nova Comunidade */}
-              <div className="pt-3 border-t border-slate-100 space-y-3">
+              <div className="pt-3 border-t border-slate-200/70 space-y-3">
                 <h4 className="font-bold text-slate-800 text-xs uppercase tracking-wider flex items-center justify-between">
                   <span>Adicionar Nova Comunidade</span>
                   <Plus className="w-4 h-4 text-[#5B21B6]" />
@@ -1637,7 +1581,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               </div>
             </div>
 
-            <div className="flex items-center justify-end pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end pt-3 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => setIsEditContentModalOpen(false)}
@@ -1654,7 +1598,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {isExportModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
           <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2">
                 <Download className="w-5 h-5 text-[#5B21B6]" />
                 <h3 className="text-base font-bold text-slate-900 font-sans">
@@ -1707,7 +1651,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {activeDetailModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
           <div className="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-xl bg-purple-100 text-[#5B21B6] flex items-center justify-center">
                   <Users className="w-4 h-4" />
@@ -1777,7 +1721,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               )}
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-200/70">
               <button
                 type="button"
                 onClick={() => setActiveDetailModal(null)}
