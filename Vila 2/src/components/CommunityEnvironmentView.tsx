@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronRight,
+  ChevronLeft,
   Users,
   Compass,
   Cpu,
@@ -345,6 +346,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
 }) => {
   // Filtros e Estado
   const [selectedCategory, setSelectedCategory] = useState<string>('ambiente');
+  const [commSlide, setCommSlide] = useState<number>(0); // página do carrossel de comunidades em destaque (3 por página)
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [communityType, setCommunityType] = useState<string>('Todas');
   const [selectedSizes, setSelectedSizes] = useState<Set<string>>(new Set());
@@ -463,7 +465,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight leading-tight">
                 Ambiente
               </h1>
               <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
@@ -740,7 +742,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
 
               {/* Conteúdo Textual e Botão de Ação */}
               <div className="relative z-10 max-w-md flex flex-col gap-2">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight font-['Outfit'] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight">
                   Pequenas ações, <br />
                   grandes mudanças.
                 </h2>
@@ -768,7 +770,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             {/* 2. Seção: Comunidades em destaque (4 Cards horizontais com botão '>' no final) */}
             <section id="comunidades-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Comunidades em destaque
                 </h3>
                 <button
@@ -781,10 +783,10 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 </button>
               </div>
 
-              {/* Grid de 4 Cards com Slider Button */}
+              {/* Carrossel paginado: 3 cards visíveis, a seta avança para os seguintes */}
               <div className="relative">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                  {filteredCommunities.map((comm) => {
+                  {filteredCommunities.slice(commSlide * 3, commSlide * 3 + 3).map((comm) => {
                     const isJoined = joinedCommunities.has(comm.id);
 
                     return (
@@ -817,7 +819,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                         {/* Conteúdo do Card */}
                         <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                           <div>
-                            <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
+                            <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
                               {comm.name}
                             </h4>
                             <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1.5">{comm.membersCount}</p>
@@ -854,16 +856,25 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                   })}
                 </div>
 
-                {/* Botão de Próximo '>' Flutuante na Direita */}
+                {/* Botões de navegação do carrossel: '<' anterior (quando não está na 1ª página) e '>' seguinte */}
+                {commSlide > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setCommSlide((v) => Math.max(0, v - 1))}
+                    title="Comunidades anteriores"
+                    className="hidden xl:flex absolute -left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={() => {
-                    // Scroll sutil
-                    const el = document.getElementById('comunidades-destaque-section');
-                    el?.scrollIntoView({ behavior: 'smooth' });
+                    const maxPage = Math.max(0, Math.ceil(filteredCommunities.length / 3) - 1);
+                    setCommSlide((v) => (v >= maxPage ? 0 : v + 1));
                   }}
                   title="Avançar comunidades"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer z-10 transition-transform hover:scale-105"
+                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -873,7 +884,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             {/* 3. Seção: Iniciativas em destaque (5 Cards) */}
             <section id="iniciativas-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Iniciativas em destaque
                 </h3>
                 <button
@@ -915,7 +926,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                       {/* Informações da Iniciativa */}
                       <div className="p-2.5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
+                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 leading-snug group-hover:text-emerald-700 dark:text-emerald-400 transition-colors">
                             {init.title}
                           </h4>
                           <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{init.subtitle}</p>
@@ -963,7 +974,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
               className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3"
             >
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Comunidades em tendência
                 </h3>
                 <button
@@ -1057,7 +1068,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
               className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3"
             >
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Atividade recente
                 </h3>
                 <button
@@ -1127,7 +1138,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
 
               {/* Textos */}
               <div className="relative z-10 max-w-[210px] flex flex-col gap-1">
-                <h3 className="text-sm sm:text-base font-extrabold text-white font-['Outfit'] leading-tight">
+                <h3 className="text-sm sm:text-base font-extrabold text-white leading-tight">
                   Não encontrou o que procura?
                 </h3>
                 <p className="text-[11px] text-white/85 leading-snug">
@@ -1168,7 +1179,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
                 <Plus className="w-6 h-6 stroke-[2.5]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50">
                   Criar Nova Comunidade
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
@@ -1296,7 +1307,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             <div className="p-6 flex flex-col gap-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">
                     {selectedCommunityModal.name}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center gap-2 mt-0.5">
@@ -1386,7 +1397,7 @@ export const CommunityEnvironmentView: React.FC<CommunityEnvironmentViewProps> =
             <div className="p-6 flex flex-col gap-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 font-['Outfit']">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">
                     {selectedInitiativeModal.title}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center gap-2 mt-0.5">

@@ -789,7 +789,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         {/* Lado Esquerdo: 6 Cards de Indicadores (Ocupa 8 colunas no xl) */}
         <div className="xl:col-span-8">
-          <ExpandableKpiHeader cards={kpiCards} visibleCount={5} xlCols={5} onOpenDetail={(label) => showToast(`A carregar detalhes: ${label}`)} />
+          <ExpandableKpiHeader cards={kpiCards} visibleCount={4} xlCols={5} onOpenDetail={(label) => showToast(`A carregar detalhes: ${label}`)} />
         </div>
 
         {/* Lado Direito: Parceiro do Mês (Ocupa 4 colunas no xl) */}

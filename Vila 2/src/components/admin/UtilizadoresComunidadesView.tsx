@@ -613,7 +613,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       <ExpandableKpiHeader
         cards={kpiCards}
-        visibleCount={5}
+        visibleCount={4}
         xlCols={6}
         onOpenDetail={(label) => setActiveDetailModal(label)}
       />
@@ -917,7 +917,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         <div className="lg:col-span-8 flex flex-col gap-4 min-w-0">
         {/* Card 2: Tipos de Comunidades (Cards de Categorias) */}
         <SectionCard title="Tipos de Comunidades" footerLabel="Ver todas as categorias" onFooterClick={() => setActiveDetailModal('Categorias de Comunidades')}>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-1.5">
               {categoriesList.slice(0, 4).map((cat) => (
                 <button
                   key={cat.id}
@@ -926,15 +926,15 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                     setSelectedCategoryFilter(selectedCategoryFilter === cat.name ? 'all' : cat.name);
                     showToast(`Filtrando comunidades por: ${cat.name}`);
                   }}
-                  className={`border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl p-2.5 flex flex-col items-center justify-center text-center transition-all cursor-pointer ${
+                  className={`border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl p-1.5 flex flex-col items-center justify-center text-center transition-all cursor-pointer ${
                     selectedCategoryFilter === cat.name ? 'ring-2 ring-[#1455AC] shadow-xs' : 'hover:scale-[1.02] hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 >
-                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center mb-1 ${cat.bgClass}`}>
-                    {cat.icon === 'leaf' && <Leaf className="w-4 h-4" />}
-                    {cat.icon === 'education' && <GraduationCap className="w-4 h-4" />}
-                    {cat.icon === 'health' && <HeartPulse className="w-4 h-4" />}
-                    {cat.icon === 'culture' && <Palette className="w-4 h-4" />}
+                  <div className={`w-6 h-6 rounded-lg flex items-center justify-center mb-0.5 ${cat.bgClass}`}>
+                    {cat.icon === 'leaf' && <Leaf className="w-3.5 h-3.5" />}
+                    {cat.icon === 'education' && <GraduationCap className="w-3.5 h-3.5" />}
+                    {cat.icon === 'health' && <HeartPulse className="w-3.5 h-3.5" />}
+                    {cat.icon === 'culture' && <Palette className="w-3.5 h-3.5" />}
                   </div>
                   <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">{cat.name}</span>
                   <span className="text-xs font-bold text-slate-900 dark:text-slate-50 mt-0.5">{cat.formattedCount}</span>
@@ -950,7 +950,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   setSelectedCategoryFilter(selectedCategoryFilter === categoriesList[4].name ? 'all' : categoriesList[4].name);
                   showToast(`Filtrando comunidades por: ${categoriesList[4].name}`);
                 }}
-                className={`w-full mt-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs transition-all cursor-pointer ${
+                className={`w-full mt-1.5 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs transition-all cursor-pointer ${
                   selectedCategoryFilter === categoriesList[4].name ? 'ring-2 ring-[#1455AC]' : 'hover:scale-[1.01] hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
@@ -1076,7 +1076,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* Coluna direita: Comunidades por Status (donut, 4 colunas) */}
-        <div className="lg:col-span-4 min-w-0">
+        <div className="lg:col-span-4 min-w-0 flex flex-col gap-4">
           <SectionCard
             title="Comunidades por Status"
             footerLabel="Ver todas as comunidades"
@@ -1125,6 +1125,51 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               ))}
             </div>
           </SectionCard>
+
+        {/* Card empilhado: Atividade Recente (sobe para preencher o espaço ao lado, sob o donut) */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans pb-3 border-b border-slate-200/70 dark:border-slate-700">
+              Atividade Recente
+            </h2>
+
+            <div className="mt-3 space-y-3">
+              {recentActivities.map((act) => (
+                <div key={act.id} className="flex items-start gap-2.5 text-xs group cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/60 p-1 rounded-lg transition-colors">
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    {act.type === 'community' && <MessageSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
+                    {act.type === 'user' && <Users className="w-3.5 h-3.5 text-blue-600" />}
+                    {act.type === 'milestone' && <Award className="w-3.5 h-3.5 text-amber-500" />}
+                    {act.type === 'post' && <Send className="w-3.5 h-3.5 text-blue-600" />}
+                    {act.type === 'partner' && <Building2 className="w-3.5 h-3.5 text-blue-600" />}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11px] truncate group-hover:text-[#1455AC] transition-colors">
+                        {act.title}
+                      </span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0">{act.timeAgo}</span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                      {act.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end mt-4">
+            <button
+              type="button"
+              onClick={() => setActiveDetailModal('Todas as Atividades da Rede')}
+              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
+            >
+              <span>Ver todas as atividades</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -1133,7 +1178,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
       {/* ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* COLUNA 1: Comunidades com Maior Crescimento (Tabela) */}
-        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between pb-3 border-b border-slate-200/70 dark:border-slate-700">
               <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
@@ -1211,7 +1256,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
         </div>
 
         {/* COLUNA 2: Membros Mais Ativos (Tabela com Avatares) */}
-        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
           <div>
             <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans pb-3 border-b border-slate-200/70 dark:border-slate-700">
               Membros Mais Ativos
@@ -1275,50 +1320,6 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
           </div>
         </div>
 
-        {/* COLUNA 3: Atividade Recente (Feed em Tempo Real) */}
-        <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm hover:border-slate-300/70 transition-all rounded-2xl p-5 flex flex-col justify-between">
-          <div>
-            <h2 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans pb-3 border-b border-slate-200/70 dark:border-slate-700">
-              Atividade Recente
-            </h2>
-
-            <div className="mt-3 space-y-3">
-              {recentActivities.map((act) => (
-                <div key={act.id} className="flex items-start gap-2.5 text-xs group cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/60 p-1 rounded-lg transition-colors">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                    {act.type === 'community' && <MessageSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
-                    {act.type === 'user' && <Users className="w-3.5 h-3.5 text-blue-600" />}
-                    {act.type === 'milestone' && <Award className="w-3.5 h-3.5 text-amber-500" />}
-                    {act.type === 'post' && <Send className="w-3.5 h-3.5 text-blue-600" />}
-                    {act.type === 'partner' && <Building2 className="w-3.5 h-3.5 text-blue-600" />}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-1">
-                      <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11px] truncate group-hover:text-[#1455AC] transition-colors">
-                        {act.title}
-                      </span>
-                      <span className="text-[10px] text-slate-400 dark:text-slate-500 shrink-0">{act.timeAgo}</span>
-                    </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
-                      {act.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 flex items-center justify-end mt-4">
-            <button
-              type="button"
-              onClick={() => setActiveDetailModal('Todas as Atividades da Rede')}
-              className="inline-flex items-center gap-1 text-xs font-bold text-[#1455AC] hover:text-blue-800 transition-colors cursor-pointer group"
-            >
-              <span>Ver todas as atividades</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
-        </div>
       </div>
 
       {/* ========================================================================= */}

@@ -334,7 +334,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight leading-tight">
                 Tecnologia
               </h1>
               <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
@@ -668,7 +668,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
               </div>
 
               <div className="relative z-10 p-6 sm:p-8 max-w-md flex flex-col gap-2">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight font-['Outfit'] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight">
                   Conectando mentes, <br />
                   criando o futuro.
                 </h2>
@@ -696,7 +696,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             {/* Seção: Comunidades em destaque (4 Cards) */}
             <section id="comunidades-destaque-tecnologia-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Comunidades em destaque
                 </h3>
                 <button
@@ -709,7 +709,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
               </div>
 
               <div className="relative">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                   {FEATURED_TECH_COMMUNITIES.map((comm) => (
                     <article
                       key={comm.id}
@@ -731,7 +731,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
                       <div className="p-3 pt-4 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 group-hover:text-indigo-600 transition-colors">
+                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 group-hover:text-indigo-600 transition-colors">
                             {comm.name}
                           </h4>
                           <div className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1.5 mt-0.5">{comm.members}</div>
@@ -766,7 +766,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             {/* Seção: Iniciativas em destaque (4 Cards) */}
             <section id="iniciativas-destaque-tecnologia-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Iniciativas em destaque
                 </h3>
                 <button
@@ -801,7 +801,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
                     <div className="p-3 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 group-hover:text-indigo-600 transition-colors">
                           {init.title}
                         </h4>
                         <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">{init.meta}</p>
@@ -825,7 +825,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             {/* 1. Card: Comunidades em tendência */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Comunidades em tendência
                 </h3>
                 <button
@@ -864,7 +864,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
             {/* 2. Card: Atividade recente */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Atividade recente
                 </h3>
                 <button
@@ -903,7 +903,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
               className="relative rounded-2xl overflow-hidden p-5 text-white bg-gradient-to-br from-[#0B1120] via-[#312E81] to-[#4F46E5] shadow-md flex flex-col justify-between min-h-[170px]"
             >
               <div className="relative z-10 max-w-[210px] flex flex-col gap-1">
-                <h3 className="text-sm sm:text-base font-extrabold text-white font-['Outfit'] leading-tight">
+                <h3 className="text-sm sm:text-base font-extrabold text-white leading-tight">
                   Inove. Colabore. <br />
                   Transforme.
                 </h3>
@@ -951,7 +951,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
                   {renderCardIcon(selectedCommunityModal.iconType)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                     {selectedCommunityModal.name}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">{selectedCommunityModal.members}</p>
@@ -1012,7 +1012,7 @@ export const CommunityTechnologyView: React.FC<CommunityTechnologyViewProps> = (
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">
                   {selectedInitiativeModal.title}
                 </h3>
                 <div className="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-2">

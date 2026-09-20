@@ -52,12 +52,14 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
   const visible = hasMore && !expanded ? cards.slice(0, visibleCount) : cards;
   // Classes estáticas para o Tailwind as detetar (template dinâmico não é compilado)
   const expandedGridClass = xlCols === 6 ? 'xl:grid-cols-6' : 'xl:grid-cols-5';
+  const collapsedGridClass =
+    visibleCount === 4 ? 'lg:grid-cols-4' : visibleCount === 6 ? 'lg:grid-cols-6' : 'lg:grid-cols-5';
 
   return (
     <div className="flex flex-col gap-2">
       <div
         className={`grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 ${
-          expanded || !hasMore ? `lg:grid-cols-3 ${expandedGridClass}` : 'lg:grid-cols-5'
+          expanded || !hasMore ? `lg:grid-cols-3 ${expandedGridClass}` : collapsedGridClass
         }`}
       >
         {visible.map((kpi) => (
@@ -139,9 +141,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
             </>
           ) : (
             <>
-              <span>
-                Ver mais {hiddenCount} {hiddenCount === 1 ? 'card' : 'cards'}
-              </span>
+              <span>Ver mais</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </>
           )}

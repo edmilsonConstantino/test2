@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowRight,
   Heart,
@@ -6,8 +6,6 @@ import {
   BarChart3,
   Clock,
   Star,
-  ChevronLeft,
-  ChevronRight,
   Globe2,
   Landmark,
   FolderKanban,
@@ -124,6 +122,7 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
   const [activeFilter, setActiveFilter] = useState('todos');
   const [sortBy, setSortBy] = useState('mais-ativos');
   const [liked, setLiked] = useState<Record<string, boolean>>({});
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
 
   const visibleCountries = useMemo(() => {
     let list = [...featuredCountries];
@@ -146,11 +145,26 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
     return list;
   }, [activeFilter, sortBy]);
 
-  const scrollByAmount = (dir: 1 | -1) => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    container.scrollBy({ left: dir * 500, behavior: 'smooth' });
-  };
+  // Mini carrossel automático: avança suavemente card a card e volta ao início ao chegar ao fim
+  useEffect(() => {
+    if (isCarouselPaused || visibleCountries.length <= 3) return;
+
+    const interval = setInterval(() => {
+      const el = scrollContainerRef.current;
+      if (!el) return;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      const cardWidth = el.firstElementChild instanceof HTMLElement ? el.firstElementChild.offsetWidth + 16 : clientWidth / 3;
+      console.log('TICK', { scrollLeft, scrollWidth, clientWidth, cardWidth, isCarouselPaused });
+
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [isCarouselPaused, visibleCountries]);
 
   return (
     <React.Fragment>
@@ -224,34 +238,18 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
           })}
         </div>
 
-        {/* Carrossel com setas laterais */}
+        {/* Carrossel automático suave */}
         <div className="relative mt-4 -mx-5 sm:-mx-6">
-          <button
-            type="button"
-            onClick={() => scrollByAmount(-1)}
-            aria-label="Anterior"
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer"
-          >
-            <ChevronLeft className="w-5 h-5" strokeWidth={2} />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollByAmount(1)}
-            aria-label="Seguinte"
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer"
-          >
-            <ChevronRight className="w-5 h-5" strokeWidth={2} />
-          </button>
-
           <div
             ref={scrollContainerRef}
             id="featured-countries-carousel"
+            onMouseEnter={() => setIsCarouselPaused(true)}
+            onMouseLeave={() => setIsCarouselPaused(false)}
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             className="flex items-stretch gap-4 overflow-x-auto pb-2 pt-1 px-5 sm:px-6 scroll-smooth no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-proximity"
           >
             {visibleCountries.map((country) => {
               const meta = countryCardMeta[country.id];
-              const isSelected = selectedCountry?.id === country.id;
               const isLiked = !!liked[country.id];
 
               return (
@@ -259,11 +257,7 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
                   key={country.id}
                   id={`country-card-${country.id}`}
                   onClick={() => onSelectCountry(country)}
-                  className={`min-w-[218px] sm:min-w-[232px] max-w-[232px] bg-white dark:bg-slate-900 rounded-xl border flex flex-col cursor-pointer group shrink-0 snap-start transition-all duration-200 hover:-translate-y-0.5 shadow-xs hover:shadow-sm ${
-                    isSelected
-                      ? 'border-[#1455AC] ring-1 ring-[#1455AC]/30'
-                      : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
-                  }`}
+                  className="min-w-[218px] sm:min-w-[232px] max-w-[232px] bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col cursor-pointer group shrink-0 snap-start transition-all duration-200 hover:-translate-y-0.5 shadow-xs hover:shadow-sm hover:border-slate-300 dark:hover:border-slate-600"
                 >
                   {/* Imagem com chip de estado e favorito */}
                   <div className="relative m-2 mb-0 rounded-lg overflow-hidden">

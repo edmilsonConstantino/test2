@@ -266,7 +266,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
       </div>
 
       {/* 2. LINHA 1: 6 Cards de Indicadores — 5 visíveis + botão "Ver mais cards" */}
-      <ExpandableKpiHeader cards={infraKpiCards} visibleCount={5} xlCols={6} />
+      <ExpandableKpiHeader cards={infraKpiCards} visibleCount={4} xlCols={6} />
 
       {/* 3. LINHA 2: 3 Cards de Infraestrutura (Territorial, Digital VILA, VILA AI) */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">

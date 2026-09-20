@@ -723,7 +723,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
           ===================================================================== */}
       <ExpandableKpiHeader
         cards={participacaoKpiCards}
-        visibleCount={5}
+        visibleCount={4}
         xlCols={6}
         onOpenDetail={(label) => showToast(`A abrir detalhes: ${label}`)}
       />

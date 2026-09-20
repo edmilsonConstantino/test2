@@ -698,7 +698,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       </div>
 
       {/* 2. LINHA 1: 6 Cards de Indicadores — 5 visíveis + botão "Ver mais cards" */}
-      <ExpandableKpiHeader cards={kpiCards} visibleCount={5} xlCols={6} />
+      <ExpandableKpiHeader cards={kpiCards} visibleCount={4} xlCols={6} />
 
       {/* 3. LINHA 2: 3 Cards (Dados por Categoria, Cobertura Territorial, Evolução de Dados) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">

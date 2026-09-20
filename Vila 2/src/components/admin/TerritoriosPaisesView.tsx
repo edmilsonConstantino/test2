@@ -517,7 +517,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       {/* ========================================================================= */}
       <ExpandableKpiHeader
         cards={kpiCards}
-        visibleCount={5}
+        visibleCount={4}
         xlCols={6}
         onOpenDetail={(label) => setActiveDetailModal(label)}
       />

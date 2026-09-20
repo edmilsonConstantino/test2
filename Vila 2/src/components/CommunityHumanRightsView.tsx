@@ -356,7 +356,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight leading-tight">
                 Direitos Humanos
               </h1>
               <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
@@ -632,7 +632,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
             {/* Botão Aplicar Filtros com Gradiente Azul/Esmeralda */}
             <button
               type="button"
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#0052FF] to-[#00A86B] hover:opacity-95 text-white font-bold text-xs shadow-xs transition-all cursor-pointer mt-1"
+              className="w-full py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white font-bold text-xs shadow-xs transition-all cursor-pointer mt-1"
             >
               Aplicar Filtros
             </button>
@@ -660,7 +660,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
               <div className="relative z-10 p-6 sm:p-8 w-full flex flex-col sm:flex-row items-center justify-between gap-6">
                 {/* Textos da Esquerda */}
                 <div className="max-w-md flex flex-col gap-2">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight font-['Outfit'] tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight">
                     Direitos não são <br />
                     privilégios. São dignidade.
                   </h2>
@@ -689,7 +689,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
                   <div className="bg-black/35 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex items-center gap-3">
                     <Shield className="w-5 h-5 text-indigo-400" />
                     <div>
-                      <span className="block text-sm font-black text-white font-['Outfit']">3.650</span>
+                      <span className="block text-sm font-black text-white">3.650</span>
                       <span className="text-[10px] text-slate-200">Projetos ativos</span>
                     </div>
                   </div>
@@ -697,7 +697,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
                   <div className="bg-black/35 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex items-center gap-3">
                     <Megaphone className="w-5 h-5 text-rose-400" />
                     <div>
-                      <span className="block text-sm font-black text-white font-['Outfit']">2.180</span>
+                      <span className="block text-sm font-black text-white">2.180</span>
                       <span className="text-[10px] text-slate-200">Campanhas em curso</span>
                     </div>
                   </div>
@@ -705,7 +705,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
                   <div className="bg-black/35 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex items-center gap-3">
                     <Globe className="w-5 h-5 text-emerald-400" />
                     <div>
-                      <span className="block text-sm font-black text-white font-['Outfit']">98</span>
+                      <span className="block text-sm font-black text-white">98</span>
                       <span className="text-[10px] text-slate-200">Países envolvidos</span>
                     </div>
                   </div>
@@ -716,7 +716,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
             {/* Seção: Comunidades em tendência (Direitos Humanos) (5 Cards) */}
             <section id="comunidades-tendencia-direitos-humanos-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Comunidades em tendência (Direitos Humanos)
                 </h3>
                 <button
@@ -754,7 +754,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
                       {/* Informações do Card */}
                       <div className="p-2.5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
+                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
                             {comm.name}
                           </h4>
                           <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{comm.membersCount}</p>
@@ -788,7 +788,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
             {/* Seção: Iniciativas em destaque (5 Cards) */}
             <section id="iniciativas-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Iniciativas em destaque
                 </h3>
                 <button
@@ -826,7 +826,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
                     {/* Informações */}
                     <div className="p-2.5 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
+                        <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 leading-snug group-hover:text-indigo-600 transition-colors">
                           {init.title}
                         </h4>
                         <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{init.subtitle}</p>
@@ -860,7 +860,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
             {/* 1. Card: Comunidades em tendência */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Comunidades em tendência
                 </h3>
                 <button
@@ -916,7 +916,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
             {/* 2. Card: Atividades recentes (Direitos Humanos) */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Atividades recentes (Direitos Humanos)
                 </h3>
                 <button
@@ -957,7 +957,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
               className="relative rounded-2xl overflow-hidden p-5 text-white bg-gradient-to-br from-[#312E81] via-[#4338CA] to-[#6366F1] shadow-md flex flex-col justify-between min-h-[170px]"
             >
               <div className="relative z-10 max-w-[210px] flex flex-col gap-1">
-                <h3 className="text-sm sm:text-base font-extrabold text-white font-['Outfit'] leading-tight">
+                <h3 className="text-sm sm:text-base font-extrabold text-white leading-tight">
                   Seja a voz da mudança. <br />
                   Defenda direitos. Inspire ações.
                 </h3>
@@ -1021,7 +1021,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
                 <Scale className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                   Criar Comunidade de Direitos Humanos
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500">
@@ -1120,7 +1120,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">
                   {selectedCommunityModal.name}
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
@@ -1182,7 +1182,7 @@ export const CommunityHumanRightsView: React.FC<CommunityHumanRightsViewProps> =
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">
                   {selectedInitiativeModal.title}
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">

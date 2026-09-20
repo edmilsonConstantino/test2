@@ -323,7 +323,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight font-['Outfit'] leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] dark:text-slate-50 tracking-tight leading-tight">
                 Saúde
               </h1>
               <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 font-normal leading-snug">
@@ -627,7 +627,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
 
               <div className="relative z-10 p-6 sm:p-8 w-full flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="max-w-md flex flex-col gap-2">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight font-['Outfit'] tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight">
                     Saúde começa <br />
                     na comunidade.
                   </h2>
@@ -664,7 +664,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
                       <div key={row.label} className="flex items-center gap-2.5">
                         <Icon className={`w-4 h-4 ${row.color} shrink-0`} strokeWidth={2.2} />
                         <div className="min-w-0">
-                          <span className="block text-sm font-black text-[#0F172A] dark:text-slate-50 font-['Outfit'] leading-none">
+                          <span className="block text-sm font-black text-[#0F172A] dark:text-slate-50 leading-none">
                             {row.value}
                           </span>
                           <span className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-tight">{row.label}</span>
@@ -679,7 +679,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
             {/* Seção: Comunidades em tendência (Saúde) (5 Cards) */}
             <section id="comunidades-tendencia-saude-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Comunidades em tendência (Saúde)
                 </h3>
                 <button
@@ -710,7 +710,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
                           </div>
                         </div>
 
-                        <h4 className="text-[12px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-teal-700 transition-colors">
+                        <h4 className="text-[12px] font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 leading-snug group-hover:text-teal-700 transition-colors">
                           {comm.name}
                         </h4>
                         <p className="text-[9.5px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-1">{comm.membersCount}</p>
@@ -755,7 +755,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
             {/* Seção: Eventos de saúde em destaque (5 Cards) */}
             <section id="eventos-saude-destaque-section" className="flex flex-col gap-3.5">
               <div className="flex items-center justify-between">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
                   Eventos de saúde em destaque
                 </h3>
                 <button
@@ -790,7 +790,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
 
                       <div className="p-2.5 flex-1 flex flex-col justify-between">
                         <div>
-                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] line-clamp-1 leading-snug group-hover:text-teal-700 transition-colors">
+                          <h4 className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 line-clamp-1 leading-snug group-hover:text-teal-700 transition-colors">
                             {evt.title}
                           </h4>
 
@@ -836,7 +836,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
             {/* 1. Card: Mais populares em Saúde */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Mais populares em Saúde
                 </h3>
                 <button
@@ -881,7 +881,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
             {/* 2. Card: Artigos e recursos em destaque */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Artigos e recursos em destaque
                 </h3>
                 <button
@@ -920,7 +920,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
               className="relative rounded-2xl overflow-hidden p-5 text-white bg-gradient-to-br from-[#042F2E] via-[#0F766E] to-[#0D9488] shadow-md flex flex-col justify-between min-h-[170px]"
             >
               <div className="relative z-10 max-w-[210px] flex flex-col gap-1">
-                <h3 className="text-sm sm:text-base font-extrabold text-white font-['Outfit'] leading-tight">
+                <h3 className="text-sm sm:text-base font-extrabold text-white leading-tight">
                   Compartilhe saúde. <br />
                   Inspire bem-estar.
                 </h3>
@@ -969,7 +969,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
                   {renderCardIcon(selectedCommunityModal.iconType)}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                     {selectedCommunityModal.name}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
@@ -1046,7 +1046,7 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
 
             <div className="p-5 flex flex-col gap-3">
               <div>
-                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-base font-bold text-[#0F172A] dark:text-slate-50">
                   {selectedEventModal.title}
                 </h3>
                 <div className="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-2">

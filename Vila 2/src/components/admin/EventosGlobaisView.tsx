@@ -715,7 +715,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
           ===================================================================== */}
       <ExpandableKpiHeader
         cards={eventosKpiCards}
-        visibleCount={5}
+        visibleCount={4}
         xlCols={6}
         onOpenDetail={(label) => showToast(`A abrir detalhes: ${label}`)}
       />

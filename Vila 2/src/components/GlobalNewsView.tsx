@@ -48,7 +48,7 @@ interface FilterPillItem {
 
 const CATEGORY_PILLS: FilterPillItem[] = [
   { id: 'todas', label: 'Todas', icon: Globe },
-  { id: 'politica-global', label: 'Política Global', icon: Landmark, iconColor: 'text-slate-700' },
+  { id: 'politica-global', label: 'Política Global', icon: Landmark, iconColor: 'text-slate-700 dark:text-slate-300' },
   { id: 'economia', label: 'Economia', icon: TrendingUp, iconColor: 'text-emerald-600' },
   {
     id: 'direitos-humanos',
@@ -72,7 +72,7 @@ const CATEGORY_PILLS: FilterPillItem[] = [
     id: 'mais',
     label: 'Mais',
     icon: Plus,
-    iconColor: 'text-slate-500',
+    iconColor: 'text-slate-500 dark:text-slate-400',
     hasDropdown: true,
     subcategories: [
       'Cultura Global',
@@ -99,8 +99,8 @@ const MAIN_NEWS_LIST: MainNewsCard[] = [
   {
     id: 'main-1',
     category: 'ECONOMIA',
-    categoryColor: 'text-blue-600',
-    categoryBg: 'bg-blue-50',
+    categoryColor: 'text-blue-600 dark:text-blue-400',
+    categoryBg: 'bg-blue-50 dark:bg-blue-500/10',
     image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=80',
     time: 'Há 2 horas',
     title: 'Comércio global cresce 3,2% no primeiro trimestre de 2024',
@@ -109,8 +109,8 @@ const MAIN_NEWS_LIST: MainNewsCard[] = [
   {
     id: 'main-2',
     category: 'TECNOLOGIA',
-    categoryColor: 'text-purple-600',
-    categoryBg: 'bg-purple-50',
+    categoryColor: 'text-purple-600 dark:text-purple-400',
+    categoryBg: 'bg-purple-50 dark:bg-purple-500/10',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
     time: 'Há 4 horas',
     title: 'IA generativa revoluciona educação em países em desenvolvimento',
@@ -119,8 +119,8 @@ const MAIN_NEWS_LIST: MainNewsCard[] = [
   {
     id: 'main-3',
     category: 'AMBIENTE',
-    categoryColor: 'text-emerald-600',
-    categoryBg: 'bg-emerald-50',
+    categoryColor: 'text-emerald-600 dark:text-emerald-400',
+    categoryBg: 'bg-emerald-50 dark:bg-emerald-500/10',
     image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&auto=format&fit=crop&q=80',
     time: 'Há 5 horas',
     title: 'Investimentos em energias renováveis atingem recorde de $2,1 trilhões',
@@ -129,8 +129,8 @@ const MAIN_NEWS_LIST: MainNewsCard[] = [
   {
     id: 'main-4',
     category: 'POLÍTICA GLOBAL',
-    categoryColor: 'text-rose-600',
-    categoryBg: 'bg-rose-50',
+    categoryColor: 'text-rose-600 dark:text-rose-400',
+    categoryBg: 'bg-rose-50 dark:bg-rose-500/10',
     image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&auto=format&fit=crop&q=80',
     time: 'Há 6 horas',
     title: 'Conselho de Segurança da ONU aprova cessar-fogo global',
@@ -139,8 +139,8 @@ const MAIN_NEWS_LIST: MainNewsCard[] = [
   {
     id: 'main-5',
     category: 'SAÚDE GLOBAL',
-    categoryColor: 'text-purple-600',
-    categoryBg: 'bg-purple-50',
+    categoryColor: 'text-purple-600 dark:text-purple-400',
+    categoryBg: 'bg-purple-50 dark:bg-purple-500/10',
     image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80',
     time: 'Há 8 horas',
     title: 'OMS declara fim da emergência internacional por nova cepa',
@@ -149,8 +149,8 @@ const MAIN_NEWS_LIST: MainNewsCard[] = [
   {
     id: 'main-6',
     category: 'SEGURANÇA',
-    categoryColor: 'text-amber-600',
-    categoryBg: 'bg-amber-50',
+    categoryColor: 'text-amber-600 dark:text-amber-400',
+    categoryBg: 'bg-amber-50 dark:bg-amber-500/10',
     image: 'https://images.unsplash.com/photo-1508847154043-be5407fcaa5a?w=600&auto=format&fit=crop&q=80',
     time: 'Há 9 horas',
     title: 'Esforços diplomáticos intensificam-se em regiões de conflito',
@@ -172,7 +172,7 @@ const HIGHLIGHT_ITEMS: HighlightItem[] = [
   {
     id: 'h-1',
     category: 'AMBIENTE',
-    categoryColor: 'text-emerald-700 font-bold',
+    categoryColor: 'text-emerald-700 dark:text-emerald-400 font-bold',
     image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=300&auto=format&fit=crop&q=80',
     title: 'O planeta ultrapassa limite crítico de aquecimento em 2024',
     time: 'Há 1 hora',
@@ -180,7 +180,7 @@ const HIGHLIGHT_ITEMS: HighlightItem[] = [
   {
     id: 'h-2',
     category: 'ECONOMIA',
-    categoryColor: 'text-blue-700 font-bold',
+    categoryColor: 'text-blue-700 dark:text-blue-400 font-bold',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=300&auto=format&fit=crop&q=80',
     title: 'Bancos centrais do mundo mantêm taxas de juros',
     time: 'Há 3 horas',
@@ -188,7 +188,7 @@ const HIGHLIGHT_ITEMS: HighlightItem[] = [
   {
     id: 'h-3',
     category: 'SAÚDE GLOBAL',
-    categoryColor: 'text-purple-700 font-bold',
+    categoryColor: 'text-purple-700 dark:text-purple-400 font-bold',
     image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop&q=80',
     title: 'Nova vacina mostra 95% de eficácia contra vírus emergente',
     time: 'Há 5 horas',
@@ -196,7 +196,7 @@ const HIGHLIGHT_ITEMS: HighlightItem[] = [
   {
     id: 'h-4',
     category: 'DIREITOS HUMANOS',
-    categoryColor: 'text-amber-700 font-bold',
+    categoryColor: 'text-amber-700 dark:text-amber-400 font-bold',
     image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=300&auto=format&fit=crop&q=80',
     title: 'ONU aprova resolução histórica sobre migrações climáticas',
     time: 'Há 6 horas',
@@ -601,7 +601,7 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                     <button
                       type="button"
                       id="btn-ler-noticia-completa"
-                      className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-gradient-to-r from-[#0052FE] via-[#007AFE] to-[#00C99E] hover:from-[#0042CC] hover:via-[#006CE0] hover:to-[#00A885] text-white text-[11px] sm:text-xs font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer group/btn"
+                      className="inline-flex items-center gap-2 h-9 px-4 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-[11px] sm:text-xs font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer group/btn"
                     >
                       <span>Ler notícia completa</span>
                       <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-0.5 transition-transform stroke-[2.2]" />

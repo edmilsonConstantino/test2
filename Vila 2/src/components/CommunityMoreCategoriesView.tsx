@@ -355,7 +355,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
               <LayoutGrid className="w-6 h-6 stroke-[2.2]" />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-slate-50 font-['Outfit'] tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-slate-50 tracking-tight">
                 Mais Categorias
               </h1>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
@@ -445,7 +445,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
           >
                 {/* Título e Botão Limpar Tudo */}
                 <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                  <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit'] uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 uppercase tracking-wider">
                     Filtrar comunidades
                   </h3>
                   <button
@@ -582,7 +582,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                   <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
                     {/* Lado Esquerdo do Hero: Título, Descrição e Busca */}
                     <div className="md:col-span-5 flex flex-col justify-center">
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit'] tracking-tight leading-tight">
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
                         Explore sem limites.
                       </h2>
                       <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
@@ -696,7 +696,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                 {/* SEÇÃO: "Todas as categorias" */}
                 <section id="all-categories-grid-section" className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base sm:text-lg font-extrabold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                    <h3 className="text-base sm:text-lg font-extrabold text-[#0F172A] dark:text-slate-50">
                       Todas as categorias
                     </h3>
                     {searchQuery && (
@@ -778,7 +778,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                       <Users className="w-5 h-5 stroke-[2.2]" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                      <h4 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">
                         Não encontrou o que procura?
                       </h4>
                       <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">
@@ -803,7 +803,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
             {/* 1. CARD: Categorias mais populares (EM CIMA, EXATAMENTE COMO NA IMAGEM) */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-5 shadow-2xs flex flex-col gap-4">
               <div className="flex items-center justify-between pb-1">
-                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-sm font-bold text-[#0F172A] dark:text-slate-50">
                   Categorias mais populares
                 </h3>
                 <button
@@ -855,7 +855,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
             {/* 2. Card: Artigos e recursos em destaque */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                <h3 className="text-xs font-bold text-[#0F172A] dark:text-slate-50">
                   Artigos e recursos em destaque
                 </h3>
                 <button
@@ -899,7 +899,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
               className="relative rounded-2xl overflow-hidden p-5 text-white bg-gradient-to-br from-[#1E1B4B] via-[#2A1B6D] to-[#1E293B] shadow-md flex flex-col justify-between min-h-[180px]"
             >
               <div className="relative z-10 max-w-[210px] flex flex-col gap-1.5">
-                <h3 className="text-sm sm:text-base font-extrabold text-white font-['Outfit'] leading-tight">
+                <h3 className="text-sm sm:text-base font-extrabold text-white leading-tight">
                   Conecte-se ao que faz sentido para você.
                 </h3>
                 <p className="text-[10.5px] text-white/80 leading-snug">
@@ -954,7 +954,7 @@ export const CommunityMoreCategoriesView: React.FC<CommunityMoreCategoriesViewPr
                   <selectedCategoryModal.icon className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50 font-['Outfit']">
+                  <h3 className="text-lg font-bold text-[#0F172A] dark:text-slate-50">
                     {selectedCategoryModal.name}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">

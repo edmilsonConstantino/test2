@@ -401,7 +401,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
       </div>
 
       {/* 2. Fita de 7 Métricas: colapsado em 5 + botão "Ver mais cards" */}
-      <ExpandableKpiHeader cards={visaoKpiCards} visibleCount={5} xlCols={6} />
+      <ExpandableKpiHeader cards={visaoKpiCards} visibleCount={4} xlCols={6} />
 
       {/* 3. Segunda Fileira: Gráfico de Evolução (Linha) + Mapa Global da Rede + Cobertura por Região (Rosca) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">

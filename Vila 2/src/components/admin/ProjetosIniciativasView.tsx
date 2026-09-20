@@ -805,7 +805,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
       {/* ========================================================================= */}
       <ExpandableKpiHeader
         cards={projetosKpiCards}
-        visibleCount={5}
+        visibleCount={4}
         xlCols={6}
         onOpenDetail={(label) => setActiveKpiDetail(label)}
       />
