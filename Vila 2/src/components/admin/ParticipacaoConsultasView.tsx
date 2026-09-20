@@ -43,6 +43,7 @@ import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 import { LineChart } from './MiniCharts';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface ParticipacaoConsultasViewProps {
   currentUser: DemoUser;
@@ -91,6 +92,8 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
   onNavigateToTab,
   onBreadcrumbChange,
 }) => {
+  const { isDark } = useTheme();
+
   // ---------------------------------------------------------------------------
   // Estados Locais e Interativos
   // ---------------------------------------------------------------------------
@@ -276,7 +279,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
         // Média: #99C0EB
         // Baixa: #C4DAF3
         // Muito Baixa: #F1F5F9
-        let fill = '#F1F5F9';
+        let fill = isDark ? '#334155' : '#F1F5F9';
         let level = 'Muito Baixa';
         let participants = '320';
 
@@ -307,7 +310,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
           participants,
         };
       });
-  }, []);
+  }, [isDark]);
 
   // ---------------------------------------------------------------------------
   // 4. Consultas por Status (Donut Chart)
@@ -867,7 +870,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                           key={feat.key}
                           d={feat.d}
                           fill={feat.fill}
-                          stroke="#FFFFFF"
+                          stroke={isDark ? '#0F172A' : '#FFFFFF'}
                           strokeWidth={0.5}
                           className="transition-all duration-150 cursor-pointer hover:opacity-85 hover:stroke-[#0F448A] hover:stroke-[1px]"
                           onMouseEnter={() => {
@@ -1749,7 +1752,7 @@ export const ParticipacaoConsultasView: React.FC<ParticipacaoConsultasViewProps>
                         key={`modal-${feat.key}`}
                         d={feat.d}
                         fill={feat.fill}
-                        stroke="#FFFFFF"
+                        stroke={isDark ? '#0F172A' : '#FFFFFF'}
                         strokeWidth={0.5}
                         className="transition-all duration-150 cursor-pointer hover:opacity-85 hover:stroke-[#0F448A] hover:stroke-[1px]"
                         onClick={() => {

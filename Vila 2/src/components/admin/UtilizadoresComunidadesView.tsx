@@ -265,9 +265,12 @@ const DAILY_REGISTRATIONS = [
 // Meses da Linha de Crescimento
 const MONTHS_LABELS = ['Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez', 'Jan', 'Fev', 'Mar', 'Abr', 'Mai'];
 const GROWTH_DATA = {
-  totalMembros: [1200000, 1350000, 1500000, 1680000, 1850000, 2020000, 2180000, 2340000, 2480000, 2610000, 2720000, 2847562],
-  utilizadoresAtivos: [520000, 590000, 680000, 750000, 820000, 890000, 940000, 1010000, 1070000, 1120000, 1180000, 1236754],
-  novosMembros: [45000, 48000, 52000, 56000, 61000, 64000, 69000, 72000, 75000, 79000, 81000, 85421],
+  // Total de membros é acumulado — monotónico crescente, com ritmo variável
+  totalMembros: [1200000, 1284000, 1391000, 1526000, 1641000, 1789000, 1914000, 2078000, 2235000, 2412000, 2628000, 2847562],
+  // Utilizadores ativos mensais — flutua com sazonalidade (quedas em Agosto e Dezembro)
+  utilizadoresAtivos: [520000, 561000, 612000, 584000, 673000, 728000, 694000, 795000, 851000, 908000, 976000, 1236754],
+  // Novos membros mensais — volátil, com picos após campanhas (Jan e Set)
+  novosMembros: [45000, 47000, 61000, 49000, 54000, 66000, 51000, 78000, 71000, 62000, 67000, 85421],
 };
 
 export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewProps> = ({
@@ -352,44 +355,17 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
   };
 
   // -------------------------------------------------------------
-  // Cálculos SVG: Gráfico de Linha de Crescimento
+  // Dados do gráfico de crescimento (meses + valores para o tooltip)
   // -------------------------------------------------------------
   const lineChartData = useMemo(() => {
-    const width = 580;
-    const height = 180;
-    const paddingX = 40;
-    const paddingY = 20;
-    const maxY = 3000000;
-
     const dataLength = growthPeriod === '6meses' ? 6 : MONTHS_LABELS.length;
     const months = MONTHS_LABELS.slice(-dataLength);
-    const totalData = GROWTH_DATA.totalMembros.slice(-dataLength);
-    const ativosData = GROWTH_DATA.utilizadoresAtivos.slice(-dataLength);
-    const novosData = GROWTH_DATA.novosMembros.slice(-dataLength);
-
-    const scaleX = (idx: number) => paddingX + idx * ((width - paddingX - 20) / (dataLength - 1));
-    const scaleY = (val: number) => height - (val / maxY) * (height - paddingY) + paddingY;
-
-    // Novos membros escalados para visualização harmônica (multiplicado por 15 para aparecer na mesma escala gráfica)
-    const scaleYNovos = (val: number) => scaleY(val * 12);
-
-    const makePath = (vals: number[], customScaleY = scaleY) => {
-      return vals
-        .map((v, i) => `${i === 0 ? 'M' : 'L'} ${scaleX(i).toFixed(1)} ${customScaleY(v).toFixed(1)}`)
-        .join(' ');
-    };
 
     return {
       months,
-      totalData,
-      ativosData,
-      novosData,
-      scaleX,
-      scaleY,
-      scaleYNovos,
-      totalPath: makePath(totalData),
-      ativosPath: makePath(ativosData),
-      novosPath: makePath(novosData, scaleYNovos),
+      totalData: GROWTH_DATA.totalMembros.slice(-dataLength),
+      ativosData: GROWTH_DATA.utilizadoresAtivos.slice(-dataLength),
+      novosData: GROWTH_DATA.novosMembros.slice(-dataLength),
     };
   }, [growthPeriod]);
 
@@ -699,7 +675,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   activeGrowthLines.total ? 'opacity-100 text-slate-800 dark:text-slate-100' : 'opacity-40 text-slate-400 dark:text-slate-500 line-through'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1455AC]" />
+                <span className="inline-flex items-center gap-1.5" aria-hidden>
+                  <span className="inline-flex items-center">
+                    <span className="w-4 h-[2px] rounded-full bg-[#1455AC]" />
+                    <span className="w-2 h-2 rounded-full bg-[#1455AC] ring-2 ring-white dark:ring-slate-900 -ml-0.5" />
+                  </span>
+                </span>
                 <span>Total de Membros</span>
               </button>
               <button
@@ -709,7 +690,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   activeGrowthLines.ativos ? 'opacity-100 text-slate-800 dark:text-slate-100' : 'opacity-40 text-slate-400 dark:text-slate-500 line-through'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
+                <span className="inline-flex items-center gap-1.5" aria-hidden>
+                  <span className="inline-flex items-center">
+                    <span className="w-4 h-[2px] rounded-full bg-[#10B981]" />
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] ring-2 ring-white dark:ring-slate-900 -ml-0.5" />
+                  </span>
+                </span>
                 <span>Utilizadores Ativos</span>
               </button>
               <button
@@ -719,7 +705,12 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
                   activeGrowthLines.novos ? 'opacity-100 text-slate-800 dark:text-slate-100' : 'opacity-40 text-slate-400 dark:text-slate-500 line-through'
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0F448A]" />
+                <span className="inline-flex items-center gap-1.5" aria-hidden>
+                  <span className="inline-flex items-center">
+                    <span className="w-4 h-[2px] rounded-full bg-[#0F448A]" />
+                    <span className="w-2 h-2 rounded-full bg-[#0F448A] ring-2 ring-white dark:ring-slate-900 -ml-0.5" />
+                  </span>
+                </span>
                 <span>Novos Membros</span>
               </button>
             </div>
@@ -739,7 +730,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               <LineChart
                 series={growthChartSeries}
                 labels={lineChartData.months}
-                height={200}
+                height={260}
                 yTicks={4}
                 formatY={(v) =>
                   v >= 1000000
@@ -972,6 +963,8 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
             )}
         </SectionCard>
 
+        {/* Cards 3 e 4 lado a lado: Engajamento nas Comunidades + Novos Registos por Dia */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Card 3: Engajamento nas Comunidades */}
         <SectionCard title="Engajamento nas Comunidades" footerLabel="Ver métricas de engajamento" onFooterClick={() => setActiveDetailModal('Métricas Detalhadas de Engajamento')}>
             <div className="grid grid-cols-2 gap-3">
@@ -1079,6 +1072,7 @@ export const UtilizadoresComunidadesView: React.FC<UtilizadoresComunidadesViewPr
               )}
             </div>
         </SectionCard>
+        </div>
         </div>
 
         {/* Coluna direita: Comunidades por Status (donut, 4 colunas) */}

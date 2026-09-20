@@ -124,10 +124,10 @@ export const VilaPerfilTab: React.FC<VilaPerfilTabProps> = ({
                   <span>🇵🇹</span> Portugal
                 </span>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-semibold bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-400 border border-red-100 dark:border-red-800/40 shadow-2xs">
-                  <span>🛡️</span> Algarve (Faro)
+                  <ShieldCheck className="w-3.5 h-3.5" /> Algarve (Faro)
                 </span>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-100 dark:border-blue-800/40 shadow-2xs">
-                  <span>🌐</span> Comunidade Global
+                  <Globe className="w-3.5 h-3.5" /> Comunidade Global
                 </span>
               </div>
             </div>

@@ -53,7 +53,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
   currentUser,
   onSelectTab,
   onOpenAuth,
-  onOpenImpactModal,
   onOpenSupportModal,
   isMobileOpen = false,
   onCloseMobile,
@@ -76,6 +75,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Indicador de "mais opções abaixo" quando a navegação excede a altura visível (ex: ecrãs mais baixos)
+  const navRef = useRef<HTMLElement>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+
+    const checkScroll = () => {
+      setShowScrollHint(el.scrollHeight - el.scrollTop - el.clientHeight > 8);
+    };
+
+    checkScroll();
+    el.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [currentTab]);
 
   // EXACT 10 Navigation items in the official required order (UI de referência):
   // Início → Explorar o Mundo → Mundo em Movimento (badge "NOVO") → Eventos Globais →
@@ -176,8 +196,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* 2. Menu de Navegação Completo: exatamente 10 itens na ordem oficial */}
+        <div className="relative flex-1 min-h-0">
         <nav
-          className="flex-1 min-h-0 overflow-y-auto no-scrollbar py-2 flex flex-col justify-evenly gap-1 pr-0.5"
+          ref={navRef}
+          className="h-full overflow-y-auto no-scrollbar py-2 flex flex-col justify-evenly gap-1 pr-0.5"
           aria-label="Navegação Principal"
           id="sidebar-nav-container"
         >
@@ -207,7 +229,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   currentTab === 'direitos-humanos' ||
                   currentTab === 'impacto-cultura' ||
                   currentTab === 'cultura-impacto')) ||
-              (item.id === 'sobre' && currentTab === 'sobre-a-vila') ||
+              (item.id === 'sobre' && (currentTab === 'sobre' || currentTab === 'sobre-a-vila')) ||
               (item.id === 'definicoes' &&
                 (currentTab === 'preferencias' ||
                   currentTab === 'settings' ||
@@ -363,6 +385,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
           )}
         </nav>
 
+        {/* Indicador "mais opções abaixo" — visível apenas quando a navegação tem conteúdo por rolar (ex: ecrãs mais baixos) */}
+        {showScrollHint && (
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-9 flex items-end justify-center pb-1 bg-gradient-to-t from-white dark:from-slate-900 to-transparent">
+            <button
+              type="button"
+              onClick={() => navRef.current?.scrollBy({ top: 140, behavior: 'smooth' })}
+              title="Ver mais opções"
+              className="pointer-events-auto w-7 h-7 rounded-full bg-[#1455AC] hover:bg-[#0F448A] shadow-md shadow-[#1455AC]/30 flex items-center justify-center text-white hover:scale-110 transition-all cursor-pointer"
+            >
+              <ChevronDown className="w-4 h-4 text-white" strokeWidth={2.5} />
+            </button>
+          </div>
+        )}
+        </div>
+
         {/* 3. Bloco Inferior Fixo: Card Promocional + Idioma + Tema + Autenticação */}
         <div
           id="sidebar-bottom-fixed-container"
@@ -371,103 +408,34 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {/* Card Promocional Fixo (sempre idêntico em todas as páginas) */}
           <div
             id="sidebar-promo-card"
-            className="p-3 rounded-2xl bg-[#1455AC]/5 dark:bg-[#1455AC]/10 border border-slate-200 dark:border-slate-700 relative overflow-hidden flex flex-col items-start text-left shadow-2xs"
+            className="p-3.5 pt-4 rounded-2xl bg-white dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 relative overflow-hidden flex flex-col items-center text-center shadow-2xs"
           >
-            {/* 3D Earth Globe Graphic com nós e malha de constelação */}
-            <div className="relative w-11 h-11 mb-1.5 flex items-center justify-center">
-              <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xs">
-                <defs>
-                  {/* Outer atmospheric radial glow */}
-                  <radialGradient id="promo-atmos-glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="60%" stopColor="#1455AC" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#0F448A" stopOpacity="0" />
-                  </radialGradient>
+            {/* Brilho ambiente subtil por trás da ilustração (mais visível no modo escuro) */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-16 bg-[#1455AC]/25 dark:bg-blue-400/20 rounded-full blur-2xl pointer-events-none" />
 
-                  {/* 3D Sphere Lighting Gradient */}
-                  <radialGradient id="promo-sphere-lighting" cx="35%" cy="30%" r="70%">
-                    <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="45%" stopColor="#E2E8F0" />
-                    <stop offset="80%" stopColor="#CBD5E1" />
-                    <stop offset="100%" stopColor="#94A3B8" />
-                  </radialGradient>
-
-                  {/* Ocean & Continent gradients */}
-                  <linearGradient id="promo-continent-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1455AC" />
-                    <stop offset="100%" stopColor="#0F448A" />
-                  </linearGradient>
-                  <linearGradient id="promo-continent-green" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#34D399" />
-                    <stop offset="100%" stopColor="#059669" />
-                  </linearGradient>
-                </defs>
-
-                {/* Atmospheric Glow */}
-                <circle cx="50" cy="50" r="48" fill="url(#promo-atmos-glow)" />
-
-                {/* Earth Sphere Base */}
-                <circle cx="50" cy="50" r="36" fill="url(#promo-sphere-lighting)" stroke="#E2E8F0" strokeWidth="0.8" />
-
-                {/* Curved Latitude/Longitude Wireframe */}
-                <ellipse cx="50" cy="50" rx="36" ry="12" fill="none" stroke="#94A3B8" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.4" />
-                <ellipse cx="50" cy="50" rx="14" ry="36" fill="none" stroke="#94A3B8" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.4" />
-                <path d="M14 50 Q 50 68 86 50" fill="none" stroke="#94A3B8" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.3" />
-                <path d="M14 50 Q 50 32 86 50" fill="none" stroke="#94A3B8" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.3" />
-
-                {/* Landmass Continents */}
-                <path
-                  d="M44 26 C47 24 53 25 55 28 C56 31 52 34 50 36 C49 40 52 45 54 50 C55 56 50 63 46 68 C42 67 40 60 41 54 C42 48 39 42 41 36 C41 30 42 27 44 26 Z"
-                  fill="url(#promo-continent-blue)"
-                />
-                <path
-                  d="M26 25 C29 23 33 26 31 31 C29 34 26 36 28 41 C29 44 32 47 30 53 C28 58 25 64 23 62 C21 57 23 50 22 44 C21 37 22 28 26 25 Z"
-                  fill="url(#promo-continent-green)"
-                  opacity="0.9"
-                />
-                <path
-                  d="M59 23 C66 22 74 26 76 32 C78 38 72 44 69 47 C66 49 63 44 60 40 C58 36 56 32 57 26 Z"
-                  fill="url(#promo-continent-blue)"
-                />
-                <path
-                  d="M66 54 C72 52 76 56 75 62 C72 65 67 64 65 60 C64 57 65 55 66 54 Z"
-                  fill="url(#promo-continent-green)"
-                />
-
-                {/* Constellation Connecting Lines */}
-                <path d="M28 32 Q 40 22 50 30" fill="none" stroke="#60A5FA" strokeWidth="0.8" strokeDasharray="1.5 1.5" opacity="0.8" />
-                <path d="M50 30 Q 62 24 70 34" fill="none" stroke="#60A5FA" strokeWidth="0.8" strokeDasharray="1.5 1.5" opacity="0.8" />
-                <path d="M50 30 Q 54 44 53 48" fill="none" stroke="#60A5FA" strokeWidth="0.8" strokeDasharray="1.5 1.5" opacity="0.8" />
-                <path d="M28 32 Q 24 48 30 52" fill="none" stroke="#60A5FA" strokeWidth="0.8" strokeDasharray="1.5 1.5" opacity="0.6" />
-                <path d="M70 34 Q 74 48 66 54" fill="none" stroke="#60A5FA" strokeWidth="0.8" strokeDasharray="1.5 1.5" opacity="0.6" />
-
-                {/* Nodes */}
-                <circle cx="48" cy="30" r="3" fill="#1455AC" stroke="#FFFFFF" strokeWidth="1" />
-                <circle cx="53" cy="48" r="2.8" fill="#10B981" stroke="#FFFFFF" strokeWidth="1" />
-                <circle cx="70" cy="34" r="2.4" fill="#1455AC" stroke="#FFFFFF" strokeWidth="1" />
-                <circle cx="28" cy="32" r="2.4" fill="#10B981" stroke="#FFFFFF" strokeWidth="1" />
-                <circle cx="46" cy="62" r="2" fill="#1455AC" stroke="#FFFFFF" strokeWidth="0.8" />
-                <circle cx="66" cy="54" r="2" fill="#F58300" stroke="#FFFFFF" strokeWidth="0.8" />
-              </svg>
+            {/* Ilustração: globo em rede (imagem oficial) */}
+            <div className="relative w-full rounded-xl overflow-hidden bg-white p-1 border border-slate-100 dark:border-slate-700/60 shadow-2xs">
+              <img
+                src="/imagens/sidebar.png"
+                alt=""
+                className="w-full h-20 object-cover object-top rounded-lg"
+              />
             </div>
 
-            <h4 className="text-[12px] font-bold text-[#1455AC] leading-tight font-sans">
+            <h4 className="mt-1 text-[12.5px] font-extrabold text-slate-900 dark:text-slate-50 leading-tight font-sans tracking-tight">
               Juntos, construímos um mundo melhor.
             </h4>
 
             <button
               type="button"
               onClick={() => {
-                if (onOpenImpactModal) {
-                  onOpenImpactModal();
-                } else {
-                  onSelectTab('impacto');
-                }
+                onSelectTab('impacto');
                 if (onCloseMobile) onCloseMobile();
               }}
-              className="mt-1.5 text-[11px] font-bold text-[#1455AC] hover:text-[#0F448A] inline-flex items-center gap-1 cursor-pointer hover:underline transition-colors"
+              className="mt-1.5 inline-flex items-center justify-center gap-1 text-[11.5px] font-bold text-[#1455AC] dark:text-blue-300 hover:text-[#0F448A] dark:hover:text-blue-200 hover:underline transition-colors cursor-pointer"
             >
               <span>Ver impacto global</span>
-              <ArrowRight className="w-3 h-3" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 

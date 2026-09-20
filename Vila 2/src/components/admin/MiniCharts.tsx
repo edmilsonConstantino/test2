@@ -99,16 +99,32 @@ export const LineChart: React.FC<{
       ))}
 
       {labels.map((l, i) =>
-        i % Math.ceil(labels.length / 7) === 0 || i === labels.length - 1 ? (
+        labels.length <= 14 || i % Math.ceil(labels.length / 7) === 0 || i === labels.length - 1 ? (
           <text key={`x-${l}`} x={x(i)} y={h - 8} textAnchor="middle" fontSize="9" fill="#94A3B8" fontWeight="600">
             {l}
           </text>
         ) : null
       )}
 
-      {series.map((s) => {
-        const pts = s.values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
-        const areaPath = `M${pts.split(' ').join(' L')} L${x(s.values.length - 1)},${y(0)} L${x(0)},${y(0)} Z`;
+      {series.map((s, si) => {
+        const pts = s.values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`);
+        // Curva suave (Catmull-Rom → Bézier): os pontos mantêm-se exatos nos dados
+        const smooth = (points: string[]) => {
+          const p: number[][] = points.map((s2) => s2.split(',').map(Number));
+          return p.reduce((d, c, i, arr) => {
+            if (i === 0) return `M ${c[0]} ${c[1]}`;
+            const p0 = arr[i - 1];
+            const pm = arr[i - 2] ?? p0;
+            const p2 = arr[i + 1] ?? c;
+            const p3 = arr[i + 2] ?? p2;
+            const c1x = p0[0] + (c[0] - pm[0]) / 6;
+            const c1y = p0[1] + (c[1] - pm[1]) / 6;
+            const c2x = c[0] - (p3[0] - p0[0]) / 6;
+            const c2y = c[1] - (p3[1] - p0[1]) / 6;
+            return `${d} C ${c1x.toFixed(2)} ${c1y.toFixed(2)}, ${c2x.toFixed(2)} ${c2y.toFixed(2)}, ${c[0]} ${c[1]}`;
+          }, '');
+        };
+        const areaPath = `M${pts.join(' L')} L${x(s.values.length - 1)},${y(0)} L${x(0)},${y(0)} Z`;
         const gid = `lc-${s.name.replace(/\s/g, '')}`;
         return (
           <g key={s.name}>
@@ -118,9 +134,9 @@ export const LineChart: React.FC<{
                 <stop offset="100%" stopColor={s.color} stopOpacity="0.01" />
               </linearGradient>
             </defs>
-            {series.length === 1 && <path d={areaPath} fill={`url(#${gid})`} />}
-            <polyline
-              points={pts}
+            {(series.length === 1 || si === 0) && <path d={areaPath} fill={`url(#${gid})`} />}
+            <path
+              d={smooth(pts)}
               fill="none"
               stroke={s.color}
               strokeWidth="2.2"
@@ -132,10 +148,10 @@ export const LineChart: React.FC<{
                 key={i}
                 cx={x(i)}
                 cy={y(v)}
-                r="2.6"
-                fill="#FFFFFF"
-                stroke={s.color}
-                strokeWidth="1.8"
+                r="2.8"
+                fill={s.color}
+                stroke="#FFFFFF"
+                strokeWidth="1.4"
               />
             ))}
           </g>

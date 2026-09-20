@@ -44,16 +44,20 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
   onOpenDetail,
   labelVerMenos = 'Ver menos',
 }) => {
-  const hasMore = cards.length > visibleCount;
+  const hiddenCount = cards.length - visibleCount;
+  // Só colapsa quando vale a pena esconder (2+ cards). Esconder 1 card atrás de um
+  // toggle é interação sem valor — nesses casos mostra tudo sempre.
+  const hasMore = hiddenCount >= 2;
   const [expanded, setExpanded] = useState(false);
   const visible = hasMore && !expanded ? cards.slice(0, visibleCount) : cards;
-  const hiddenCount = cards.length - visibleCount;
+  // Classes estáticas para o Tailwind as detetar (template dinâmico não é compilado)
+  const expandedGridClass = xlCols === 6 ? 'xl:grid-cols-6' : 'xl:grid-cols-5';
 
   return (
     <div className="flex flex-col gap-2">
       <div
         className={`grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 ${
-          expanded ? `lg:grid-cols-3 xl:grid-cols-${xlCols}` : 'lg:grid-cols-5'
+          expanded || !hasMore ? `lg:grid-cols-3 ${expandedGridClass}` : 'lg:grid-cols-5'
         }`}
       >
         {visible.map((kpi) => (
@@ -120,7 +124,7 @@ export const ExpandableKpiHeader: React.FC<ExpandableKpiHeaderProps> = ({
         ))}
       </div>
 
-      {/* Sinalização "Ver mais cards" — apenas quando há mais que o visível */}
+      {/* Sinalização "Ver mais cards" — apenas quando há 2+ escondidos */}
       {hasMore && (
         <button
           type="button"

@@ -33,6 +33,7 @@ import {
   X,
   MapPin,
   CheckCircle2,
+  Languages,
 } from 'lucide-react';
 import { BreadcrumbItem } from './Topbar';
 
@@ -1159,7 +1160,7 @@ export const CommunityExploreView: React.FC<CommunityExploreViewProps> = ({
                             </span>
 
                             <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 dark:text-slate-500">
-                              <span className="text-[12px]">🗣</span>
+                              <Languages className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                               <span>{item.languages}</span>
                             </span>
 

@@ -1035,7 +1035,8 @@ export const GlobalNewsView: React.FC<GlobalNewsViewProps> = ({
                     Cúpula do Clima 2024
                   </h4>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 truncate flex items-center gap-1 font-sans">
-                    <span>📍 Dubai, Emirados Árabes</span>
+                    <MapPin className="w-3 h-3 shrink-0" />
+                    <span>Dubai, Emirados Árabes</span>
                   </p>
                   <p className="text-[10.5px] text-slate-400 dark:text-slate-500 mt-0.5 font-sans">
                     • 2.4K assistindo

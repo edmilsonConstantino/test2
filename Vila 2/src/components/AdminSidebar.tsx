@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   LayoutGrid,
+  ChevronDown,
   Compass,
   Users,
   Flag,
@@ -64,6 +65,27 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
   onCloseMobile,
 }) => {
   const { isDark: isDarkMode, toggleTheme } = useTheme();
+
+  // Indicador de "mais opções abaixo" quando a navegação excede a altura visível
+  const navRef = useRef<HTMLElement>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+
+    const checkScroll = () => {
+      setShowScrollHint(el.scrollHeight - el.scrollTop - el.clientHeight > 8);
+    };
+
+    checkScroll();
+    el.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [currentTab]);
 
   // 12 Navigation items da Plataforma conforme UI de Referência
   const adminNavItems: AdminNavItem[] = [
@@ -409,8 +431,10 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         </div>
 
         {/* 2. Menu de Navegação da Plataforma (12 itens) */}
+        <div className="relative flex-1 min-h-0">
         <nav
-          className="flex-1 min-h-0 overflow-y-auto no-scrollbar py-2 flex flex-col gap-0.5 pr-0.5"
+          ref={navRef}
+          className="h-full overflow-y-auto no-scrollbar py-2 flex flex-col gap-0.5 pr-0.5"
           aria-label="Navegação da Plataforma VILA"
           id="admin-sidebar-nav"
         >
@@ -476,6 +500,21 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
             ))}
           </div>
         </nav>
+
+        {/* Indicador "mais opções abaixo" — visível apenas quando a navegação tem conteúdo por rolar */}
+        {showScrollHint && (
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-9 flex items-end justify-center pb-1 bg-gradient-to-t from-white dark:from-slate-950 to-transparent">
+            <button
+              type="button"
+              onClick={() => navRef.current?.scrollBy({ top: 140, behavior: 'smooth' })}
+              title="Ver mais opções"
+              className="pointer-events-auto w-7 h-7 rounded-full bg-[#1455AC] hover:bg-[#0F448A] shadow-md shadow-[#1455AC]/30 flex items-center justify-center text-white hover:scale-110 transition-all cursor-pointer"
+            >
+              <ChevronDown className="w-4 h-4 text-white" strokeWidth={2.5} />
+            </button>
+          </div>
+        )}
+        </div>
 
         {/* 4. Bloco Inferior: Card Promocional da Missão VILA + Modo Escuro + Voltar ao Portal */}
         <div className="shrink-0 pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2.5 bg-white dark:bg-slate-950">

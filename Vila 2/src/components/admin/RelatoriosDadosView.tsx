@@ -41,6 +41,7 @@ import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface RelatoriosDadosViewProps {
   currentUser: DemoUser;
@@ -62,6 +63,8 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       { label: 'Relatórios e Dados' },
     ]);
   }, [onBreadcrumbChange, onNavigateToTab]);
+
+  const { isDark } = useTheme();
 
   // States
   const [dateRange, setDateRange] = useState('01 Mai 2024 - 24 Mai 2025');
@@ -237,7 +240,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
           else if (code % 5 === 1) fill = '#5F9DE0';
           else if (code % 5 === 2) fill = '#99C0EB';
           else if (code % 5 === 3) fill = '#99C0EB';
-          else fill = '#E2ECF9';
+          else fill = isDark ? '#334155' : '#E2ECF9';
         }
 
         return {
@@ -249,7 +252,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
       });
 
     return { paths };
-  }, []);
+  }, [isDark]);
 
   // 4. Evolução de Dados (3 Linhas: Relatórios, Conjuntos de Dados, Downloads)
   const evolutionTimeline = [
@@ -775,7 +778,7 @@ export const RelatoriosDadosView: React.FC<RelatoriosDadosViewProps> = ({
                         key={p.key}
                         d={p.d}
                         fill={p.fill}
-                        stroke="#FFFFFF"
+                        stroke={isDark ? '#0F172A' : '#FFFFFF'}
                         strokeWidth={0.5}
                         className="transition-colors hover:opacity-85 cursor-pointer"
                         onClick={() => showToast(`Território: ${p.name}`)}

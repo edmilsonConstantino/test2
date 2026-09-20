@@ -292,246 +292,116 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
           {/* Left Column (9 cols on LG/XL) */}
           <div className="lg:col-span-8 xl:col-span-9 space-y-6">
             
-            {/* HERO SECTION: Sobre a VILA + Globe Graphic */}
+            {/* HERO: secção aberta (sem card), como na referência — título à esquerda, imagem grande à direita */}
             <section
               id="hero-about-vila"
-              className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white via-[#F8FAFC] to-[#EFF6FF]/60 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 lg:p-10 shadow-2xs transition-all hover:shadow-xs font-sans"
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#EFF6FF]/80 via-white to-white border border-slate-100 dark:border-slate-800 dark:bg-slate-900 px-6 sm:px-8 py-8 sm:py-10 shadow-2xs font-sans"
             >
-              {/* Subtle background ambient reflections */}
-              <div className="absolute -top-28 -right-28 w-[32rem] h-[32rem] bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-24 -left-20 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
-
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 font-sans">
+              <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-10 font-sans">
                 {/* Hero Typography */}
-                <div className="max-w-xl font-sans">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 dark:text-slate-50 font-sans tracking-tight leading-[1.15]">
+                <div className="w-full lg:w-[46%] shrink-0 font-sans">
+                  <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-black text-slate-900 dark:text-slate-50 font-sans tracking-tight leading-[1.05]">
                     Sobre a <span className="text-[#1455AC]">VILA</span>
                   </h1>
 
-                  <p className="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-lg font-sans">
+                  <p className="mt-5 text-[15px] sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-md font-sans">
                     A VILA é a infraestrutura digital que conecta pessoas, organizações e territórios para criar impacto real e sustentável.
                   </p>
 
                   {/* Horizontal brand blue bar indicator from reference */}
-                  <div className="w-14 h-1 bg-[#1455AC] rounded-full mt-5" />
+                  <div className="w-14 h-1 bg-[#1455AC] rounded-full mt-6" />
                 </div>
 
-                {/* Hero Illustration: Realistic 3D Globe with Skyline, Trees & People Silhouettes */}
-                <div className="w-full max-w-[340px] md:max-w-[420px] shrink-0 flex items-center justify-center">
-                  <div className="relative w-72 h-56 sm:w-88 sm:h-64 flex items-center justify-center">
-                    <svg viewBox="0 0 440 320" className="w-full h-full drop-shadow-md select-none" fill="none">
-                      <defs>
-                        {/* Glow surrounding globe */}
-                        <radialGradient id="globe-halo" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.45" />
-                          <stop offset="70%" stopColor="#1455AC" stopOpacity="0.1" />
-                          <stop offset="100%" stopColor="#1E3A8A" stopOpacity="0" />
-                        </radialGradient>
-                        
-                        {/* Realistic 3D Earth sphere gradient */}
-                        <radialGradient id="earth-sphere" cx="30%" cy="25%" r="75%">
-                          <stop offset="0%" stopColor="#93C5FD" />
-                          <stop offset="25%" stopColor="#3B82F6" />
-                          <stop offset="65%" stopColor="#11468F" />
-                          <stop offset="95%" stopColor="#172554" />
-                        </radialGradient>
-
-                        {/* City Skylines Gradient */}
-                        <linearGradient id="city-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="#E0F2FE" />
-                          <stop offset="100%" stopColor="#BAE6FD" />
-                        </linearGradient>
-
-                        {/* Grass Gradient */}
-                        <linearGradient id="hill-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="#34D399" />
-                          <stop offset="40%" stopColor="#10B981" />
-                          <stop offset="100%" stopColor="#047857" />
-                        </linearGradient>
-                      </defs>
-
-                      {/* Atmosphere Glow */}
-                      <circle cx="260" cy="130" r="115" fill="url(#globe-halo)" />
-
-                      {/* Earth 3D Sphere */}
-                      <circle cx="260" cy="130" r="82" fill="url(#earth-sphere)" stroke="#BFDBFE" strokeWidth="1.2" />
-
-                      {/* Continents overlay (Africa, Europe, Americas representation) */}
-                      {/* Europe & Africa */}
-                      <path d="M245 80 Q 260 75 272 85 Q 285 98 275 115 Q 268 135 275 160 Q 265 175 250 165 Q 235 150 240 120 Q 248 100 245 80 Z" fill="#10B981" opacity="0.95" />
-                      {/* Asia/Middle East */}
-                      <path d="M280 82 Q 305 78 320 95 Q 330 115 315 130 Q 295 132 285 115 Z" fill="#059669" opacity="0.9" />
-                      {/* Atlantic islands / South America glimpse */}
-                      <path d="M205 125 Q 220 120 225 140 Q 215 170 200 165 Q 192 145 205 125 Z" fill="#34D399" opacity="0.88" />
-
-                      {/* Specular White Highlight curved glare */}
-                      <path d="M200 95 Q 230 65 275 75" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" opacity="0.4" />
-                      
-                      {/* Cloud Layers */}
-                      <path d="M220 110 Q 250 100 280 105 Q 295 108 310 115" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" opacity="0.65" />
-                      <path d="M235 145 Q 260 152 290 142" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" opacity="0.5" />
-
-                      {/* City Skylines behind the hill and around the globe */}
-                      {/* Left side modern skyscrapers */}
-                      <rect x="35" y="145" width="20" height="70" rx="1.5" fill="url(#city-grad)" opacity="0.85" />
-                      <polygon points="45,130 35,145 55,145" fill="#BAE6FD" />
-                      <rect x="60" y="125" width="24" height="90" rx="2" fill="url(#city-grad)" opacity="0.95" />
-                      <polygon points="72,112 60,125 84,125" fill="#93C5FD" />
-                      <rect x="88" y="150" width="18" height="65" rx="1.5" fill="url(#city-grad)" opacity="0.8" />
-                      <rect x="110" y="135" width="26" height="80" rx="2" fill="url(#city-grad)" opacity="0.9" />
-                      <rect x="140" y="155" width="20" height="60" rx="1.5" fill="url(#city-grad)" opacity="0.85" />
-
-                      {/* Right side skyline */}
-                      <rect x="345" y="140" width="22" height="75" rx="2" fill="url(#city-grad)" opacity="0.85" />
-                      <polygon points="356,128 345,140 367,140" fill="#BAE6FD" />
-                      <rect x="372" y="150" width="26" height="65" rx="1.5" fill="url(#city-grad)" opacity="0.8" />
-                      <rect x="402" y="160" width="18" height="55" rx="1.5" fill="url(#city-grad)" opacity="0.75" />
-
-                      {/* Windows grid lines */}
-                      <line x1="66" y1="135" x2="78" y2="135" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="2 2" />
-                      <line x1="66" y1="145" x2="78" y2="145" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="2 2" />
-                      <line x1="116" y1="145" x2="130" y2="145" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="2 2" />
-                      <line x1="116" y1="155" x2="130" y2="155" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="2 2" />
-
-                      {/* Green Hill Landscape Base in Foreground */}
-                      <path d="M0 265 Q 160 205 440 245 L 440 320 L 0 320 Z" fill="url(#hill-grad)" />
-
-                      {/* Park Trees & Nature */}
-                      <circle cx="80" cy="210" r="13" fill="#047857" />
-                      <circle cx="70" cy="214" r="10" fill="#10B981" />
-                      <circle cx="90" cy="216" r="9" fill="#34D399" />
-                      <rect x="78" y="220" width="4" height="12" fill="#78350F" />
-
-                      <circle cx="150" cy="222" r="12" fill="#059669" />
-                      <circle cx="162" cy="225" r="9" fill="#10B981" />
-                      <rect x="154" y="230" width="3.5" height="10" fill="#78350F" />
-
-                      <circle cx="360" cy="220" r="14" fill="#047857" />
-                      <circle cx="372" cy="224" r="10" fill="#10B981" />
-                      <rect x="364" y="230" width="4" height="11" fill="#78350F" />
-
-                      {/* Silhouette People / Citizens looking towards the globe */}
-                      {/* Person 1 (Young woman) */}
-                      <circle cx="178" cy="224" r="4.5" fill="#0F172A" />
-                      <path d="M174 231 C174 227 182 227 182 231 L181 247 L175 247 Z" fill="#0F172A" />
-                      <line x1="176" y1="247" x2="176" y2="260" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-                      <line x1="180" y1="247" x2="180" y2="260" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-
-                      {/* Person 2 (Man standing tall) */}
-                      <circle cx="198" cy="219" r="5" fill="#0F172A" />
-                      <rect x="194" y="226" width="8" height="19" rx="2" fill="#0F172A" />
-                      <line x1="196" y1="245" x2="196" y2="258" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-                      <line x1="200" y1="245" x2="200" y2="258" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-
-                      {/* Person 3 (Child looking up) */}
-                      <circle cx="214" cy="232" r="3.5" fill="#0F172A" />
-                      <rect x="211.5" y="237" width="5" height="11" rx="1.5" fill="#0F172A" />
-                      <line x1="213" y1="248" x2="213" y2="257" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
-                      <line x1="215" y1="248" x2="215" y2="257" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
-
-                      {/* Person 4 (Professional pointing/observing) */}
-                      <circle cx="230" cy="220" r="4.8" fill="#0F172A" />
-                      <rect x="226" y="227" width="8" height="18" rx="2" fill="#0F172A" />
-                      <line x1="228" y1="245" x2="228" y2="259" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-                      <line x1="232" y1="245" x2="232" y2="259" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-
-                      {/* Person 5 */}
-                      <circle cx="250" cy="222" r="4.5" fill="#0F172A" />
-                      <rect x="246.5" y="229" width="7" height="17" rx="2" fill="#0F172A" />
-                      <line x1="248" y1="246" x2="248" y2="260" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-                      <line x1="252" y1="246" x2="252" y2="260" stroke="#0F172A" strokeWidth="2.5" strokeLinecap="round" />
-
-                      {/* Soft drifting clouds in the sky */}
-                      <path d="M30 100 Q 40 86 55 90 Q 70 86 75 100 Q 80 114 65 114 L 40 114 Q 25 114 30 100 Z" fill="#FFFFFF" opacity="0.7" />
-                      <path d="M330 85 Q 340 72 355 76 Q 370 74 375 86 Q 380 98 365 98 L 340 98 Q 325 98 330 85 Z" fill="#FFFFFF" opacity="0.65" />
-                    </svg>
-                  </div>
+                {/* Hero Illustration: imagem da marca (sobrevila.png) — grande, a sangrar para o fundo como na referência */}
+                <div className="w-full lg:w-[54%] flex items-center justify-center">
+                  <img
+                    src="/imagens-paginas/09-sobre-vila/sobrevila.png"
+                    alt="Ilustração da VILA: globo global conectando pessoas, cidades e natureza"
+                    className="w-full h-auto max-w-[560px] select-none"
+                    loading="eager"
+                  />
                 </div>
               </div>
             </section>
 
-            {/* 4 CORE CARDS: Missão, Visão, Propósito, Objectivos */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+            {/* 4 CORE CARDS: ícone em círculo ao lado do título, como na referência */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
               {/* Card 1: MISSÃO */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
-                <div>
-                  <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col font-sans">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
                     <Target className="w-5 h-5 stroke-[2.2]" />
                   </div>
-
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
+                  <h3 className="text-[15px] font-bold tracking-wide text-slate-900 dark:text-slate-50 uppercase font-sans">
                     MISSÃO
                   </h3>
-
-                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
-                    Conectar o mundo através da tecnologia e da colaboração, disponibilizando ferramentas inteligentes que promovem transparência, participação e impacto positivo em <strong className="font-bold text-slate-900 dark:text-slate-50">escala global</strong>.
-                  </p>
                 </div>
+
+                <p className="mt-4 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
+                  Conectar o mundo através da tecnologia e da colaboração, disponibilizando ferramentas inteligentes que promovem transparência, participação e impacto positivo em <strong className="font-bold text-slate-900 dark:text-slate-50">escala global</strong>.
+                </p>
               </div>
 
               {/* Card 2: VISÃO */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
-                <div>
-                  <div className="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col font-sans">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] flex items-center justify-center shrink-0">
                     <Eye className="w-5 h-5 stroke-[2.2]" />
                   </div>
-
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
+                  <h3 className="text-[15px] font-bold tracking-wide text-slate-900 dark:text-slate-50 uppercase font-sans">
                     VISÃO
                   </h3>
-
-                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
-                    Ser a infraestrutura global de referência que capacita comunidades e organizações a co-criar soluções para um mundo mais próspero, justo e sustentável.
-                  </p>
                 </div>
+
+                <p className="mt-4 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
+                  Ser a infraestrutura global de referência que capacita comunidades e organizações a co-criar soluções para um mundo mais próspero, justo e sustentável.
+                </p>
 
                 {/* Blue underline accent as in reference design */}
                 <div className="w-9 h-0.5 bg-[#1455AC] rounded-full mt-4" />
               </div>
 
               {/* Card 3: PROPÓSITO */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
-                <div>
-                  <div className="w-10 h-10 rounded-full bg-rose-50 dark:bg-rose-500/10 text-rose-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col font-sans">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-rose-50 dark:bg-rose-500/10 text-rose-500 flex items-center justify-center shrink-0">
                     <Heart className="w-5 h-5 stroke-[2.2]" />
                   </div>
-
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
+                  <h3 className="text-[15px] font-bold tracking-wide text-slate-900 dark:text-slate-50 uppercase font-sans">
                     PROPÓSITO
                   </h3>
-
-                  <p className="mt-3 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
-                    Transformar conexões em impacto. Acreditamos que, quando pessoas e organizações trabalham juntas com propósito, o mundo torna-se um lugar <strong className="font-bold text-slate-900 dark:text-slate-50">melhor para todos</strong>.
-                  </p>
                 </div>
+
+                <p className="mt-4 text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-400 font-normal font-sans">
+                  Transformar conexões em impacto. Acreditamos que, quando pessoas e organizações trabalham juntas com propósito, o mundo torna-se um lugar <strong className="font-bold text-slate-900 dark:text-slate-50">melhor para todos</strong>.
+                </p>
 
                 {/* Red/pink underline accent as in reference design */}
                 <div className="w-9 h-0.5 bg-rose-500 rounded-full mt-4" />
               </div>
 
               {/* Card 4: OBJECTIVOS */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col justify-between group font-sans">
-                <div>
-                  <div className="w-10 h-10 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center mb-3.5 shadow-2xs group-hover:scale-105 transition-transform">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-2xs hover:shadow-xs transition-all flex flex-col font-sans">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
                     <Flag className="w-5 h-5 stroke-[2.2]" />
                   </div>
-
-                  <h3 className="text-xs font-bold tracking-wider text-slate-900 dark:text-slate-50 uppercase font-sans">
+                  <h3 className="text-[15px] font-bold tracking-wide text-slate-900 dark:text-slate-50 uppercase font-sans">
                     OBJECTIVOS
                   </h3>
-
-                  <ul className="mt-3 space-y-2 font-sans">
-                    {objectives.map((obj, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[11.5px] leading-tight text-slate-600 dark:text-slate-400 font-sans">
-                        {/* Circular amber checkmark badge matching screenshot */}
-                        <div className="w-4 h-4 rounded-full border border-amber-500 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-2.5 h-2.5 stroke-[3]" />
-                        </div>
-                        <span className="font-medium text-slate-700 dark:text-slate-300">{obj}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
+
+                <ul className="mt-4 space-y-2 font-sans">
+                  {objectives.map((obj, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[11px] leading-snug text-slate-600 dark:text-slate-400 font-sans">
+                      {/* Circular amber checkmark badge matching screenshot */}
+                      <div className="w-4 h-4 rounded-full border border-amber-500 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </div>
+                      <span className="font-medium text-slate-700 dark:text-slate-300">{obj}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -552,27 +422,25 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
                 )}
               </div>
 
-              {/* 5 Pillar Cards in a Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 font-sans">
+              {/* 5 Pillars: colunas centradas com separadores verticais, como na referência */}
+              <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-8 ${filteredPillars.length >= 5 ? 'lg:divide-x lg:divide-slate-200 dark:lg:divide-slate-700' : ''}`}>
                 {filteredPillars.map((pillar) => (
                   <div
                     key={pillar.id}
                     onClick={() => setSelectedPillarModal(pillar)}
                     onMouseEnter={() => setActivePillar(pillar.id)}
                     onMouseLeave={() => setActivePillar(null)}
-                    className={`bg-white dark:bg-slate-800 rounded-xl border ${pillar.border} p-4 shadow-2xs hover:shadow-xs transition-all cursor-pointer flex flex-col items-start font-sans ${
-                      activePillar === pillar.id ? 'ring-2 ring-blue-400/20 translate-y-[-2px]' : ''
-                    }`}
+                    className="flex flex-col items-center text-center px-4 cursor-pointer group"
                   >
-                    <div className={`w-9 h-9 rounded-full ${pillar.bg} flex items-center justify-center mb-3 shadow-2xs`}>
+                    <div className={`w-11 h-11 rounded-full ${pillar.bg} flex items-center justify-center mb-3 transition-transform group-hover:scale-110`}>
                       {pillar.icon}
                     </div>
 
-                    <h4 className="text-[11.5px] font-bold text-slate-900 dark:text-slate-50 uppercase tracking-tight font-sans">
+                    <h4 className="text-[12px] font-bold text-slate-900 dark:text-slate-50 uppercase tracking-tight font-sans">
                       {pillar.title}
                     </h4>
 
-                    <p className="mt-1.5 text-[11px] leading-snug text-slate-500 dark:text-slate-400 font-medium font-sans">
+                    <p className="mt-2 text-[11.5px] leading-relaxed text-slate-500 dark:text-slate-400 font-medium font-sans">
                       {pillar.desc}
                     </p>
                   </div>
@@ -580,80 +448,34 @@ export const AboutVilaView: React.FC<AboutVilaViewProps> = ({
               </div>
             </div>
 
-            {/* BANNER: "A VILA não é apenas uma plataforma." */}
-            <div className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-r from-blue-50/70 via-slate-50 to-amber-50/70 p-6 sm:p-7 shadow-2xs font-sans">
+            {/* BANNER: citação da marca sobre fundo lavanda, com imagem real de silhuetas (fiel à referência) */}
+            <div className="relative overflow-hidden rounded-2xl border border-slate-100 dark:border-slate-800 bg-gradient-to-r from-[#EEF2FF] via-[#F5F3FF] to-[#FEF3EB] p-6 sm:p-8 shadow-2xs font-sans">
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 font-sans">
-                {/* Text side with prominent blue quote mark */}
+                {/* Texto com aspas grandes azuis */}
                 <div className="max-w-xl font-sans">
-                  {/* Big Blue Quote Symbol */}
-                  <div className="text-[#1455AC] text-4xl sm:text-5xl font-serif font-black leading-none mb-1 select-none">
+                  <div className="text-[#1455AC] text-5xl sm:text-6xl font-serif font-black leading-none mb-2 select-none">
                     “
                   </div>
 
-                  <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 font-sans">
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-400 font-sans">
                     A VILA não é apenas uma plataforma.
                   </p>
 
-                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight mt-0.5 leading-snug">
+                  <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-slate-50 font-sans tracking-tight mt-1 leading-snug">
                     É um movimento global de colaboração e transformação.
                   </h3>
 
-                  <div className="w-10 h-0.5 bg-[#1455AC] rounded-full mt-3" />
+                  <div className="w-10 h-0.5 bg-[#1455AC] rounded-full mt-4" />
                 </div>
 
-                {/* Silhouette Illustration of people/community on a hill at sunset */}
-                <div className="w-full max-w-[280px] shrink-0 flex items-center justify-end">
-                  <div className="relative w-64 h-24 sm:h-28">
-                    <svg viewBox="0 0 300 120" className="w-full h-full select-none" fill="none">
-                      <defs>
-                        <linearGradient id="quote-sunset" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" stopColor="#FED7AA" stopOpacity="0.4" />
-                          <stop offset="100%" stopColor="#FDBA74" stopOpacity="0.8" />
-                        </linearGradient>
-                      </defs>
-
-                      {/* Golden Sun Glow */}
-                      <circle cx="150" cy="110" r="60" fill="url(#quote-sunset)" />
-
-                      {/* Hill Crest */}
-                      <path d="M0 120 Q 150 70 300 110 L 300 120 L 0 120 Z" fill="#0F172A" />
-
-                      {/* People Silhouettes Holding Hands */}
-                      {/* Person 1 (Mother holding child) */}
-                      <circle cx="115" cy="58" r="4" fill="#0F172A" />
-                      <rect x="111.5" y="64" width="7" height="15" rx="1.5" fill="#0F172A" />
-                      <line x1="113" y1="78" x2="113" y2="92" stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round" />
-                      <line x1="117" y1="78" x2="117" y2="92" stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round" />
-
-                      {/* Child holding hand */}
-                      <circle cx="127" cy="70" r="3" fill="#0F172A" />
-                      <rect x="124.5" y="74" width="5" height="10" rx="1" fill="#0F172A" />
-                      <line x1="126" y1="84" x2="126" y2="93" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" />
-                      <line x1="128" y1="84" x2="128" y2="93" stroke="#0F172A" strokeWidth="1.8" strokeLinecap="round" />
-                      <line x1="118" y1="69" x2="125" y2="76" stroke="#0F172A" strokeWidth="1.6" />
-
-                      {/* Person 3 (Father tall) */}
-                      <circle cx="140" cy="50" r="4.5" fill="#0F172A" />
-                      <rect x="136" y="56" width="8" height="18" rx="2" fill="#0F172A" />
-                      <line x1="138" y1="74" x2="138" y2="88" stroke="#0F172A" strokeWidth="2.4" strokeLinecap="round" />
-                      <line x1="142" y1="74" x2="142" y2="88" stroke="#0F172A" strokeWidth="2.4" strokeLinecap="round" />
-                      <line x1="129" y1="76" x2="136" y2="65" stroke="#0F172A" strokeWidth="1.6" />
-
-                      {/* Person 4 (Youth) */}
-                      <circle cx="154" cy="55" r="4" fill="#0F172A" />
-                      <rect x="150.5" y="61" width="7" height="16" rx="1.5" fill="#0F172A" />
-                      <line x1="152" y1="76" x2="152" y2="90" stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round" />
-                      <line x1="156" y1="76" x2="156" y2="90" stroke="#0F172A" strokeWidth="2.2" strokeLinecap="round" />
-                      <line x1="144" y1="65" x2="151" y2="68" stroke="#0F172A" strokeWidth="1.6" />
-
-                      {/* Person 5 (Young girl) */}
-                      <circle cx="166" cy="65" r="3.5" fill="#0F172A" />
-                      <rect x="163.5" y="70" width="5.5" height="11" rx="1.2" fill="#0F172A" />
-                      <line x1="165" y1="81" x2="165" y2="92" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
-                      <line x1="168" y1="81" x2="168" y2="92" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
-                      <line x1="157" y1="69" x2="164" y2="73" stroke="#0F172A" strokeWidth="1.6" />
-                    </svg>
-                  </div>
+                {/* Imagem real de silhuetas ao pôr do sol */}
+                <div className="w-full max-w-[320px] shrink-0 flex items-center justify-end">
+                  <img
+                    src="/imagens-paginas/09-sobre-vila/sobrevila.png"
+                    alt="Comunidade global VILA"
+                    className="hidden md:block w-full h-36 object-cover object-[30%_78%] rounded-xl select-none"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>

@@ -568,7 +568,7 @@ export const ExploreWorldView: React.FC<ExploreWorldViewProps> = ({
                 selectedCountry={selectedCountry}
                 onSelectCountry={handleCountryClick}
                 onExploreCountry={onExploreCountry}
-                className="h-[500px] sm:h-[540px] lg:h-[560px]"
+                className="h-[420px] sm:h-[460px] lg:h-[480px]"
                 showLegend={false}
                 controlsPosition="top-right"
               />

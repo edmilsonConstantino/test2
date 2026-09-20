@@ -23,6 +23,9 @@ import {
   Download,
   Share2,
   SlidersHorizontal,
+  Sprout,
+  Star,
+  Crown,
 } from 'lucide-react';
 import { PerfilVilaTabId } from './types';
 import { VilaPerfilTab } from './VilaPerfilTab';
@@ -332,15 +335,15 @@ export const PerfilVilaView: React.FC<PerfilVilaViewProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {[
-                { name: 'Semente', desc: 'Primeiros passos na cidadania ativa', status: 'Conquistada', icon: '🌱', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
-                { name: 'Guardião', desc: 'Cuida da comunidade e protege recursos', status: 'Conquistada', icon: '🛡️', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
-                { name: 'Embaixador', desc: 'Impacto reconhecido em múltiplos territórios', status: 'Conquistada', icon: '⭐', color: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/40' },
-                { name: 'Líder Comunitário', desc: 'Lidera pelo exemplo e mobiliza', status: 'Em progresso (80%)', icon: '👥', color: 'bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800/40' },
-                { name: 'Lenda VILA', desc: 'Máximo reconhecimento cívico e impacto perene', status: 'Em progresso (25%)', icon: '👑', color: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700' },
+                { name: 'Semente', desc: 'Primeiros passos na cidadania ativa', status: 'Conquistada', icon: Sprout, iconColor: 'text-emerald-600 dark:text-emerald-400', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
+                { name: 'Guardião', desc: 'Cuida da comunidade e protege recursos', status: 'Conquistada', icon: ShieldCheck, iconColor: 'text-emerald-600 dark:text-emerald-400', color: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/40' },
+                { name: 'Embaixador', desc: 'Impacto reconhecido em múltiplos territórios', status: 'Conquistada', icon: Star, iconColor: 'text-amber-600 dark:text-amber-400', color: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/40' },
+                { name: 'Líder Comunitário', desc: 'Lidera pelo exemplo e mobiliza', status: 'Em progresso (80%)', icon: Users, iconColor: 'text-purple-600 dark:text-purple-400', color: 'bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800/40' },
+                { name: 'Lenda VILA', desc: 'Máximo reconhecimento cívico e impacto perene', status: 'Em progresso (25%)', icon: Crown, iconColor: 'text-slate-500 dark:text-slate-400', color: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700' },
               ].map((badge, idx) => (
                 <div key={idx} className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_1px_3px_rgba(0,0,0,0.03)] text-center flex flex-col justify-between">
                   <div>
-                    <div className="text-3xl mb-2">{badge.icon}</div>
+                    <badge.icon className={`w-8 h-8 mx-auto mb-2 ${badge.iconColor}`} strokeWidth={1.8} />
                     <h4 className="font-bold text-[#0F172A] dark:text-slate-50">{badge.name}</h4>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{badge.desc}</p>
                   </div>

@@ -1,13 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import {
-  GlobeAltIcon,
-  MapPinIcon,
-  BuildingOffice2Icon,
-  FlagIcon,
-  PlusCircleIcon,
-  ChartPieIcon,
-} from '@heroicons/react/24/outline';
-import {
   Globe,
   MapPin,
   Building2,
@@ -42,6 +34,7 @@ import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 import { LineChart, VerticalBars } from './MiniCharts';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface TerritoriosPaisesViewProps {
   currentUser: DemoUser;
@@ -238,6 +231,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
   }, []);
 
   // Estados locais
+  const { isDark } = useTheme();
   const [kpis] = useState<KPIItem[]>(DEFAULT_KPIS);
   const [selectedDateRange, setSelectedDateRange] = useState('01 Mai 2024 - 24 Mai 2025');
   const [isDateDropdownOpen, setIsDateDropdownOpen] = useState(false);
@@ -329,7 +323,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           fill = '#C4DAF3';
           category = 'Exploração Inicial';
         } else if (['Russia', 'China', 'Mongolia', 'Kazakhstan', 'Saudi Arabia'].includes(name)) {
-          fill = '#F1F5F9';
+          fill = isDark ? '#334155' : '#F1F5F9';
           category = 'Sem Presença';
         }
 
@@ -343,7 +337,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
         };
       })
       .filter(Boolean);
-  }, []);
+  }, [isDark]);
 
   // Dados para o Gráfico de Crescimento de Territórios (Linha Multi-Série)
   const growthMonths = ['Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez', 'Jan', 'Mar', 'Abr', 'Mai'];
@@ -366,17 +360,17 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
             : 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/70',
         icon:
           kpi.icon === 'globe' ? (
-            <GlobeAltIcon className="w-4 h-4" />
+            <Globe className="w-3.5 h-3.5" strokeWidth={2.2} />
           ) : kpi.icon === 'mappin' ? (
-            <MapPinIcon className="w-4 h-4" />
+            <MapPin className="w-3.5 h-3.5" strokeWidth={2.2} />
           ) : kpi.icon === 'building' ? (
-            <BuildingOffice2Icon className="w-4 h-4" />
+            <Building2 className="w-3.5 h-3.5" strokeWidth={2.2} />
           ) : kpi.icon === 'flag' ? (
-            <FlagIcon className="w-4 h-4" />
+            <Flag className="w-3.5 h-3.5" strokeWidth={2.2} />
           ) : kpi.icon === 'plus' ? (
-            <PlusCircleIcon className="w-4 h-4" />
+            <PlusCircle className="w-3.5 h-3.5" strokeWidth={2.2} />
           ) : (
-            <ChartPieIcon className="w-4 h-4" />
+            <PieChart className="w-3.5 h-3.5" strokeWidth={2.2} />
           ),
         bgClass: kpi.bgClass,
         iconClass: kpi.iconClass,
@@ -574,7 +568,7 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
                       key={p.id}
                       d={p.d}
                       fill={p.fill}
-                      stroke="#FFFFFF"
+                      stroke={isDark ? '#0F172A' : '#FFFFFF'}
                       strokeWidth="0.4"
                       className="transition-colors hover:opacity-85 cursor-pointer"
                       onClick={() => showToast(`Região selecionada: ${p.name} (${p.category})`)}
@@ -634,8 +628,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
         </div>
 
-        {/* Card 2: Crescimento de Territórios (4 colunas no desktop) */}
-        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
+        {/* Card 2: Crescimento de Territórios + Novos Territórios por Continente unidos num só cartão (4 colunas no desktop) */}
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl flex flex-col">
+        <div className="p-4 sm:p-5 flex flex-col">
           <div>
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
@@ -724,6 +719,40 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
           </div>
         </div>
 
+        {/* Novos Territórios por Continente (30 dias) — mesma secção, separada por divisória interna */}
+        <div className="p-4 sm:p-5 border-t border-slate-200 dark:border-slate-700 flex flex-col">
+          <div>
+            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-4">
+              Novos Territórios por Continente <span className="text-xs text-slate-400 dark:text-slate-500 font-normal">(30 dias)</span>
+            </h2>
+
+            {/* Gráfico de Barras Verticais realista com valores */}
+            <div className="pt-2">
+              <VerticalBars
+                items={NEW_TERRITORIES_BY_CONTINENT.map((item) => ({
+                  label: item.continent.replace('América do ', 'Am. '),
+                  value: item.value,
+                  color: '#5F9DE0',
+                }))}
+                height={120}
+              />
+            </div>
+          </div>
+
+          {/* Rodapé */}
+          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
+            <button
+              type="button"
+              onClick={() => showToast('Abrindo análise completa de novos territórios...')}
+              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
+            >
+              <span>Ver análise completa</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+        </div>
+
         {/* Card 3: Top 10 Países por Territórios Ativos (3 colunas no desktop) */}
         <div className="lg:col-span-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
@@ -781,9 +810,9 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
       </div>
 
       {/* ========================================================================= */}
-      {/* 4. ROW 2: DISTRIBUIÇÃO TIPO + NÍVEL ATIVIDADE + NOVOS TERRITÓRIOS         */}
+      {/* 4. ROW 2: DISTRIBUIÇÃO TIPO + NÍVEL ATIVIDADE                              */}
       {/* ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
         {/* Card 1: Distribuição por Tipo de Território */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
           <div>
@@ -985,39 +1014,6 @@ export const TerritoriosPaisesView: React.FC<TerritoriosPaisesViewProps> = ({
               className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Ver classificação completa</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Card 3: Novos Territórios por Continente (30 dias) */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
-            <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans mb-4">
-              Novos Territórios por Continente <span className="text-xs text-slate-400 dark:text-slate-500 font-normal">(30 dias)</span>
-            </h2>
-
-            {/* Gráfico de Barras Verticais realista com valores */}
-            <div className="pt-2">
-              <VerticalBars
-                items={NEW_TERRITORIES_BY_CONTINENT.map((item) => ({
-                  label: item.continent.replace('América do ', 'Am. '),
-                  value: item.value,
-                  color: '#5F9DE0',
-                }))}
-                height={120}
-              />
-            </div>
-          </div>
-
-          {/* Rodapé */}
-          <div className="pt-3 border-t border-slate-200/70 dark:border-slate-700 mt-3 flex justify-end">
-            <button
-              type="button"
-              onClick={() => showToast('Abrindo análise completa de novos territórios...')}
-              className="text-xs font-semibold text-[#1455AC] hover:text-blue-800 inline-flex items-center gap-1 cursor-pointer"
-            >
-              <span>Ver análise completa</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

@@ -29,6 +29,7 @@ import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 import { LineChart } from './MiniCharts';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface VisaoGeralViewProps {
   currentUser: DemoUser;
@@ -107,6 +108,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
   onNavigateToTab,
   onBreadcrumbChange,
 }) => {
+  const { isDark } = useTheme();
+
   // Cards do cabeçalho expansível (7 métricas da fita principal)
   const visaoKpiCards: KpiCardData[] = [
     {
@@ -687,8 +690,8 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     <path
                       key={p.id}
                       d={p.d}
-                      fill={p.isHighlighted ? '#C4DAF3' : '#E2ECF9'}
-                      stroke="#99C0EB"
+                      fill={p.isHighlighted ? (isDark ? '#3B5C8F' : '#C4DAF3') : (isDark ? '#334155' : '#E2ECF9')}
+                      stroke={isDark ? '#475569' : '#99C0EB'}
                       strokeWidth="0.45"
                       className="transition-colors hover:fill-blue-300 cursor-pointer"
                     />
@@ -698,7 +701,7 @@ export const VisaoGeralView: React.FC<VisaoGeralViewProps> = ({
                     <path
                       d={bordersPath}
                       fill="none"
-                      stroke="#99C0EB"
+                      stroke={isDark ? '#475569' : '#99C0EB'}
                       strokeWidth="0.35"
                     />
                   )}

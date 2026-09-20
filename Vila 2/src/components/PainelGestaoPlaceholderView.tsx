@@ -1019,7 +1019,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
               </span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3.5 mt-4 w-full font-sans">
+            <div className="grid grid-cols-2 gap-x-3.5 gap-y-4 mt-4 w-full font-sans">
               {/* Disponibilidade */}
               <div className="min-w-0 flex flex-col justify-between font-sans">
                 <div>

@@ -38,6 +38,7 @@ import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface ParceirosColaboracoesViewProps {
   currentUser: DemoUser;
@@ -64,6 +65,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
   onNavigateToTab,
   onBreadcrumbChange,
 }) => {
+  const { isDark } = useTheme();
+
   // ---------------------------------------------------------------------------
   // Estados Locais
   // ---------------------------------------------------------------------------
@@ -247,7 +250,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
 
         // Densidade de parceiros por país (cores da legenda):
         // Mais de 50: #0D366E | 21-50: #2D79D1 | 6-20: #99C0EB | 1-5: #E2ECF9 | 0: #F1F5F9
-        let fill = '#F1F5F9';
+        let fill = isDark ? '#334155' : '#F1F5F9';
         if (['Portugal', 'Brazil', 'United States of America', 'Spain'].includes(name)) {
           fill = '#0D366E';
         } else if (['Mozambique', 'Angola', 'France', 'Germany', 'United Kingdom', 'Cabo Verde', 'Cape Verde'].includes(name)) {
@@ -255,7 +258,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
         } else if (['Italy', 'Mexico', 'Colombia', 'Argentina', 'Chile', 'Kenya', 'South Africa', 'India', 'Netherlands', 'Belgium', 'Switzerland'].includes(name)) {
           fill = '#99C0EB';
         } else if (['Canada', 'Japan', 'Australia', 'China', 'Morocco', 'Peru', 'Nigeria', 'Egypt', 'Timor-Leste', 'Guinea-Bissau', 'Sao Tome and Principe', 'Poland', 'Indonesia', 'Sweden', 'Norway'].includes(name)) {
-          fill = '#E2ECF9';
+          fill = isDark ? '#475569' : '#E2ECF9';
         }
 
         return {
@@ -277,7 +280,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
     ];
 
     return { paths, clusterPins };
-  }, []);
+  }, [isDark]);
 
   // ---------------------------------------------------------------------------
   // 4. Ecossistema de Parceiros (7 Tipos)
@@ -919,7 +922,7 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                         key={p.key}
                         d={p.d}
                         fill={p.fill}
-                        stroke="#FFFFFF"
+                        stroke={isDark ? '#0F172A' : '#FFFFFF'}
                         strokeWidth={0.5}
                       />
                     );
@@ -1855,8 +1858,8 @@ export const ParceirosColaboracoesView: React.FC<ParceirosColaboracoesViewProps>
                       <path
                         key={p.key}
                         d={p.d}
-                        fill="#CBD5E1"
-                        stroke="#FFFFFF"
+                        fill={isDark ? '#475569' : '#CBD5E1'}
+                        stroke={isDark ? '#0F172A' : '#FFFFFF'}
                         strokeWidth={0.5}
                       />
                     );

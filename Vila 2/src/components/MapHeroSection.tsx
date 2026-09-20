@@ -1,8 +1,7 @@
 import React from 'react';
-import { ArrowRight, Play, Globe2 } from 'lucide-react';
+import { ArrowRight, Play, Globe2, Users, FolderKanban, HeartHandshake } from 'lucide-react';
 import { CountryData } from '../types';
 import { WorldMap } from './WorldMap';
-import { COUNTRIES_DATA } from '../data/countriesData';
 
 interface MapHeroSectionProps {
   selectedCountry: CountryData;
@@ -12,12 +11,19 @@ interface MapHeroSectionProps {
   onExploreCountry: (country: CountryData) => void;
 }
 
-const QUICK_TERRITORIES = [
-  { id: 'portugal', label: 'Portugal', code: 'PT', flag: '🇵🇹' },
-  { id: 'brasil', label: 'Brasil', code: 'BR', flag: '🇧🇷' },
-  { id: 'espanha', label: 'Espanha', code: 'ES', flag: '🇪🇸' },
-  { id: 'angola', label: 'Angola', code: 'AO', flag: '🇦🇴' },
-  { id: 'cabo-verde', label: 'Cabo Verde', code: 'CV', flag: '🇨🇻' },
+// Estatísticas da pílula inferior (estrutura da referência)
+const HERO_STATS = [
+  { value: '128', label: 'Países ativos', icon: Globe2, color: 'text-[#1455AC] dark:text-blue-400' },
+  { value: '7.842.521', label: 'Cidadãos ativos', icon: Users, color: 'text-emerald-600 dark:text-emerald-400' },
+  { value: '24.651', label: 'Projetos ativos', icon: FolderKanban, color: 'text-amber-500 dark:text-amber-400' },
+  { value: '3.412', label: 'Parceiros globais', icon: HeartHandshake, color: 'text-[#F58300] dark:text-orange-400' },
+];
+
+// Legenda flutuante do mapa
+const HERO_LEGEND = [
+  { label: 'País Ativo', color: 'bg-emerald-500' },
+  { label: 'País com Atividade', color: 'bg-[#1455AC]' },
+  { label: 'País Inativo', color: 'bg-slate-400' },
 ];
 
 export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
@@ -30,188 +36,111 @@ export const MapHeroSection: React.FC<MapHeroSectionProps> = ({
   return (
     <section
       id="map-hero-section"
-      className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 lg:p-7 shadow-xs"
+      className="relative rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-[#F8FAFC] dark:bg-slate-900 shadow-xs"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-        {/* =========================================================================
-            COLUNA DA ESQUERDA: Contexto Editorial, Ações e Resumo da Plataforma
-            ========================================================================= */}
-        <div className="lg:col-span-5 flex flex-col justify-between space-y-6 select-none">
-          <div className="space-y-4">
-            {/* 1. Badge contextual com ponto laranja */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1455AC]/10 border border-[#1455AC]/20 text-[#1455AC] text-xs font-semibold w-fit">
-              <span className="w-2 h-2 rounded-full bg-[#F58300]" />
-              <span className="text-[11px] uppercase tracking-wider font-semibold text-[#1455AC]">
-                Observatório Territorial VILA
+      <div className="relative h-[420px] sm:h-[460px] lg:h-[500px]">
+        {/* ================================================================= */}
+        {/* Mapa mundial como fundo (interativo)                              */}
+        {/* ================================================================= */}
+        <div className="absolute inset-0">
+          <WorldMap
+            selectedCountry={selectedCountry}
+            onSelectCountry={onSelectCountry}
+            onExploreCountry={onExploreCountry}
+            showLegend={false}
+            className="w-full h-full rounded-none"
+          />
+        </div>
+
+        {/* Véu escuro apenas no dark mode — o mapa mantém cores claras fixas, então o texto precisa de contraste aqui */}
+        <div
+          className="absolute inset-0 pointer-events-none hidden dark:block"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(2,6,23,0.94) 0%, rgba(2,6,23,0.55) 18%, rgba(2,6,23,0) 42%)',
+          }}
+        />
+
+
+        {/* ================================================================= */}
+        {/* Mensagem principal (sobreposta à esquerda)                        */}
+        {/* ================================================================= */}
+        <div className="absolute z-10 left-5 sm:left-8 lg:left-12 top-6 lg:top-1/2 lg:-translate-y-[62%] max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] pointer-events-none select-none">
+          <h1 className="text-[34px] sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.12] text-slate-900 dark:text-white font-sans">
+            O mundo
+            <br />
+            é uma vila.
+            <br />
+            E nós somos <span className="text-emerald-600 dark:text-emerald-400">um.</span>
+          </h1>
+
+          <p className="mt-4 sm:mt-5 text-sm sm:text-[15px] text-slate-600 dark:text-slate-300 leading-relaxed max-w-[320px] sm:max-w-[380px]">
+            Explore territórios. Descubra comunidades. Participe em iniciativas que transformam vidas em todo o planeta.
+          </p>
+
+          <div className="mt-6 sm:mt-8 flex flex-row flex-wrap items-center gap-3 sm:gap-4 w-max max-w-full sm:max-w-none">
+            <button
+              id="hero-cta-explore-world"
+              type="button"
+              onClick={onExploreWorld}
+              className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-sm font-semibold shadow-sm transition-all cursor-pointer"
+            >
+              <Globe2 className="w-4 h-4" strokeWidth={2} />
+              <span>Explorar o Mundo</span>
+              <ArrowRight className="w-4 h-4 stroke-[2]" />
+            </button>
+
+            <button
+              id="hero-cta-watch-video"
+              type="button"
+              onClick={onWatchTour}
+              className="pointer-events-auto inline-flex items-center gap-2 text-[13px] font-semibold text-slate-600 dark:text-slate-300 hover:text-[#1455AC] dark:hover:text-blue-400 transition-colors cursor-pointer"
+            >
+              <span className="w-6 h-6 rounded-full bg-slate-900/5 dark:bg-white/10 flex items-center justify-center">
+                <Play className="w-3 h-3 fill-current" />
               </span>
-            </div>
-
-            {/* 2. Título principal */}
-            <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-900 dark:text-slate-50 tracking-tight leading-[1.2] font-sans">
-              Mapeamento e cooperação territorial em escala global
-            </h1>
-
-            {/* 3. Texto descritivo */}
-            <p className="text-[13.5px] sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-              Plataforma integrada de dados abertos, projetos comunitários e monitorização contínua de impacto social e territorial em Portugal e na rede internacional.
-            </p>
-
-            {/* 4. Ações */}
-            <div className="pt-1 flex flex-wrap items-center gap-3">
-              <button
-                id="hero-cta-explore-world"
-                type="button"
-                onClick={onExploreWorld}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white font-semibold text-[13.5px] transition-all shadow-xs hover:shadow-sm cursor-pointer"
-              >
-                <span>Explorar Territórios</span>
-                <ArrowRight className="w-4 h-4 stroke-[2]" />
-              </button>
-
-              <button
-                id="hero-cta-watch-video"
-                type="button"
-                onClick={onWatchTour}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 text-[13.5px] font-medium transition-all shadow-2xs cursor-pointer"
-              >
-                <Play className="w-3.5 h-3.5 fill-slate-600 dark:fill-slate-400 text-slate-600 dark:text-slate-400" />
-                <span>Apresentação (2:14)</span>
-              </button>
-            </div>
-
-            {/* 5. Em foco (alinhados na mesma linha) */}
-            <div className="pt-2 flex items-center gap-2 overflow-x-auto no-scrollbar flex-nowrap py-0.5">
-              <span className="text-xs font-medium text-slate-400 dark:text-slate-500 shrink-0 whitespace-nowrap">Em foco:</span>
-              <div className="flex items-center gap-1.5 shrink-0 flex-nowrap">
-                {QUICK_TERRITORIES.map((territory) => {
-                  const isSelected = selectedCountry.id === territory.id;
-                  return (
-                    <button
-                      key={territory.id}
-                      type="button"
-                      onClick={() => {
-                        const found = COUNTRIES_DATA.find((c) => c.id === territory.id);
-                        if (found) onSelectCountry(found);
-                      }}
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer shrink-0 ${
-                        isSelected
-                          ? 'bg-[#1455AC] text-white shadow-xs'
-                          : 'bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 border border-slate-200 dark:border-slate-700'
-                      }`}
-                    >
-                      <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-white/80' : 'text-slate-400 dark:text-slate-500'}`}>
-                        {territory.code}
-                      </span>
-                      <span>{territory.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* 6. Resumo da Plataforma */}
-          <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                Resumo da Plataforma
-              </span>
-              <span className="text-[11px] text-[#1455AC] font-medium flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F58300]" />
-                Ativo em tempo real
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
-                <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
-                  128
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
-                  Territórios ativos
-                </div>
-              </div>
-
-              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
-                <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
-                  7.8M
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
-                  Cidadãos alcançados
-                </div>
-              </div>
-
-              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
-                <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
-                  24.651
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
-                  Projetos registados
-                </div>
-              </div>
-
-              <div className="bg-slate-50/90 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-2xs">
-                <div className="text-lg sm:text-xl font-bold text-[#1455AC] tracking-tight leading-none">
-                  3.412
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-tight">
-                  Entidades parceiras
-                </div>
-              </div>
-            </div>
+              <span>Ver como funciona (2:14)</span>
+            </button>
           </div>
         </div>
 
-        {/* =========================================================================
-            COLUNA DA DIREITA: Módulo Cartográfico Autocontido
-            ========================================================================= */}
-        <div className="lg:col-span-7 flex flex-col">
-          <div className="w-full h-[380px] sm:h-[420px] lg:h-[460px] rounded-xl border border-slate-200 dark:border-slate-700 bg-[#F8FAFC] dark:bg-slate-900 relative overflow-hidden flex flex-col shadow-2xs">
-            {/* Top Bar do Módulo do Mapa */}
-            <div className="px-3.5 py-2 border-b border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs flex items-center justify-between text-xs z-10 select-none">
-              <div className="flex items-center gap-2">
-                <Globe2 className="w-3.5 h-3.5 text-[#1455AC]" />
-                <span className="font-semibold text-slate-800 dark:text-slate-100 text-[11.5px]">Mapa Territorial Interativo</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span>128 territórios integrados</span>
-              </div>
-            </div>
-
-            {/* Canvas do Mapa Interativo */}
-            <div className="flex-1 relative overflow-hidden">
-              <WorldMap
-                selectedCountry={selectedCountry}
-                onSelectCountry={onSelectCountry}
-                onExploreCountry={onExploreCountry}
-                showLegend={false}
-                className="w-full h-full rounded-none"
-              />
-            </div>
-
-            {/* Rodapé Integrado do Módulo: Legenda e Apoio */}
-            <div className="px-3.5 py-2 border-t border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xs flex items-center justify-between text-[11px] text-slate-600 dark:text-slate-400 z-10 select-none">
-              <div className="flex items-center gap-3.5">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                  <span className="font-medium text-slate-700 dark:text-slate-300">País Ativo</span>
+        {/* ================================================================= */}
+        {/* Pílula de estatísticas (canto inferior esquerdo)                  */}
+        {/* ================================================================= */}
+        <div className="absolute z-10 bottom-5 left-5 sm:right-auto max-w-[640px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-2.5 pointer-events-auto">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            {HERO_STATS.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div key={stat.label} className="flex items-center gap-2">
+                  <Icon className={`w-5 h-5 shrink-0 ${stat.color}`} strokeWidth={1.9} />
+                  <div className="leading-tight">
+                    <span className="block text-sm font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                      {stat.value}
+                    </span>
+                    <span className="block text-[10.5px] text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">
+                      {stat.label}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#1455AC] shrink-0" />
-                  <span className="font-medium text-slate-700 dark:text-slate-300">Com Atividade</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-slate-400 shrink-0" />
-                  <span className="font-medium text-slate-700 dark:text-slate-300">Mapeamento</span>
-                </div>
-              </div>
-
-              <span className="text-slate-400 dark:text-slate-500 hidden sm:inline text-[10.5px]">
-                Selecione um ponto para inspecionar
-              </span>
-            </div>
+              );
+            })}
           </div>
+        </div>
+
+        {/* ================================================================= */}
+        {/* Legenda flutuante (centro inferior, apenas desktop)               */}
+        {/* ================================================================= */}
+        <div className="hidden lg:flex absolute z-10 bottom-6 right-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-full border border-slate-200 dark:border-slate-700 px-4 py-2 items-center gap-4 select-none pointer-events-none">
+          {HERO_LEGEND.map((item) => (
+            <span
+              key={item.label}
+              className="flex items-center gap-1.5 text-[11px] font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap"
+            >
+              <span className={`w-2 h-2 rounded-full shrink-0 ${item.color}`} />
+              {item.label}
+            </span>
+          ))}
         </div>
       </div>
     </section>

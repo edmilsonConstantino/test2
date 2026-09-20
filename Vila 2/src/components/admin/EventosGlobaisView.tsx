@@ -39,6 +39,7 @@ import worldData from 'world-atlas/countries-110m.json';
 import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface EventosGlobaisViewProps {
   currentUser: DemoUser;
@@ -69,6 +70,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
   onNavigateToTab,
   onBreadcrumbChange,
 }) => {
+  const { isDark } = useTheme();
+
   // ---------------------------------------------------------------------------
   // Estados Locais e Interativos
   // ---------------------------------------------------------------------------
@@ -248,7 +251,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
         // Densidade de eventos por país (cores da legenda de continentes):
         // Europa #0F448A | África/Américas #2D79D1 | Ásia #5F9DE0 | Oceânia #99C0EB
-        let fill = '#F1F5F9';
+        let fill = isDark ? '#334155' : '#F1F5F9';
         if (['Portugal', 'Spain', 'France', 'Germany', 'United Kingdom', 'Italy', 'Netherlands', 'Belgium', 'Switzerland'].includes(name)) {
           fill = '#0F448A';
         } else if (['Brazil', 'Mozambique', 'Angola', 'United States of America', 'Mexico', 'Colombia', 'Kenya', 'South Africa', 'Nigeria', 'Cabo Verde', 'Cape Verde'].includes(name)) {
@@ -278,7 +281,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
     ];
 
     return { paths, continentRings };
-  }, []);
+  }, [isDark]);
 
   // ---------------------------------------------------------------------------
   // 4. Card 3: Evolução de Eventos (Gráfico de 3 Linhas Suaves)
@@ -886,7 +889,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                           key={p.key}
                           d={p.d}
                           fill={p.fill}
-                          stroke="#FFFFFF"
+                          stroke={isDark ? '#0F172A' : '#FFFFFF'}
                           strokeWidth={0.5}
                           className="transition-colors hover:opacity-85"
                         />
@@ -2025,8 +2028,8 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
                       <path
                         key={p.key}
                         d={p.d}
-                        fill="#CBD5E1"
-                        stroke="#FFFFFF"
+                        fill={isDark ? '#475569' : '#CBD5E1'}
+                        stroke={isDark ? '#0F172A' : '#FFFFFF'}
                         strokeWidth={0.5}
                       />
                     );

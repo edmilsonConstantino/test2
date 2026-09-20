@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { geoNaturalEarth1, geoPath } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import worldData from 'world-atlas/countries-110m.json';
-import { Plus, Minus, Crosshair, Box, ArrowRight, X } from 'lucide-react';
+import { Plus, Minus, Crosshair, Box, ArrowRight, X, FolderKanban, Users } from 'lucide-react';
 import { CountryData } from '../types';
 import { COUNTRIES_DATA } from '../data/countriesData';
 
@@ -22,6 +22,7 @@ export const MAP_PINS = [
   {
     id: 'portugal',
     name: 'Portugal',
+    code: 'PT',
     flag: '🇵🇹',
     status: 'active' as const,
     statusLabel: 'ATIVO',
@@ -34,6 +35,7 @@ export const MAP_PINS = [
   {
     id: 'brasil',
     name: 'Brasil',
+    code: 'BR',
     flag: '🇧🇷',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -45,6 +47,7 @@ export const MAP_PINS = [
   {
     id: 'espanha',
     name: 'Espanha',
+    code: 'ES',
     flag: '🇪🇸',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -56,6 +59,7 @@ export const MAP_PINS = [
   {
     id: 'angola',
     name: 'Angola',
+    code: 'AO',
     flag: '🇦🇴',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -67,6 +71,7 @@ export const MAP_PINS = [
   {
     id: 'cabo-verde',
     name: 'Cabo Verde',
+    code: 'CV',
     flag: '🇨🇻',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -78,6 +83,7 @@ export const MAP_PINS = [
   {
     id: 'mocambique',
     name: 'Moçambique',
+    code: 'MZ',
     flag: '🇲🇿',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -89,6 +95,7 @@ export const MAP_PINS = [
   {
     id: 'eua',
     name: 'Estados Unidos',
+    code: 'US',
     flag: '🇺🇸',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -100,6 +107,7 @@ export const MAP_PINS = [
   {
     id: 'africa-sul',
     name: 'África do Sul',
+    code: 'ZA',
     flag: '🇿🇦',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -111,6 +119,7 @@ export const MAP_PINS = [
   {
     id: 'japao',
     name: 'Japão',
+    code: 'JP',
     flag: '🇯🇵',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -122,6 +131,7 @@ export const MAP_PINS = [
   {
     id: 'australia',
     name: 'Austrália',
+    code: 'AU',
     flag: '🇦🇺',
     status: 'with-activity' as const,
     statusLabel: 'COM ATIVIDADE',
@@ -134,6 +144,7 @@ export const MAP_PINS = [
   {
     id: 'india',
     name: 'Índia',
+    code: 'IN',
     flag: '🇮🇳',
     status: 'inactive' as const,
     statusLabel: 'EM MAPEAMENTO',
@@ -145,6 +156,7 @@ export const MAP_PINS = [
   {
     id: 'canada',
     name: 'Canadá',
+    code: 'CA',
     flag: '🇨🇦',
     status: 'inactive' as const,
     statusLabel: 'EM MAPEAMENTO',
@@ -154,6 +166,24 @@ export const MAP_PINS = [
     lat: 56.1304,
   },
 ];
+
+// Bandeira real do país (imagem) com fallback para o emoji em caso de erro de rede
+const CountryFlag: React.FC<{ code?: string; flag: string; className?: string }> = ({ code, flag, className = '' }) => {
+  const [failed, setFailed] = React.useState(false);
+  if (!code || failed) {
+    return <span className={className}>{flag}</span>;
+  }
+  return (
+    <img
+      src={`https://flagcdn.com/w80/${code.toLowerCase()}.png`}
+      srcSet={`https://flagcdn.com/w160/${code.toLowerCase()}.png 2x`}
+      alt={`Bandeira de ${flag}`}
+      onError={() => setFailed(true)}
+      className={`object-cover rounded-[4px] border border-slate-200/80 dark:border-slate-700 ${className}`}
+      loading="lazy"
+    />
+  );
+};
 
 export const WorldMap: React.FC<WorldMapProps> = ({
   selectedCountry,
@@ -332,14 +362,13 @@ export const WorldMap: React.FC<WorldMapProps> = ({
           preserveAspectRatio="xMidYMid slice"
         >
           {/* Ocean Base Layer - Natural clean slate */}
-          <rect x="-2000" y="-2000" width="6000" height="5000" fill="#F8FAFC" />
+          <rect x="-2000" y="-2000" width="6000" height="5000" className="fill-[#F8FAFC] dark:fill-slate-950" />
 
           {/* Natural Landmass Base Layer */}
           <g id="geo-landmass">
             <path
               d={landPath}
-              fill="#E2E8F0"
-              stroke="#CBD5E1"
+              className="fill-[#E2E8F0] stroke-[#CBD5E1] dark:fill-slate-800 dark:stroke-slate-600"
               strokeWidth="0.55"
             />
           </g>
@@ -349,7 +378,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
             <path
               d={bordersPath}
               fill="none"
-              stroke="#CBD5E1"
+              className="stroke-[#CBD5E1] dark:stroke-slate-600"
               strokeWidth="0.45"
               strokeLinejoin="round"
             />
@@ -359,8 +388,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
           {portugalPath && (
             <path
               d={portugalPath}
-              fill="#10B981"
-              stroke="#059669"
+              className="fill-emerald-500 stroke-emerald-600 dark:fill-emerald-500 dark:stroke-emerald-400"
               strokeWidth="0.8"
             />
           )}
@@ -388,7 +416,7 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 ) || {
                   id: pin.id,
                   name: pin.name,
-                  code: pin.id.slice(0, 2).toUpperCase(),
+                  code: pin.code,
                   flag: pin.flag,
                   status: pin.status,
                   statusLabel: pin.statusLabel,
@@ -408,10 +436,16 @@ export const WorldMap: React.FC<WorldMapProps> = ({
               title={`${pin.name} (${pin.statusLabel})`}
             >
               {isActiveGreen ? (
-                /* Active Green Pinpoint Marker */
+                /* Active Green Pinpoint Marker with pulse */
                 <div className="relative flex flex-col items-center -translate-y-4 select-none pointer-events-auto">
-                  <div className={`w-5 h-6 text-emerald-600 transition-transform duration-200 ${isSelected ? 'scale-110' : 'group-hover:scale-105'}`}>
-                    <svg viewBox="0 0 24 30" fill="none" className="w-full h-full">
+                  <span
+                    className={`absolute top-4 w-7 h-7 rounded-full bg-emerald-500/30 pointer-events-none ${
+                      isSelected ? 'animate-ping' : 'animate-pulse'
+                    }`}
+                    style={{ animationDuration: isSelected ? '1.2s' : '2.4s' }}
+                  />
+                  <div className={`relative w-5 h-6 text-emerald-600 transition-transform duration-200 ${isSelected ? 'scale-115' : 'group-hover:scale-105'}`}>
+                    <svg viewBox="0 0 24 30" fill="none" className="w-full h-full drop-shadow-md">
                       <path
                         d="M12 1C6 1 1 6 1 12C1 20 12 29 12 29C12 29 23 20 23 12C23 6 18 1 12 1Z"
                         fill="#059669"
@@ -423,14 +457,24 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                   </div>
                 </div>
               ) : isActivityBlue ? (
-                /* Clean Blue Dot with White Ring */
+                /* Clean Blue Dot with White Ring + soft halo */
                 <div className="relative flex items-center justify-center">
-                  <div className={`w-2.5 h-2.5 rounded-full bg-blue-600 ring-2 ring-white shadow-2xs transition-transform duration-150 ${isSelected ? 'ring-2 ring-blue-400 scale-125' : 'group-hover:scale-125'}`} />
+                  <span className="absolute w-5 h-5 rounded-full bg-[#1455AC]/15 pointer-events-none" />
+                  <div
+                    className={`relative w-3 h-3 rounded-full bg-[#1455AC] ring-2 ring-white shadow-sm transition-transform duration-150 ${
+                      isSelected ? 'scale-125 ring-[#1455AC]/40' : 'group-hover:scale-125'
+                    }`}
+                  />
                 </div>
               ) : (
                 /* Subtle Slate Dot */
                 <div className="relative flex items-center justify-center">
-                  <div className={`w-2 h-2 rounded-full bg-slate-400 ring-1.5 ring-white dark:ring-slate-900 shadow-2xs transition-transform duration-150 ${isSelected ? 'ring-2 ring-slate-400 scale-125' : 'group-hover:scale-125'}`} />
+                  <span className="absolute w-4 h-4 rounded-full bg-slate-400/15 pointer-events-none" />
+                  <div
+                    className={`relative w-2.5 h-2.5 rounded-full bg-slate-400 ring-1.5 ring-white dark:ring-slate-900 shadow-2xs transition-transform duration-150 ${
+                      isSelected ? 'scale-125' : 'group-hover:scale-125'
+                    }`}
+                  />
                 </div>
               )}
 
@@ -457,77 +501,105 @@ export const WorldMap: React.FC<WorldMapProps> = ({
                 : 'translate(0%, -50%)',
             }}
             id="country-card-pin-tooltip"
-            className="absolute z-35 min-w-[190px] sm:min-w-[210px] bg-white border border-slate-200 rounded-lg p-3 shadow-sm select-none pointer-events-auto dark:bg-slate-900 dark:border-slate-700"
+            className="absolute z-35 w-[230px] sm:w-[248px] bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-700 shadow-lg shadow-slate-900/10 select-none pointer-events-auto overflow-hidden"
           >
-            {/* Card Header: Code/Flag + Country Name + Status Badge + Close Button */}
-            <div className="relative flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
-              <div className="flex items-center gap-1.5 min-w-0">
-                <span className="text-sm leading-none shrink-0" role="img" aria-label={selectedCountry.name}>
-                  {selectedCountry.flag}
-                </span>
+            {/* Faixa de cor do estado no topo */}
+            <div
+              className={`h-1 w-full ${
+                selectedCountry.status === 'active'
+                  ? 'bg-emerald-500'
+                  : selectedCountry.status === 'with-activity'
+                  ? 'bg-[#1455AC]'
+                  : 'bg-slate-400'
+              }`}
+            />
 
-                <h3 className="text-xs font-bold text-slate-900 tracking-tight font-sans truncate dark:text-slate-50">
-                  {selectedCountry.name}
-                </h3>
+            <div className="p-3.5">
+              {/* Header: bandeira em tile + nome + código + badge + fechar */}
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center shrink-0 overflow-hidden">
+                    <CountryFlag
+                      code={selectedCountry.code}
+                      flag={selectedCountry.flag}
+                      className="w-7 h-5"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[9.5px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider shrink-0">
+                        {selectedCountry.code}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900 tracking-tight font-sans truncate leading-tight dark:text-slate-50">
+                      {selectedCountry.name}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 shrink-0">
+                  <span
+                    className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md uppercase tracking-wide ${
+                      selectedCountry.status === 'active'
+                        ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'
+                        : selectedCountry.status === 'with-activity'
+                        ? 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                    }`}
+                  >
+                    {selectedCountry.status === 'active'
+                      ? 'Ativo'
+                      : selectedCountry.status === 'with-activity'
+                      ? 'Atividade'
+                      : 'Mapeamento'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsPopupDismissed(true);
+                    }}
+                    className="w-5 h-5 rounded-md flex items-center justify-center text-slate-300 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer dark:text-slate-600 dark:hover:text-slate-300 dark:hover:bg-slate-800"
+                    title="Fechar painel"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
 
-              <div className="flex items-center gap-1 shrink-0">
-                <span
-                  className={`text-[9.5px] font-semibold px-1.5 py-0.5 rounded border uppercase ${
-                    selectedCountry.status === 'active'
-                      ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800'
-                      : selectedCountry.status === 'with-activity'
-                      ? 'bg-blue-50 dark:bg-blue-500/10 text-[#1E3A8A] dark:text-blue-400 border-blue-200 dark:border-blue-800'
-                      : 'bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'
-                  }`}
-                >
-                  {selectedCountry.status === 'active'
-                    ? 'Ativo'
-                    : selectedCountry.status === 'with-activity'
-                    ? 'Atividade'
-                    : 'Mapeamento'}
-                </span>
+              {/* Métricas com ícones e separadores */}
+              <div className="mt-3 space-y-1">
+                <div className="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <span className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
+                    <FolderKanban className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+                    Projetos
+                  </span>
+                  <span className="text-[13px] font-black text-slate-900 tabular-nums tracking-tight dark:text-slate-50">
+                    {selectedCountry.projectsCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <span className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
+                    <Users className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
+                    Comunidades
+                  </span>
+                  <span className="text-[13px] font-black text-slate-900 tabular-nums tracking-tight dark:text-slate-50">
+                    {selectedCountry.communitiesCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                  </span>
+                </div>
+              </div>
 
+              {/* CTA sólido */}
+              <div className="mt-2.5">
                 <button
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsPopupDismissed(true);
-                  }}
-                  className="w-4.5 h-4.5 rounded flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer dark:text-slate-500 dark:hover:text-slate-200 dark:hover:bg-slate-800"
-                  title="Fechar painel"
+                  onClick={() => onExploreCountry(selectedCountry)}
+                  className="w-full py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-[11.5px] font-bold shadow-xs hover:shadow-sm transition-all inline-flex items-center justify-center gap-1.5 cursor-pointer group/cta"
                 >
-                  <X className="w-3 h-3" />
+                  <span>Explorar {selectedCountry.name}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/cta:translate-x-0.5 transition-transform" />
                 </button>
               </div>
-            </div>
-
-            {/* Stats List */}
-            <div className="relative py-2 space-y-1.5 text-[11.5px]">
-              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span>Projetos</span>
-                <span className="font-semibold text-slate-900 tabular-nums dark:text-slate-50">
-                  {selectedCountry.projectsCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-                </span>
-              </div>
-              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span>Comunidades</span>
-                <span className="font-semibold text-slate-900 tabular-nums dark:text-slate-50">
-                  {selectedCountry.communitiesCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-                </span>
-              </div>
-            </div>
-
-            {/* Explore Action Link */}
-            <div className="relative pt-1.5 border-t border-slate-100 dark:border-slate-800">
-              <button
-                type="button"
-                onClick={() => onExploreCountry(selectedCountry)}
-                className="w-full text-center text-[11.5px] font-semibold text-[#1E3A8A] hover:text-[#162D6D] inline-flex items-center justify-center gap-1 transition-colors cursor-pointer"
-              >
-                <span>Ver território</span>
-                <ArrowRight className="w-3 h-3 stroke-[2]" />
-              </button>
             </div>
           </div>
         )}

@@ -1,37 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Globe,
-  Building2,
-  Heart,
+  Handshake,
   ArrowRight,
   ChevronRight,
   Check,
   Plus,
   Users,
-  Sparkles,
-  Shield,
-  Briefcase,
-  Target,
-  ExternalLink,
   X,
-  Share2,
-  MapPin,
-  Clock,
-  Compass,
-  Award,
-  BookOpen,
+  CheckCircle2,
+  Landmark,
   Leaf,
-  GraduationCap,
-  Scale,
+  BookOpen,
   HeartPulse,
-  Rocket,
   Cpu,
   Palette,
-  Search,
-  CheckCircle2,
-  Send,
+  Briefcase,
+  Scale,
+  Rocket,
+  Compass,
+  Shield,
+  Building2,
+  Target,
+  Share2,
+  Award,
+  FileText,
+  Megaphone,
+  BarChart3,
+  Layers,
+  GraduationCap,
 } from 'lucide-react';
+import { geoNaturalEarth1, geoPath } from 'd3-geo';
+import { feature } from 'topojson-client';
+import worldData from 'world-atlas/countries-110m.json';
 import { BreadcrumbItem } from './Topbar';
+import { useTheme } from '../contexts/ThemeContext';
 
 export interface GlobalPartnersViewProps {
   onNavigateToTab?: (tabId: string) => void;
@@ -40,213 +43,246 @@ export interface GlobalPartnersViewProps {
   onBreadcrumbChange?: (items: BreadcrumbItem[]) => void;
 }
 
-type PartnerCategory =
-  | 'todos'
-  | 'fundacoes'
-  | 'universidades'
-  | 'governos'
-  | 'empresas-b'
-  | 'ongs'
-  | 'multilaterais';
+// ---------------------------------------------------------------------------
+// Dados (fiéis à referência UI PARCEIROS GLOBAIS)
+// ---------------------------------------------------------------------------
 
-interface PartnerItem {
+const TOP_KPIS = [
+  { value: '1.248', label: 'Parceiros Ativos', delta: '↑ 18% este mês', icon: Handshake },
+  { value: '78', label: 'Países Representados', delta: null, icon: Globe },
+  { value: '358', label: 'Projetos Conjuntos', delta: '↑ 24% este mês', icon: Briefcase },
+  { value: '23M+', label: 'Pessoas Impactadas', delta: '↑ 32% este mês', icon: Users },
+  { value: '12', label: 'Áreas de Atuação', delta: null, icon: Layers },
+];
+
+interface MapRegion {
   id: string;
   name: string;
-  category: PartnerCategory;
-  categoryLabel: string;
-  categoryColor: string;
-  logo: string;
-  location: string;
-  countryFlag: string;
-  description: string;
-  coProjectsCount: number;
-  totalInvested: string;
-  odsFocus: number[];
-  featured?: boolean;
+  count: number;
+  color: string;
+  center: [number, number];
 }
 
-interface PartnerProject {
-  id: string;
-  title: string;
-  partnerName: string;
-  partnerLogo: string;
-  tag: string;
-  tagBg: string;
-  image: string;
-  description: string;
-  location: string;
-  progressPercent: number;
-  fundsRaised: string;
-  goal: string;
-}
-
-const PARTNER_CATEGORIES = [
-  { id: 'todos', label: 'Todos os Parceiros' },
-  { id: 'fundacoes', label: 'Fundações & Filantropia' },
-  { id: 'universidades', label: 'Universidades & Pesquisa' },
-  { id: 'governos', label: 'Governos & Cidades' },
-  { id: 'empresas-b', label: 'Empresas B & ESG' },
-  { id: 'ongs', label: 'ONGs Internacionais' },
-  { id: 'multilaterais', label: 'Agências Multilaterais' },
+const MAP_REGIONS: MapRegion[] = [
+  { id: 'europa', name: 'Europa', count: 216, color: '#8DA7E8', center: [15, 52] },
+  { id: 'asia', name: 'Ásia', count: 276, color: '#5F9DE0', center: [90, 45] },
+  { id: 'africa', name: 'África', count: 312, color: '#6FBF94', center: [20, 3] },
+  { id: 'america-norte', name: 'América do Norte', count: 128, color: '#E8A866', center: [-100, 44] },
+  { id: 'america-sul', name: 'América do Sul', count: 94, color: '#F0C070', center: [-60, -14] },
+  { id: 'oceania', name: 'Oceania', count: 88, color: '#9CCFAE', center: [134, -24] },
 ];
 
-const FEATURED_PARTNERS: PartnerItem[] = [
-  {
-    id: 'p-1',
-    name: 'Fundação Calouste Gulbenkian',
-    category: 'fundacoes',
-    categoryLabel: 'Filantropia & Cultura',
-    categoryColor: 'bg-emerald-100 text-emerald-800',
-    logo: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?w=160&auto=format&fit=crop&q=80',
-    location: 'Lisboa, Portugal',
-    countryFlag: '🇵🇹',
-    description: 'Apoio contínuo a iniciativas de sustentabilidade oceânica, bolsas de estudo comunitárias e preservação artística no espaço lusófono.',
-    coProjectsCount: 38,
-    totalInvested: '€6.4M',
-    odsFocus: [4, 11, 14],
-    featured: true,
-  },
-  {
-    id: 'p-2',
-    name: 'Ashoka Global Network',
-    category: 'ongs',
-    categoryLabel: 'Empreendedorismo Social',
-    categoryColor: 'bg-purple-100 text-purple-800',
-    logo: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&auto=format&fit=crop&q=80',
-    location: 'Global (Rede Internacional)',
-    countryFlag: '🌐',
-    description: 'Aceleradora de líderes de inovação social e articuladora de redes de impacto sistêmico em mais de 90 países.',
-    coProjectsCount: 64,
-    totalInvested: '€8.2M',
-    odsFocus: [8, 10, 17],
-    featured: true,
-  },
-  {
-    id: 'p-3',
-    name: 'Programa das Nações Unidas (PNUD / UNDP)',
-    category: 'multilaterais',
-    categoryLabel: 'Agência Multilateral',
-    categoryColor: 'bg-blue-100 text-blue-800',
-    logo: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=160&auto=format&fit=crop&q=80',
-    location: 'Nova Iorque & Genebra',
-    countryFlag: '🇺🇳',
-    description: 'Alinhamento metodológico com os 17 Objetivos de Desenvolvimento Sustentável e capacitação de governanças locais.',
-    coProjectsCount: 52,
-    totalInvested: '€11.5M',
-    odsFocus: [1, 5, 13, 16],
-    featured: true,
-  },
-  {
-    id: 'p-4',
-    name: 'Universidade de Lisboa & Coimbra',
-    category: 'universidades',
-    categoryLabel: 'Pesquisa & Ciência Aberta',
-    categoryColor: 'bg-amber-100 text-amber-800',
-    logo: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=160&auto=format&fit=crop&q=80',
-    location: 'Portugal',
-    countryFlag: '🇵🇹',
-    description: 'Validação científica independente de indicadores de impacto territorial, sensoriamento ambiental e monitorização florestal.',
-    coProjectsCount: 29,
-    totalInvested: '€3.8M',
-    odsFocus: [4, 9, 15],
-    featured: true,
-  },
-  {
-    id: 'p-5',
-    name: 'WWF Internacional',
-    category: 'ongs',
-    categoryLabel: 'Conservação da Natureza',
-    categoryColor: 'bg-emerald-100 text-emerald-800',
-    logo: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=160&auto=format&fit=crop&q=80',
-    location: 'Gland, Suíça',
-    countryFlag: '🇨🇭',
-    description: 'Co-gestão de santuários marinhos costeiros e programas de proteção de bacias hidrográficas transfronteiriças.',
-    coProjectsCount: 41,
-    totalInvested: '€5.9M',
-    odsFocus: [6, 14, 15],
-    featured: false,
-  },
-  {
-    id: 'p-6',
-    name: 'B Lab Portugal & Espanha',
-    category: 'empresas-b',
-    categoryLabel: 'Economia Regenerativa',
-    categoryColor: 'bg-indigo-100 text-indigo-800',
-    logo: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=160&auto=format&fit=crop&q=80',
-    location: 'Península Ibérica',
-    countryFlag: '🇪🇺',
-    description: 'Mobilização do setor corporativo para auditoria de triplo impacto (social, ambiental e governança transparente).',
-    coProjectsCount: 33,
-    totalInvested: '€4.2M',
-    odsFocus: [8, 12, 17],
-    featured: false,
-  },
-];
+// Grupos de países por continente (nomes do world-atlas 110m)
+const CONTINENT_COUNTRIES: Record<string, string[]> = {
+  europa: [
+    'Iceland', 'Norway', 'Sweden', 'Finland', 'Denmark', 'United Kingdom', 'Ireland', 'Portugal', 'Spain', 'France',
+    'Belgium', 'Netherlands', 'Luxembourg', 'Germany', 'Switzerland', 'Austria', 'Italy', 'Czechia', 'Poland',
+    'Slovakia', 'Hungary', 'Slovenia', 'Croatia', 'Bosnia and Herz.', 'Serbia', 'Montenegro', 'Kosovo',
+    'North Macedonia', 'Macedonia', 'Albania', 'Greece', 'Bulgaria', 'Romania', 'Moldova', 'Ukraine', 'Belarus',
+    'Lithuania', 'Latvia', 'Estonia', 'Russia',
+  ],
+  asia: [
+    'China', 'India', 'Japan', 'South Korea', 'North Korea', 'Mongolia', 'Kazakhstan', 'Uzbekistan', 'Turkmenistan',
+    'Kyrgyzstan', 'Tajikistan', 'Afghanistan', 'Pakistan', 'Iran', 'Iraq', 'Syria', 'Lebanon', 'Israel', 'Jordan',
+    'Saudi Arabia', 'Yemen', 'Oman', 'United Arab Emirates', 'Qatar', 'Kuwait', 'Turkey', 'Türkiye', 'Georgia',
+    'Armenia', 'Azerbaijan', 'Bangladesh', 'Nepal', 'Bhutan', 'Myanmar', 'Thailand', 'Laos', 'Vietnam', 'Cambodia',
+    'Malaysia', 'Indonesia', 'Philippines', 'Sri Lanka', 'Taiwan',
+  ],
+  africa: [
+    'Morocco', 'Algeria', 'Tunisia', 'Libya', 'Egypt', 'Sudan', 'Chad', 'Niger', 'Mali', 'Mauritania', 'Senegal',
+    'Gambia', 'Guinea', 'Guinea-Bissau', 'Sierra Leone', 'Liberia', "Côte d'Ivoire", 'Ghana', 'Togo', 'Benin',
+    'Burkina Faso', 'Nigeria', 'Cameroon', 'Central African Rep.', 'South Sudan', 'S. Sudan', 'Ethiopia', 'Eritrea',
+    'Djibouti', 'Somalia', 'Kenya', 'Uganda', 'Rwanda', 'Burundi', 'Tanzania', 'Dem. Rep. Congo', 'Congo', 'Gabon',
+    'Eq. Guinea', 'Angola', 'Zambia', 'Malawi', 'Mozambique', 'Zimbabwe', 'Botswana', 'Namibia', 'South Africa',
+    'Lesotho', 'eSwatini', 'Eswatini', 'Madagascar', 'Cape Verde', 'W. Sahara',
+  ],
+  'america-norte': [
+    'Canada', 'United States of America', 'Mexico', 'Greenland', 'Guatemala', 'Belize', 'Honduras', 'El Salvador',
+    'Nicaragua', 'Costa Rica', 'Panama', 'Cuba', 'Haiti', 'Dominican Rep.', 'Jamaica', 'Bahamas',
+    'Trinidad and Tobago', 'Puerto Rico',
+  ],
+  'america-sul': [
+    'Brazil', 'Argentina', 'Chile', 'Peru', 'Bolivia', 'Paraguay', 'Uruguay', 'Colombia', 'Venezuela', 'Ecuador',
+    'Guyana', 'Suriname', 'Falkland Is.',
+  ],
+  oceania: ['Australia', 'New Zealand', 'Papua New Guinea', 'Fiji', 'Solomon Is.', 'Vanuatu', 'New Caledonia'],
+};
 
-const CO_PROJECTS: PartnerProject[] = [
+const FEATURED_LOGOS = [
   {
-    id: 'cp-1',
-    title: 'Corredor Ecológico do Atlântico',
-    partnerName: 'WWF & Fundação Gulbenkian',
-    partnerLogo: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?w=80&auto=format&fit=crop&q=80',
-    tag: 'Ambiente',
-    tagBg: 'bg-emerald-600 text-white',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80',
-    description: 'Proteção de 420 km de costa atlântica contra poluição por plásticos e sobrepesca com tecnologia de monitoramento comunitário.',
-    location: 'Portugal e Ilhas Canárias',
-    progressPercent: 88,
-    fundsRaised: '€1.76M',
-    goal: '€2.0M',
+    id: 'un',
+    render: (
+      <span className="flex items-center gap-1.5 font-sans">
+        <span className="w-7 h-7 rounded-full bg-[#1455AC] text-white text-[10px] font-black flex items-center justify-center tracking-tight">UN</span>
+        <span className="text-left leading-tight">
+          <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">United Nations</span>
+          <span className="block text-[10px] text-slate-500 dark:text-slate-400">(UNDP)</span>
+        </span>
+      </span>
+    ),
+    subtitle: 'Desenvolvimento Humano',
   },
   {
-    id: 'cp-2',
-    title: 'Hub de Inclusão Digital Lusófono',
-    partnerName: 'Ashoka & PNUD',
-    partnerLogo: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=80&auto=format&fit=crop&q=80',
-    tag: 'Educação & Tecnologia',
-    tagBg: 'bg-blue-600 text-white',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80',
-    description: 'Instalação de telecentros com internet via satélite e energia solar em 60 aldeias remotas em Angola e Moçambique.',
-    location: 'Moçambique e Angola',
-    progressPercent: 94,
-    fundsRaised: '€2.35M',
-    goal: '€2.5M',
+    id: 'wb',
+    render: (
+      <span className="flex items-center gap-1.5 font-sans">
+        <Landmark className="w-6 h-6 text-[#1455AC]" strokeWidth={1.8} />
+        <span className="text-left leading-tight">
+          <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">World Bank</span>
+        </span>
+      </span>
+    ),
+    subtitle: 'Desenvolvimento Sustentável',
   },
   {
-    id: 'cp-3',
-    title: 'Fundo Semente para Cooperativas Verdes',
-    partnerName: 'B Lab & Ashoka',
-    partnerLogo: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=80&auto=format&fit=crop&q=80',
-    tag: 'Empreendedorismo',
-    tagBg: 'bg-purple-600 text-white',
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&auto=format&fit=crop&q=80',
-    description: 'Microcrédito a juro zero para 180 pequenas cooperativas rurais de agricultura regenerativa e reciclagem de resíduos.',
-    location: 'Brasil e Portugal',
-    progressPercent: 76,
-    fundsRaised: '€950K',
-    goal: '€1.25M',
+    id: 'unesco',
+    render: (
+      <span className="flex items-center gap-1.5 font-sans">
+        <GraduationCap className="w-6 h-6 text-[#0F448A]" strokeWidth={1.8} />
+        <span className="text-left leading-tight">
+          <span className="block text-sm font-black tracking-wide text-[#0F448A] dark:text-blue-300">UNESCO</span>
+        </span>
+      </span>
+    ),
+    subtitle: 'Educação & Cultura',
+  },
+  {
+    id: 'iclei',
+    render: (
+      <span className="flex items-center gap-1.5 font-sans">
+        <span className="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-black">ICLEI</span>
+        <span className="text-left leading-tight">
+          <span className="block text-[11px] font-bold text-slate-800 dark:text-slate-100">ICLEI</span>
+        </span>
+      </span>
+    ),
+    subtitle: 'Ação Climática Local',
+  },
+  {
+    id: 'ashoka',
+    render: (
+      <span className="flex items-center gap-1.5 font-sans">
+        <Leaf className="w-6 h-6 text-slate-800 dark:text-slate-100" strokeWidth={1.8} />
+        <span className="text-left leading-tight">
+          <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">Ashoka</span>
+        </span>
+      </span>
+    ),
+    subtitle: 'Inovação Social',
+  },
+  {
+    id: 'google',
+    render: (
+      <span className="font-sans text-sm font-bold whitespace-nowrap">
+        <span className="text-[#4285F4]">G</span>
+        <span className="text-[#EA4335]">o</span>
+        <span className="text-[#FBBC05]">o</span>
+        <span className="text-[#4285F4]">g</span>
+        <span className="text-[#34A853]">l</span>
+        <span className="text-[#EA4335]">e</span>
+        <span className="text-slate-500 dark:text-slate-400 font-normal text-xs">.org</span>
+      </span>
+    ),
+    subtitle: 'Tecnologia & Impacto',
   },
 ];
 
-const MAP_REGIONS = [
-  { id: 'europa', name: 'Europa', count: 142, icon: '🇪🇺', partners: 'Gulbenkian, B Lab, Univ. Lisboa' },
-  { id: 'africa', name: 'África', count: 88, icon: '🌍', partners: 'Rede Saúde Moçambique, Kenya Eco' },
-  { id: 'america-latina', name: 'América Latina', count: 64, icon: '🌎', partners: 'Amazónia Viva, Ashoka Brasil' },
-  { id: 'america-norte', name: 'América do Norte', count: 32, icon: '🌐', partners: 'UNDP NY, Climate Catalyst' },
-  { id: 'asia', name: 'Ásia-Pacífico', count: 18, icon: '🌏', partners: 'Timor Resiliente, Green Tech Hub' },
+const PARTNER_PROJECTS = [
+  {
+    id: 'pp-1',
+    title: 'Cidades Inteligentes Sustentáveis',
+    subtitle: 'Mobilidade, energia e gestão urbana',
+    status: 'Em andamento',
+    statusClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20',
+    flag: '🇵🇹',
+    country: 'Portugal',
+    image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=200&auto=format&fit=crop&q=70',
+  },
+  {
+    id: 'pp-2',
+    title: 'Educação Digital para Todos',
+    subtitle: 'Inclusão digital e formação',
+    status: 'Planejamento',
+    statusClass: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400 border border-blue-200 dark:border-blue-500/20',
+    flag: '🇲🇿',
+    country: 'Moçambique',
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=200&auto=format&fit=crop&q=70',
+  },
+  {
+    id: 'pp-3',
+    title: 'Saúde Comunitária 360',
+    subtitle: 'Acesso à saúde e bem-estar',
+    status: 'Em andamento',
+    statusClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20',
+    flag: '🇧🇷',
+    country: 'Brasil',
+    image: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=200&auto=format&fit=crop&q=70',
+  },
+  {
+    id: 'pp-4',
+    title: 'Agricultura Regenerativa',
+    subtitle: 'Segurança alimentar e clima',
+    status: 'Em estudo',
+    statusClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20',
+    flag: '🇰🇪',
+    country: 'Quénia',
+    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=200&auto=format&fit=crop&q=70',
+  },
+];
+
+const COLLAB_AREAS = [
+  { label: 'Ação Climática', icon: Leaf },
+  { label: 'Educação', icon: BookOpen },
+  { label: 'Saúde & Bem-estar', icon: HeartPulse },
+  { label: 'Tecnologia & Inovação', icon: Cpu },
+  { label: 'Inclusão Social', icon: Users },
+  { label: 'Cultura & Património', icon: Palette },
+  { label: 'Desenvolvimento Econômico', icon: Briefcase },
+  { label: 'Direitos Humanos', icon: Scale },
+  { label: 'Empreendedorismo', icon: Rocket },
+  { label: 'Turismo Sustentável', icon: Compass },
+  { label: 'Governança & Transparência', icon: Shield },
+  { label: 'Infraestrutura', icon: Building2 },
+];
+
+const WHY_PARTNER = [
+  { title: 'Impacto real e mensurável', desc: 'Projetos alinhados com os ODS e com resultados concretos.', icon: Target },
+  { title: 'Rede global e diversa', desc: 'Conecte-se com organizações, governos e comunidades.', icon: Globe },
+  { title: 'Co-criação de soluções', desc: 'Desenvolva iniciativas inovadoras e sustentáveis.', icon: Share2 },
+  { title: 'Visibilidade e reconhecimento', desc: 'Destaque o seu trabalho e inspire mudanças globais.', icon: Award },
+];
+
+const TOP_ACTIVE = [
+  { rank: 1, name: 'ONU – PNUD', projects: '24 projetos', delta: '↑ 12%', icon: Globe, tile: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400' },
+  { rank: 2, name: 'World Bank', projects: '18 projetos', delta: '↑ 8%', icon: Landmark, tile: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400' },
+  { rank: 3, name: 'UNESCO', projects: '15 projetos', delta: '↑ 15%', icon: GraduationCap, tile: 'bg-blue-50 dark:bg-blue-500/10 text-[#0F448A] dark:text-blue-300' },
+  { rank: 4, name: 'ICLEI', projects: '14 projetos', delta: '↑ 10%', icon: Leaf, tile: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
+  { rank: 5, name: 'Ashoka', projects: '12 projetos', delta: '↑ 18%', icon: Users, tile: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400' },
+];
+
+const PARTNER_EVENTS = [
+  { day: '25', month: 'JUN', title: 'Fórum Global de Impacto', location: 'Lisboa, Portugal', mode: 'Presencial', modeClass: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400 border border-blue-200 dark:border-blue-500/20' },
+  { day: '08', month: 'JUL', title: 'Webinar: Financiamento Sustentável', location: 'Online', mode: 'Online', modeClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20' },
+  { day: '19', month: 'AGO', title: 'Cimeira de Cidades Inteligentes', location: 'Barcelona, Espanha', mode: 'Presencial', modeClass: 'bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400 border border-blue-200 dark:border-blue-500/20' },
+];
+
+const PARTNER_RESOURCES = [
+  { title: 'Guia de Parceiro VILA', desc: 'Documentos e diretrizes', icon: FileText },
+  { title: 'Kit de Comunicação', desc: 'Logótipos, templates e materiais', icon: Megaphone },
+  { title: 'Relatórios de Impacto', desc: 'Dados, métricas e análises', icon: BarChart3 },
+  { title: 'Plataforma de Colaboração', desc: 'Ferramentas e espaços de trabalho', icon: Layers },
 ];
 
 export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
   onNavigateToTab,
-  onOpenAuth,
-  onOpenAiAssistant,
+  onOpenAuth: _onOpenAuth,
+  onOpenAiAssistant: _onOpenAiAssistant,
   onBreadcrumbChange,
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState<PartnerCategory>('todos');
-  const [searchQuery, setSearchQuery] = useState('');
   const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false);
-  const [selectedPartnerDetail, setSelectedPartnerDetail] = useState<PartnerItem | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [mapZoom, setMapZoom] = useState<1 | 2>(1);
+  const { isDark } = useTheme();
 
   // Form State
   const [orgName, setOrgName] = useState('');
@@ -262,21 +298,6 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
     onBreadcrumbChangeRef.current?.([{ label: 'Parceiros Globais' }]);
   }, []);
 
-  const filteredPartners = FEATURED_PARTNERS.filter((partner) => {
-    if (selectedCategory !== 'todos' && partner.category !== selectedCategory) {
-      return false;
-    }
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      return (
-        partner.name.toLowerCase().includes(q) ||
-        partner.location.toLowerCase().includes(q) ||
-        partner.description.toLowerCase().includes(q)
-      );
-    }
-    return true;
-  });
-
   const handlePartnerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -289,390 +310,455 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
     }, 2200);
   };
 
+  // Mapa mundial: países coloridos por continente (nomes do world-atlas)
+  const worldPaths = useMemo(() => {
+    const width = 520;
+    const height = 270;
+    const projection = geoNaturalEarth1().scale(85).translate([width / 2, height / 2 + 8]);
+    const pathGen = geoPath(projection);
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const topology = worldData as any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const countriesFeature = feature(topology, topology.objects.countries);
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return ((countriesFeature as any).features || [])
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .filter((f: any) => {
+        const name = f.properties?.name;
+        const id = f.id !== undefined && f.id !== null ? String(f.id) : '';
+        return name !== 'Antarctica' && name !== 'Fr. S. Antarctic Lands' && id !== '010' && id !== '10' && id !== 'ATA';
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .map((f: any, index: number) => {
+        const d = pathGen(f);
+        if (!d) return null;
+        const name: string = f.properties?.name || '';
+        let fill = isDark ? '#334155' : '#E9EEF4';
+        for (const region of MAP_REGIONS) {
+          if (CONTINENT_COUNTRIES[region.id]?.includes(name)) {
+            fill = region.color;
+            break;
+          }
+        }
+        return { key: `pg-${f.id ?? index}-${index}`, d, fill };
+      })
+      .filter(Boolean);
+  }, [isDark]);
+
+  const regionBadges = useMemo(() => {
+    const projection = geoNaturalEarth1().scale(85).translate([520 / 2, 270 / 2 + 8]);
+    return MAP_REGIONS.map((region) => {
+      const [x, y] = projection(region.center) || [0, 0];
+      return { ...region, x, y };
+    });
+  }, []);
+
   return (
     <div className="w-full bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-900 dark:text-slate-50 pb-16 font-sans">
-      <div className="max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 pt-4 sm:pt-6 space-y-6 font-sans">
+      <div className="max-w-[1600px] mx-auto px-3.5 sm:px-5 lg:px-6 pt-4 sm:pt-6 font-sans">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
+          {/* =================================================================== */}
+          {/* CONTEÚDO PRINCIPAL (9 colunas) */}
+          {/* =================================================================== */}
+          <div className="xl:col-span-9 space-y-5 min-w-0">
 
-        {/* Barra de Filtros Rápidos por Setor */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar font-sans">
-          {PARTNER_CATEGORIES.map((cat) => {
-            const isActive = selectedCategory === cat.id;
-
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setSelectedCategory(cat.id as PartnerCategory)}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer font-sans ${
-                  isActive
-                    ? 'bg-[#1455AC] text-white shadow-2xs'
-                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
-                }`}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Hero Banner: Parceiros Globais */}
-        <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-[#1455AC] via-[#0F3B77] to-teal-700 p-6 sm:p-8 lg:p-10 text-white shadow-xs font-sans">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-          <div className="relative z-10 max-w-2xl space-y-4 font-sans">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold font-sans">
-              <Building2 className="w-3.5 h-3.5 text-teal-300" />
-              <span>Rede Institucional & Alianças Multissetoriais</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight font-sans">
-              Parceiros Globais para Impacto Sistémico e Sustentável
-            </h1>
-
-            <p className="text-xs sm:text-sm text-slate-200/90 leading-relaxed max-w-xl font-sans">
-              Fundações, universidades, cidades, empresas de benefício mútuo e agências multilaterais unidas para co-financiar e impulsionar comunidades locais no ecossistema VILA.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2 font-sans">
-              <button
-                type="button"
-                onClick={() => setIsPartnerModalOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 sm:py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-2xs transition-all cursor-pointer font-sans"
-              >
-                <Plus className="w-4 h-4 stroke-[2.5]" />
-                <span>Tornar-se Parceiro VILA</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={onOpenAiAssistant}
-                className="inline-flex items-center gap-2 px-5 py-2.5 sm:py-3 rounded-xl bg-white/15 hover:bg-white/20 border border-white/25 text-white text-xs sm:text-sm font-bold backdrop-blur-md transition-all cursor-pointer font-sans"
-              >
-                <Sparkles className="w-4 h-4 text-teal-300" />
-                <span>Consultar VILA AI sobre Parcerias</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Quick Metrics Bar no Rodapé do Banner */}
-          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/15 font-sans">
-            <div>
-              <p className="text-lg sm:text-2xl font-black font-sans">340+</p>
-              <p className="text-[11px] text-slate-300">Instituições Parceiras</p>
-            </div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black font-sans">195</p>
-              <p className="text-[11px] text-slate-300">Países de Atuação</p>
-            </div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black font-sans">€48.5M</p>
-              <p className="text-[11px] text-slate-300">Co-investidos em Projetos</p>
-            </div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black font-sans">1.420</p>
-              <p className="text-[11px] text-slate-300">Iniciativas Co-financiadas</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Mapa Mundial de Parceiros e Regiões */}
-        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-2xs space-y-4 font-sans">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 font-sans">
-            <div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-50 font-sans">
-                Distribuição Geográfica dos Parceiros Globais
-              </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
-                Presença consolidada em 5 continentes com polos operacionais ativos
-              </p>
-            </div>
-
-            <div className="relative w-full sm:w-64 font-sans">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Filtrar parceiro por nome..."
-                className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#1455AC] text-slate-800 dark:text-slate-100 font-sans"
-              />
-            </div>
-          </div>
-
-          {/* Cards de Regiões com Contadores */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 font-sans">
-            {MAP_REGIONS.map((region) => (
-              <div
-                key={region.id}
-                className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors space-y-1 font-sans"
-              >
-                <div className="flex items-center justify-between font-sans">
-                  <span className="text-base">{region.icon}</span>
-                  <span className="text-xs font-black text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10 border border-teal-200/60 dark:border-teal-500/20 px-2 py-0.5 rounded-md font-sans">
-                    {region.count} parceiros
-                  </span>
-                </div>
-                <h3 className="text-xs font-bold text-slate-900 dark:text-slate-50 font-sans">{region.name}</h3>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate font-sans">{region.partners}</p>
+            {/* Cabeçalho: ícone + título + subtítulo */}
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-[#1455AC] text-white flex items-center justify-center shrink-0 shadow-sm border border-blue-950/20">
+                <Handshake className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.2} />
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Layout Principal em 2 Colunas: Parceiros em Destaque + Coluna Lateral */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 font-sans">
-
-          {/* Coluna Central: Lista de Parceiros & Projetos Conjuntos (8 colunas) */}
-          <div className="lg:col-span-8 space-y-6 font-sans">
-
-            {/* Seção 1: Parceiros em Destaque */}
-            <div className="space-y-4 font-sans">
-              <div className="flex items-center justify-between font-sans">
-                <div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
-                    Parceiros Institucionais ({filteredPartners.length})
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
-                    Alianças ativas com acordos de cooperação validados
-                  </p>
-                </div>
+              <div className="min-w-0">
+                <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#0F172A] dark:text-slate-50 leading-tight">
+                  Parceiros Globais
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-snug">
+                  Juntos, criamos soluções, impulsionamos impacto e construímos um futuro sustentável para todos.
+                </p>
               </div>
+            </div>
 
-              {/* Grid de Cards de Parceiros */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans">
-                {filteredPartners.map((partner) => (
+            {/* KPIs (5 cards sempre visíveis — a grelha adapta-se a cada tela) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {TOP_KPIS.map((kpi) => {
+                const Icon = kpi.icon;
+                return (
                   <div
-                    key={partner.id}
-                    onClick={() => setSelectedPartnerDetail(partner)}
-                    className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-4 shadow-2xs hover:shadow-xs hover:border-slate-300 dark:hover:border-slate-600 transition-all flex flex-col justify-between space-y-3 cursor-pointer group font-sans"
+                    key={kpi.label}
+                    className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-3.5 shadow-2xs flex items-start gap-3 hover:border-slate-300 dark:hover:border-slate-600 transition-colors last:col-span-2 sm:last:col-span-1"
                   >
-                    <div className="space-y-2 font-sans">
-                      <div className="flex items-start justify-between gap-3 font-sans">
-                        <div className="flex items-center gap-2.5 font-sans">
-                          <img
-                            src={partner.logo}
-                            alt={partner.name}
-                            className="w-10 h-10 rounded-xl object-cover border border-slate-100 shadow-2xs shrink-0"
-                          />
-                          <div>
-                            <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-50 group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors line-clamp-1 font-sans">
-                              {partner.name}
-                            </h4>
-                            <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-sans">
-                              <span>{partner.countryFlag}</span>
-                              <span className="truncate">{partner.location}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-md shrink-0 font-sans ${partner.categoryColor}`}>
-                          {partner.categoryLabel}
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-[#1455AC] dark:text-blue-400 border border-blue-100/70 dark:border-blue-500/20 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5" strokeWidth={2} />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-lg font-black text-[#0F172A] dark:text-slate-50 leading-none tracking-tight">
+                          {kpi.value}
                         </span>
-                      </div>
-
-                      <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
-                        {partner.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
-                      <div>
-                        <span className="font-bold text-slate-800 dark:text-slate-100">{partner.coProjectsCount}</span> iniciativas conjuntas
-                      </div>
-                      <div>
-                        <span className="font-bold text-teal-700 dark:text-teal-400">{partner.totalInvested}</span> mobilizados
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block mt-1 leading-tight">
+                          {kpi.label}
+                        </span>
+                        {kpi.delta && (
+                          <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 block mt-0.5">
+                            {kpi.delta}
+                          </span>
+                        )}
                       </div>
                     </div>
+                  );
+                })}
+              </div>
+
+
+            {/* Parceiros pelo mundo (mapa + legenda) */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
+                  Parceiros pelo mundo
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-4">
+                {/* Mapa */}
+                <div className="lg:col-span-8 relative rounded-xl bg-slate-50/60 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 overflow-hidden">
+                  <svg viewBox={mapZoom === 1 ? '0 0 520 270' : '80 40 360 190'} className="w-full h-auto block">
+                    <g>
+                      {worldPaths.map((p) => (
+                        <path
+                          key={p!.key}
+                          d={p!.d}
+                          fill={p!.fill}
+                          stroke={isDark ? '#0F172A' : '#FFFFFF'}
+                          strokeWidth="0.4"
+                          className="transition-opacity hover:opacity-80"
+                        />
+                      ))}
+                    </g>
+                    {regionBadges.map((r) => (
+                      <g key={`badge-${r.id}`}>
+                        <circle cx={r.x} cy={r.y} r="13" fill="#1455AC" stroke="#FFFFFF" strokeWidth="1.5" />
+                        <text x={r.x} y={r.y + 3.5} textAnchor="middle" fontSize="10" fontWeight="700" fill="#FFFFFF">
+                          {r.count}
+                        </text>
+                      </g>
+                    ))}
+                  </svg>
+
+                  {/* Controles de zoom */}
+                  <div className="absolute bottom-3 left-3 flex flex-col rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xs overflow-hidden">
+                    <button
+                      type="button"
+                      onClick={() => setMapZoom((z) => (z === 1 ? 2 : 1))}
+                      className="w-8 h-8 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer text-base leading-none"
+                      title="Ampliar"
+                    >
+                      +
+                    </button>
+                    <div className="h-px bg-slate-200 dark:bg-slate-700" />
+                    <button
+                      type="button"
+                      onClick={() => setMapZoom(1)}
+                      className="w-8 h-8 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer text-base leading-none"
+                      title="Reduzir"
+                    >
+                      −
+                    </button>
+                  </div>
+                </div>
+
+                {/* Legenda */}
+                <div className="lg:col-span-4 flex flex-col justify-center gap-2">
+                  {MAP_REGIONS.map((r) => (
+                    <div key={r.id} className="flex items-center justify-between text-xs px-2 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                      <span className="flex items-center gap-2 font-medium text-slate-600 dark:text-slate-300">
+                        <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: r.color }} />
+                        {r.name}
+                      </span>
+                      <span className="font-bold text-[#0F172A] dark:text-slate-50 font-mono">{r.count}</span>
+                    </div>
+                  ))}
+
+                  <button
+                    type="button"
+                    onClick={() => onNavigateToTab && onNavigateToTab('explorar')}
+                    className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs font-bold text-[#1455AC] dark:text-blue-400 hover:bg-blue-50/60 dark:hover:bg-blue-500/10 hover:border-blue-200 transition-all cursor-pointer"
+                  >
+                    <span>Ver mapa interativo</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Parceiros em destaque (logos) */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
+                  Parceiros em destaque
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setIsPartnerModalOpen(true)}
+                  className="text-[11px] sm:text-xs font-bold text-[#1455AC] dark:text-blue-400 hover:underline cursor-pointer inline-flex items-center gap-1"
+                >
+                  <span>Ver todos os parceiros</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
+                {FEATURED_LOGOS.map((logo) => (
+                  <div
+                    key={logo.id}
+                    className="h-16 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-500/30 hover:shadow-2xs flex flex-col items-center justify-center px-2 transition-all cursor-default"
+                    title={logo.subtitle}
+                  >
+                    {logo.render}
+                    <span className="text-[9px] text-slate-400 dark:text-slate-500 mt-0.5 text-center leading-tight truncate w-full">
+                      {logo.subtitle}
+                    </span>
                   </div>
                 ))}
               </div>
-
-              {filteredPartners.length === 0 && (
-                <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 text-center space-y-2">
-                  <Building2 className="w-8 h-8 text-slate-300 dark:text-slate-600 mx-auto" />
-                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Nenhum parceiro encontrado nesta categoria</p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedCategory('todos');
-                      setSearchQuery('');
-                    }}
-                    className="text-xs text-teal-700 dark:text-teal-400 font-bold hover:underline"
-                  >
-                    Limpar filtros
-                  </button>
-                </div>
-              )}
             </div>
 
-            {/* Seção 2: Projetos Co-financiados em Destaque */}
-            <div className="space-y-4 font-sans">
-              <div className="flex items-center justify-between font-sans">
-                <div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-50 font-sans">
-                    Iniciativas Co-financiadas em Andamento
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-sans">
-                    Projetos de grande escala viabilizados através de consórcios multissetoriais
-                  </p>
-                </div>
-              </div>
+            {/* Fileira inferior: Projetos em parceria | Áreas de colaboração | Por que ser parceiro */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans">
-                {CO_PROJECTS.map((proj) => (
-                  <div
-                    key={proj.id}
-                    className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-2xs flex flex-col justify-between font-sans"
+              {/* Projetos em parceria */}
+              <div className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
+                    Projetos em parceria
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => onNavigateToTab && onNavigateToTab('mundo-em-movimento')}
+                    className="text-[11px] font-bold text-[#1455AC] dark:text-blue-400 hover:underline cursor-pointer inline-flex items-center gap-1"
                   >
-                    <div className="relative h-28 w-full overflow-hidden bg-slate-100 dark:bg-slate-800 font-sans">
+                    <span>Ver todos</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+
+                <div className="mt-3 space-y-2.5 flex-1">
+                  {PARTNER_PROJECTS.map((proj) => (
+                    <div
+                      key={proj.id}
+                      className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors cursor-default"
+                    >
                       <img
                         src={proj.image}
                         alt={proj.title}
-                        className="w-full h-full object-cover"
+                        className="w-10 h-10 rounded-lg object-cover shrink-0"
+                        referrerPolicy="no-referrer"
                       />
-                      <span className={`absolute top-2 left-2 text-[8.5px] font-bold px-2 py-0.5 rounded shadow-2xs ${proj.tagBg}`}>
-                        {proj.tag}
-                      </span>
-                    </div>
-
-                    <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2.5 font-sans">
-                      <div>
-                        <h4 className="text-xs font-bold text-slate-900 dark:text-slate-50 line-clamp-1 font-sans">{proj.title}</h4>
-                        <p className="text-[10px] text-teal-700 dark:text-teal-400 font-semibold font-sans">{proj.partnerName}</p>
-                        <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-1 leading-relaxed font-sans">
-                          {proj.description}
-                        </p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight truncate">
+                          {proj.title}
+                        </h4>
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-0.5">{proj.subtitle}</p>
                       </div>
-
-                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1 font-sans">
-                        <div className="flex items-center justify-between text-[10px] font-sans">
-                          <span className="text-slate-500 dark:text-slate-400">Financiamento atingido</span>
-                          <span className="font-bold text-teal-700 dark:text-teal-400">{proj.progressPercent}%</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-teal-600 rounded-full"
-                            style={{ width: `${proj.progressPercent}%` }}
-                          />
-                        </div>
-                        <div className="flex items-center justify-between text-[9.5px] text-slate-400 dark:text-slate-500 pt-0.5 font-sans">
-                          <span>{proj.fundsRaised}</span>
-                          <span>Meta: {proj.goal}</span>
-                        </div>
+                      <div className="flex flex-col items-end gap-1 shrink-0">
+                        <span className={`text-[8.5px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap ${proj.statusClass}`}>
+                          {proj.status}
+                        </span>
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                          {proj.flag} {proj.country}
+                        </span>
                       </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Áreas de colaboração */}
+              <div className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
+                    Áreas de colaboração
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 mt-3 flex-1">
+                  {COLLAB_AREAS.map((area) => {
+                    const Icon = area.icon;
+                    return (
+                      <div
+                        key={area.label}
+                        className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/50 hover:bg-blue-50/60 dark:hover:bg-blue-500/10 hover:border-blue-100 dark:hover:border-blue-500/30 transition-all p-2 flex flex-col items-center justify-center text-center gap-1.5 cursor-default"
+                        title={area.label}
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-700 text-[#1455AC] dark:text-blue-400 flex items-center justify-center shadow-2xs">
+                          <Icon className="w-4 h-4" strokeWidth={1.9} />
+                        </div>
+                        <span className="text-[9px] font-semibold text-slate-600 dark:text-slate-300 leading-tight">
+                          {area.label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setIsPartnerModalOpen(true)}
+                  className="mt-3 w-full py-2.5 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-xs font-bold text-[#1455AC] dark:text-blue-400 hover:bg-blue-100/70 dark:hover:bg-blue-500/20 transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Propor nova colaboração</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* Por que ser parceiro da VILA? */}
+              <div className="lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs flex flex-col">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <h2 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">
+                    Por que ser parceiro da VILA?
+                  </h2>
+                </div>
+
+                <div className="mt-3 space-y-3.5 flex-1">
+                  {WHY_PARTNER.map((w) => {
+                    const Icon = w.icon;
+                    return (
+                      <div key={w.title} className="flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70 dark:border-blue-500/20 text-[#1455AC] dark:text-blue-400 flex items-center justify-center shrink-0">
+                          <Icon className="w-4 h-4" strokeWidth={1.9} />
+                        </div>
+                        <div className="min-w-0">
+                          <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight">{w.title}</h4>
+                          <p className="text-[10.5px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">{w.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setIsPartnerModalOpen(true)}
+                  className="mt-4 w-full py-2.5 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold shadow-xs transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Tornar-se parceiro</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* =================================================================== */}
+          {/* BARRA LATERAL DIREITA (3 colunas) */}
+          {/* =================================================================== */}
+          <aside className="xl:col-span-3 space-y-5 min-w-0">
+
+            {/* Parceiros mais ativos */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h2 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">Parceiros mais ativos</h2>
+                <button
+                  type="button"
+                  className="text-[11px] font-bold text-[#1455AC] dark:text-blue-400 hover:underline cursor-pointer inline-flex items-center gap-1"
+                >
+                  <span>Ver ranking</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+
+              <div className="mt-3 space-y-2.5">
+                {TOP_ACTIVE.map((p) => {
+                  const Icon = p.icon;
+                  return (
+                    <div key={p.rank} className="flex items-center gap-2.5">
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 w-3 text-center shrink-0">{p.rank}</span>
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${p.tile}`}>
+                        <Icon className="w-4 h-4" strokeWidth={1.9} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight truncate">{p.name}</h4>
+                        <p className="text-[10px] text-slate-400 dark:text-slate-500">{p.projects}</p>
+                      </div>
+                      <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 shrink-0">{p.delta}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Próximos eventos para parceiros */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h2 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">Próximos eventos para parceiros</h2>
+                <button
+                  type="button"
+                  onClick={() => onNavigateToTab && onNavigateToTab('eventos')}
+                  className="text-[11px] font-bold text-[#1455AC] dark:text-blue-400 hover:underline cursor-pointer inline-flex items-center gap-1"
+                >
+                  <span>Ver todos</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+
+              <div className="mt-3 space-y-3">
+                {PARTNER_EVENTS.map((ev) => (
+                  <div key={ev.title} className="flex items-center gap-3">
+                    <div className="w-11 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70 dark:border-blue-500/20 text-center shrink-0">
+                      <span className="block text-sm font-black text-[#1455AC] dark:text-blue-400 leading-none">{ev.day}</span>
+                      <span className="block text-[8.5px] font-bold text-[#1455AC] dark:text-blue-400 uppercase mt-0.5">{ev.month}</span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight">{ev.title}</h4>
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{ev.location}</p>
+                    </div>
+                    <span className={`text-[8.5px] font-bold px-1.5 py-0.5 rounded shrink-0 ${ev.modeClass}`}>
+                      {ev.mode}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-          </div>
-
-          {/* Coluna Lateral: Como Ser Parceiro, Vantagens e CTA (4 colunas) */}
-          <div className="lg:col-span-4 space-y-6 font-sans">
-
-            {/* Card CTA: Tornar-se Parceiro Institucional */}
-            <div className="rounded-xl bg-gradient-to-br from-[#1455AC] to-[#0F3B77] p-6 text-white shadow-xs space-y-4 font-sans">
-              <div className="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-300">
-                <Building2 className="w-5 h-5" />
+            {/* Recursos para parceiros */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 sm:p-5 shadow-2xs">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h2 className="text-sm font-bold text-[#0F172A] dark:text-slate-50 tracking-tight">Recursos para parceiros</h2>
               </div>
 
-              <div className="space-y-1 font-sans">
-                <h3 className="text-base font-bold font-sans">Sua Instituição na VILA</h3>
-                <p className="text-xs text-slate-200 leading-relaxed font-sans">
-                  Conecte a sua fundação, universidade ou corporação a milhares de projetos de impacto verificados com auditoria em tempo real.
-                </p>
+              <div className="mt-3 space-y-1.5">
+                {PARTNER_RESOURCES.map((res) => {
+                  const Icon = res.icon;
+                  return (
+                    <button
+                      key={res.title}
+                      type="button"
+                      className="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors text-left cursor-pointer group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-100/70 dark:border-blue-500/20 text-[#1455AC] dark:text-blue-400 flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4" strokeWidth={1.9} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-tight group-hover:text-[#1455AC] dark:group-hover:text-blue-400 transition-colors">
+                          {res.title}
+                        </h4>
+                        <p className="text-[10px] text-slate-400 dark:text-slate-500 truncate">{res.desc}</p>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 shrink-0 group-hover:text-[#1455AC] transition-colors" />
+                    </button>
+                  );
+                })}
               </div>
 
-              <div className="space-y-2 text-xs text-slate-100 font-sans">
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-teal-300 shrink-0" />
-                  <span>Acesso a relatórios de impacto territorial</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-teal-300 shrink-0" />
-                  <span>Co-branding ético em campanhas globais</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-teal-300 shrink-0" />
-                  <span>Matchmaking guiado por inteligência coletiva</span>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setIsPartnerModalOpen(true)}
-                className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-2xs transition-all text-center cursor-pointer font-sans"
-              >
-                Submeter Proposta de Parceria
-              </button>
-            </div>
-
-            {/* Como Funciona o Processo de Parceria */}
-            <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-2xs space-y-3 font-sans">
-              <h3 className="text-sm font-bold text-slate-900 font-sans">
-                Processo de Adesão em 4 Passos
-              </h3>
-
-              <div className="space-y-3 font-sans">
-                <div className="flex items-start gap-3 font-sans">
-                  <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-900 text-xs font-bold flex items-center justify-center shrink-0 font-sans">
-                    1
-                  </span>
-                  <div className="font-sans">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">Manifestação de Interesse</h4>
-                    <p className="text-[11px] text-slate-500 font-sans">Envio de formulário institucional com áreas prioritárias de cooperação.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 font-sans">
-                  <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-900 text-xs font-bold flex items-center justify-center shrink-0 font-sans">
-                    2
-                  </span>
-                  <div className="font-sans">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">Due Diligence & Alinhamento ODS</h4>
-                    <p className="text-[11px] text-slate-500 font-sans">Verificação de governança e alinhamento com os padrões éticos da VILA.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 font-sans">
-                  <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-900 text-xs font-bold flex items-center justify-center shrink-0 font-sans">
-                    3
-                  </span>
-                  <div className="font-sans">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">Memorando de Entendimento (MoU)</h4>
-                    <p className="text-[11px] text-slate-500 font-sans">Formalização de metas de co-investimento e partilha de dados abertos.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 font-sans">
-                  <span className="w-6 h-6 rounded-full bg-teal-100 text-teal-800 text-xs font-bold flex items-center justify-center shrink-0 font-sans">
-                    4
-                  </span>
-                  <div className="font-sans">
-                    <h4 className="text-xs font-bold text-slate-900 font-sans">Lançamento Operacional</h4>
-                    <p className="text-[11px] text-slate-500 font-sans">Integração no diretório e abertura de editais para comunidades.</p>
-                  </div>
-                </div>
+              <div className="pt-2 mt-2 border-t border-slate-100 dark:border-slate-800 flex justify-center">
+                <button
+                  type="button"
+                  className="text-xs font-bold text-[#1455AC] dark:text-blue-400 hover:underline cursor-pointer inline-flex items-center gap-1"
+                >
+                  <span>Aceder aos recursos</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
-
-            {/* Testemunho de Parceiro */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3 font-sans">
-              <p className="text-xs text-slate-600 italic leading-relaxed font-sans">
-                "A plataforma VILA permitiu à nossa fundação alcançar comunidades costeiras que antes estavam fora dos circuitos tradicionais de financiamento internacional."
-              </p>
-              <div className="flex items-center gap-2.5 pt-1 font-sans">
-                <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-700 font-sans">
-                  CG
-                </div>
-                <div className="font-sans">
-                  <p className="text-xs font-bold text-slate-900 font-sans">Diretoria de Sustentabilidade</p>
-                  <p className="text-[10px] text-slate-400 font-sans">Fundação Calouste Gulbenkian</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
+          </aside>
         </div>
       </div>
 
@@ -720,7 +806,7 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
                     value={orgName}
                     onChange={(e) => setOrgName(e.target.value)}
                     placeholder="Ex: Fundação Oceano Vivo"
-                    className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC]"
                   />
                 </div>
 
@@ -732,7 +818,7 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
                     <select
                       value={orgType}
                       onChange={(e) => setOrgType(e.target.value)}
-                      className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-700"
+                      className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC] text-slate-700"
                     >
                       <option value="Fundação">Fundação Filantrópica</option>
                       <option value="Universidade">Universidade / Pesquisa</option>
@@ -753,7 +839,7 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
                       value={country}
                       onChange={(e) => setCountry(e.target.value)}
                       placeholder="Ex: Portugal"
-                      className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC]"
                     />
                   </div>
                 </div>
@@ -768,7 +854,7 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
                     value={contactEmail}
                     onChange={(e) => setContactEmail(e.target.value)}
                     placeholder="parcerias@organizacao.org"
-                    className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC]"
                   />
                 </div>
 
@@ -781,7 +867,7 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
                     value={proposalMsg}
                     onChange={(e) => setProposalMsg(e.target.value)}
                     placeholder="Descreva brevemente como a sua instituição pretende colaborar com as comunidades da VILA..."
-                    className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="w-full px-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1455AC]"
                   />
                 </div>
 
@@ -795,71 +881,13 @@ export const GlobalPartnersView: React.FC<GlobalPartnersViewProps> = ({
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
+                    className="px-5 py-2 rounded-xl bg-[#1455AC] hover:bg-[#0F448A] text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
                   >
                     Submeter Proposta
                   </button>
                 </div>
               </form>
             )}
-          </div>
-        </div>
-      )}
-
-      {/* Modal: Detalhes do Parceiro Selecionado */}
-      {selectedPartnerDetail && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-150 font-sans">
-          <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4 font-sans">
-            <div className="flex items-start justify-between font-sans">
-              <div className="flex items-center gap-3 font-sans">
-                <img
-                  src={selectedPartnerDetail.logo}
-                  alt={selectedPartnerDetail.name}
-                  className="w-12 h-12 rounded-xl object-cover border border-slate-200"
-                />
-                <div>
-                  <h3 className="text-sm font-bold text-slate-900 font-sans">
-                    {selectedPartnerDetail.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 flex items-center gap-1 font-sans">
-                    <span>{selectedPartnerDetail.countryFlag}</span>
-                    <span>{selectedPartnerDetail.location}</span>
-                  </p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setSelectedPartnerDetail(null)}
-                className="w-7 h-7 rounded-full hover:bg-slate-100 text-slate-400 flex items-center justify-center cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="space-y-2 text-xs text-slate-600 leading-relaxed font-sans">
-              <p>{selectedPartnerDetail.description}</p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs font-sans">
-              <div>
-                <p className="text-[10px] text-slate-400 font-sans">Iniciativas Co-financiadas</p>
-                <p className="font-bold text-slate-900 font-sans">{selectedPartnerDetail.coProjectsCount} projetos</p>
-              </div>
-              <div>
-                <p className="text-[10px] text-slate-400 font-sans">Total Mobilizado</p>
-                <p className="font-bold text-teal-700 font-sans">{selectedPartnerDetail.totalInvested}</p>
-              </div>
-            </div>
-
-            <div className="pt-2 flex items-center justify-end font-sans">
-              <button
-                type="button"
-                onClick={() => setSelectedPartnerDetail(null)}
-                className="px-4 py-2 rounded-xl bg-slate-100 text-xs font-bold text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer font-sans"
-              >
-                Fechar
-              </button>
-            </div>
           </div>
         </div>
       )}

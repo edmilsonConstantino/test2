@@ -36,6 +36,7 @@ import { DemoUser } from '../../data/demoUsers';
 import { BreadcrumbItem } from '../Topbar';
 import { ExpandableKpiHeader, KpiCardData } from './ExpandableKpiHeader';
 import { Sparkline } from './MiniCharts';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface ProjetosIniciativasViewProps {
   currentUser: DemoUser;
@@ -124,6 +125,8 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
   onNavigateToTab,
   onBreadcrumbChange,
 }) => {
+  const { isDark } = useTheme();
+
   // ---------------------------------------------------------------------------
   // 1. Estados de Filtros e Seleções da Barra Superior
   // ---------------------------------------------------------------------------
@@ -338,7 +341,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         // Entre 10 e 50 projetos: #99C0EB
         // Menos de 10 projetos: #C4DAF3
         // Sem projetos: #F1F5F9
-        let fill = '#F1F5F9';
+        let fill = isDark ? '#334155' : '#F1F5F9';
         let category = 'Sem projetos';
         let projects = 0;
 
@@ -373,7 +376,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
         };
       })
       .filter(Boolean);
-  }, []);
+  }, [isDark]);
 
   // ---------------------------------------------------------------------------
   // 6. Status dos Projetos (Donut)
@@ -939,7 +942,7 @@ export const ProjetosIniciativasView: React.FC<ProjetosIniciativasViewProps> = (
                           key={feat.key}
                           d={feat.d}
                           fill={feat.fill}
-                          stroke="#FFFFFF"
+                          stroke={isDark ? '#0F172A' : '#FFFFFF'}
                           strokeWidth={0.5}
                           className="transition-all duration-150 cursor-pointer hover:opacity-85 hover:stroke-[#0F448A] hover:stroke-[1px]"
                           onMouseEnter={(e) => {

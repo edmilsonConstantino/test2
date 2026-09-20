@@ -188,6 +188,8 @@ const getInitialTab = (): string => {
     return 'explorar';
   } else if (target === 'impacto' || target === 'impacto-global') {
     return 'impacto';
+  } else if (target === 'parceiros' || target === 'parceiros-globais') {
+    return 'parceiros';
   } else if (target === 'perfil-vila' || target === 'perfil' || target === 'meu-perfil') {
     return 'perfil-vila';
   } else if (target === 'sobre' || target === 'sobre-a-vila' || target.includes('sobre')) {
@@ -304,6 +306,8 @@ export default function App() {
         setCurrentTab(target);
       } else if (target === 'impacto' || target === 'impacto-global') {
         setCurrentTab('impacto');
+      } else if (target === 'parceiros' || target === 'parceiros-globais') {
+        setCurrentTab('parceiros');
       } else if (isPlataformaTab(target)) {
         setCurrentTab(target);
         // Suporte da plataforma só abre automaticamente via URL se for perfil administrador
@@ -404,6 +408,8 @@ export default function App() {
           currentTab === 'noticias' ||
           currentTab === 'movimento' ||
           currentTab === 'eventos' ||
+          currentTab === 'parceiros' ||
+          currentTab === 'parceiros-globais' ||
           isPlataformaTab(currentTab) ||
           COMMUNITY_TABS.includes(currentTab) ||
           IMPACT_TABS.includes(currentTab)
@@ -619,9 +625,8 @@ export default function App() {
             onBreadcrumbChange={handleBreadcrumbChange}
           />
         ) : (currentTab === 'sobre' || currentTab === 'sobre-a-vila') ? (
-          /* Sobre a VILA View matching exact reference UI SOBRE.png */
-          <SettingsView
-            initialTab="sobre"
+          /* Sobre a VILA: página própria e independente (fiel à referência UI VILA SOBRE.png), separada de Definições */
+          <AboutVilaView
             onOpenMobileMenu={() => setIsMobileSidebarOpen(true)}
             onNavigateToTab={(tabId) => {
               setCurrentTab(tabId);
@@ -633,7 +638,7 @@ export default function App() {
         ) : (currentTab === 'definicoes' || currentTab === 'preferencias' || currentTab === 'settings' || currentTab === 'configuracoes' || currentTab === 'privacidade' || currentTab === 'seguranca') ? (
           /* Definições / Preferências Master Section matching PERFIL.png and 7 Tabs Specification */
           <SettingsView
-            initialTab="sobre"
+            initialTab="perfil"
             onOpenMobileMenu={() => setIsMobileSidebarOpen(true)}
             onNavigateToTab={(tabId) => {
               setCurrentTab(tabId);
