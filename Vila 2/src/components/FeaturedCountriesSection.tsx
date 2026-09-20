@@ -154,7 +154,6 @@ export const FeaturedCountriesSection: React.FC<FeaturedCountriesSectionProps> =
       if (!el) return;
       const { scrollLeft, scrollWidth, clientWidth } = el;
       const cardWidth = el.firstElementChild instanceof HTMLElement ? el.firstElementChild.offsetWidth + 16 : clientWidth / 3;
-      console.log('TICK', { scrollLeft, scrollWidth, clientWidth, cardWidth, isCarouselPaused });
 
       if (scrollLeft + clientWidth >= scrollWidth - 10) {
         el.scrollTo({ left: 0, behavior: 'smooth' });

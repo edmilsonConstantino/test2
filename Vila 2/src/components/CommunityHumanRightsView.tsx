@@ -123,7 +123,7 @@ const TRENDING_HR_COMMUNITIES: TrendingHumanRightsCommunity[] = [
     description: 'Apoio, integração e defesa dos direitos de refugiados e migrantes.',
     tag: 'Refugiados',
     growth: '▲ 14%',
-    image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?w=600&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=600&auto=format&fit=crop&q=80',
   },
   {
     rank: 5,
@@ -133,7 +133,7 @@ const TRENDING_HR_COMMUNITIES: TrendingHumanRightsCommunity[] = [
     description: 'Construímos espaços seguros e defendemos diversidade e inclusão.',
     tag: 'LGBTQIA+',
     growth: '▲ 12%',
-    image: 'https://images.unsplash.com/photo-1573883431240-54e7d483bbfe?w=600&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80',
   },
 ];
 

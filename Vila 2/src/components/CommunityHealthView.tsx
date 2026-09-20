@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Globe,
   HeartPulse,
@@ -255,6 +255,8 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
   onOpenCreateCommunity,
 }) => {
   // Filtros
+  const trendingHealthCarouselRef = useRef<HTMLDivElement>(null);
+  const [isTrendingHealthPaused, setIsTrendingHealthPaused] = useState(false);
   const [communityType, setCommunityType] = useState<string>('Todas');
   const [selectedThemes, setSelectedThemes] = useState<Set<string>>(new Set());
   const [locationFilter, setLocationFilter] = useState<string>('Qualquer lugar');
@@ -310,6 +312,26 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
         return <HeartPulse className="w-5 h-5" />;
     }
   };
+
+  // Mini carrossel automático: avança suavemente card a card e volta ao início ao chegar ao fim
+  useEffect(() => {
+    if (isTrendingHealthPaused || TRENDING_HEALTH_COMMUNITIES.length <= 3) return;
+
+    const interval = setInterval(() => {
+      const el = trendingHealthCarouselRef.current;
+      if (!el) return;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      const cardWidth = el.firstElementChild instanceof HTMLElement ? el.firstElementChild.offsetWidth + 12 : clientWidth / 3;
+
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }, 3200);
+
+    return () => clearInterval(interval);
+  }, [isTrendingHealthPaused]);
 
   return (
     <div id="community-health-view" className="w-full bg-[#F8FAFC] dark:bg-slate-950 min-h-screen text-[#0F172A] dark:text-slate-50 flex flex-col">
@@ -693,12 +715,18 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
               </div>
 
               <div className="relative">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                <div
+                  ref={trendingHealthCarouselRef}
+                  onMouseEnter={() => setIsTrendingHealthPaused(true)}
+                  onMouseLeave={() => setIsTrendingHealthPaused(false)}
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                  className="flex items-stretch gap-3 overflow-x-auto pb-1 scroll-smooth no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-proximity"
+                >
                   {TRENDING_HEALTH_COMMUNITIES.map((comm) => (
                     <article
                       key={comm.id}
                       onClick={() => setSelectedCommunityModal(comm)}
-                      className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 p-3 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between cursor-pointer group"
+                      className="w-[calc(33.333%-8px)] min-w-[220px] shrink-0 snap-start bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-700 p-3 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between cursor-pointer group"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-2.5">
@@ -741,14 +769,6 @@ export const CommunityHealthView: React.FC<CommunityHealthViewProps> = ({
                     </article>
                   ))}
                 </div>
-
-                <button
-                  type="button"
-                  title="Avançar"
-                  className="hidden xl:flex absolute -right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-50 cursor-pointer z-10 transition-transform hover:scale-105"
-                >
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
               </div>
             </section>
 

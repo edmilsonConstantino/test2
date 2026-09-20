@@ -12,6 +12,7 @@ import {
   Compass,
   ArrowRight,
   ChevronRight,
+  ChevronUp,
   Check,
   Plus,
   TreePine,
@@ -222,6 +223,7 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
   onNavigateToTab,
   onOpenAiAssistant,
 }) => {
+  const [kpisExpanded, setKpisExpanded] = useState(false);
   const [isLaunchModalOpen, setIsLaunchModalOpen] = useState(false);
   const [isOdsModalOpen, setIsOdsModalOpen] = useState(false);
   const [selectedProjectModal, setSelectedProjectModal] = useState<FeaturedProject | null>(null);
@@ -353,19 +355,16 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
                 key={area.id}
                 type="button"
                 onClick={() => onNavigateToCategory && onNavigateToCategory(area.categoryTarget)}
-                className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-800 hover:shadow-xs transition-all p-3 flex flex-col items-start text-left cursor-pointer group"
+                className="rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 hover:bg-blue-50/60 dark:hover:bg-blue-500/10 hover:border-[#1455AC] hover:shadow-sm active:scale-[0.97] transition-all duration-150 py-2.5 px-3 flex flex-col items-center text-center cursor-pointer group"
               >
-                <div className={`w-10 h-10 rounded-xl ${area.iconSoftBg} flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform`}>
+                <div className={`w-9 h-9 rounded-full ${area.iconSoftBg} flex items-center justify-center mb-1.5 group-hover:scale-110 transition-transform`}>
                   {area.icon}
                 </div>
-                <span className="text-xs font-bold text-[#0F172A] dark:text-slate-50 leading-snug">
+                <span className="text-[11.5px] font-bold text-[#0F172A] dark:text-slate-50 leading-tight">
                   {area.name}
                 </span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
-                  {area.count}
-                </span>
-                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">
-                  {area.growth}
+                <span className="text-[9.5px] text-slate-400 dark:text-slate-500 mt-0.5 whitespace-nowrap">
+                  {area.count} <span className="font-bold text-emerald-600 dark:text-emerald-400">{area.growth}</span>
                 </span>
               </button>
             ))}

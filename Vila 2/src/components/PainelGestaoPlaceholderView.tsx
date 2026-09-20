@@ -39,6 +39,7 @@ import {
   Map,
   MessageSquare,
   Server,
+  ChevronUp,
 } from 'lucide-react';
 import { DemoUser } from '../data/demoUsers';
 import { BreadcrumbItem } from './Topbar';
@@ -73,6 +74,7 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
   const [alertFilter, setAlertFilter] = useState('Todos');
   const [lastUpdated, setLastUpdated] = useState('10:32:45');
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [kpisExpanded, setKpisExpanded] = useState(false);
 
   const handleRefresh = () => {
     setIsRefreshing(true);
@@ -655,10 +657,10 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
         </div>
       </header>
 
-      {/* 2. 7 KPI Stat Cards - Layout sem cortes nem truncamentos, seguindo os traços de ExploreWorldView */}
-      <section className="w-full font-sans" id="faixa-kpis-gestao">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 sm:gap-3.5 font-sans">
-          {KPI_STATS.map((kpi) => {
+      {/* 2. 7 KPI Stat Cards - 4 visíveis + "Ver mais", seguindo os traços de ExploreWorldView */}
+      <section className="w-full font-sans flex flex-col gap-2" id="faixa-kpis-gestao">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5 font-sans">
+          {(kpisExpanded ? KPI_STATS : KPI_STATS.slice(0, 4)).map((kpi) => {
             const Icon = kpi.icon;
             return (
               <div
@@ -721,6 +723,27 @@ export const PainelGestaoPlaceholderView: React.FC<PainelGestaoPlaceholderViewPr
             );
           })}
         </div>
+
+        {KPI_STATS.length > 4 && (
+          <button
+            type="button"
+            onClick={() => setKpisExpanded((v) => !v)}
+            className="self-end inline-flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#5B21B6] hover:text-purple-800 dark:hover:text-purple-300 hover:underline transition-colors cursor-pointer"
+            aria-expanded={kpisExpanded}
+          >
+            {kpisExpanded ? (
+              <>
+                <span>Ver menos</span>
+                <ChevronUp className="w-3.5 h-3.5" />
+              </>
+            ) : (
+              <>
+                <span>Ver mais</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </>
+            )}
+          </button>
+        )}
       </section>
 
       {/* 3. Middle Row: Atividade em Tempo Real, Atividades Recentes, Alertas */}
