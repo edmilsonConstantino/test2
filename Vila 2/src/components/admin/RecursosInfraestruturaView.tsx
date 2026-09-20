@@ -281,7 +281,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Globe className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">156</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Países Ativos</div>
                 </div>
@@ -291,7 +291,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Compass className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">324</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Regiões</div>
                 </div>
@@ -301,7 +301,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Building2 className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">3.642</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Municípios</div>
                 </div>
@@ -311,7 +311,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
                   <Users className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">18.732</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Comunidades</div>
                 </div>
@@ -341,7 +341,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Monitor className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">324</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Portais Regionais</div>
                 </div>
@@ -351,7 +351,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Building2 className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">3.642</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Portais Municipais</div>
                 </div>
@@ -361,7 +361,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">18.732</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Instâncias Comunitárias</div>
                 </div>
@@ -371,7 +371,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <LayoutGrid className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">156</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Apps Ativas</div>
                 </div>
@@ -401,7 +401,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Cpu className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">1.248.562</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Pedidos IA Hoje</div>
                 </div>
@@ -411,7 +411,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <Bot className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">324</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Assistentes Territoriais</div>
                 </div>
@@ -421,7 +421,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
                   <UserCheck className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">3.642</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Assistentes Municipais</div>
                 </div>
@@ -431,7 +431,7 @@ export const RecursosInfraestruturaView: React.FC<RecursosInfraestruturaViewProp
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Clock className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm font-bold text-slate-900 dark:text-slate-50 leading-none">1,2s</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Tempo Médio Resposta</div>
                 </div>

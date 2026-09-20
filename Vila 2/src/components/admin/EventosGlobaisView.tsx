@@ -729,7 +729,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Eventos por Tipo (Donut Chart & Estatísticas) */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos por Tipo
             </h2>
@@ -871,7 +871,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
         {/* CARD 2: Eventos por Continente (Mapa com Pontos de Densidade) */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos por Continente
             </h2>
@@ -1216,7 +1216,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* CARD 1: Próximos Eventos Globais */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Próximos Eventos Globais
             </h2>
@@ -1398,7 +1398,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
         {/* CARD 3: Eventos em Destaque */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos em Destaque
             </h2>
@@ -1505,7 +1505,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* CARD 1: Eventos por Formato */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Eventos por Formato
             </h2>
@@ -1545,12 +1545,12 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
         {/* CARD 2: Participação por Faixa */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Participação por Faixa
             </h2>
 
-            <div className="mt-4 flex items-center justify-between gap-3">
+            <div className="mt-4 flex flex-col items-center gap-3">
               {/* Donut Chart SVG */}
               <div className="relative w-28 h-28 shrink-0 flex items-center justify-center">
                 <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
@@ -1619,15 +1619,15 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
               </div>
 
               {/* Legenda dos Intervalos */}
-              <div className="flex-1 space-y-1 text-[11px] font-medium text-slate-700 dark:text-slate-300">
+              <div className="w-full space-y-1.5 text-[11px] font-medium text-slate-700 dark:text-slate-300">
                 {faixasData.map((fx) => (
-                  <div key={fx.label} className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 truncate">
+                  <div key={fx.label} className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5 min-w-0">
                       <span className={`w-2 h-2 rounded-full ${fx.dotClass} shrink-0`} />
                       <span className="truncate">{fx.label}</span>
                     </div>
-                    <span className="font-bold text-[#0F172A] dark:text-slate-50 shrink-0 ml-1">
-                      {fx.percentage}%
+                    <span className="font-bold text-[#0F172A] dark:text-slate-50 shrink-0">
+                      {fx.percentage}% <span className="font-normal text-slate-400 dark:text-slate-500 text-[10px]">({fx.count})</span>
                     </span>
                   </div>
                 ))}
@@ -1650,7 +1650,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
         {/* CARD 3: Principais Organizadores */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Principais Organizadores
             </h2>
@@ -1692,7 +1692,7 @@ export const EventosGlobaisView: React.FC<EventosGlobaisViewProps> = ({
 
         {/* CARD 4: Atividade Recente */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xs hover:shadow-sm transition-all rounded-2xl p-4 sm:p-5 flex flex-col">
-          <div>
+          <div className="flex-1">
             <h2 className="text-sm sm:text-[15px] font-bold text-[#0F172A] dark:text-slate-50 font-sans">
               Atividade Recente
             </h2>

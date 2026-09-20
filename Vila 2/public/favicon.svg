@@ -1,0 +1,62 @@
+<svg viewBox="0 0 48 54" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vila-pin-rim" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#F58300" />
+      <stop offset="25%" stop-color="#EF4444" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="78%" stop-color="#1455AC" />
+      <stop offset="100%" stop-color="#0F448A" />
+    </linearGradient>
+    <linearGradient id="vila-pin-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F0F5FC" />
+    </linearGradient>
+    <linearGradient id="bldg-amber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F58300" />
+    </linearGradient>
+    <linearGradient id="bldg-coral" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+    <linearGradient id="bldg-emerald" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="bldg-cyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="water-wave" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1455AC" />
+      <stop offset="100%" stop-color="#0F448A" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M24 2.8 C35.2 2.8 45.2 12.5 45.2 23.5 C45.2 35 32 46.5 24 52.5 C16 46.5 2.8 35 2.8 23.5 C2.8 12.5 12.8 2.8 24 2.8 Z"
+    fill="url(#vila-pin-bg)"
+    stroke="url(#vila-pin-rim)"
+    stroke-width="3.2"
+    stroke-linejoin="round"
+  />
+
+  <path d="M10 27V19.5L13.5 16L17 19.5V27H10Z" fill="url(#bldg-amber)" />
+  <path d="M15 27V16.5L19 13L23 16.5V27H15Z" fill="url(#bldg-coral)" />
+  <path d="M21 27V13L25 9.5L29 13V27H21Z" fill="url(#bldg-emerald)" />
+  <path d="M27 27V16L31 12.5L35 16V27H27Z" fill="url(#bldg-cyan)" />
+  <path d="M33 27V20.5L36.5 17.5L39 19.5V27H33Z" fill="#1455AC" />
+
+  <path
+    d="M4.5 27 Q 24 35 43.5 27 Q 34 46.5 24 50 Q 14 46.5 4.5 27 Z"
+    fill="url(#water-wave)"
+  />
+  <path
+    d="M10 32 Q 24 37.5 38 32"
+    stroke="#FFFFFF"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    fill="none"
+    opacity="0.85"
+  />
+</svg>

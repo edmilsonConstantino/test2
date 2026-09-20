@@ -302,32 +302,57 @@ export const MainImpactGlobalView: React.FC<MainImpactGlobalViewProps> = ({
         <div className="flex flex-col xl:flex-row gap-5 items-start w-full">
         {/* CONTEÚDO PRINCIPAL */}
         <main className="flex-1 min-w-0 flex flex-col gap-5 w-full">
-        {/* 2. KPIs DO TOPO (5 cards com ícone à esquerda, valor, label e variação) */}
-        <section id="impacto-global-top-metrics" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {TOP_KPIS.map((m) => {
-            const Icon = m.icon;
-            return (
-              <div
-                key={m.label}
-                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex items-center gap-3 hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
-              >
-                <div className={`w-11 h-11 rounded-xl ${m.iconBg} flex items-center justify-center shrink-0`}>
-                  <Icon className="w-5.5 h-5.5" strokeWidth={2} />
+        {/* 2. KPIs DO TOPO (5 cards, último oculto por padrão — mesma lógica das outras seções) */}
+        <section id="impacto-global-top-metrics" className="flex flex-col gap-2">
+          <div
+            className={`grid grid-cols-2 sm:grid-cols-3 gap-3 ${kpisExpanded ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}
+          >
+            {(kpisExpanded ? TOP_KPIS : TOP_KPIS.slice(0, 4)).map((m) => {
+              const Icon = m.icon;
+              return (
+                <div
+                  key={m.label}
+                  className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-700 p-4 shadow-2xs flex items-center gap-3 hover:border-slate-300 dark:hover:border-slate-600 transition-colors animate-in fade-in duration-300"
+                >
+                  <div className={`w-11 h-11 rounded-xl ${m.iconBg} flex items-center justify-center shrink-0`}>
+                    <Icon className="w-5.5 h-5.5" strokeWidth={2} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-lg font-black text-[#0F172A] dark:text-slate-50 leading-none">
+                      {m.value}
+                    </span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block mt-1 leading-tight truncate" title={m.label}>
+                      {m.label}
+                    </span>
+                    <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 block mt-0.5 truncate" title={m.delta}>
+                      {m.delta}
+                    </span>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <span className="block text-lg font-black text-[#0F172A] dark:text-slate-50 leading-none">
-                    {m.value}
-                  </span>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block mt-1 leading-tight">
-                    {m.label}
-                  </span>
-                  <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 block mt-0.5">
-                    {m.delta}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
+          {TOP_KPIS.length > 4 && (
+            <button
+              type="button"
+              onClick={() => setKpisExpanded((v) => !v)}
+              className="self-end inline-flex items-center gap-1 text-[11px] sm:text-[11.5px] font-semibold text-[#1455AC] hover:text-[#0F448A] dark:hover:text-blue-300 hover:underline transition-colors cursor-pointer"
+              aria-expanded={kpisExpanded}
+            >
+              {kpisExpanded ? (
+                <>
+                  <span>Ver menos</span>
+                  <ChevronUp className="w-3.5 h-3.5" />
+                </>
+              ) : (
+                <>
+                  <span>Ver mais</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </>
+              )}
+            </button>
+          )}
         </section>
 
         {/* 3. ÁREAS DE IMPACTO (6 cards com header "Ver todas as áreas") */}

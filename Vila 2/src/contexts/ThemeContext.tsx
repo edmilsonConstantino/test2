@@ -14,8 +14,9 @@ function getInitialTheme(): boolean {
   if (typeof window === 'undefined') return false;
   const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
   if (stored === 'dark') return true;
-  if (stored === 'light') return false;
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+  // Primeiro acesso (sem preferência guardada): arranca sempre em modo claro,
+  // independentemente da preferência do sistema operativo/navegador.
+  return false;
 }
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
